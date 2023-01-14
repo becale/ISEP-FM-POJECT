@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Notes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load static %} 
+        <link rel="stylesheet" href="{% static 'bulletin/css/notes.css' %}">
+        <link rel="stylesheet" href="{% static 'bulletin/css/components.css' %}">
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootstrap/bootstrap-grid.min.css' %}">
+
+        
+    </head>
+    <body>
+        <header class="container">
+            <div class="row">
+                <div class="col-2" id="logo">
+                    <img src="{% static 'bulletin/image/logo.jpeg' %}" alt="image">
+                </div>
+                <navbar id="menu" class="col">
+                    <a class="linknav" href="">
+                        <img src="{% static 'bulletin/icones/home.png' %}" alt="Home Icone">
+                        <div>HOME</div>
+                    </a>
+                    <a class="linknav" href="/notes">
+                        <img src="{% static 'bulletin/icones/atom.png' %}" alt="Note">
+                        <div>NOTES</div>
+                    </a>
+                    <a class="linknav" href="/bulletin">
+                        <img src="{% static 'bulletin/icones/book.png' %}" alt="Home Icone">
+                        <div>BULLETINS</div>
+                    </a>
+                    <a class="linknav" href="#">
+                        <img src="{% static 'bulletin/icones/statistics.png' %}" alt="Home Icone">
+                        <div>STATISTIQUES</div>
+                    </a>
+                </navbar>
+            </div>
+        </header>
+        <main class="container">
+            <div id="" class="">
+                <!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2 id="listetudiant-title">LISTE DES ETUDIANTS INSCRITS A L'UE XXXXX POUR L'ANNEE 202X-202X</h2>
+      </div>
+      <div class="modal-body">
+          <form action="#">
+                  <div id="modalNotes">
+                      <div id="modalNote-body" class="">
+                          <table id="table-form">
+                              <thead id="table-head">
+                                  <th scope="col">N<sup>0</sup></th>
+                                  <th scope="col">Matricule (s)</th>
+                                  <th scope="col">Nom (s)</th>
+                                  <th scope="col">Contrôle Continu (CC)</th>
+                                  <th scope="col">Session Normale (SN)</th>
+                              </thead>
+                              <tbody id="listetudiant">
+                                  <!--<tr>
+                                      <td scope="row">1</td>
+                                      <td>KDS45</td>
+                                      <td>ALOUGOU EBEDE ZE JEAN-BOSCO</td>
+                                      <td>
+                                          <input type="text" placeholder="Note CC">
+                                      </td>
+                                      <td>
+                                          <input type="text" placeholder="Note SN">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td scope="row">1</td>
+                                      <td>KDS45</td>
+                                      <td>ALOUGOU EBEDE ZE JEAN-BOSCO</td>
+                                      <td>
+                                          <input type="text" placeholder="Note CC">
+                                      </td>
+                                      <td>
+                                          <input type="text" placeholder="Note SN">
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td scope="row"é>1</td>
+                                      <td>KDS45</td>
+                                      <td>ALOUGOU EBEDE ZE JEAN-BOSCO</td>
+                                      <td>
+                                          <input type="text" placeholder="Note CC">
+                                      </td>
+                                      <td>
+                                          <input type="text" placeholder="Note SN">
+                                      </td>
+                                  </tr>-->
+                              </tbody>
+                          </table>
+                      </div>
+                      <div id="modalNote-footer" class="">
+                          <button class="submit-note" type="submit">AJOUTER LES NOTES</button>
+                      </div>
+                  </div>
+          </form>
+      </div>
+      <!--<div class="modal-footer">
+        <h3>Modal Footer</h3>
+      </div>-->
+    </div>
+  </div>
+        </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div id="title-note" class="col">
+                    <div class="row">
+                        <div id="fitler-box" class="col-3">
+                            TRIER SELON :
+                        </div>
+                        <div id="select-box" class="col-3">
+                            <div id="select-box1" >
+                                <label for="semestre">Semestre</label>
+                                <select name="semestre" id="semestre-select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div id="select-box2">
+                                <label for="specialite">Spécialité</label>
+                                <select name="specialite" id="specialie-select">
+                                    <option value="ALL" selected>ALL</option>
+                                    <option value="EPS">EPS</option>
+                                    <option value="MANAGER">MANAGER</option>
+                                    <option value="SDDD">SDDD</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="search-bar" class="col">
+                            <div id="search-bar-container">
+                                <button><img src="{% static 'bulletin/icones/search.png' %}" alt=""></button><input type="search" placeholder="CODE MATIERE">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+
+            <div class="row">
+                <p>LISTE DES UNITES D'ENSEIGNEMENT</p>
+                <div id="list-ue" class="col">
+                    <!--<div class="matiere">
+                        <div id="numero-semestre-code-matiere">
+                            <div id="numero-semestre">
+                                <img src="{% static 'bulletin/icones/number_1.png' %}" alt="One">
+                            </div>
+                            <div id="code-matiere">EPS 111</div>
+                        </div>
+                        <div id="intitule-matiere">
+                            INFORMATIQUE 1 & MATHEMATIQUES 1
+                        </div>
+                        <div id="add-modify-matiere">
+                            <div id="big-boy">
+                                <div id="add">
+                                    <button id="myBtn" class="myBtn"><img src="{% static 'bulletin/icones/add.png' %}" alt=""></button>
+                                </div>
+                                <div id="modify">
+                                    <button id="myBtn-1" class="myBtn"><img src="{% static '/icones/edit.png' %}" alt="" ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </main>
+        <footer class="container">
+            <div class="row">
+                <!--<div class="col-1"></div>-->
+                <div id="footer" class="col-12">
+                    <div class="row"> 
+                        <div class="col-2 footer-icone" >
+                            <a href="#"><img src="{% static 'bulletin/icones/facebook_f08.png' %}" alt=""></a>
+                        </div>
+                        <div class="col-2 footer-icone" >
+                            <a href="#"><img src="{% static 'bulletin/icones/whatsapp.png' %}" alt=""></a>
+                        </div>
+                        <div class="col "> 
+                            <div class="footer-center">ANNEE ACADEMIQUE 202X-202X</div>
+                        </div>
+                        <div class="col-2 footer-icone">
+                            <a href="#"><img src="{% static 'bulletin/icones/telegram.png' %}" alt=""></a>
+                        </div>
+                        <div class="col-2 footer-icone" >
+                            <a href="#"><img src="{% static 'bulletin/icones/telephone.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="{% static 'bulletin/script/jquery-3.6.3.js' %}"></script>
+        <script src="{% static 'bulletin/script/notes.js' %}" async defer></script>
+        <script src="{% static 'bulletin/script/w3.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         {% load static %} 
+        <link rel="stylesheet" href="{% static 'bulletin/css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootstrap/bootstrap-grid.min.css' %}">
+    <body>
+        {{ Etudiants }}
+
+        <p>
+            {% for x in Etudiants %}
+             <div>{{ x }}</div>
+            {% endfor %}
+        </p>
+        <header class="container">
+            <div class="row">
+                <div class="col-2" id="logo">
+                    <img src="{% static 'bulletin/image/logo.jpeg' %}" alt="image">
+                </div>
+                <navbar id="menu" class="col">
+                    <a class="linknav" href="">
+                        <img src="{% static 'bulletin/icones/home.png' %}" alt="Home Icone">
+                        <div>HOME</div>
+                    </a>
+                    <a class="linknav" href="/notes">
+                        <img src="{% static 'bulletin/icones/atom.png' %}" alt="Note">
+                        <div>NOTES</div>
+                    </a>
+                    <a class="linknav" href="/bulletin">
+                        <img src="{% static 'bulletin/icones/book.png' %}" alt="Home Icone">
+                        <div>BULLETINS</div>
+                    </a>
+                    <a class="linknav" href="#">
+                        <img src="{% static 'bulletin/icones/statistics.png' %}" alt="Home Icone">
+                        <div>STATISTIQUES</div>
+                    </a>
+                </navbar>
+            </div>
+        </header>
+        <main class="container">
+            <div class="row">
+                <div class="col-4"></div>
+                <div id="title" class="col">
+                    <p>PLATEFORME GESTION DES NOTES</p>
+                    <p>NOM:</p>
+                </div>
+                <div class="col-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div id="school-image" class="col">IMAGES ETABLISSEMENT</div>
+                <div class="col-2"></div>
+            </div>
+        </main>
+        <footer class="container">
+            <div class="row">
+                <!--<div class="col-1"></div>-->
+                <div id="footer" class="col-12">
+                    <div class="row"> 
+                        <div class="col-2 footer-icone" >
+                            <a href="#"><img src="{% static 'bulletin/icones/facebook_f08.png' %}" alt=""></a>
+                        </div>
+                        <div class="col-2 footer-icone" >
+                            <a href="#"><img src="{% static 'bulletin/icones/whatsapp.png' %}" alt=""></a>
+                        </div>
+                        <div class="col "> 
+                            <div class="footer-center">ANNEE ACADEMIQUE 202X-202X</div>
+                        </div>
+                        <div class="col-2 footer-icone">
+                            <a href="#"><img src="{% static 'bulletin/icones/telegram.png' %}" alt=""></a>
+                        </div>
+                        <div class="col-2 footer-icone" >
+                            <a href="#"><img src="{% static 'bulletin/icones/telephone.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="col-1"></div>-->
+            </div>
+        </footer>
+        <script src="{% static 'bulletin/script/home.js' %}" async defer></script>
+        
+    </body>
+</html>

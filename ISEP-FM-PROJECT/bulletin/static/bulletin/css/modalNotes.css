@@ -1,0 +1,106 @@
+*{
+    box-sizing: border-box;
+    text-align: center;
+}
+#modalNotes{
+    margin-top: 100px;
+    width: 85%;
+    min-height: 200px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 2px solid black;
+}
+/*Table*/
+#table-form{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid purple; 
+
+    padding-left: 10px;
+}
+tbody tr:nth-child(odd){
+    background-color: beige;
+}
+tbody tr:nth-child(even){
+    background-color: thistle;
+}
+thead th:nth-child(1){
+    width:2%;
+    /*text-align: center;*/
+}
+thead th:nth-child(2){
+    width:10%;
+    /*text-align: center;*/
+}
+thead th:nth-child(3){
+    width:30%;
+    /*text-align: center;*/
+}
+thead th:nth-child(4){
+    width:20%;
+    /*text-align: center;*/
+}
+thead th:nth-child(5){
+    width:20%;
+    /*text-align: center;*/
+}
+/**/
+#modalNote-header{
+    padding: 15px;
+    height: 80px;
+    width: 100%;
+    border-bottom: solid black 2px;
+}
+#modalNote-header-1{
+    display: inline-block;
+    float: left;
+    text-align: left;
+
+}
+#modalNote-header-2{
+    display: inline-block;
+    float: right;
+    text-align: left;
+}
+#modalNote-body{
+    height: 500px;
+    width: 100%;
+    border-bottom: solid black 2px;
+    overflow-y: scroll-behavior; 
+}
+#modalNote-footer{
+    width: 100%;
+    height: 100px;
+    padding: 40px;
+    padding-top: 20px;
+}
+#modalNote-footer button{
+    padding: 15px;
+    width: 35%;
+    border-radius: 16px;
+
+    border: none;
+
+    box-shadow: 0px 0px 2px 2px rgb(35, 11, 170);
+}
+
+#modalNote-body{
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+th, td{
+    padding: 15px;
+}
+td input{
+    width: 100%;
+    border-radius: 16px;
+    padding: 12px 20px;
+}
+
+
+
+  

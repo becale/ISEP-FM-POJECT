@@ -1,0 +1,457 @@
+*{
+    box-sizing: border-box;
+    /*background-color: beige;*/
+}
+#header{
+    display: inline-block;
+    position: sticky;
+}
+#logo{
+    height: 186px;
+    width: 205px;
+    float: left;
+}
+#logo > img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+#menu{
+    background-color: aquamarine;
+    height: 85px;
+
+    margin-top: 60px;
+    margin-bottom: 60px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    align-content: space-around;
+    align-items: center;
+}
+.linknav{
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-style: italic;
+    font-weight: bold;
+
+    border: 1px solid black;
+    height: 85px;
+    width: 146px;
+    padding-top: 5px;
+
+    margin-left: 5px;
+
+    border-radius: 15px;
+}
+.linknav > img{
+    height: 47px;
+    width: 47px;
+}
+
+#title-note{
+    justify-content: space-between;
+    margin-top: 5px;
+    border-radius: 25px;
+    border: 1px solid black;
+
+    height: 80px;
+    margin-bottom: 15px;
+    text-align: center;
+
+    font-size: 75%;
+}
+
+#school-image{
+    border-radius: 25px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+
+    height: 250px;
+    text-align: center;
+}
+
+#footer{
+    border-radius: 5px;
+    border: 1px solid black;
+
+    height: 72px;
+    justify-content: space-between;
+}
+
+.footer-icone img{
+    display: block;
+    height: 47px;
+    width: 47px;
+
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer-center{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 15px;
+    text-align: center;
+
+    border: 2px solid black;
+}
+#search-bar{ 
+    margin-top: 25px;
+}
+#search-bar img{
+    height: 18px;
+    width: 18px;
+}
+#search-bar button{
+    box-sizing: border-box;
+    border: none;  
+}
+#search-bar input{
+    height: 25px;
+    box-sizing: border-box;
+    border:1px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+#search-bar-container{
+    border: solid 1px black;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+#select-box{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#fitler-box{
+    margin-top: 30px;
+}
+
+#list-ue{
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    row-gap: 10px;
+    column-gap: 10px;
+
+    border: 1px solid black;
+    border-radius: 25px;
+    
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+/*MATIERE*/
+.matiere{
+    height: 154px;
+    width: 260px;
+
+    border: solid black 1px;
+    border-radius: 18px; 
+    border-top-left-radius: 22px;
+}
+#numero-semestre-code-matiere{
+    /*background-color: aqua;*/
+    width: 100%;
+    height: 50px;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 16px;
+}
+#numero-semestre{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 16px;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+#numero-semestre img{
+    height: 100%;
+    width: 100%;
+}
+#code-matiere{
+    display: inline-block;
+    /*background-color: azure;*/
+    height: 50px;
+    width: 100px;
+
+    margin-right: 70px;
+    padding: 8px;
+    float: right;
+
+    text-align: center;
+}
+#intitule-matiere{
+    /*background-color: coral;*/
+
+    height: 30%;
+    margin-top: 5px;
+
+    text-align: center;
+}
+#add-modify-matiere{
+    /*background-color: blueviolet;*/
+
+    height: 30%;
+    margin-top: 5px;
+
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+#big-boy{
+    /*background-color: black;*/
+    height: 100%;
+    border-top: 2px solid black;
+
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+#add{
+    padding-left: 35px;
+    padding-right: 20px;
+    display: inline-block;
+    /*background-color: cyan;*/
+    width: 50%;
+    height: 100%;
+
+    border-right: solid 1px black;
+    border-bottom-left-radius: 16px;
+}
+#modify{
+    padding-left: 35px;
+    padding-right: 20px;
+    display: inline-block;
+    /*background-color: cyan;*/
+    width: 50%;
+    height: 100%;
+
+    float: right;
+
+    border-left: solid 1px black;
+    border-bottom-right-radius: 16px;
+
+}
+
+#add button{
+
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 45px;
+    width: 50px;
+    border: none;
+    border-radius: 16px;
+
+}
+#add img{
+    height: 100%;
+    width: 100%;
+}
+#modify button{
+
+    margin-left: auto;
+    margin-right: auto;
+
+    height: 45px;
+    width: 50px;
+    /*border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;*/
+}
+#modify img{
+    height: 100%;
+    width: 100%;
+}
+
+/*Modal Notes*/
+*{
+    box-sizing: border-box;
+    text-align: center;
+}
+#modalNotes{
+    width: 100%;
+    min-height: 200px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    border: 2px solid black;
+}
+
+/*TABLEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
+#table-form{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid purple; 
+
+    padding-left: 10px;
+}
+tbody tr:nth-child(odd){
+    background-color: beige;
+}
+tbody tr:nth-child(even){
+    background-color: thistle;
+}
+thead th:nth-child(1){
+    width:2%;
+    /*text-align: center;*/
+}
+thead th:nth-child(2){
+    width:10%;
+    /*text-align: center;*/
+}
+thead th:nth-child(3){
+    width:30%;
+    /*text-align: center;*/
+}
+thead th:nth-child(4){
+    width:20%;
+    /*text-align: center;*/
+}
+thead th:nth-child(5){
+    width:20%;
+    /*text-align: center;*/
+}
+/**/
+#modalNote-header{
+    padding: 15px;
+    height: 80px;
+    width: 100%;
+    border-bottom: solid black 2px;
+}
+#modalNote-header-1{
+    /*text-align: left;*/
+    display: inline-block;
+    float: left;
+}
+#modalNote-header-2{
+    display: inline-block;
+    float: right;
+}
+#modalNote-body{
+    height: 500px;
+    width: 100%;
+    border-bottom: solid black 1px;
+    overflow-y: scroll-behavior; 
+}
+#modalNote-footer{
+    width: 100%;
+    height: 100px;
+    padding: 40px;
+    padding-top: 20px;
+}
+#modalNote-footer button{
+    padding: 15px;
+    width: 35%;
+    border-radius: 16px;
+
+    border: none;
+
+    box-shadow: 0px 0px 2px 2px rgb(35, 11, 170);
+}
+
+#modalNote-body{
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+/*Table form*/
+th, td{
+    padding: 15px;
+}
+td input{
+    width: 100%;
+    border-radius: 16px;
+    padding: 12px 20px;
+}
+
+
+/*MODALLLLLLLLL*/
+body {font-family: Arial, Helvetica, sans-serif;}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+            
+/* Modal Content */
+    .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+ }
+            
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+            
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+            
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+            
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+            
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+            
+.modal-body {
+    padding: 2px 16px;
+    /*padding: 2px 5px;*/
+}
+            
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+    }

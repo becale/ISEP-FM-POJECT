@@ -12,6 +12,16 @@ class Etudiant(models.Model):
     date_naissance = models.DateField()
     lieu_naissance = models.CharField(max_length=200)
     nationalite = models.CharField(max_length=200)
+    
+    class Sexe(models.TextChoices):
+        FEMININ = "FEMININ"
+        MASCULIN = "MASCULIN"
+
+        def __str__(self):
+            return str(self)
+    sexe = models.CharField(max_length=200, choices=Sexe.choices)
+
+    
     #mail = models.EmailField()
     #tel = models.CharField(max_length="15")
 

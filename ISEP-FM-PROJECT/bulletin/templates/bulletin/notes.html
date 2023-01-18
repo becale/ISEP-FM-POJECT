@@ -21,7 +21,7 @@
                     <img src="{% static 'bulletin/image/logo.jpeg' %}" alt="image">
                 </div>
                 <navbar id="menu" class="col">
-                    <a class="linknav" href="">
+                    <a class="linknav" href="/">
                         <img src="{% static 'bulletin/icones/home.png' %}" alt="Home Icone">
                         <div>HOME</div>
                     </a>
@@ -41,21 +41,22 @@
             </div>
         </header>
         <main class="container">
-            <div id="" class="">
+            <!--<div id="" class="">-->
                 <!-- The Modal -->
 <div id="myModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2 id="listetudiant-title">LISTE DES ETUDIANTS INSCRITS A L'UE XXXXX POUR L'ANNEE 202X-202X</h2>
-      </div>
-      <div class="modal-body">
-          <form action="#">
-                  <div id="modalNotes">
+        <form id="myForm">
+             {% csrf_token %} 
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2 id="listetudiant-title">LISTE DES ETUDIANTS INSCRITS A L'UE XXXXX POUR L'ANNEE 202X-202X</h2>
+        </div>
+        <div class="modal-body">
+                    <!--<div id="modalNotes">-->
                       <div id="modalNote-body" class="">
-                          <table id="table-form">
-                              <thead id="table-head">
+                          <table id="table-form" class="fixed-header">
+                              <thead id=""> <!-- id="table-head" -->
                                   <th scope="col">N<sup>0</sup></th>
                                   <th scope="col">Matricule (s)</th>
                                   <th scope="col">Nom (s)</th>
@@ -63,54 +64,19 @@
                                   <th scope="col">Session Normale (SN)</th>
                               </thead>
                               <tbody id="listetudiant">
-                                  <!--<tr>
-                                      <td scope="row">1</td>
-                                      <td>KDS45</td>
-                                      <td>ALOUGOU EBEDE ZE JEAN-BOSCO</td>
-                                      <td>
-                                          <input type="text" placeholder="Note CC">
-                                      </td>
-                                      <td>
-                                          <input type="text" placeholder="Note SN">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td scope="row">1</td>
-                                      <td>KDS45</td>
-                                      <td>ALOUGOU EBEDE ZE JEAN-BOSCO</td>
-                                      <td>
-                                          <input type="text" placeholder="Note CC">
-                                      </td>
-                                      <td>
-                                          <input type="text" placeholder="Note SN">
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td scope="row"é>1</td>
-                                      <td>KDS45</td>
-                                      <td>ALOUGOU EBEDE ZE JEAN-BOSCO</td>
-                                      <td>
-                                          <input type="text" placeholder="Note CC">
-                                      </td>
-                                      <td>
-                                          <input type="text" placeholder="Note SN">
-                                      </td>
-                                  </tr>-->
                               </tbody>
-                          </table>
-                      </div>
-                      <div id="modalNote-footer" class="">
-                          <button class="submit-note" type="submit">AJOUTER LES NOTES</button>
-                      </div>
-                  </div>
-          </form>
-      </div>
-      <!--<div class="modal-footer">
-        <h3>Modal Footer</h3>
-      </div>-->
-    </div>
-  </div>
+                            </table>
+                        </div>
+                    <!--</div>-->
+                </div>
+        <div class="modal-footer">
+            <!--<button class="submit-note"  type="submit" value="AJOUTER LES NOTES"></button>-->
+            <input id="submit" type="submit" value="AJOUTER LES NOTES">
         </div>
+        </form>
+        </div>
+         </div>
+            </div>
             <div class="row">
                 <div class="col-3"></div>
                 <div id="title-note" class="col">
@@ -201,5 +167,7 @@
         <script src="{% static 'bulletin/script/jquery-3.6.3.js' %}"></script>
         <script src="{% static 'bulletin/script/notes.js' %}" async defer></script>
         <script src="{% static 'bulletin/script/w3.js' %}"></script>
+        <script src="{% static 'bulletin/script/jquery.validate.min.js' %}"></script>
+        <script src="{% static 'bulletin/script/additional-methods.min.js' %}"></script>
     </body>
 </html>

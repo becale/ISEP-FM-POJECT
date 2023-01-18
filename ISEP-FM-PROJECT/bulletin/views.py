@@ -9,14 +9,8 @@ from django.http import JsonResponse
 
 def home(request):
     
-    mydata = Etudiant.objects.all().values()
-
-    context = {
-        'Etudiants': mydata,
-    }
-
     template = loader.get_template('bulletin/home.html')
-    return HttpResponse(template.render(context, request))
+    return HttpResponse(template.render({}, request))
 
 def bulletin(request):
     template = loader.get_template('bulletin/bulletin.html')
@@ -25,16 +19,12 @@ def bulletin(request):
 def notes(request):
     #les données des etudiants, notes et matières doivent être chargées dans cette pages et receptionnées
 
-    """mydata = list(Etudiant.objects.all().values())"""
-    """context = {
-     #   'Etudiants': mydata,
-    }"""
 
     template = loader.get_template('bulletin/notes.html')
     return HttpResponse(template.render({}, request))
 
 
-############### API ###########################################################
+############### API REQUETTES GET###########################################################
 def EtudiantApi(request):
     mydata = list(Etudiant.objects.all().values())
 
@@ -45,7 +35,41 @@ def EtudiantNiveau1Staps(request):
     
     return JsonResponse(etudiantStaps1, safe= False)
 
+def EtudiantNiveau1MDS(request):
+    etudiantMDS1 = list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values())
+
+    return JsonResponse(etudiantMDS1, safe= False)
+
+def EtudiantNiveau2Staps(request):
+    etudiantStaps2 = list(Etudiant.objects.filter(filiere="STAPS", niveau=2).values())
+
+    return JsonResponse(etudiantStaps2, safe= False)
+
+def EtudiantNiveau3(request):
+    etudiantMAS = list(Etudiant.objects.filter(filiere="MAS", niveau=3).values())
+
+    return JsonResponse(etudiantMAS, safe= False)
+
+def EtudiantNiveau3MSO(request):
+    etudiantMSO = list(Etudiant.objects.filter(filiere="MSO", niveau=3).values())
+
+    return JsonResponse(etudiantMSO, safe= False)
+
+def EtudiantNiveau3EVE(request):
+    etudiantEVE = list(Etudiant.objects.filter(Specialite=="EVE", niveau=3).values())
+
+    return JsonResponse(etudiantEVE, safe= False)
+
 def UEAPI(request):
     mydata = list(UniteEnseignement.objects.all().values())
 
     return JsonResponse(mydata, safe=False)
+
+
+############### API REQUETTES POST ###########################################################
+def AddNoteEtudiant(request):
+    if request.method == 'POST':
+        data = request.POST
+    success =list(data)
+    #return HttpResponse(success)
+    return JsonResponse(success, safe=False)

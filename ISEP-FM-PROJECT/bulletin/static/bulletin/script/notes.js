@@ -15,6 +15,7 @@ function getButtonId(){
         else{// If element has no id
           console.log(`object doesn't have ID`);
           console.log(idUe);
+
         }
       }
     );
@@ -24,54 +25,58 @@ getButtonId()
 
 /********************************** MODAL *************************************************/
 function modal(){
-      // Get the modal For the add 
-    var modal = document.getElementById("myModal");
-     listeTitle = document.getElementsByTagName('h2')
-    //console.log(listeTitle.innerText=`LISTE DES ETUDIANTS INSCRITS A L'UE ${idUe} POUR L'ANNEE 202X-202X`)
 
+      tbodylistStudent = document.getElementById('listetudiant')
+      // Get the modal For the add 
+     modal = document.getElementById("myModal");
 
     // Get the buttons that open the modal
     var btn = document.getElementsByClassName("myBtn");
-
+    
     /**BOUTON DE FERMETURE NOTES */
     // GET the button that closes the modal
-    var spanClose = document.getElementsByClassName("close")[0];
+    spanClose = document.getElementsByClassName("close")[0];
     //When the user clicks on span (x), close the modal
     spanClose.onclick = function(){
       /**VIDAGE DU CONTENEUR DE LISTE DES ETUDIANTS */
-      tbodyStaps1.innerHTML=""
+      //console.log(tbodylistStudent);
+      tbodylistStudent.innerHTML=""
+
       modal.style.display = "none";
     }
 
-/*****BOUTON DE MODIFICATION NOTES */
-// Get the buttons that open the modal
-//var btn1 = document.getElementsByClassName("myBtn-1");
+    /**After Submit */
+    var formCloseReset = document.getElementById('submit');
+    
+    /*****BOUTON DE MODIFICATION NOTES */
+    // Get the buttons that open the modal
+    //var btn1 = document.getElementsByClassName("myBtn-1");
 
-//var btn = document.getElementById("myBtn");
-// GET the button that closes the modal
-//var spanClose = document.getElementsByClassName("close")[0];
-// when the user clicks the button, open the modal
-/*for(let i=0; i<btn1.length; i++){
-btn1[i].onclick = function(){
-  modal.style.display = "block"
-  };
-}*/
+    //var btn = document.getElementById("myBtn");
+    // GET the button that closes the modal
+    //var spanClose = document.getElementsByClassName("close")[0];
+    // when the user clicks the button, open the modal
+    /*for(let i=0; i<btn1.length; i++){
+    btn1[i].onclick = function(){
+      modal.style.display = "block"
+      };
+    }*/
 
 /**ITERATION AFIN D'OBTENIR LES LISTES DES ETUDIANTS INSCRITS DANS LES MATIERES */
 for(let i=0; i<btn.length; i++){
   btn[i].onclick = function(){
     if(myArr[i].code_UE.startsWith("EPS 1")){
       getetudiantStapsNiveau1()
-    }else if(test.startsWith("EPS 2")){
-      //getetudiantStapsNiveau2()
-    }else if(test.startsWith("MDS 1")){
-      //getetudiantMDSNiveau1()
-    }else if(test.startsWith("MAS ")){
-      //getAllEtudiantNiveau3()
-    }else if(test.startsWith("EVE")){
-      //getetudiantEVENiveau3()
-    }else if(test.startsWith("MSO")){
-      //getetudiantMSONiveau3()
+    }else if(myArr[i].code_UE.startsWith("MDS 1")){
+      getetudiantMDSNiveau1()
+    }else if(myArr[i].code_UE.startsWith("EPS 2")){
+      getetudiantStapsNiveau2()
+    }else if(myArr[i].code_UE.startsWith("MAS ")){
+      getAllEtudiantNiveau3()
+    }else if(myArr[i].code_UE.startsWith("EVE")){
+      getetudiantEVENiveau3()
+    }else if(myArr[i].code_UE.startsWith("MSO")){
+      getetudiantMSONiveau3()
     }
       modal.style.display = "block"
     };
@@ -86,8 +91,7 @@ var url = "http://localhost:8000/UeAPI/";
 xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
      myArr = JSON.parse(this.responseText);
-     //console.log(myArr);
-    
+
     const listUe = document.getElementById("list-ue")
 
     for(let i=0; i <myArr.length; i++){
@@ -95,6 +99,8 @@ if (this.readyState == 4 && this.status == 200) {
           imgSemestrePath = "/static/bulletin/icones/number_1.png"
         }else if(myArr[i].semestre_id == 2){
           imgSemestrePath = "/static/bulletin/icones/number_2.png"
+        }else if(myArr[i].semestre_id == 3){
+          imgSemestrePath = "/static/bulletin/icones/number_3.png"
         }
         var imgSemestre = document.createElement('img')
         imgSemestre.setAttribute('src',imgSemestrePath)
@@ -176,7 +182,7 @@ getUe()
 /** REQUEST ETUDIANTS STAPTS NIVEAU 1 */
 function getetudiantStapsNiveau1(){
   var xmlhttp = new XMLHttpRequest();
-var url = "http://localhost:8000/etudiantStaps1/";
+  var url = "http://localhost:8000/etudiantStaps1/";
 
 xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
@@ -185,13 +191,137 @@ if (this.readyState == 4 && this.status == 200) {
      /** Ajout des lignes pour insertion des notes des étudiants */
      /**Changement du TITRE Du modal */
      listeTitle = document.getElementById('listetudiant-title')
-     console.log(listeTitle);
-     listeTitle.innerHTML=""
+     //console.log(listeTitle);
+     //listeTitle.innerHTML=""
 
-     //listeTitle.innerText=`LISTE DES ETUDIANTS INSCRITS A L'UE ${idUe} POUR L'ANNEE 202X-202X`
-     tbodyStaps1 = document.getElementById('listetudiant')
+     listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
 
-    /*if(1/*tbodyStaps1.childElementCount*/ /*<= 0){*/
+      for(let i=0; i<myEtudiantStaps1.length; i++){
+        const tabledata1 = document.createElement('td')
+        tabledata1.setAttribute('scope', 'row')
+        tabledata1.innerText = myEtudiantStaps1[i].id
+
+        const tabledata2 = document.createElement('td')
+        tabledata2.innerText = myEtudiantStaps1[i].matricule
+
+        var nom = myEtudiantStaps1[i].nom +' '+myEtudiantStaps1[i].prenom
+        const tabledata3 = document.createElement('td')
+        tabledata3.innerText = nom
+
+        const tabledata4Input = document.createElement('input')
+        tabledata4Input.type="text"
+        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantStaps1[i].matricule}  ${idUe}`)
+        tabledata4Input.setAttribute('name',`CC ${myEtudiantStaps1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantStaps1[i].matricule}${idUe}`)
+        tabledata4Input.setAttribute('required', '')
+        //tabledata4Input.setAttribute(`required`, "")
+
+        const tabledata4 = document.createElement('td')
+        tabledata4.appendChild(tabledata4Input)
+
+        const tabledata5Input = document.createElement('input')
+        tabledata5Input.type="text"
+        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('name',`SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('required', '')
+        const tabledata5 = document.createElement('td')
+        tabledata5.appendChild(tabledata5Input)
+
+        const ligne = document.createElement('tr')
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4);
+        ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)
+     }
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send(); 
+}
+
+/** REQUEST ETUDIANTS MDS NIVEAU 1 */
+function getetudiantMDSNiveau1(){
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantMDS1/";
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+     myEtudiantMDS1 = JSON.parse(this.responseText);
+
+     /** Ajout des lignes pour insertion des notes des étudiants */
+     /**Changement du TITRE Du modal */
+     listeTitle = document.getElementById('listetudiant-title')
+     listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+     tbodyMDS1 = document.getElementById('listetudiant')
+
+      for(let i=0; i<myEtudiantMDS1.length; i++){
+        const tabledata1 = document.createElement('td')
+        tabledata1.setAttribute('scope', 'row')
+        tabledata1.innerText = myEtudiantMDS1[i].id
+
+        const tabledata2 = document.createElement('td')
+        tabledata2.innerText = myEtudiantMDS1[i].matricule
+
+        var nom = myEtudiantMDS1[i].nom +' '+myEtudiantMDS1[i].prenom
+        const tabledata3 = document.createElement('td')
+        tabledata3.innerText = nom
+
+        const tabledata4Input = document.createElement('input')
+        tabledata4Input.type="text"
+        
+        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMDS1[i].matricule}  ${idUe}`)
+        tabledata4Input.setAttribute('name',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+
+        const tabledata4 = document.createElement('td')
+        tabledata4.appendChild(tabledata4Input)
+
+        const tabledata5Input = document.createElement('input')
+        tabledata5Input.type="text"
+        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('name',`SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        const tabledata5 = document.createElement('td')
+        tabledata5.appendChild(tabledata5Input)
+
+        const ligne = document.createElement('tr')
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4);
+        ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)
+     }
+     
+    }
+  }
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send(); 
+}
+
+/**  REQUEST ETUDIANT STAPS NIVEAU 2 */
+function getetudiantStapsNiveau2(){
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantStaps2/";
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+     myEtudiantStaps1 = JSON.parse(this.responseText);
+
+     /** Ajout des lignes pour insertion des notes des étudiants */
+     /**Changement du TITRE Du modal */
+     listeTitle = document.getElementById('listetudiant-title')
+     //console.log(listeTitle);
+     //listeTitle.innerHTML=""
+
+     listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+
       for(let i=0; i<myEtudiantStaps1.length; i++){
         const tabledata1 = document.createElement('td')
         tabledata1.setAttribute('scope', 'row')
@@ -232,11 +362,217 @@ if (this.readyState == 4 && this.status == 200) {
         const listStudent = document.getElementById('listetudiant')
         listStudent.appendChild(ligne)
      }
-    /*}*/
      
     }
 };
 xmlhttp.open("GET", url, true);
 xmlhttp.send(); 
 }
+
+/**REQUEST ETUDIANT NIVEAU 3 */
+function getAllEtudiantNiveau3(){
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantNiveau3/";
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+     myEtudiantNiveau3 = JSON.parse(this.responseText);
+
+     /** Ajout des lignes pour insertion des notes des étudiants */
+     /**Changement du TITRE Du modal */
+     listeTitle = document.getElementById('listetudiant-title')
+     listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+
+      for(let i=0; i<myEtudiantNiveau3.length; i++){
+        const tabledata1 = document.createElement('td')
+        tabledata1.setAttribute('scope', 'row')
+        tabledata1.innerText = myEtudiantNiveau3[i].id
+
+        const tabledata2 = document.createElement('td')
+        tabledata2.innerText = myEtudiantNiveau3[i].matricule
+
+        var nom = myEtudiantNiveau3[i].nom +' '+myEtudiantNiveau3[i].prenom
+        const tabledata3 = document.createElement('td')
+        tabledata3.innerText = nom
+
+        const tabledata4Input = document.createElement('input')
+        tabledata4Input.type="text"
+        //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
+        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3[i].matricule}  ${idUe}`)
+        tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3[i].matricule} ${idUe}`)
+
+        const tabledata4 = document.createElement('td')
+        tabledata4.appendChild(tabledata4Input)
+
+        const tabledata5Input = document.createElement('input')
+        tabledata5Input.type="text"
+        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantNiveau3[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('name',`SN ${myEtudiantNiveau3[i].matricule} ${idUe}`)
+        const tabledata5 = document.createElement('td')
+        tabledata5.appendChild(tabledata5Input)
+
+        const ligne = document.createElement('tr')
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4);
+        ligne.appendChild(tabledata5);
+
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)
+     }
+     
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send(); 
+}
+
+/** REQUEST ETUDIANTS EVE */
+function getetudiantEVENiveau3(){
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantNiveau3EVE/";
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+     myEtudiantNiveau3EVE = JSON.parse(this.responseText);
+
+     /** Ajout des lignes pour insertion des notes des étudiants */
+     /**Changement du TITRE Du modal */
+     listeTitle = document.getElementById('listetudiant-title')
+     listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+
+      for(let i=0; i<myEtudiantNiveau3EVE.length; i++){
+        const tabledata1 = document.createElement('td')
+        tabledata1.setAttribute('scope', 'row')
+        tabledata1.innerText = myEtudiantNiveau3EVE[i].id
+
+        const tabledata2 = document.createElement('td')
+        tabledata2.innerText = myEtudiantNiveau3EVE[i].matricule
+
+        var nom = myEtudiantNiveau3EVE[i].nom +' '+myEtudiantNiveau3EVE[i].prenom
+        const tabledata3 = document.createElement('td')
+        tabledata3.innerText = nom
+
+        const tabledata4Input = document.createElement('input')
+        tabledata4Input.type="text"
+        //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
+        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3EVE[i].matricule}  ${idUe}`)
+        tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
+
+        const tabledata4 = document.createElement('td')
+        tabledata4.appendChild(tabledata4Input)
+
+        const tabledata5Input = document.createElement('input')
+        tabledata5Input.type="text"
+        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('name',`SN ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
+        const tabledata5 = document.createElement('td')
+        tabledata5.appendChild(tabledata5Input)
+
+        const ligne = document.createElement('tr')
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4);
+        ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)
+     }
+     
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send(); 
+}
+
+/** REQUEST ETUDIANTS MSO */
+function getetudiantMSONiveau3(){
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantNiveau3MSO/";
+
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+     myEtudiantNiveau3MSO = JSON.parse(this.responseText);
+
+     /** Ajout des lignes pour insertion des notes des étudiants */
+     /**Changement du TITRE Du modal */
+     listeTitle = document.getElementById('listetudiant-title')
+     listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+
+      for(let i=0; i<myEtudiantNiveau3MSO.length; i++){
+        const tabledata1 = document.createElement('td')
+        tabledata1.setAttribute('scope', 'row')
+        tabledata1.innerText = myEtudiantNiveau3MSO[i].id
+
+        const tabledata2 = document.createElement('td')
+        tabledata2.innerText = myEtudiantNiveau3MSO[i].matricule
+
+        var nom = myEtudiantNiveau3MSO[i].nom +' '+myEtudiantNiveau3MSO[i].prenom
+        const tabledata3 = document.createElement('td')
+        tabledata3.innerText = nom
+
+        const tabledata4Input = document.createElement('input')
+        tabledata4Input.type="text"
+        //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
+        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3MSO[i].matricule}  ${idUe}`)
+        tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
+
+        const tabledata4 = document.createElement('td')
+        tabledata4.appendChild(tabledata4Input)
+
+        const tabledata5Input = document.createElement('input')
+        tabledata5Input.type="text"
+        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('name',`SN ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
+        const tabledata5 = document.createElement('td')
+        tabledata5.appendChild(tabledata5Input)
+
+        const ligne = document.createElement('tr')
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4);
+        ligne.appendChild(tabledata5);
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)
+     }
+     
+    }
+};
+xmlhttp.open("GET", url, true);
+xmlhttp.send(); 
+}
+
+/** SEND DATA TO THE SERVER */
+$(function(){
+  $("form").validate({
+    debug:true
+  })
+  $("form").on( "submit", function(e) {
+      e.preventDefault();
+      
+      var dataString = $(this).serialize();
+      alert(dataString); //return false;
+      
+      $.ajax({
+        type: "POST",
+        url: "ajoutNoteEtudiant/",
+        data: dataString,
+        success: console.log('cool')/*() => {
+          console.log("SUCCESS")
+          submitForm = document.getElementById("submit")
+        }*/,
+      }).done( () => {
+        console.log(tbodylistStudent);
+        tbodylistStudent.innerHTML="";
+        modal.style.display = "none";
+      });
+    });
+});
 

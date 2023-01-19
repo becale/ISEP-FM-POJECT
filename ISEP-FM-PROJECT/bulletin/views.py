@@ -68,13 +68,47 @@ def UEAPI(request):
 
 ############### API REQUETTES POST ###########################################################
 def AddNoteEtudiant(request):
-    #if request.method == 'POST':
-    data = request.POST["CC EPS21001 EPS 239"]
+    if request.method == 'POST':
+        data = request.POST
+    
+    dicto = extract(data)
+    keyValue = splitVar(dicto)
     
     #return HttpResponse(success)
-    return JsonResponse(data, safe=False)
+    return JsonResponse(keyValue, safe=False)
 
 
 
 def test(request):
     return render(data, 'bulletin/test.html')
+
+
+def extract(dicto):
+    couple = ()
+    big = ()
+    for key,value in dicto.items():
+        couple_list = list(couple)
+        couple_list.append(key)
+        couple_list.append(value)
+        couple = tuple(couple_list)
+        big_list = list(big)
+        big_list.append(couple)
+        big = tuple(big_list)
+        couple = ()
+    return big
+
+def splitVar(a):
+    big = ()
+    for i in range(len(a)):
+        key , val = a[i]
+        b = key.split()
+        c = val
+        
+        a_list = list(a[i])
+        a_list[0] =b
+        a_list[1] = c
+        
+        big_list = list(big)
+        big_list.append(a_list)
+        big = tuple(big_list)
+    return big

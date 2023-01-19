@@ -61,13 +61,13 @@ function modal() {
 
   var _loop = function _loop(i) {
     btn[i].onclick = function () {
-      if (myArr[i].code_UE.startsWith("EPS 1")) {
+      if (myArr[i].code_UE.startsWith("EPS1")) {
         getetudiantStapsNiveau1();
-      } else if (myArr[i].code_UE.startsWith("MDS 1")) {
+      } else if (myArr[i].code_UE.startsWith("MDS1")) {
         getetudiantMDSNiveau1();
-      } else if (myArr[i].code_UE.startsWith("EPS 2")) {
+      } else if (myArr[i].code_UE.startsWith("EPS2")) {
         getetudiantStapsNiveau2();
-      } else if (myArr[i].code_UE.startsWith("MAS ")) {
+      } else if (myArr[i].code_UE.startsWith("MAS")) {
         getAllEtudiantNiveau3();
       } else if (myArr[i].code_UE.startsWith("EVE")) {
         getetudiantEVENiveau3();
@@ -203,8 +203,8 @@ function getetudiantStapsNiveau1() {
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[i].matricule).concat(idUe));
-        tabledata4Input.setAttribute('required', ''); //tabledata4Input.setAttribute(`required`, "")
-
+        tabledata4Input.setAttribute('required', '');
+        tabledata4Input.focus;
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
@@ -324,6 +324,7 @@ function getetudiantStapsNiveau2() {
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('required', '');
+        tabledata4Input.focus();
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
@@ -383,6 +384,7 @@ function getAllEtudiantNiveau3() {
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('required', '');
+        tabledata4Input.focus();
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
@@ -442,6 +444,7 @@ function getetudiantEVENiveau3() {
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('required', '');
+        tabledata4Input.focus();
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
@@ -501,6 +504,7 @@ function getetudiantMSONiveau3() {
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
         tabledata4Input.setAttribute('required', '');
+        tabledata4Input.focus();
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');

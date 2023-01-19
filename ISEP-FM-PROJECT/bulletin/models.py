@@ -121,6 +121,8 @@ class Evaluation(models.Model):
     note = models.FloatField(null=False)
     #dateEvaluation = models.DateField()
 
+    #Ajout du champ date pour les évaluation
+
     def __str__(self):
         return str(self)
 

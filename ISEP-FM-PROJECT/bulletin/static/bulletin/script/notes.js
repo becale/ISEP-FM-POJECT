@@ -65,13 +65,13 @@ function modal(){
 /**ITERATION AFIN D'OBTENIR LES LISTES DES ETUDIANTS INSCRITS DANS LES MATIERES */
 for(let i=0; i<btn.length; i++){
   btn[i].onclick = function(){
-    if(myArr[i].code_UE.startsWith("EPS 1")){
+    if(myArr[i].code_UE.startsWith("EPS1")){
       getetudiantStapsNiveau1()
-    }else if(myArr[i].code_UE.startsWith("MDS 1")){
+    }else if(myArr[i].code_UE.startsWith("MDS1")){
       getetudiantMDSNiveau1()
-    }else if(myArr[i].code_UE.startsWith("EPS 2")){
+    }else if(myArr[i].code_UE.startsWith("EPS2")){
       getetudiantStapsNiveau2()
-    }else if(myArr[i].code_UE.startsWith("MAS ")){
+    }else if(myArr[i].code_UE.startsWith("MAS")){
       getAllEtudiantNiveau3()
     }else if(myArr[i].code_UE.startsWith("EVE")){
       getetudiantEVENiveau3()
@@ -214,7 +214,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata4Input.setAttribute('name',`CC ${myEtudiantStaps1[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('id',`CC ${myEtudiantStaps1[i].matricule}${idUe}`)
         tabledata4Input.setAttribute('required', '')
-        //tabledata4Input.setAttribute(`required`, "")
+        tabledata4Input.focus
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -343,6 +343,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata4Input.setAttribute('name',`CC ${myEtudiantStaps2[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('id',`CC ${myEtudiantStaps2[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('required','')
+        tabledata4Input.focus()
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -407,6 +408,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('required','')
+        tabledata4Input.focus()
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -471,6 +473,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('required','')
+        tabledata4Input.focus()
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -534,6 +537,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
         tabledata4Input.setAttribute('required', '')
+        tabledata4Input.focus()
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -576,6 +580,7 @@ $(function () {
 
   $("form").submit(function(e){
     e.preventDefault();
+    
   }).validate({
     clearForm: true,
     rules:{
@@ -592,7 +597,7 @@ $(function () {
         alert(`LES NOTES ENREGISTREES AVEC SUCCESS`)
 
     }
-  })
+  });
 })
 
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpRequest
 from django.template import loader
 from django.http import HttpResponse
@@ -51,12 +51,12 @@ def EtudiantNiveau3(request):
     return JsonResponse(etudiantMAS, safe= False)
 
 def EtudiantNiveau3MSO(request):
-    etudiantMSO = list(Etudiant.objects.filter(filiere="MSO", niveau=3).values())
+    etudiantMSO = list(Etudiant.objects.filter(Specialite="MSO", niveau=3).values())
 
     return JsonResponse(etudiantMSO, safe= False)
 
 def EtudiantNiveau3EVE(request):
-    etudiantEVE = list(Etudiant.objects.filter(Specialite=="EVE", niveau=3).values())
+    etudiantEVE = list(Etudiant.objects.filter(Specialite="EVE", niveau=3).values())
 
     return JsonResponse(etudiantEVE, safe= False)
 
@@ -68,8 +68,13 @@ def UEAPI(request):
 
 ############### API REQUETTES POST ###########################################################
 def AddNoteEtudiant(request):
-    if request.method == 'POST':
-        data = request.POST
-    success =list(data)
+    #if request.method == 'POST':
+    data = request.POST["CC EPS21001 EPS 239"]
+    
     #return HttpResponse(success)
-    return JsonResponse(success, safe=False)
+    return JsonResponse(data, safe=False)
+
+
+
+def test(request):
+    return render(data, 'bulletin/test.html')

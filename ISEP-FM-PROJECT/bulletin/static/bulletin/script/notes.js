@@ -276,6 +276,8 @@ if (this.readyState == 4 && this.status == 200) {
         
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMDS1[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('required', '');
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -284,6 +286,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata5Input.type="text"
         tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
         tabledata5Input.setAttribute('name',`SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('required','');
         const tabledata5 = document.createElement('td')
         tabledata5.appendChild(tabledata5Input)
 
@@ -312,7 +315,7 @@ function getetudiantStapsNiveau2(){
 
 xmlhttp.onreadystatechange = function() {
 if (this.readyState == 4 && this.status == 200) {
-     myEtudiantStaps1 = JSON.parse(this.responseText);
+     myEtudiantStaps2 = JSON.parse(this.responseText);
 
      /** Ajout des lignes pour insertion des notes des étudiants */
      /**Changement du TITRE Du modal */
@@ -322,31 +325,33 @@ if (this.readyState == 4 && this.status == 200) {
 
      listeTitle.innerText=`BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
 
-      for(let i=0; i<myEtudiantStaps1.length; i++){
+      for(let i=0; i<myEtudiantStaps2.length; i++){
         const tabledata1 = document.createElement('td')
         tabledata1.setAttribute('scope', 'row')
-        tabledata1.innerText = myEtudiantStaps1[i].id
+        tabledata1.innerText = myEtudiantStaps2[i].id
 
         const tabledata2 = document.createElement('td')
-        tabledata2.innerText = myEtudiantStaps1[i].matricule
+        tabledata2.innerText = myEtudiantStaps2[i].matricule
 
-        var nom = myEtudiantStaps1[i].nom +' '+myEtudiantStaps1[i].prenom
+        var nom = myEtudiantStaps2[i].nom +' '+myEtudiantStaps2[i].prenom
         const tabledata3 = document.createElement('td')
         tabledata3.innerText = nom
 
         const tabledata4Input = document.createElement('input')
         tabledata4Input.type="text"
-        //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
-        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantStaps1[i].matricule}  ${idUe}`)
-        tabledata4Input.setAttribute('name',`CC ${myEtudiantStaps1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantStaps2[i].matricule}  ${idUe}`)
+        tabledata4Input.setAttribute('name',`CC ${myEtudiantStaps2[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantStaps2[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('required','')
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
 
         const tabledata5Input = document.createElement('input')
         tabledata5Input.type="text"
-        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
-        tabledata5Input.setAttribute('name',`SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps2[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('name',`SN ${myEtudiantStaps2[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('required','');
         const tabledata5 = document.createElement('td')
         tabledata5.appendChild(tabledata5Input)
 
@@ -400,6 +405,8 @@ if (this.readyState == 4 && this.status == 200) {
         //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('required','')
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -408,6 +415,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata5Input.type="text"
         tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantNiveau3[i].matricule} ${idUe}`)
         tabledata5Input.setAttribute('name',`SN ${myEtudiantNiveau3[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('required', '');
         const tabledata5 = document.createElement('td')
         tabledata5.appendChild(tabledata5Input)
 
@@ -461,6 +469,8 @@ if (this.readyState == 4 && this.status == 200) {
         //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3EVE[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('required','')
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -469,6 +479,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata5Input.type="text"
         tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
         tabledata5Input.setAttribute('name',`SN ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('required','');
         const tabledata5 = document.createElement('td')
         tabledata5.appendChild(tabledata5Input)
 
@@ -521,6 +532,8 @@ if (this.readyState == 4 && this.status == 200) {
         //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3MSO[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('required', '')
 
         const tabledata4 = document.createElement('td')
         tabledata4.appendChild(tabledata4Input)
@@ -529,6 +542,7 @@ if (this.readyState == 4 && this.status == 200) {
         tabledata5Input.type="text"
         tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
         tabledata5Input.setAttribute('name',`SN ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
+        tabledata5Input.setAttribute('required', '')
         const tabledata5 = document.createElement('td')
         tabledata5.appendChild(tabledata5Input)
 
@@ -550,29 +564,71 @@ xmlhttp.send();
 }
 
 /** SEND DATA TO THE SERVER */
-$(function(){
-  $("form").validate({
-    debug:true
-  })
-  $("form").on( "submit", function(e) {
-      e.preventDefault();
-      
-      var dataString = $(this).serialize();
-      alert(dataString); //return false;
-      
-      $.ajax({
-        type: "POST",
-        url: "ajoutNoteEtudiant/",
-        data: dataString,
-        success: console.log('cool')/*() => {
-          console.log("SUCCESS")
-          submitForm = document.getElementById("submit")
-        }*/,
-      }).done( () => {
-        console.log(tbodylistStudent);
-        tbodylistStudent.innerHTML="";
+$(function () {
+  dataString = $("#myForm").serializeArray()
+  options = {
+    //data : dataString,
+    //target:"",
+    url:'ajoutNoteEtudiant/',
+    type:"POST",
+    success: "",
+  }
+
+  $("form").submit(function(e){
+    e.preventDefault();
+  }).validate({
+    clearForm: true,
+    rules:{
+
+    },
+    message:{
+
+    },
+    submitHandler: function(form){
+        $("#myForm").ajaxSubmit(options)
+        tbodylistStudent.innerHTML=""
+
         modal.style.display = "none";
-      });
+        alert(`LES NOTES ENREGISTREES AVEC SUCCESS`)
+
+    }
+  })
+})
+
+
+//Send Data
+/*window.addEventListener("load", function () {
+  function sendData() {
+    var XHR = new XMLHttpRequest();
+
+    // Liez l'objet FormData et l'élément form
+    var FD = new FormData(form);
+
+    // Définissez ce qui se passe si la soumission s'est opérée avec succès
+    XHR.addEventListener("load", function(event) {
+      alert(event.target.responseText);
     });
-});
+
+    // Definissez ce qui se passe en cas d'erreur
+    XHR.addEventListener("error", function(event) {
+      alert('Oups! Quelque chose s\'est mal passé.');
+    });
+
+    // Configurez la requête
+    XHR.open("POST", "https://example.com/cors.php");
+
+    // Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
+    XHR.send(FD);
+  }
+
+  // Accédez à l'élément form …
+  var form = document.getElementById("myForm");
+
+  // … et prenez en charge l'événement submit.
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    sendData();
+  });
+});*/
 

@@ -75,9 +75,7 @@ def AddNoteEtudiant(request):
     key, values = extract(data)
     
     saveData(key,values)
-
     text = "<html><body> %s </body></html>" % values
-    
     return HttpResponse(text)
     #return JsonResponse(keyValue, safe=False)
 
@@ -99,7 +97,7 @@ def saveData(key, values):
                 natureEvaluation_ = 'Session_Normale'
             matricule = setKey[1]
             codeUe = setKey[2]
-            note_ = int(values[i])
+            note_ = values[i]
 
             etudiant_Query = Etudiant.objects.filter(matricule=matricule)#.values('nom')
             etudiant = etudiant_Query[0]
@@ -118,9 +116,9 @@ def extract(a):
         k = key[i]
         key[i] = k.split()
         
-        val = value[i]
+        """val = value[i]
         val1 = val[0]
-        value[i] = val1
+        value[i] = val1"""
         
     return (key, value)
 

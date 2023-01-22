@@ -70,13 +70,16 @@ def UEAPI(request):
 def AddNoteEtudiant(request):
     if request.method == 'POST':
         data = request.POST
+        #data = list(data.items())
     
-    dicto = extract(data)
-    keyValue = splitVar(dicto)
+    key, values = extract(data)
+    
+    saveData(key,values)
 
+    text = "<html><body> %s </body></html>" % values
     
-    #return HttpResponse(success)
-    return JsonResponse(keyValue, safe=False)
+    return HttpResponse(text)
+    #return JsonResponse(keyValue, safe=False)
 
 
 
@@ -84,6 +87,60 @@ def test(request):
     return render(data, 'bulletin/test.html')
 
 
+
+def saveData(key, values):
+    if (len(key) == len(values)):
+        
+        for i in range(1,len(key)):
+            setKey = key[i]
+            if(setKey[0]=="CC"):
+                natureEvaluation_ = 'Contrôle_Continue'
+            elif(setKey[0]=="SN"):
+                natureEvaluation_ = 'Session_Normale'
+            matricule = setKey[1]
+            codeUe = setKey[2]
+            note_ = int(values[i])
+
+            etudiant_Query = Etudiant.objects.filter(matricule=matricule)#.values('nom')
+            etudiant = etudiant_Query[0]
+
+            ue_Query = UniteEnseignement.objects.filter(code_UE=codeUe)#.values('id')
+            ue = ue_Query[0]
+
+            evaluation = Evaluation(natureEvaluation=natureEvaluation_, note=note_, etudiant=etudiant, uniteEnseignement=ue)
+            evaluation.save()
+
+def extract(a):
+    key = list(a.keys())
+    value = list(a.values())
+    
+    for i in range(len(key)):
+        k = key[i]
+        key[i] = k.split()
+        
+        val = value[i]
+        val1 = val[0]
+        value[i] = val1
+        
+    return (key, value)
+
+"""
+def saveData(key, values):
+    if (len(key) == len(values)):
+        
+        for i in range(1,len(key)):
+            setKey = key[i]
+            if(setKey[0]=="CC"):
+                natureEvaluation = 'Contrôle_Continue'
+            elif(setKey[0]=="SN"):
+                natureEvaluation = 'Session_Normale'
+            matricule = setKey[1]
+            codeUe = setKey[2]
+            note = int(values[i])
+
+"""
+
+"""
 def extract(dicto):
     couple = ()
     big = ()
@@ -100,6 +157,7 @@ def extract(dicto):
 
 def splitVar(a):
     big = ()
+    i=1
     for i in range(len(a)):
         key , val = a[i]
         b = key.split()
@@ -113,16 +171,4 @@ def splitVar(a):
         big_list.append(a_list)
         big = tuple(big_list)
     return big
-
-def saveData(a):
-    for i in a:
-        g = i[0]
-        val = i[1]
-        if(g[0]=="CC"):
-            natureEvaluation = "Contrôle_Continue"
-        else:
-            natureEvaluation = "Session_Normale"
-        matricule = g[1]
-        codeUE = g[2]
-        note = val
-        print(natureEvaluation, matricule, note)
+"""

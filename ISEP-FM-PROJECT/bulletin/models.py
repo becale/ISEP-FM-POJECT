@@ -115,7 +115,7 @@ class Evaluation(models.Model):
         SN = "Session_Normale"
 
         def __str__(self):
-            return str(self)
+            return str(self.cc+self.SN)
     natureEvaluation = models.CharField(max_length=50, choices=NatureEvaluation.choices)
 
     note = models.FloatField(null=False)
@@ -124,7 +124,7 @@ class Evaluation(models.Model):
     #Ajout du champ date pour les évaluation
 
     def __str__(self):
-        return str(self)
+        return str(self.natureEvaluation +'_'+self.uniteEnseignement.code_UE+'_'+self.etudiant.nom)
 
 
 """class Filiere(models.Model):

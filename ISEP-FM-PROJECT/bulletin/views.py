@@ -73,6 +73,7 @@ def AddNoteEtudiant(request):
     
     dicto = extract(data)
     keyValue = splitVar(dicto)
+
     
     #return HttpResponse(success)
     return JsonResponse(keyValue, safe=False)
@@ -112,3 +113,16 @@ def splitVar(a):
         big_list.append(a_list)
         big = tuple(big_list)
     return big
+
+def saveData(a):
+    for i in a:
+        g = i[0]
+        val = i[1]
+        if(g[0]=="CC"):
+            natureEvaluation = "Contrôle_Continue"
+        else:
+            natureEvaluation = "Session_Normale"
+        matricule = g[1]
+        codeUE = g[2]
+        note = val
+        print(natureEvaluation, matricule, note)

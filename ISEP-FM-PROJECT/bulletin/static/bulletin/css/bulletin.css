@@ -307,25 +307,23 @@ tbody tr:nth-child(even){
     background-color: thistle;
 }
 thead th:nth-child(1){
-    width:2%;
-    /*text-align: center;*/
+    width:15%;
+    text-align: left;
 }
 thead th:nth-child(2){
-    width:10%;
-    /*text-align: center;*/
+    width:35%;
 }
 thead th:nth-child(3){
-    width:30%;
-    /*text-align: center;*/
-}
-thead th:nth-child(4){
     width:20%;
-    /*text-align: center;*/
+    text-align: right;
+}
+/*thead th:nth-child(4){
+    width:20%;
 }
 thead th:nth-child(5){
     width:20%;
-    /*text-align: center;*/
-}
+}*/
+
 /**/
 #modalNote-header{
     padding: 15px;
@@ -371,12 +369,20 @@ thead th:nth-child(5){
 }
 /*Table form*/
 th, td{
-    padding: 15px;
+    padding: 7px;
 }
 td input{
     width: 100%;
     border-radius: 16px;
     padding: 12px 20px;
+}
+/*First Column*/
+.columnL{
+    text-align: left;
+}
+/*Last Column*/
+.columnR{
+    text-align: right;
 }
 
 

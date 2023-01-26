@@ -39,10 +39,6 @@ function modal() {
     tbodylistStudent.innerHTML = "";
     modal.style.display = "none";
   };
-  /**After Submit */
-
-
-  var formCloseReset = document.getElementById('submit');
   /*****BOUTON DE MODIFICATION NOTES */
   // Get the buttons that open the modal
   //var btn1 = document.getElementsByClassName("myBtn-1");
@@ -57,7 +53,14 @@ function modal() {
     };
   }*/
 
+  /**AJOUT DYNAMIQUE DES REGLES DE VALIDATION AUX INPUT DU FORMULAIRE */
+
+  /*btn[i].onclick=function(){
+    
+  }*/
+
   /**ITERATION AFIN D'OBTENIR LES LISTES DES ETUDIANTS INSCRITS DANS LES MATIERES */
+
 
   var _loop = function _loop(i) {
     btn[i].onclick = function () {
@@ -184,9 +187,7 @@ function getetudiantStapsNiveau1() {
 
       /**Changement du TITRE Du modal */
 
-      listeTitle = document.getElementById('listetudiant-title'); //console.log(listeTitle);
-      //listeTitle.innerHTML=""
-
+      listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
 
       for (var i = 0; i < myEtudiantStaps1.length; i++) {
@@ -202,16 +203,18 @@ function getetudiantStapsNiveau1() {
         tabledata4Input.type = "text";
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[i].matricule).concat(idUe));
-        tabledata4Input.setAttribute('required', '');
-        tabledata4Input.focus;
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
         tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
+
+        tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
         var ligne = document.createElement('tr');
@@ -262,15 +265,17 @@ function getetudiantMDSNiveau1() {
         tabledata4Input.type = "text";
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantMDS1[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('required', '');
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required', '');
+
+        tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
         tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+        tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
         var ligne = document.createElement('tr');
@@ -322,16 +327,17 @@ function getetudiantStapsNiveau2() {
         tabledata4Input.type = "text";
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps2[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('required', '');
-        tabledata4Input.focus();
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
+
+        tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
         tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+        tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
         var ligne = document.createElement('tr');
@@ -382,16 +388,17 @@ function getAllEtudiantNiveau3() {
 
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('required', '');
-        tabledata4Input.focus();
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
+
+        tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
         tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '');
+
+        tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
         var ligne = document.createElement('tr');
@@ -442,16 +449,17 @@ function getetudiantEVENiveau3() {
 
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3EVE[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('required', '');
-        tabledata4Input.focus();
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
+
+        tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
         tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+        tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
         var ligne = document.createElement('tr');
@@ -502,16 +510,17 @@ function getetudiantMSONiveau3() {
 
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3MSO[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('required', '');
-        tabledata4Input.focus();
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
         tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
+
+        tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
         var ligne = document.createElement('tr');
@@ -543,52 +552,26 @@ $(function () {
     type: "POST",
     success: ""
   };
+  /**Validation par classe */
+
+  jQuery.validator.addClassRules("noteField", {
+    required: true
+  });
   $("form").submit(function (e) {
     e.preventDefault();
+    console.log('OK');
   }).validate({
-    clearForm: true,
-    rules: {},
-    message: {},
+    //debug:true,
     submitHandler: function submitHandler(form) {
       $("#myForm").ajaxSubmit(options);
       tbodylistStudent.innerHTML = "";
       modal.style.display = "none";
-      alert("LES NOTES ENREGISTREES AVEC SUCCESS");
+      alert("LES NOTES ONT ETE ENREGISTREES AVEC SUCCESS");
     }
   });
-}); //Send Data
+}); //Add Validation
 
-/*window.addEventListener("load", function () {
-  function sendData() {
-    var XHR = new XMLHttpRequest();
-
-    // Liez l'objet FormData et l'élément form
-    var FD = new FormData(form);
-
-    // Définissez ce qui se passe si la soumission s'est opérée avec succès
-    XHR.addEventListener("load", function(event) {
-      alert(event.target.responseText);
-    });
-
-    // Definissez ce qui se passe en cas d'erreur
-    XHR.addEventListener("error", function(event) {
-      alert('Oups! Quelque chose s\'est mal passé.');
-    });
-
-    // Configurez la requête
-    XHR.open("POST", "https://example.com/cors.php");
-
-    // Les données envoyées sont ce que l'utilisateur a mis dans le formulaire
-    XHR.send(FD);
-  }
-
-  // Accédez à l'élément form …
-  var form = document.getElementById("myForm");
-
-  // … et prenez en charge l'événement submit.
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    sendData();
-  });
-});*/
+/*jQuery.validator.addMethod("noteValidation", function(value,element){
+  return this.optional(element) || /^http:\/\/mycorporatedomain.com/.test(value);
+}, "Please specify the correct domain for your documents");
+*/

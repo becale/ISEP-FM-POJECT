@@ -56,7 +56,7 @@ def EtudiantNiveau3MSO(request):
     return JsonResponse(etudiantMSO, safe= False)
 
 def EtudiantNiveau3EVE(request):
-    etudiantEVE = list(Etudiant.objects.filter(Specialite="EVE", niveau=3).values())
+    etudiantEVE = list(Etudiant.objects.filter(Specialite="EVENEMENTIEL", niveau=3).values())
 
     return JsonResponse(etudiantEVE, safe= False)
 
@@ -170,3 +170,35 @@ def splitVar(a):
         big = tuple(big_list)
     return big
 """
+
+#Génération de bulletin
+def GenerateBulletin (request):
+    bulletin = {
+        'etudiant' : {
+            'id': "",
+            'filiere':"",
+            'specialite':"",
+            'nom': "",
+            'prenom':"",
+            'Nationalité':"",
+            'grade':"",
+            'annee_academique':"",
+            'lieu_naissance':"",
+            'niveau':"",
+        },
+
+        'matiere':{
+            'groupe1':{
+                "intitulé":"",
+                "ue":{}
+
+            },
+            'groupe2':{
+
+            },
+            'groupe3':{
+
+            }
+        }
+    }
+

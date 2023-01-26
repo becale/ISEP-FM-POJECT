@@ -15,7 +15,7 @@ class Etudiant(models.Model):
     
     class Sexe(models.TextChoices):
         FEMININ = "FEMININ"
-        MASCULIN = "MASCULIN"
+        MASCULIN = "MASCULIN" 
 
         def __str__(self):
             return str(self)
@@ -37,18 +37,18 @@ class Etudiant(models.Model):
             EPS ="EPS"
             MDS="Management du Sport"
             EVE="EVENEMENTIEL"
-            MSO="Metier du sport et de l'evenement sportif"
+            MSO="MSO"
 
             def __str__(self):
                 return str(self)
-    class Specialite(models.TextChoices):
+    """class Specialite(models.TextChoices):
             EPS ="EPS"
             MDS="Management du Sport"
             EVE="EVENEMENTIEL"
             MSO="Metier du sport et de l'evenement sportif"
 
             def __str__(self):
-                return str(self)
+                return str(self)"""
         
     class Niveau(models.TextChoices):
             NIVEAU1 = "1"
@@ -70,9 +70,11 @@ class Semestre(models.Model):
     num_semestre = models.IntegerField()
     date_debut = models.DateField(null=True)
     date_fin = models.DateField(null=True)
+    #date_CC = models.DateField(null=True)
+    #date_SN = models.DateField(null=True)
 
     def __str__(self):
-        return str(self.num_semestre)
+        return str('Semestre '+str(self.num_semestre))
 
 
 class UniteEnseignement(models.Model):
@@ -113,13 +115,15 @@ class Evaluation(models.Model):
     class NatureEvaluation(models.TextChoices):
         CC = "Contrôle_Continue"
         SN = "Session_Normale"
+        RT = "Rattrapage"
 
         def __str__(self):
             return str(self.cc+self.SN)
     natureEvaluation = models.CharField(max_length=50, choices=NatureEvaluation.choices)
 
     note = models.FloatField(null=False)
-    #dateEvaluation = models.DateField()
+    note_Examen = models.FloatField(null=True)
+    dateEvaluation = models.DateField()
 
     #Ajout du champ date pour les évaluation
 

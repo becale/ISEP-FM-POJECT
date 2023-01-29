@@ -14,6 +14,10 @@ urlpatterns=[
     path('etudiantNiveau3MSO/', views.EtudiantNiveau3MSO, name="etudiantniveau3MSO"),
     path('etudiantNiveau3EVE/', views.EtudiantNiveau3EVE, name="etudiantniveau3EVE"),
     path('notes/ajoutNoteEtudiant/', views.AddNoteEtudiant,name="addNoteEtudiant"),
-    path('test/', views.test, name="test"),
+    path('bull/', views.test, name="bull"),
+    path('BulletinUnique/',views.BulletinUnique, name="bulletinUnique"),
+    path('BulletinSpecialite/',views.BulletinSpecialite, name="bulletinSpacialite"),
+
 ]
+
 

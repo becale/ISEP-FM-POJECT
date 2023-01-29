@@ -20,7 +20,7 @@
                     <img src="{% static 'bulletin/image/logo.jpeg' %}" alt="image">
                 </div>
                 <navbar id="menu" class="col">
-                    <a class="linknav" href="">
+                    <a class="linknav" href="/">
                         <img src="{% static 'bulletin/icones/home.png' %}" alt="Home Icone">
                         <div>HOME</div>
                     </a>
@@ -45,7 +45,7 @@
                 <div id="myModal" class="modal">
                     <!-- Modal content -->
                     <div class="modal-content">
-                        <form id="myForm">
+                        <!--<form id="myForm">-->
                              {% csrf_token %} 
                         <div class="modal-header">
                             <span class="close">&times;</span>
@@ -72,7 +72,7 @@
                             <!--<button class="submit-note"  type="submit" value="AJOUTER LES NOTES"></button>-->
                             <input id="submit" type="submit" value="GENERER BULLETINS DE LA SPECIALITE">
                         </div>
-                        </form>
+                        <!--</form>-->
                         </div>
                          </div>
                             </div>
@@ -278,9 +278,9 @@
             </div>
         </footer>
         <script src="{% static 'bulletin/script/bulletin.js' %}" async defer></script>
-        <!--<script src="{% static 'bulletin/script/jquery-3.6.3.js' %}"></script>
+        <script src="{% static 'bulletin/script/jquery-3.6.3.js' %}"></script>
         
-        <script src="{% static 'bulletin/script/w3.js' %}"></script>
+        <!--<script src="{% static 'bulletin/script/w3.js' %}"></script>
         <script src="{% static 'bulletin/script/jquery.validate.min.js' %}"></script>
         <script src="{% static 'bulletin/script/additional-methods.min.js' %}"></script>-->
     </body>

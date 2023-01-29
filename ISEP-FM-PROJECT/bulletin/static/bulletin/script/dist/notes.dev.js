@@ -569,9 +569,4 @@ $(function () {
       alert("LES NOTES ONT ETE ENREGISTREES AVEC SUCCESS");
     }
   });
-}); //Add Validation
-
-/*jQuery.validator.addMethod("noteValidation", function(value,element){
-  return this.optional(element) || /^http:\/\/mycorporatedomain.com/.test(value);
-}, "Please specify the correct domain for your documents");
-*/
+});

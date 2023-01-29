@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/bulletinTemplate.css">
-    <link rel="stylesheet" href="../css/bootsrap/bootstrap.css">
-    <link rel="stylesheet" href="../css/bootstrap/bootstrap-grid.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "bulletin/css/bulletinTemplate.css" %}">
     <title>Bulletin</title>
+    <style>
+        #semestre-result{
+            background-image: url('bulletin/image/logo.jpeg');
+            background-repeat: no-repeat;
+            background-size: auto;
+        }
+    </style>
 </head>
 <body>
 <div class="container-bull">
@@ -15,7 +21,7 @@
         <div id="logo-title">
             <div>
                 <div id="head-left"></div>
-                <div id="logo"><img src="logo.jpeg"alt="Logo"></div>
+                <div id="logo"><img src="{% static "bulletin/image/logo.jpeg" %}"alt="Logo"></div>
                 <div id="head-right"></div>
             </div>
             <div id="title">
@@ -57,6 +63,9 @@
             </div>
         </div>
         <div id="semester-result">
+            <!--<div class="box">
+                <img class="imgback" src="{% static "bulletin/image/logo.jpeg" %}" alt="Filigrane">
+            </div>-->
             
             <table class="table-1">
                 <thead>
@@ -410,5 +419,7 @@
         </div> 
     </footer>
 </div>
+    
+    
 </body>
 </html>

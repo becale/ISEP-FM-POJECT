@@ -38,31 +38,12 @@ function modal() {
     tbodylistStudent.innerHTML = "";
     modal.style.display = "none";
   };
-  /*****BOUTON DE MODIFICATION NOTES */
-  // Get the buttons that open the modal
-  //var btn1 = document.getElementsByClassName("myBtn-1");
-  //var btn = document.getElementById("myBtn");
-  // GET the button that closes the modal
-  //var spanClose = document.getElementsByClassName("close")[0];
-  // when the user clicks the button, open the modal
-
-  /*for(let i=0; i<btn1.length; i++){
-  btn1[i].onclick = function(){
-    modal.style.display = "block"
-    };
-  }*/
-
-  /**AJOUT DYNAMIQUE DES REGLES DE VALIDATION AUX INPUT DU FORMULAIRE */
-
-  /*btn[i].onclick=function(){
-    
-  }*/
-
   /**ITERATION AFIN D'OBTENIR LES LISTES DES ETUDIANTS INSCRITS DANS LES MATIERES */
 
 
   var _loop = function _loop(i) {
     btn[i].onclick = function () {
+      bouton = btn[i].parentElement.parentElement.parentElement.children[0].innerText;
       console.log(btn[i].parentElement.parentElement.parentElement.children[0].innerText);
 
       if (btn[i].parentElement.parentElement.parentElement.children[0].innerText == "STAPS1") {
@@ -73,24 +54,11 @@ function modal() {
         getetudiantStapsNiveau2();
       } else if (btn[i].parentElement.parentElement.parentElement.children[1].innerText == "MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS") {
         getetudiantMSONiveau3();
+      } else if (btn[i].parentElement.parentElement.parentElement.children[1].innerText == "EVENEMENTIEL") {
+        getetudiantEVENiveau3();
       }
-      /*if(1/*idUe=="EPS1"){
-        getetudiantStapsNiveau1()
-      /*}else if(idUe="GESTION"){
-        getetudiantMDSNiveau1()
-      /*}else if(myArr[i].code_UE.startsWith("EPS2")){
-        getetudiantStapsNiveau2()
-      }else if(myArr[i].code_UE.startsWith("MAS")){
-        getAllEtudiantNiveau3()
-      }else if(myArr[i].code_UE.startsWith("EVE")){
-        getetudiantEVENiveau3()
-      }else if(myArr[i].code_UE.startsWith("MSO")){
-        getetudiantMSONiveau3()
-      }*/
-
 
       modal.style.display = "block";
-      /*};*/
     };
   };
 
@@ -504,22 +472,30 @@ function getetudiantStapsNiveau1() {
 
       listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "LISTE DES ETUDIANTS INSCRITS EN --".concat(idUe, "-- ANNEE 202X-202X");
+      dataList = {};
 
-      for (var i = 0; i < myEtudiantStaps1.length; i++) {
+      var _loop2 = function _loop2(i) {
         var tabledata2 = document.createElement('td');
         tabledata2.innerText = myEtudiantStaps1[i].matricule;
         tabledata2.setAttribute('class', 'columnL');
-        var nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom;
+        nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom;
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('button');
         tabledata4Input.setAttribute('name', "".concat(myEtudiantStaps1[i].matricule));
         tabledata4Input.setAttribute('id', "".concat(myEtudiantStaps1[i].matricule));
         tabledata4Input.innerText = "GENERER BULLETIN ".concat(myEtudiantStaps1[i].nom);
+
+        tabledata4Input.onclick = function () {
+          GetUniqueMatricule({
+            nom: myEtudiantStaps1[i].nom,
+            matricule: myEtudiantStaps1[i].matricule
+          });
+        };
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         tabledata4.setAttribute('class', 'columnR');
-        tabledata4.disabled = true;
         var ligne = document.createElement('tr');
         ligne.appendChild(tabledata2);
         ligne.appendChild(tabledata3);
@@ -528,7 +504,24 @@ function getetudiantStapsNiveau1() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+        dataList[i] = {
+          /*nom:myEtudiantStaps1[i].nom ,*/
+          nom: myEtudiantStaps1[i].matricule
+        };
+      };
+
+      for (var i = 0; i < myEtudiantStaps1.length; i++) {
+        var nom;
+
+        _loop2(i);
       }
+
+      dataToSend = dataList;
+      var submitBullSpecialite = document.getElementById('submit');
+
+      submitBullSpecialite.onclick = function () {
+        GetSetSpecialityMatricule(dataToSend);
+      };
     }
   };
 
@@ -552,21 +545,29 @@ function getetudiantMDSNiveau1() {
       listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "LISTE DES ETUDIANTS INSCRITS EN --".concat(idUe, "-- ANNEE 202X-202X");
 
-      for (var i = 0; i < myEtudiantMDS1.length; i++) {
+      var _loop3 = function _loop3(i) {
         var tabledata2 = document.createElement('td');
         tabledata2.innerText = myEtudiantMDS1[i].matricule;
         tabledata2.setAttribute('class', 'columnL');
-        var nom = myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom;
+        nom = myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom;
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('button');
         tabledata4Input.setAttribute('name', "".concat(myEtudiantMDS1[i].matricule));
         tabledata4Input.setAttribute('id', "".concat(myEtudiantMDS1[i].matricule));
         tabledata4Input.innerText = "GENERER BULLETIN ".concat(myEtudiantMDS1[i].nom);
+
+        tabledata4Input.onclick = function () {
+          GetUniqueMatricule({
+            nom: myEtudiantMDS1[i].nom,
+            matricule: myEtudiantMDS1[i].matricule
+          });
+        };
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
-        tabledata4.setAttribute('class', 'columnR');
-        tabledata4.disabled = true;
+        tabledata4.setAttribute('class', 'columnR'); //tabledata4.disabled = true
+
         var ligne = document.createElement('tr');
         ligne.appendChild(tabledata2);
         ligne.appendChild(tabledata3);
@@ -575,6 +576,12 @@ function getetudiantMDSNiveau1() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      };
+
+      for (var i = 0; i < myEtudiantMDS1.length; i++) {
+        var nom;
+
+        _loop3(i);
       }
     }
   };
@@ -595,21 +602,28 @@ function getetudiantStapsNiveau2() {
       listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "LISTE DES ETUDIANTS INSCRITS EN --".concat(idUe, "-- ANNEE 202X-202X");
 
-      for (var i = 0; i < myEtudiantStaps2.length; i++) {
+      var _loop4 = function _loop4(i) {
         var tabledata2 = document.createElement('td');
         tabledata2.innerText = myEtudiantStaps2[i].matricule;
         tabledata2.setAttribute('class', 'columnL');
-        var nom = myEtudiantStaps2[i].nom + ' ' + myEtudiantStaps2[i].prenom;
+        nom = myEtudiantStaps2[i].nom + ' ' + myEtudiantStaps2[i].prenom;
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('button');
         tabledata4Input.setAttribute('name', "".concat(myEtudiantStaps2[i].matricule));
         tabledata4Input.setAttribute('id', "".concat(myEtudiantStaps2[i].matricule));
         tabledata4Input.innerText = "GENERER BULLETIN ".concat(myEtudiantStaps2[i].nom);
+
+        tabledata4Input.onclick = function () {
+          GetUniqueMatricule({
+            nom: myEtudiantStaps2[i].nom,
+            matricule: myEtudiantStaps2[i].matricule
+          });
+        };
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         tabledata4.setAttribute('class', 'columnR');
-        tabledata4.disabled = true;
         var ligne = document.createElement('tr');
         ligne.appendChild(tabledata2);
         ligne.appendChild(tabledata3);
@@ -618,6 +632,12 @@ function getetudiantStapsNiveau2() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      };
+
+      for (var i = 0; i < myEtudiantStaps2.length; i++) {
+        var nom;
+
+        _loop4(i);
       }
     }
   };
@@ -642,21 +662,28 @@ function getetudiantEVENiveau3() {
       listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "LISTE DES ETUDIANTS INSCRITS EN --".concat(idUe, "-- ANNEE 202X-202X");
 
-      for (var i = 0; i < myEtudiantNiveau3EVE.length; i++) {
+      var _loop5 = function _loop5(i) {
         var tabledata2 = document.createElement('td');
         tabledata2.innerText = myEtudiantNiveau3EVE[i].matricule;
         tabledata2.setAttribute('class', 'columnL');
-        var nom = myEtudiantNiveau3EVE[i].nom + ' ' + myEtudiantNiveau3EVE[i].prenom;
+        nom = myEtudiantNiveau3EVE[i].nom + ' ' + myEtudiantNiveau3EVE[i].prenom;
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('button');
         tabledata4Input.setAttribute('name', "".concat(myEtudiantNiveau3EVE[i].matricule));
         tabledata4Input.setAttribute('id', "".concat(myEtudiantNiveau3EVE[i].matricule));
         tabledata4Input.innerText = "GENERER BULLETIN ".concat(myEtudiantNiveau3EVE[i].nom);
+
+        tabledata4Input.onclick = function () {
+          GetUniqueMatricule({
+            nom: myEtudiantNiveau3EVE[i].nom,
+            matricule: myEtudiantNiveau3EVE[i].matricule
+          });
+        };
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         tabledata4.setAttribute('class', 'columnR');
-        tabledata4.disabled = true;
         var ligne = document.createElement('tr');
         ligne.appendChild(tabledata2);
         ligne.appendChild(tabledata3);
@@ -665,6 +692,12 @@ function getetudiantEVENiveau3() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      };
+
+      for (var i = 0; i < myEtudiantNiveau3EVE.length; i++) {
+        var nom;
+
+        _loop5(i);
       }
     }
   };
@@ -689,21 +722,29 @@ function getetudiantMSONiveau3() {
       listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "LISTE DES ETUDIANTS INSCRITS EN --".concat(idUe, "-- ANNEE 202X-202X");
 
-      for (var i = 0; i < myEtudiantNiveau3MSO.length; i++) {
+      var _loop6 = function _loop6(i) {
         var tabledata2 = document.createElement('td');
         tabledata2.innerText = myEtudiantNiveau3MSO[i].matricule;
         tabledata2.setAttribute('class', 'columnL');
-        var nom = myEtudiantNiveau3MSO[i].nom + ' ' + myEtudiantNiveau3MSO[i].prenom;
+        nom = myEtudiantNiveau3MSO[i].nom + ' ' + myEtudiantNiveau3MSO[i].prenom;
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('button');
         tabledata4Input.setAttribute('name', "".concat(myEtudiantNiveau3MSO[i].matricule));
         tabledata4Input.setAttribute('id', "".concat(myEtudiantNiveau3MSO[i].matricule));
         tabledata4Input.innerText = "GENERER BULLETIN ".concat(myEtudiantNiveau3MSO[i].nom);
+
+        tabledata4Input.onclick = function () {
+          GetUniqueMatricule({
+            nom: myEtudiantNiveau3MSO[i].nom,
+            matricule: myEtudiantNiveau3MSO[i].matricule
+          });
+        };
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
-        tabledata4.setAttribute('class', 'columnR');
-        tabledata4.disabled = true;
+        tabledata4.setAttribute('class', 'columnR'); //tabledata4.disabled = true
+
         var ligne = document.createElement('tr');
         ligne.appendChild(tabledata2);
         ligne.appendChild(tabledata3);
@@ -712,10 +753,40 @@ function getetudiantMSONiveau3() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      };
+
+      for (var i = 0; i < myEtudiantNiveau3MSO.length; i++) {
+        var nom;
+
+        _loop6(i);
       }
     }
   };
 
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
+}
+/**
+  * REQUETES BULLETINS
+*/
+
+
+function GetUniqueMatricule(data) {
+  $.ajax({
+    type: 'GET',
+    url: "http://localhost:8000/BulletinUnique/",
+    data: data,
+    success: console.log("Request sent with Success") //dataType:,
+
+  }); //Ajout d'une ligne pour fermer le modal après soumission de la requête
+}
+
+function GetSetSpecialityMatricule(data) {
+  $.ajax({
+    type: 'GET',
+    url: "http://localhost:8000/BulletinSpecialite/",
+    data: data,
+    success: console.log("Request sent with Success") //dataType:,
+
+  }); //Ajout d'une ligne pour fermer le modal après soumission de la requête
 }

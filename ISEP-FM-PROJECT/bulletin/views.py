@@ -80,9 +80,28 @@ def AddNoteEtudiant(request):
     #return JsonResponse(keyValue, safe=False)
 
 
-
 def test(request):
-    return render(data, 'bulletin/test.html')
+    return render(request, 'bulletin/BulletinTemplate/bulletin1.html')
+
+"""
+    Requête Bulletin
+"""
+def BulletinUnique(request):
+    if request.method == 'GET':
+        matri = request.GET['matricule']
+        nom = request.GET['nom']
+        
+        context = {
+            0: matri,
+            1: nom,
+        }
+
+        return JsonResponse(context, safe=True)
+
+def BulletinSpecialite(request):
+    if request.method == 'GET':
+        context = request.GET#["data[0]"]
+    return JsonResponse(context, safe=True)
 
 
 
@@ -201,4 +220,5 @@ def GenerateBulletin (request):
             }
         }
     }
+
 

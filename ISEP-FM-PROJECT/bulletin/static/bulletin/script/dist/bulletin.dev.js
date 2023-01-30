@@ -517,11 +517,10 @@ function getetudiantStapsNiveau1() {
       }
 
       dataToSend = dataList;
-      var submitBullSpecialite = document.getElementById('submit');
-
-      submitBullSpecialite.onclick = function () {
-        GetSetSpecialityMatricule(dataToSend);
-      };
+      /*const submitBullSpecialite = document.getElementById('submit')
+      submitBullSpecialite.onclick = function(){
+         GetSetSpecialityMatricule(dataToSend)
+      }*/
     }
   };
 

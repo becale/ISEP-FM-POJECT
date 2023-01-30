@@ -411,10 +411,10 @@ function getetudiantStapsNiveau1(){
           
        }
        dataToSend = dataList
-       const submitBullSpecialite = document.getElementById('submit')
+       /*const submitBullSpecialite = document.getElementById('submit')
        submitBullSpecialite.onclick = function(){
           GetSetSpecialityMatricule(dataToSend)
-       }
+       }*/
       }
 
   };

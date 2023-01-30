@@ -597,7 +597,6 @@ $(function () {
     console.log('OK');
      
   }).validate({
-    //debug:true,
     submitHandler: function(form){
       
         $("#myForm").ajaxSubmit(options)

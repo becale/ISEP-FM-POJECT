@@ -70,8 +70,8 @@ class Semestre(models.Model):
     num_semestre = models.IntegerField()
     date_debut = models.DateField(null=True)
     date_fin = models.DateField(null=True)
-    #date_CC = models.DateField(null=True)
-    #date_SN = models.DateField(null=True)
+    date_CC = models.DateField(null=True)
+    date_SN = models.DateField(null=True)
 
     def __str__(self):
         return str('Semestre '+str(self.num_semestre))
@@ -112,18 +112,21 @@ class Evaluation(models.Model):
     etudiant = models.ForeignKey(Etudiant, on_delete=models.CASCADE)
     uniteEnseignement = models.ForeignKey(UniteEnseignement, on_delete=models.CASCADE)
     
-    class NatureEvaluation(models.TextChoices):
+    """class NatureEvaluation(models.TextChoices):
         CC = "Contrôle_Continue"
         SN = "Session_Normale"
         RT = "Rattrapage"
 
         def __str__(self):
-            return str(self.cc+self.SN)
-    natureEvaluation = models.CharField(max_length=50, choices=NatureEvaluation.choices)
+            return str(self.cc+self.SN)"""
+    natureEvaluation = models.CharField(max_length=50)#, choices=NatureEvaluation.choices)
 
-    note = models.FloatField(null=False)
-    note_Examen = models.FloatField(null=True)
-    dateEvaluation = models.DateField()
+    note_cc = models.FloatField(null=False)
+    note_sn = models.FloatField(null=False)
+    note_Examen = models.FloatField(null=False)
+    date_Examen = models.DateField(null=True)
+    note_rattrapage = models.FloatField(null=True)
+    date_Rattrapage = models.DateField(null=True)
 
     #Ajout du champ date pour les évaluation
 

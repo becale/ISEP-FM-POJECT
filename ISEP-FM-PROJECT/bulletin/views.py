@@ -4,6 +4,7 @@ from django.template import loader
 from django.http import HttpResponse
 from .models import *
 from django.http import JsonResponse
+from itertools import islice
 
 # Create your views here.
 
@@ -70,14 +71,14 @@ def UEAPI(request):
 def AddNoteEtudiant(request):
     if request.method == 'POST':
         data = request.POST
-        #data = list(data.items())
+
+    key,values = extract(data)
     
-    key, values = extract(data)
-    
+    #Ajout de la fonction de couplage
     saveData(key,values)
-    text = "<html><body> %s </body></html>" % values
-    return HttpResponse(text)
-    #return JsonResponse(keyValue, safe=False)
+    print(key, values)
+    text = "<html><body> %s </body></html>" % data
+    return JsonResponse(request.POST, safe=False)
 
 
 def test(request):
@@ -91,6 +92,9 @@ def BulletinUnique(request):
         matri = request.GET['matricule']
         nom = request.GET['nom']
         
+
+
+
         context = {
             0: matri,
             1: nom,
@@ -104,92 +108,75 @@ def BulletinSpecialite(request):
     return JsonResponse(context, safe=True)
 
 
-
 def saveData(key, values):
     if (len(key) == len(values)):
-        
-        for i in range(1,len(key)):
+        print(key,values)
+
+        for i in range(len(key)):
+            
             setKey = key[i]
-            if(setKey[0]=="CC"):
+            """if(setKey[0]=="CC"):
                 natureEvaluation_ = 'Contrôle_Continue'
-            elif(setKey[0]=="SN"):
-                natureEvaluation_ = 'Session_Normale'
+                #note_cc = 
+            elif(setKey[0]=="SN"):"""
+            natureEvaluation_ = 'EXAMEN'
             matricule = setKey[1]
             codeUe = setKey[2]
-            note_ = values[i]
+            note = values[i]
+            note_cc = note[0]
+            note_sn = note[1]
+            note_examen = 0.7*note_sn + 0.3*note_cc
+
 
             etudiant_Query = Etudiant.objects.filter(matricule=matricule)#.values('nom')
             etudiant = etudiant_Query[0]
 
             ue_Query = UniteEnseignement.objects.filter(code_UE=codeUe)#.values('id')
             ue = ue_Query[0]
-
-            evaluation = Evaluation(natureEvaluation=natureEvaluation_, note=note_, etudiant=etudiant, uniteEnseignement=ue)
+            
+            evaluation = Evaluation(natureEvaluation=natureEvaluation_, note_cc=note_cc, note_sn=note_sn, etudiant=etudiant, note_Examen=note_examen,uniteEnseignement=ue)
             evaluation.save()
 
 def extract(a):
-    key = list(a.keys())
+    key1 = list(a.keys())
     value = list(a.values())
-    
-    for i in range(len(key)):
-        k = key[i]
-        key[i] = k.split()
-        
-        """val = value[i]
-        val1 = val[0]
-        value[i] = val1"""
-        
-    return (key, value)
+    key= []
+    values = []
+    shape = []
+    #Epuration des Key
+    for i in range(1,len(key1)):
+        k = key1[i]
+        key1[i] = k.split()
+    #reduction à un type d'évaluation
+    for i in range(1,len(key1)):
+        if(i%2==0):
+            key.append(key1[i])
+    #Couplage des valeurs par liste de deux
+    values = broke(value)
+    shape = pattern(value)
+    print(shape)
+    values = formatt(values, shape)
+    return (key, values)
+
+def pattern(a):
+    r = []
+    for i in range(len(a)//2):
+        r.append(2)
+    return r   
+def broke(a):
+    values = []
+    for i in range(1,len(a)):#décalage afin d'éviter la clé token du formulaire
+        e = a[i]
+        v = float((e))
+        values.append(v)
+    return values
+def formatt(a, pattern):
+    inputt = iter(a)
+    output = [list(islice(inputt, elem))
+        for elem in pattern]
+    return output
 
 """
-def saveData(key, values):
-    if (len(key) == len(values)):
-        
-        for i in range(1,len(key)):
-            setKey = key[i]
-            if(setKey[0]=="CC"):
-                natureEvaluation = 'Contrôle_Continue'
-            elif(setKey[0]=="SN"):
-                natureEvaluation = 'Session_Normale'
-            matricule = setKey[1]
-            codeUe = setKey[2]
-            note = int(values[i])
-
-"""
-
-"""
-def extract(dicto):
-    couple = ()
-    big = ()
-    for key,value in dicto.items():
-        couple_list = list(couple)
-        couple_list.append(key)
-        couple_list.append(value)
-        couple = tuple(couple_list)
-        big_list = list(big)
-        big_list.append(couple)
-        big = tuple(big_list)
-        couple = ()
-    return big
-
-def splitVar(a):
-    big = ()
-    i=1
-    for i in range(len(a)):
-        key , val = a[i]
-        b = key.split()
-        c = val
-        
-        a_list = list(a[i])
-        a_list[0] =b
-        a_list[1] = c
-        
-        big_list = list(big)
-        big_list.append(a_list)
-        big = tuple(big_list)
-    return big
-"""
-
 #Génération de bulletin
 def GenerateBulletin (request):
     bulletin = {
@@ -220,5 +207,4 @@ def GenerateBulletin (request):
             }
         }
     }
-
-
+"""

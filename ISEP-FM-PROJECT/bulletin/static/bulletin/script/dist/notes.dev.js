@@ -561,7 +561,6 @@ $(function () {
     e.preventDefault();
     console.log('OK');
   }).validate({
-    //debug:true,
     submitHandler: function submitHandler(form) {
       $("#myForm").ajaxSubmit(options);
       tbodylistStudent.innerHTML = "";

@@ -6,6 +6,10 @@ from .models import *
 from django.http import JsonResponse
 from itertools import islice
 
+from django.views.generic import View
+from .utils import render_to_pdf 
+
+
 # Create your views here.
 
 def home(request):
@@ -83,6 +87,17 @@ def AddNoteEtudiant(request):
 
 def test(request):
     return render(request, 'bulletin/BulletinTemplate/bulletin1.html')
+
+#################################REQUETES POUR BULLETIN#############################################################
+def bulls1eps(request, filiere):
+
+    coefS1 = list(UniteEnseignement.objects.filter(semestre_id=1).values("coefficient"))
+
+    if filiere == "GESTION":
+        setOfID = list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values())
+    
+
+    return render(request,'bulletin/BulletinTemplate/bullS1eps.html') 
 
 """
     Requête Bulletin
@@ -208,3 +223,40 @@ def GenerateBulletin (request):
         }
     }
 """
+
+
+##############GENERATION DE BULLETINS#####################################################################
+
+#class GeneratePdf(View):
+#    def get(self, request, *args, **kwargs):
+#        pdf = render_to_pdf('bulletin/BulletinTemplate/bullS1eps.html')
+#        return HttpResponse(pdf, content_type='application/pdf')
+
+# class GeneratePdf(View):
+#     def get(self, request, *args, **kwargs):
+#         pdf = render_to_pdf('report.html')
+#         if pdf:
+#             response=HttpResponse(pdf,content_type='application/pdf')
+#             filename = "PDF_%s.pdf" %("Report")
+#             content = "inline; filename= %s" %(filename)
+#             response['Content-Disposition']=content
+#             return response
+#         return HttpResponse("Page Not Found")
+
+
+class GeneratePdf(View):
+    def get(self, request, *args, **kwargs):
+        data = {
+        "name": "Mama", #you can feach the data from database
+        "id": "18",
+        "amount": "333",
+        }
+        pdf = render_to_pdf('bulletin/BulletinTemplate/bullS1eps.html',data)
+        if pdf:
+            response=HttpResponse(pdf,content_type='application/pdf')
+            filename = "Report_for_%s.pdf" %(data['id'])
+            content = "inline; filename= %s" %(filename)
+            response['Content-Disposition']=content
+            return response
+        return HttpResponse("Page Not Found")
+

@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import GeneratePdf
 
 urlpatterns=[
     path('', views.home, name="home"),
@@ -14,10 +15,12 @@ urlpatterns=[
     path('etudiantNiveau3MSO/', views.EtudiantNiveau3MSO, name="etudiantniveau3MSO"),
     path('etudiantNiveau3EVE/', views.EtudiantNiveau3EVE, name="etudiantniveau3EVE"),
     path('notes/ajoutNoteEtudiant/', views.AddNoteEtudiant,name="addNoteEtudiant"),
-    path('bull/', views.test, name="bull"),
     path('BulletinUnique/',views.BulletinUnique, name="bulletinUnique"),
     path('BulletinSpecialite/',views.BulletinSpecialite, name="bulletinSpacialite"),
+    path('BullS2EPS/', views.test, name="bull"),
+    path('bulletin/BullS1EPS/<filiere>/', views.bulls1eps, name="bullS1eps"),
 
+    path('pdf/', GeneratePdf.as_view(),name='pdf'), 
 ]
 
 

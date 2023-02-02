@@ -94,8 +94,28 @@ class UniteEnseignement(models.Model):
 
     volume_Horaire = models.IntegerField()
     nombre_credit = models.IntegerField()
+    filiere = models.CharField
     coefficient = models.IntegerField()
 
+    class Filiere(models.TextChoices):
+        GESTION="GESTION"
+        STAPS="STAPS"
+        MAS="MAS"
+        
+        def __str__(self):
+            return str(self)
+    filiere = models.CharField(max_length=200,choices=Filiere.choices, null=True)
+
+    class Specialite(models.TextChoices):
+            EPS ="EPS"
+            MDS="Management du Sport"
+            EVE="EVENEMENTIEL"
+            MSO="MSO"
+
+            def __str__(self):
+                return str(self)
+    Specialite = models.CharField(max_length=200, choices=Specialite.choices, null=True)
+    
     class Groupe(models.TextChoices):
         FONDAMENTALE = "Fondanmental"
         TRANSVERSALE = "Transversal"

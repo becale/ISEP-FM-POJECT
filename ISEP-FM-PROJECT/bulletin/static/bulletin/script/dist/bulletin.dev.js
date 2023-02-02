@@ -5,17 +5,20 @@ function getButtonId() {
   // Create event listener
   document.addEventListener('click', function (e) {
     // Retrieve id from clicked element
-    if (e.target.id !== '' && e.target.tagName == 'BUTTON') {
-      //idUe = ""
-      //console.log(e.target.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
-      idUe = e.target.parentElement.parentElement.parentElement.children[0].innerText; //.parentElement.children[0].innerText
-      //
-    } else {
+    if (e.target.id !== '' && (e.target.tagName == 'A' || e.target.tagName == 'BUTTON')
+    /*e.target.tagName == 'BUTTON'*/
+    ) {
+        //idUe = ""
+        //console.log(e.target.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
+        idUe = e.target.parentElement.parentElement.parentElement.children[0].innerText; //.parentElement.children[0].innerText
+
+        console.log(idUe);
+        return idUe;
+      } else {
       // If element has no id
-      console.log("object doesn't have ID");
-      console.log(idUe);
+      console.log("object is neither button, nor anchor doesn't have ID");
     }
-  });
+  }); //document.getElementsByTagName('')
 }
 
 getButtonId();
@@ -44,12 +47,11 @@ function modal() {
   var _loop = function _loop(i) {
     btn[i].onclick = function () {
       bouton = btn[i].parentElement.parentElement.parentElement.children[0].innerText;
-      console.log(btn[i].parentElement.parentElement.parentElement.children[0].innerText);
 
       if (btn[i].parentElement.parentElement.parentElement.children[0].innerText == "STAPS1") {
         getetudiantStapsNiveau1();
       } else if (btn[i].parentElement.parentElement.parentElement.children[0].innerText == "GESTION") {
-        getetudiantMDSNiveau1();
+        getetudiantMDSNiveau1(); //SendSetSpecialityMatricule(bouton)//
       } else if (btn[i].parentElement.parentElement.parentElement.children[0].innerText == "STAPS2") {
         getetudiantStapsNiveau2();
       } else if (btn[i].parentElement.parentElement.parentElement.children[1].innerText == "MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS") {
@@ -107,9 +109,18 @@ function createSemestre() {
     var UeTitle = document.createTextNode(specialite[i]);
     intituleMatiere.appendChild(UeTitle); //Ajout Bouton Génération Bulletins
 
-    var genererBull = document.createElement("button");
-    genererBull.setAttribute("id", "myBtn".concat(i));
-    genererBull.setAttribute("class", 'myBtn');
+    var genererBull = document.createElement("a"); //console.log(bouton);
+
+    genererBull.setAttribute("id", "generateLink".concat(i));
+    /*filiere = getButtonId()
+    console.log(`${filiere} OK`);*/
+    //genererBull.setAttribute("href", "BullS1EPS")
+
+    /*genererBull.setAttribute("class","btn-primary")*/
+
+    /*genererBull.setAttribute("id", `myBtn${i}`)
+    genererBull.setAttribute("class", 'myBtn')*/
+
     genererBull.innerHTML = "APPERCU BULLETIN(S)";
     var bigBoy = document.createElement('div');
     bigBoy.setAttribute('id', "big-boy");
@@ -124,6 +135,7 @@ function createSemestre() {
     matiere.appendChild(intituleMatiere);
     matiere.appendChild(addModifyMatiere);
     listUe.appendChild(matiere);
+    genererBull.setAttribute("href", "BullS1EPS/".concat(genererBull.parentElement.parentElement.parentElement.children[0].innerText));
   } //Semestres N0 2 STAPS ET GESTION
 
 
@@ -517,10 +529,11 @@ function getetudiantStapsNiveau1() {
       }
 
       dataToSend = dataList;
-      /*const submitBullSpecialite = document.getElementById('submit')
-      submitBullSpecialite.onclick = function(){
-         GetSetSpecialityMatricule(dataToSend)
-      }*/
+      var submitBullSpecialite = document.getElementById('submit');
+
+      submitBullSpecialite.onclick = function () {
+        GetSetSpecialityMatricule(dataToSend);
+      };
     }
   };
 
@@ -537,6 +550,8 @@ function getetudiantMDSNiveau1() {
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       myEtudiantMDS1 = JSON.parse(this.responseText);
+      console.log(myEtudiantMDS1);
+      SendSetSpecialityMatricule(myEtudiantMDS1);
       /** Ajout des lignes pour insertion des notes des étudiants */
 
       /**Changement du TITRE Du modal */
@@ -565,8 +580,7 @@ function getetudiantMDSNiveau1() {
 
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
-        tabledata4.setAttribute('class', 'columnR'); //tabledata4.disabled = true
-
+        tabledata4.setAttribute('class', 'columnR');
         var ligne = document.createElement('tr');
         ligne.appendChild(tabledata2);
         ligne.appendChild(tabledata3);
@@ -782,9 +796,19 @@ function GetUniqueMatricule(data) {
 
 function GetSetSpecialityMatricule(data) {
   $.ajax({
-    type: 'GET',
+    type: 'POST',
     url: "http://localhost:8000/BulletinSpecialite/",
     data: data,
+    success: console.log("Request sent with Success") //dataType:,
+
+  }); //Ajout d'une ligne pour fermer le modal après soumission de la requête
+}
+
+function SendSetSpecialityMatricule(donnee) {
+  $.ajax({
+    type: 'GET',
+    url: "BullS1EPS/",
+    data: donnee,
     success: console.log("Request sent with Success") //dataType:,
 
   }); //Ajout d'une ligne pour fermer le modal après soumission de la requête

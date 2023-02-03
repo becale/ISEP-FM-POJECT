@@ -91,13 +91,27 @@ def test(request):
 #################################REQUETES POUR BULLETIN#############################################################
 def bulls1eps(request, filiere):
 
-    coefS1 = list(UniteEnseignement.objects.filter(semestre_id=1).values("coefficient"))
+    infoEtudiantMDS =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
+    coefS1EPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("coefficient"))
+    EPS111 =list(Evaluation.objects.filter(uniteEnseignement_id=3).values('note_Examen'))
+    EPS112 =list(Evaluation.objects.filter(uniteEnseignement_id=4).values('note_Examen'))
+    EPS113 =list(Evaluation.objects.filter(uniteEnseignement_id=5).values('note_Examen'))
+    EPS114 =list(Evaluation.objects.filter(uniteEnseignement_id=6).values('note_Examen'))
+    EPS115 =list(Evaluation.objects.filter(uniteEnseignement_id=7).values('note_Examen'))
+    EPS116 =list(Evaluation.objects.filter(uniteEnseignement_id=8).values('note_Examen'))
+    EPS117 =list(Evaluation.objects.filter(uniteEnseignement_id=9).values('note_Examen'))
+    EPS118 =list(Evaluation.objects.filter(uniteEnseignement_id=10).values('note_Examen'))
+    EPS119 =list(Evaluation.objects.filter(uniteEnseignement_id=11).values('note_Examen'))
+
+    semestre1MDS = [infoEtudiantMDS,EPS111, EPS112,EPS113,EPS114,EPS115,EPS116,EPS117,EPS118,EPS119]
 
     if filiere == "GESTION":
-        setOfID = list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values())
+        fil = 'GESTION'
+    else:
+        fil = 'STAPS'
     
 
-    return render(request,'bulletin/BulletinTemplate/bullS1eps.html') 
+    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS, filiere:fil}) 
 
 """
     Requête Bulletin
@@ -141,6 +155,7 @@ def saveData(key, values):
             note_cc = note[0]
             note_sn = note[1]
             note_examen = 0.7*note_sn + 0.3*note_cc
+            note_examen = float("{:.2f}".format(note_examen)) #Determiner la précision de 2 chiffres après la virgule
 
 
             etudiant_Query = Etudiant.objects.filter(matricule=matricule)#.values('nom')
@@ -260,3 +275,11 @@ class GeneratePdf(View):
             return response
         return HttpResponse("Page Not Found")
 
+########################################################## FONCTIONS UTILIES ########################################################
+def extractNote(a):
+    notes=[]
+    for i in range(len(a)):
+        data = a[i]
+        value = data["note_Examen"]
+        notes.append(value)
+    return notes

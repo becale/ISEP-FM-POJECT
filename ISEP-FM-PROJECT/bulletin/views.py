@@ -88,8 +88,8 @@ def AddNoteEtudiant(request):
 def test(request):
     return render(request, 'bulletin/BulletinTemplate/bulletin1.html')
 
-#################################REQUETES POUR BULLETIN#############################################################
-def bulls1eps(request, filiere):
+################################# REQUETES POUR BULLETIN SEMESTRE 1 3 5 #############################################################
+def bulls1epsmds(request, filiere):
 
     infoEtudiantMDS =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
     coefS1EPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("coefficient"))
@@ -103,15 +103,22 @@ def bulls1eps(request, filiere):
     EPS118 =list(Evaluation.objects.filter(uniteEnseignement_id=10).values('note_Examen'))
     EPS119 =list(Evaluation.objects.filter(uniteEnseignement_id=11).values('note_Examen'))
 
-    semestre1MDS = [infoEtudiantMDS,EPS111, EPS112,EPS113,EPS114,EPS115,EPS116,EPS117,EPS118,EPS119]
+    semestre1MDS = [filiere, infoEtudiantMDS,EPS111, EPS112,EPS113,EPS114,EPS115,EPS116,EPS117,EPS118,EPS119]
 
-    if filiere == "GESTION":
-        fil = 'GESTION'
-    else:
-        fil = 'STAPS'
-    
 
-    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS, filiere:fil}) 
+    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS}) 
+
+def bulls3eps2(request, filier):
+    pass
+
+def bulls5msoeve(request, filiere):
+    pass
+
+################################# REQUETES POUR BULLETIN SEMESTRE 2 4 6 #############################################################
+def bulls2epsmds(request, filiere):
+    pass
+
+
 
 """
     Requête Bulletin

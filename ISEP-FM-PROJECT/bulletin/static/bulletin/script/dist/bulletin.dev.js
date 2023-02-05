@@ -109,12 +109,8 @@ function createSemestre() {
     var UeTitle = document.createTextNode(specialite[i]);
     intituleMatiere.appendChild(UeTitle); //Ajout Bouton Génération Bulletins
 
-    var genererBull = document.createElement("a"); //console.log(bouton);
-
-    genererBull.setAttribute("id", "generateLink".concat(i));
-    /*filiere = getButtonId()
-    console.log(`${filiere} OK`);*/
-    //genererBull.setAttribute("href", "BullS1EPS")
+    var genererBull = document.createElement("a");
+    genererBull.setAttribute("id", "generateLink".concat(i)); //genererBull.setAttribute("href", "BullS1EPS")
 
     /*genererBull.setAttribute("class","btn-primary")*/
 
@@ -135,7 +131,7 @@ function createSemestre() {
     matiere.appendChild(intituleMatiere);
     matiere.appendChild(addModifyMatiere);
     listUe.appendChild(matiere);
-    genererBull.setAttribute("href", "BullS1EPS/".concat(genererBull.parentElement.parentElement.parentElement.children[0].innerText));
+    genererBull.setAttribute("href", "Semestre1/".concat(genererBull.parentElement.parentElement.parentElement.children[0].innerText));
   } //Semestres N0 2 STAPS ET GESTION
 
 
@@ -182,11 +178,10 @@ function createSemestre() {
     _intituleMatiere.appendChild(UeTitle); //Ajout Bouton Génération Bulletins
 
 
-    var _genererBull = document.createElement("button");
+    var _genererBull = document.createElement("a");
 
-    _genererBull.setAttribute("id", "myBtn".concat(_i + 2));
+    _genererBull.setAttribute("id", "generateLink".concat(_i)); //genererBull.setAttribute("href", "BullS1EPS/MDSs2")
 
-    _genererBull.setAttribute("class", 'myBtn');
 
     _genererBull.innerHTML = "APPERCU BULLETIN(S)";
 
@@ -214,7 +209,7 @@ function createSemestre() {
 
     _matiere.appendChild(_addModifyMatiere);
 
-    listUe.appendChild(_matiere);
+    listUe.appendChild(_matiere); //genererBull.setAttribute("href", `BullSemestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}s2`)
   }
   /**
    * SEMESTRES 3 & 4
@@ -266,13 +261,23 @@ function createSemestre() {
 
     _intituleMatiere2.appendChild(UeTitle);
 
-    var _genererBull2 = document.createElement('button');
+    var _genererBull2 = document.createElement("a");
+
+    _genererBull2.setAttribute("id", "generateLink".concat(_i2)); //genererBull.setAttribute("href", "BullSemestre1EPS/MDSs2")
+
+    /*genererBull.setAttribute("class","btn-primary")*/
+
+    /*genererBull.setAttribute("id", `myBtn${i}`)
+    genererBull.setAttribute("class", 'myBtn')*/
+
 
     _genererBull2.innerHTML = "APPERCU BULLETIN(S)";
 
-    _genererBull2.setAttribute("id", "myBtn".concat(_i2 + 4));
+    _genererBull2.setAttribute("id", "generateLink".concat(_i2 + 2));
+    /*const genererBull = document.createElement("button")
+    genererBull.setAttribute("class", 'myBtn')
+    genererBull.innerHTML = "APPERCU BULLETIN(S)";*/
 
-    _genererBull2.setAttribute("class", 'myBtn');
 
     var _bigBoy2 = document.createElement('div');
 
@@ -299,6 +304,13 @@ function createSemestre() {
     _matiere2.appendChild(_addModifyMatiere2);
 
     listUe.appendChild(_matiere2);
+
+    if (imgSemestrePath == "/static/bulletin/icones/number_3.png") {
+      _genererBull2.setAttribute("href", "Semestre3/".concat(_genererBull2.parentElement.parentElement.parentElement.children[0].innerText));
+    }
+
+    if (imgSemestrePath == "/static/bulletin/icones/four_4.png") {//genererBull.setAttribute("href", `Semestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+    }
   }
   /**
    * SEMESTRES 5 
@@ -310,7 +322,7 @@ function createSemestre() {
       break;
     }
 
-    imgSemestrePath = "/static/bulletin/icones/five_5.png";
+    var imgSemestrePath = "/static/bulletin/icones/five_5.png";
     var imgSemestre = document.createElement('img');
     imgSemestre.setAttribute('src', imgSemestrePath);
     imgSemestre.setAttribute('alt', 'One');
@@ -345,13 +357,14 @@ function createSemestre() {
 
     _intituleMatiere3.appendChild(UeTitle);
 
-    var _genererBull3 = document.createElement('button');
+    var _genererBull3 = document.createElement('a');
 
     _genererBull3.innerHTML = "APPERCU BULLETIN(S)";
 
-    _genererBull3.setAttribute("id", "myBtn".concat(_i3 + 6));
+    _genererBull3.setAttribute("id", "generateLink".concat(_i3 + 6));
+    /*genererBull.innerHTML="APPERCU BULLETIN(S)";
+    genererBull.setAttribute("class", 'myBtn')*/
 
-    _genererBull3.setAttribute("class", 'myBtn');
 
     var _bigBoy3 = document.createElement('div');
 
@@ -378,6 +391,12 @@ function createSemestre() {
     _matiere3.appendChild(_addModifyMatiere3);
 
     listUe.appendChild(_matiere3);
+
+    _genererBull3.setAttribute("href", "Semestre5/".concat(_genererBull3.parentElement.parentElement.parentElement.children[1].innerText));
+
+    if (_genererBull3.parentElement.parentElement.parentElement.children[1].innerText == "MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS") {
+      _genererBull3.setAttribute("href", "Semestre5/MSO");
+    }
   }
   /**
    * SEMESTRES 6 
@@ -424,13 +443,12 @@ function createSemestre() {
 
     _intituleMatiere4.appendChild(UeTitle);
 
-    var _genererBull4 = document.createElement('button');
+    var _genererBull4 = document.createElement('a');
 
     _genererBull4.innerHTML = "APPERCU BULLETIN(S)";
 
-    _genererBull4.setAttribute("id", "myBtn".concat(_i4 + 7));
+    _genererBull4.setAttribute("id", "generateLink".concat(_i4 + 7)); //genererBull.setAttribute("class", 'myBtn')
 
-    _genererBull4.setAttribute("class", 'myBtn');
 
     var _bigBoy4 = document.createElement('div');
 

@@ -115,11 +115,7 @@ function createSemestre() {
         //Ajout Bouton Génération Bulletins
         
         const genererBull = document.createElement("a")
-        //console.log(bouton);
         genererBull.setAttribute("id", `generateLink${i}`)
-        /*filiere = getButtonId()
-        console.log(`${filiere} OK`);*/
-
         //genererBull.setAttribute("href", "BullS1EPS")
         /*genererBull.setAttribute("class","btn-primary")*/
         /*genererBull.setAttribute("id", `myBtn${i}`)
@@ -144,7 +140,7 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
-        genererBull.setAttribute("href", `BullS1EPS/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+        genererBull.setAttribute("href", `Semestre1/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
     } 
 
     //Semestres N0 2 STAPS ET GESTION
@@ -179,9 +175,9 @@ function createSemestre() {
         intituleMatiere.appendChild(UeTitle)
 
         //Ajout Bouton Génération Bulletins
-        const genererBull = document.createElement("button")
-        genererBull.setAttribute("id", `myBtn${i+2}`)
-        genererBull.setAttribute("class", 'myBtn')
+        const genererBull = document.createElement("a")
+        genererBull.setAttribute("id", `generateLink${i}`)
+        //genererBull.setAttribute("href", "BullS1EPS/MDSs2")
         genererBull.innerHTML = "APPERCU BULLETIN(S)";
 
         const bigBoy = document.createElement('div')
@@ -200,6 +196,7 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
+        //genererBull.setAttribute("href", `BullSemestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}s2`)
     } 
 
     /**
@@ -234,10 +231,18 @@ function createSemestre() {
         var UeTitle = document.createTextNode(specialite2)
         intituleMatiere.appendChild(UeTitle)
 
-        const genererBull = document.createElement('button');
-        genererBull.innerHTML="APPERCU BULLETIN(S)";
-        genererBull.setAttribute("id", `myBtn${i+4}`)
+        
+        const genererBull = document.createElement("a")
+        genererBull.setAttribute("id", `generateLink${i}`)
+        //genererBull.setAttribute("href", "BullSemestre1EPS/MDSs2")
+        /*genererBull.setAttribute("class","btn-primary")*/
+        /*genererBull.setAttribute("id", `myBtn${i}`)
+        genererBull.setAttribute("class", 'myBtn')*/
+        genererBull.innerHTML = "APPERCU BULLETIN(S)";
+        genererBull.setAttribute("id", `generateLink${i+2}`)
+        /*const genererBull = document.createElement("button")
         genererBull.setAttribute("class", 'myBtn')
+        genererBull.innerHTML = "APPERCU BULLETIN(S)";*/
 
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)
@@ -255,6 +260,13 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
+        if(imgSemestrePath=="/static/bulletin/icones/number_3.png"){
+          genererBull.setAttribute("href", `Semestre3/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+        }
+        if(imgSemestrePath=="/static/bulletin/icones/four_4.png"){
+          //genererBull.setAttribute("href", `Semestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+        }
+        
     }
 
     /**
@@ -262,7 +274,7 @@ function createSemestre() {
      */
     for(let i=0; i<=2; i++){
         if(i==2){break}
-        imgSemestrePath = "/static/bulletin/icones/five_5.png"
+        var imgSemestrePath = "/static/bulletin/icones/five_5.png"
         var imgSemestre = document.createElement('img')
         imgSemestre.setAttribute('src',imgSemestrePath)
         imgSemestre.setAttribute('alt','One')
@@ -286,10 +298,11 @@ function createSemestre() {
         var UeTitle = document.createTextNode(specialite3[i])
         intituleMatiere.appendChild(UeTitle)
 
-        const genererBull = document.createElement('button');
-        genererBull.innerHTML="APPERCU BULLETIN(S)";
-        genererBull.setAttribute("id", `myBtn${i+6}`)
-        genererBull.setAttribute("class", 'myBtn')
+        const genererBull = document.createElement('a');
+        genererBull.innerHTML = "APPERCU BULLETIN(S)";
+        genererBull.setAttribute("id", `generateLink${i+6}`)
+        /*genererBull.innerHTML="APPERCU BULLETIN(S)";
+        genererBull.setAttribute("class", 'myBtn')*/
 
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)
@@ -307,6 +320,10 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
+        genererBull.setAttribute("href", `Semestre5/${genererBull.parentElement.parentElement.parentElement.children[1].innerText}`)
+        if(genererBull.parentElement.parentElement.parentElement.children[1].innerText =="MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS"){
+          genererBull.setAttribute("href", `Semestre5/MSO`)
+        }
     }
 
     /**
@@ -338,10 +355,10 @@ function createSemestre() {
         var UeTitle = document.createTextNode(specialite3[i])
         intituleMatiere.appendChild(UeTitle)
 
-        const genererBull = document.createElement('button');
+        const genererBull = document.createElement('a');
         genererBull.innerHTML="APPERCU BULLETIN(S)";
-        genererBull.setAttribute("id", `myBtn${i+7}`)
-        genererBull.setAttribute("class", 'myBtn')
+        genererBull.setAttribute("id", `generateLink${i+7}`)
+        //genererBull.setAttribute("class", 'myBtn')
 
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)

@@ -18,7 +18,10 @@ urlpatterns=[
     path('BulletinUnique/',views.BulletinUnique, name="bulletinUnique"),
     path('BulletinSpecialite/',views.BulletinSpecialite, name="bulletinSpacialite"),
     path('BullS2EPS/', views.test, name="bull"),
-    path('bulletin/BullS1EPS/<filiere>/', views.bulls1eps, name="bullS1eps"),
+    path('bulletin/Semestre1/<filiere>', views.bulls1epsmds, name="bullS1epsmds"),
+    #path('bulletin/BullSemestre2/<filiere>', views.bulls2epsmds, name="bullS2epsmds"),
+    path('bulletin/Semestre3/<filiere>', views.bulls3eps2, name="bullS3eps"),
+    path('bulletin/Semestre5/<filiere>', views.bulls5msoeve, name="bullS5msoeve"),
 
     path('pdf/', GeneratePdf.as_view(),name='pdf'), 
 ]

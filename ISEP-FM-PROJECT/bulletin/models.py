@@ -111,6 +111,7 @@ class UniteEnseignement(models.Model):
             MDS="Management du Sport"
             EVE="EVENEMENTIEL"
             MSO="MSO"
+            TRC="Tronc-Commun"
 
             def __str__(self):
                 return str(self)
@@ -120,6 +121,7 @@ class UniteEnseignement(models.Model):
         FONDAMENTALE = "Fondanmental"
         TRANSVERSALE = "Transversal"
         PROFESSIONNELE = "Professionel"
+        SPECIALITE = "Specialite"
 
         def __str__(self):
             return str(self)

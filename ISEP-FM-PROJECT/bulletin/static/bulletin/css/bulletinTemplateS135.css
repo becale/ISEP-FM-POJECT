@@ -8,6 +8,7 @@ body{
 
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
 
     padding: 0.5cm;
     padding-top: 0.01cm;
@@ -224,6 +225,41 @@ tr td{
  th{
     border: 2px solid black;
 }
+/*Tbody00*/
+#tbody00 tr:nth-child(2){
+    border-bottom: black dotted 1.5px;
+}
+#tbody00 tr:nth-child(6){
+    border-bottom: black dotted 1.5px;
+}
+#tbody00 tr:nth-child(7){
+    border-bottom: black solid 2px;
+}
+#tbody00 tr:nth-child(8){
+    border-bottom: black solid 2px;
+}
+#tbody00 tr:nth-child(9) > td{
+    border-top: black solid 2px;
+    border-right: 2px solid black;
+}
+
+
+/*Tbody01*/
+#tbody01 tr:nth-child(2){
+    border-bottom: black dotted 1.5px;
+}
+#tbody01 tr:nth-child(4){
+    border-bottom: black solid 2px;
+    /*background-color: #C7B54D;*/
+}
+#tbody01 tr:nth-child(7) > td{
+    border-right: solid black 2px;
+}
+
+
+th{
+    border: 2px solid black;
+}
 tbody tr:nth-child(2){
     border-bottom: black solid 2px;
 }
@@ -235,9 +271,10 @@ tbody tr:nth-child(9){
 }
 tbody tr:nth-child(10) > td{
     border-top: black solid 2px;
-    /*border-bottom: black solid 2px;*/
+    border-bottom: black solid 2px;
     border-right: 2px solid black;
 }
+
 
 /***Table 2***/
 #table-2{
@@ -351,4 +388,8 @@ tbody tr:nth-child(10) > td{
 #generateBull{
     top: 15px;
     position: sticky;
+}
+
+#tr33-border-top{
+    border-bottom: solid 2px black;
 }

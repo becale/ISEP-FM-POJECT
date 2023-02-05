@@ -105,6 +105,12 @@ function getUe() {
           imgSemestrePath = "/static/bulletin/icones/number_2.png";
         } else if (myArr[i].semestre_id == 3) {
           imgSemestrePath = "/static/bulletin/icones/number_3.png";
+        } else if (myArr[i].semestre_id == 4) {
+          imgSemestrePath = "/static/bulletin/icones/four_4.png";
+        } else if (myArr[i].semestre_id == 5) {
+          imgSemestrePath = "/static/bulletin/icones/five_5.png";
+        } else if (myArr[i].semestre_id == 6) {
+          imgSemestrePath = "/static/bulletin/icones/number_6.png";
         }
 
         var imgSemestre = document.createElement('img');
@@ -449,7 +455,7 @@ function getetudiantEVENiveau3() {
 
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3EVE[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
 
         tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');

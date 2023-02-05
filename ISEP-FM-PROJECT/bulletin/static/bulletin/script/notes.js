@@ -105,6 +105,12 @@ if (this.readyState == 4 && this.status == 200) {
           imgSemestrePath = "/static/bulletin/icones/number_2.png"
         }else if(myArr[i].semestre_id == 3){
           imgSemestrePath = "/static/bulletin/icones/number_3.png"
+        }else if(myArr[i].semestre_id == 4){
+          imgSemestrePath = "/static/bulletin/icones/four_4.png"
+        }else if(myArr[i].semestre_id == 5){
+          imgSemestrePath = "/static/bulletin/icones/five_5.png"
+        }else if(myArr[i].semestre_id == 6){
+          imgSemestrePath = "/static/bulletin/icones/number_6.png"
         }
         var imgSemestre = document.createElement('img')
         imgSemestre.setAttribute('src',imgSemestrePath)
@@ -478,7 +484,7 @@ if (this.readyState == 4 && this.status == 200) {
         //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3EVE[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
-        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantNiveau3EVE[i].matricule} ${idUe}`)
         //tabledata4Input.setAttribute('required','')
         tabledata4Input.setAttribute('class','noteField')
 

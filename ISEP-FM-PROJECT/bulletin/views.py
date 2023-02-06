@@ -91,28 +91,35 @@ def test(request):
 ################################# REQUETES POUR BULLETIN SEMESTRE 1 3 5 #############################################################
 def bulls1epsmds(request, filiere):
 
-    infoEtudiantMDS =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
-    coefS1EPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("coefficient"))
-    EPS111 =list(Evaluation.objects.filter(uniteEnseignement_id=3).values('note_Examen'))
-    EPS112 =list(Evaluation.objects.filter(uniteEnseignement_id=4).values('note_Examen'))
-    EPS113 =list(Evaluation.objects.filter(uniteEnseignement_id=5).values('note_Examen'))
-    EPS114 =list(Evaluation.objects.filter(uniteEnseignement_id=6).values('note_Examen'))
-    EPS115 =list(Evaluation.objects.filter(uniteEnseignement_id=7).values('note_Examen'))
-    EPS116 =list(Evaluation.objects.filter(uniteEnseignement_id=8).values('note_Examen'))
-    EPS117 =list(Evaluation.objects.filter(uniteEnseignement_id=9).values('note_Examen'))
-    EPS118 =list(Evaluation.objects.filter(uniteEnseignement_id=10).values('note_Examen'))
-    EPS119 =list(Evaluation.objects.filter(uniteEnseignement_id=11).values('note_Examen'))
+    infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
+    
+    coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient"))
+    creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
+    
+    MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=12).values('note_Examen'))
+    MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=13).values('note_Examen'))
+    MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=14).values('note_Examen'))
+    MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=15).values('note_Examen'))
+    MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=16).values('note_Examen'))
+    MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=17).values('note_Examen'))
+    MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=18).values('note_Examen'))
+    MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=19).values('note_Examen'))
 
-    semestre1MDS = [filiere, infoEtudiantMDS,EPS111, EPS112,EPS113,EPS114,EPS115,EPS116,EPS117,EPS118,EPS119]
+    semestre1MDS = [filiere, infoEtudiantMDS, coefS1MDS1, creditS1MDS1, MDS111, MDS111b, MDS112, MDS113, MDS114, MDS115, MDS116, MDS117]
 
 
     return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS}) 
 
-def bulls3eps2(request, filier):
-    pass
+def bulls3eps2(request, filiere):
+    
+    semestre1MDS = [filiere]
+
+    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS} ) 
 
 def bulls5msoeve(request, filiere):
-    pass
+    semestre1MDS = [filiere]
+
+    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS} )
 
 ################################# REQUETES POUR BULLETIN SEMESTRE 2 4 6 #############################################################
 def bulls2epsmds(request, filiere):
@@ -128,9 +135,6 @@ def BulletinUnique(request):
         matri = request.GET['matricule']
         nom = request.GET['nom']
         
-
-
-
         context = {
             0: matri,
             1: nom,
@@ -212,40 +216,6 @@ def formatt(a, pattern):
     output = [list(islice(inputt, elem))
         for elem in pattern]
     return output
-
-"""
-#Génération de bulletin
-def GenerateBulletin (request):
-    bulletin = {
-        'etudiant' : {
-            'id': "",
-            'filiere':"",
-            'specialite':"",
-            'nom': "",
-            'prenom':"",
-            'Nationalité':"",
-            'grade':"",
-            'annee_academique':"",
-            'lieu_naissance':"",
-            'niveau':"",
-        },
-
-        'matiere':{
-            'groupe1':{
-                "intitulé":"",
-                "ue":{}
-
-            },
-            'groupe2':{
-
-            },
-            'groupe3':{
-
-            }
-        }
-    }
-"""
-
 
 ##############GENERATION DE BULLETINS#####################################################################
 

@@ -66,7 +66,9 @@ function modal() {
     btn[i].onclick = function () {
       if (myArr[i].code_UE.startsWith("EPS1")) {
         getetudiantStapsNiveau1();
-      } else if (myArr[i].code_UE.startsWith("MDS1")) {
+      } else if (myArr[i].code_UE.startsWith("MDS1") || myArr[i].code_UE
+      /*.startsWith*/
+      == "MDS111b") {
         getetudiantMDSNiveau1();
       } else if (myArr[i].code_UE.startsWith("EPS2")) {
         getetudiantStapsNiveau2();
@@ -133,12 +135,6 @@ function getUe() {
         intituleMatiere.setAttribute('id', 'intitule-matiere');
         var UeTitle = document.createTextNode(myArr[i].intitule_UE);
         intituleMatiere.appendChild(UeTitle);
-        /** FIN CARD */
-
-        /*const imgbtn = document.createElement('img')
-        let addPathImg = "/static/bulletin/icones/add.png"
-        imgbtn.setAttribute("src", addPathImg)*/
-
         var myBtn = document.createElement('button');
         myBtn.setAttribute('id', "myBtn".concat(i));
         myBtn.setAttribute('class', 'myBtn');
@@ -394,7 +390,7 @@ function getAllEtudiantNiveau3() {
 
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
 
         tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
@@ -516,7 +512,7 @@ function getetudiantMSONiveau3() {
 
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3MSO[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required', '')
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
         tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');

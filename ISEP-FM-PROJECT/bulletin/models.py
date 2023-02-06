@@ -107,11 +107,11 @@ class UniteEnseignement(models.Model):
     filiere = models.CharField(max_length=200,choices=Filiere.choices, null=True)
 
     class Specialite(models.TextChoices):
-            EPS ="EPS"
             MDS="Management du Sport"
             EVE="EVENEMENTIEL"
             MSO="MSO"
             TRC="Tronc-Commun"
+            EPS="EPS"
 
             def __str__(self):
                 return str(self)
@@ -128,7 +128,7 @@ class UniteEnseignement(models.Model):
     groupe = models.CharField(max_length=200, choices=Groupe.choices)
 
     def __str__(self):
-        return str(self.intitule_UE)
+        return str(self.code_UE+' '+self.intitule_UE)
 
 class Evaluation(models.Model):
     etudiant = models.ForeignKey(Etudiant, on_delete=models.CASCADE)

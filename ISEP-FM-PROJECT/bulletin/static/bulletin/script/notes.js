@@ -71,7 +71,7 @@ function modal(){
 
       if(myArr[i].code_UE.startsWith("EPS1")){
         getetudiantStapsNiveau1()
-      }else if(myArr[i].code_UE.startsWith("MDS1")){
+      }else if(myArr[i].code_UE.startsWith("MDS1") || myArr[i].code_UE/*.startsWith*/==("MDS111b")){
         getetudiantMDSNiveau1()
       }else if(myArr[i].code_UE.startsWith("EPS2")){
         getetudiantStapsNiveau2()
@@ -135,11 +135,6 @@ if (this.readyState == 4 && this.status == 200) {
         intituleMatiere.setAttribute('id','intitule-matiere')
         var UeTitle = document.createTextNode(myArr[i].intitule_UE)
         intituleMatiere.appendChild(UeTitle)
-
-        /** FIN CARD */
-        /*const imgbtn = document.createElement('img')
-        let addPathImg = "/static/bulletin/icones/add.png"
-        imgbtn.setAttribute("src", addPathImg)*/
 
         const myBtn = document.createElement('button')
         myBtn.setAttribute('id', `myBtn${i}`)
@@ -418,7 +413,7 @@ if (this.readyState == 4 && this.status == 200) {
         //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3[i].matricule} ${idUe}`)
-        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantNiveau3[i].matricule} ${idUe}`)
        //tabledata4Input.setAttribute('required','')
         tabledata4Input.setAttribute('class','noteField')
 
@@ -549,7 +544,7 @@ if (this.readyState == 4 && this.status == 200) {
         //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
         tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantNiveau3MSO[i].matricule}  ${idUe}`)
         tabledata4Input.setAttribute('name',`CC ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
-        tabledata4Input.setAttribute('id',`CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+        tabledata4Input.setAttribute('id',`CC ${myEtudiantNiveau3MSO[i].matricule} ${idUe}`)
         //tabledata4Input.setAttribute('required', '')
         tabledata4Input.setAttribute('class','noteField')
 

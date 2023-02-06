@@ -344,7 +344,7 @@ thead th:nth-child(5){
     height: 500px;
     width: 100%;
     border-bottom: solid black 1px;
-    overflow-y: scroll-behavior; 
+    /*overflow-y: scroll-behavior;*/
 }
 #modalNote-footer{
     width: 100%;

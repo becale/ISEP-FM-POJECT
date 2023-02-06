@@ -80,7 +80,7 @@ hr{
 }
 #bull-check{
     font-size: small;
-    margin-top: none;
+    /*margin-top: none;*/
     margin-bottom: 5px;
     /*background-color: brown;*/
     box-sizing: border-box;

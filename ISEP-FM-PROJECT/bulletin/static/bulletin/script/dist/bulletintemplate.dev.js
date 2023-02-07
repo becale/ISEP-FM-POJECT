@@ -14,7 +14,8 @@ window.addEventListener('load', function () {
 
     for (i = 0; i < mydata[1].length; i++) {
       clone = containerrr.cloneNode(true); //Execution des traitements sur container
-      //Puis ajout au containerList
+
+      clone = BullMDS1(clone); //Puis ajout au containerList
 
       listcontainer.appendChild(clone);
     } //Fixation de ContainerList sur le body de la page
@@ -102,7 +103,7 @@ function GenerateBullMDS1Semestre1() {
   info4.innerHTML = "Pr\xE9nom (s) : ";
   var info5 = document.createElement('div');
   info5.setAttribute('class', 'info-student-style');
-  info5.innerHTML = "Nationalit\xE9 : ";
+  info5.innerHTML = "Nationalit\xE9 : Camerounais(e)";
   var infostudent1 = document.createElement('div');
   infostudent1.setAttribute('id', 'info-student-1');
   infostudent1.appendChild(info1);
@@ -180,7 +181,7 @@ function GenerateBullMDS1Semestre1() {
   td5.setAttribute('id', 'MDS111-total');
   var td6 = document.createElement('td');
   td6.setAttribute('id', 'MDS111-moyenne');
-  td6.setAttribute('rowspan', '2');
+  td6.setAttribute('rowspan', '3');
   var td7 = document.createElement('td');
   td7.setAttribute('id', 'MDS111-rang');
   var td8 = document.createElement('td');
@@ -216,13 +217,13 @@ function GenerateBullMDS1Semestre1() {
   var td5 = document.createElement('td');
   td5.setAttribute('id', 'MDS111-total');
   var td6 = document.createElement('td');
-  td6.setAttribute('id', 'MDS111-moyenne');
+  td6.setAttribute('id', 'MDS111-rang');
   var td7 = document.createElement('td');
-  td7.setAttribute('id', 'MDS111-rang');
+  td7.setAttribute('id', 'MDS111-mention');
   var td8 = document.createElement('td');
-  td8.setAttribute('id', 'MDS111-mention');
+  td8.setAttribute('id', 'MDS111-session');
   var td9 = document.createElement('td');
-  td9.setAttribute('id', 'MDS111-session');
+  td9.setAttribute('id', 'MDS111-credits');
   var tr3 = document.createElement('tr');
   tr3.appendChild(td1);
   tr3.appendChild(td2);
@@ -246,8 +247,9 @@ function GenerateBullMDS1Semestre1() {
   td14.setAttribute('id', 'MDS112-coef');
   var td15 = document.createElement('td');
   td15.setAttribute('id', 'MDS112-total');
-  var td166 = document.createElement('td');
-  td166.setAttribute('id', 'MDS112-moyenne');
+  /*var td166=document.createElement('td')
+  td166.setAttribute('id','MDS112-moyenne')*/
+
   var td16 = document.createElement('td');
   td16.setAttribute('id', 'MDS112-rang');
   var td17 = document.createElement('td');
@@ -262,8 +264,8 @@ function GenerateBullMDS1Semestre1() {
   tr33.appendChild(td12);
   tr33.appendChild(td13);
   tr33.appendChild(td14);
-  tr33.appendChild(td15);
-  tr33.appendChild(td166);
+  tr33.appendChild(td15); //tr33.appendChild(td166)
+
   tr33.appendChild(td16);
   tr33.appendChild(td17);
   tr33.appendChild(td18);
@@ -697,7 +699,7 @@ function GenerateBullStaps1Semestre1() {
   info4.innerHTML = "Pr\xE9nom (s) : ";
   var info5 = document.createElement('div');
   info5.setAttribute('class', 'info-student-style');
-  info5.innerHTML = "Nationalit\xE9 : ";
+  info5.innerHTML = "Nationalit\xE9 : Camerounais(e)";
   var infostudent1 = document.createElement('div');
   infostudent1.setAttribute('id', 'info-student-1');
   infostudent1.appendChild(info1);
@@ -1301,7 +1303,7 @@ function GenerateBullStaps2Semestre3() {
   info4.innerHTML = "Pr\xE9nom (s) : ";
   var info5 = document.createElement('div');
   info5.setAttribute('class', 'info-student-style');
-  info5.innerHTML = "Nationalit\xE9 : ";
+  info5.innerHTML = "Nationalit\xE9 : Camerounais(e)";
   var infostudent1 = document.createElement('div');
   infostudent1.setAttribute('id', 'info-student-1');
   infostudent1.appendChild(info1);
@@ -1841,7 +1843,7 @@ function GenerateBullStaps2Semestre3() {
   body = document.getElementsByTagName('body');
   body[0].appendChild(containerbull);
 }
-/*DECLARATION S5 MDS */
+/*DECLARATION SEMESTRE 5 EVE */
 
 
 function GenerateBullEVEsemestre5() {
@@ -1905,7 +1907,7 @@ function GenerateBullEVEsemestre5() {
   info4.innerHTML = "Pr\xE9nom (s) : ";
   var info5 = document.createElement('div');
   info5.setAttribute('class', 'info-student-style');
-  info5.innerHTML = "Nationalit\xE9 : ";
+  info5.innerHTML = "Nationalit\xE9 : Camerounais(e)";
   var infostudent1 = document.createElement('div');
   infostudent1.setAttribute('id', 'info-student-1');
   infostudent1.appendChild(info1);
@@ -2398,7 +2400,7 @@ function GenerateBullMSOsemestre5() {
   info4.innerHTML = "Pr\xE9nom (s) : ";
   var info5 = document.createElement('div');
   info5.setAttribute('class', 'info-student-style');
-  info5.innerHTML = "Nationalit\xE9 : ";
+  info5.innerHTML = "Nationalit\xE9 : Camerounais(e)";
   var infostudent1 = document.createElement('div');
   infostudent1.setAttribute('id', 'info-student-1');
   infostudent1.appendChild(info1);
@@ -2827,4 +2829,209 @@ function GenerateBullMSOsemestre5() {
   body = document.getElementsByTagName('body');
   body[0].appendChild(containerbull);
 }
-/*DECLARATION SEMESTRE 5 EVE */
+/**FONCTION BULLETIN MDS */
+
+
+function BullMDS1(clone) {
+  //DONNEES RECUPEREES DE LA BD
+  var infoEtudiant = mydata[1];
+  var coefUe = mydata[2];
+  var creditUe = mydata[3];
+  var mds111 = mydata[4];
+  var mds111b = mydata[5];
+  var mds112 = mydata[6];
+  var mds113 = mydata[7];
+  var mds114 = mydata[8];
+  var mds115 = mydata[9];
+  var mds116 = mydata[10];
+  var mds117 = mydata[11];
+  var mds11 = mydata[4];
+  var mds11 = mydata[4]; //Info Utilisateur
+
+  var info1 = clone.children[2].children[1].children[0];
+
+  for (j = 2; j <= info1.childElementCount - 1; j++) {
+    if (j == 2) {
+      info1.children[j].innerHTML = info1.children[j].innerHTML + " ".concat(infoEtudiant[i]['nom']);
+    }
+
+    if (j == 3) {
+      info1.children[j].innerHTML = info1.children[j].innerHTML + " ".concat(infoEtudiant[i]['prenom']);
+    } //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +' er'}
+
+  }
+
+  var info2 = clone.children[2].children[1].children[1];
+
+  for (j = 1; j <= info2.childElementCount - 1; j++) {
+    if (j == 1) {
+      info2.children[j].innerHTML = info2.children[j].innerHTML + " ".concat(infoEtudiant[i]['matricule']);
+    }
+
+    if (j == 2) {
+      info2.children[j].innerHTML = info2.children[j].innerHTML + " ".concat(infoEtudiant[i]['date_naissance']);
+    }
+
+    if (j == 3) {
+      info2.children[j].innerHTML = info2.children[j].innerHTML + " ".concat(infoEtudiant[i]['lieu_naissance']);
+    } //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['anneeaca']}`} //Année Academique
+
+  } //Tableau de notes
+
+
+  var tbody = clone.children[2].children[2].children[0].children[1]; //LIGNE MDS11
+
+  var ligneMDS111 = tbody.children[0];
+
+  for (j = 0; j <= ligneMDS111.childElementCount - 1; j++) {
+    if (j == 4) {
+      ligneMDS111.children[j].innerHTML = mds111[i]['note_Examen'];
+    } //note math
+
+
+    if (j == 5) {
+      ligneMDS111.children[j].innerHTML = coefUe[0]['coefficient'];
+    } //coef math
+
+
+    if (j == 6) {
+      ligneMDS111.children[j].innerHTML = ligneMDS111.children[4].innerHTML * ligneMDS111.children[5].innerHTML;
+    } //total note math * coef
+
+
+    if (j == 7) {
+      ligneMDS111.children[j].innerHTML = Moyenne3(ligneMDS111.children[6].innerHTML, mds111b[i]['note_Examen'] * coefUe[1]['coefficient'], mds112[i]['note_Examen'] * coefUe[2]['coefficient'], coefUe[0]['coefficient'] + coefUe[1]['coefficient'] + coefUe[2]['coefficient']);
+    } //moyenne donc (totalmath + totalinfo)/2
+
+
+    if (j == 8) {} //Rang
+
+
+    if (j == 9) {
+      if (ligneMDS111.children[4].innerHTML >= 10) {
+        ligneMDS111.children[9].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS111.children[9].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 10) {} //Session
+
+
+    if (j == 11) {
+      if (mds111[i]["note_Examen"] >= 10 && mds111b[i]['note_Examen'] >= 10) {
+        ligneMDS111.children[j].innerHTML = creditUe[0]['nombre_credit'];
+      } else {
+        ligneMDS111.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LIGNE MDS11b
+
+
+  var ligneMDS111b = tbody.children[1];
+
+  for (j = 0; j <= ligneMDS111b.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMDS111b.children[j].innerHTML = mds111b[i]['note_Examen'];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMDS111b.children[j].innerHTML = coefUe[1]['coefficient'];
+    } //coef info
+
+
+    if (j == 4) {
+      ligneMDS111b.children[j].innerHTML = ligneMDS111b.children[2].innerHTML * ligneMDS111b.children[3].innerHTML;
+    } //total note math * coef
+
+
+    if (j == 5) {} //Rang
+
+
+    if (j == 6) {
+      if (ligneMDS111b.children[2].innerHTML >= 10) {
+        ligneMDS111b.children[6].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS111b.children[6].innerHTML = "NON VALIDEE";
+      }
+    }
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (mds111[i]["note_Examen"] >= 10 && mds111b[i]['note_Examen'] >= 10) {
+        ligneMDS111b.children[j].innerHTML = creditUe[1]['nombre_credit'];
+      } else {
+        ligneMDS111b.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LIGNE MDS112
+
+
+  var ligneMDS112 = tbody.children[2];
+
+  for (j = 0; j <= ligneMDS112.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMDS112.children[j].innerHTML = mds112[i]['note_Examen'];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMDS112.children[j].innerHTML = coefUe[2]['coefficient'];
+    } //coef info
+
+
+    if (j == 4) {
+      ligneMDS112.children[j].innerHTML = ligneMDS112.children[2].innerHTML * ligneMDS112.children[3].innerHTML;
+    } //total note math * coef
+
+
+    if (j == 5) {} //Rang
+
+
+    if (j == 6) {
+      if (ligneMDS112.children[4].innerHTML >= 10) {
+        ligneMDS112.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS112.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (ligneMDS112.children[4].innerHTML >= 10) {
+        ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit'];
+      } else {
+        ligneMDS112.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  }
+
+  var ligneMDS113 = tbody.children[3];
+  var ligneMDS114 = tbody.children[4];
+  var ligneMDS115 = tbody.children[5];
+  var ligneMDS116 = tbody.children[6];
+  var ligneMDS117 = tbody.children[7];
+  var resultat = tbody.children[8];
+  return clone;
+} //FONCTIONS
+
+
+function Moyenne3(a, b, c, coef) {
+  a = parseFloat(a);
+  b = parseFloat(b);
+  c = parseFloat(c);
+  result = (a + b + c) / coef;
+  result = result.toFixed(2);
+  result = parseFloat(result);
+  return result;
+}

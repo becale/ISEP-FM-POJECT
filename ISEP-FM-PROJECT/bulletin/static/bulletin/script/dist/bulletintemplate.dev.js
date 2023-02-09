@@ -1,8 +1,31 @@
 "use strict";
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 window.addEventListener('load', function () {
   //Recuperation de la variable des données
   mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
+  b = _toConsumableArray(mydata[5]);
+  mds12sort = b[0]; ///////////////////////////////////
+
+  c = _toConsumableArray(mydata[6]); ///////////////////////////////////
+
+  d = _toConsumableArray(mydata[7]); ///////////////////////////////////
+
+  e = _toConsumableArray(mydata[8]); ///////////////////////////////////
+
+  f = _toConsumableArray(mydata[9]); ///////////////////////////////////
+
+  g = _toConsumableArray(mydata[10]); ///////////////////////////////////
+
+  h = _toConsumableArray(mydata[11]); ///////////////////////////////////
+
   console.log(mydata); //Génération dynamique du tableau de bulletin
   //TEST GENERAL POUR TOUS LES BULLETINS SEMESTRE  1 3 5S
 
@@ -21,16 +44,65 @@ window.addEventListener('load', function () {
     } //Fixation de ContainerList sur le body de la page
 
 
-    console.log(listcontainer);
     body.appendChild(listcontainer);
   } else if (mydata[0] == 'STAPS1') {
-    GenerateBullStaps1Semestre1();
+    containeer = GenerateBullStaps1Semestre1();
+    listcontainer = document.createElement('div');
+
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
+      //clone = BullMDS1(clone)
+      //Puis ajout au containerList
+
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
+
+    body.appendChild(listcontainer);
   } else if (mydata[0] == 'STAPS2') {
-    GenerateBullStaps2Semestre3();
+    body = document.getElementById('body');
+    containeer = GenerateBullStaps2Semestre3();
+    listcontainer = document.createElement('div');
+
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
+      //clone = BullMDS1(clone)
+      //Puis ajout au containerList
+
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
+
+    body.appendChild(listcontainer);
   } else if (mydata[0] == 'EVENEMENTIEL') {
-    GenerateBullEVEsemestre5();
+    containeer = GenerateBullEVEsemestre5();
+    listcontainer = document.createElement('div');
+
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
+      //clone = BullMDS1(clone)
+      //Puis ajout au containerList
+
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
+
+    var body = document.getElementById('body');
+    body.appendChild(listcontainer);
   } else if (mydata[0] == 'MSO') {
-    GenerateBullMSOsemestre5();
+    containeer = GenerateBullMSOsemestre5();
+    listcontainer = document.createElement('div');
+
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
+      //clone = BullMDS1(clone)
+      //Puis ajout au containerList
+
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
+
+    body.appendChild(listcontainer);
   }
 });
 /**
@@ -629,10 +701,9 @@ function GenerateBullMDS1Semestre1() {
   containerbull.appendChild(header);
   containerbull.appendChild(hr);
   containerbull.appendChild(main);
-  containerbull.appendChild(footer);
+  containerbull.appendChild(footer); //Retour Du composant Bulletin
+
   return containerbull;
-  /*body=document.getElementsByTagName('body')
-  body[0].appendChild(containerbull)*/
 }
 /*DECLARATION S1 STAPS*/
 
@@ -670,7 +741,7 @@ function GenerateBullStaps1Semestre1() {
   logoTitle.appendChild(title);
   var header = document.createElement('header');
   header.appendChild(logoTitle);
-  body = document.getElementsByTagName('body');
+  var body = document.getElementsByTagName('body');
   body[0].appendChild(header);
   var hr = document.createElement('hr'); //MAIN
 
@@ -1235,8 +1306,7 @@ function GenerateBullStaps1Semestre1() {
   containerbull.appendChild(main);
   containerbull.appendChild(footer); //TEST
 
-  body = document.getElementsByTagName('body');
-  body[0].appendChild(containerbull);
+  return containerbull;
 }
 /*DECLARATION S3 STAPS*/
 
@@ -1840,8 +1910,10 @@ function GenerateBullStaps2Semestre3() {
   containerbull.appendChild(main);
   containerbull.appendChild(footer); //TEST
 
-  body = document.getElementsByTagName('body');
-  body[0].appendChild(containerbull);
+  /*body=document.getElementsByTagName('body')
+  body[0].appendChild(containerbull)*/
+
+  return containerbull;
 }
 /*DECLARATION SEMESTRE 5 EVE */
 
@@ -2333,8 +2405,10 @@ function GenerateBullEVEsemestre5() {
   containerbull.appendChild(hr);
   containerbull.appendChild(main);
   containerbull.appendChild(footer);
-  body = document.getElementsByTagName('body');
-  body[0].appendChild(containerbull);
+  /*body=document.getElementsByTagName('body')
+  body[0].appendChild(containerbull)*/
+
+  return containerbull;
 }
 /*DECLARATION GENERATION SEEMESTRE 5 MSO */
 
@@ -2826,8 +2900,10 @@ function GenerateBullMSOsemestre5() {
   containerbull.appendChild(hr);
   containerbull.appendChild(main);
   containerbull.appendChild(footer);
-  body = document.getElementsByTagName('body');
-  body[0].appendChild(containerbull);
+  /*body=document.getElementsByTagName('body')
+  body[0].appendChild(containerbull)*/
+
+  return containerbull;
 }
 /**FONCTION BULLETIN MDS */
 
@@ -2844,9 +2920,7 @@ function BullMDS1(clone) {
   var mds114 = mydata[8];
   var mds115 = mydata[9];
   var mds116 = mydata[10];
-  var mds117 = mydata[11];
-  var mds11 = mydata[4];
-  var mds11 = mydata[4]; //Info Utilisateur
+  var mds117 = mydata[11]; //Info Utilisateur
 
   var info1 = clone.children[2].children[1].children[0];
 
@@ -2895,7 +2969,10 @@ function BullMDS1(clone) {
 
 
     if (j == 6) {
-      ligneMDS111.children[j].innerHTML = ligneMDS111.children[4].innerHTML * ligneMDS111.children[5].innerHTML;
+      val = ligneMDS111.children[4].innerHTML * ligneMDS111.children[5].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS111.children[j].innerHTML = val;
     } //total note math * coef
 
 
@@ -2904,7 +2981,9 @@ function BullMDS1(clone) {
     } //moyenne donc (totalmath + totalinfo)/2
 
 
-    if (j == 8) {} //Rang
+    if (j == 8) {}
+    /*ligneMDS111.children[j].innerHTML =  mds1sort.indexof(mds111[i]['note_Examen'])*/
+    //Rang
 
 
     if (j == 9) {
@@ -2944,7 +3023,10 @@ function BullMDS1(clone) {
 
 
     if (j == 4) {
-      ligneMDS111b.children[j].innerHTML = ligneMDS111b.children[2].innerHTML * ligneMDS111b.children[3].innerHTML;
+      val = ligneMDS111b.children[2].innerHTML * ligneMDS111b.children[3].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS111b.children[j].innerHTML = val;
     } //total note math * coef
 
 
@@ -2987,7 +3069,10 @@ function BullMDS1(clone) {
 
 
     if (j == 4) {
-      ligneMDS112.children[j].innerHTML = ligneMDS112.children[2].innerHTML * ligneMDS112.children[3].innerHTML;
+      val = ligneMDS112.children[2].innerHTML * ligneMDS112.children[3].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS112.children[j].innerHTML = val;
     } //total note math * coef
 
 
@@ -2995,7 +3080,7 @@ function BullMDS1(clone) {
 
 
     if (j == 6) {
-      if (ligneMDS112.children[4].innerHTML >= 10) {
+      if (ligneMDS112.children[2].innerHTML >= 10) {
         ligneMDS112.children[j].innerHTML = "VALIDEE";
       } else {
         ligneMDS112.children[j].innerHTML = "NON VALIDEE";
@@ -3007,21 +3092,282 @@ function BullMDS1(clone) {
 
 
     if (j == 8) {
-      if (ligneMDS112.children[4].innerHTML >= 10) {
+      if (ligneMDS112.children[2].innerHTML >= 10) {
         ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit'];
       } else {
         ligneMDS112.children[j].innerHTML = 0;
       }
     } //nombre_crédits
 
-  }
+  } //LIGNE MDS113
+
 
   var ligneMDS113 = tbody.children[3];
+
+  for (j = 0; j <= ligneMDS113.childElementCount - 1; j++) {
+    if (j == 3) {
+      ligneMDS113.children[j].innerHTML = mds113[i]['note_Examen'];
+    } //note math
+
+
+    if (j == 4) {
+      ligneMDS113.children[j].innerHTML = coefUe[3]['coefficient'];
+    } //coef math
+
+
+    if (j == 5) {
+      val = ligneMDS113.children[3].innerHTML * ligneMDS113.children[4].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS113.children[j].innerHTML = val;
+    } //total note math * coef
+
+
+    if (j == 6) {
+      ligneMDS113.children[j].innerHTML = Moyenne4(ligneMDS113.children[5].innerHTML, mds114[i]['note_Examen'] * coefUe[4]['coefficient'], mds115[i]['note_Examen'] * coefUe[5]['coefficient'], mds116[i]['note_Examen'] * coefUe[6]['coefficient'], coefUe[3]['coefficient'] + coefUe[4]['coefficient'] + coefUe[5]['coefficient'] + coefUe[6]['coefficient']);
+    } //moyenne donc (totalmath + totalinfo)/2
+
+
+    if (j == 7) {} //Rang
+
+
+    if (j == 8) {
+      if (ligneMDS113.children[3].innerHTML >= 10) {
+        ligneMDS113.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS113.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 9) {}
+
+    if (j == 10) {
+      if (mds113[i]["note_Examen"] >= 10) {
+        ligneMDS113.children[j].innerHTML = creditUe[3]['nombre_credit'];
+      } else {
+        ligneMDS113.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LINE MDS114
+
+
   var ligneMDS114 = tbody.children[4];
+
+  for (j = 0; j <= ligneMDS114.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMDS114.children[j].innerHTML = mds114[i]['note_Examen'];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMDS114.children[j].innerHTML = coefUe[4]['coefficient'];
+    } //coef info
+
+
+    if (j == 4) {
+      val = ligneMDS114.children[2].innerHTML * ligneMDS114.children[3].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS114.children[j].innerHTML = val;
+    } //total note math * coef
+
+
+    if (j == 5) {} //Rang
+
+
+    if (j == 6) {
+      if (ligneMDS114.children[2].innerHTML >= 10) {
+        ligneMDS114.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS114.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (ligneMDS114.children[2].innerHTML >= 10) {
+        ligneMDS114.children[j].innerHTML = creditUe[4]['nombre_credit'];
+      } else {
+        ligneMDS114.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  } //LINE MDS115
+
+
   var ligneMDS115 = tbody.children[5];
+
+  for (j = 0; j <= ligneMDS115.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMDS115.children[j].innerHTML = mds115[i]['note_Examen'];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMDS115.children[j].innerHTML = coefUe[5]['coefficient'];
+    } //coef info
+
+
+    if (j == 4) {
+      val = ligneMDS115.children[2].innerHTML * ligneMDS115.children[3].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS115.children[j].innerHTML = val;
+    } //total note math * coef
+
+
+    if (j == 5) {} //Rang
+
+
+    if (j == 6) {
+      if (ligneMDS115.children[2].innerHTML >= 10) {
+        ligneMDS115.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS115.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (ligneMDS115.children[2].innerHTML >= 10) {
+        ligneMDS115.children[j].innerHTML = creditUe[5]['nombre_credit'];
+      } else {
+        ligneMDS115.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  } //LINE MD16
+
+
   var ligneMDS116 = tbody.children[6];
+
+  for (j = 0; j <= ligneMDS116.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMDS116.children[j].innerHTML = mds116[i]['note_Examen'];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMDS116.children[j].innerHTML = coefUe[4]['coefficient'];
+    } //coef info
+
+
+    if (j == 4) {
+      val = ligneMDS116.children[2].innerHTML * ligneMDS116.children[3].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS116.children[j].innerHTML = val;
+    } //total note math * coef
+
+
+    if (j == 5) {} //Rang
+
+
+    if (j == 6) {
+      if (ligneMDS116.children[2].innerHTML >= 10) {
+        ligneMDS116.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS116.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (ligneMDS116.children[2].innerHTML >= 10) {
+        ligneMDS116.children[j].innerHTML = creditUe[6]['nombre_credit'];
+      } else {
+        ligneMDS116.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  } //LINE 17
+
+
   var ligneMDS117 = tbody.children[7];
+
+  for (j = 0; j <= ligneMDS117.childElementCount - 1; j++) {
+    if (j == 3) {
+      ligneMDS117.children[j].innerHTML = mds117[i]['note_Examen'];
+    } //note math
+
+
+    if (j == 4) {
+      ligneMDS117.children[j].innerHTML = coefUe[7]['coefficient'];
+    } //coef math
+
+
+    if (j == 5) {
+      val = ligneMDS117.children[3].innerHTML * ligneMDS117.children[4].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      ligneMDS117.children[j].innerHTML = val;
+    } //total note math * coef
+
+
+    if (j == 6) {
+      ligneMDS117.children[j].innerHTML = ligneMDS117.children[3].innerHTML;
+    } //moyenne donc (totalmath + totalinfo)/2
+
+
+    if (j == 7) {} //Rang
+
+
+    if (j == 8) {
+      if (ligneMDS117.children[3].innerHTML >= 10) {
+        ligneMDS117.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMDS117.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 9) {}
+
+    if (j == 10) {
+      if (mds117[i]["note_Examen"] >= 10) {
+        ligneMDS117.children[j].innerHTML = creditUe[7]['nombre_credit'];
+      } else {
+        ligneMDS117.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LINE DEs RESULTATS
+
+
   var resultat = tbody.children[8];
+
+  for (j = 0; j <= resultat.childElementCount - 1; j++) {
+    if (j == 1) {
+      resultat.children[1].innerHTML = sommeInt1(ligneMDS111.children[5].innerHTML, ligneMDS111b.children[3].innerHTML, ligneMDS112.children[3].innerHTML, ligneMDS113.children[4].innerHTML, ligneMDS114.children[3].innerHTML, ligneMDS115.children[3].innerHTML, ligneMDS116.children[3].innerHTML, ligneMDS117.children[4].innerHTML);
+    }
+
+    if (j == 2) {
+      resultat.children[2].innerHTML = sommeFloat(ligneMDS111b.children[4].innerHTML, ligneMDS111.children[6].innerHTML, ligneMDS112.children[4].innerHTML, ligneMDS113.children[5].innerHTML, ligneMDS114.children[4].innerHTML, ligneMDS115.children[4].innerHTML, ligneMDS116.children[4].innerHTML, ligneMDS117.children[5].innerHTML);
+    }
+
+    if (j == 3) {
+      val = resultat.children[2].innerHTML / resultat.children[1].innerHTML;
+      val = val.toFixed(2);
+      val = parseFloat(val);
+      resultat.children[j].innerHTML = val;
+    }
+
+    if (j == 6) {
+      resultat.children[6].innerHTML = sommeInt(ligneMDS111.children[11].innerHTML, ligneMDS112.children[8].innerHTML, ligneMDS113.children[10].innerHTML, ligneMDS114.children[8].innerHTML, ligneMDS115.children[8].innerHTML, ligneMDS116.children[8].innerHTML, ligneMDS117.children[10].innerHTML);
+    }
+  }
+
   return clone;
 } //FONCTIONS
 
@@ -3034,4 +3380,79 @@ function Moyenne3(a, b, c, coef) {
   result = result.toFixed(2);
   result = parseFloat(result);
   return result;
+}
+
+function Moyenne4(a, b, c, d, coef) {
+  a = parseFloat(a);
+  b = parseFloat(b);
+  c = parseFloat(c);
+  d = parseFloat(d);
+  result = (a + b + c + d) / coef;
+  result = result.toFixed(2);
+  result = parseFloat(result);
+  return result;
+}
+
+function sommeInt(a, b, c, d, e, f, g) {
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+  d = parseInt(d);
+  e = parseInt(e);
+  f = parseInt(f);
+  g = parseInt(g);
+  result = a + b + c + d + e + f + g;
+  return result;
+}
+
+function sommeInt1(a, b, c, d, e, f, g, h) {
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+  d = parseInt(d);
+  e = parseInt(e);
+  f = parseInt(f);
+  g = parseInt(g);
+  h = parseInt(h);
+  result = a + b + c + d + e + f + g + h;
+  return result;
+}
+
+function sommeFloat(a, b, c, d, e, f, g, h) {
+  a = parseFloat(a);
+  b = parseFloat(b);
+  c = parseFloat(c);
+  d = parseFloat(d);
+  e = parseFloat(e);
+  f = parseFloat(f);
+  g = parseFloat(g);
+  h = parseFloat(h);
+  result = a + b + c + d + e + f + g + h;
+  result = result.toFixed(2);
+  result = parseFloat(result);
+  return result;
+}
+
+function triCroissant(b) {
+  for (i = 0; i <= b.length; i++) {
+    for (j = i + 1; j <= b.length; j++) {
+      if (b[i] >= b[j]) {
+        tmp = b[i];
+        b[i] = b[j];
+        b[j] = tmp;
+      }
+    }
+  }
+
+  return b;
+}
+
+function formatAsArray(b) {
+  ar = [];
+
+  for (var i = 0; i <= b.length; i++) {
+    console.log(b[i]['note_Examen']);
+  }
+
+  return ar;
 }

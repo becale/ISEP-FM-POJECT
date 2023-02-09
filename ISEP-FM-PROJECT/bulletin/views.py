@@ -90,12 +90,42 @@ def test(request):
 
 ################################# REQUETES POUR BULLETIN SEMESTRE 1 3 5 #############################################################
 def bulls1epsmds(request, filiere):
+    if (filiere =='GESTION'):
 
-    infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
+        infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
+
+        coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient"))
+        creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
+        
+        MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=12).values('note_Examen'))
+        MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=13).values('note_Examen'))
+        MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=14).values('note_Examen'))
+        MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=15).values('note_Examen'))
+        MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=16).values('note_Examen'))
+        MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=17).values('note_Examen'))
+        MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=18).values('note_Examen'))
+        MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=19).values('note_Examen'))
+
+        semestre1MDS = [filiere, infoEtudiantMDS, coefS1MDS1, creditS1MDS1, MDS111, MDS111b, MDS112, MDS113, MDS114, MDS115, MDS116, MDS117]
+        
+    elif (filiere == 'STAPS1'):
+        infoEtudiantMDS =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
+
+        coefS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("coefficient"))
+        creditS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("nombre_credit"))
+
+        """EPS111 = 
+        EPS112"""
+
+
+    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS}) 
+
+
+
+def bulls3eps2(request, filiere):
     
-    coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient"))
-    creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
-    
+    filiere = filiere
+
     MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=12).values('note_Examen'))
     MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=13).values('note_Examen'))
     MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=14).values('note_Examen'))
@@ -105,19 +135,22 @@ def bulls1epsmds(request, filiere):
     MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=18).values('note_Examen'))
     MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=19).values('note_Examen'))
 
-    semestre1MDS = [filiere, infoEtudiantMDS, coefS1MDS1, creditS1MDS1, MDS111, MDS111b, MDS112, MDS113, MDS114, MDS115, MDS116, MDS117]
-
-
-    return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS}) 
-
-def bulls3eps2(request, filiere):
-    
-    semestre1MDS = [filiere]
+    semestre1MDS = [filiere,MDS111, MDS111b, MDS112, MDS113, MDS114, MDS115, MDS116, MDS117]
 
     return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS} ) 
 
 def bulls5msoeve(request, filiere):
-    semestre1MDS = [filiere]
+
+    MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=12).values('note_Examen'))
+    MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=13).values('note_Examen'))
+    MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=14).values('note_Examen'))
+    MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=15).values('note_Examen'))
+    MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=16).values('note_Examen'))
+    MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=17).values('note_Examen'))
+    MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=18).values('note_Examen'))
+    MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=19).values('note_Examen'))
+
+    semestre1MDS = [filiere,MDS111, MDS111b, MDS112, MDS113, MDS114, MDS115, MDS116, MDS117]
 
     return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS} )
 

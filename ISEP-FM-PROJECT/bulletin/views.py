@@ -94,25 +94,30 @@ def bulls1epsmds(request, filiere):
 
         infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
-        coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient"))
+        coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient", "intitule_UE"))
         creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
         
-        MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=12).values('note_Examen'))
-        MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=13).values('note_Examen'))
-        MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=14).values('note_Examen'))
-        MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=15).values('note_Examen'))
-        MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=16).values('note_Examen'))
-        MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=17).values('note_Examen'))
-        MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=18).values('note_Examen'))
-        MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=19).values('note_Examen'))
+        MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_Examen'))
+        MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_Examen'))
+        MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_Examen'))
+        MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_Examen'))
+        MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_Examen'))
+        MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_Examen'))
+        MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_Examen'))
+        MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_Examen'))
+        MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_Examen'))
+        MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_Examen'))
 
-        semestre1MDS = [filiere, infoEtudiantMDS, coefS1MDS1, creditS1MDS1, MDS111, MDS111b, MDS112, MDS113, MDS114, MDS115, MDS116, MDS117]
+
+        semestre1MDS = [filiere, infoEtudiantMDS, coefS1MDS1, creditS1MDS1, MDS111, MDS111b, MDS112, MDS112b, MDS113, MDS114, MDS115, MDS116, MDS117, MDS117b]
         
     elif (filiere == 'STAPS1'):
         infoEtudiantMDS =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
         coefS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("coefficient"))
         creditS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("nombre_credit"))
+
+        semestre1MDS = [filiere, coefS1STAPS1, creditS1STAPS1]
 
         """EPS111 = 
         EPS112"""

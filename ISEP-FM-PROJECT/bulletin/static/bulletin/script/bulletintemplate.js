@@ -1,24 +1,7 @@
 window.addEventListener('load',()=>{
     //Recuperation de la variable des données
      mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
-     
-    
-    b = [...mydata[5]]
-    mds12sort = b[0]
-    ///////////////////////////////////
-    c = [...mydata[6]]
-    ///////////////////////////////////
-    d = [...mydata[7]]
-    ///////////////////////////////////
-    e = [...mydata[8]]
-    ///////////////////////////////////
-    f = [...mydata[9]]
-    ///////////////////////////////////
-    g = [...mydata[10]]
-    ///////////////////////////////////
-    h = [...mydata[11]]
-    ///////////////////////////////////
-     console.log(mydata) 
+    console.log(mydata) 
 
     //Génération dynamique du tableau de bulletin
     //TEST GENERAL POUR TOUS LES BULLETINS SEMESTRE  1 3 5S
@@ -26,28 +9,37 @@ window.addEventListener('load',()=>{
     body = document.getElementById('body')
 
     if( mydata[0] == 'GESTION' ){
+      moY = []
       containerrr = GenerateBullMDS1Semestre1()
       listcontainer = document.createElement('div')
       for(i=0; i<mydata[1].length; i++){
         clone = containerrr.cloneNode(true);
         //Execution des traitements sur container
         clone = BullMDS1(clone)
+
+        /**MOYENNE */
+        moY[i] = globalThis.resultat.children[3].innerHTML
+        //console.log(moY);
+
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
       }
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
+      moY = stringToIntArray(moY)
+      moy = triDecroissant(moY)
+      console.log(moy);
     }
     else if ( mydata[0] == 'STAPS1'){    
       containeer = GenerateBullStaps1Semestre1()
       listcontainer = document.createElement('div')
-      for(i=0; i<mydata[1].length; i++){
+      //for(i=0; i<mydata[1].length; i++){
         clone = containeer.cloneNode(true);
         //Execution des traitements sur container
         //clone = BullMDS1(clone)
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
-      }
+      //}
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
    }
@@ -55,26 +47,26 @@ window.addEventListener('load',()=>{
       body = document.getElementById('body')
       containeer = GenerateBullStaps2Semestre3()
       listcontainer = document.createElement('div')
-      for(i=0; i<mydata[1].length; i++){
+      //for(i=0; i<mydata[1].length; i++){
         clone = containeer.cloneNode(true);
         //Execution des traitements sur container
         //clone = BullMDS1(clone)
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
-      }
+      //}
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
     }
     else if( mydata[0] == 'EVENEMENTIEL' ){
       containeer = GenerateBullEVEsemestre5()
       listcontainer = document.createElement('div')
-      for(i=0; i<mydata[1].length; i++){
+      //for(i=0; i<mydata[1].length; i++){
         clone = containeer.cloneNode(true);
         //Execution des traitements sur container
         //clone = BullMDS1(clone)
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
-      }
+      //}
       //Fixation de ContainerList sur le body de la page
       var body = document.getElementById('body')
       body.appendChild(listcontainer)
@@ -82,13 +74,13 @@ window.addEventListener('load',()=>{
     else if( mydata[0] == 'MSO' ){ 
       containeer = GenerateBullMSOsemestre5()
       listcontainer = document.createElement('div')
-      for(i=0; i<mydata[1].length; i++){
+      //for(i=0; i<mydata[1].length; i++){
         clone = containeer.cloneNode(true);
         //Execution des traitements sur container
         //clone = BullMDS1(clone)
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
-      }
+      //}
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
     }
@@ -220,7 +212,7 @@ function GenerateBullMDS1Semestre1(){
   infostudent3.setAttribute('id','info-student-3')
   infostudent3.appendChild(info111)
 
-  infostudent=document.createElement('div')
+  var infostudent=document.createElement('div')
   infostudent.setAttribute('id','info-student')
   infostudent.appendChild(infostudent1)
   infostudent.appendChild(infostudent2)
@@ -242,11 +234,11 @@ function GenerateBullMDS1Semestre1(){
   //Line 2
   var th1 =document.createElement('th')
   th1.setAttribute('id','semestre')
-  th1.setAttribute('rowspan','9')
+  th1.setAttribute('rowspan','11')
   th1.innerHTML=`SEMESTRE 1`
   var th2=document.createElement('th')
   th2.setAttribute('scope','row')
-  th2.setAttribute('rowspan','3')
+  th2.setAttribute('rowspan','4')
   th2.innerHTML=`UE Fondamentales`
   var td1=document.createElement('td')
   td1.setAttribute('id','MDS111-codeue')
@@ -265,7 +257,7 @@ function GenerateBullMDS1Semestre1(){
 
   var td6=document.createElement('td')
   td6.setAttribute('id','MDS111-moyenne')
-  td6.setAttribute('rowspan','3')
+  td6.setAttribute('rowspan','4')
 
   var td7=document.createElement('td')
   td7.setAttribute('id','MDS111-rang')
@@ -278,6 +270,7 @@ function GenerateBullMDS1Semestre1(){
 
   var td10=document.createElement('td')
   td10.setAttribute('id','MDS111-credits')
+  td10.setAttribute('rowspan','2')
 
   var tr2=document.createElement('tr')
   tr2.appendChild(th1)
@@ -318,8 +311,8 @@ function GenerateBullMDS1Semestre1(){
   var td8=document.createElement('td')
   td8.setAttribute('id','MDS111-session')
 
-  var td9=document.createElement('td')
-  td9.setAttribute('id','MDS111-credits')
+  /*var td9=document.createElement('td')
+  td9.setAttribute('id','MDS111-credits')*/
 
   var tr3=document.createElement('tr')
   tr3.appendChild(td1)
@@ -330,7 +323,7 @@ function GenerateBullMDS1Semestre1(){
   tr3.appendChild(td6)
   tr3.appendChild(td7)
   tr3.appendChild(td8)
-  tr3.appendChild(td9)
+ /* tr3.appendChild(td9)*/
 
   //Line 33
   var td11=document.createElement('td')
@@ -339,7 +332,7 @@ function GenerateBullMDS1Semestre1(){
   
   var td12=document.createElement('td')
   td12.setAttribute('id','MDS112-matiere')
-  td12.innerHTML=`Techniques Quantitatives de Gestion I`
+  td12.innerHTML=`Mathématiques Financières`
 
   var td13=document.createElement('td')
   td13.setAttribute('id','MDS112-note')
@@ -364,6 +357,7 @@ function GenerateBullMDS1Semestre1(){
 
   var td19=document.createElement('td')
   td19.setAttribute('id','MDS112-credits')
+  td19.setAttribute('rowspan','2')
 
   var tr33=document.createElement('tr')
   tr33.setAttribute('id', 'tr33-border-top')
@@ -378,6 +372,52 @@ function GenerateBullMDS1Semestre1(){
   tr33.appendChild(td18)
   tr33.appendChild(td19)
   
+//Line 333
+var td111=document.createElement('td')
+td111.setAttribute('id','MDS112-codeue')
+td111.innerHTML=`MDS112`
+
+var td122=document.createElement('td')
+td122.setAttribute('id','MDS112-matiere')
+td122.innerHTML=`Statistiques Descriptives`
+
+var td133=document.createElement('td')
+td133.setAttribute('id','MDS112-note')
+
+var td144=document.createElement('td')
+td144.setAttribute('id','MDS112-coef')
+
+var td155=document.createElement('td')
+td155.setAttribute('id','MDS112-total')
+
+/*var td166=document.createElement('td')
+td166.setAttribute('id','MDS112-moyenne')*/
+
+var td166=document.createElement('td')
+td166.setAttribute('id','MDS112-rang')
+
+var td177=document.createElement('td')
+td177.setAttribute('id','MDS112-mention')
+
+var td188=document.createElement('td')
+td188.setAttribute('id','MDS112-session')
+
+/*var td199=document.createElement('td')
+td199.setAttribute('id','MDS112-credits')*/
+
+var tr333=document.createElement('tr')
+tr333.setAttribute('id', 'tr333-border-top')
+tr333.appendChild(td111)
+tr333.appendChild(td122)
+tr333.appendChild(td133)
+tr333.appendChild(td144)
+tr333.appendChild(td155)
+//tr33.appendChild(td166)
+tr333.appendChild(td166)
+tr333.appendChild(td177)
+tr333.appendChild(td188)
+//tr333.appendChild(td199)
+
   //Line 4 //REGROUPER L4 et L5 dans une boucle
   var th2=document.createElement('th')
   th2.setAttribute('scope','row')
@@ -556,7 +596,7 @@ function GenerateBullMDS1Semestre1(){
   //Line 8
   var th3=document.createElement('th')
   th3.setAttribute('scope','row')
-  //th3.setAttribute('rowspan','3')
+  th3.setAttribute('rowspan','2')
   th3.innerHTML=`UE Transversales`
 
   var td54=document.createElement('td')
@@ -565,7 +605,7 @@ function GenerateBullMDS1Semestre1(){
 
   var td56=document.createElement('td')
   td56.setAttribute("id","MDS117-matiere")
-  td56.innerHTML=`Formation Bilingue I et Environnement`
+  td56.innerHTML=`Technique D'Expression Anglaise`
 
   var td57=document.createElement('td')
   td57.setAttribute("id","MDS117-note")
@@ -579,6 +619,7 @@ function GenerateBullMDS1Semestre1(){
   var td60=document.createElement('td')
   //td60.setAttribute("rowspan","3")
   td60.setAttribute("id","MDS117-moyenne")
+  td60.setAttribute('rowspan','2')
 
   var td61=document.createElement('td')
   td61.setAttribute("id","MDS117-rang")
@@ -591,6 +632,7 @@ function GenerateBullMDS1Semestre1(){
 
   var td64=document.createElement('td')
   td64.setAttribute("id","MDS117-credits")
+  td64.setAttribute("rowspan","2")
 
   var tr8=document.createElement('tr')
   tr8.appendChild(th3)
@@ -604,6 +646,59 @@ function GenerateBullMDS1Semestre1(){
   tr8.appendChild(td62)
   tr8.appendChild(td63)
   tr8.appendChild(td64)
+
+  //Line 88
+  /*var th3=document.createElement('th')
+  th3.setAttribute('scope','row')
+  //th3.setAttribute('rowspan','3')
+  th3.innerHTML=`UE Transversales`*/
+
+  var td544=document.createElement('td')
+  td544.setAttribute("id","MDS117-codeue")
+  td544.innerHTML=`MDS117`
+
+  var td566=document.createElement('td')
+  td566.setAttribute("id","MDS117-matiere")
+  td566.innerHTML=`Technique D'Expression Française`
+
+  var td577=document.createElement('td')
+  td577.setAttribute("id","MDS117-note")
+
+  var td588=document.createElement('td')
+  td588.setAttribute("id","MDS117-coef")
+
+  var td599=document.createElement('td')
+  td599.setAttribute("id","MDS117-total")
+
+  //var td600=document.createElement('td')
+  //td60.setAttribute("rowspan","3")
+ //td600.setAttribute("id","MDS117-moyenne")
+
+  var td611=document.createElement('td')
+  td611.setAttribute("id","MDS117-rang")
+
+  var td622=document.createElement('td')
+  td622.setAttribute("id","MDS117-mention")
+
+  var td633=document.createElement('td')
+  td633.setAttribute("id","MDS117-session")
+
+  /*var td644=document.createElement('td')
+  td644.setAttribute("id","MDS117-credits")*/
+
+  var tr88=document.createElement('tr')
+  //tr88.appendChild(th3)
+  tr88.appendChild(td544)
+  tr88.appendChild(td566)
+  tr88.appendChild(td577)
+  tr88.appendChild(td588)
+  tr88.appendChild(td599)
+  //tr88.appendChild(td600)
+  tr88.appendChild(td611)
+  tr88.appendChild(td622)
+  tr88.appendChild(td633)
+  //tr88.appendChild(td644)
+
 
   //Line 9
   var tr9=document.createElement('tr')
@@ -626,11 +721,13 @@ function GenerateBullMDS1Semestre1(){
   tbody.appendChild(tr2)
   tbody.appendChild(tr3)
   tbody.appendChild(tr33)
+  tbody.appendChild(tr333)
   tbody.appendChild(tr4)
   tbody.appendChild(tr5)
   tbody.appendChild(tr6)
   tbody.appendChild(tr7)
   tbody.appendChild(tr8)
+  tbody.appendChild(tr88)
   tbody.appendChild(tr9)
 
   var table1=document.createElement('table')
@@ -872,7 +969,7 @@ function GenerateBullStaps1Semestre1(){
   //Line 2
   var th1 =document.createElement('th')
   th1.setAttribute('id','semestre')
-  th1.setAttribute('rowspan','10')
+  th1.setAttribute('rowspan','13')
   th1.innerHTML=`SEMESTRE 1`
   var th2=document.createElement('th')
   th2.setAttribute('scope','row')
@@ -967,7 +1064,7 @@ function GenerateBullStaps1Semestre1(){
   //Line 4 //REGROUPER L4 et L5 dans une boucle
   var th2=document.createElement('th')
   th2.setAttribute('scope','row')
-  th2.setAttribute('rowspan','4')
+  th2.setAttribute('rowspan','7')
   th2.innerHTML=`UE Professionnelles`
 
   var td20=document.createElement('td')
@@ -988,7 +1085,7 @@ function GenerateBullStaps1Semestre1(){
   td23.setAttribute("id","EPS113-total")
 
   var td24=document.createElement('td')
-  td24.setAttribute("rowspan","4")
+  td24.setAttribute("rowspan","7")
   td24.setAttribute("id","EPS113-moyenne")
 
   var td25=document.createElement('td')
@@ -1063,29 +1160,30 @@ function GenerateBullStaps1Semestre1(){
   td377.innerHTML=`EPS115`
 
   var td37=document.createElement('td')
-  td37.setAttribute("id","EPS115-matiere")
-  td37.innerHTML=`Didactique des APS ( Sports collectifs)`
+  td37.setAttribute("id","EPS115a-matiere")
+  td37.innerHTML=`Didactique des APS: Athlétisme`
 
   var td38=document.createElement('td')
-  td38.setAttribute("id","EPS115-note")
+  td38.setAttribute("id","EPS115a-note")
 
   var td39=document.createElement('td')
-  td39.setAttribute("id","EPS115-coef")
+  td39.setAttribute("id","EPS115a-coef")
 
   var td40=document.createElement('td')
-  td40.setAttribute("id","EPS115-total")
+  td40.setAttribute("id","EPS115a-total")
 
   var td41=document.createElement('td')
-  td41.setAttribute("id","EPS115-rang")
+  td41.setAttribute("id","EPS115a-rang")
 
   var td42=document.createElement('td')
-  td42.setAttribute("id","EPS115-mention")
+  td42.setAttribute("id","EPS115a-mention")
 
   var td43=document.createElement('td')
-  td43.setAttribute("id","EPS115-session")
+  td43.setAttribute("id","EPS115a-session")
 
   var td44=document.createElement('td')
-  td44.setAttribute("id","EPS115-credits")
+  td44.setAttribute('rowspan', "4")
+  td44.setAttribute("id","EPS115a-credits")
 
   var tr6=document.createElement('tr')
   tr6.appendChild(td377)
@@ -1097,6 +1195,130 @@ function GenerateBullStaps1Semestre1(){
   tr6.appendChild(td42)
   tr6.appendChild(td43)
   tr6.appendChild(td44)
+
+  //Line 6a
+  var td377a=document.createElement('td')
+  td377a.setAttribute("id","EPS115-codeue")
+  td377a.innerHTML=`EPS115`
+
+  var td37a=document.createElement('td')
+  td37a.setAttribute("id","EPS115b-matiere")
+  td37a.innerHTML=`Didactique des APS: Basket Ball`
+
+  var td38a=document.createElement('td')
+  td38a.setAttribute("id","EPS115b-note")
+
+  var td39a=document.createElement('td')
+  td39a.setAttribute("id","EPS115b-coef")
+
+  var td40a=document.createElement('td')
+  td40a.setAttribute("id","EPS115b-total")
+
+  var td41a=document.createElement('td')
+  td41a.setAttribute("id","EPS115b-rang")
+
+  var td42a=document.createElement('td')
+  td42a.setAttribute("id","EPS115b-mention")
+
+  var td43a=document.createElement('td')
+  td43a.setAttribute("id","EPS115b-session")
+
+  //var td44a=document.createElement('td')
+  //td44a.setAttribute("id","EPS115b-credits")
+
+  var tr6a=document.createElement('tr')
+  tr6a.setAttribute('id', 'ligne-EPS115b')
+  tr6a.appendChild(td377a)
+  tr6a.appendChild(td37a)
+  tr6a.appendChild(td38a)
+  tr6a.appendChild(td39a)
+  tr6a.appendChild(td40a)
+  tr6a.appendChild(td41a)
+  tr6a.appendChild(td42a)
+  tr6a.appendChild(td43a)
+  //tr6a.appendChild(td44a)
+
+  //Line 6b
+  var td377b=document.createElement('td')
+  td377b.setAttribute("id","EPS115b-codeue")
+  td377b.innerHTML=`EPS115`
+
+  var td37b=document.createElement('td')
+  td37b.setAttribute("id","EPS115b-matiere")
+  td37b.innerHTML=`Didactique des APS: Judo`
+
+  var td38b=document.createElement('td')
+  td38b.setAttribute("id","EPS115b-note")
+
+  var td39b=document.createElement('td')
+  td39b.setAttribute("id","EPS115b-coef")
+
+  var td40b=document.createElement('td')
+  td40b.setAttribute("id","EPS115b-total")
+
+  var td41b=document.createElement('td')
+  td41b.setAttribute("id","EPS115b-rang")
+
+  var td42b=document.createElement('td')
+  td42b.setAttribute("id","EPS115b-mention")
+
+  var td43b=document.createElement('td')
+  td43b.setAttribute("id","EPS115b-session")
+
+  var td44b=document.createElement('td')
+  //td44b.setAttribute("id","EPS115b-credits")
+
+  var tr6b=document.createElement('tr')
+  tr6b.appendChild(td377b)
+  tr6b.appendChild(td37b)
+  tr6b.appendChild(td38b)
+  tr6b.appendChild(td39b)
+  tr6b.appendChild(td40b)
+  tr6b.appendChild(td41b)
+  tr6b.appendChild(td42b)
+  tr6b.appendChild(td43b)
+  //tr6b.appendChild(td44b)
+
+    //Line 6j
+    var td377j=document.createElement('td')
+    td377j.setAttribute("id","EPS115j-codeue")
+    td377j.innerHTML=`EPS115`
+  
+    var td37j=document.createElement('td')
+    td37j.setAttribute("id","EPS115j-matiere")
+    td37j.innerHTML=`Didactique des APS: Lutte`
+  
+    var td38j=document.createElement('td')
+    td38j.setAttribute("id","EPS115j-note")
+  
+    var td39j=document.createElement('td')
+    td39j.setAttribute("id","EPS115j-coef")
+  
+    var td40j=document.createElement('td')
+    td40j.setAttribute("id","EPS115j-total")
+  
+    var td41j=document.createElement('td')
+    td41j.setAttribute("id","EPS115j-rang")
+  
+    var td42j=document.createElement('td')
+    td42j.setAttribute("id","EPS115j-mention")
+  
+    var td43j=document.createElement('td')
+    td43j.setAttribute("id","EPS115j-session")
+  
+    //var td44j=document.createElement('td')
+    //td44j.setAttribute("id","EPS115j-credits")
+  
+    var tr6j=document.createElement('tr')
+    tr6j.appendChild(td377j)
+    tr6j.appendChild(td37j)
+    tr6j.appendChild(td38j)
+    tr6j.appendChild(td39j)
+    tr6j.appendChild(td40j)
+    tr6j.appendChild(td41j)
+    tr6j.appendChild(td42j)
+    tr6j.appendChild(td43j)
+    //tr6j.appendChild(td44j)
 
   //Line 7
   var td45=document.createElement('td')
@@ -1198,7 +1420,7 @@ function GenerateBullStaps1Semestre1(){
 
   var td46=document.createElement('td')
   td46.setAttribute("id","EPS118-matiere")
-  td46.innerHTML=`La Physiologie de l’Execice I`
+  td46.innerHTML=`Technique D'Expression Française`
 
   var td47=document.createElement('td')
   td47.setAttribute("id","EPS118-note")
@@ -1222,6 +1444,7 @@ function GenerateBullStaps1Semestre1(){
   td53.setAttribute("id","EPS118-credits")
 
   var tr9=document.createElement('tr')
+  tr9.setAttribute('id','ligne-EPS118')
   tr9.appendChild(td45)
   tr9.appendChild(td46)
   tr9.appendChild(td47)
@@ -1263,6 +1486,7 @@ function GenerateBullStaps1Semestre1(){
   td53.setAttribute("id","EPS119-credits")
 
   var tr10=document.createElement('tr')
+  tr10.setAttribute('id','ligne-EPS119')
   tr10.appendChild(td45)
   tr10.appendChild(td46)
   tr10.appendChild(td47)
@@ -1299,6 +1523,7 @@ function GenerateBullStaps1Semestre1(){
   td106.setAttribute("id","resultat-crédits")
 
   var tr11=document.createElement('tr')
+  tr11.setAttribute('id', 'ligne-13')
   tr11.appendChild(td100)
   tr11.appendChild(td101)
   tr11.appendChild(td102)
@@ -1314,6 +1539,9 @@ function GenerateBullStaps1Semestre1(){
   tbody.appendChild(tr4)
   tbody.appendChild(tr5)
   tbody.appendChild(tr6)
+  tbody.appendChild(tr6a)
+  tbody.appendChild(tr6b)
+  tbody.appendChild(tr6j)
   tbody.appendChild(tr7)
   tbody.appendChild(tr8)
   tbody.appendChild(tr9)
@@ -1554,7 +1782,7 @@ function GenerateBullStaps2Semestre3(){
   //Line 2
   var th1 =document.createElement('th')
   th1.setAttribute('id','semestre')
-  th1.setAttribute('rowspan','10')
+  th1.setAttribute('rowspan','15')
   th1.innerHTML=`SEMESTRE 3`
   var th2=document.createElement('th')
   th2.setAttribute('scope','row')
@@ -1649,7 +1877,7 @@ function GenerateBullStaps2Semestre3(){
   //Line 4 //REGROUPER L4 et L5 dans une boucle
   var th2=document.createElement('th')
   th2.setAttribute('scope','row')
-  th2.setAttribute('rowspan','4')
+  th2.setAttribute('rowspan','9')
   th2.innerHTML=`UE Professionnelles`
 
   var td20=document.createElement('td')
@@ -1670,7 +1898,7 @@ function GenerateBullStaps2Semestre3(){
   td23.setAttribute("id","EPS233-total")
 
   var td24=document.createElement('td')
-  td24.setAttribute("rowspan","4")
+  td24.setAttribute("rowspan","9")
   td24.setAttribute("id","EPS233-moyenne")
 
   var td25=document.createElement('td')
@@ -1739,46 +1967,251 @@ function GenerateBullStaps2Semestre3(){
   tr5.appendChild(td35)
   tr5.appendChild(td36)
  
-  //Line 6
-  var td377=document.createElement('td')
-  td377.setAttribute("id","EPS235-codeue")
-  td377.innerHTML=`EPS235`
+  //Line 6a
+  var td377a=document.createElement('td')
+  td377a.setAttribute("id","EPS235a-codeue")
+  td377a.innerHTML=`EPS235`
 
-  var td37=document.createElement('td')
-  td37.setAttribute("id","EPS235-matiere")
-  td37.innerHTML=`Didactique Des APS (Gymnastique/Athlethisme/Activités Physiques et Sportives Adaptées)`
+  var td37a=document.createElement('td')
+  td37a.setAttribute("id","EPS235a-matiere")
+  td37a.innerHTML=`Didactique Des APS (Gymnastique/`
 
-  var td38=document.createElement('td')
-  td38.setAttribute("id","EPS235-note")
+  var td38a=document.createElement('td')
+  td38a.setAttribute("id","EPS235a-note")
 
-  var td39=document.createElement('td')
-  td39.setAttribute("id","EPS235-coef")
+  var td39a=document.createElement('td')
+  td39a.setAttribute("id","EPS235a-coef")
 
-  var td40=document.createElement('td')
-  td40.setAttribute("id","EPS235-total")
+  var td40a=document.createElement('td')
+  td40a.setAttribute("id","EPS235a-total")
 
-  var td41=document.createElement('td')
-  td41.setAttribute("id","EPS235-rang")
+  var td41a=document.createElement('td')
+  td41a.setAttribute("id","EPS235a-rang")
 
-  var td42=document.createElement('td')
-  td42.setAttribute("id","EPS235-mention")
+  var td42a=document.createElement('td')
+  td42a.setAttribute("id","EPS235a-mention")
 
-  var td43=document.createElement('td')
-  td43.setAttribute("id","EPS235-session")
+  var td43a=document.createElement('td')
+  td43a.setAttribute("id","EPS235a-session")
 
-  var td44=document.createElement('td')
-  td44.setAttribute("id","EPS235-credits")
+  var td44a=document.createElement('td')
+  td44a.setAttribute("id","EPS235a-credits")
 
-  var tr6=document.createElement('tr')
-  tr6.appendChild(td377)
-  tr6.appendChild(td37)
-  tr6.appendChild(td38)
-  tr6.appendChild(td39)
-  tr6.appendChild(td40)
-  tr6.appendChild(td41)
-  tr6.appendChild(td42)
-  tr6.appendChild(td43)
-  tr6.appendChild(td44)
+  var tr6a=document.createElement('tr')
+  tr6a.appendChild(td377a)
+  tr6a.appendChild(td37a)
+  tr6a.appendChild(td38a)
+  tr6a.appendChild(td39a)
+  tr6a.appendChild(td40a)
+  tr6a.appendChild(td41a)
+  tr6a.appendChild(td42a)
+  tr6a.appendChild(td43a)
+  tr6a.appendChild(td44a)
+
+  //Line 6b
+  var td377b=document.createElement('td')
+  td377b.setAttribute("id","EPS235b-codeue")
+  td377b.innerHTML=`EPS235`
+
+  var td37b=document.createElement('td')
+  td37b.setAttribute("id","EPS235b-matiere")
+  td37b.innerHTML=`Didactique Des APS (Gymnastique/`
+
+  var td38b=document.createElement('td')
+  td38b.setAttribute("id","EPS235b-note")
+
+  var td39b=document.createElement('td')
+  td39b.setAttribute("id","EPS235b-coef")
+
+  var td40b=document.createElement('td')
+  td40b.setAttribute("id","EPS235b-total")
+
+  var td41b=document.createElement('td')
+  td41b.setAttribute("id","EPS235b-rang")
+
+  var td42b=document.createElement('td')
+  td42b.setAttribute("id","EPS235b-mention")
+
+  var td43b=document.createElement('td')
+  td43b.setAttribute("id","EPS235b-session")
+
+  var td44b=document.createElement('td')
+  td44b.setAttribute("id","EPS235b-credits")
+
+  var tr6b=document.createElement('tr')
+  tr6b.appendChild(td377b)
+  tr6b.appendChild(td37b)
+  tr6b.appendChild(td38b)
+  tr6b.appendChild(td39b)
+  tr6b.appendChild(td40b)
+  tr6b.appendChild(td41b)
+  tr6b.appendChild(td42b)
+  tr6b.appendChild(td43b)
+  tr6b.appendChild(td44b)
+
+  //Line 6f
+  var td377f=document.createElement('td')
+  td377f.setAttribute("id","EPS235f-codeue")
+  td377f.innerHTML=`EPS235`
+
+  var td37f=document.createElement('td')
+  td37f.setAttribute("id","EPS235f-matiere")
+  td37f.innerHTML=`Didactique Des APS (Gymnastique/`
+
+  var td38f=document.createElement('td')
+  td38f.setAttribute("id","EPS235f-note")
+
+  var td39f=document.createElement('td')
+  td39f.setAttribute("id","EPS235f-coef")
+
+  var td40f=document.createElement('td')
+  td40f.setAttribute("id","EPS235f-total")
+
+  var td41f=document.createElement('td')
+  td41f.setAttribute("id","EPS235f-rang")
+
+  var td42f=document.createElement('td')
+  td42f.setAttribute("id","EPS235f-mention")
+
+  var td43f=document.createElement('td')
+  td43f.setAttribute("id","EPS235f-session")
+
+  var td44f=document.createElement('td')
+  td44f.setAttribute("id","EPS235f-credits")
+
+  var tr6f=document.createElement('tr')
+  tr6f.appendChild(td377f)
+  tr6f.appendChild(td37f)
+  tr6f.appendChild(td38f)
+  tr6f.appendChild(td39f)
+  tr6f.appendChild(td40f)
+  tr6f.appendChild(td41f)
+  tr6f.appendChild(td42f)
+  tr6f.appendChild(td43f)
+  tr6f.appendChild(td44f)
+
+  //Line 6g
+  var td377g=document.createElement('td')
+  td377g.setAttribute("id","EPS235g-codeue")
+  td377g.innerHTML=`EPS235`
+
+  var td37g=document.createElement('td')
+  td37g.setAttribute("id","EPS235g-matiere")
+  td37g.innerHTML=`Didactique Des APS (Gymnastique/`
+
+  var td38g=document.createElement('td')
+  td38g.setAttribute("id","EPS235g-note")
+
+  var td39g=document.createElement('td')
+  td39g.setAttribute("id","EPS235g-coef")
+
+  var td40g=document.createElement('td')
+  td40g.setAttribute("id","EPS235g-total")
+
+  var td41g=document.createElement('td')
+  td41g.setAttribute("id","EPS235g-rang")
+
+  var td42g=document.createElement('td')
+  td42g.setAttribute("id","EPS235g-mention")
+
+  var td43g=document.createElement('td')
+  td43g.setAttribute("id","EPS235g-session")
+
+  var td44g=document.createElement('td')
+  td44g.setAttribute("id","EPS235g-credits")
+
+  var tr6g=document.createElement('tr')
+  tr6g.appendChild(td377g)
+  tr6g.appendChild(td37g)
+  tr6g.appendChild(td38g)
+  tr6g.appendChild(td39g)
+  tr6g.appendChild(td40g)
+  tr6g.appendChild(td41g)
+  tr6g.appendChild(td42g)
+  tr6g.appendChild(td43g)
+  tr6g.appendChild(td44g)
+
+  //Line 6j
+  var td377j=document.createElement('td')
+  td377j.setAttribute("id","EPS235j-codeue")
+  td377j.innerHTML=`EPS235`
+
+  var td37j=document.createElement('td')
+  td37j.setAttribute("id","EPS235j-matiere")
+  td37j.innerHTML=`Didactique Des APS (Gymnastique/`
+
+  var td38j=document.createElement('td')
+  td38j.setAttribute("id","EPS235j-note")
+
+  var td39j=document.createElement('td')
+  td39j.setAttribute("id","EPS235j-coef")
+
+  var td40j=document.createElement('td')
+  td40j.setAttribute("id","EPS235j-total")
+
+  var td41j=document.createElement('td')
+  td41j.setAttribute("id","EPS235j-rang")
+
+  var td42j=document.createElement('td')
+  td42j.setAttribute("id","EPS235j-mention")
+
+  var td43j=document.createElement('td')
+  td43j.setAttribute("id","EPS235j-session")
+
+  var td44j=document.createElement('td')
+  td44j.setAttribute("id","EPS235j-credits")
+
+  var tr6j=document.createElement('tr')
+  tr6j.appendChild(td377j)
+  tr6j.appendChild(td37j)
+  tr6j.appendChild(td38j)
+  tr6j.appendChild(td39j)
+  tr6j.appendChild(td40j)
+  tr6j.appendChild(td41j)
+  tr6j.appendChild(td42j)
+  tr6j.appendChild(td43j)
+  tr6j.appendChild(td44j)
+
+  //Line 6j
+  var td377l=document.createElement('td')
+  td377l.setAttribute("id","EPS235l-codeue")
+  td377l.innerHTML=`EPS235`
+
+  var td37l=document.createElement('td')
+  td37l.setAttribute("id","EPS235l-matiere")
+  td37l.innerHTML=`Didactique Des APS (Gymnastique/`
+
+  var td38l=document.createElement('td')
+  td38l.setAttribute("id","EPS235l-note")
+
+  var td39l=document.createElement('td')
+  td39l.setAttribute("id","EPS235l-coef")
+
+  var td40l=document.createElement('td')
+  td40l.setAttribute("id","EPS235l-total")
+
+  var td41l=document.createElement('td')
+  td41l.setAttribute("id","EPS235l-rang")
+
+  var td42l=document.createElement('td')
+  td42l.setAttribute("id","EPS235l-mention")
+
+  var td43l=document.createElement('td')
+  td43l.setAttribute("id","EPS235l-session")
+
+  var td44l=document.createElement('td')
+  td44l.setAttribute("id","EPS235l-credits")
+
+  var tr6l=document.createElement('tr')
+  tr6l.appendChild(td377l)
+  tr6l.appendChild(td37l)
+  tr6l.appendChild(td38l)
+  tr6l.appendChild(td39l)
+  tr6l.appendChild(td40l)
+  tr6l.appendChild(td41l)
+  tr6l.appendChild(td42l)
+  tr6l.appendChild(td43l)
+  tr6l.appendChild(td44l)
 
   //Line 7
   var td45=document.createElement('td')
@@ -1787,7 +2220,7 @@ function GenerateBullStaps2Semestre3(){
 
   var td46=document.createElement('td')
   td46.setAttribute("id","EPS236-matiere")
-  td46.innerHTML=`Pédagogie Pratique II (Sport Co-sport de ombat-Sport Individuel Gymnastique)`
+  td46.innerHTML=`Pédagogie Pratique II`
 
   var td47=document.createElement('td')
   td47.setAttribute("id","EPS236-note")
@@ -1995,7 +2428,12 @@ function GenerateBullStaps2Semestre3(){
   tbody.appendChild(tr3)
   tbody.appendChild(tr4)
   tbody.appendChild(tr5)
-  tbody.appendChild(tr6)
+  tbody.appendChild(tr6a)
+  tbody.appendChild(tr6b)
+  tbody.appendChild(tr6f)
+  tbody.appendChild(tr6g)
+  tbody.appendChild(tr6j)
+  tbody.appendChild(tr6l)
   tbody.appendChild(tr7)
   tbody.appendChild(tr8)
   tbody.appendChild(tr9)
@@ -3188,28 +3626,62 @@ function GenerateBullMSOsemestre5(){
 /**FONCTION BULLETIN MDS */
 function BullMDS1(clone){
 
+    //TRI DES MATIERES
+    a = /*[...*/mydata[4]//]
+    var sort111= epuration(a);
+
+    b = [...mydata[5]]
+    var sort111b=epuration(b)
+    
+    c = [...mydata[6]]
+    var sort112=epuration(c)
+    
+    d = [...mydata[7]]
+    var sort112b=epuration(d)
+    
+    e = [...mydata[8]]
+    var sort113=epuration(e)
+    
+    f = [...mydata[9]]
+    var sort114=epuration(f)
+    
+    g = [...mydata[10]]
+    var sort115=epuration(g)
+    
+    h = [...mydata[11]]
+    var sort116=epuration(h)
+    
+    j = [...mydata[12]]
+    var sort117=epuration(j)
+
+    k = [...mydata[13]]
+    var sort117b=epuration(k)
+
   //DONNEES RECUPEREES DE LA BD
-  var infoEtudiant = mydata[1]
+  infoEtudiant = mydata[1]
   var coefUe = mydata[2]
   var creditUe = mydata[3]
   var mds111 = mydata[4]
   var mds111b = mydata[5]
   var mds112 = mydata[6]
-  var mds113 = mydata[7]
-  var mds114 = mydata[8]
-  var mds115 = mydata[9]
-  var mds116 = mydata[10]
-  var mds117 = mydata[11]
+  var mds112b = mydata[7]
+  var mds113 = mydata[8]
+  var mds114 = mydata[9]
+  var mds115 = mydata[10]
+  var mds116 = mydata[11]
+  var mds117 = mydata[12]
+  var mds117b = mydata[13]
+
 
   //Info Utilisateur
-  var info1 = clone.children[2].children[1].children[0]
+  info1 = clone.children[2].children[1].children[0]
   for(j=2; j<=info1.childElementCount-1; j++){
     if(j==2){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['nom']}`}
     if(j==3){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['prenom']}`}
     //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +' er'}
   }
 
-  var info2 = clone.children[2].children[1].children[1]
+  info2 = clone.children[2].children[1].children[1]
   for(j=1; j<=info2.childElementCount-1; j++){
     if(j==1){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${infoEtudiant[i]['matricule']}`}
     if(j==2){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${infoEtudiant[i]['date_naissance']}`}
@@ -3226,22 +3698,23 @@ function BullMDS1(clone){
     if(j==4){ligneMDS111.children[j].innerHTML = mds111[i]['note_Examen']}//note math
     if(j==5){ligneMDS111.children[j].innerHTML = coefUe[0]['coefficient']}//coef math
     if(j==6){val = ligneMDS111.children[4].innerHTML*ligneMDS111.children[5].innerHTML; val = val.toFixed(2); val = parseFloat(val) ;ligneMDS111.children[j].innerHTML = val}//total note math * coef
-  if(j==7){ligneMDS111.children[j].innerHTML = Moyenne3( ligneMDS111.children[6].innerHTML, mds111b[i]['note_Examen']*coefUe[1]['coefficient'], mds112[i]['note_Examen']*coefUe[2]['coefficient'],((coefUe[0]['coefficient']+coefUe[1]['coefficient']+coefUe[2]['coefficient'])) ) } //moyenne donc (totalmath + totalinfo)/2
-    if(j==8){/*ligneMDS111.children[j].innerHTML =  mds1sort.indexof(mds111[i]['note_Examen'])*/}//Rang
+  if(j==7){ligneMDS111.children[j].innerHTML = Moyenne4( ligneMDS111.children[6].innerHTML, mds111b[i]['note_Examen']*coefUe[1]['coefficient'], mds112[i]['note_Examen']*coefUe[2]['coefficient'], mds112b[i]['note_Examen']*coefUe[3]['coefficient'],((coefUe[0]['coefficient']+coefUe[1]['coefficient']+coefUe[2]['coefficient']+coefUe[3]['coefficient'])) ) } //moyenne donc (totalmath + totalinfo)/2
+    if(j==8){ ligneMDS111.children[j].innerHTML= sort111.indexOf(mds111[i]['note_Examen'])+1/*ligneMDS111.children[j].innerHTML =  mds1sort.indexof(mds111[i]['note_Examen'])*/}//Rang
     if(j==9){if(ligneMDS111.children[4].innerHTML >= 10){
       ligneMDS111.children[9].innerHTML = "VALIDEE"
     }else{ligneMDS111.children[9].innerHTML = "NON VALIDEE"}}//Mention
     if(j==10){}//Session
     if(j==11){if(mds111[i]["note_Examen"]>= 10 && mds111b[i]['note_Examen']>= 10){ligneMDS111.children[j].innerHTML = creditUe[0]['nombre_credit']}else{ligneMDS111.children[j].innerHTML = 0}}//Crédits
   }
+  //MoyenneEtud[1]= 
 
   //LIGNE MDS11b
-  var ligneMDS111b = tbody.children[1]
+  ligneMDS111b = tbody.children[1]
   for(j=0; j<=ligneMDS111b.childElementCount-1; j++){
     if(j==2){ligneMDS111b.children[j].innerHTML = mds111b[i]['note_Examen']}//note info
     if(j==3){ligneMDS111b.children[j].innerHTML = coefUe[1]['coefficient']}//coef info
     if(j==4){val=ligneMDS111b.children[2].innerHTML*ligneMDS111b.children[3].innerHTML; val= val.toFixed(2); val = parseFloat(val); ligneMDS111b.children[j].innerHTML = val}//total note math * coef
-    if(j==5){}//Rang
+    if(j==5){ligneMDS111b.children[j].innerHTML = sort111b.indexOf(mds111b[i]['note_Examen'])+1}//Rang
     if(j==6){
       if(ligneMDS111b.children[2].innerHTML >= 10){ligneMDS111b.children[6].innerHTML = "VALIDEE"}else{ligneMDS111b.children[6].innerHTML = "NON VALIDEE"}}
     if(j==7){}//Session
@@ -3249,97 +3722,151 @@ function BullMDS1(clone){
   }
 
   //LIGNE MDS112
-  var ligneMDS112 = tbody.children[2]
+ var ligneMDS112 = tbody.children[2]
   for(j=0; j<=ligneMDS112.childElementCount-1; j++){
     if(j==2){ligneMDS112.children[j].innerHTML = mds112[i]['note_Examen']}//note info
     if(j==3){ligneMDS112.children[j].innerHTML = coefUe[2]['coefficient']}//coef info
     if(j==4){val=ligneMDS112.children[2].innerHTML*ligneMDS112.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val); ligneMDS112.children[j].innerHTML = val}//total note math * coef
-    if(j==5){}//Rang
+    if(j==5){ligneMDS112.children[j].innerHTML = sort112.indexOf(mds112[i]['note_Examen'])+1}//Rang
     if(j==6){if(ligneMDS112.children[2].innerHTML >= 10){ligneMDS112.children[j].innerHTML = "VALIDEE"}else{ligneMDS112.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){}//Session
-    if(j==8){if(ligneMDS112.children[2].innerHTML>=10){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
+    if(j==8){if(ligneMDS112.children[2].innerHTML>=10 && mds112b[i]['note_Examen']>=10){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
+  }
+
+  //LIGNE MDS112
+  var ligneMDS112b = tbody.children[3]
+  for(j=0; j<=ligneMDS112b.childElementCount-1; j++){
+    if(j==2){ligneMDS112b.children[j].innerHTML = mds112b[i]['note_Examen']}//note info
+    if(j==3){ligneMDS112b.children[j].innerHTML = coefUe[3]['coefficient']}//coef info
+    if(j==4){val=ligneMDS112b.children[2].innerHTML*ligneMDS112b.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val); ligneMDS112b.children[j].innerHTML = val}//total note math * coef
+    if(j==5){ligneMDS112b.children[j].innerHTML = sort112b.indexOf(mds112b[i]['note_Examen'])+1}//Rang
+    if(j==6){if(ligneMDS112b.children[2].innerHTML >= 10){ligneMDS112b.children[j].innerHTML = "VALIDEE"}else{ligneMDS112b.children[j].innerHTML ="NON VALIDEE"}}//Mention
+    if(j==7){}//Session
+    if(j==8){if(ligneMDS112b.children[2].innerHTML>=10){ligneMDS112b.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112b.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LIGNE MDS113
-  var ligneMDS113 = tbody.children[3]
+  var ligneMDS113 = tbody.children[4]
   for(j=0; j<=ligneMDS113.childElementCount-1; j++){
     if(j==3){ligneMDS113.children[j].innerHTML = mds113[i]['note_Examen']}//note math
-    if(j==4){ligneMDS113.children[j].innerHTML = coefUe[3]['coefficient']}//coef math
+    if(j==4){ligneMDS113.children[j].innerHTML = coefUe[4]['coefficient']}//coef math
     if(j==5){val=ligneMDS113.children[3].innerHTML*ligneMDS113.children[4].innerHTML; val=val.toFixed(2); val=parseFloat(val); ligneMDS113.children[j].innerHTML = val}//total note math * coef
     if(j==6){ligneMDS113.children[j].innerHTML = 
       Moyenne4( 
         ligneMDS113.children[5].innerHTML, 
-        mds114[i]['note_Examen']*coefUe[4]['coefficient'], 
-        mds115[i]['note_Examen']*coefUe[5]['coefficient'], 
-        mds116[i]['note_Examen']*coefUe[6]['coefficient'],
-        ( (coefUe[3]['coefficient']+coefUe[4]['coefficient']+ coefUe[5]['coefficient']+coefUe[6]['coefficient']) )
+        mds114[i]['note_Examen']*coefUe[5]['coefficient'], 
+        mds115[i]['note_Examen']*coefUe[6]['coefficient'], 
+        mds116[i]['note_Examen']*coefUe[7]['coefficient'],
+        ( (coefUe[4]['coefficient']+coefUe[5]['coefficient']+ coefUe[6]['coefficient']+coefUe[7]['coefficient']) )
       );} //moyenne donc (totalmath + totalinfo)/2
-    if(j==7){}//Rang
+    if(j==7){ligneMDS113.children[j].innerHTML = sort113.indexOf(mds113[i]['note_Examen'])+1}//Rang
     if(j==8){if(ligneMDS113.children[3].innerHTML >= 10){ligneMDS113.children[j].innerHTML = "VALIDEE"}else{ligneMDS113.children[j].innerHTML = "NON VALIDEE"}}//Mention
     if(j==9){}
     if(j==10){if(mds113[i]["note_Examen"]>= 10){ligneMDS113.children[j].innerHTML = creditUe[3]['nombre_credit']}else{ligneMDS113.children[j].innerHTML = 0}}//Crédits
   }
 
   //LINE MDS114
-  var ligneMDS114 = tbody.children[4]
+ var ligneMDS114 = tbody.children[5]
   for(j=0; j<=ligneMDS114.childElementCount-1; j++){
     if(j==2){ligneMDS114.children[j].innerHTML = mds114[i]['note_Examen']}//note info
-    if(j==3){ligneMDS114.children[j].innerHTML = coefUe[4]['coefficient']}//coef info
+    if(j==3){ligneMDS114.children[j].innerHTML = coefUe[5]['coefficient']}//coef info
     if(j==4){val=ligneMDS114.children[2].innerHTML*ligneMDS114.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val); ligneMDS114.children[j].innerHTML = val }//total note math * coef
-    if(j==5){}//Rang
+    if(j==5){ligneMDS114.children[j].innerHTML = sort114.indexOf(mds114[i]['note_Examen'])+1}//Rang
     if(j==6){if(ligneMDS114.children[2].innerHTML >= 10){ligneMDS114.children[j].innerHTML = "VALIDEE"}else{ligneMDS114.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){}//Session
     if(j==8){if(ligneMDS114.children[2].innerHTML>=10){ligneMDS114.children[j].innerHTML = creditUe[4]['nombre_credit']}else{ligneMDS114.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LINE MDS115
-  var ligneMDS115 = tbody.children[5]
+ var ligneMDS115 = tbody.children[6]
   for(j=0; j<=ligneMDS115.childElementCount-1; j++){
     if(j==2){ligneMDS115.children[j].innerHTML = mds115[i]['note_Examen']}//note info
-    if(j==3){ligneMDS115.children[j].innerHTML = coefUe[5]['coefficient']}//coef info
+    if(j==3){ligneMDS115.children[j].innerHTML = coefUe[6]['coefficient']}//coef info
     if(j==4){val=ligneMDS115.children[2].innerHTML*ligneMDS115.children[3].innerHTML; val=val.toFixed(2);val=parseFloat(val); ligneMDS115.children[j].innerHTML = val}//total note math * coef
-    if(j==5){}//Rang
+    if(j==5){ligneMDS115.children[j].innerHTML = sort115.indexOf(mds115[i]['note_Examen'])+1}//Rang
     if(j==6){if(ligneMDS115.children[2].innerHTML >= 10){ligneMDS115.children[j].innerHTML = "VALIDEE"}else{ligneMDS115.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){}//Session
     if(j==8){if(ligneMDS115.children[2].innerHTML>=10){ligneMDS115.children[j].innerHTML = creditUe[5]['nombre_credit']}else{ligneMDS115.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LINE MD16
-  var ligneMDS116 = tbody.children[6]
+ var ligneMDS116 = tbody.children[7]
   for(j=0; j<=ligneMDS116.childElementCount-1; j++){
     if(j==2){ligneMDS116.children[j].innerHTML = mds116[i]['note_Examen']}//note info
-    if(j==3){ligneMDS116.children[j].innerHTML = coefUe[4]['coefficient']}//coef info
+    if(j==3){ligneMDS116.children[j].innerHTML = coefUe[7]['coefficient']}//coef info
     if(j==4){val=ligneMDS116.children[2].innerHTML*ligneMDS116.children[3].innerHTML;val=val.toFixed(2);val=parseFloat(val); ligneMDS116.children[j].innerHTML = val}//total note math * coef
-    if(j==5){}//Rang
+    if(j==5){ligneMDS116.children[j].innerHTML = sort116.indexOf(mds116[i]['note_Examen'])+1}//Rang
     if(j==6){if(ligneMDS116.children[2].innerHTML >= 10){ligneMDS116.children[j].innerHTML = "VALIDEE"}else{ligneMDS116.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){}//Session
     if(j==8){if(ligneMDS116.children[2].innerHTML>=10){ligneMDS116.children[j].innerHTML = creditUe[6]['nombre_credit']}else{ligneMDS116.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LINE 17
-  var ligneMDS117 = tbody.children[7]
+  var ligneMDS117 = tbody.children[8]
   for(j=0; j<=ligneMDS117.childElementCount-1; j++){
     if(j==3){ligneMDS117.children[j].innerHTML = mds117[i]['note_Examen']}//note math
-    if(j==4){ligneMDS117.children[j].innerHTML = coefUe[7]['coefficient']}//coef math
+    if(j==4){ligneMDS117.children[j].innerHTML = coefUe[8]['coefficient']}//coef math
     if(j==5){val=ligneMDS117.children[3].innerHTML*ligneMDS117.children[4].innerHTML; val=val.toFixed(2); val=parseFloat(val); ligneMDS117.children[j].innerHTML = val}//total note math * coef
-    if(j==6){ligneMDS117.children[j].innerHTML = ligneMDS117.children[3].innerHTML} //moyenne donc (totalmath + totalinfo)/2
-    if(j==7){}//Rang
+    if(j==6){ ligneMDS117.children[j].innerHTML = 
+      Moyenne2( 
+        ligneMDS117.children[5].innerHTML, 
+        mds117b[i]['note_Examen']*coefUe[9]['coefficient'], 
+        coefUe[8]['coefficient']+coefUe[9]['coefficient'] 
+        )  
+      } //moyenne donc (totalmath + totalinfo)/2
+
+    if(j==7){ligneMDS117.children[j].innerHTML = sort117.indexOf(mds117[i]['note_Examen'])+1}//Rang
     if(j==8){if(ligneMDS117.children[3].innerHTML >= 10){ligneMDS117.children[j].innerHTML = "VALIDEE"}else{ligneMDS117.children[j].innerHTML = "NON VALIDEE"}}//Mention
     if(j==9){}
-    if(j==10){if(mds117[i]["note_Examen"]>= 10){ligneMDS117.children[j].innerHTML = creditUe[7]['nombre_credit']}else{ligneMDS117.children[j].innerHTML = 0}}//Crédits
+    if(j==10){if( mds117[i]["note_Examen"]>= 10 && mds117b[i]['note_Examen'] >=10 ){ligneMDS117.children[j].innerHTML = creditUe[8]['nombre_credit']}else{ligneMDS117.children[j].innerHTML = 0}}//Crédits
+  }
+
+  //LINE 17b
+ var ligneMDS117b = tbody.children[9]
+  for(j=0; j<=ligneMDS117b.childElementCount-1; j++){
+    if(j==2){ligneMDS117b.children[j].innerHTML = mds117b[i]['note_Examen']}//note math
+    if(j==3){ligneMDS117b.children[j].innerHTML = coefUe[9]['coefficient']}//coef math
+    if(j==4){val=ligneMDS117b.children[3].innerHTML*ligneMDS117b.children[2].innerHTML; val=val.toFixed(2); val=parseFloat(val); ligneMDS117b.children[j].innerHTML = val}//total note math * coef
+    if(j==5){ligneMDS117b.children[j].innerHTML = sort117b.indexOf(mds117b[i]['note_Examen'])+1} //Rang
+    if(j==6){if(ligneMDS117b.children[2].innerHTML >= 10){ligneMDS117b.children[j].innerHTML = "VALIDEE"}else{ligneMDS117b.children[j].innerHTML = "NON VALIDEE"}}//Mention
+    if(j==7){} //Session
+    
   }
 
   //LINE DEs RESULTATS
-  var resultat = tbody.children[8]
+  resultat = tbody.children[10]
   for(j=0; j<=resultat.childElementCount-1; j++){
     if(j==1){
-      resultat.children[1].innerHTML = sommeInt1(ligneMDS111.children[5].innerHTML, ligneMDS111b.children[3].innerHTML, ligneMDS112.children[3].innerHTML, ligneMDS113.children[4].innerHTML, ligneMDS114.children[3].innerHTML, ligneMDS115.children[3].innerHTML, ligneMDS116.children[3].innerHTML, ligneMDS117.children[4].innerHTML);
+      resultat.children[1].innerHTML = sommeInt1(ligneMDS111.children[5].innerHTML,ligneMDS111b.children[3].innerHTML,ligneMDS112.children[3].innerHTML,ligneMDS112b.children[3].innerHTML,ligneMDS113.children[4].innerHTML,ligneMDS114.children[3].innerHTML,ligneMDS115.children[3].innerHTML,ligneMDS116.children[3].innerHTML,ligneMDS117.children[4].innerHTML,ligneMDS117b.children[3].innerHTML);
     }
-    if(j==2){resultat.children[2].innerHTML = sommeFloat(ligneMDS111b.children[4].innerHTML, ligneMDS111.children[6].innerHTML, ligneMDS112.children[4].innerHTML, ligneMDS113.children[5].innerHTML, ligneMDS114.children[4].innerHTML, ligneMDS115.children[4].innerHTML,ligneMDS116.children[4].innerHTML, ligneMDS117.children[5].innerHTML) }
+    if(j==2){ resultat.children[2].innerHTML = sommeFloat(ligneMDS111b.children[4].innerHTML, ligneMDS111.children[6].innerHTML, ligneMDS112.children[4].innerHTML, ligneMDS113.children[5].innerHTML, ligneMDS114.children[4].innerHTML, ligneMDS115.children[4].innerHTML,ligneMDS116.children[4].innerHTML, ligneMDS117.children[5].innerHTML, ligneMDS112b.children[4].innerHTML, ligneMDS117b.children[4].innerHTML) }
     if(j==3){ val = resultat.children[2].innerHTML / resultat.children[1].innerHTML; val=val.toFixed(2); val=parseFloat(val); resultat.children[j].innerHTML= val}
-    if(j==6){ resultat.children[6].innerHTML =  sommeInt(ligneMDS111.children[11].innerHTML ,ligneMDS112.children[8].innerHTML,ligneMDS113.children[10].innerHTML, ligneMDS114.children[8].innerHTML,ligneMDS115.children[8].innerHTML, ligneMDS116.children[8].innerHTML, ligneMDS117.children[10].innerHTML) }
+    if(j==6){ resultat.children[6].innerHTML =  sommeInt(ligneMDS111.children[11].innerHTML ,ligneMDS112.children[8].innerHTML,ligneMDS113.children[10].innerHTML, ligneMDS114.children[8].innerHTML,ligneMDS115.children[8].innerHTML, ligneMDS116.children[8].innerHTML, ligneMDS117.children[10].innerHTML) } /**TOtal Crédit */
   }
 
+  //Tbody
+  var body3 = clone.children[2].children[2].children[1].children[1]
+    
+  //LIGNE 0
+  var ligne0 = body3.children[0]
+  for(j=0; j<=ligne0.childElementCount-1; j++){
+    if(j==2){ligne0.children[2].innerHTML= `${resultat.children[3].innerHTML} / 20`}
+    if(j==4){ ligne0.children[j].innerHTML = `X / 20`}
+  }
+
+  //LIGNE 1
+  var ligne1 = body3.children[1]
+  for(j=0; j<=ligne1.childElementCount-1; j++){
+    if(j==2){ ligne1.children[j].innerHTML = `X / 20`}
+    if(j==4){ ligne1.children[j].innerHTML = `X / 20`}
+  }
+  
+  //LLIGNE 2
+  var ligne2 = body3.children[2]
+  for(j=0; j<=ligne1.childElementCount-1; j++){
+    if(j==5){ ligne2.children[j].innerHTML = ` sur ${mydata[1].length}`}
+    if(j==4){}
+  }
 
   return(clone)
 }
@@ -3356,6 +3883,13 @@ function Moyenne3(a,b,c, coef){
   result = parseFloat(result);
   return(result)
 }
+function Moyenne2(a,b, coef){ 
+  a = parseFloat(a); 
+  b = parseFloat(b);
+  result= (a + b)/coef; result = result.toFixed(2); 
+  result = parseFloat(result);
+  return(result)
+}
 function Moyenne4(a,b,c,d, coef){ 
   a = parseFloat(a); 
   b = parseFloat(b); 
@@ -3366,20 +3900,7 @@ function Moyenne4(a,b,c,d, coef){
   result = parseFloat(result);
   return(result)
 }
-function sommeInt(a,b,c,d,e,f,g){
-  a = parseInt(a)
-  b = parseInt(b); 
-  c = parseInt(c);
-  d = parseInt(d);
-  e = parseInt(e);
-  f = parseInt(f);
-  g = parseInt(g);
-
-  result = a + b + c + d + e + f + g
-
-  return(result)
-}
-function sommeInt1(a,b,c,d,e,f,g,h){
+function sommeInt1(a,b,c,d,e,f,g,h,i,j){
   a = parseInt(a)
   b = parseInt(b); 
   c = parseInt(c);
@@ -3388,8 +3909,31 @@ function sommeInt1(a,b,c,d,e,f,g,h){
   f = parseInt(f);
   g = parseInt(g);
   h = parseInt(h);
+  i = parseInt(i);
+  j = parseInt(j);
 
-  result = a + b + c + d + e + f + g + h
+  result = a + b + c + d + e + f + g + h + i+j
+
+  return(result)
+}
+function sommeInt2(a,b){
+  a = parseInt(a)
+  b = parseInt(b); 
+
+  result = a + b 
+
+  return(result)
+}
+function sommeInt(a,b,c,d,e,f,g){
+  a = parseInt(a);
+  b = parseInt(b); 
+  c = parseInt(c);
+  d = parseInt(d);
+  e = parseInt(e);
+  f = parseInt(f);
+  g = parseInt(g);
+
+  result = a + b + c + d + e + f + g
   return(result)
 }
 function sommeFloat(a,b,c,d,e,f,g,h){
@@ -3402,7 +3946,7 @@ function sommeFloat(a,b,c,d,e,f,g,h){
   g = parseFloat(g);
   h = parseFloat(h);
 
-  result = a + b + c + d + e + f + g + h
+  result = a + b + c + d + e + f + g + h + i + j
   result = result.toFixed(2)
   result = parseFloat(result)
 
@@ -3422,7 +3966,20 @@ function triCroissant(b){
 
   return (b)
 }
+function triDecroissant( b ){
+  for(i=0; i<=b.length; i++){
+    
+    for(j=i+1; j<=b.length; j++){
+      if(b[i] <= b[j]){
+        tmp = b[i]
+        b[i] = b[j]
+        b[j] = tmp
+      }
+    }
+  }
 
+  return (b)
+}
 function formatAsArray(b){
   ar=[];
   for(var i = 0; i<=b.length; i++){
@@ -3430,3 +3987,20 @@ function formatAsArray(b){
   }
   return(ar)
 }
+function epuration(a) { 
+  var sort111 = []
+  for(k=0; k<=a.length-1; k++){
+    sort111[k]=a[k]["note_Examen"]
+  }
+  //sort111 = triDecroissant(sort111)
+  return(sort111)
+  }
+function stringToIntArray(a) { 
+  //val = []
+
+  for(k=0; k<=a.length-1; k++){
+    tmp = parseFloat(a[k]);
+    a[k] = tmp;
+  }
+  return(a)
+ }

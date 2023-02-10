@@ -232,16 +232,18 @@ tr td{
 #tbody00 tr:nth-child(6){
     border-bottom: black dotted 1.5px;
 }
-#tbody00 tr:nth-child(7){
+/*#tbody00 tr:nth-child(7){
     border-bottom: black solid 2px;
-}
+}*/
 #tbody00 tr:nth-child(8){
     border-bottom: black solid 2px;
 }
-#tbody00 tr:nth-child(9) > td{
+/*#tbody00 tr:nth-child(9) > td{
     border-top: black solid 2px;
-    border-right: 2px solid black;
 }
+#tbody00 tr:nth-child(10) > td{
+    border-bottom: black solid 4px;
+}*/
 
 
 /*Tbody01*/
@@ -250,7 +252,7 @@ tr td{
 }
 #tbody01 tr:nth-child(4){
     border-bottom: black solid 2px;
-    /*background-color: #C7B54D;*/
+    background-color: #C7B54D;
 }
 #tbody01 tr:nth-child(7) > td{
     border-right: solid black 2px;
@@ -269,11 +271,12 @@ tbody tr:nth-child(6){
 tbody tr:nth-child(9){
     border-bottom: black solid 2px;
 }
-tbody tr:nth-child(10) > td{
+tbody tr:nth-child(11) > td{
     border-top: black solid 2px;
     border-bottom: black solid 2px;
     border-right: 2px solid black;
 }
+
 
 
 /***Table 2***/
@@ -390,6 +393,33 @@ tbody tr:nth-child(10) > td{
     position: sticky;
 }
 
-#tr33-border-top{
+/*#tr33-border-top{
+    border-bottom: dotted 2px black;
+}*/
+#tr333-border-top{
     border-bottom: solid 2px black;
+}
+
+#info-student-3{
+    text-align: right;
+}
+
+#ligne-EPS118 > td{
+    border-top: black dotted 1.5px;
+    border-bottom: black dotted 1.5px;
+    border-right: black dotted 1.5px;
+}
+
+#ligne-EPS119 > td{
+    border-bottom: black solid 2px;
+}
+
+#ligne-13 > td{
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    border-right: black solid 2px;
+}
+
+#ligne-EPS115b{
+    border-bottom: none;
 }

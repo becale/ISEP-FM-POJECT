@@ -404,6 +404,7 @@ tbody tr:nth-child(11) > td{
     text-align: right;
 }
 
+/*LIGNE DIFFERENTS BULL*/
 #ligne-EPS118 > td{
     border-top: black dotted 1.5px;
     border-bottom: black dotted 1.5px;
@@ -422,4 +423,27 @@ tbody tr:nth-child(11) > td{
 
 #ligne-EPS115b{
     border-bottom: none;
+}
+
+#ligne-eps235b{
+    border-bottom: dotted 1.5px black;
+}
+#ligne-eps235l{
+
+}
+#ligne-eps235j{
+    border-bottom: dotted 1.5px black;
+}
+#ligne-eps236 > td{
+    border-top: black dotted 1.5px;
+    border-bottom: black dotted 1.5px;
+    border-right: black dotted 1.5px;
+}
+#ligne-eps236{
+    border-bottom: black solid 2px;
+}
+#resultat-eps2 > td{
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    border-right: black solid 2px;
 }

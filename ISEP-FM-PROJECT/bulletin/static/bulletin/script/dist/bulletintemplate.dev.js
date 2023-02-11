@@ -586,7 +586,7 @@ function GenerateBullMDS1Semestre1() {
   tr88.appendChild(td633); //tr88.appendChild(td644)
   //Line 9
 
-  var tr9 = document.createElement('tr');
+  var tr9 = document.createElement('tr'); //tr9.setAttribute('id','resultat-eps2')
 
   for (i = 0; i <= 6; i++) {
     var td = document.createElement('td');
@@ -1228,6 +1228,7 @@ function GenerateBullStaps1Semestre1() {
   var td63 = document.createElement('td');
   td63.setAttribute("id", "EPS117-session");
   var td64 = document.createElement('td');
+  td64.setAttribute('rowspan', '2');
   td64.setAttribute("id", "EPS117-credits");
   var tr8 = document.createElement('tr');
   tr8.appendChild(th3);
@@ -1260,8 +1261,9 @@ function GenerateBullStaps1Semestre1() {
   td51.setAttribute("id", "EPS118-mention");
   var td52 = document.createElement('td');
   td52.setAttribute("id", "EPS118-session");
-  var td53 = document.createElement('td');
-  td53.setAttribute("id", "EPS118-credits");
+  /*var td53=document.createElement('td')
+  td53.setAttribute("id","EPS118-credits")*/
+
   var tr9 = document.createElement('tr');
   tr9.setAttribute('id', 'ligne-EPS118');
   tr9.appendChild(td45);
@@ -1271,8 +1273,8 @@ function GenerateBullStaps1Semestre1() {
   tr9.appendChild(td49);
   tr9.appendChild(td50);
   tr9.appendChild(td51);
-  tr9.appendChild(td52);
-  tr9.appendChild(td53); //Line 10
+  tr9.appendChild(td52); //tr9.appendChild(td53)
+  //Line 10
 
   var td45 = document.createElement('td');
   td45.setAttribute("id", "EPS119-codeue");
@@ -1754,7 +1756,7 @@ function GenerateBullStaps2Semestre3() {
   td377a.innerHTML = "EPS235";
   var td37a = document.createElement('td');
   td37a.setAttribute("id", "EPS235a-matiere");
-  td37a.innerHTML = "Didactique Des APS (Gymnastique/";
+  td37a.innerHTML = "Didactique Des APS: Athl\xE9tisme";
   var td38a = document.createElement('td');
   td38a.setAttribute("id", "EPS235a-note");
   var td39a = document.createElement('td');
@@ -1768,6 +1770,7 @@ function GenerateBullStaps2Semestre3() {
   var td43a = document.createElement('td');
   td43a.setAttribute("id", "EPS235a-session");
   var td44a = document.createElement('td');
+  td44a.setAttribute('rowspan', '6');
   td44a.setAttribute("id", "EPS235a-credits");
   var tr6a = document.createElement('tr');
   tr6a.appendChild(td377a);
@@ -1785,7 +1788,7 @@ function GenerateBullStaps2Semestre3() {
   td377b.innerHTML = "EPS235";
   var td37b = document.createElement('td');
   td37b.setAttribute("id", "EPS235b-matiere");
-  td37b.innerHTML = "Didactique Des APS (Gymnastique/";
+  td37b.innerHTML = "Didactique Des APS: Basket Ball";
   var td38b = document.createElement('td');
   td38b.setAttribute("id", "EPS235b-note");
   var td39b = document.createElement('td');
@@ -1798,9 +1801,11 @@ function GenerateBullStaps2Semestre3() {
   td42b.setAttribute("id", "EPS235b-mention");
   var td43b = document.createElement('td');
   td43b.setAttribute("id", "EPS235b-session");
-  var td44b = document.createElement('td');
-  td44b.setAttribute("id", "EPS235b-credits");
+  /*var td44b=document.createElement('td')
+  td44b.setAttribute("id","EPS235b-credits")*/
+
   var tr6b = document.createElement('tr');
+  tr6b.setAttribute('id', 'ligne-eps235b');
   tr6b.appendChild(td377b);
   tr6b.appendChild(td37b);
   tr6b.appendChild(td38b);
@@ -1808,15 +1813,15 @@ function GenerateBullStaps2Semestre3() {
   tr6b.appendChild(td40b);
   tr6b.appendChild(td41b);
   tr6b.appendChild(td42b);
-  tr6b.appendChild(td43b);
-  tr6b.appendChild(td44b); //Line 6f
+  tr6b.appendChild(td43b); //tr6b.appendChild(td44b)
+  //Line 6f
 
   var td377f = document.createElement('td');
   td377f.setAttribute("id", "EPS235f-codeue");
   td377f.innerHTML = "EPS235";
   var td37f = document.createElement('td');
   td37f.setAttribute("id", "EPS235f-matiere");
-  td37f.innerHTML = "Didactique Des APS (Gymnastique/";
+  td37f.innerHTML = "Didactique Des APS: Football";
   var td38f = document.createElement('td');
   td38f.setAttribute("id", "EPS235f-note");
   var td39f = document.createElement('td');
@@ -1829,8 +1834,9 @@ function GenerateBullStaps2Semestre3() {
   td42f.setAttribute("id", "EPS235f-mention");
   var td43f = document.createElement('td');
   td43f.setAttribute("id", "EPS235f-session");
-  var td44f = document.createElement('td');
-  td44f.setAttribute("id", "EPS235f-credits");
+  /*var td44f=document.createElement('td')
+  td44f.setAttribute("id","EPS235f-credits")*/
+
   var tr6f = document.createElement('tr');
   tr6f.appendChild(td377f);
   tr6f.appendChild(td37f);
@@ -1839,15 +1845,15 @@ function GenerateBullStaps2Semestre3() {
   tr6f.appendChild(td40f);
   tr6f.appendChild(td41f);
   tr6f.appendChild(td42f);
-  tr6f.appendChild(td43f);
-  tr6f.appendChild(td44f); //Line 6g
+  tr6f.appendChild(td43f); //tr6f.appendChild(td44f)
+  //Line 6g
 
   var td377g = document.createElement('td');
   td377g.setAttribute("id", "EPS235g-codeue");
   td377g.innerHTML = "EPS235";
   var td37g = document.createElement('td');
   td37g.setAttribute("id", "EPS235g-matiere");
-  td37g.innerHTML = "Didactique Des APS (Gymnastique/";
+  td37g.innerHTML = "Didactique Des APS: Gymnastique";
   var td38g = document.createElement('td');
   td38g.setAttribute("id", "EPS235g-note");
   var td39g = document.createElement('td');
@@ -1860,8 +1866,9 @@ function GenerateBullStaps2Semestre3() {
   td42g.setAttribute("id", "EPS235g-mention");
   var td43g = document.createElement('td');
   td43g.setAttribute("id", "EPS235g-session");
-  var td44g = document.createElement('td');
-  td44g.setAttribute("id", "EPS235g-credits");
+  /*var td44g=document.createElement('td')
+  td44g.setAttribute("id","EPS235g-credits")*/
+
   var tr6g = document.createElement('tr');
   tr6g.appendChild(td377g);
   tr6g.appendChild(td37g);
@@ -1870,15 +1877,15 @@ function GenerateBullStaps2Semestre3() {
   tr6g.appendChild(td40g);
   tr6g.appendChild(td41g);
   tr6g.appendChild(td42g);
-  tr6g.appendChild(td43g);
-  tr6g.appendChild(td44g); //Line 6j
+  tr6g.appendChild(td43g); //tr6g.appendChild(td44g)
+  //Line 6j
 
   var td377j = document.createElement('td');
   td377j.setAttribute("id", "EPS235j-codeue");
   td377j.innerHTML = "EPS235";
   var td37j = document.createElement('td');
   td37j.setAttribute("id", "EPS235j-matiere");
-  td37j.innerHTML = "Didactique Des APS (Gymnastique/";
+  td37j.innerHTML = "Didactique Des APS: Judo";
   var td38j = document.createElement('td');
   td38j.setAttribute("id", "EPS235j-note");
   var td39j = document.createElement('td');
@@ -1891,9 +1898,11 @@ function GenerateBullStaps2Semestre3() {
   td42j.setAttribute("id", "EPS235j-mention");
   var td43j = document.createElement('td');
   td43j.setAttribute("id", "EPS235j-session");
-  var td44j = document.createElement('td');
-  td44j.setAttribute("id", "EPS235j-credits");
+  /*var td44j=document.createElement('td')
+  td44j.setAttribute("id","EPS235j-credits")*/
+
   var tr6j = document.createElement('tr');
+  tr6j.setAttribute('id', 'ligne-eps235j');
   tr6j.appendChild(td377j);
   tr6j.appendChild(td37j);
   tr6j.appendChild(td38j);
@@ -1901,15 +1910,15 @@ function GenerateBullStaps2Semestre3() {
   tr6j.appendChild(td40j);
   tr6j.appendChild(td41j);
   tr6j.appendChild(td42j);
-  tr6j.appendChild(td43j);
-  tr6j.appendChild(td44j); //Line 6j
+  tr6j.appendChild(td43j); //tr6j.appendChild(td44j)
+  //Line 6j
 
   var td377l = document.createElement('td');
   td377l.setAttribute("id", "EPS235l-codeue");
   td377l.innerHTML = "EPS235";
   var td37l = document.createElement('td');
   td37l.setAttribute("id", "EPS235l-matiere");
-  td37l.innerHTML = "Didactique Des APS (Gymnastique/";
+  td37l.innerHTML = "Didactique Des APS: Lutte";
   var td38l = document.createElement('td');
   td38l.setAttribute("id", "EPS235l-note");
   var td39l = document.createElement('td');
@@ -1922,9 +1931,11 @@ function GenerateBullStaps2Semestre3() {
   td42l.setAttribute("id", "EPS235l-mention");
   var td43l = document.createElement('td');
   td43l.setAttribute("id", "EPS235l-session");
-  var td44l = document.createElement('td');
-  td44l.setAttribute("id", "EPS235l-credits");
+  /*var td44l=document.createElement('td')
+  td44l.setAttribute("id","EPS235l-credits")*/
+
   var tr6l = document.createElement('tr');
+  tr6l.setAttribute('id', 'ligne-eps235l');
   tr6l.appendChild(td377l);
   tr6l.appendChild(td37l);
   tr6l.appendChild(td38l);
@@ -1932,8 +1943,8 @@ function GenerateBullStaps2Semestre3() {
   tr6l.appendChild(td40l);
   tr6l.appendChild(td41l);
   tr6l.appendChild(td42l);
-  tr6l.appendChild(td43l);
-  tr6l.appendChild(td44l); //Line 7
+  tr6l.appendChild(td43l); //tr6l.appendChild(td44l)
+  //Line 7
 
   var td45 = document.createElement('td');
   td45.setAttribute("id", "EPS236-codeue");
@@ -1956,6 +1967,7 @@ function GenerateBullStaps2Semestre3() {
   var td53 = document.createElement('td');
   td53.setAttribute("id", "EPS236-credits");
   var tr7 = document.createElement('tr');
+  tr7.setAttribute('id', 'ligne-eps236');
   tr7.appendChild(td45);
   tr7.appendChild(td46);
   tr7.appendChild(td47);
@@ -1991,7 +2003,8 @@ function GenerateBullStaps2Semestre3() {
   td62.setAttribute("id", "EPS237-mention");
   var td63 = document.createElement('td');
   td63.setAttribute("id", "EPS237-session");
-  var td64 = document.createElement('td');
+  var td64 = document.createElement('td'); //td64.setAttribute('rowspan','3')
+
   td64.setAttribute("id", "EPS237-credits");
   var tr8 = document.createElement('tr');
   tr8.appendChild(th3);
@@ -2025,6 +2038,7 @@ function GenerateBullStaps2Semestre3() {
   var td52 = document.createElement('td');
   td52.setAttribute("id", "EPS238-session");
   var td53 = document.createElement('td');
+  td53.setAttribute('rowspan', '2');
   td53.setAttribute("id", "EPS238-credits");
   var tr9 = document.createElement('tr');
   tr9.appendChild(td45);
@@ -2055,8 +2069,9 @@ function GenerateBullStaps2Semestre3() {
   td51.setAttribute("id", "EPS239-mention");
   var td52 = document.createElement('td');
   td52.setAttribute("id", "EPS239-session");
-  var td53 = document.createElement('td');
-  td53.setAttribute("id", "EPS239-credits");
+  /*var td53=document.createElement('td')
+  td53.setAttribute("id","EPS239-credits")*/
+
   var tr10 = document.createElement('tr');
   tr10.appendChild(td45);
   tr10.appendChild(td46);
@@ -2065,8 +2080,8 @@ function GenerateBullStaps2Semestre3() {
   tr10.appendChild(td49);
   tr10.appendChild(td50);
   tr10.appendChild(td51);
-  tr10.appendChild(td52);
-  tr10.appendChild(td53); //Line 11
+  tr10.appendChild(td52); //tr10.appendChild(td53)
+  //Line 11
 
   var td100 = document.createElement('td');
   td100.setAttribute('colspan', '4');
@@ -2086,6 +2101,7 @@ function GenerateBullStaps2Semestre3() {
   var td106 = document.createElement('td');
   td106.setAttribute("id", "resultat-crédits");
   var tr11 = document.createElement('tr');
+  tr11.setAttribute('id', 'resultat-eps2');
   tr11.appendChild(td100);
   tr11.appendChild(td101);
   tr11.appendChild(td102);

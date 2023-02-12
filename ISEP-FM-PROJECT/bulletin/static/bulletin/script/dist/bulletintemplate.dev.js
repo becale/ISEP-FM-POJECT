@@ -40,27 +40,31 @@ window.addEventListener('load', function () {
     console.log(moy);
   } else if (mydata[0] == 'STAPS1') {
     containeer = GenerateBullStaps1Semestre1();
-    listcontainer = document.createElement('div'); //for(i=0; i<mydata[1].length; i++){
+    listcontainer = document.createElement('div');
 
-    clone = containeer.cloneNode(true); //Execution des traitements sur container
-    //clone = BullMDS1(clone)
-    //Puis ajout au containerList
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
+      //clone = BullMDS1(clone)
+      //Puis ajout au containerList
 
-    listcontainer.appendChild(clone); //}
-    //Fixation de ContainerList sur le body de la page
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
 
     body.appendChild(listcontainer);
   } else if (mydata[0] == 'STAPS2') {
     body = document.getElementById('body');
     containeer = GenerateBullStaps2Semestre3();
-    listcontainer = document.createElement('div'); //for(i=0; i<mydata[1].length; i++){
+    listcontainer = document.createElement('div');
 
-    clone = containeer.cloneNode(true); //Execution des traitements sur container
-    //clone = BullMDS1(clone)
-    //Puis ajout au containerList
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
+      //clone = BullMDS1(clone)
+      //Puis ajout au containerList
 
-    listcontainer.appendChild(clone); //}
-    //Fixation de ContainerList sur le body de la page
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
 
     body.appendChild(listcontainer);
   } else if (mydata[0] == 'EVENEMENTIEL') {
@@ -1046,7 +1050,7 @@ function GenerateBullStaps1Semestre1() {
   tr5.appendChild(td36); //Line 6
 
   var td377 = document.createElement('td');
-  td377.setAttribute("id", "EPS115-codeue");
+  td377.setAttribute("id", "EPS115a-codeue");
   td377.innerHTML = "EPS115";
   var td37 = document.createElement('td');
   td37.setAttribute("id", "EPS115a-matiere");
@@ -2085,7 +2089,7 @@ function GenerateBullStaps2Semestre3() {
 
   var td100 = document.createElement('td');
   td100.setAttribute('colspan', '4');
-  td100.innerHTML = "RESULTATS SEMESTRE 1";
+  td100.innerHTML = "RESULTATS SEMESTRE 3";
   var td101 = document.createElement('td');
   td101.setAttribute("id", "resultat-coef");
   var td102 = document.createElement('td');
@@ -2097,7 +2101,7 @@ function GenerateBullStaps2Semestre3() {
   var td105 = document.createElement('td');
   td105.setAttribute("colspan", "2");
   td105.setAttribute("id", "resultat");
-  td105.innerHTML = "Total Cr\xE9dits Semestre 1";
+  td105.innerHTML = "Total Cr\xE9dits Semestre 3";
   var td106 = document.createElement('td');
   td106.setAttribute("id", "resultat-crédits");
   var tr11 = document.createElement('tr');
@@ -3890,7 +3894,13 @@ function BullMDS1(clone) {
   }
 
   return clone;
-} //FONCTIONS
+}
+/**FONCTION BULLETIN STAPS1 */
+
+
+function BullSTAPS1(clone) {}
+/**FONCTION BULLETIN STAPS2 */
+//FONCTIONS
 
 
 function Moyenne3(a, b, c, coef) {

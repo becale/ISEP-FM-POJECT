@@ -59,9 +59,12 @@ body{
 .slogan{
     font-style: oblique;
     text-align: center;
+    font-size: smaller;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .title-info{
     text-align: center;
+    font-size: small;
 }
 /*HR*/
 hr{

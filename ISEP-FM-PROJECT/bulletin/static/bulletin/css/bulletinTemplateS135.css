@@ -349,13 +349,14 @@ tbody tr:nth-child(11) > td{
     width: 5cm;
 }
 .visa{
-    font-size: smaller;
+    font-size: 50%;
+    font-weight: bolder;
     display: inline-block;
     box-sizing: border-box;
-    width: 4cm;
+    width: 7cm;
     float: right;
-    margin-top: 0.3cm;
-    background-color: aquamarine;
+    margin-top: 4cm;
+    /*background-color: aquamarine;*/
     text-align: center;
     border-radius: 15%;
 }
@@ -449,4 +450,9 @@ tbody tr:nth-child(11) > td{
     border-top: black solid 2px;
     border-bottom: black solid 2px;
     border-right: black solid 2px;
+}
+#ligne-MDS117 {
+    border-top: dotted black 1.5px;
+    border-bottom: dotted black 1.5px;
+    border-right: dotted black 1.5px;
 }

@@ -23,6 +23,9 @@ urlpatterns=[
     path('bulletin/Semestre3/<filiere>', views.bulls3eps2, name="bullS3eps"),
     path('bulletin/Semestre5/<filiere>', views.bulls5msoeve, name="bullS5msoeve"),
 
+    path('releveCommun/semestre/', views.resultatCommun, name="resultCommun"),
+
+
     path('pdf/', GeneratePdf.as_view(),name='pdf'), 
 ]
 

@@ -15,7 +15,7 @@ window.addEventListener('load',()=>{
       for(i=0; i<mydata[1].length; i++){
         clone = containerrr.cloneNode(true);
         //Execution des traitements sur container
-        clone = BullMDS1(clone)
+        clone = BullMDS1(clone, i)
 
         /**MOYENNE */
         moY[i] = globalThis.resultat.children[3].innerHTML
@@ -26,9 +26,9 @@ window.addEventListener('load',()=>{
       }
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
-      moY = stringToIntArray(moY)
+      /*moY = stringToIntArray(moY)
       moy = triDecroissant(moY)
-      console.log(moy);
+      console.log(moy);*/
     }
     else if ( mydata[0] == 'STAPS1'){    
       containeer = GenerateBullStaps1Semestre1()
@@ -635,6 +635,7 @@ tr333.appendChild(td188)
   td64.setAttribute("rowspan","2")
 
   var tr8=document.createElement('tr')
+  tr8.setAttribute('id', "ligne-MDS117")
   tr8.appendChild(th3)
   tr8.appendChild(td54)
   tr8.appendChild(td56)
@@ -3637,11 +3638,10 @@ function GenerateBullMSOsemestre5(){
 
 
 
-
 /** */
 
 /**FONCTION BULLETIN MDS */
-function BullMDS1(clone){
+function BullMDS1(clone, i){
 
     //TRI DES MATIERES
     a = /*[...*/mydata[4]//]
@@ -3674,6 +3674,9 @@ function BullMDS1(clone){
     k = [...mydata[13]]
     var sort117b=epuration(k)
 
+    //DONNEES RECUPEREES DE LA BD
+    listStudent = mydata[1]
+
   //DONNEES RECUPEREES DE LA BD
   infoEtudiant = mydata[1]
   var coefUe = mydata[2]
@@ -3692,11 +3695,21 @@ function BullMDS1(clone){
 
   //Info Utilisateur
   info1 = clone.children[2].children[1].children[0]
+  info1.children[2].innerHTML = info1.children[2].innerHTML +` ${listStudent[i][0]['nom']}`
+  info1.children[3].innerHTML = info1.children[3].innerHTML +` ${listStudent[i][0]['prenom']}`
+
+  info2 = clone.children[2].children[1].children[1]
+  info2.children[1].innerHTML = info2.children[1].innerHTML +` ${listStudent[i][0]['matricule']}`
+  info2.children[2].innerHTML = info2.children[2].innerHTML +` ${listStudent[i][0]['date_naissance']}`
+  info2.children[3].innerHTML = info2.children[3].innerHTML +` ${listStudent[i][0]['lieu_naissance']}`
+  info2.children[4].innerHTML = info2.children[4].innerHTML +` 2022-2023`
+
+  /*info1 = clone.children[2].children[1].children[0]
   for(j=2; j<=info1.childElementCount-1; j++){
     if(j==2){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['nom']}`}
     if(j==3){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['prenom']}`}
     //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +' er'}
-  }
+  }*/
 
   info2 = clone.children[2].children[1].children[1]
   for(j=1; j<=info2.childElementCount-1; j++){
@@ -3721,7 +3734,7 @@ function BullMDS1(clone){
       ligneMDS111.children[9].innerHTML = "VALIDEE"
     }else{ligneMDS111.children[9].innerHTML = "NON VALIDEE"}}//Mention
     if(j==10){}//Session
-    if(j==11){if(mds111[i]["note_Examen"]>= 10 && mds111b[i]['note_Examen']>= 10){ligneMDS111.children[j].innerHTML = creditUe[0]['nombre_credit']}else{ligneMDS111.children[j].innerHTML = 0}}//Crédits
+    if(j==11){if( (mds111[i]["note_Examen"] + mds111b[i]['note_Examen'])>=20 ){ligneMDS111.children[j].innerHTML = creditUe[0]['nombre_credit']}else{ligneMDS111.children[j].innerHTML = 0}}//Crédits
   }
   //MoyenneEtud[1]= 
 
@@ -3747,7 +3760,7 @@ function BullMDS1(clone){
     if(j==5){ligneMDS112.children[j].innerHTML = sort112.indexOf(mds112[i]['note_Examen'])+1}//Rang
     if(j==6){if(ligneMDS112.children[2].innerHTML >= 10){ligneMDS112.children[j].innerHTML = "VALIDEE"}else{ligneMDS112.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){}//Session
-    if(j==8){if(ligneMDS112.children[2].innerHTML>=10 && mds112b[i]['note_Examen']>=10){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
+    if(j==8){if( (  mds112b[i]['note_Examen'] + mds112[i]['note_Examen'] ) >=20){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LIGNE MDS112
@@ -3759,7 +3772,7 @@ function BullMDS1(clone){
     if(j==5){ligneMDS112b.children[j].innerHTML = sort112b.indexOf(mds112b[i]['note_Examen'])+1}//Rang
     if(j==6){if(ligneMDS112b.children[2].innerHTML >= 10){ligneMDS112b.children[j].innerHTML = "VALIDEE"}else{ligneMDS112b.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){}//Session
-    if(j==8){if(ligneMDS112b.children[2].innerHTML>=10){ligneMDS112b.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112b.children[j].innerHTML = 0}} //nombre_crédits
+    //if(j==8){if( /*ligneMDS112b.children[2].innerHTML>=10*/(ligneMDS112.children[2].innerHTML + ligneMDS112b.children[2].innerHTML) >=20 ){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LIGNE MDS113
@@ -3835,7 +3848,7 @@ function BullMDS1(clone){
     if(j==7){ligneMDS117.children[j].innerHTML = sort117.indexOf(mds117[i]['note_Examen'])+1}//Rang
     if(j==8){if(ligneMDS117.children[3].innerHTML >= 10){ligneMDS117.children[j].innerHTML = "VALIDEE"}else{ligneMDS117.children[j].innerHTML = "NON VALIDEE"}}//Mention
     if(j==9){}
-    if(j==10){if( mds117[i]["note_Examen"]>= 10 && mds117b[i]['note_Examen'] >=10 ){ligneMDS117.children[j].innerHTML = creditUe[8]['nombre_credit']}else{ligneMDS117.children[j].innerHTML = 0}}//Crédits
+    if(j==10){if( (mds117[i]["note_Examen"] + mds117b[i]['note_Examen']) >=20 ){ligneMDS117.children[j].innerHTML = creditUe[8]['nombre_credit']}else{ligneMDS117.children[j].innerHTML = 0}}//Crédits
   }
 
   //LINE 17b
@@ -3969,7 +3982,7 @@ function BullSTAPS1(clone, i){
     if(j==5){ligneEPS115a.children[j].innerHTML = listStudent[i][5][4]}//
     if(j==6){if(listStudent[i][5][5]){ligneEPS115a.children[j].innerHTML = "VALIDEE"}else{ligneEPS115a.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){ligneEPS115a.children[j].innerHTML = mydata[4]} //session
-    if(j==8){if(listStudent[i][5][5]){ligneEPS115a.children[j].innerHTML = listStudent[i][5][6]}else{ligneEPS115a.children[j].innerHTML = 0}} //nombre_crédits
+    if(j==8){ if((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) >= 40){ligneEPS115a.children[j].innerHTML = listStudent[i][5][6]}else{ligneEPS115a.children[j].innerHTML = 0}} //nombre_crédits
   }
 
   //LIGNE EPS115b
@@ -4178,7 +4191,7 @@ function BullSTAPS2(clone, i){
      if(j==5){ligneEPS115a.children[j].innerHTML = listStudent[i][5][4]}//
      if(j==6){if(listStudent[i][5][5]){ligneEPS115a.children[j].innerHTML = "VALIDEE"}else{ligneEPS115a.children[j].innerHTML ="NON VALIDEE"}}//Mention
      if(j==7){ligneEPS115a.children[j].innerHTML = mydata[4]} //session
-     if(j==8){if(listStudent[i][5][5]){ligneEPS115a.children[j].innerHTML = listStudent[i][5][6]}else{ligneEPS115a.children[j].innerHTML = 0}} //nombre_crédits
+     if(j==8){if( (listStudent[i][5][0] + listStudent[i][6][0]+ listStudent[i][7][0] + listStudent[i][8][0] + listStudent[i][9][0] + listStudent[i][10][0]) >= 60){ligneEPS115a.children[j].innerHTML = listStudent[i][5][6]}else{ligneEPS115a.children[j].innerHTML = 0}} //nombre_crédits
    }
 
      //LIGNE EPS115b

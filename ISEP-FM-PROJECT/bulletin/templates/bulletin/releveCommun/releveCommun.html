@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ReleveNotes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% load static %}
+
+        <!--<link rel="stylesheet" href="{% static "bulletin/css/releveCommun.css" %}" media="screen">-->
+        <link rel="stylesheet" href="{% static "bulletin/css/releveCommunPrint.css" %}" >
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}"> 
+
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="page" size="A4" layout="landscape">
+            <div id="container">
+                <header id="header">
+                    <div id="left-Head">
+                       <div id="logo">
+                            <img src="{% static "bulletin\image\logo.jpeg" %}" alt="">
+                        </div>
+                    </div>
+
+                    <div id="center-Head">
+                        <div id="institut">
+                            <img src="{% static "bulletin\image\00000.jpg" %}" alt="">
+                        </div>
+                        <div id="isep-fm">
+                            <img src="{% static "bulletin\image\01.PNG" %}" alt="">
+                        </div>
+                        <div id="arrete">
+                            ARRETE N°22-0003/L/MINESUP/DDES/ESUP/SDA/ABC 
+                            <hr>   
+                        </div>
+                    </div>
+
+                    <div id="right-Head"></div>
+                </header>
+
+                <main>
+                    <div id="title">
+                        BORDEREAU DE NOTES 1er SEMESTRE XXXX  202x-202x
+                    </div>
+
+                    <!--TABLEAU GENERAL-->
+                    <table id="table1">
+                        <thead>
+                            <th rowspan=""></th>
+                            <th>UE Fondamentales</th>
+                            <th>UE Professionnelles</th>
+                            <th>UE Transversales</th>
+                        </thead>
+
+                        <!--TBODY TABLEAU GENERAL-->
+                        <tbody>
+                            <!--GRANDE LIGNE1-->
+                            <tr>
+                                <!--Grande Ligne Vide-->
+                               <td rowspan="3">
+                                    Bordereau de NOTES XXXXX 202x-202x
+                               </td>
+                               <!--Tableau des UE FONDAMENTALES-->
+                               <td rowspan="3">
+                                    <table id="nested1">
+                                        <tr id="nestedl1">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS111</td>
+                                            <td rowspan="3" class="nested-border">Mention</td>
+                                            <td rowspan="3" class="nested-border">EPS112</td>
+                                            <td rowspan="3" class="nested-border">Mention</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Moy Grpe</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table>
+                               </td>
+
+                               <!--Tableau des UE PROFESSIONNELLES-->
+                               <td rowspan="3">
+                                    <table id="nested2">
+                                        <tr id="nestedl2">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">2</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">3</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">4</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">5</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">6</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">7</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">8</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">9</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">10</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">11</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">12</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">13</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table> 
+                               </td>
+
+                               <!--Tableau des UE TRANSVERSALES-->
+                               <td rowspan="3">
+                                    <table id="nested3">
+                                        <tr id="nestedl3">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border">2</td>
+                                            <td rowspan="3" class="nested-border">3</td>
+                                            <td rowspan="3" class="nested-border">4</td>
+                                            <td rowspan="3" class="nested-border">5</td>
+                                            <td rowspan="3" class="nested-border">6</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">7</td>
+                                        </tr>
+                                        <tr>
+                                            <!--<td>1</td>-->
+                                            <!--<td>2</td>-->
+                                            <!--<td>3</td>-->
+                                            <!--<td>4</td>
+                                            <td>5</td>-->
+                                        </tr>
+                                        <tr>
+                                            <!--<td>1</td>-->
+                                            <!--<td>2</td>-->
+                                            <!--<td>3</td>-->
+                                            <!--<td>4</td>
+                                            <td>5</td>-->
+                                        </tr>
+                                    </table>
+                               </td>
+                            </tr>
+
+                            <tr></tr>
+                            <tr></tr>
+
+                            <!--LIGNE DU GRAND TABLEAU (Incrémentation)-->
+                            <tr>
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE1)--> 
+                                <td>
+                                    <table id="nested4">
+                                        <tr id="nested4-line1">
+                                            <th  id="" class="nested-border" style="border-left: 0px;">Noms</th>
+                                            <th  class="nested-border">Prénoms</th>
+                                            <th  class="nested-border">Date_Naiss</th>
+                                            <th  class="nested-border">Lieu_Naiss</th>
+                                            <th  class="nested-border">Matricule</th>
+                                            <th  class="nested-border" style="border-right: 0px;">Session</th>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE2)--> 
+                               <td>
+                                    <table id="nested11">
+                                        <tr class="tabuef">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border">2</td>
+                                            <td rowspan="3" class="nested-border">3</td>
+                                            <td rowspan="3" class="nested-border">4</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">5</td>
+                                        </tr>  
+                                    </table>
+                               </td>
+
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE3)-->
+                                <td>
+                                    <table id="nested22">
+                                        <tr class="tabuep">
+                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">2</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">3</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">4</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">5</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">6</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">7</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">8</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">9</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">10</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">11</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">12</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">13</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+
+                                    </table>  
+                                </td>
+
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE4)-->
+                                <td>
+                                    <table id="nested33">
+                                        <tr id="tabuet">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border">2</td>
+                                            <td rowspan="3" class="nested-border">3</td>
+                                            <td rowspan="3" class="nested-border">4</td>
+                                            <td rowspan="3" class="nested-border">5</td>
+                                            <td rowspan="3" class="nested-border">6</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">7</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+
+                                    </table> 
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </main>
+
+                <footer></footer>
+            </div>
+
+        </div>
+
+        <!--<script src="" async defer></script>-->
+        <script src="{% static 'bulletin/script/releveCommun.js' %}"></script>
+        <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script> 
+    </body>
+</html>

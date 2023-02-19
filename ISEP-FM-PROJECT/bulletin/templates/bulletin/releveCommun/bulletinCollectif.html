@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'bulletin/css/bulletin.css' %}">
+    <link rel="stylesheet" href="{% static 'bulletin/css/components.css' %}">
+    <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bulletin/css/bootstrap/bootstrap-grid.min.css' %}">
+</head>
+
+<body>
+    <header class="container">
+        <div class="row">
+            <div class="col-2" id="logo">
+                <img src="{% static 'bulletin/image/logo.jpeg' %}" alt="image">
+            </div>
+            <navbar id="menu" class="col">
+                <a class="linknav" href="/">
+                    <img src="{% static 'bulletin/icones/home.png' %}" alt="Home Icone">
+                    <div>HOME</div>
+                </a>
+                <a class="linknav" href="/notes">
+                    <img src="{% static 'bulletin/icones/atom.png' %}" alt="Note">
+                    <div>NOTES</div>
+                </a>
+                <a class="linknav" href="/bulletin">
+                    <img src="{% static 'bulletin/icones/book.png' %}" alt="Home Icone">
+                    <div>BULLETINS</div>
+                </a>
+                <a class="linknav" href="/bulletin-collectif">
+                    <img src="{% static 'bulletin/icones/statistics.png' %}" alt="Home Icone">
+                    <div>STATISTIQUES</div>
+                </a>
+            </navbar>
+        </div>
+    </header>
+    <main class="container">
+        <div id="" class="">
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <!--<form id="myForm">-->
+                         {% csrf_token %} 
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2 id="listetudiant-title">LISTE DES ETUDIANTS INSCRITS A L'UE XXXXX POUR L'ANNEE 202X-202X</h2>
+                    </div>
+                    <div class="modal-body">
+                                <!--<div id="modalNotes">-->
+                                  <div id="modalNote-body" class="">
+                                      <table id="table-form" class="fixed-header">
+                                          <thead id=""> <!-- id="table-head" -->
+                                              <!--<th scope="col">N<sup>0</sup></th>-->
+                                              <th scope="col">Matricule (s)</th>
+                                              <th scope="col">Nom (s) Prenom(s)</th>
+                                              <th scope="col">Fonction (s)</th>
+                                              <!--<th scope="col">Session Normale (SN)</th>-->
+                                          </thead>
+                                          <tbody id="listetudiant">
+                                          </tbody>
+                                        </table>
+                                    </div>
+                                <!--</div>-->
+                            </div>
+                    <div class="modal-footer">
+                        <!--<button class="submit-note"  type="submit" value="AJOUTER LES NOTES"></button>-->
+                        <input id="submit" type="submit" value="GENERER BULLETINS DE LA SPECIALITE">
+                    </div>
+                    <!--</form>-->
+                    </div>
+                     </div>
+                        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div id="title-note" class="col">
+                <div class="row">
+                    <div id="fitler-box" class="col-3">
+                        TRIER SELON :
+                    </div>
+                    <div id="select-box" class="col-3">
+                        <div id="select-box1" >
+                            <label for="semestre">Semestre</label>
+                            <select name="semestre" id="semestre-select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div id="select-box2">
+                            <label for="specialite">Spécialité</label>
+                            <select name="specialite" id="specialie-select">
+                                <option value="ALL" selected>ALL</option>
+                                <option value="EPS">EPS</option>
+                                <option value="MANAGER">MANAGER</option>
+                                <option value="SDDD">SDDD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="search-bar" class="col">
+                        <div id="search-bar-container">
+                            <button><img src="/icones/search.png" alt=""></button><input type="search" placeholder="CODE MATIERE">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+            <p>LISTE DES SEMESTRES \ SPECIALITE</p>
+            <div id="list-ue" class="col">
+        </div>
+    </main>
+    <footer class="container">
+        <div class="row">
+            <!--<div class="col-1"></div>-->
+            <div id="footer" class="col-12">
+                <div class="row"> 
+                    <div class="col-2 footer-icone" >
+                        <a href="#"><img src="{% static 'bulletin/icones/facebook_f08.png' %}" alt=""></a>
+                    </div>
+                    <div class="col-2 footer-icone" >
+                        <a href="#"><img src="{% static 'bulletin/icones/whatsapp.png' %}" alt=""></a>
+                    </div>
+                    <div class="col "> 
+                        <div class="footer-center">ANNEE ACADEMIQUE 202X-202X</div>
+                    </div>
+                    <div class="col-2 footer-icone">
+                        <a href="#"><img src="{% static 'bulletin/icones/telegram.png' %}" alt=""></a>
+                    </div>
+                    <div class="col-2 footer-icone" >
+                        <a href="#"><img src="{% static 'bulletin/icones/telephone.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-1"></div>-->
+        </div>
+    </footer>
+    <script src="{% static 'bulletin/script/bulletinCollectif.js' %}" async defer></script>
+    <script src="{% static 'bulletin/script/jquery-3.6.3.js' %}"></script>
+</html>

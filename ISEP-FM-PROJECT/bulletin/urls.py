@@ -5,6 +5,7 @@ from .views import GeneratePdf
 urlpatterns=[
     path('', views.home, name="home"),
     path('bulletin/', views.bulletin, name="bulletin"),
+    path('bulletin-collectif/', views.bulletinCollectif, name="bulletin"),
     path('notes/', views.notes, name="notes"),
     path('kds/', views.EtudiantApi, name="etudiantAPI"),
     path('UeAPI/', views.UEAPI, name='UeAPI)'),
@@ -23,7 +24,8 @@ urlpatterns=[
     path('bulletin/Semestre3/<filiere>', views.bulls3eps2, name="bullS3eps"),
     path('bulletin/Semestre5/<filiere>', views.bulls5msoeve, name="bullS5msoeve"),
 
-    path('releveCommun/semestre/', views.resultatCommun, name="resultCommun"),
+     path('bulletin-collectif/Semestre1/<filiere>', views.resultatCommunepsmds, name="resultCommun"),
+    #path('releveCommun/semestre1/<filiere>', views.resultatCommunepsmds, name="resultCommun"),
 
 
     path('pdf/', GeneratePdf.as_view(),name='pdf'), 

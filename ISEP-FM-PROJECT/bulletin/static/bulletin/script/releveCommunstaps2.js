@@ -6,6 +6,8 @@ window.addEventListener('load',()=>{
     function Page1(){ 
         listStudent = mydata[1]
 
+        console.log(listStudent);
+
         bigtab = document.getElementById('table1')
 
         //page2.children[1].children[1].children[1]
@@ -93,16 +95,19 @@ window.addEventListener('load',()=>{
             for(j=0; j<=tab15.childElementCount-1; j++){
                 if(j==0){
                     tab15.cells[j].innerHTML= listStudent[i][1][0];
-                    tab116.cells[j].innerHTML = listStudent[i][13][1]
+
+                    tab116.cells[j].innerHTML = listStudent[i][15][1]
                 };
                     
                 if(j==1){
-                    tab116.cells[j].innerHTML = listStudent[i][13][2]
+                    tab116.cells[j].innerHTML = listStudent[i][15][2]
+
                     if(listStudent[i][1][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
                 }
                 if(j==2){
                     tab15.cells[j].innerHTML= listStudent[i][2][0];
-                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2])+1;
+
+                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][15][2])+1;
                 }
                 if(j==3){
                     if(listStudent[i][2][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"};
@@ -110,6 +115,7 @@ window.addEventListener('load',()=>{
                 }
                 if(j==4){
                     tab15.cells[j].innerHTML= listStudent[i][1][3];
+
                     tab116.cells[j].innerHTML= '/'
                 }
             }
@@ -124,15 +130,21 @@ window.addEventListener('load',()=>{
                 if(j==1){if(listStudent[i][3][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
                 if(j==2){tab23.cells[j].innerHTML =listStudent[i][4][0]};
                 if(j==3){{if(listStudent[i][4][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};};
-                if(j==4){tab23.cells[j].innerHTML =listStudent[i][5][0]};
-                if(j==5){tab23.cells[j].innerHTML =listStudent[i][6][0]};
-                if(j==6){tab23.cells[j].innerHTML =listStudent[i][7][0]};
-                if(j==7){tab23.cells[j].innerHTML =listStudent[i][8][0]};
-                if(j==8){if((listStudent[i][5][0]+listStudent[i][6][0]+listStudent[i][7][0]+listStudent[i][8][0]) >=40){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
-                if(j==9){val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]); val=val.toFixed(2);val=parseFloat(val); tab23.cells[j].innerHTML =val};
-                if(j==10){tab23.cells[j].innerHTML =listStudent[i][9][0]};
-                if(j==11){{if(listStudent[i][9][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};};
-                if(j==12){tab23.cells[j].innerHTML =listStudent[i][3][3]};
+                if(j==4){tab23.cells[j].innerHTML =listStudent[i][5][0] };
+                if(j==5){tab23.cells[j].innerHTML =listStudent[i][6][0] };
+                if(j==6){tab23.cells[j].innerHTML =listStudent[i][7][0] };
+                if(j==7){tab23.cells[j].innerHTML =listStudent[i][8][0] };
+                if(j==8){tab23.cells[j].innerHTML =listStudent[i][9][0] };//if((listStudent[i][5][0]+listStudent[i][6][0]+listStudent[i][7][0]+listStudent[i][8][0]) >=40){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
+                if(j==9){tab23.cells[j].innerHTML =listStudent[i][10][0] };//val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]); val=val.toFixed(2);val=parseFloat(val); tab23.cells[j].innerHTML =val};
+                if(j==10){
+                    if((listStudent[i][5][0]+listStudent[i][6][0]+listStudent[i][7][0]+listStudent[i][8][0]+listStudent[i][9][0]+listStudent[i][10][0])>=60){tab23.cells.innerHTML = 'V'}else{tab23.cells.innerHTML = 'NV'}
+                }
+                if(j==11){ val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1])+(listStudent[i][9][0]*listStudent[i][9][1])+(listStudent[i][10][0]*listStudent[i][10][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]+listStudent[i][9][1]+listStudent[i][10][1]); val=val.toFixed(2); val=parseFloat(val) ;tab23.cells[j].innerHTML =val};
+                if(j==12){tab23.cells[j].innerHTML =listStudent[i][11][0]};
+                if(j==13){
+                    if(listStudent[i][11][0]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}
+                };
+                if(j==14){tab23.cells[j].innerHTML =listStudent[i][3][3]};   
             }
 
             //tab3
@@ -142,13 +154,13 @@ window.addEventListener('load',()=>{
             tab33 = tab32.children['0']
 
             for(j=0; j<=tab33.childElementCount-1; j++){
-                if(j==0){tab33.cells[j].innerHTML = listStudent[i][10][0]};
-                if(j==1){if( listStudent[i][10][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};
-                if(j==2){tab33.cells[j].innerHTML =listStudent[i][11][0]};
-                if(j==3){if( listStudent[i][11][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//
-                if(j==4){tab33.cells[j].innerHTML =listStudent[i][12][0]};
-                if(j==5){if( listStudent[i][12][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//119
-                if(j==6){tab33.cells[j].innerHTML =listStudent[i][10][3]};
+                if(j==0){tab33.cells[j].innerHTML = listStudent[i][12][0]};
+                if(j==1){if( listStudent[i][12][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};
+                if(j==2){tab33.cells[j].innerHTML =listStudent[i][13][0]};
+                if(j==3){if( listStudent[i][13][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//
+                if(j==4){tab33.cells[j].innerHTML =listStudent[i][14][0]};
+                if(j==5){if( listStudent[i][14][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//119
+                if(j==6){tab33.cells[j].innerHTML =listStudent[i][12][3]};
             }
             
             //Ajoute de la ligne au grand tableau

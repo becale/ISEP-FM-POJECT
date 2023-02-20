@@ -36,7 +36,7 @@ window.addEventListener('load',()=>{
             tab04 = tab03.children
             tab05 = tab04[0] //good  
             ////
-            /*tab00 = temp1.children[0]
+            tab00 = temp1.children[0]
             tab001 = tab00.children.nested4
             tab002 = tab001.children
             tab003 = tab002['0']

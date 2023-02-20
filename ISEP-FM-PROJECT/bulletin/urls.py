@@ -26,7 +26,8 @@ urlpatterns=[
 
     path('bulletin-collectif/Semestre1/STAPS1', views.resultatCommunepsmds, name="resultCommun"),
     path('bulletin-collectif/Semestre1/GESTION', views.resultatCommunmds, name="resultCommunmds"),
-    path('bulletin-collectif/Semestre3/STAPS', views.resultatCommunstaps2, name="resultCommunstaps2"),
+    path('bulletin-collectif/Semestre3/STAPS2', views.resultatCommunstaps2, name="resultCommunstaps2"),
+    
     #path('releveCommun/semestre1/<filiere>', views.resultatCommunepsmds, name="resultCommun"),
 
 

@@ -299,9 +299,12 @@ border-top: 0;
 }
 #nested4-line1 th:nth-child(1) {
   width: 0.5cm;
+  font-size: 10px;
 }
 #nested4-line1 th:nth-child(2) {
   width: 4cm;
+
+  font-size: 10px;
 }
 #nested4-line1 th:nth-child(3) {
   width: 2.5cm;
@@ -315,12 +318,12 @@ border-top: 0;
 #nested4-line1 th:nth-child(6) {
   width: 2.2cm;
 }
-#nested4-line1 th:nth-child(1) {
+/*#nested4-line1 th:nth-child(1) {
   width: 0.5cm;
 }
 #nested4-line1 th:nth-child(2) {
   width: 4cm;
-}
+}*/
 /*td*/
 /*#nested4-line1 td:nth-child(1) {
   width: 0.5cm;

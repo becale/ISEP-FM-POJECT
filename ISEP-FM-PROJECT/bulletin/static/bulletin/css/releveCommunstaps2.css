@@ -170,16 +170,16 @@
   
   /*thead*/
   thead th:nth-child(1){
-    width: 14.2cm;
+    width: 10.2cm;
   }
   thead th:nth-child(2){
-    width: 4.5cm;
+    width: 3.5cm;
   }
   thead th:nth-child(3){
-    width: 4.5cm;
+    width: 6.5cm;
   }
   thead th:nth-child(4){
-    width: 2cm;
+    width: 4.5cm;
   }
   thead th:nth-child(5){
     width: 2.5cm;
@@ -210,7 +210,7 @@
     transform: rotate(180deg);
   
     font-size: 85%;
-    width: 0.5cm;
+    width: 6.67%;
   }
   #nestedl3 > td{
     writing-mode: vertical-rl;
@@ -218,7 +218,7 @@
     transform: rotate(180deg);
   
     font-size: 85%;
-    width: 25%;
+    width: 14.28%;
   }
   #nestedl33 > td{
     writing-mode: vertical-rl;
@@ -234,7 +234,7 @@
   /*TABUE*/
   .tabuef > td{
     font-size: 50%;
-    width: 14.28%;
+    width: 0.6cm;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -253,7 +253,7 @@
   }
   .tabuep > td{
     font-size: 45%;
-    width: 0.5cm;
+    width: 6.67%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -311,7 +311,7 @@
   
   #nested4{
     border-collapse: collapse;
-  
+    
     width: 100%;
   }
   
@@ -321,37 +321,48 @@
   }
   #nested4-line1 th:nth-child(1) {
     width: 0.5cm;
-
-    font-size: 10px;
   }
   #nested4-line1 th:nth-child(2) {
-    width: 4cm;
-
+    width: 2.5cm;
     font-size: 10px;
+    text-align: left;
+    padding-left: 5px;
   }
   #nested4-line1 th:nth-child(3) {
-    width: 2.5cm;
-
+    width: 2cm;
     font-size: 10px;
+
+    padding-left: 10px;
+    text-align: center;
   }
   #nested4-line1 th:nth-child(4) {
-    width: 1.5cm;
-
+    width: 1cm;
     font-size: 10px;
+
+    /*padding-left: 10px;*/
+    text-align: center;
   }
   #nested4-line1 th:nth-child(5) {
     width: 1.5cm;
-
     font-size: 10px;
+
+    /*padding-left: 10px;*/
+    text-align: center;
   }
   #nested4-line1 th:nth-child(6) {
-    width: 2.2cm;
-
-    font-size: 10px;
-  }
-  /*#nested4-line1 th:nth-child(1) {
     width: 0.5cm;
-  }*/
+    font-size: 10px;
+
+    padding-left: 10px;
+    text-align: center;
+  }
+  #nested4-line1 th:nth-child(1) {
+    width: 0.5cm;
+    font-size: 10px;
+
+    /*padding-left: 5px;*/
+    text-align: center;
+  }
   /*#nested4-line1 th:nth-child(2) {
     width: 4cm;
   }*/

@@ -28,12 +28,12 @@ window.addEventListener('load', function () {
       tab05 = tab04[0]; //good  
       ////
 
-      /*tab00 = temp1.children[0]
-      tab001 = tab00.children.nested4
-      tab002 = tab001.children
-      tab003 = tab002['0']
-      tab004 =tab003.children
-      tab005 = tab004[0]//good*/
+      tab00 = temp1.children[0];
+      tab001 = tab00.children.nested4;
+      tab002 = tab001.children;
+      tab003 = tab002['0'];
+      tab004 = tab003.children;
+      tab005 = tab004[0]; //good*/
 
       for (j = 0; j <= tab05.childElementCount - 1; j++) {
         if (j == 0) {

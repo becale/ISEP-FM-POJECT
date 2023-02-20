@@ -3644,8 +3644,8 @@ function GenerateBullMSOsemestre5(){
 function BullMDS1(clone, i){
 
     //TRI DES MATIERES
-    a = /*[...*/mydata[4]//]
-    var sort111= epuration(a);
+    /*a = /*[...*/mydata[4]//]
+    /*var sort111= epuration(a);
 
     b = [...mydata[5]]
     var sort111b=epuration(b)
@@ -3672,13 +3672,13 @@ function BullMDS1(clone, i){
     var sort117=epuration(j)
 
     k = [...mydata[13]]
-    var sort117b=epuration(k)
+    var sort117b=epuration(k)*/
 
     //DONNEES RECUPEREES DE LA BD
     listStudent = mydata[1]
 
   //DONNEES RECUPEREES DE LA BD
-  infoEtudiant = mydata[1]
+  /*infoEtudiant = mydata[1]
   var coefUe = mydata[2]
   var creditUe = mydata[3]
   var mds111 = mydata[4]
@@ -3690,7 +3690,7 @@ function BullMDS1(clone, i){
   var mds115 = mydata[10]
   var mds116 = mydata[11]
   var mds117 = mydata[12]
-  var mds117b = mydata[13]
+  var mds117b = mydata[13]*/
 
 
   //Info Utilisateur
@@ -3713,9 +3713,9 @@ function BullMDS1(clone, i){
 
   info2 = clone.children[2].children[1].children[1]
   for(j=1; j<=info2.childElementCount-1; j++){
-    if(j==1){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${infoEtudiant[i]['matricule']}`}
-    if(j==2){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${infoEtudiant[i]['date_naissance']}`}
-    if(j==3){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${infoEtudiant[i]['lieu_naissance']}`}
+    if(j==1){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['matricule']}`}
+    if(j==2){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['date_naissance']}`}
+    if(j==3){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['lieu_naissance']}`}
     //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['anneeaca']}`} //Année Academique
   }
 
@@ -3725,30 +3725,30 @@ function BullMDS1(clone, i){
   //LIGNE MDS11
   var ligneMDS111 = tbody.children[0]
   for(j=0; j<=ligneMDS111.childElementCount-1; j++){
-    if(j==4){ligneMDS111.children[j].innerHTML = mds111[i]['note_Examen']}//note math
-    if(j==5){ligneMDS111.children[j].innerHTML = coefUe[0]['coefficient']}//coef math
-    if(j==6){val = ligneMDS111.children[4].innerHTML*ligneMDS111.children[5].innerHTML; val = val.toFixed(2); val = parseFloat(val) ;ligneMDS111.children[j].innerHTML = val}//total note math * coef
-  if(j==7){ligneMDS111.children[j].innerHTML = Moyenne4( ligneMDS111.children[6].innerHTML, mds111b[i]['note_Examen']*coefUe[1]['coefficient'], mds112[i]['note_Examen']*coefUe[2]['coefficient'], mds112b[i]['note_Examen']*coefUe[3]['coefficient'],((coefUe[0]['coefficient']+coefUe[1]['coefficient']+coefUe[2]['coefficient']+coefUe[3]['coefficient'])) ) } //moyenne donc (totalmath + totalinfo)/2
-    if(j==8){ ligneMDS111.children[j].innerHTML= sort111.indexOf(mds111[i]['note_Examen'])+1/*ligneMDS111.children[j].innerHTML =  mds1sort.indexof(mds111[i]['note_Examen'])*/}//Rang
-    if(j==9){if(ligneMDS111.children[4].innerHTML >= 10){
+    if(j==4){ligneMDS111.children[j].innerHTML = listStudent[i][1][0]}//note math
+    if(j==5){ligneMDS111.children[j].innerHTML = listStudent[i][1][1]}//coef math
+    if(j==6){ligneMDS111.children[j].innerHTML = listStudent[i][1][2]}//total note math * coef
+  if(j==7){ligneMDS111.children[j].innerHTML =   listStudent[i][1][3] } //moyenne donc (totalmath + totalinfo)/2
+    if(j==8){ ligneMDS111.children[j].innerHTML= listStudent[i][1][4]/*ligneMDS111.children[j].innerHTML =  mds1sort.indexof(mds111[i]['note_Examen'])*/}//Rang
+    if(j==9){if(listStudent[i][1][5]){
       ligneMDS111.children[9].innerHTML = "VALIDEE"
     }else{ligneMDS111.children[9].innerHTML = "NON VALIDEE"}}//Mention
     if(j==10){}//Session
-    if(j==11){if( (mds111[i]["note_Examen"] + mds111b[i]['note_Examen'])>=20 ){ligneMDS111.children[j].innerHTML = creditUe[0]['nombre_credit']}else{ligneMDS111.children[j].innerHTML = 0}}//Crédits
+    if(j==11){if( ( listStudent[i][1][0] + listStudent[i][2][0])>=20 ){ligneMDS111.children[j].innerHTML = listStudent[i][1][6]}else{ligneMDS111.children[j].innerHTML = 0}}//Crédits
   }
   //MoyenneEtud[1]= 
 
   //LIGNE MDS11b
   ligneMDS111b = tbody.children[1]
   for(j=0; j<=ligneMDS111b.childElementCount-1; j++){
-    if(j==2){ligneMDS111b.children[j].innerHTML = mds111b[i]['note_Examen']}//note info
-    if(j==3){ligneMDS111b.children[j].innerHTML = coefUe[1]['coefficient']}//coef info
-    if(j==4){val=ligneMDS111b.children[2].innerHTML*ligneMDS111b.children[3].innerHTML; val= val.toFixed(2); val = parseFloat(val); ligneMDS111b.children[j].innerHTML = val}//total note math * coef
-    if(j==5){ligneMDS111b.children[j].innerHTML = sort111b.indexOf(mds111b[i]['note_Examen'])+1}//Rang
+    if(j==2){ligneMDS111b.children[j].innerHTML = listStudent[i][2][0]}//note info
+    if(j==3){ligneMDS111b.children[j].innerHTML = listStudent[i][2][1]}//coef info
+    if(j==4){/*val=ligneMDS111b.children[2].innerHTML*ligneMDS111b.children[3].innerHTML; val= val.toFixed(2); val = parseFloat(val);*/ ligneMDS111b.children[j].innerHTML = Student[i][2][2]}//total note math * coef
+    if(j==5){ligneMDS111b.children[j].innerHTML = Student[i][2][4]}//Rang
     if(j==6){
-      if(ligneMDS111b.children[2].innerHTML >= 10){ligneMDS111b.children[6].innerHTML = "VALIDEE"}else{ligneMDS111b.children[6].innerHTML = "NON VALIDEE"}}
+      if(Student[i][2][5]){ligneMDS111b.children[6].innerHTML = "VALIDEE"}else{ligneMDS111b.children[6].innerHTML = "NON VALIDEE"}}
     if(j==7){}//Session
-    if(j==8){if(mds111[i]["note_Examen"]>= 10 && mds111b[i]['note_Examen']>= 10){ligneMDS111b.children[j].innerHTML = creditUe[1]['nombre_credit']}else{ligneMDS111b.children[j].innerHTML = 0}}//Crédits
+    if(j==8){if( (listStudent[i][1][0] + listStudent[i][2][0]) >=20 ){ligneMDS111b.children[j].innerHTML = listStudent[i][2][6]}else{ligneMDS111b.children[j].innerHTML = 0}}//Crédits
   }
 
   //LIGNE MDS112

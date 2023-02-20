@@ -3,7 +3,8 @@ window.addEventListener('load',()=>{
      mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
      console.log(mydata) 
 
-    function Page1(){ 
+    
+     function Page1(){ 
         listStudent = mydata[1]
 
         console.log(listStudent);
@@ -20,7 +21,7 @@ window.addEventListener('load',()=>{
         worktab1 = bigtab1.children[1]
         //Ligne des 4 tableaux
         
-
+        
         for(i=0; i<=mydata[1].length-1; i++){
 
             temp = worktab.children[3].cloneNode(true)
@@ -45,30 +46,28 @@ window.addEventListener('load',()=>{
             for(j=0; j<=tab05.childElementCount-1; j++){
                 if(j==0){
                     tab05.cells[j].innerHTML = i+1;
-                    tab005.cells[j].innerHTML = i+1;
+                    //tab005.cells[j].innerHTML = i+1;
                 }
                 if(j==1){
                     tab05.cells[j].innerHTML = listStudent[i][0]['nom']; 
-                    tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
                 }
                 if(j==2){
                     tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
-                    tab005.cells[j].innerHTML = listStudent[i][0]['prenom']
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['prenom']
                 }
                 if(j==3){
                     tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
-                    tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
                 }
                 if(j==4){
                     tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-                    tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
                 }
                 if(j==5){
                     tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                    tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                
-                }
-                
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                }  
             }
 
             //tab0 Page2
@@ -95,24 +94,31 @@ window.addEventListener('load',()=>{
             for(j=0; j<=tab15.childElementCount-1; j++){
                 if(j==0){
                     tab15.cells[j].innerHTML= listStudent[i][1][0];
-                    tab116.cells[j].innerHTML = listStudent[i][13][1]
+                    //tab116.cells[j].innerHTML = listStudent[i][13][1]
                 };
                     
                 if(j==1){
-                    tab116.cells[j].innerHTML = listStudent[i][13][2]
-                    if(listStudent[i][1][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+                    //tab116.cells[j].innerHTML = listStudent[i][13][2]
+                    tab15.cells[j].innerHTML= listStudent[i][2][0]
                 }
                 if(j==2){
-                    tab15.cells[j].innerHTML= listStudent[i][2][0];
-                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2])+1;
+                    if((listStudent[i][1][0]+listStudent[i][2][0])>=20){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+                    //tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2])+1;
                 }
                 if(j==3){
-                    if(listStudent[i][2][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"};
-
+                    tab15.cells[j].innerHTML=listStudent[i][3][0]
                 }
                 if(j==4){
+                    tab15.cells[j].innerHTML= listStudent[i][4][0];
+                    //tab116.cells[j].innerHTML= '/'
+                }
+                if(j==5){
+                    if((listStudent[i][3][0]+listStudent[i][4][0])>=20){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+                    //tab116.cells[j].innerHTML= '/'
+                }
+                if(j==6){
                     tab15.cells[j].innerHTML= listStudent[i][1][3];
-                    tab116.cells[j].innerHTML= '/'
+                    //tab116.cells[j].innerHTML= '/'
                 }
             }
 
@@ -122,19 +128,19 @@ window.addEventListener('load',()=>{
             tab22 = tab21.children['0']
             tab23 = tab22.children['0']
             for(j=0; j<=tab23.childElementCount-1; j++){
-                if(j==0){tab23.cells[j].innerHTML = listStudent[i][3][0]};
-                if(j==1){if(listStudent[i][3][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
-                if(j==2){tab23.cells[j].innerHTML =listStudent[i][4][0]};
-                if(j==3){{if(listStudent[i][4][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};};
-                if(j==4){tab23.cells[j].innerHTML =listStudent[i][5][0]};
-                if(j==5){tab23.cells[j].innerHTML =listStudent[i][6][0]};
-                if(j==6){tab23.cells[j].innerHTML =listStudent[i][7][0]};
-                if(j==7){tab23.cells[j].innerHTML =listStudent[i][8][0]};
-                if(j==8){if((listStudent[i][5][0]+listStudent[i][6][0]+listStudent[i][7][0]+listStudent[i][8][0]) >=40){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
-                if(j==9){val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]); val=val.toFixed(2);val=parseFloat(val); tab23.cells[j].innerHTML =val};
-                if(j==10){tab23.cells[j].innerHTML =listStudent[i][9][0]};
-                if(j==11){{if(listStudent[i][9][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};};
-                if(j==12){tab23.cells[j].innerHTML =listStudent[i][3][3]};
+                if(j==0){tab23.cells[j].innerHTML = listStudent[i][5][0]};
+                if(j==1){if(listStudent[i][5][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
+
+                if(j==2){tab23.cells[j].innerHTML = listStudent[i][6][0]};
+                if(j==3){if(listStudent[i][6][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
+
+                if(j==4){ tab23.cells[j].innerHTML = listStudent[i][7][0] };
+                if(j==5){ {if(listStudent[i][7][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};};
+
+                if(j==6){tab23.cells[j].innerHTML = listStudent[i][8][0]};
+                if(j==7){ {if(listStudent[i][8][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV' }}};
+
+                if(j==8){tab23.cells[j].innerHTML = listStudent[i][5][3]};
             }
 
             //tab3
@@ -144,21 +150,30 @@ window.addEventListener('load',()=>{
             tab33 = tab32.children['0']
 
             for(j=0; j<=tab33.childElementCount-1; j++){
-                if(j==0){tab33.cells[j].innerHTML = listStudent[i][10][0]};
-                if(j==1){if( listStudent[i][10][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};
-                if(j==2){tab33.cells[j].innerHTML =listStudent[i][11][0]};
-                if(j==3){if( listStudent[i][11][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//
-                if(j==4){tab33.cells[j].innerHTML =listStudent[i][12][0]};
-                if(j==5){if( listStudent[i][12][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//119
-                if(j==6){tab33.cells[j].innerHTML =listStudent[i][10][3]};
+                if(j==0){tab33.cells[j].innerHTML = listStudent[i][9][0]};
+                if(j==1){tab33.cells[j].innerHTML = listStudent[i][10][0]};;
+                if(j==2){if( (listStudent[i][9][0] + listStudent[i][10][0]) >= 20){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};}
+                if(j==3){tab33.cells[j].innerHTML = listStudent[i][9][3]};
             }
             
+            //tab4
+            tab4 = temp.children[4]
+            tab41 = tab4.children.nested333
+            tab42 = tab41.children['0']
+            tab43 = tab42.children['0']
+            for(j=0; j<=tab43.childElementCount-1; j++){
+                if(j==0){tab43.cells[j].innerHTML = listStudent[i][11][1]};
+                if(j==1){tab43.cells[j].innerHTML = listStudent[i][11][2]};;
+                if(j==2){tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2])+1}
+                //if(j==3){tab43.cells[j].innerHTML = listStudent[i][9][3]};
+                if(j==4){tab43.cells[j].innerHTML = '/'};
+            }
+
             //Ajoute de la ligne au grand tableau
             worktab.appendChild(temp)
-            worktab1.appendChild(temp1)
-        }}
-    
-        Page1()
-    })
+            //worktab1.appendChild(temp1)
+   }}
 
-    
+   Page1()
+
+})

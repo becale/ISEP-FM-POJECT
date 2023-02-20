@@ -24,7 +24,9 @@ urlpatterns=[
     path('bulletin/Semestre3/<filiere>', views.bulls3eps2, name="bullS3eps"),
     path('bulletin/Semestre5/<filiere>', views.bulls5msoeve, name="bullS5msoeve"),
 
-     path('bulletin-collectif/Semestre1/<filiere>', views.resultatCommunepsmds, name="resultCommun"),
+    path('bulletin-collectif/Semestre1/STAPS1', views.resultatCommunepsmds, name="resultCommun"),
+    path('bulletin-collectif/Semestre1/GESTION', views.resultatCommunmds, name="resultCommunmds"),
+    path('bulletin-collectif/Semestre3/STAPS', views.resultatCommunstaps2, name="resultCommunstaps2"),
     #path('releveCommun/semestre1/<filiere>', views.resultatCommunepsmds, name="resultCommun"),
 
 

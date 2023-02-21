@@ -104,7 +104,7 @@ window.addEventListener('load', function () {
 
         if (j == 2) {
           tab15.cells[j].innerHTML = listStudent[i][2][0];
-          tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][15][2]) + 1;
+          tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][1][2]) + 1;
         }
 
         if (j == 3) {

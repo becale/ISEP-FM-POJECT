@@ -308,15 +308,19 @@ border-top: 0;
 }
 #nested4-line1 th:nth-child(3) {
   width: 2.5cm;
+  font-size: 10px;
 }
 #nested4-line1 th:nth-child(4) {
   width: 1.5cm;
+  font-size: 10px;
 }
 #nested4-line1 th:nth-child(5) {
   width: 1.5cm;
+  font-size: 10px;
 }
 #nested4-line1 th:nth-child(6) {
   width: 2.2cm;
+  font-size: 10px;
 }
 /*#nested4-line1 th:nth-child(1) {
   width: 0.5cm;

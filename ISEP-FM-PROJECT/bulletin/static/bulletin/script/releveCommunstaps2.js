@@ -107,7 +107,7 @@ window.addEventListener('load',()=>{
                 if(j==2){
                     tab15.cells[j].innerHTML= listStudent[i][2][0];
 
-                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][15][2])+1;
+                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][1][2])+1;
                 }
                 if(j==3){
                     if(listStudent[i][2][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"};
@@ -160,7 +160,7 @@ window.addEventListener('load',()=>{
                 if(j==3){if( listStudent[i][13][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//
                 if(j==4){tab33.cells[j].innerHTML =listStudent[i][14][0]};
                 if(j==5){if( listStudent[i][14][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//119
-                if(j==6){tab33.cells[j].innerHTML =listStudent[i][12][3]};
+                if(j==6){tab33.cells[j].innerHTML = listStudent[i][12][3]};
             }
             
             //Ajoute de la ligne au grand tableau

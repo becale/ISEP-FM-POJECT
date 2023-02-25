@@ -170,10 +170,10 @@
   
   /*thead*/
   thead th:nth-child(1){
-    width: 14.2cm;
+    width: 10.2cm;
   }
   thead th:nth-child(2){
-    width: 4.5cm;
+    width: 4cm;
   }
   thead th:nth-child(3){
     width: 4.5cm;
@@ -182,7 +182,7 @@
     width: 2cm;
   }
   thead th:nth-child(5){
-    width: 2.5cm;
+    width: 3cm;
   }
   /*Nested-table*/
   
@@ -238,7 +238,7 @@
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
-    font-weight: bold;
+    font-weight: normal;
     
     /*border-top: 1px solid black;*/
     
@@ -253,29 +253,30 @@
   }
   .tabuep > td{
     font-size: 45%;
-    width: 0.5cm;
+    width: 11.11%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
-    font-weight: bold;
+    font-weight: normal;
   }
   
   .tabuet > td{
     font-size: 45%;
-    width: 14.28%;
+    width: 25%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
-    font-weight: bold;
+    font-weight: normal;
   }
 
   .tabuer > td{
     font-size: 45%;
-    width: 14.28%;
+    width: 20%;
     text-align: center;
     /*background-color: violet;*/
+    font-weight: normal;
     height: 0.6cm;
-    font-weight: bold;
+    font-weight: normal;
   }
   
   /**/
@@ -327,25 +328,40 @@
   #nested4-line1 th:nth-child(2) {
     width: 4cm;
 
-    font-size: 10px;
-  }
-  #nested4-line1 th:nth-child(3) {
-    width: 2.5cm;
+    text-align: left;
+    padding-left: 5px;
+    font-weight: normal;
 
     font-size: 10px;
   }
+  #nested4-line1 th:nth-child(3) {
+    width: 2.7cm;
+
+    text-align: left;
+    padding-left: 5px;
+    font-weight: normal;
+
+    font-size: 10px;
+
+  }
   #nested4-line1 th:nth-child(4) {
     width: 1.5cm;
+
+    font-weight: normal;
 
     font-size: 10px;
   }
   #nested4-line1 th:nth-child(5) {
     width: 1.5cm;
 
+    font-weight: normal;
+
     font-size: 10px;
   }
   #nested4-line1 th:nth-child(6) {
-    width: 2.2cm;
+    width: 1.5cm;
+
+    font-weight: normal;
 
     font-size: 10px;
   }
@@ -397,6 +413,10 @@
   #nested33{
     border-collapse: collapse;
   
+    width: 100%;
+  }
+  #nested333{
+    border-collapse: collapse;
     width: 100%;
   }
   

@@ -170,13 +170,16 @@ margin-right: auto;
 
 /*thead*/
 thead th:nth-child(1){
-  width: 14.2cm;
+  width: 10.2cm;
 }
 thead th:nth-child(2){
   width: 3cm;
 }
 thead th:nth-child(3){
   width: 6.5cm;
+}
+thead th:nth-child(4){
+  width: 4cm;
 }
 
 /*Nested-table*/
@@ -225,7 +228,7 @@ thead th:nth-child(3){
   text-align: center;
   /*background-color: violet;*/
   height: 0.6cm;
-  font-weight: bold;
+  font-weight: normal;
   
   /*border-top: 1px solid black;*/
   
@@ -244,7 +247,7 @@ thead th:nth-child(3){
   text-align: center;
   /*background-color: violet;*/
   height: 0.6cm;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .tabuet > td{
@@ -253,7 +256,7 @@ thead th:nth-child(3){
   text-align: center;
   /*background-color: violet;*/
   height: 0.6cm;
-  font-weight: bold;
+  font-weight: normal;
 }
 
 /**/
@@ -304,22 +307,32 @@ border-top: 0;
 #nested4-line1 th:nth-child(2) {
   width: 4cm;
 
+  text-align: left;
+  padding-left: 5px;
+  font-weight: normal;
+
   font-size: 10px;
 }
 #nested4-line1 th:nth-child(3) {
-  width: 2.5cm;
+  width: 2.7cm;
+
+  font-weight: normal;
+
   font-size: 10px;
 }
 #nested4-line1 th:nth-child(4) {
   width: 1.5cm;
+  font-weight: normal;
   font-size: 10px;
 }
 #nested4-line1 th:nth-child(5) {
   width: 1.5cm;
+  font-weight: normal;
   font-size: 10px;
 }
 #nested4-line1 th:nth-child(6) {
-  width: 2.2cm;
+  width: 1.5cm;
+  font-weight: normal;
   font-size: 10px;
 }
 /*#nested4-line1 th:nth-child(1) {

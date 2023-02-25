@@ -170,22 +170,20 @@
   
   /*thead*/
   thead th:nth-child(1){
-    width: 10.2cm;
+    width: 12.2cm;
   }
   thead th:nth-child(2){
-    width: 3cm;
+    width: 7cm;
   }
   thead th:nth-child(3){
-    width: 7.5cm;
+    width: 5cm;
   }
   thead th:nth-child(4){
-    width: 4cm;
+    width: 3.5cm;
   }
-  thead th:nth-child(5){
-    width: 2.5cm;
-  }
-  /*Nested-table*/
   
+  /*Nested-table*/
+
   /*NESTED1*/
   #nested1{
     border-collapse: collapse;
@@ -201,7 +199,7 @@
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   
-    width: 14.28%;
+    width: 11.11%;
     font-size: 85%;
   }
   #nestedl2 > td{
@@ -210,7 +208,7 @@
     transform: rotate(180deg);
   
     font-size: 85%;
-    width: 6.67%;
+    width: 20%;
   }
   #nestedl3 > td{
     writing-mode: vertical-rl;
@@ -218,23 +216,12 @@
     transform: rotate(180deg);
   
     font-size: 85%;
-    width: 14.28%;
-  }
-  #nestedl33 > td{
-    writing-mode: vertical-rl;
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  
-    font-size: 85%;
     width: 20%;
-
-    text-align: center;
   }
-  
   /*TABUE*/
   .tabuef > td{
     font-size: 50%;
-    width: 0.6cm;
+    width: 11.11%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -253,7 +240,7 @@
   }
   .tabuep > td{
     font-size: 45%;
-    width: 6.67%;
+    width: 20%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -262,16 +249,7 @@
   
   .tabuet > td{
     font-size: 45%;
-    width: 14.28%;
-    text-align: center;
-    /*background-color: violet;*/
-    height: 0.6cm;
-    font-weight: normal;
-  }
-
-  .tabuer > td{
-    font-size: 45%;
-    width: 14.28%;
+    width: 20%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -311,7 +289,7 @@
   
   #nested4{
     border-collapse: collapse;
-    
+  
     width: 100%;
   }
   
@@ -321,53 +299,43 @@
   }
   #nested4-line1 th:nth-child(1) {
     width: 0.5cm;
+    font-size: 10px;
   }
   #nested4-line1 th:nth-child(2) {
     width: 4cm;
+  
     font-size: 10px;
     text-align: left;
     padding-left: 5px;
     font-weight: normal;
+    
   }
   #nested4-line1 th:nth-child(3) {
     width: 2.7cm;
     font-size: 10px;
-    font-weight: normal;
-    padding-left: 10px;
     text-align: left;
+    padding-left: 2.5px;
+    font-weight: normal;
   }
   #nested4-line1 th:nth-child(4) {
     width: 1.5cm;
     font-size: 10px;
     font-weight: normal;
-    /*padding-left: 10px;*/
-    text-align: center;
   }
   #nested4-line1 th:nth-child(5) {
-    width: 1.5cm;
-    font-weight: normal;
+    width: 2cm;
     font-size: 10px;
-
-    /*padding-left: 10px;*/
-    text-align: center;
+    font-weight: normal;
   }
   #nested4-line1 th:nth-child(6) {
     width: 1.5cm;
     font-size: 10px;
-
     font-weight: normal;
-
-    padding-left: 10px;
-    text-align: center;
   }
-  #nested4-line1 th:nth-child(1) {
+  /*#nested4-line1 th:nth-child(1) {
     width: 0.5cm;
-    font-size: 10px;
-
-    /*padding-left: 5px;*/
-    text-align: center;
   }
-  /*#nested4-line1 th:nth-child(2) {
+  #nested4-line1 th:nth-child(2) {
     width: 4cm;
   }*/
   /*td*/
@@ -423,4 +391,3 @@
   
     background-color: black;
   }
-  

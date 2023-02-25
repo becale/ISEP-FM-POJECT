@@ -107,11 +107,11 @@ window.addEventListener('load',()=>{
                 if(j==2){
                     tab15.cells[j].innerHTML= listStudent[i][2][0];
 
-                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][1][2])+1;
+                    tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][15][2])+1;
                 }
                 if(j==3){
                     if(listStudent[i][2][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"};
-
+                    tab116.cells[j].innerHTML = '/';
                 }
                 if(j==4){
                     tab15.cells[j].innerHTML= listStudent[i][1][3];

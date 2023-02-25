@@ -320,7 +320,7 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
-        genererBull.setAttribute("href", `Semestre5/${genererBull.parentElement.parentElement.parentElement.children[1].innerText}`)
+        genererBull.setAttribute("href", `Semestre5/EVE`) //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
         if(genererBull.parentElement.parentElement.parentElement.children[1].innerText =="MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS"){
           genererBull.setAttribute("href", `Semestre5/MSO`)
         }
@@ -379,7 +379,7 @@ function createSemestre() {
     }
 
     /**POSITION DE LA FONCTION MODAL */
-    modal()
+    //modal()
 }
 
 createSemestre()

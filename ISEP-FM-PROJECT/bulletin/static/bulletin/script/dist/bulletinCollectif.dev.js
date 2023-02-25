@@ -392,7 +392,8 @@ function createSemestre() {
 
     listUe.appendChild(_matiere3);
 
-    _genererBull3.setAttribute("href", "Semestre5/".concat(_genererBull3.parentElement.parentElement.parentElement.children[1].innerText));
+    _genererBull3.setAttribute("href", "Semestre5/EVE"); //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
+
 
     if (_genererBull3.parentElement.parentElement.parentElement.children[1].innerText == "MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS") {
       _genererBull3.setAttribute("href", "Semestre5/MSO");
@@ -477,9 +478,8 @@ function createSemestre() {
     listUe.appendChild(_matiere4);
   }
   /**POSITION DE LA FONCTION MODAL */
+  //modal()
 
-
-  modal();
 }
 
 createSemestre();

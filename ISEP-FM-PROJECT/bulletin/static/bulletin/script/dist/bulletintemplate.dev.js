@@ -61,14 +61,16 @@ window.addEventListener('load', function () {
     body.appendChild(listcontainer);
   } else if (mydata[0] == 'EVENEMENTIEL') {
     containeer = GenerateBullEVEsemestre5();
-    listcontainer = document.createElement('div'); //for(i=0; i<mydata[1].length; i++){
+    listcontainer = document.createElement('div');
 
-    clone = containeer.cloneNode(true); //Execution des traitements sur container
-    //clone = BullMDS1(clone)
-    //Puis ajout au containerList
+    for (i = 0; i < mydata[1].length; i++) {
+      clone = containeer.cloneNode(true); //Execution des traitements sur container
 
-    listcontainer.appendChild(clone); //}
-    //Fixation de ContainerList sur le body de la page
+      clone = BullEVE(clone, i); //Puis ajout au containerList
+
+      listcontainer.appendChild(clone);
+    } //Fixation de ContainerList sur le body de la page
+
 
     var body = document.getElementById('body');
     body.appendChild(listcontainer);
@@ -3254,55 +3256,8 @@ function GenerateBullMSOsemestre5() {
 
 
 function BullMDS1(clone, i) {
-  //TRI DES MATIERES
-
-  /*a = /*[...*/
-  mydata[4]; //]
-
-  /*var sort111= epuration(a);
-    b = [...mydata[5]]
-  var sort111b=epuration(b)
-  
-  c = [...mydata[6]]
-  var sort112=epuration(c)
-  
-  d = [...mydata[7]]
-  var sort112b=epuration(d)
-  
-  e = [...mydata[8]]
-  var sort113=epuration(e)
-  
-  f = [...mydata[9]]
-  var sort114=epuration(f)
-  
-  g = [...mydata[10]]
-  var sort115=epuration(g)
-  
-  h = [...mydata[11]]
-  var sort116=epuration(h)
-  
-  j = [...mydata[12]]
-  var sort117=epuration(j)
-    k = [...mydata[13]]
-  var sort117b=epuration(k)*/
   //DONNEES RECUPEREES DE LA BD
-
-  listStudent = mydata[1]; //DONNEES RECUPEREES DE LA BD
-
-  /*infoEtudiant = mydata[1]
-  var coefUe = mydata[2]
-  var creditUe = mydata[3]
-  var mds111 = mydata[4]
-  var mds111b = mydata[5]
-  var mds112 = mydata[6]
-  var mds112b = mydata[7]
-  var mds113 = mydata[8]
-  var mds114 = mydata[9]
-  var mds115 = mydata[10]
-  var mds116 = mydata[11]
-  var mds117 = mydata[12]
-  var mds117b = mydata[13]*/
-  //Info Utilisateur
+  listStudent = mydata[1]; //Info Utilisateur
 
   info1 = clone.children[2].children[1].children[0];
   info1.children[2].innerHTML = info1.children[2].innerHTML + " ".concat(listStudent[i][0]['nom']);
@@ -3312,30 +3267,14 @@ function BullMDS1(clone, i) {
   info2.children[2].innerHTML = info2.children[2].innerHTML + " ".concat(listStudent[i][0]['date_naissance']);
   info2.children[3].innerHTML = info2.children[3].innerHTML + " ".concat(listStudent[i][0]['lieu_naissance']);
   info2.children[4].innerHTML = info2.children[4].innerHTML + " 2022-2023";
-  /*info1 = clone.children[2].children[1].children[0]
-  for(j=2; j<=info1.childElementCount-1; j++){
-    if(j==2){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['nom']}`}
-    if(j==3){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['prenom']}`}
-    //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +' er'}
-  }*/
-
-  info2 = clone.children[2].children[1].children[1];
-
-  for (j = 1; j <= info2.childElementCount - 1; j++) {
-    if (j == 1) {
-      info2.children[j].innerHTML = info2.children[j].innerHTML + " ".concat(listStudent[i][0]['matricule']);
-    }
-
-    if (j == 2) {
-      info2.children[j].innerHTML = info2.children[j].innerHTML + " ".concat(listStudent[i][0]['date_naissance']);
-    }
-
-    if (j == 3) {
-      info2.children[j].innerHTML = info2.children[j].innerHTML + " ".concat(listStudent[i][0]['lieu_naissance']);
-    } //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['anneeaca']}`} //Année Academique
-
-  } //Tableau de notes
-
+  /* info2 = clone.children[2].children[1].children[1]
+   for(j=1; j<=info2.childElementCount-1; j++){
+     if(j==1){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['matricule']}`}
+     if(j==2){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['date_naissance']}`}
+     if(j==3){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['lieu_naissance']}`}
+     //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['anneeaca']}`} //Année Academique
+   }*/
+  //Tableau de notes
 
   var tbody = clone.children[2].children[2].children[0].children[1]; //LIGNE MDS11
 
@@ -3388,8 +3327,7 @@ function BullMDS1(clone, i) {
       }
     } //Crédits
 
-  } //MoyenneEtud[1]= 
-  //LIGNE MDS11b
+  } //LIGNE MDS11b
 
 
   ligneMDS111b = tbody.children[1];
@@ -5378,6 +5316,393 @@ function BullSTAPS2(clone, i) {
 
   return clone;
 }
+
+function BullEVE(clone, i) {
+  //DONNEES RECUPEREES DE LA BD
+  listStudent = mydata[1]; //Info Utilisateur
+
+  info1 = clone.children[2].children[1].children[0];
+  info1.children[2].innerHTML = info1.children[2].innerHTML + " ".concat(listStudent[i][0]['nom']);
+  info1.children[3].innerHTML = info1.children[3].innerHTML + " ".concat(listStudent[i][0]['prenom']);
+  info2 = clone.children[2].children[1].children[1];
+  info2.children[1].innerHTML = info2.children[1].innerHTML + " ".concat(listStudent[i][0]['matricule']);
+  info2.children[2].innerHTML = info2.children[2].innerHTML + " ".concat(listStudent[i][0]['date_naissance']);
+  info2.children[3].innerHTML = info2.children[3].innerHTML + " ".concat(listStudent[i][0]['lieu_naissance']);
+  info2.children[4].innerHTML = info2.children[4].innerHTML + " 2022-2023"; //Tableau de notes
+
+  var tbody = clone.children[2].children[2].children[0].children[1]; //LIGNE MAS 315
+
+  var ligneMAS315 = tbody.children[0];
+
+  for (j = 0; j <= ligneMAS315.childElementCount - 1; j++) {
+    if (j == 4) {
+      ligneMAS315.children[j].innerHTML = listStudent[i][1][0];
+    } //note math
+
+
+    if (j == 5) {
+      ligneMAS315.children[j].innerHTML = listStudent[i][1][1];
+    } //coef math
+
+
+    if (j == 6) {
+      ligneMAS315.children[j].innerHTML = listStudent[i][1][2];
+    } //total note math * coef
+
+
+    if (j == 7) {
+      ligneMAS315.children[j].innerHTML = listStudent[i][1][3];
+    } //moyenne donc (totalmath + totalinfo)/2
+
+
+    if (j == 8) {
+      ligneMAS315.children[j].innerHTML = listStudent[i][1][4];
+      /*ligneMAS315.children[j].innerHTML =  mds1sort.indexof(mds111[i]['note_Examen'])*/
+    } //Rang
+
+
+    if (j == 9) {
+      if (listStudent[i][1][5]) {
+        ligneMAS315.children[9].innerHTML = "VALIDEE";
+      } else {
+        ligneMAS315.children[9].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 10) {} //Session
+
+
+    if (j == 11) {
+      if (listStudent[i][1][0] >= 10) {
+        ligneMAS315.children[j].innerHTML = listStudent[i][1][6];
+      } else {
+        ligneMAS315.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LIGNE MAS 325
+
+
+  var ligneMAS325 = tbody.children[1];
+
+  for (j = 0; j <= ligneMAS325.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMAS325.children[j].innerHTML = listStudent[i][2][0];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMAS325.children[j].innerHTML = listStudent[i][2][1];
+    } //coef info
+
+
+    if (j == 4) {
+      /*val=ligneMAS325.children[2].innerHTML*ligneMAS325.children[3].innerHTML; val= val.toFixed(2); val = parseFloat(val);*/
+      ligneMAS325.children[j].innerHTML = listStudent[i][2][2];
+    } //total note math * coef
+
+
+    if (j == 5) {
+      ligneMAS325.children[j].innerHTML = listStudent[i][2][4];
+    } //Rang
+
+
+    if (j == 6) {
+      if (listStudent[i][2][5]) {
+        ligneMAS325.children[6].innerHTML = "VALIDEE";
+      } else {
+        ligneMAS325.children[6].innerHTML = "NON VALIDEE";
+      }
+    }
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (listStudent[i][2][0] >= 10) {
+        ligneMAS325.children[j].innerHTML = listStudent[i][2][6];
+      } else {
+        ligneMAS325.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LIGNE MAS 335
+
+
+  var ligneMAS335 = tbody.children[2];
+
+  for (j = 0; j <= ligneMAS335.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMAS335.children[j].innerHTML = listStudent[i][3][0];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMAS335.children[j].innerHTML = listStudent[i][3][1];
+    } //coef info
+
+
+    if (j == 4) {
+      /*val=ligneMAS335.children[2].innerHTML*ligneMAS335.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/
+      ligneMAS335.children[j].innerHTML = listStudent[i][3][2];
+    } //total note math * coef
+
+
+    if (j == 5) {
+      ligneMAS335.children[j].innerHTML = listStudent[i][3][4];
+    } //Rang
+
+
+    if (j == 6) {
+      if (listStudent[i][3][0] >= 10) {
+        ligneMAS335.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMAS335.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (listStudent[i][3][0] >= 10) {
+        ligneMAS335.children[j].innerHTML = listStudent[i][3][6];
+      } else {
+        ligneMAS335.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  } //LIGNE MAS 345
+
+
+  var ligneMAS345 = tbody.children[3];
+
+  for (j = 0; j <= ligneMAS345.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMAS345.children[j].innerHTML = listStudent[i][4][0];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMAS345.children[j].innerHTML = listStudent[i][4][1];
+    } //coef info
+
+
+    if (j == 4) {
+      /*val=ligneMAS345.children[2].innerHTML*ligneMAS345.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/
+      ligneMAS345.children[j].innerHTML = listStudent[i][4][2];
+    } //total note math * coef
+
+
+    if (j == 5) {
+      ligneMAS345.children[j].innerHTML = listStudent[i][4][4];
+    } //Rang
+
+
+    if (j == 6) {
+      if (listStudent[i][4][0] >= 10) {
+        ligneMAS345.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMAS345.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (listStudent[i][4][0] >= 10) {
+        ligneMAS345.children[j].innerHTML = listStudent[i][4][6];
+      } else {
+        ligneMAS345.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  } //LIGNE MAS 355
+
+
+  var ligneMAS355 = tbody.children[4];
+
+  for (j = 0; j <= ligneMAS355.childElementCount - 1; j++) {
+    if (j == 3) {
+      ligneMAS355.children[j].innerHTML = listStudent[i][5][0];
+    } //note math
+
+
+    if (j == 4) {
+      ligneMAS355.children[j].innerHTML = listStudent[i][5][1];
+    } //coef math
+
+
+    if (j == 5) {
+      /*val=ligneMAS355.children[3].innerHTML*ligneMAS355.children[4].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/
+      ligneMAS355.children[j].innerHTML = listStudent[i][5][2];
+    } //total note math * coef
+
+
+    if (j == 6) {
+      ligneMAS355.children[j].innerHTML = listStudent[i][5][3];
+      /*Moyenne4( 
+        ligneMAS355.children[5].innerHTML, 
+        mds114[i]['note_Examen']*coefUe[5]['coefficient'], 
+        mds115[i]['note_Examen']*coefUe[6]['coefficient'], 
+        mds116[i]['note_Examen']*coefUe[7]['coefficient'],
+        ( (coefUe[4]['coefficient']+coefUe[5]['coefficient']+ coefUe[6]['coefficient']+coefUe[7]['coefficient']) )
+      );*/
+    } //moyenne donc (totalmath + totalinfo)/2
+
+
+    if (j == 7) {
+      ligneMAS355.children[j].innerHTML = listStudent[i][5][4];
+    } //Rang
+
+
+    if (j == 8) {
+      if (listStudent[i][5][0] >= 10) {
+        ligneMAS355.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMAS355.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 9) {}
+
+    if (j == 10) {
+      if (listStudent[i][5][0] >= 10) {
+        ligneMAS355.children[j].innerHTML = listStudent[i][5][6];
+      } else {
+        ligneMAS355.children[j].innerHTML = 0;
+      }
+    } //Crédits
+
+  } //LIGNE MAS 365
+
+
+  var ligneMAS365 = tbody.children[5];
+
+  for (j = 0; j <= ligneMAS365.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligneMAS365.children[j].innerHTML = listStudent[i][6][0];
+    } //note info
+
+
+    if (j == 3) {
+      ligneMAS365.children[j].innerHTML = listStudent[i][6][1];
+    } //coef info
+
+
+    if (j == 4) {
+      /*val=ligneMAS365.children[2].innerHTML*ligneMAS365.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/
+      ligneMAS365.children[j].innerHTML = listStudent[i][6][2];
+    } //total note math * coef
+
+
+    if (j == 5) {
+      ligneMAS365.children[j].innerHTML = listStudent[i][6][4];
+    } //Rang
+
+
+    if (j == 6) {
+      if (listStudent[i][6][0] >= 10) {
+        ligneMAS365.children[j].innerHTML = "VALIDEE";
+      } else {
+        ligneMAS365.children[j].innerHTML = "NON VALIDEE";
+      }
+    } //Mention
+
+
+    if (j == 7) {} //Session
+
+
+    if (j == 8) {
+      if (listStudent[i][6][0] >= 10) {
+        ligneMAS365.children[j].innerHTML = listStudent[i][6][6];
+      } else {
+        ligneMAS365.children[j].innerHTML = 0;
+      }
+    } //nombre_crédits
+
+  } //LINE DEs RESULTATS
+
+
+  resultat = tbody.children[6];
+
+  for (j = 0; j <= resultat.childElementCount - 1; j++) {
+    if (j == 1) {
+      resultat.children[1].innerHTML = listStudent[i][7][0];
+      /*sommeInt1(ligneMDS111.children[5].innerHTML,ligneMDS111b.children[3].innerHTML,ligneMDS112.children[3].innerHTML,ligneMDS112b.children[3].innerHTML,ligneMDS113.children[4].innerHTML,ligneMDS114.children[3].innerHTML,ligneMDS115.children[3].innerHTML,ligneMDS116.children[3].innerHTML,ligneMDS117.children[4].innerHTML,ligneMDS117b.children[3].innerHTML);*/
+    }
+
+    if (j == 2) {
+      resultat.children[2].innerHTML = listStudent[i][7][1];
+    }
+    /*sommeFloat(ligneMDS111b.children[4].innerHTML, ligneMDS111.children[6].innerHTML, ligneMDS112.children[4].innerHTML, ligneMDS113.children[5].innerHTML, ligneMDS114.children[4].innerHTML, ligneMDS115.children[4].innerHTML,ligneMDS116.children[4].innerHTML, ligneMDS117.children[5].innerHTML, ligneMDS112b.children[4].innerHTML, ligneMDS117b.children[4].innerHTML) }*/
+
+
+    if (j == 3) {
+      /*val = resultat.children[2].innerHTML / resultat.children[1].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/
+      resultat.children[j].innerHTML = listStudent[i][7][2];
+    }
+
+    if (j == 4) {
+      resultat.children[j].innerHTML = mydata[2].indexOf(listStudent[i][7][2]) + 1;
+    }
+
+    if (j == 6) {
+      resultat.children[j].innerHTML = sommeInt6(ligneMAS315.children[11].innerHTML, ligneMAS325.children[8].innerHTML, ligneMAS335.children[8].innerHTML, ligneMAS345.children[8].innerHTML, ligneMAS355.children[10].innerHTML, ligneMAS365.children[8].innerHTML
+      /*, ligneMDS117.children[10].innerHTML*/
+      );
+    }
+    /**TOtal Crédit */
+
+  } //Tbody
+
+
+  var body3 = clone.children[2].children[2].children[1].children[1]; //LIGNE 0
+
+  var ligne0 = body3.children[0];
+
+  for (j = 0; j <= ligne0.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligne0.children[2].innerHTML = "".concat(resultat.children[3].innerHTML, " / 20");
+    }
+
+    if (j == 4) {
+      ligne0.children[j].innerHTML = "".concat(mydata[2][0], " / 20");
+    }
+  } //LIGNE 1
+
+
+  var ligne1 = body3.children[1];
+
+  for (j = 0; j <= ligne1.childElementCount - 1; j++) {
+    if (j == 2) {
+      ligne1.children[j].innerHTML = "".concat(mydata[3], " / 20");
+    }
+
+    if (j == 4) {
+      v = mydata[2].length - 1;
+      ligne1.children[j].innerHTML = "".concat(mydata[2][v], " / 20");
+    }
+  } //LLIGNE 2
+
+
+  var ligne2 = body3.children[2];
+
+  for (j = 0; j <= ligne1.childElementCount - 1; j++) {
+    if (j == 5) {
+      ligne2.children[j].innerHTML = "".concat(mydata[2].indexOf(listStudent[i][7][2]) + 1, " sur ").concat(mydata[1].length);
+    }
+
+    if (j == 4) {}
+  }
+
+  return clone;
+}
 /** */
 //FONCTIONS
 
@@ -5443,6 +5768,20 @@ function sommeInt(a, b, c, d, e, f, g) {
   f = parseInt(f);
   g = parseInt(g);
   result = a + b + c + d + e + f + g;
+  return result;
+}
+
+function sommeInt6(a, b, c, d, e, f) {
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+  d = parseInt(d);
+  e = parseInt(e);
+  f = parseInt(f); //g = parseInt(g);
+
+  result = a + b + c + d + e + f;
+  /*+ g*/
+
   return result;
 }
 

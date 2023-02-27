@@ -3848,6 +3848,7 @@ function BullMDS1(clone, i){
 
   return(clone)
 }
+/**FONCTION BULL 1er SEMESTRE */
 /**FONCTION BULLETIN STAPS1 */
 function BullSTAPS1(clone, i){
 
@@ -4291,6 +4292,7 @@ function BullSTAPS2(clone, i){
 
   return clone
 }
+/**FONCTION BULLETIN EVE */
 function BullEVE(clone, i){
   //DONNEES RECUPEREES DE LA BD
   listStudent = mydata[1]
@@ -4429,8 +4431,6 @@ function BullEVE(clone, i){
     if(j==5){ ligne2.children[j].innerHTML = `${mydata[2].indexOf(listStudent[i][7][2])+1} sur ${mydata[1].length}`}
     if(j==4){}
   }
-
-
 
   return(clone)
 }

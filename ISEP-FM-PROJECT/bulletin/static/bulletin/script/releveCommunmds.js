@@ -165,7 +165,7 @@ window.addEventListener('load',()=>{
                 if(j==0){tab43.cells[j].innerHTML = listStudent[i][11][1]};
                 if(j==1){tab43.cells[j].innerHTML = listStudent[i][11][2]};;
                 if(j==2){tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2])+1}
-                //if(j==3){tab43.cells[j].innerHTML = listStudent[i][9][3]};
+                if(j==3){tab43.cells[j].innerHTML = listStudent[i][2][7]+listStudent[i][4][7]+listStudent[i][5][7]+listStudent[i][6][7]+listStudent[i][7][7]+listStudent[i][8][7]+listStudent[i][9][7]+listStudent[i][10][7]};
                 if(j==4){tab43.cells[j].innerHTML = '/'};
             }
 

@@ -114,6 +114,7 @@ window.addEventListener('load', function () {
           }
 
           ;
+          tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7];
         }
 
         if (j == 4) {

@@ -3836,6 +3836,8 @@ function BullMDS1(clone, i) {
 
   return clone;
 }
+/**FONCTION BULL 1er SEMESTRE */
+
 /**FONCTION BULLETIN STAPS1 */
 
 
@@ -5316,6 +5318,8 @@ function BullSTAPS2(clone, i) {
 
   return clone;
 }
+/**FONCTION BULLETIN EVE */
+
 
 function BullEVE(clone, i) {
   //DONNEES RECUPEREES DE LA BD

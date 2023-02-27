@@ -106,6 +106,7 @@ window.addEventListener('load',()=>{
                 }
                 if(j==3){
                     if(listStudent[i][2][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"};
+                    tab116.cells[j].innerHTML = listStudent[i][1][7]+listStudent[i][2][7]+listStudent[i][3][7]+listStudent[i][4][7]+listStudent[i][8][7]+listStudent[i][9][7]+listStudent[i][10][7]+listStudent[i][11][7]+listStudent[i][12][7];
 
                 }
                 if(j==4){

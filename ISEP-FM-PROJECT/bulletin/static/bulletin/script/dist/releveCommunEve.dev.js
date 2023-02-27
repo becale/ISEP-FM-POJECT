@@ -194,8 +194,8 @@ window.addEventListener('load', function () {
         }
 
         if (j == 3) {
-          tab33.cells[j].innerHTML = '/';
-        } //listStudent[i][9][3]};
+          tab33.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7];
+        } //listStudent[i][9][3]}; //Nombre de crédits
 
 
         if (j == 4) {

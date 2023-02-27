@@ -115,7 +115,7 @@ window.addEventListener('load', function () {
           }
 
           ;
-          tab116.cells[j].innerHTML = '/';
+          tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7] + listStudent[i][13][7] + listStudent[i][14][7]; //Credits Obtenus
         }
 
         if (j == 4) {

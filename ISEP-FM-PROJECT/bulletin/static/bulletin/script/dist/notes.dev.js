@@ -160,6 +160,17 @@ function getUe() {
         addModifyMatiere.appendChild(bigBoy);
         var matiere = document.createElement("div");
         matiere.setAttribute("class", "matiere");
+
+        if (myArr[i].code_UE.startsWith('MDS')) {
+          matiere.classList.add('MDS');
+        } else if (myArr[i].code_UE.startsWith('EPS1')) {
+          matiere.classList.add('EPS1');
+        } else if (myArr[i].code_UE.startsWith('EPS2')) {
+          matiere.classList.add('EPS2');
+        } else {
+          matiere.classList.add('MASEVE');
+        }
+
         matiere.setAttribute("id", "matiere".concat(i));
         matiere.appendChild(numeroSemestreCodeMatiere);
         matiere.appendChild(intituleMatiere);

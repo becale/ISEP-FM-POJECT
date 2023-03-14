@@ -208,7 +208,117 @@ window.addEventListener('load', function () {
 
       worktab.appendChild(temp);
     }
+  } //Page1()
+
+  /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
+
+
+  function ListProcess() {
+    body = document.getElementById('body');
+    page = document.getElementById('page2');
+    listProces = document.createElement('div');
+
+    for (i = 0; i <= 5; i++) {
+      clone = page.cloneNode(true);
+      clone.style.display = 'block';
+      clone = fullfill(clone, i);
+      listProces.appendChild(clone);
+    } //Fixation de ListProcess sur le body de la page
+
+
+    body.appendChild(listProces);
+  }
+  /**FONCTION DE REMPLISSAGE DU CLONE */
+
+
+  function fullfill(clone, i) {
+    //Line One
+    //Second Line
+    line2 = clone.children[1].children[1].children[0];
+    line2.children[2].innerHTML = 'MANAGEMENT DES ORGANISATIONS & I.S';
+    line2.children[5].innerHTML = '2022/2023'; //Third Line
+
+    line3 = clone.children[1].children[2].children[0];
+
+    if (i == 0) {
+      line3.children[1].innerHTML = "MAS315";
+      line3.children[2].innerHTML = "ENVIRONNEMENT INSTITUTIONNEL DE LA PRATIQUE DU SPORT";
+      line3.children[4].innerHTML = mydata[5][0];
+      line3.children[5].innerHTML = '5';
+    }
+
+    if (i == 1) {
+      line3.children[1].innerHTML = "MAS325";
+      line3.children[2].innerHTML = "MONTAGE DES PEOJETS ET ENTREPRENEURIAT SPORTIF";
+      line3.children[4].innerHTML = mydata[5][1];
+      line3.children[5].innerHTML = '5';
+    }
+
+    if (i == 2) {
+      line3.children[1].innerHTML = "MAS335";
+      line3.children[2].innerHTML = "INFORMATION ET COMMUNICATION STRATEGIQUES SPORT & L.";
+      line3.children[4].innerHTML = mydata[5][2];
+      line3.children[5].innerHTML = '5';
+    }
+
+    if (i == 3) {
+      line3.children[1].innerHTML = "MAS345";
+      line3.children[2].innerHTML = "E-SPORT";
+      line3.children[4].innerHTML = mydata[5][3];
+      line3.children[5].innerHTML = '5';
+    }
+
+    if (i == 4) {
+      line3.children[1].innerHTML = "EVE355";
+      line3.children[2].innerHTML = "MULTIMEDIA DANS LE DEVELOPPEMENT DU SPORT & LOISIRS";
+      line3.children[4].innerHTML = mydata[5][4];
+      line3.children[5].innerHTML = '5';
+    }
+
+    if (i == 5) {
+      line3.children[1].innerHTML = "EVE365";
+      line3.children[2].innerHTML = "INGENIERIE DE L'ANIMATION SPORTIVE ET CULTURELLE";
+      line3.children[4].innerHTML = mydata[5][5];
+      line3.children[5].innerHTML = '5';
+    } //Tableau des Student
+
+
+    tab = clone.children[2].children[0];
+
+    for (j = 0; j <= mydata[1].length - 1; j++) {
+      line = document.createElement('tr');
+
+      for (k = 0; k <= 8; k++) {
+        td = document.createElement('td');
+
+        if (k == 0) {
+          td.innerHTML = "".concat(j + 1);
+        }
+
+        if (k == 1) {}
+
+        if (k == 2) {}
+
+        if (k == 3) {}
+
+        if (k == 4) {}
+
+        if (k == 5) {}
+
+        if (k == 6) {}
+
+        if (k == 7) {}
+
+        if (k == 8) {}
+
+        line.appendChild(td);
+      }
+
+      tab.children[1].appendChild(line);
+    }
+
+    return clone;
   }
 
-  Page1();
+  ListProcess();
 });

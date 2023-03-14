@@ -487,7 +487,7 @@ def bulls5msoeve(request, filiere):
     creditS5EVE = list(UniteEnseignement.objects.filter(semestre_id=5,filiere="MAS").values("nombre_credit"))
     creditS5EVE = epurationCre(creditS5EVE)
 
-    MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_Examen'))
+    MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_Examen','note_cc','note_sn'))
     sort315 = epurationTriCroissant(MAS315)
 
     MAS325 = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_Examen'))
@@ -555,27 +555,8 @@ def bulls5msoeve(request, filiere):
 
         creditObtenus = 0
         listeCredit = []
-        #print(listeMatrice[1])
-        #print(listeMatrice[])
 
-        """for i in range( len(infoEtudiantEVE) ):
-
-            if listeMatrice[i][1][5]==True:
-                creditObtenus +=  listeMatrice[j][1][6]
-            if listeMatrice[i][2][5]==True:
-                creditObtenus +=  listeMatrice[j][2][6]
-            if listeMatrice[i][3][5]==True:
-                creditObtenus +=  listeMatrice[j][3][6]
-            if listeMatrice[i][4][5]==True:
-                creditObtenus +=  listeMatrice[j][4][6]
-            if listeMatrice[i][5][5]==True:
-                creditObtenus +=  listeMatrice[j][5][6]
-            if listeMatrice[i][6][5]==True:
-                creditObtenus +=  listeMatrice[j][6][6]
-
-            listeCredit.append(creditObtenus) """
-
-
+       
         listeMatrice.append(matrice)
         EVEMoyenne.append(matrice[7][2])
         EVEMoyenne.sort(reverse=True)
@@ -584,7 +565,7 @@ def bulls5msoeve(request, filiere):
         moy = round(moy, 2)
         session = ''
 
-    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session]
+    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, MAS315]
 
 
     return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS} )
@@ -1004,21 +985,33 @@ def resultatCommunEve(request):
     creditS5EVE = epurationCre(creditS5EVE)
 
     MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_Examen'))
+    MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_cc'))
+    MAS315sn = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_sn'))
     sort315 = epurationTriCroissant(MAS315)
 
     MAS325 = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_Examen'))
+    MAS325cc = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_cc'))
+    MAS325sn = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_sn'))
     sort325 = epurationTriCroissant(MAS325)
 
     MAS335 = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_Examen'))
+    MAS335cc = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_cc'))
+    MAS335sn = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_sn'))
     sort335 = epurationTriCroissant(MAS335)
 
     MAS345 = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_Examen'))
+    MAS345cc = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_cc'))
+    MAS345sn = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_sn'))
     sort345 = epurationTriCroissant(MAS345)
 
     EVE355 = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_Examen'))
+    EVE355cc = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_cc'))
+    EVE355sn = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_sn'))
     sort355 = epurationTriCroissant(EVE355)
 
     EVE365 = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_Examen'))
+    EVE365cc = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_cc'))
+    EVE365sn = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_sn'))
     sort365 = epurationTriCroissant(EVE365)
 
     listeMatrice = []
@@ -1041,13 +1034,17 @@ def resultatCommunEve(request):
                 creditS5EVE[0],
 
                 creditS5EVE[0] if((MAS315[j] >=10)) else 0,#crédit obtenu
+
+                MAS315cc[j]['note_cc'],
+
+                MAS315sn[j]['note_sn']
             ],
             
-            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1], creditS5EVE[1] if (MAS325[j]>=10) else 0 ],
+            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1], creditS5EVE[1] if (MAS325[j]>=10) else 0, MAS325cc[j]['note_cc'],MAS325sn[j]['note_sn']  ],
             
-            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2], creditS5EVE[2] if (MAS335[j]>=10) else 0 ],
+            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2], creditS5EVE[2] if (MAS335[j]>=10) else 0, MAS335cc[j]['note_cc'],MAS335sn[j]['note_sn'] ],
             
-            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3], creditS5EVE[3] if (MAS345[j]>=10) else 0 ],
+            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3], creditS5EVE[3] if (MAS345[j]>=10) else 0, MAS345cc[j]['note_cc'],MAS345sn[j]['note_sn'] ],
             
             [ EVE355[j], coefS5EVE[4], round(EVE355[j]*coefS5EVE[4], 2), 
 
@@ -1059,9 +1056,12 @@ def resultatCommunEve(request):
 
                 creditS5EVE[4],
                 creditS5EVE[4] if((EVE355[j]>=10)) else 0,
+
+                EVE355cc[j]['note_cc'],
+                EVE355sn[j]['note_sn']
             ],
             
-            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5], creditS5EVE[5] if (EVE365[j]>=10) else 0 ],
+            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5], creditS5EVE[5] if (EVE365[j]>=10) else 0, EVE365cc[j]['note_cc'],EVE365sn[j]['note_sn'] ],
         
             [ 
                 (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
@@ -1077,24 +1077,6 @@ def resultatCommunEve(request):
         #print(listeMatrice[1])
         #print(listeMatrice[])
 
-        """for i in range( len(infoEtudiantEVE) ):
-
-            if listeMatrice[i][1][5]==True:
-                creditObtenus +=  listeMatrice[j][1][6]
-            if listeMatrice[i][2][5]==True:
-                creditObtenus +=  listeMatrice[j][2][6]
-            if listeMatrice[i][3][5]==True:
-                creditObtenus +=  listeMatrice[j][3][6]
-            if listeMatrice[i][4][5]==True:
-                creditObtenus +=  listeMatrice[j][4][6]
-            if listeMatrice[i][5][5]==True:
-                creditObtenus +=  listeMatrice[j][5][6]
-            if listeMatrice[i][6][5]==True:
-                creditObtenus +=  listeMatrice[j][6][6]
-
-            listeCredit.append(creditObtenus) """
-
-
         listeMatrice.append(matrice)
         EVEMoyenne.append(matrice[7][2])
         EVEMoyenne.sort(reverse=True)
@@ -1103,7 +1085,7 @@ def resultatCommunEve(request):
         moy = round(moy, 2)
         session = ''
 
-    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session]
+    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE]
 
 
     return render(request, 'bulletin/releveCommun/releveCommunEve.html', {'semestre1MDS': semestre1MDS})

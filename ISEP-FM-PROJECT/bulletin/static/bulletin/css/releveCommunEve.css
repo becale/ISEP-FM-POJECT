@@ -11,6 +11,7 @@
     margin: 0 auto;
     margin-bottom: 1cm;
     /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
+    display: none;
   }
   #page2 {
     background: white;
@@ -26,6 +27,9 @@
   #page2[size="A4"] {  
     width: 21cm;
     height: 29.7cm; 
+
+    padding: 1cm;
+    display: none;
   }
   #page[size="A4"][layout="landscape"] {
     width: 29.7cm;
@@ -34,14 +38,14 @@
     padding-top: 1cm;
     padding-bottom: 1cm;
   }
-  #page2[size="A4"][layout="landscape"] {
+  /*#page2[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;  
   
     /*padding-top: 1cm;
     padding-bottom: 1cm;*/
-    padding: 1cm;
-  }
+    /*padding: 1cm;
+  }*/
   
   @media print {
     body,#page, table, td, th{
@@ -126,7 +130,7 @@
   #arrete{
     width: 100%;
     height: 0.5cm;
-    background-color: blanchedalmond;
+    /*background-color: blanchedalmond;*/
   
     text-align: center;
     font-style: italic;
@@ -138,7 +142,7 @@
   /***************************************************************************************************************************************************************************/
   /*Main*/
   main{
-    height: 14cm;
+    /*height: 14cm;*/
     width: 100%;
     
     /*background-color: brown;*/
@@ -168,8 +172,8 @@
     border: 1px black solid;
   }
   
-  /*thead*/
-  thead th:nth-child(1){
+  /*thead FORMAT UNIVERSEL*/ 
+  /*thead th:nth-child(1){
     width: 12.2cm;
   }
   thead th:nth-child(2){
@@ -180,7 +184,7 @@
   }
   thead th:nth-child(4){
     width: 3.5cm;
-  }
+  }*/
   
   /*Nested-table*/
 
@@ -391,3 +395,103 @@
   
     background-color: black;
   }
+
+  /****************************************************************************************************************************************************************************/
+  .header-line{
+    height: 4cm;
+    background-color: aquamarine;
+  }
+  .logo-left > img{
+    height: 3cm;
+    width: 3cm;
+  }
+  .logo-right > img{
+    height: 3cm;
+    width: 3cm;
+  }
+  .header-text{
+    text-align: center;
+    font-size: 57%;
+  }
+  .title-doc{
+    background-color: beige;
+    height: 0.6cm;
+
+    margin-bottom: 0.2cm;
+  }
+   .title-doc-style{
+     text-align: center;
+     
+    text-decoration: underline;
+    font-weight: bold;
+   }
+   .span-style{
+    font-size: 59%;
+   }
+   .info-serie{
+    height: 0.6cm;
+    background-color: bisque;
+    /*margin-top: 0.2cm;*/
+    margin-bottom: 0.1cm;
+   }
+   /*****Table Proces_Verbal****/
+   #proces-verbal{
+    margin-top: 0.5cm;
+
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid black;
+   }
+   .proces{
+    font-size: 65%;
+   }
+
+   .proces tr >th:nth-child(1){
+    width: 5%;
+   }
+   .proces tr >th:nth-child(2){
+    width: 12%;
+   }
+   .proces tr >th:nth-child(3){
+    width: 31%;
+   }
+   .proces tr >th:nth-child(4){
+    width: 7%;
+   }
+   .proces tr >th:nth-child(5){
+    width: 7%;
+   }
+   .proces tr >th:nth-child(6){
+    width: 10%;
+   }
+   .proces tr >th:nth-child(7){
+    width: 7%;
+   }
+   .proces tr >th:nth-child(8){
+    width: 10%;
+   }
+   .proces tr >th:nth-child(9){
+    width: 8%;
+   }
+   /*.proces tr >th:nth-child(1){
+    background-color: blue;
+   }
+   .proces tr >th:nth-child(1){
+    background-color: blue;
+   }
+   .proces tr >th:nth-child(1){
+    background-color: blue;
+   }
+   .proces tr >th:nth-child(1){
+    background-color: blue;
+   }
+   .proces tr >th:nth-child(1){
+    background-color: blue;
+   }
+   .proces tr >th:nth-child(1){
+    background-color: blue;
+   }
+   .proces tr >th:nth-child(1){
+    background-color: blue;
+   }*/

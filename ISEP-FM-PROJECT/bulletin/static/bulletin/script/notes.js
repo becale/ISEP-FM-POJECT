@@ -168,6 +168,18 @@ if (this.readyState == 4 && this.status == 200) {
 
         const matiere= document.createElement("div")
         matiere.setAttribute("class", "matiere")
+
+        if(myArr[i].code_UE.startsWith('MDS')){
+          matiere.classList.add('MDS')
+        }
+        else if(myArr[i].code_UE.startsWith('EPS1')){
+          matiere.classList.add('EPS1')
+        }else if(myArr[i].code_UE.startsWith('EPS2')){
+          matiere.classList.add('EPS2')
+        }else{
+          matiere.classList.add('MASEVE')
+        }
+
         matiere.setAttribute("id", `matiere${i}`)
         matiere.appendChild(numeroSemestreCodeMatiere)
         matiere.appendChild(intituleMatiere)

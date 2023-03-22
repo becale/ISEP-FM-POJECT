@@ -984,6 +984,125 @@ def resultatCommunEve(request):
     creditS5EVE = list(UniteEnseignement.objects.filter(semestre_id=5,filiere="MAS").values("nombre_credit"))
     creditS5EVE = epurationCre(creditS5EVE)
 
+
+    val1 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val2 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val3 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val4 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val5 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val6 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    
+
+    m315 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m325 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m335 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m345 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    e355 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    e365 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+
+
     MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_Examen'))
     MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_cc'))
     MAS315sn = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_sn'))
@@ -1069,8 +1188,12 @@ def resultatCommunEve(request):
                 round( (MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5] ), 2),
 
                 round((MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
-            ]
+            ],
+
+            [ '']
+
         ]
+
 
         creditObtenus = 0
         listeCredit = []
@@ -1085,8 +1208,62 @@ def resultatCommunEve(request):
         moy = round(moy, 2)
         session = ''
 
-    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE]
+    #STATS VALIDATION
+    for i in range (len(MAS315)):
+        if MAS315[i] >= 10:
+            val1['nombre']+=1
+    val1['pourcentage']= round(((val1['nombre']/ len(infoEtudiantEVE))*100), 2) #round(2,(val1['nombre']/ len(infoEtudiantEVE))*100)
+    for i in range (len(MAS325)):
+        if MAS325[i] >= 10:
+            val2['nombre']+=1
+    val2['pourcentage']= round(((val2['nombre']/ len(infoEtudiantEVE))*100),2)
+    for i in range (len(MAS335)):
+        if MAS335[i] >= 10:
+            val3['nombre']+=1
+    val3['pourcentage']= round(((val3['nombre']/ len(infoEtudiantEVE))*100),2)
+    for i in range (len(MAS345)):
+        if MAS345[i] >= 10:
+            val4['nombre']+=1
+    val4['pourcentage']= round(((val4['nombre']/ len(infoEtudiantEVE))*100),2)
+    for i in range (len(EVE355)):
+        if EVE355[i] >= 10:
+            val5['nombre']+=1
+    val5['pourcentage']= round(((val5['nombre']/ len(infoEtudiantEVE))*100),2)
+    for i in range (len(EVE365)):
+        if EVE355[i] >= 10:
+            val6['nombre']+=1
+    val6['pourcentage']= round(((val6['nombre']/ len(infoEtudiantEVE))*100),2)
+    
+    #statValidation(MAS315, MAS315_nombreValidation)
+    #statValidation(MAS325, MAS325_nombreValidation)
+    #statValidation(MAS335, MAS335_nombreValidation)
+    #statValidation(MAS345, MAS345_nombreValidation)
+    #statValidation(EVE355, EVE355_nombreValidation)
+    #statValidation(EVE365, EVE365_nombreValidation)
 
+    #STAT MENTION
+    statMention(MAS315,m315)
+    pourcentageMention(m315, len(infoEtudiantEVE))
+
+    statMention(MAS325,m325)
+    pourcentageMention(m325, len(infoEtudiantEVE))
+
+    statMention(MAS335,m335)
+    pourcentageMention(m335, len(infoEtudiantEVE))
+
+    statMention(MAS345,m345)
+    pourcentageMention(m345, len(infoEtudiantEVE))
+
+    statMention(EVE355,e355)
+    pourcentageMention(e355, len(infoEtudiantEVE))
+
+    statMention(EVE365,e365)
+    pourcentageMention(e365, len(infoEtudiantEVE))
+
+    UEStats = [val1, val2, val3, val4, val5, val6]
+    UEstats_mention = [m315, m325, m335, m345, e355, e365]
+
+    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE, UEStats, UEstats_mention]
 
     return render(request, 'bulletin/releveCommun/releveCommunEve.html', {'semestre1MDS': semestre1MDS})
 ##########################################################################################################################################################################################################################################################################
@@ -1290,3 +1467,33 @@ def epurationCoef(b):
 
     #b.sort()
     return b
+
+#STAT MENTION
+def statMention(ue, uestat):
+    for i in range(len(ue)):
+        if ue[i]>= 16:
+            uestat['Très Bien'] = uestat['Très Bien'] + 1
+        if ( ue[i] >= 14 and ue[i] < 16 ):
+            uestat['Bien'] = uestat['Bien'] + 1
+        if ( ue[i] >= 12 and ue[i] < 14 ):
+            uestat['Assez Bien'] = uestat['Assez Bien'] + 1
+        if ( ue[i] >= 10 and ue[i] < 12 ):
+            uestat['Passable'] = uestat['Passable'] + 1
+        if ( ue[i] >= 7 and ue[i] < 10 ):
+            uestat['Ccnf'] = uestat['Ccnf'] + 1
+        if ( ue[i] >= 0 and ue[i] < 7 ):
+            uestat['Echec'] = uestat['Echec'] + 1
+
+def statValidation(ue, val):
+    for i in range (len(ue)):
+        if ue[i] >= 10:
+            val+=1
+
+
+def pourcentageMention(ue, b):
+    ue['pourcentageTB'] = round( ((ue['Très Bien']/b)*100), 2)
+    ue['pourcentageB'] = round( ((ue['Bien']/b)*100), 2)
+    ue['pourcentageAB'] = round( ((ue['Assez Bien']/b)*100), 2)
+    ue['pourcentageP'] = round( ((ue['Passable']/b)*100), 2)
+    ue['pourcentageCc'] = round( ((ue['Ccnf']/b)*100), 2)
+    ue['pourcentageEc'] = round( ((ue['Echec']/b)*100), 2)

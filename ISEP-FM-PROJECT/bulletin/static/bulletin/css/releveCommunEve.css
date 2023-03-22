@@ -3,7 +3,7 @@
     box-sizing: border-box;
   }
   body {
-    background: rgb(204,204,204); 
+    /*background: rgb(204,204,204); */
   }
   #page {
     background: white;
@@ -18,6 +18,8 @@
     display: block;
     margin: 0 auto;
     margin-bottom: 1cm;
+    
+    /*border: 1px solid black;*/
     /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
   }
   #page[size="A4"] {  
@@ -399,7 +401,7 @@
   /****************************************************************************************************************************************************************************/
   .header-line{
     height: 4cm;
-    background-color: aquamarine;
+    /*background-color: aquamarine;*/
   }
   .logo-left > img{
     height: 3cm;
@@ -414,23 +416,27 @@
     font-size: 57%;
   }
   .title-doc{
-    background-color: beige;
+    /*background-color: beige;*/
     height: 0.6cm;
 
     margin-bottom: 0.2cm;
   }
    .title-doc-style{
-     text-align: center;
+    text-align: center;
      
     text-decoration: underline;
     font-weight: bold;
+    padding-left: 5px;
+   }
+   #title-doc{
+    padding-left: 22%;
    }
    .span-style{
     font-size: 59%;
    }
    .info-serie{
     height: 0.6cm;
-    background-color: bisque;
+    /*background-color: bisque;*/
     /*margin-top: 0.2cm;*/
     margin-bottom: 0.1cm;
    }
@@ -474,24 +480,82 @@
    .proces tr >th:nth-child(9){
     width: 8%;
    }
-   /*.proces tr >th:nth-child(1){
-    background-color: blue;
-   }
-   .proces tr >th:nth-child(1){
-    background-color: blue;
-   }
-   .proces tr >th:nth-child(1){
-    background-color: blue;
-   }
-   .proces tr >th:nth-child(1){
-    background-color: blue;
-   }
-   .proces tr >th:nth-child(1){
-    background-color: blue;
-   }
-   .proces tr >th:nth-child(1){
-    background-color: blue;
-   }
-   .proces tr >th:nth-child(1){
-    background-color: blue;
-   }*/
+   
+/**/
+.stat{
+  width: 100%;
+  height: 7cm;
+  border: 1px solid black;
+
+ /*border-top-left-radius: 45px ;*/
+  border-radius: 50px; 
+
+  padding: 1cm;
+}
+#table-stat{
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+td[class="moyenne"]{
+}
+
+.proces{
+  font-size: 85%;
+  background-color: gray;
+  color: white;
+}
+
+tbody{
+  font-size: 75%;
+  text-align: center;
+}
+
+.nomprenon{
+  text-align: left;
+}
+
+.head-stat{
+  font-size: 85%;
+}
+
+#table-stat th {
+  border: none;
+}
+#table-stat td{
+  border: none;
+}
+.stat{
+  padding-top: 1.5cm;
+}
+
+.head-stat tr>:nth-child(2){
+  text-decoration: underline;
+}
+.head-stat tr>:nth-child(3){
+  text-decoration: underline;
+}
+.head-stat tr>:nth-child(5){
+  text-decoration: underline;
+}
+.head-stat tr>:nth-child(6){
+  text-decoration: underline;
+}
+
+.pagination{
+  padding-top: 5px;
+  font-size: 60%;
+  height: 1cm;
+  width: 1.1cm;
+
+  position: relative;
+  top: 7cm;
+  left: 18.5cm;
+
+}
+
+tbody tr>:nth-child(3){
+  padding-left: 5px;
+}

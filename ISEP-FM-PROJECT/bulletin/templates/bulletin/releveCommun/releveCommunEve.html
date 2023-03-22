@@ -311,8 +311,8 @@
 
             <main class="container">
                 <div class="row title-doc">
-                    <div class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
-                    <span class=" col-2 span-style">Edition du : XXXXXXX</span>   
+                    <div id="title-doc" class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
+                    <span class=" col-2 span-style">Edition du : 11-01-2023</span>   
                 </div>
 
                 <div class="row info-serie">
@@ -322,11 +322,11 @@
                 </div>
                 <div class="row info-serie">
                     <pre>
-<span>UE</span>:<b>XXXX</b> <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXINTITULE-UE</span> <b>Crédit</b>: x <b>Sem</b>: <span>x</span> Session: <b>Normale</b>
+<span>UE</span>:<b>XXXX</b> <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXINTITULE-UE</span> <b>Crédit</b>:<span>x</span> <b>Sem</b>: <span>x</span> Session: <b>NORMALE</b>
                     </pre>
                 </div>
             </main>
-                <div class="row">
+                <div id="table-container" class="row">
                     <table id="proces-verbal">
                         <thead class="proces">
                             <tr>
@@ -355,9 +355,57 @@
                             </tr>-->
                         </tbody>
                     </table>
+                    <div class="stat">
+                        <table id="table-stat">
+                            <thead class="head-stat">
+                                <th scope="col"> </th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Pourcentage</th>
+                                <th scope="col"></th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Pourcentage</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Etudiants :</th>
+                                    <td></td>
+                                    <td></td>
+                                    <tH>Passable</tH>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Validés :</th>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Assez Bien</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Non validés :</th>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Bien</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Très Bien</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 
-            
+            <div class="pagination">
+                Page x / x
+            </div>
             
         </div>
 

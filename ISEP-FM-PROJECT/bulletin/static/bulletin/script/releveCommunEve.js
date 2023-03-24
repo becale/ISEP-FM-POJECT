@@ -174,15 +174,12 @@ window.addEventListener('load',()=>{
 
         //Fixation de ListProcess sur le body de la page
         body.appendChild(listProces)
-
      }
 
      /**FONCTION DE REMPLISSAGE DU CLONE */
      function fullfill(clone, i){
         //Pagination
         pagination=clone.children[3]
-
-
 
         //Line One
 

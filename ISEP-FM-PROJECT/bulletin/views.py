@@ -725,35 +725,249 @@ def resultatCommunmds(request):
 
     creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
     creditS1MDS1 = epurationCre(creditS1MDS1)
+
+    val1 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val2 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val3 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val4 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val5 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val6 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val7 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val8 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val9 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val10 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    
+
+    m111 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m111b = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m112 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m112b = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m113 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m114 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m115 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m116 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m117 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m117b = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+
         
     MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_Examen'))
+    MDS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_cc'))
+    MDS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_sn'))
     sort111 = epurationTriCroissant(MDS111)
 
     MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_Examen'))
+    MDS111bcc =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_cc'))
+    MDS111bsn =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_sn'))
     sort111b = epurationTriCroissant(MDS111b)
 
     MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_Examen'))
+    MDS112cc =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_cc'))
+    MDS112sn =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_sn'))
     sort112 = epurationTriCroissant(MDS112)
 
     MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_Examen'))
+    MDS112bcc =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_cc'))
+    MDS112bsn =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_sn'))
     sort112b = epurationTriCroissant(MDS112b)
 
     MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_Examen'))
+    MDS113cc =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_cc'))
+    MDS113sn =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_sn'))
     sort113 = epurationTriCroissant(MDS113)
 
     MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_Examen'))
+    MDS114cc =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_cc'))
+    MDS114sn =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_sn'))
     sort114 = epurationTriCroissant(MDS114)
 
     MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_Examen'))
+    MDS115cc =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_cc'))
+    MDS115sn =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_sn'))
     sort115 = epurationTriCroissant(MDS115)
 
     MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_Examen'))
+    MDS116cc =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_cc'))
+    MDS116sn =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_sn'))
     sort116 = epurationTriCroissant(MDS116)
 
     MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_Examen'))
+    MDS117cc =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_cc'))
+    MDS117sn =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_sn'))
     sort117 = epurationTriCroissant(MDS117)
 
     MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_Examen'))
+    MDS117bcc =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_cc'))
+    MDS117bsn =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_sn'))
     sort117b = epurationTriCroissant(MDS117b)
 
     listeMatrice = []
@@ -764,13 +978,13 @@ def resultatCommunmds(request):
         matrice = [
                 infoEtudiantMDS[j],
 
-                [ MDS111[j], coefS1MDS1[0], MDS111[j]*coefS1MDS1[0], round( ((MDS111[j]*coefS1MDS1[0]) + (MDS111b[j]*coefS1MDS1[1]) + ( MDS112[j]*coefS1MDS1[2]) + (MDS112b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2), sort111.index(MDS111[j])+1,(MDS111[j]>=10), creditS1MDS1[0]  ],
+                [ MDS111[j], coefS1MDS1[0], MDS111[j]*coefS1MDS1[0], round( ((MDS111[j]*coefS1MDS1[0]) + (MDS111b[j]*coefS1MDS1[1]) + ( MDS112[j]*coefS1MDS1[2]) + (MDS112b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2), sort111.index(MDS111[j])+1,(MDS111[j]>=10), creditS1MDS1[0], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0 , MDS111cc[j]['note_cc'], MDS111sn[j]['note_sn']  ],
 
-                [ MDS111b[j], coefS1MDS1[1], MDS111b[j]*coefS1MDS1[1], "MOYENNE", sort111b.index(MDS111b[j])+1,(MDS111b[j]>=10), creditS1MDS1[1], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0 ],
+                [ MDS111b[j], coefS1MDS1[1], MDS111b[j]*coefS1MDS1[1], "MOYENNE", sort111b.index(MDS111b[j])+1,(MDS111b[j]>=10), creditS1MDS1[1], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0, MDS111bcc[j]['note_cc'], MDS111bsn[j]['note_sn'] ],
 
-                [ MDS112[j], coefS1MDS1[2], MDS112[j]*coefS1MDS1[2], "MOYENNE", sort112.index(MDS112[j])+1,(MDS112[j]>=10), creditS1MDS1[2]],
+                [ MDS112[j], coefS1MDS1[2], MDS112[j]*coefS1MDS1[2], "MOYENNE", sort112.index(MDS112[j])+1,(MDS112[j]>=10), creditS1MDS1[2], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0 ,MDS112cc[j]['note_cc'], MDS112sn[j]['note_sn']],
 
-                [ MDS112b[j], coefS1MDS1[3], MDS112b[j]*coefS1MDS1[3], "MOYENNE", sort112b.index(MDS112b[j])+1,(MDS112b[j]>=10), creditS1MDS1[3], creditS1MDS1[3] if((MDS112[j]+MDS112b[j])>=20) else 0  ],
+                [ MDS112b[j], coefS1MDS1[3], MDS112b[j]*coefS1MDS1[3], "MOYENNE", sort112b.index(MDS112b[j])+1,(MDS112b[j]>=10), creditS1MDS1[3], creditS1MDS1[3] if((MDS112[j]+MDS112b[j])>=20) else 0, MDS112cc[j]['note_cc'], MDS112sn[j]['note_sn'] ],
 
 
                 [ MDS113[j], coefS1MDS1[4], MDS113[j]*coefS1MDS1[4], 
@@ -781,14 +995,17 @@ def resultatCommunmds(request):
                     (MDS113[j]>=10), 
 
                     creditS1MDS1[4],
-                     creditS1MDS1[4] if (MDS113[j]>=10) else 0
+                     creditS1MDS1[4] if (MDS113[j]>=10) else 0,
+
+                     MDS113cc[j]['note_cc'],
+                     MDS113sn[j]['note_sn']
                 ],
 
-                [ MDS114[j], coefS1MDS1[5], MDS114[j]*coefS1MDS1[5], "MOYENNE", sort114.index(MDS114[j])+1,(MDS114[j]>=10), creditS1MDS1[5], creditS1MDS1[5] if (MDS114[j]>=10) else 0 ],
+                [ MDS114[j], coefS1MDS1[5], MDS114[j]*coefS1MDS1[5], "MOYENNE", sort114.index(MDS114[j])+1,(MDS114[j]>=10), creditS1MDS1[5], creditS1MDS1[5] if (MDS114[j]>=10) else 0, MDS114cc[j]['note_cc'], MDS114sn[j]['note_sn'] ],
 
-                [ MDS115[j], coefS1MDS1[6], MDS115[j]*coefS1MDS1[6], "MOYENNE", sort115.index(MDS115[j])+1,(MDS115[j]>=10), creditS1MDS1[6], creditS1MDS1[6] if (MDS115[j]>=10) else 0 ],
+                [ MDS115[j], coefS1MDS1[6], MDS115[j]*coefS1MDS1[6], "MOYENNE", sort115.index(MDS115[j])+1,(MDS115[j]>=10), creditS1MDS1[6], creditS1MDS1[6] if (MDS115[j]>=10) else 0, MDS115cc[j]['note_cc'], MDS115sn[j]['note_sn'] ],
 
-                [ MDS116[j], coefS1MDS1[7], MDS116[j]*coefS1MDS1[7], "MOYENNE", sort116.index(MDS116[j])+1,(MDS116[j]>=10), creditS1MDS1[7], creditS1MDS1[7] if (MDS116[j]>=10) else 0 ],
+                [ MDS116[j], coefS1MDS1[7], MDS116[j]*coefS1MDS1[7], "MOYENNE", sort116.index(MDS116[j])+1,(MDS116[j]>=10), creditS1MDS1[7], creditS1MDS1[7] if (MDS116[j]>=10) else 0, MDS116cc[j]['note_cc'], MDS116sn[j]['note_sn'] ],
 
 
                 [ MDS117[j], coefS1MDS1[8], MDS117[j]*coefS1MDS1[8], 
@@ -798,11 +1015,14 @@ def resultatCommunmds(request):
                     (MDS117[j]>=10), 
 
                     creditS1MDS1[8],
-                     creditS1MDS1[8] if (MDS117[j]>=10) else 0
+                     creditS1MDS1[8] if (MDS117[j]>=10) else 0,
+
+                     MDS117cc[j]['note_cc'],
+                     MDS117sn[j]['note_sn']
 
                 ],
 
-                [ MDS117b[j], coefS1MDS1[9], MDS117b[j]*coefS1MDS1[9], "MOYENNE", sort117b.index(MDS117b[j])+1,(MDS117b[j]>=10), creditS1MDS1[9], creditS1MDS1[9] if ( (MDS117b[j]+MDS117[j]) >=20) else 0 ],
+                [ MDS117b[j], coefS1MDS1[9], MDS117b[j]*coefS1MDS1[9], "MOYENNE", sort117b.index(MDS117b[j])+1,(MDS117b[j]>=10), creditS1MDS1[9], creditS1MDS1[9] if ( (MDS117b[j]+MDS117[j]) >=20) else 0, MDS117bcc[j]['note_cc'], MDS117bsn[j]['note_sn'] ],
 
                 [
                     ( coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]+coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]+coefS1MDS1[8]+coefS1MDS1[9] ),
@@ -824,8 +1044,87 @@ def resultatCommunmds(request):
 
         filiere="GESTION"
 
+    #STATS VALIDATION
+    for i in range (len(MDS111)):
+        if MDS111[i] >= 10:
+            val1['nombre']+=1
+    val1['pourcentage']= round(((val1['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS111b)):
+        if MDS111b[i] >= 10:
+            val2['nombre']+=1
+    val2['pourcentage']= round(((val2['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS112)):
+        if MDS112[i] >= 10:
+            val3['nombre']+=1
+    val3['pourcentage']= round(((val3['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS112b)):
+        if MDS112b[i] >= 10:
+            val4['nombre']+=1
+    val4['pourcentage']= round(((val4['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS113)):
+        if MDS113[i] >= 10:
+            val5['nombre']+=1
+    val5['pourcentage']= round(((val5['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS114)):
+        if MDS114[i] >= 10:
+            val6['nombre']+=1
+    val6['pourcentage']= round(((val6['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS115)):
+        if MDS115[i] >= 10:
+            val7['nombre']+=1
+    val7['pourcentage']= round(((val7['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS116)):
+        if MDS116[i] >= 10:
+            val8['nombre']+=1
+    val8['pourcentage']= round(((val8['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS117)):
+        if MDS117[i] >= 10:
+            val9['nombre']+=1
+    val9['pourcentage']= round(((val9['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS117b)):
+        if MDS117b[i] >= 10:
+            val10['nombre']+=1
+    val10['pourcentage']= round(((val10['nombre']/ len(infoEtudiantMDS))*100), 2)
 
-        semestre1MDS = [filiere, listeMatrice, mds1Moyenne, moy, session] #filiere, listeMatrice, staps1Moyenne, moy, session
+
+    #STATS MENTION
+    statMention(MDS111,m111)
+    pourcentageMention(m111, len(infoEtudiantMDS))
+
+    statMention(MDS111b,m111b)
+    pourcentageMention(m111b, len(infoEtudiantMDS))
+
+    statMention(MDS112,m112)
+    pourcentageMention(m112, len(infoEtudiantMDS))
+
+    statMention(MDS112b,m112b)
+    pourcentageMention(m112b, len(infoEtudiantMDS))
+
+    statMention(MDS113,m113)
+    pourcentageMention(m113, len(infoEtudiantMDS))
+
+    statMention(MDS114,m114)
+    pourcentageMention(m114, len(infoEtudiantMDS))
+
+    statMention(MDS115,m115)
+    pourcentageMention(m115, len(infoEtudiantMDS))
+
+    statMention(MDS116,m116)
+    pourcentageMention(m116, len(infoEtudiantMDS))
+
+    statMention(MDS117,m117)
+    pourcentageMention(m117, len(infoEtudiantMDS))
+
+    statMention(MDS117b,m117b)
+    pourcentageMention(m117b, len(infoEtudiantMDS))
+
+
+
+    UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10]
+    UEstats_mention = [m111, m111b, m112, m112b, m113, m114, m115, m116, m117, m117b]
+
+
+    semestre1MDS = [filiere, listeMatrice, mds1Moyenne, moy, session, creditS1MDS1, UEStats, UEstats_mention] #filiere, listeMatrice, staps1Moyenne, moy, session
 
     return render(request, 'bulletin/releveCommun/releveCommunmds.html', {'semestre1MDS': semestre1MDS})
 
@@ -1189,8 +1488,6 @@ def resultatCommunEve(request):
 
                 round((MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
             ],
-
-            [ '']
 
         ]
 

@@ -11,6 +11,8 @@ body {
   margin: 0 auto;
   margin-bottom: 1cm;
 
+  display: none;
+
 
   /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
 }
@@ -28,6 +30,10 @@ body {
 #page2[size="A4"] {  
   width: 21cm;
   height: 29.7cm; 
+
+  padding: 1cm;
+  
+  display: none;
 }
 #page[size="A4"][layout="landscape"] {
   width: 29.7cm;
@@ -42,17 +48,17 @@ body {
   width: 29.7cm;
   height: 21cm;  
 
-  /*display: none;*/
-
   /*padding-top: 1cm;
   padding-bottom: 1cm;*/
   padding: 1cm;
+
+  display: none;
 }
 
 @media print {
   body,#page, table, td, th{
     margin-bottom: 0;
-    box-shadow: 0;
+    /*box-shadow: 0;*/
   }
 }
 
@@ -144,7 +150,7 @@ header{
 /***************************************************************************************************************************************************************************/
 /*Main*/
 main{
-  height: 14cm;
+  /*height: 14cm;*/
   width: 100%;
   
   /*background-color: brown;*/
@@ -175,7 +181,7 @@ margin-right: auto;
 }
 
 /*thead*/
-thead th:nth-child(1){
+/*thead th:nth-child(1){
   width: 10.2cm;
 }
 thead th:nth-child(2){
@@ -186,12 +192,7 @@ thead th:nth-child(3){
 }
 thead th:nth-child(4){
   width: 4cm;
-}
-
-/*Nested-table*/
-.td style{
-  
-}
+}*/
 
 /*NESTED1*/
 #nested1{
@@ -399,4 +400,172 @@ footer{
   width: 100%;
 
   background-color: black;
+}
+
+
+/***************************************************************************************************************************************************************************/
+/****************************************************************************************************************************************************************************/
+.header-line{
+  height: 4cm;
+  /*background-color: aquamarine;*/
+}
+.logo-left > img{
+  height: 3cm;
+  width: 3cm;
+}
+.logo-right > img{
+  height: 3cm;
+  width: 3cm;
+}
+.header-text{
+  text-align: center;
+  font-size: 57%;
+}
+.title-doc{
+  /*background-color: beige;*/
+  height: 0.6cm;
+
+  margin-bottom: 0.2cm;
+}
+ .title-doc-style{
+  text-align: center;
+   
+  text-decoration: underline;
+  font-weight: bold;
+  padding-left: 5px;
+ }
+ #title-doc{
+  padding-left: 22%;
+ }
+ .span-style{
+  font-size: 59%;
+ }
+ .info-serie{
+  height: 0.6cm;
+  /*background-color: bisque;*/
+  /*margin-top: 0.2cm;*/
+  margin-bottom: 0.1cm;
+ }
+ /*****Table Proces_Verbal****/
+ #proces-verbal{
+  margin-top: 0.5cm;
+
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+ }
+ .proces{
+  font-size: 65%;
+ }
+
+ .proces tr >th:nth-child(1){
+  width: 5%;
+ }
+ .proces tr >th:nth-child(2){
+  width: 12%;
+ }
+ .proces tr >th:nth-child(3){
+  width: 31%;
+ }
+ .proces tr >th:nth-child(4){
+  width: 7%;
+ }
+ .proces tr >th:nth-child(5){
+  width: 7%;
+ }
+ .proces tr >th:nth-child(6){
+  width: 10%;
+ }
+ .proces tr >th:nth-child(7){
+  width: 7%;
+ }
+ .proces tr >th:nth-child(8){
+  width: 10%;
+ }
+ .proces tr >th:nth-child(9){
+  width: 8%;
+ }
+ 
+/**/
+.stat{
+width: 100%;
+height: 7cm;
+border: 1px solid black;
+
+/*border-top-left-radius: 45px ;*/
+border-radius: 50px; 
+
+padding: 1cm;
+}
+#table-stat{
+table-layout: fixed;
+width: 100%;
+border-collapse: collapse;
+border: none;
+}
+.proces{
+font-size: 85%;
+background-color: gray;
+color: white;
+}
+
+tbody{
+font-size: 75%;
+text-align: center;
+}
+
+.nomprenon{
+text-align: left;
+}
+
+.head-stat{
+font-size: 85%;
+}
+
+#table-stat th {
+border: none;
+}
+#table-stat td{
+border: none;
+}
+.stat{
+padding-top: 1.5cm;
+}
+
+.head-stat tr>:nth-child(2){
+text-decoration: underline;
+}
+.head-stat tr>:nth-child(3){
+text-decoration: underline;
+}
+.head-stat tr>:nth-child(5){
+text-decoration: underline;
+}
+.head-stat tr>:nth-child(6){
+text-decoration: underline;
+}
+
+.pagination{
+padding-top: 5px;
+font-size: 60%;
+height: 1cm;
+width: 1.3cm;
+
+position: relative;
+top: 7cm;
+left: 18.5cm;
+
+}
+
+tbody tr>:nth-child(3){
+padding-left: 5px;
+}
+
+#part2{
+  display: none;
+}
+
+pre{
+  text-align: center;
 }

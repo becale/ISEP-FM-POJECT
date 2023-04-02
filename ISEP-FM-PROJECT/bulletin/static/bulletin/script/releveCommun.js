@@ -213,7 +213,7 @@ window.addEventListener('load',()=>{
             if(i == 2){ 
                 line3.children[1].innerHTML = "EPS113";
                 line3.children[2].innerHTML = "DIDACTIQUE DE l'EPS I";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][2]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -221,7 +221,7 @@ window.addEventListener('load',()=>{
             if(i == 3){ 
                 line3.children[1].innerHTML = "EPS114";
                 line3.children[2].innerHTML = "ANATOMIE 1";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][3]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -229,7 +229,7 @@ window.addEventListener('load',()=>{
             if(i == 4){ 
                 line3.children[1].innerHTML = "EPS115a";
                 line3.children[2].innerHTML = "DIDACTIQUE DES APS : ATHLETISME";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][4]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -237,7 +237,7 @@ window.addEventListener('load',()=>{
             if(i == 5){ 
                 line3.children[1].innerHTML = "EPS115b";
                 line3.children[2].innerHTML = "DIDACTIQUE DES APS : BASKET BALL";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][5]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -245,7 +245,7 @@ window.addEventListener('load',()=>{
             if(i == 6){ 
                 line3.children[1].innerHTML = "EPS115j";
                 line3.children[2].innerHTML = "DIDACTIQUE DES APS : JUDO";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][6]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -253,7 +253,7 @@ window.addEventListener('load',()=>{
             if(i == 7){ 
                 line3.children[1].innerHTML = "EPS115l";
                 line3.children[2].innerHTML = "DIDACTIQUE DES APS : LUTTE";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][7]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -261,7 +261,7 @@ window.addEventListener('load',()=>{
             if(i == 8){ 
                 line3.children[1].innerHTML = "EPS116";
                 line3.children[2].innerHTML = "LA PHYSIOLOGIE DE L'EXERCICE I";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][8]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -269,7 +269,7 @@ window.addEventListener('load',()=>{
             if(i == 9){ 
                 line3.children[1].innerHTML = "EPS117";
                 line3.children[2].innerHTML = "INFORMATIQUE";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][9]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -277,7 +277,7 @@ window.addEventListener('load',()=>{
             if(i == 10){ 
                 line3.children[1].innerHTML = "EPS118";
                 line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION FRANCAISE";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][10]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`
@@ -285,7 +285,7 @@ window.addEventListener('load',()=>{
             if(i == 11){ 
                 line3.children[1].innerHTML = "EPS119";
                 line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION ANGLAISE. Anglaise- Forbi";
-                line3.children[4].innerHTML = mydata[5][1]
+                line3.children[4].innerHTML = mydata[5][11]
                 line3.children[6].innerHTML = '1'
     
                 pagination.innerText= `Page ${i+1} / ${mydata[5].length}`

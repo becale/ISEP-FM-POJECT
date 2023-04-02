@@ -10,12 +10,13 @@
         {% load static %}
 
         <!--<link rel="stylesheet" href="{% static "bulletin/css/releveCommun.css" %}" media="screen">-->
-        <link rel="stylesheet" href="{% static "bulletin/css/releveCommunstaps2.css" %}" >
+        <link rel="stylesheet" href="{% static 'bulletin/css/releveCommunstaps2.css' %}" >
         <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}"> 
 
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootstrap/bootstrap-grid.min.css' %}">
         <link rel="stylesheet" href="">
     </head>
-    <body>
+    <body id="body">
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -274,7 +275,7 @@
 
         </div>
         <!--DEUXIEME PARTIE-->
-        <div id="page2" size="A4" layout="landscape" >
+        <div id="part2" size="A4" layout="landscape" >
             <header class="header">
                 <div id="left-Head">
                    <div id="logo">
@@ -518,7 +519,150 @@
 
         </div>
 
-        
+        <!--OTHERS-->
+        <div id="page2" size="A4"  >
+            <header class="container">
+                <div class="row header-line">
+                    <div class="col-2 logo-left">
+                        <img src="/static/bulletin/image/logondere.PNG" alt="">
+                    </div>
+                    <div class="col-4 header-text" >
+                     
+                        REPUBLIQUE DU CAMEROUN <br>
+                           Paix-Travail–Patrie <br>
+                                -------<br>
+                    MINISTERE DE L’ENSEIGNEMENT SUPERIEUR<br>
+                               ---------<br>
+                          UNIVERSITE DE NGAOUNDERE<br>
+                             -------------<br>
+                    FACULTE DES SCIENCES DE L’EDUCATION<br>
+                           -----------------<br>
+                    Résilience–Travail–Réussite<br>
+                             -------------<br>
+                         B.P. 456 NGAOUNDERE<br>
+                          fse@univ-ndere.cm
+                    </div>
+                    <div class="col-4 header-text">
+
+                        REPUBLIC  OF  CAMEROON <br>
+                         Peace-Work–Fatherland <br>
+                                ------- <br>
+                      MINISTRY OF HIGHER EDUCATION <br>
+                               --------- <br>
+                      THE UNIVERSITY OF NGAOUNDERE <br>
+                             ------------- <br>
+                         FACULTY OF EDUCATION <br>
+                           ----------------- <br>
+                      Resilience–Work–Success <br>
+                             ------------- <br>
+                      P.O. BOX. 456 NGAOUNDERE <br>
+                          fse@univ-ndere.cm <br>
+                    </div>
+
+                    <div class="col-2 logo-right">
+                        <img src="/static/bulletin/image/logo.jpeg" alt="">
+                    </div>
+                </div>
+            </header>
+
+            <main class="container">
+                <div class="row title-doc">
+                    <div id="title-doc" class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
+                    <span class=" col-2 span-style">Edition du : 11-01-2023</span>   
+                </div>
+
+                <div class="row info-serie">
+                    <pre>
+<b>Cycle: </b>B.T.S <b>Parcours:</b><span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span> <b>Niveau: </b>1 <b>ANNEE-ACADEMIQUE: </b><span>20XX/20XX</span>
+                    </pre>
+                </div>
+                <div class="row info-serie">
+                    <pre>
+<span>UE</span>: <b>XXXX</b> <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXINTITULE-UE</span> <b>Crédit</b>: <span>x</span> <b>Sem</b>: <span>x</span> Session: <b>NORMALE</b>
+            
+            </main>
+            <div id="table-container" class="row">
+                <table id="proces-verbal">
+                    <thead class="proces">
+                        <tr>
+                            <th scope="col">N<sup>0</sup></th>
+                            <th scope="col">Matricule</th>
+                            <th scope="col">Noms et Prenoms</th>
+                            <th scope="col">CC./20</th>
+                            <th scope="col">SN./20</th>
+                            <th scope="col">Moy./20</th>
+                            <th scope="col">Crédit</th>
+                            <th scope="col">Décision</th>
+                            <th scope="col">Mention</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+                <div class="stat">
+                    <table id="table-stat">
+                        <thead class="head-stat">
+                            <th scope="col"> </th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Pourcentage</th>
+                            <th scope="col"></th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Pourcentage</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Etudiants :</th>
+                                <td></td>
+                                <td></td>
+                                <tH>Passable</tH>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Validés :</th>
+                                <td></td>
+                                <td></td>
+                                <th>Assez Bien</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Non validés :</th>
+                                <td></td>
+                                <td></td>
+                                <th>Bien</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td></td>
+                                <th>Très Bien</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pagination">
+            Page x / x
+            </div>
+
+            </div>
 
         <!--<script src="" async defer></script>-->
         <script id="semsetre" type="application/json">{"semestre1": 'semestre1MDS'}</script>

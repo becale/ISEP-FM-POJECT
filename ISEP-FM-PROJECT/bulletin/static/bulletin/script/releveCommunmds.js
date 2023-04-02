@@ -711,28 +711,6 @@ window.addEventListener('load',()=>{
 
         ligneStat4 = tabstat.children[0].children[1].children[3]
 
-        if(i==0){
-            //Ligne 1
-            ligneStat1.children[1].innerHTML=mydata[1].length
-            ligneStat1.children[4].innerHTML=mydata[7][0]['Passable']
-            ligneStat1.children[5].innerHTML=`${(mydata[7][0]['pourcentageP'])} %`
-            //Ligne2
-            ligneStat2.children[1].innerHTML=mydata[6][0]['nombre']
-            ligneStat2.children[2].innerHTML= `${(mydata[6][0]['pourcentage'])} %`
-
-            ligneStat2.children[4].innerHTML=mydata[7][0]['Assez Bien']
-            ligneStat2.children[5].innerHTML=`${(mydata[7][0]['pourcentageAB'])} %`
-            //Ligne3
-            ligneStat3.children[1].innerHTML=mydata[1].length-mydata[6][0]['nombre']
-            ligneStat3.children[2].innerHTML=`${ floatfix(mydata[6][0]['pourcentage']) } %`
-
-            ligneStat3.children[4].innerHTML=mydata[7][0]['Bien']
-            ligneStat3.children[5].innerHTML=`${(mydata[7][0]['pourcentageB'])} %`
-            //Ligne4
-            ligneStat4.children[4].innerHTML=mydata[7][0]['Très Bien']
-            ligneStat4.children[5].innerHTML=`${(mydata[7][0]['pourcentageTB'])} %`
-        }
-
         if(1==0){
             //Ligne 1
             ligneStat1.children[1].innerHTML=mydata[1].length

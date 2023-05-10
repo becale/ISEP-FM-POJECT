@@ -39,6 +39,10 @@ window.addEventListener('load',()=>{
                     //tab005.cells[j].innerHTML = listStudent[i][0]['prenom']
                 }
                 if(j==3){
+                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+                }
+                /*if(j==3){
                     tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
                     //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
                 }
@@ -49,7 +53,7 @@ window.addEventListener('load',()=>{
                 if(j==5){
                     tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
                     //tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                }
+                }*/
             }
 
             //tab1
@@ -151,7 +155,7 @@ window.addEventListener('load',()=>{
 
      }
 
-     //Page1()
+     Page1()
 
 
      /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
@@ -398,7 +402,7 @@ window.addEventListener('load',()=>{
 
             line = document.createElement('tr')
 
-            for(k=0; k<=8; k++){
+            for(k=0; k<=9; k++){
                 td = document.createElement('td')
                 if(k==0){
                     td.innerHTML=`${j+1}`;
@@ -413,7 +417,7 @@ window.addEventListener('load',()=>{
                     td.setAttribute('class', 'nomprenon')
 
                 }
-                if(k==3){
+                if(k==3){//CC
                     if(i==0){td.innerHTML=`${listStudent[j][1][8]}`}
                     if(i==1){td.innerHTML=`${listStudent[j][2][8]}`}
                     if(i==2){td.innerHTML=`${listStudent[j][3][8]}`}
@@ -422,7 +426,16 @@ window.addEventListener('load',()=>{
                     if(i==5){td.innerHTML=`${listStudent[j][6][8]}`}
                     td.setAttribute('class','cc')
                 }
-                if(k==4){
+                if(k==4){//TP
+                    if(i==0){td.innerHTML=`${listStudent[j][1][8]}`}
+                    if(i==1){td.innerHTML=`${listStudent[j][2][8]}`}
+                    if(i==2){td.innerHTML=`${listStudent[j][3][8]}`}
+                    if(i==3){td.innerHTML=`${listStudent[j][4][8]}`}
+                    if(i==4){td.innerHTML=`${listStudent[j][5][8]}`}
+                    if(i==5){td.innerHTML=`${listStudent[j][6][8]}`}
+                    td.setAttribute('class','cc')
+                }
+                if(k==5){ //SN
                     if(i==0){td.innerHTML=`${listStudent[j][1][9]}`}
                     if(i==1){td.innerHTML=`${listStudent[j][2][9]}`}
                     if(i==2){td.innerHTML=`${listStudent[j][3][9]}`}
@@ -430,7 +443,7 @@ window.addEventListener('load',()=>{
                     if(i==4){td.innerHTML=`${listStudent[j][5][9]}`}
                     if(i==5){td.innerHTML=`${listStudent[j][6][9]}`}
                 }
-                if(k==5){
+                if(k==6){//Moyenne
                     if(i==0){td.innerHTML=`${listStudent[j][1][0]}`; 
                     td.setAttribute('class', 'moyenne'); 
                 }
@@ -440,7 +453,7 @@ window.addEventListener('load',()=>{
                     if(i==4){td.innerHTML=`${listStudent[j][5][0]}`}
                     if(i==5){td.innerHTML=`${listStudent[j][6][0]}`}
                 }
-                if(k==6){
+                if(k==7){//Crédit
                     if(i==0){td.innerHTML=`${listStudent[j][1][7]}`}
                     if(i==1){td.innerHTML=`${listStudent[j][2][7]}`}
                     if(i==2){td.innerHTML=`${listStudent[j][3][7]}`}
@@ -448,7 +461,7 @@ window.addEventListener('load',()=>{
                     if(i==4){td.innerHTML=`${listStudent[j][5][7]}`}
                     if(i==5){td.innerHTML=`${listStudent[j][6][7]}`}
                 }
-                if(k==7){
+                if(k==8){//Decision
                     if(i==0){ if(listStudent[j][1][5]){td.innerHTML='Validée'}else{td.innerHTML='Non Validée'} }
                     if(i==1){ if(listStudent[j][2][5]){td.innerHTML='Validée'}else{td.innerHTML='Non Validée'} }
                     if(i==2){ if(listStudent[j][3][5]){td.innerHTML='Validée'}else{td.innerHTML='Non Validée'} }
@@ -456,7 +469,7 @@ window.addEventListener('load',()=>{
                     if(i==4){ if(listStudent[j][5][5]){td.innerHTML='Validée'}else{td.innerHTML='Non Validée'} }
                     if(i==5){ if(listStudent[j][6][5]){td.innerHTML='Validée'}else{td.innerHTML='Non Validée'} }
                 }
-                if(k==8){
+                if(k==9){//Mention
                     if(i==0){ 
                         if(listStudent[j][1][0] >= 16){
                             td.innerHTML='A'; 

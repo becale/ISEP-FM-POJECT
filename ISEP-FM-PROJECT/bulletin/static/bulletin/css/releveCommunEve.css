@@ -39,6 +39,8 @@
   
     padding-top: 1cm;
     padding-bottom: 1cm;
+
+    display: block;
   }
   /*#page2[size="A4"][layout="landscape"] {
     width: 29.7cm;
@@ -152,13 +154,15 @@
   #title{
   /*border: 1.5px solid black;*/
   height: 0.5cm;
-  width: 14cm;
+  /*width: 14cm;*/
   
   font-weight: bold;
   text-align: center;
   
   margin-left: auto;
   margin-right: auto;
+
+  margin-bottom: 0.1cm;
   }
   
   /*Table1*/
@@ -206,27 +210,31 @@
     transform: rotate(180deg);
   
     width: 11.11%;
-    font-size: 85%;
+    font-size: 10px;
+
+    font-weight: bold;
   }
   #nestedl2 > td{
     writing-mode: vertical-rl;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   
-    font-size: 85%;
+    font-size: 10px;
     width: 20%;
+    font-weight: bold;
   }
   #nestedl3 > td{
     writing-mode: vertical-rl;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   
-    font-size: 85%;
+    font-size: 10px;
     width: 20%;
+    font-weight: bold;
   }
   /*TABUE*/
   .tabuef > td{
-    font-size: 50%;
+    font-size: 10px;
     width: 11.11%;
     text-align: center;
     /*background-color: violet;*/
@@ -245,7 +253,7 @@
     background-color: aqua;
   }
   .tabuep > td{
-    font-size: 45%;
+    font-size: 10px;
     width: 20%;
     text-align: center;
     /*background-color: violet;*/
@@ -254,12 +262,12 @@
   }
   
   .tabuet > td{
-    font-size: 45%;
+    font-size: 10px;
     width: 20%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
-    font-weight: normal;
+    font-weight: bold;
   }
   
   /**/
@@ -308,24 +316,24 @@
     font-size: 10px;
   }
   #nested4-line1 th:nth-child(2) {
-    width: 4cm;
+    width: 2cm;
   
-    font-size: 10px;
+    font-size: 12px;
     text-align: left;
     padding-left: 5px;
     font-weight: normal;
     
   }
   #nested4-line1 th:nth-child(3) {
-    width: 2.7cm;
-    font-size: 10px;
+    width: 1.5cm;
+    font-size: 12px;
     text-align: left;
     padding-left: 2.5px;
     font-weight: normal;
   }
   #nested4-line1 th:nth-child(4) {
     width: 1.5cm;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: normal;
   }
   #nested4-line1 th:nth-child(5) {
@@ -400,7 +408,7 @@
 
   /****************************************************************************************************************************************************************************/
   .header-line{
-    height: 4cm;
+    height: 3cm;
     /*background-color: aquamarine;*/
   }
   .logo-left > img{
@@ -414,6 +422,9 @@
   .header-text{
     text-align: center;
     font-size: 57%;
+
+    padding-top: 1.5cm;
+    height: 2.5cm;
   }
   .title-doc{
     /*background-color: beige;*/
@@ -457,7 +468,7 @@
     width: 5%;
    }
    .proces tr >th:nth-child(2){
-    width: 12%;
+    width: 9%;
    }
    .proces tr >th:nth-child(3){
     width: 31%;
@@ -466,18 +477,21 @@
     width: 7%;
    }
    .proces tr >th:nth-child(5){
-    width: 7%;
+    width: 8%;
    }
    .proces tr >th:nth-child(6){
-    width: 10%;
-   }
-   .proces tr >th:nth-child(7){
     width: 7%;
    }
+   .proces tr >th:nth-child(7){
+    width: 8%;
+   }
    .proces tr >th:nth-child(8){
-    width: 10%;
+    width: 7%;
    }
    .proces tr >th:nth-child(9){
+    width: 10%;
+   }
+   .proces tr >th:nth-child(10){
     width: 8%;
    }
    
@@ -497,9 +511,6 @@
   width: 100%;
   border-collapse: collapse;
   border: none;
-}
-
-td[class="moyenne"]{
 }
 
 .proces{
@@ -551,11 +562,49 @@ tbody{
   width: 1.1cm;
 
   position: relative;
-  top: 7cm;
+  top: 3cm;
   left: 18.5cm;
 
 }
 
 tbody tr>:nth-child(3){
   padding-left: 5px;
+}
+
+/*Logo Center*/
+.logo-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo-center-t{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo-center-text{
+  text-align: center;
+  font-size: 57%;
+}
+
+.logo-center > img{
+  width: 3cm;
+  height: 2.5cm;
+
+  margin-left: 1.5cm;
+}
+
+.logo-center-texte{
+  text-align: center;
+}
+
+.logo-center-t > img{
+  width: 3cm;
+  height: 2.5cm;
+
+  margin-left: 2.8cm;
+
+}
+
+.hr-head{
+  color: #4795d9;
 }

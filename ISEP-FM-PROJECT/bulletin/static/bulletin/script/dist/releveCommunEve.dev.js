@@ -35,16 +35,21 @@ window.addEventListener('load', function () {
         }
 
         if (j == 3) {
-          tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance']; //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+          tab05.cells[j].innerHTML = listStudent[i][0]['matricule']; //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
         }
+        /*if(j==3){
+            tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
+            //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+        }
+        if(j==4){
+            tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
+            //tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
+        }
+        if(j==5){
+            tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+            //tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
+        }*/
 
-        if (j == 4) {
-          tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance']; //tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-        }
-
-        if (j == 5) {
-          tab05.cells[j].innerHTML = listStudent[i][0]['matricule']; //tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-        }
       } //tab1
 
 
@@ -208,10 +213,10 @@ window.addEventListener('load', function () {
 
       worktab.appendChild(temp);
     }
-  } //Page1()
+  }
 
+  Page1();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
-
 
   function ListProcess() {
     body = document.getElementById('body');
@@ -432,7 +437,7 @@ window.addEventListener('load', function () {
     for (j = 0; j <= mydata[1].length - 1; j++) {
       line = document.createElement('tr');
 
-      for (k = 0; k <= 8; k++) {
+      for (k = 0; k <= 9; k++) {
         td = document.createElement('td');
 
         if (k == 0) {
@@ -451,6 +456,7 @@ window.addEventListener('load', function () {
         }
 
         if (k == 3) {
+          //CC
           if (i == 0) {
             td.innerHTML = "".concat(listStudent[j][1][8]);
           }
@@ -479,6 +485,36 @@ window.addEventListener('load', function () {
         }
 
         if (k == 4) {
+          //TP
+          if (i == 0) {
+            td.innerHTML = "".concat(listStudent[j][1][8]);
+          }
+
+          if (i == 1) {
+            td.innerHTML = "".concat(listStudent[j][2][8]);
+          }
+
+          if (i == 2) {
+            td.innerHTML = "".concat(listStudent[j][3][8]);
+          }
+
+          if (i == 3) {
+            td.innerHTML = "".concat(listStudent[j][4][8]);
+          }
+
+          if (i == 4) {
+            td.innerHTML = "".concat(listStudent[j][5][8]);
+          }
+
+          if (i == 5) {
+            td.innerHTML = "".concat(listStudent[j][6][8]);
+          }
+
+          td.setAttribute('class', 'cc');
+        }
+
+        if (k == 5) {
+          //SN
           if (i == 0) {
             td.innerHTML = "".concat(listStudent[j][1][9]);
           }
@@ -504,7 +540,8 @@ window.addEventListener('load', function () {
           }
         }
 
-        if (k == 5) {
+        if (k == 6) {
+          //Moyenne
           if (i == 0) {
             td.innerHTML = "".concat(listStudent[j][1][0]);
             td.setAttribute('class', 'moyenne');
@@ -531,7 +568,8 @@ window.addEventListener('load', function () {
           }
         }
 
-        if (k == 6) {
+        if (k == 7) {
+          //Crédit
           if (i == 0) {
             td.innerHTML = "".concat(listStudent[j][1][7]);
           }
@@ -557,7 +595,8 @@ window.addEventListener('load', function () {
           }
         }
 
-        if (k == 7) {
+        if (k == 8) {
+          //Decision
           if (i == 0) {
             if (listStudent[j][1][5]) {
               td.innerHTML = 'Validée';
@@ -607,7 +646,8 @@ window.addEventListener('load', function () {
           }
         }
 
-        if (k == 8) {
+        if (k == 9) {
+          //Mention
           if (i == 0) {
             if (listStudent[j][1][0] >= 16) {
               td.innerHTML = 'A';

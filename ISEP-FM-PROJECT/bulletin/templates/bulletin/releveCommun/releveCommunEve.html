@@ -17,6 +17,139 @@
         <link rel="stylesheet" href="{% static 'bulletin/css/bootstrap/bootstrap-grid.min.css' %}">
     </head>
     <body id="body">
+        
+        <!--DEUXIEME PARTIE-->
+        <div id="page2" size="A4"  >
+            <header class="container">
+                <div class="row">
+                    <div class="logo-center col-4">
+                        <div class="logo-center-text">
+                            UNIVERSITE DE NGAOUNDERE
+                        </div>
+                        <img src="/static/bulletin/image/logondere.PNG" alt="">
+
+                    </div>
+                </div>
+                <div class="row header-line">
+                    <div class="col-2 logo-left">
+                        <img src="/static/bulletin/image/Capture.PNG" alt="">
+                    </div>
+                    <div class="col-4 header-text" >
+                        FACULTE DES SCIENCES DE L'EDUCATION
+                    </div>
+                    <div class="col-4 header-text">
+                        INSTITUT FRANCOISE MBANGO
+                    </div>
+
+                    <div class="col-2 logo-right">
+                        <img src="/static/bulletin/image/logo.jpeg" alt="">
+                    </div>
+                </div>
+                <hr class="hr-head">
+            </header>
+
+            <main class="container">
+                <div class="row title-doc">
+                    <div id="title-doc" class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
+                    <span class=" col-2 span-style">Edition du : 11-01-2023</span>   
+                </div>
+
+                <div class="row info-serie">
+                    <pre>
+<b>Cycle:</b>LIC PRO. <b>Parcours:</b><span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span> <b>Niveau:</b>LIC-3 <b>ANNEE-ACADEMIQUE:</b><span>20XX/20XX</span>
+                    </pre>
+                </div>
+                <div class="row info-serie">
+                    <pre>
+<span>UE</span>:<b>XXXX</b> <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXINTITULE-UE</span> <b>Crédit</b>:<span>x</span> <b>Sem</b>: <span>x</span> Session: <b>NORMALE</b>
+                    </pre>
+                </div>
+            </main>
+                <div id="table-container" class="row">
+                    <table id="proces-verbal">
+                        <thead class="proces">
+                            <tr>
+                                <th scope="col">N<sup>0</sup></th>
+                                <th scope="col">Matricule</th>
+                                <th scope="col">Noms et Prenoms</th>
+                                <th scope="col">CC./20</th>
+                                <th scope="col">TPE./20</th>
+                                <th scope="col">SN./20</th>
+                                <th scope="col">Moy./20</th>
+                                <th scope="col">Crédit</th>
+                                <th scope="col">Décision</th>
+                                <th scope="col">Mention</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--<tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>-->
+                        </tbody>
+                    </table>
+                    <div class="stat">
+                        <table id="table-stat">
+                            <thead class="head-stat">
+                                <th scope="col"> </th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Pourcentage</th>
+                                <th scope="col"></th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Pourcentage</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Etudiants :</th>
+                                    <td></td>
+                                    <td></td>
+                                    <tH>Passable</tH>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Validés :</th>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Assez Bien</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Non validés :</th>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Bien</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td></td>
+                                    <td></td>
+                                    <th>Très Bien</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            <div class="pagination">
+                Page x / x
+            </div>
+            
+        </div>
+
+        <!--PREMIERE PARTIE-->
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -27,7 +160,32 @@
                 {{ semestre1MDS|json_script:"semestre1MDS" }} 
                 
                 <header class="header">
-                    <div id="left-Head">
+                    <div class="row">
+                        <div class="col-4 logo-center-t ">
+                            <div class="logo-center-texte">
+                                UNIVERSITE DE NGAOUNDERE
+                            </div>
+                            <img src="/static/bulletin/image/logondere.PNG" alt="">
+    
+                        </div>
+                    </div>
+                    <div class="row header-line">
+                        <div class="col-2 logo-left">
+                            <img src="/static/bulletin/image/Capture.PNG" alt="">
+                        </div>
+                        <div class="col-4 header-text" >
+                            FACULTE DES SCIENCES DE L'EDUCATION
+                        </div>
+                        <div class="col-4 header-text">
+                            INSTITUT FRANCOISE MBANGO
+                        </div>
+    
+                        <div class="col-2 logo-right">
+                            <img src="/static/bulletin/image/logo.jpeg" alt="">
+                        </div>
+                    </div>
+                    <hr class="hr-head">
+                    <!--<div id="left-Head">
                        <div id="logo">
                             <img src="{% static "bulletin\image\logo.jpeg" %}" alt="">
                         </div>
@@ -46,12 +204,12 @@
                         </div>
                     </div>
 
-                    <div id="right-Head"></div>
+                    <div id="right-Head"></div> -->
                 </header>
 
                 <main>
                     <div id="title">
-                        BORDEREAU DE NOTES SEMESTRE 5 LICENCE 2022-2023
+                        PROCES VERBAL MODULAIRE SEMESTRE 5 LICENCE PRO L3 MAS EVE 2022-2023
                     </div>
 
                     <!--TABLEAU GENERAL-->
@@ -134,8 +292,8 @@
                                             <th class="nested-border" style="border-left: 0px;">N<sup>0</sup></th>
                                             <th  id="" class="nested-border" >Noms</th>
                                             <th  id="fhead" class="nested-border">Prénoms</th>
-                                            <th  class="nested-border">Date_Naiss</th>
-                                            <th  class="nested-border">Lieu_Naiss</th>
+                                            <!--<th  class="nested-border">Date_Naiss</th>
+                                            <th  class="nested-border">Lieu_Naiss</th>-->
                                             <th  class="nested-border" style="border-right: 0px;">Matricule</th>
                                         </tr>
                                     </table>
@@ -158,15 +316,15 @@
                                <td id="tabf">
                                     <table id="nested11">
                                         <tr class="tabuef" >
-                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border">2</td>
-                                            <td rowspan="3" class="nested-border">3</td>
-                                            <td rowspan="3" class="nested-border">4</td>
-                                            <td rowspan="3" class="nested-border">5</td>
-                                            <td rowspan="3" class="nested-border">6</td>
-                                            <td rowspan="3" class="nested-border">7</td>
-                                            <td rowspan="3" class="nested-border">8</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">9</td>
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>  
                                     </table>
                                     <!--AJOUT DEUXIEME TABLEAU-->
@@ -186,11 +344,11 @@
                                 <td id="tabp">
                                     <table id="nested22">
                                         <tr class="tabuep">
-                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">2</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">3</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">4</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">5</td>
+                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -221,11 +379,11 @@
                                 <td id="tabt">
                                     <table id="nested33">
                                         <tr class="tabuet">
-                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border">2</td>
-                                            <td rowspan="3" class="nested-border">3</td>
-                                            <td rowspan="3" class="nested-border">4</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">5</td>
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -253,158 +411,9 @@
                     </table>
 
                 </main>
-
                 <!--<footer></footer>-->
             </div>
 
-        </div>
-
-
-        <!--DEUXIEME PARTIE-->
-        <div id="page2" size="A4"  >
-            <header class="container">
-                <div class="row header-line">
-                    <div class="col-2 logo-left">
-                        <img src="/static/bulletin/image/logondere.PNG" alt="">
-                    </div>
-                    <div class="col-4 header-text" >
-                     
-                        REPUBLIQUE DU CAMEROUN <br>
-                           Paix-Travail–Patrie <br>
-                                -------<br>
-                    MINISTERE DE L’ENSEIGNEMENT SUPERIEUR<br>
-                               ---------<br>
-                          UNIVERSITE DE NGAOUNDERE<br>
-                             -------------<br>
-                    FACULTE DES SCIENCES DE L’EDUCATION<br>
-                           -----------------<br>
-                    Résilience–Travail–Réussite<br>
-                             -------------<br>
-                         B.P. 456 NGAOUNDERE<br>
-                          fse@univ-ndere.cm
-                     
-                    </div>
-                    <div class="col-4 header-text">
-
-                        REPUBLIC  OF  CAMEROON <br>
-                         Peace-Work–Fatherland <br>
-                                ------- <br>
-                      MINISTRY OF HIGHER EDUCATION <br>
-                               --------- <br>
-                      THE UNIVERSITY OF NGAOUNDERE <br>
-                             ------------- <br>
-                         FACULTY OF EDUCATION <br>
-                           ----------------- <br>
-                      Resilience–Work–Success <br>
-                             ------------- <br>
-                      P.O. BOX. 456 NGAOUNDERE <br>
-                          fse@univ-ndere.cm <br>
-                    </div>
-
-                    <div class="col-2 logo-right">
-                        <img src="/static/bulletin/image/logo.jpeg" alt="">
-                    </div>
-                </div>
-            </header>
-
-            <main class="container">
-                <div class="row title-doc">
-                    <div id="title-doc" class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
-                    <span class=" col-2 span-style">Edition du : 11-01-2023</span>   
-                </div>
-
-                <div class="row info-serie">
-                    <pre>
-<b>Cycle:</b>LIC PRO. <b>Parcours:</b><span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span> <b>Niveau:</b>LIC-3 <b>ANNEE-ACADEMIQUE:</b><span>20XX/20XX</span>
-                    </pre>
-                </div>
-                <div class="row info-serie">
-                    <pre>
-<span>UE</span>:<b>XXXX</b> <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXINTITULE-UE</span> <b>Crédit</b>:<span>x</span> <b>Sem</b>: <span>x</span> Session: <b>NORMALE</b>
-                    </pre>
-                </div>
-            </main>
-                <div id="table-container" class="row">
-                    <table id="proces-verbal">
-                        <thead class="proces">
-                            <tr>
-                                <th scope="col">N<sup>0</sup></th>
-                                <th scope="col">Matricule</th>
-                                <th scope="col">Noms et Prenoms</th>
-                                <th scope="col">CC./20</th>
-                                <th scope="col">SN./20</th>
-                                <th scope="col">Moy./20</th>
-                                <th scope="col">Crédit</th>
-                                <th scope="col">Décision</th>
-                                <th scope="col">Mention</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!--<tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>-->
-                        </tbody>
-                    </table>
-                    <div class="stat">
-                        <table id="table-stat">
-                            <thead class="head-stat">
-                                <th scope="col"> </th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Pourcentage</th>
-                                <th scope="col"></th>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Pourcentage</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Etudiants :</th>
-                                    <td></td>
-                                    <td></td>
-                                    <tH>Passable</tH>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Validés :</th>
-                                    <td></td>
-                                    <td></td>
-                                    <th>Assez Bien</th>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Non validés :</th>
-                                    <td></td>
-                                    <td></td>
-                                    <th>Bien</th>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td></td>
-                                    <td></td>
-                                    <th>Très Bien</th>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-            <div class="pagination">
-                Page x / x
-            </div>
-            
         </div>
 
         <!--<script src="" async defer></script>-->

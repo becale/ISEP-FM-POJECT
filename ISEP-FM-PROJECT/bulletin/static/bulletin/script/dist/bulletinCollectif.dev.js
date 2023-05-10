@@ -317,7 +317,8 @@ function createSemestre() {
    */
 
 
-  for (var _i3 = 0; _i3 <= 2; _i3++) {
+  for (var _i3 = 0; _i3 <= 0; _i3++) {
+    //Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
     if (_i3 == 2) {
       break;
     }
@@ -404,7 +405,8 @@ function createSemestre() {
    */
 
 
-  for (var _i4 = 0; _i4 <= 2; _i4++) {
+  for (var _i4 = 0; _i4 <= 0; _i4++) {
+    //Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
     if (_i4 == 2) {
       break;
     }

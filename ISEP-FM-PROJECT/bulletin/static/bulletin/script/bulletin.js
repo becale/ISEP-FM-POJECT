@@ -272,7 +272,7 @@ function createSemestre() {
     /**
      * SEMESTRES 5 
      */
-    for(let i=0; i<=2; i++){
+    for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
         if(i==2){break}
         var imgSemestrePath = "/static/bulletin/icones/five_5.png"
         var imgSemestre = document.createElement('img')
@@ -329,7 +329,7 @@ function createSemestre() {
     /**
      * SEMESTRES 6 
      */
-    for(let i=0; i<=2; i++){
+    for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
         if(i==2){break}
         imgSemestrePath = "/static/bulletin/icones/number_6.png"
         var imgSemestre = document.createElement('img')

@@ -421,7 +421,7 @@
   }
   .header-text{
     text-align: center;
-    font-size: 57%;
+    /*font-size: 57%;*/
 
     padding-top: 1.5cm;
     height: 2.5cm;
@@ -583,7 +583,7 @@ tbody tr>:nth-child(3){
 
 .logo-center-text{
   text-align: center;
-  font-size: 57%;
+  font-size: 14px;
 }
 
 .logo-center > img{

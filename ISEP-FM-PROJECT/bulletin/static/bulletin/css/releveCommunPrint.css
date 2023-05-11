@@ -563,9 +563,60 @@ padding-left: 5px;
 }
 
 #part2{
-  display: none;
+  display: block;
 }
 
 pre{
   text-align: center;
+}
+
+/************************************************************* SECTION DU PV **************************************************************************************************************************************/
+.header-line{
+  height: 3cm;
+  /*background-color: aquamarine;*/
+}
+.logo-left > img{
+  height: 3cm;
+  width: 3cm;
+}
+.logo-right > img{
+  height: 3cm;
+  width: 3cm;
+}
+.logo-center-texte{
+  text-align: center;
+  font-size: 15px;
+}
+
+.logo-center-t{
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo-center-t-2{
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo-center > img{
+  width: 3cm;
+  height: 2.5cm;
+  margin-left: 1.5cm;
+}
+.logo-center-t > img {
+  width: 3cm;
+  height: 2.5cm;
+  margin-left: 37%;
+}
+.logo-center-t-2 > img {
+  width: 3cm;
+  height: 2.5cm;
+  margin-left: 1.7cm;
+}
+.hr-head {
+  color: #4795d9;
+}
+.header-text{
+  text-align: center;
+  font-size: 12px;
+  padding-top: 1.5cm;
+  height: 2.5cm;
 }

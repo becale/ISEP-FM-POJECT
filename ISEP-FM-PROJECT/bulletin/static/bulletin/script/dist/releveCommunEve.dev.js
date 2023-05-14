@@ -76,56 +76,32 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 1) {
-          //tab116.cells[j].innerHTML = listStudent[i][13][2]
-          if (listStudent[i][1][5]) {
-            tab15.cells[j].innerHTML = "V";
-          } else {
-            tab15.cells[j].innerHTML = "NV";
-          }
+          tab15.cells[j].innerHTML = listStudent[i][2][0];
         }
 
         if (j == 2) {
-          tab15.cells[j].innerHTML = listStudent[i][2][0]; //if((listStudent[i][1][0]+listStudent[i][2][0])>=20){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+          tab15.cells[j].innerHTML = listStudent[i][3][0]; //if((listStudent[i][1][0]+listStudent[i][2][0])>=20){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
           //tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2])+1;
         }
 
         if (j == 3) {
-          if (listStudent[i][2][5]) {
-            tab15.cells[j].innerHTML = "V";
-          } else {
-            tab15.cells[j].innerHTML = "NV";
-          } //tab15.cells[j].innerHTML=listStudent[i][3][0]
-
+          tab15.cells[j].innerHTML = listStudent[i][4][0]; //if(listStudent[i][2][5]){tab15.cells[j].innerHTML= "V"}else{tab15.cells[j].innerHTML= "NV"}
+          //tab15.cells[j].innerHTML=listStudent[i][3][0]
         }
 
         if (j == 4) {
-          tab15.cells[j].innerHTML = listStudent[i][3][0]; //tab116.cells[j].innerHTML= '/'
+          tab15.cells[j].innerHTML = listStudent[i][1][3]; //if(listStudent[i][3][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+          //tab116.cells[j].innerHTML= '/'
         }
 
         if (j == 5) {
-          if (listStudent[i][3][5]) {
-            tab15.cells[j].innerHTML = "V";
+          /** MENTION */
+          if (listStudent[i][1][3] >= 10) {
+            tab15.cells[j].innerHTML = 'V';
           } else {
-            tab15.cells[j].innerHTML = "NV";
+            tab15.cells[j].innerHTML = 'NV';
           } //tab116.cells[j].innerHTML= '/'
 
-        }
-
-        if (j == 6) {
-          tab15.cells[j].innerHTML = listStudent[i][4][0]; //tab116.cells[j].innerHTML= '/'
-        }
-
-        if (j == 7) {
-          if (listStudent[i][4][5]) {
-            tab15.cells[j].innerHTML = "V";
-          } else {
-            tab15.cells[j].innerHTML = "NV";
-          } //tab116.cells[j].innerHTML= '/'
-
-        }
-
-        if (j == 8) {
-          tab15.cells[j].innerHTML = listStudent[i][1][3]; //tab116.cells[j].innerHTML= '/'
         }
       } //tab2
 
@@ -143,33 +119,21 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 1) {
-          if (listStudent[i][5][5]) {
-            tab23.cells[j].innerHTML = 'V';
-          } else {
-            tab23.cells[j].innerHTML = 'NV';
-          }
+          tab23.cells[j].innerHTML = listStudent[i][6][0];
         }
 
-        ;
-
         if (j == 2) {
-          tab23.cells[j].innerHTML = listStudent[i][6][0];
+          tab23.cells[j].innerHTML = listStudent[i][5][3];
         }
 
         ;
 
         if (j == 3) {
-          if (listStudent[i][6][5]) {
+          if (listStudent[i][5][3] >= 10) {
             tab23.cells[j].innerHTML = 'V';
           } else {
             tab23.cells[j].innerHTML = 'NV';
           }
-        }
-
-        ;
-
-        if (j == 4) {
-          tab23.cells[j].innerHTML = listStudent[i][5][3];
         }
 
         ;

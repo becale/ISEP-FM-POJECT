@@ -52,7 +52,7 @@ body {
   padding-bottom: 1cm;*/
   padding: 1cm;
 
-  display: none;
+  display: block;
 }
 
 @media print {

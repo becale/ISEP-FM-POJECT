@@ -281,10 +281,10 @@ window.addEventListener('load', function () {
 
       worktab.appendChild(temp); //worktab1.appendChild(temp1)
     }
-  } //Page1()
+  }
 
+  Page1();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
-
 
   function ListProcess() {
     body = document.getElementById('body');
@@ -301,6 +301,8 @@ window.addEventListener('load', function () {
 
     body.appendChild(listProces);
   }
+  /**FONCTION DE REMPLISSAGE DU CLONE */
+
 
   function fullfill(clone, i) {
     //Pagination

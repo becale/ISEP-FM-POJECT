@@ -157,8 +157,8 @@ window.addEventListener('load',()=>{
     
         //Page1()
 
-        /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
 
+        /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
         function ListProcess(){
 
             body = document.getElementById('body')

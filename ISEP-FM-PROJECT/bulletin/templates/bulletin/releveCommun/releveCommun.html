@@ -27,28 +27,33 @@
             <div id="container">
 
                 {{ semestre1MDS|json_script:"semestre1MDS" }} 
-                
+
                 <header class="header">
-                    <div id="left-Head">
-                       <div id="logo">
-                            <img src="{% static "bulletin\image\logo.jpeg" %}" alt="">
+                    <div class="row">
+                        <div class="col-4 logo-center-t ">
+                            <div class="logo-center-texte">
+                                UNIVERSITE DE NGAOUNDERE
+                            </div>
+                            <img src="/static/bulletin/image/logondere.PNG" alt="">
+    
                         </div>
                     </div>
-
-                    <div id="center-Head">
-                        <div id="institut">
-                            <img src="{% static "bulletin\image\00000.jpg" %}" alt="">
+                    <div class="row header-line">
+                        <div class="col-2 logo-left">
+                            <img src="/static/bulletin/image/Capture.PNG" alt="">
                         </div>
-                        <div id="isep-fm">
-                            <img src="{% static "bulletin\image\01.PNG" %}" alt="">
+                        <div class="col-4 header-text" >
+                            FACULTE DES SCIENCES DE L'EDUCATION
                         </div>
-                        <div id="arrete">
-                            ARRETE N°22-0003/L/MINESUP/DDES/ESUP/SDA/ABC 
-                            <hr>   
+                        <div class="col-4 header-text">
+                            INSTITUT FRANCOISE MBANGO
+                        </div>
+    
+                        <div class="col-2 logo-right">
+                            <img src="/static/bulletin/image/logo.jpeg" alt="">
                         </div>
                     </div>
-
-                    <div id="right-Head"></div>
+                    <hr class="hr-head">
                 </header>
 
                 <main>
@@ -63,7 +68,6 @@
                             <th>UE Fondamentales</th>
                             <th>UE Professionnelles</th>
                             <th>UE Transversales</th>
-                            <th>Resultats</th>
                         </thead>
 
                         <!--TBODY TABLEAU GENERAL-->
@@ -313,9 +317,6 @@
                 <table id="table1">
                     <thead>
                         <th rowspan=""></th>
-                        <th>UE Fondamentales</th>
-                        <th>UE Professionnelles</th>
-                        <th>UE Transversales</th>
                         <th>Resultats</th>
                         
                     </thead>

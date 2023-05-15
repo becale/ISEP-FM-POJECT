@@ -26,26 +26,31 @@
                 {{ semestre1MDS|json_script:"semestre1MDS" }} 
                 
                 <header class="header">
-                    <div id="left-Head">
-                       <div id="logo">
-                            <img src="{% static "bulletin\image\logo.jpeg" %}" alt="">
+                    <div class="row">
+                        <div class="col-4 logo-center-t ">
+                            <div class="logo-center-texte">
+                                UNIVERSITE DE NGAOUNDERE
+                            </div>
+                            <img src="/static/bulletin/image/logondere.PNG" alt="">
+    
                         </div>
                     </div>
-
-                    <div id="center-Head">
-                        <div id="institut">
-                            <img src="{% static "bulletin\image\00000.jpg" %}" alt="">
+                    <div class="row header-line">
+                        <div class="col-2 logo-left">
+                            <img src="/static/bulletin/image/Capture.PNG" alt="">
                         </div>
-                        <div id="isep-fm">
-                            <img src="{% static "bulletin\image\01.PNG" %}" alt="">
+                        <div class="col-4 header-text" >
+                            FACULTE DES SCIENCES DE L'EDUCATION
                         </div>
-                        <div id="arrete">
-                            ARRETE N°22-0003/L/MINESUP/DDES/ESUP/SDA/ABC 
-                            <hr>   
+                        <div class="col-4 header-text">
+                            INSTITUT FRANCOISE MBANGO
+                        </div>
+    
+                        <div class="col-2 logo-right">
+                            <img src="/static/bulletin/image/logo.jpeg" alt="">
                         </div>
                     </div>
-
-                    <div id="right-Head"></div>
+                    <hr class="hr-head">
                 </header>
 
                 <main>
@@ -75,13 +80,13 @@
                                <td rowspan="3">
                                     <table id="nested1">
                                         <tr id="nestedl1">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">MDS111 m</td>
-                                            <td rowspan="3" class="nested-border">MDS111 in</td>
-                                            <td rowspan="3" class="nested-border">Mention</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">MDS111 math</td>
+                                            <td rowspan="3" class="nested-border">MDS111 info</td>
+                                            <!--<td rowspan="3" class="nested-border">Mention</td>-->
                                             <td rowspan="3" class="nested-border">MDS112 fi</td>
                                             <td rowspan="3" class="nested-border">MDS112 sta</td>
-                                            <td rowspan="3" class="nested-border">Mention</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -93,14 +98,14 @@
                                     <table id="nested2">
                                         <tr id="nestedl2">
                                             <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">MDS113</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
                                             <td rowspan="3" class="nested-border nested2-td-with">MDS114</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
                                             <td rowspan="3" class="nested-border nested2-td-with">MDS115</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
                                             <td rowspan="3" class="nested-border nested2-td-with">MDS116</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Mention</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -111,10 +116,10 @@
                                <td rowspan="3">
                                     <table id="nested3">
                                         <tr id="nestedl3">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">MDS117 an</td>
-                                            <td rowspan="3" class="nested-border">MDS117 fr</td>
-                                            <td rowspan="3" class="nested-border">Mention</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Moy Grpe</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">MDS117 anglais</td>
+                                            <td rowspan="3" class="nested-border">MDS117 français</td>
+                                            <td rowspan="3" class="nested-border">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -149,8 +154,8 @@
                                             <th class="nested-border" style="border-left: 0px;">N<sup>0</sup></th>
                                             <th  id="" class="nested-border" >Noms</th>
                                             <th  class="nested-border">Prénoms</th>
-                                            <th  class="nested-border">Date_Naiss</th>
-                                            <th  class="nested-border">Lieu_Naiss</th>
+                                            <!--<th  class="nested-border">Date_Naiss</th>
+                                            <th  class="nested-border">Lieu_Naiss</th>-->
                                             <th  class="nested-border" style="border-right: 0px;">Matricule</th>
                                         </tr>
                                     </table>
@@ -173,13 +178,13 @@
                                <td id="tabf">
                                     <table id="nested11">
                                         <tr class="tabuef" style="">
-                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border">2</td>
-                                            <td rowspan="3" class="nested-border">3</td>
-                                            <td rowspan="3" class="nested-border">4</td>
-                                            <td rowspan="3" class="nested-border">5</td>
-                                            <td rowspan="3" class="nested-border">6</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">7</td>
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <!--<td rowspan="3" class="nested-border">3</td>-->
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>  
                                     </table>
                                     <!--AJOUT DEUXIEME TABLEAU-->
@@ -199,15 +204,15 @@
                                 <td id="tabp">
                                     <table id="nested22">
                                         <tr class="tabuep">
-                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">2</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">3</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">4</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">5</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">6</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">7</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">8</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">9</td>
+                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;"></td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">2</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">4</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">6</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -238,10 +243,10 @@
                                 <td id="tabt">
                                     <table id="nested33">
                                         <tr class="tabuet">
-                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border">2</td>
-                                            <td rowspan="3" class="nested-border">3</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">4</td>
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -266,11 +271,11 @@
                                 <td id="tabr"> 
                                     <table id="nested333">
                                         <tr class="tabuer">
-                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                            <td rowspan="3" class="nested-border">2</td>
-                                            <td rowspan="3" class="nested-border">3</td>
-                                            <td rowspan="3" class="nested-border">4</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">5</td>
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -287,257 +292,6 @@
 
                 <!--<footer></footer>-->
             </div>
-
-        </div>
-
-        <!--DEUXIEME PARTIE-->
-        <div id="" size="A4" layout="landscape" >
-            
-            <header class="header">
-                <div class="row">
-                    <div class="col-4 logo-center-t ">
-                        <div class="logo-center-texte">
-                            UNIVERSITE DE NGAOUNDERE
-                        </div>
-                        <img src="/static/bulletin/image/logondere.PNG" alt="">
-
-                    </div>
-                </div>
-                <div class="row header-line">
-                    <div class="col-2 logo-left">
-                        <img src="/static/bulletin/image/Capture.PNG" alt="">
-                    </div>
-                    <div class="col-4 header-text" >
-                        FACULTE DES SCIENCES DE L'EDUCATION
-                    </div>
-                    <div class="col-4 header-text">
-                        INSTITUT FRANCOISE MBANGO
-                    </div>
-
-                    <div class="col-2 logo-right">
-                        <img src="/static/bulletin/image/logo.jpeg" alt="">
-                    </div>
-                </div>
-                <hr class="hr-head">
-            </header>
-
-            <main class="main1">
-                <div id="title">
-                    BORDEREAU DE NOTES 1er SEMESTRE XXXX  202x-202x
-                </div>
-
-                <!--TABLEAU GENERAL-->
-                <table id="table1">
-                    <thead>
-                        <th rowspan=""></th>
-                        <th>UE Fondamentales</th>
-                        <th>UE Professionnelles</th>
-                        <th>UE Transversales</th>
-                        <th>Resultats</th>
-                    </thead>
-
-                    <!--TBODY TABLEAU GENERAL-->
-                    <tbody>
-                        <!--GRANDE LIGNE1-->
-                        <tr>
-                            <!--Grande Ligne Vide-->
-                           <td rowspan="3">
-                                Bordereau de NOTES XXXXX 202x-202x
-                           </td>
-                           <!--Tableau des UE FONDAMENTALES-->
-                           <td rowspan="3">
-                                <table id="nested1">
-                                    <tr id="nestedl1">
-                                        <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">Total Points</td>
-                                        <td rowspan="3" class="nested-border">Moyenne</td>
-                                        <td rowspan="3" class="nested-border">Rang</td>
-                                        <td rowspan="3" class="nested-border">Crédits</td>
-                                        <td rowspan="3" class="nested-border" style="border-right: 0px;">Discipline</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </table>
-                           </td>
-
-                           <!--Tableau des UE PROFESSIONNELLES-->
-                           <!--<td rowspan="3">
-                                <table id="nested2">
-                                    <tr id="nestedl2">
-                                        <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">EPS113</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">EPS114</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">EPS115 ath</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">EPS115 bsk</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">EPS115 judo</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">EPS115 lutte</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">Moy EPS115</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">EPS116</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Moy Groupe</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </table> 
-                           </td>-->
-
-                           <!--Tableau des UE TRANSVERSALES-->
-                           <!--<td rowspan="3">
-                                <table id="nested3">
-                                    <tr id="nestedl3">
-                                        <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS117</td>
-                                        <td rowspan="3" class="nested-border">Menrtion</td>
-                                        <td rowspan="3" class="nested-border">EPS118</td>
-                                        <td rowspan="3" class="nested-border">Mention</td>
-                                        <td rowspan="3" class="nested-border">EPS119</td>
-                                        <td rowspan="3" class="nested-border">Mention</td>
-                                        <td rowspan="3" class="nested-border" style="border-right: 0px;">Moy Groupe</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </table>
-                           </td>-->
-
-                        </tr>
-
-                        <tr></tr>
-                        <tr></tr>
-
-                        <!--LIGNE DU GRAND TABLEAU (Incrémentation)-->
-                        <tr>
-                            <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE1)--> 
-                            <td id="tabinfostudent">
-                                <table id="nested4">
-                                    <tr id="nested4-line1">
-                                        <th class="nested-border" style="border-left: 0px;">N<sup>0</sup></th>
-                                        <th  id="" class="nested-border" >Noms</th>
-                                        <th  class="nested-border">Prénoms</th>
-                                        <th  class="nested-border">Date_Naiss</th>
-                                        <th  class="nested-border">Lieu_Naiss</th>
-                                        <th  class="nested-border" style="border-right: 0px;">Matricule</th>
-                                    </tr>
-                                </table>
-                                
-                                <!--AJOUT PREMIER TABLEAU-->
-                                <!--<table id="nested4">
-                                    <tr id="nested4-line1"  class="tabinfo" >
-                                        <th class="nested-border" style="border-left: 0px;">N<sup>0</sup></th>
-                                        <th  id="" class="nested-border" >Noms</th>
-                                        <th  class="nested-border">Prénoms</th>
-                                        <th  class="nested-border">Date_Naiss</th>
-                                        <th  class="nested-border">Lieu_Naiss</th>
-                                        <th  class="nested-border" style="border-right: 0px;">Matricule</th>
-                                    </tr>
-                                </table>-->
-
-                            </td>
-
-                            <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE2)--> 
-                           <td id="tabf">
-                                <table id="nested11">
-                                    <tr class="tabuef" style="">
-                                        <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                        <td rowspan="3" class="nested-border">2</td>
-                                        <td rowspan="3" class="nested-border">3</td>
-                                        <td rowspan="3" class="nested-border">4</td>
-                                        <td rowspan="3" class="nested-border" style="border-right: 0px;">5</td>
-                                    </tr>  
-                                </table>
-                                <!--AJOUT DEUXIEME TABLEAU-->
-                                <!--<table id="nested11">
-                                    <tr class="tabuef tabuef-border">
-                                        <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                        <td rowspan="3" class="nested-border">2</td>
-                                        <td rowspan="3" class="nested-border">3</td>
-                                        <td rowspan="3" class="nested-border">4</td>
-                                        <td rowspan="3" class="nested-border" style="border-right: 0px;">5</td>
-                                    </tr>  
-                                </table>-->
-                           </td>
-
-
-                            <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE3)-->
-                            <!--<td id="tabp">
-                                <table id="nested22">
-                                    <tr class="tabuep">
-                                        <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">2</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">3</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">4</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">5</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">6</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">7</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">8</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">9</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">10</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">11</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">12</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">13</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </table> --> 
-                                <!--AJOUT QUATRIEME TABLEAU-->
-                                <!--<table id="nested22">
-                                    <tr class="tabuep tabuef-border">
-                                        <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">2</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">3</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">4</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">5</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">6</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">7</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">8</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">9</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">10</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">11</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with">12</td>
-                                        <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">13</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </table>-->
-                            </td>
-
-                            <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE4)-->
-                            <!--<td id="tabt">
-                                <table id="nested33">
-                                    <tr class="tabuet">
-                                        <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                        <td rowspan="3" class="nested-border">2</td>
-                                        <td rowspan="3" class="nested-border">3</td>
-                                        <td rowspan="3" class="nested-border">4</td>
-                                        <td rowspan="3" class="nested-border">5</td>
-                                        <td rowspan="3" class="nested-border">6</td>
-                                        <td rowspan="3" class="nested-border" style="border-right: 0px;">7</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                   
-                                </table> -->
-                                 <!--AJOUT CINQUIEME TABLEAU-->
-                                 <!--<table id="nested33">
-                                    <tr class="tabuet tabuef-border">
-                                        <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
-                                        <td rowspan="3" class="nested-border">2</td>
-                                        <td rowspan="3" class="nested-border">3</td>
-                                        <td rowspan="3" class="nested-border">4</td>
-                                        <td rowspan="3" class="nested-border">5</td>
-                                        <td rowspan="3" class="nested-border">6</td>
-                                        <td rowspan="3" class="nested-border" style="border-right: 0px;">7</td>
-                                    </tr>
-                                    <tr></tr>
-                                    <tr></tr>
-                                </table> -->
-                            </td>
-
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </main>
 
         </div>
 

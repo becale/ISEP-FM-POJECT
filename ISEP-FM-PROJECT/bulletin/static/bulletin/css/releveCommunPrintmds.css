@@ -44,7 +44,7 @@
     padding-top: 1cm;
     padding-bottom: 1cm;
 
-    display: none;
+    display: block;
   }
   #page2[size="A4"][layout="landscape"] {
     width: 29.7cm;
@@ -192,13 +192,13 @@
   }
   thead th:nth-child(3){
     width: 4.5cm;
-  }
+  }}*/
   thead th:nth-child(4){
-    width: 2cm;
+    width: 3.5cm;
   }
   thead th:nth-child(5){
-    width: 3cm;
-  }*/
+    width: 4.5cm;
+  }
   /*Nested-table*/
   
   /*NESTED1*/
@@ -217,38 +217,44 @@
     transform: rotate(180deg);
   
     width: 14.28%;
-    font-size: 85%;
+    font-size: 10px;
+    font-weight: bold;
   }
   #nestedl2 > td{
     writing-mode: vertical-rl;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   
-    font-size: 85%;
+    font-size: 10px;
     width: 0.5cm;
+
+    font-weight: bold;
   }
   #nestedl3 > td{
     writing-mode: vertical-rl;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   
-    font-size: 85%;
+    font-size: 10px;
     width: 25%;
+
+    font-weight: bold;
   }
   #nestedl33 > td{
     writing-mode: vertical-rl;
     -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
   
-    font-size: 85%;
+    font-size: 10px;
     width: 20%;
 
     text-align: center;
+    font-weight: bold;
   }
   
   /*TABUE*/
   .tabuef > td{
-    font-size: 50%;
+    font-size: 10px;
     width: 14.28%;
     text-align: center;
     /*background-color: violet;*/
@@ -267,8 +273,8 @@
     background-color: aqua;
   }
   .tabuep > td{
-    font-size: 45%;
-    width: 11.11%;
+    font-size: 10px;
+    width: 14.28%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -276,7 +282,7 @@
   }
   
   .tabuet > td{
-    font-size: 45%;
+    font-size: 10px;
     width: 25%;
     text-align: center;
     /*background-color: violet;*/
@@ -285,13 +291,13 @@
   }
 
   .tabuer > td{
-    font-size: 45%;
+    font-size: 10px;
     width: 20%;
     text-align: center;
     /*background-color: violet;*/
     font-weight: normal;
     height: 0.6cm;
-    font-weight: normal;
+    font-weight: bold;
   }
   
   /**/
@@ -341,22 +347,22 @@
     font-size: 10px;
   }
   #nested4-line1 th:nth-child(2) {
-    width: 4cm;
+    width: 2.5cm;
 
     text-align: left;
     padding-left: 5px;
     font-weight: normal;
 
-    font-size: 10px;
+    font-size: 12px;
   }
   #nested4-line1 th:nth-child(3) {
-    width: 2.7cm;
+    width: 1.5cm;
 
     text-align: left;
     padding-left: 5px;
     font-weight: normal;
 
-    font-size: 10px;
+    font-size: 12px;
 
   }
   #nested4-line1 th:nth-child(4) {
@@ -364,7 +370,7 @@
 
     font-weight: normal;
 
-    font-size: 10px;
+    font-size: 12px;
   }
   #nested4-line1 th:nth-child(5) {
     width: 1.5cm;

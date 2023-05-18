@@ -209,7 +209,9 @@ function createSemestre() {
 
     _matiere.appendChild(_addModifyMatiere);
 
-    listUe.appendChild(_matiere); //genererBull.setAttribute("href", `BullSemestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}s2`)
+    listUe.appendChild(_matiere);
+
+    _genererBull.setAttribute("href", "Semestre2/".concat(_genererBull.parentElement.parentElement.parentElement.children[0].innerText));
   }
   /**
    * SEMESTRES 3 & 4
@@ -309,7 +311,8 @@ function createSemestre() {
       _genererBull2.setAttribute("href", "Semestre3/".concat(_genererBull2.parentElement.parentElement.parentElement.children[0].innerText));
     }
 
-    if (imgSemestrePath == "/static/bulletin/icones/four_4.png") {//genererBull.setAttribute("href", `Semestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+    if (imgSemestrePath == "/static/bulletin/icones/four_4.png") {
+      _genererBull2.setAttribute("href", "Semestre4/".concat(_genererBull2.parentElement.parentElement.parentElement.children[0].innerText));
     }
   }
   /**
@@ -478,6 +481,9 @@ function createSemestre() {
     _matiere4.appendChild(_addModifyMatiere4);
 
     listUe.appendChild(_matiere4);
+
+    _genererBull4.setAttribute("href", "Semestre6/EVE"); //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
+
   }
   /**POSITION DE LA FONCTION MODAL */
   //modal()

@@ -1179,10 +1179,6 @@ window.addEventListener('load',()=>{
         ligneStat4.children[5].innerHTML=`${(mydata[7][13]['pourcentageTB'])} %`
     }
 
-
-
-
-
         return(clone)
     }
 

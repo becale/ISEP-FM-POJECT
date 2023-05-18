@@ -3250,6 +3250,8 @@ function GenerateBullMSOsemestre5() {
 
   return containerbull;
 }
+/** */
+
 /**FONCTION BULLETIN MDS */
 
 
@@ -3834,6 +3836,8 @@ function BullMDS1(clone, i) {
 
   return clone;
 }
+/**FONCTION BULL 1er SEMESTRE */
+
 /**FONCTION BULLETIN STAPS1 */
 
 
@@ -5702,7 +5706,9 @@ function BullEVE(clone, i) {
   }
 
   return clone;
-} //FONCTIONS
+}
+/** */
+//FONCTIONS
 
 
 function Moyenne3(a, b, c, coef) {

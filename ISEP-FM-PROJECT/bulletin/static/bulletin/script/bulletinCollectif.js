@@ -196,7 +196,7 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
-        //genererBull.setAttribute("href", `BullSemestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}s2`)
+        genererBull.setAttribute("href", `Semestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
     } 
 
     /**
@@ -264,9 +264,8 @@ function createSemestre() {
           genererBull.setAttribute("href", `Semestre3/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
         }
         if(imgSemestrePath=="/static/bulletin/icones/four_4.png"){
-          //genererBull.setAttribute("href", `Semestre2/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
-        }
-        
+          genererBull.setAttribute("href", `Semestre4/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+        }  
     }
 
     /**
@@ -376,6 +375,8 @@ function createSemestre() {
         matiere.appendChild(addModifyMatiere)
 
         listUe.appendChild(matiere)
+
+        genererBull.setAttribute("href", `Semestre6/EVE`) //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
     }
 
     /**POSITION DE LA FONCTION MODAL */

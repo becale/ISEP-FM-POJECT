@@ -35,14 +35,11 @@ window.addEventListener('load',()=>{
       listcontainer = document.createElement('div')
       for(i=0; i<mydata[1].length; i++){
         clone = containeer.cloneNode(true);
-
         //Execution des traitements sur container
         clone = BullSTAPS1(clone, i)
-
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
       }
-
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
    }
@@ -52,14 +49,11 @@ window.addEventListener('load',()=>{
       listcontainer = document.createElement('div')
       for(i=0; i<mydata[1].length; i++){
         clone = containeer.cloneNode(true);
-
         //Execution des traitements sur container
         clone = BullSTAPS2(clone, i)
-        
         //Puis ajout au containerList
         listcontainer.appendChild(clone)
       }
-
       //Fixation de ContainerList sur le body de la page
       body.appendChild(listcontainer)
     }
@@ -835,7 +829,6 @@ tr333.appendChild(td188)
   //Retour Du composant Bulletin
   return(containerbull)
 }
-
 /*DECLARATION S1 STAPS*/
 function GenerateBullStaps1Semestre1(){
   var br = document.createElement('br')
@@ -1651,7 +1644,6 @@ function GenerateBullStaps1Semestre1(){
   //TEST
   return(containerbull)
 }
-
 /*DECLARATION S3 STAPS*/
 function GenerateBullStaps2Semestre3(){
   //title
@@ -2557,9 +2549,7 @@ function GenerateBullStaps2Semestre3(){
   /*body=document.getElementsByTagName('body')
   body[0].appendChild(containerbull)*/
     return (containerbull)
-}
-
-
+  }
 /*DECLARATION SEMESTRE 5 EVE */
 function GenerateBullEVEsemestre5(){
   var br = document.createElement('br')
@@ -3647,6 +3637,9 @@ function GenerateBullMSOsemestre5(){
 } 
 
 
+
+/** */
+
 /**FONCTION BULLETIN MDS */
 function BullMDS1(clone, i){
 
@@ -3855,8 +3848,7 @@ function BullMDS1(clone, i){
 
   return(clone)
 }
-
-
+/**FONCTION BULL 1er SEMESTRE */
 /**FONCTION BULLETIN STAPS1 */
 function BullSTAPS1(clone, i){
 
@@ -4066,8 +4058,6 @@ function BullSTAPS1(clone, i){
 
   return(clone)
 }
-
-
 /**FONCTION BULLETIN STAPS2 */
 function BullSTAPS2(clone, i){
 
@@ -4303,7 +4293,6 @@ function BullSTAPS2(clone, i){
   return clone
 }
 
-
 /**FONCTION BULLETIN EVE */
 function BullEVE(clone, i){
   //DONNEES RECUPEREES DE LA BD
@@ -4447,11 +4436,7 @@ function BullEVE(clone, i){
   return(clone)
 }
 
-
-
-
-
-
+/** */
 
 //FONCTIONS
 function Moyenne3(a,b,c, coef){ 

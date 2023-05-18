@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "bulletin/css/bulletinTemplateS135.css" %}">
+    <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}">
+    <title>Bulletin</title>
+    
+</head>
+<body id="body">
+    <div id="generateBull">
+        <!--<button>Générer Bulletin</button>-->
+        {{ semestre1MDS|json_script:"semestre1MDS" }} 
+    </div>
+    
+    <!--<div class="container-bull">-->
+        <!--<header>
+            <div id="logo-title">
+                <div>
+                    <div id="head-left"></div>
+                    <div id="logo"><img src="{% static "bulletin/image/logo.jpeg" %}"alt="Logo"></div>
+                    <div id="head-right"></div>
+                </div>
+                <div id="title">
+                    <div class="slogan">"Au-delà de la limite"</div>
+                    <div class="title-info">BP : 7403 Yaoundé  Tél : (237) 695 548 821 / 653 764 050 <br>
+                        Site Web : www.institutfrançoisembango.com Email : isep_fm@yahoo.com
+                    </div>
+                </div>
+            </div>
+        </header>
+        <hr>-->
+        
+        <!--<main>
+            <div id="bull-check-title">
+                <div  id="bull-check">DAF/SER/DFF/FFFF/FFFF</div>
+                <div id="bull-title">
+                    BULLETIN DE NOTES DU SEMESTRE 1
+                </div>
+            </div>
+            <div id="info-student">
+                <div id="info-student-1">
+                    <div class="info-student-style">Filière &nbsp;&nbsp;: </div>
+                    <div class="info-student-style">Spécialité &nbsp;: </div>
+                    <div class="info-student-style">Nom (s) &nbsp; &nbsp; :</div>
+                    <div class="info-student-style">Prénom (s) :</div>
+                    <div class="info-student-style">Nationalité :</div>
+                </div>
+                <div id="info-student-2">
+                    <div class="info-student-style">Grade : BTS </div>
+                    <div class="info-student-style">Matricule : </div>
+                    <div class="info-student-style">Date De Naissance :</div>
+                    <div class="info-student-style">Lieu De Naissance :</div>
+                    <div class="info-student-style">Année Académique : </div>
+                </div>
+                <div id="info-student-3">
+                    <div>
+                        Niveau: I
+                    </div>
+                </div>
+            </div>-->
+            <!--<div id="semester-result">-->
+                <!--<div class="box">
+                    <img class="imgback" src="{% static "bulletin/image/logo.jpeg" %}" alt="Filigrane">
+                </div>-->
+                <!--<table class="table-1">
+                    <thead>
+                        <tr>
+                            <th scope="col">&nbsp;&nbsp;</th>
+                            <th scope="col">Groupe UE</th>
+                            <th scope="col">Code UE</th>
+                            <th scope="col">Matière</th>
+                            <th scope="col">Note</th>
+                            <th scope="col">Coef</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Moyenne Groupe</th>
+                            <th scope="col">Rang</th>
+                            <th scope="col">Mention</th>
+                            <th scope="col">Session</th>
+                            <th scope="col">Crédits Obtenus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th rowspan="10" id="semestre">SEMESTRE 1</th>
+                            <th scope="row" rowspan="2">UE Fondamentales</th>
+                            <td id="EPS111-codeue">EPS 111</td>
+                            <td id="EPS111-matiere">Histoire et principes de base de l'éducation Physique</td>
+                            <td id="EPS111-note">12</td>
+                            <td id="EPS111-coef">13</td>
+                            <td id="EPS111-total"></td>
+                            <td id="EPS111-EPS112-moyenne"rowspan="2"></td>
+                            <td id="EPS111-rang"></td>
+                            <td id="EPS111-mention"></td>
+                            <td id="EPS111-session"></td>
+                            <td id="EPS111-credits"></td>
+                        </tr>
+                    <tr>
+                            <td id="EPS112-codeue">EPS 112</td>
+                            <td id="EPS112-matiere">Psychologie du Sport-Sociologie du Sport</td>
+                            <td id="EPS112-note"></td>
+                            <td id="EPS112-coef"></td>
+                            <td id="EPS112-total"></td>
+                            <td id="EPS112-rang"></td>
+                            <td id="EPS112-mention"></td>
+                            <td id="EPS112-session"></td>
+                            <td id="EPS112-credits"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="4">UE Professionnelles</th>
+                            <td id="EPS113-codeue">EPS 113</td>
+                            <td id="EPS113-matiere">Didactique De l'EPS I</td>
+                            <td id="EPS113-note"></td>
+                            <td id="EPS113-coef"></td>
+                            <td id="EPS113-total"></td>
+                            <td id="EPS113-moyenne"rowspan="4"></td>
+                            <td id="EPS113-rang"></td>
+                            <td id="EPS113-mention"></td>
+                            <td id="EPS113-session"></td>
+                            <td id="EPS113-credits"></td>
+                        </tr>
+                        <tr>
+                            <td id="EPS114-codeue">EPS 114</td>
+                            <td id="EPS114-matiere">Anatomie I</td>
+                            <td id="EPS114-note"></td>
+                            <td id="EPS114-coef"></td>
+                            <td id="EPS114-total"></td>
+                            <td id="EPS114-rang"></td>
+                            <td id="EPS114-mention"></td>
+                            <td id="EPS114-session"></td>
+                            <td id="EPS114-credits"></td>
+                        </tr>
+                        <tr>
+                            <td id="EPS115-codeue">EPS 115</td>
+                            <td id="EPS115-matiere">Didactique des APS ( Sports collectifs)</td>
+                            <td id="EPS115-note"></td>
+                            <td id="EPS115-coef"></td>
+                            <td id="EPS115-total"></td>
+                            <td id="EPS115-rang"></td>
+                            <td id="EPS115-mention"></td>
+                            <td id="EPS115-session"></td>
+                            <td id="EPS115-credits"></td>
+                        </tr>
+                        <tr>
+                            <td id="EPS116-codeue">EPS 116</td>
+                            <td id="EPS116-matiere">La Physiologie de l’Execice I</td>
+                            <td id="EPS116-note"></td>
+                            <td id="EPS116-coef"></td>
+                            <td id="EPS116-total"></td>
+                            <td id="EPS116-rang"></td>
+                            <td id="EPS116-mention"></td>
+                            <td id="EPS116-session"></td>
+                            <td id="EPS116-credits"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="3">UE Tranversales</th>
+                            <td id="EPS117-codeue">EPS 117</td>
+                            <td id="EPS117-matiere">Informatique</td>
+                            <td id="EPS117-note"></td>
+                            <td id="EPS117-coef"></td>
+                            <td id="EPS117-total"></td>
+                            <td id="EPS117-moyenne" rowspan="3"></td>
+                            <td id="EPS117-rang"></td>
+                            <td id="EPS117-mention"></td>
+                            <td id="EPS117-session"></td>
+                            <td id="EPS117-credits"></td>
+                        </tr>
+                        <tr>
+                            <td id="EPS118-codeue">EPS 118</td>
+                            <td id="EPS118-matiere">Technique D'Expression Française</td>
+                            <td id="EPS118-note"></td>
+                            <td id="EPS118-coef"></td>
+                            <td id="EPS118-total"></td>
+                            <td id="EPS118-rang"></td>
+                            <td id="EPS118-mention"></td>
+                            <td id="EPS118-session"></td>
+                            <td id="EPS118-credits"></td>
+                        </tr>
+                            <td id="EPS119-codeue">EPS 119</td>
+                            <td id="EPS119-matiere">Technique D'Expression Anglaise. Anglaise- Forbi</td>
+                            <td id="EPS119-note"></td>
+                            <td id="EPS119-coef"></td>
+                            <td id="EPS119-total"></td>
+                            <td id="EPS119-rang"></td>
+                            <td id="EPS119-mention"></td>
+                            <td id="EPS119-session"></td>
+                            <td id="EPS119-credits"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">RESULTATS SEMESTRE 1</td>
+                            <td id="resultat-coef"></td>
+                            <td id="resultat-total"></td>
+                            <td id="resultat-moyenne"></td>
+                            <td id="resultat-rang"></td>
+                            <td id="resultat-" colspan="2">Total Crédits Semestre X </td>
+                            <td id="resultat-credits"></td>
+                        </tr>
+                    </tbody>
+                </table>-->
+                <!--<table id="table-2">
+                    <thead>
+                        <tr>
+                            <th scope="col" >&nbsp;&nbsp;</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-2">
+                        <tr>
+                            <th rowspan="11"id="semestre">SEMESTRE X</th>
+                            <th scope="row" rowspan="2">UE Fondamentales</th>
+                            <td>EPS 121</td>
+                            <td>Activités Physiques Adaptées - Sport pour tous</td>
+                            <td>1</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td rowspan="2">5</td>
+                            <td>6</td>
+                            <td>NON VALIDEE</td>
+                            <td>Normale 2022/2023</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>EPS 122</td>
+                            <td>Traumatologie - Premiers Secours</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>VALIDEE</td>
+                            <td>Rattrapage 2022/2023</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="4">UE Professionnelles</th>
+                            <td>EPS 123</td>
+                            <td>Didactique de l’EPS II</td>
+                            <td>1</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td rowspan="4">5</td>
+                            <td>6</td>
+                            <td>NON VALIDEE</td>
+                            <td>Normale 2022/2023</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>EPS 124</td>
+                            <td>Anatomie II</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>VALIDEE</td>
+                            <td>Rattrapage 2022/2023</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>EPS 125</td>
+                            <td>Didactique des APS (Activités duelles / Activité Physique d'Expression)</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>VALIDEE</td>
+                            <td>Rattrapage 2022/2023</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>EPS 126</td>
+                            <td>Pédagogie Pratique</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>VALIDEE</td>
+                            <td>Rattrapage 2022/2023</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="3">UE Tranversales</th>
+                            <td>EPS 127</td>
+                            <td>Déontologie Administrative - Olympisme et Ethique</td>
+                            <td>1</td>
+                            <td>4</td>
+                            <td>10</td>
+                            <td rowspan="3">5</td>
+                            <td>6</td>
+                            <td>NON VALIDEE</td>
+                            <td>Normale 2022/2023</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>EPS 128</td>
+                            <td>Création D'Entreprise</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>VALIDEE</td>
+                            <td>Rattrapage 2022/2023</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>EPS 129</td>
+                            <td>Economie Générale</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>VALIDEE</td>
+                            <td>Rattrapage JUIN 2022/2023</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">RESULTATS SEMESTRE X</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td colspan="2">Total Crédits Semestre X </td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">RECAPITULATIF (SX + SX)</td>
+                            <td></td>
+                            <td colspan="2"></td>
+                            <td></td>
+                            <td colspan="2">Crédits annuels obtenus </td>
+                            <td>60</td>
+                        </tr>
+                    </tbody>
+                </table>-->
+                <!--<table id="table-3">
+                    <thead>
+                        <tr>
+                            <th scope="col" >&nbsp;&nbsp;</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-3">
+                        <tr>
+                            <td></td>
+                            <td colspan="3">Moyenne de Classe de l'étudiant :</td>
+                            <td> / 20</td>
+                            <td colspan="2">Maximum :</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Retard :</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3">Moyenne Générale de la classe :</td>
+                            <td></td>
+                            <td colspan="2">Minimum :</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>Absences :</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3">Note de Stage :</td>
+                            <td> / 20</td>
+                            <td colspan="2"></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="3">Moyenne Finale de l'étudiant :</td>
+                            <td></td>
+                            <td colspan="2"></td>
+                            <td>Rang :</td>
+                            <td> sur </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>-->
+        <!--</main>-->
+        <!--<footer>
+            <div class="decision">
+                Décision du conseil des professeurs :  <div class="dot">ADMIS(E)</div>
+                <div class="visa">
+                    VISA CHEF ETABLISSEMENT
+                </div>
+            </div> 
+        </footer>-->
+    <!--</div>-->
+
+        <script id="semsetre" type="application/json">{"semestre1": 'semestre1MDS'}</script>
+        <script src="{% static 'bulletin/script/bulletintemplate.js' %}"></script>
+        <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script>   
+</body>
+</html>

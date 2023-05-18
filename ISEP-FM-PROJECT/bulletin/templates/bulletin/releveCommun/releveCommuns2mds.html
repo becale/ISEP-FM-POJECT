@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ReleveNotes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% load static %}
+
+        <!--<link rel="stylesheet" href="{% static "bulletin/css/releveCommun.css" %}" media="screen">-->
+        <link rel="stylesheet" href="{% static 'bulletin/css/releveCommunPrintmds.css' %}" >
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootstrap/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}"> 
+        
+
+    </head>
+    <body id="body">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="page" size="A4" layout="landscape">
+            <div id="container">
+                {{ semestre1MDS|json_script:"semestre1MDS" }} 
+                
+                <header class="header">
+                    <div class="row">
+                        <div class="col-4 logo-center-t ">
+                            <div class="logo-center-texte">
+                                UNIVERSITE DE NGAOUNDERE
+                            </div>
+                            <img src="/static/bulletin/image/logondere.PNG" alt="">
+    
+                        </div>
+                    </div>
+                    <div class="row header-line">
+                        <div class="col-2 logo-left">
+                            <img src="/static/bulletin/image/Capture.PNG" alt="">
+                        </div>
+                        <div class="col-4 header-text" >
+                            FACULTE DES SCIENCES DE L'EDUCATION
+                        </div>
+                        <div class="col-4 header-text">
+                            INSTITUT FRANCOISE MBANGO
+                        </div>
+    
+                        <div class="col-2 logo-right">
+                            <img src="/static/bulletin/image/logo.jpeg" alt="">
+                        </div>
+                    </div>
+                    <hr class="hr-head">
+                </header>
+
+                <main>
+                    <div id="title">
+                        BORDEREAU DE NOTES 1er SEMESTRE MDS1  2022-2023
+                    </div>
+
+                    <!--TABLEAU GENERAL-->
+                    <table id="table1">
+                        <thead>
+                            <th rowspan=""></th>
+                            <th>UE Fondamentales</th>
+                            <th>UE Professionnelles</th>
+                            <th>UE Transversales</th>
+                            <th>Résultats</th>
+                        </thead>
+
+                        <!--TBODY TABLEAU GENERAL-->
+                        <tbody>
+                            <!--GRANDE LIGNE1-->
+                            <tr>
+                                <!--Grande Ligne Vide-->
+                               <td rowspan="3">
+                                    Bordereau de NOTES MDS1 2022-2023
+                               </td>
+                               <!--Tableau des UE FONDAMENTALES-->
+                               <td rowspan="3">
+                                    <table id="nested1">
+                                        <tr id="nestedl1">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">MDS111 math</td>
+                                            <td rowspan="3" class="nested-border">MDS111 info</td>
+                                            <!--<td rowspan="3" class="nested-border">Mention</td>-->
+                                            <td rowspan="3" class="nested-border">MDS112 fi</td>
+                                            <td rowspan="3" class="nested-border">MDS112 sta</td>
+                                            <td rowspan="3" class="nested-border">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table>
+                               </td>
+
+                               <!--Tableau des UE PROFESSIONNELLES-->
+                               <td rowspan="3">
+                                    <table id="nested2">
+                                        <tr id="nestedl2">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">MDS113</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">MDS114</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">MDS115</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">MDS116</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Mention</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table> 
+                               </td>
+
+                               <!--Tableau des UE TRANSVERSALES-->
+                               <td rowspan="3">
+                                    <table id="nested3">
+                                        <tr id="nestedl3">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">MDS117 anglais</td>
+                                            <td rowspan="3" class="nested-border">MDS117 français</td>
+                                            <td rowspan="3" class="nested-border">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table>
+                               </td>
+
+                               <td rowspan="3">
+                                    <table id="nested33">
+                                        <tr id="nestedl33">
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">Total Points</td>
+                                            <td rowspan="3" class="nested-border">Moyenne</td>
+                                            <td rowspan="3" class="nested-border">Rang</td>
+                                            <td rowspan="3" class="nested-border">Credit</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Discipline</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table>
+                               </td>
+
+                            </tr>
+
+                            <tr></tr>
+                            <tr></tr>
+
+                            <!--LIGNE DU GRAND TABLEAU (Incrémentation)-->
+                            <tr>
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE1)--> 
+                                <td id="tabinfostudent">
+                                    <table id="nested4">
+                                        <tr id="nested4-line1">
+                                            <th class="nested-border" style="border-left: 0px;">N<sup>0</sup></th>
+                                            <th  id="" class="nested-border" >Noms</th>
+                                            <th  class="nested-border">Prénoms</th>
+                                            <!--<th  class="nested-border">Date_Naiss</th>
+                                            <th  class="nested-border">Lieu_Naiss</th>-->
+                                            <th  class="nested-border" style="border-right: 0px;">Matricule</th>
+                                        </tr>
+                                    </table>
+                                    
+                                    <!--AJOUT PREMIER TABLEAU-->
+                                    <!--<table id="nested4">
+                                        <tr id="nested4-line1"  class="tabinfo" >
+                                            <th class="nested-border" style="border-left: 0px;">N<sup>0</sup></th>
+                                            <th  id="" class="nested-border" >Noms</th>
+                                            <th  class="nested-border">Prénoms</th>
+                                            <th  class="nested-border">Date_Naiss</th>
+                                            <th  class="nested-border">Lieu_Naiss</th>
+                                            <th  class="nested-border" style="border-right: 0px;">Matricule</th>
+                                        </tr>
+                                    </table>-->
+
+                                </td>
+
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE2)--> 
+                               <td id="tabf">
+                                    <table id="nested11">
+                                        <tr class="tabuef" style="">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <!--<td rowspan="3" class="nested-border">3</td>-->
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
+                                        </tr>  
+                                    </table>
+                                    <!--AJOUT DEUXIEME TABLEAU-->
+                                    <!--<table id="nested11">
+                                        <tr class="tabuef tabuef-border">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border">2</td>
+                                            <td rowspan="3" class="nested-border">3</td>
+                                            <td rowspan="3" class="nested-border">4</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">5</td>
+                                        </tr>  
+                                    </table>-->
+                               </td>
+
+
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE3)-->
+                                <td id="tabp">
+                                    <table id="nested22">
+                                        <tr class="tabuep">
+                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;"></td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">2</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">4</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">6</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;"></td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table>  
+                                    <!--AJOUT QUATRIEME TABLEAU-->
+                                    <!--<table id="nested22">
+                                        <tr class="tabuep tabuef-border">
+                                            <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">2</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">3</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">4</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">5</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">6</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">7</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">8</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">9</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">10</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">11</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">12</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">13</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table>-->
+                                </td>
+
+                                <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE4)-->
+                                <td id="tabt">
+                                    <table id="nested33">
+                                        <tr class="tabuet">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                       
+                                    </table> 
+                                     <!--AJOUT CINQUIEME TABLEAU-->
+                                     <!--<table id="nested33">
+                                        <tr class="tabuet tabuef-border">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;">1</td>
+                                            <td rowspan="3" class="nested-border">2</td>
+                                            <td rowspan="3" class="nested-border">3</td>
+                                            <td rowspan="3" class="nested-border">4</td>
+                                            <td rowspan="3" class="nested-border">5</td>
+                                            <td rowspan="3" class="nested-border">6</td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">7</td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </table> -->
+                                </td>
+
+                                <td id="tabr"> 
+                                    <table id="nested333">
+                                        <tr class="tabuer">
+                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                       
+                                    </table> 
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </main>
+
+                <!--<footer></footer>-->
+            </div>
+
+        </div>
+
+        <!--PARTIE PV-->
+        <div id="page2" size="A4">
+            <header class="header">
+                <div class="row">
+                    <div class="col-4 logo-center-t-2">
+                        <div class="logo-center-texte">
+                            UNIVERSITE DE NGAOUNDERE
+                        </div>
+                        <img src="/static/bulletin/image/logondere.PNG" alt="">
+
+                    </div>
+                </div>
+                <div class="row header-line">
+                    <div class="col-2 logo-left">
+                        <img src="/static/bulletin/image/Capture.PNG" alt="">
+                    </div>
+                    <div class="col-4 header-text" >
+                        FACULTE DES SCIENCES DE L'EDUCATION
+                    </div>
+                    <div class="col-4 header-text">
+                        INSTITUT FRANCOISE MBANGO
+                    </div>
+
+                    <div class="col-2 logo-right">
+                        <img src="/static/bulletin/image/logo.jpeg" alt="">
+                    </div>
+                </div>
+                <hr class="hr-head">
+            </header>
+
+
+            <main class="container">
+                <div class="row title-doc">
+                    <div id="title-doc" class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
+                    <span class=" col-2 span-style">Edition du : 11-01-2023</span>   
+                </div>
+
+                <div class="row info-serie">
+                    <pre>
+<b>Cycle:</b> B.T.S    <b>Parcours:</b><span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</span>    <b>Niveau:</b> 1       <b>ANNEE-ACADEMIQUE:</b><span>20XX/20XX</span>
+                    </pre>
+                </div>
+                <div class="row info-serie">
+                    <pre>
+<span>UE</span>: <b>XXXX</b> <span>XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXINTITULE-UE</span> <b>Crédit</b>: <span>x</span>  <b>Sem</b>: <span>x</span> Session: <b>NORMALE</b>
+                    </pre>
+                </div>
+            </main>
+
+            <div id="table-container" class="row">
+                <table id="proces-verbal">
+                    <thead class="proces">
+                        <tr>
+                            <th scope="col">N<sup>0</sup></th>
+                            <th scope="col">Matricule</th>
+                            <th scope="col">Noms et Prenoms</th>
+                            <th scope="col">CC./20</th>
+                            <th scope="col">SN./20</th>
+                            <th scope="col">Moy./20</th>
+                            <th scope="col">Crédit</th>
+                            <th scope="col">Décision</th>
+                            <th scope="col">Mention</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--<tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+                <div class="stat">
+                    <table id="table-stat">
+                        <thead class="head-stat">
+                            <th scope="col"> </th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Pourcentage</th>
+                            <th scope="col"></th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Pourcentage</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Etudiants :</th>
+                                <td></td>
+                                <td></td>
+                                <tH>Passable</tH>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Validés :</th>
+                                <td></td>
+                                <td></td>
+                                <th>Assez Bien</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Non validés :</th>
+                                <td></td>
+                                <td></td>
+                                <th>Bien</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th scope="row"></th>
+                                <td></td>
+                                <td></td>
+                                <th>Très Bien</th>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="pagination">
+                Page x / x
+            </div>
+
+        </div>
+
+    
+        <!--<script src="" async defer></script>-->
+        <script id="semsetre" type="application/json">{"semestre1": 'semestre1MDS'}</script>
+        <!--<script src="{% static 'bulletin/script/releveCommun.js' %}"></script>-->
+        <script src="{% static 'bulletin/script/releveCommunmds.js' %}"></script>
+        <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script> 
+    </body>
+</html>

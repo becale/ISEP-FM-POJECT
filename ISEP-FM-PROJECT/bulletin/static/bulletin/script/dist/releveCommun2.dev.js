@@ -9,8 +9,9 @@ window.addEventListener('load', function () {
     listStudent = mydata[1];
     bigtab = document.getElementById('table1'); //page2.children[1].children[1].children[1]
 
-    page = document.getElementById("part2");
-    bigtab1 = page.children[1].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
+    page = document.getElementById("part2"); //bigtab1 = page.children[1].children[1]
+
+    bigtab1 = page.children[0].children[1].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
 
     worktab = bigtab.children[1];
     worktab1 = bigtab1.children[1]; //Ligne des 4 tableaux
@@ -52,20 +53,8 @@ window.addEventListener('load', function () {
 
         if (j == 3) {
           tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
-          tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-          /*tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
-          tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']*/
+          tab005.cells[j].innerHTML = listStudent[i][0]['matricule']; //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
         }
-        /*if(j==4){
-            tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-            tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-        }
-        if(j==5){
-            tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
-            tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-        
-        }*/
-
       } //tab0 Page2
       //tab1
 
@@ -88,20 +77,19 @@ window.addEventListener('load', function () {
       for (j = 0; j <= tab15.childElementCount - 1; j++) {
         if (j == 0) {
           tab15.cells[j].innerHTML = listStudent[i][1][0];
-          tab116.cells[j].innerHTML = listStudent[i][15][1];
+          tab116.cells[j].innerHTML = listStudent[i][13][1]; //total
         }
 
         ;
 
         if (j == 1) {
-          tab116.cells[j].innerHTML = listStudent[i][15][2];
-          tab15.cells[j].innerHTML = listStudent[i][2][0]; //if(listStudent[i][1][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+          tab15.cells[j].innerHTML = listStudent[i][2][0];
+          tab116.cells[j].innerHTML = listStudent[i][13][2]; //moyenne
         }
 
         if (j == 2) {
-          tab15.cells[j].innerHTML = listStudent[i][1][3]; //tab15.cells[j].innerHTML= listStudent[i][2][0];
-
-          tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][15][2]) + 1;
+          tab15.cells[j].innerHTML = listStudent[i][1][3];
+          tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2]) + 1; //rang
         }
 
         if (j == 3) {
@@ -112,14 +100,19 @@ window.addEventListener('load', function () {
           }
 
           ;
-          tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7] + listStudent[i][13][7] + listStudent[i][14][7]; //Credits Obtenus
+          /**TEST UE GROUPEES */
+
+          if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) / 4 >= 10) {
+            creditEPS115 = 6;
+          } else {
+            creditEPS115 = 0;
+          }
+
+          console.log(creditEPS115);
+          tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + creditEPS115 + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7];
         }
 
-        if (j == 4) {
-          tab15.cells[j].innerHTML = listStudent[i][1][3]; //tab116.cells[j].innerHTML= '/'
-        }
-
-        tab116.cells[4].innerHTML = '/';
+        tab116.cells[4].innerHTML = "/";
       } //tab2
 
 
@@ -172,35 +165,20 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 7) {
-          tab23.cells[j].innerHTML = listStudent[i][10][0];
-        }
-
-        if (j == 8) {
-          tab23.cells[j].innerHTML = listStudent[i][11][0];
-        }
-
-        ; //if((listStudent[i][5][0]+listStudent[i][6][0]+listStudent[i][7][0]+listStudent[i][8][0]) >=40){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
-
-        if (j == 9) {
           tab23.cells[j].innerHTML = listStudent[i][3][3];
         }
 
-        ; //val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]); val=val.toFixed(2);val=parseFloat(val); tab23.cells[j].innerHTML =val};
+        ;
 
-        if (j == 10) {
+        if (j == 8) {
           if (listStudent[i][3][3] >= 10) {
             tab23.cells[j].innerHTML = 'V';
           } else {
             tab23.cells[j].innerHTML = 'NV';
           }
         }
-        /*if(j==11){ val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1])+(listStudent[i][9][0]*listStudent[i][9][1])+(listStudent[i][10][0]*listStudent[i][10][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]+listStudent[i][9][1]+listStudent[i][10][1]); val=val.toFixed(2); val=parseFloat(val) ;tab23.cells[j].innerHTML =val};
-        if(j==12)
-        if(j==13){
-            if(listStudent[i][11][0]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}
-        };
-        if(j==14) {} */
 
+        ; //if(j==9){val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]); val=val.toFixed(2);val=parseFloat(val); tab23.cells[j].innerHTML =val};
       } //tab3
 
 
@@ -211,31 +189,31 @@ window.addEventListener('load', function () {
 
       for (j = 0; j <= tab33.childElementCount - 1; j++) {
         if (j == 0) {
-          tab33.cells[j].innerHTML = listStudent[i][12][0];
+          tab33.cells[j].innerHTML = listStudent[i][10][0];
         }
 
         ;
 
         if (j == 1) {
-          tab33.cells[j].innerHTML = listStudent[i][13][0];
+          tab33.cells[j].innerHTML = listStudent[i][11][0];
         }
 
-        ; //{if( listStudent[i][12][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};
+        ;
 
         if (j == 2) {
-          tab33.cells[j].innerHTML = listStudent[i][14][0];
+          tab33.cells[j].innerHTML = listStudent[i][12][0];
         }
 
         ;
 
         if (j == 3) {
-          tab33.cells[j].innerHTML = listStudent[i][12][3];
+          tab33.cells[j].innerHTML = listStudent[i][10][3];
         }
 
-        ; //{if( listStudent[i][13][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//
+        ;
 
         if (j == 4) {
-          if (listStudent[i][12][3] >= 10) {
+          if (listStudent[i][10][3] >= 10) {
             tab33.cells[j].innerHTML = 'V';
           } else {
             tab33.cells[j].innerHTML = 'NV';
@@ -245,8 +223,6 @@ window.addEventListener('load', function () {
         }
 
         ;
-        /*if(j==5)//119
-        if(j==6)*/
       } //Ajoute de la ligne au grand tableau
 
 
@@ -263,7 +239,7 @@ window.addEventListener('load', function () {
     page = document.getElementById('page2');
     listProces = document.createElement('div');
 
-    for (i = 0; i <= 13; i++) {
+    for (i = 0; i <= 11; i++) {
       clone = page.cloneNode(true);
       clone.style.display = 'block';
       clone = fullfill(clone, i);
@@ -286,114 +262,98 @@ window.addEventListener('load', function () {
     line3 = clone.children[1].children[2].children[0];
 
     if (i == 0) {
-      line3.children[1].innerHTML = "EPS231";
-      line3.children[2].innerHTML = "EDUCATION PHYSIQUE : Loisirs";
+      line3.children[1].innerHTML = "EPS111";
+      line3.children[2].innerHTML = "HISTOIRE ET PRINCIPES DE BASE DE L'EDUCATION PHYSIQUE";
       line3.children[4].innerHTML = mydata[5][0];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 1) {
-      line3.children[1].innerHTML = "EPS232";
-      line3.children[2].innerHTML = "ELEMENTS DE PSYCHOPEDAGOGIE";
+      line3.children[1].innerHTML = "EPS112";
+      line3.children[2].innerHTML = "PSYCHOLOGIE DU SPORT-SOCIOLOGIE DU SPORT";
       line3.children[4].innerHTML = mydata[5][1];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 2) {
-      line3.children[1].innerHTML = "EPS233";
-      line3.children[2].innerHTML = "DIDACTIQUE DE l'EPS III";
+      line3.children[1].innerHTML = "EPS113";
+      line3.children[2].innerHTML = "DIDACTIQUE DE l'EPS I";
       line3.children[4].innerHTML = mydata[5][2];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 3) {
-      line3.children[1].innerHTML = "EPS234";
-      line3.children[2].innerHTML = "LA PHYSIOLOGIE DE L'EXERCICE II";
+      line3.children[1].innerHTML = "EPS114";
+      line3.children[2].innerHTML = "ANATOMIE 1";
       line3.children[4].innerHTML = mydata[5][3];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 4) {
-      line3.children[1].innerHTML = "EPS235a";
+      line3.children[1].innerHTML = "EPS115a";
       line3.children[2].innerHTML = "DIDACTIQUE DES APS : ATHLETISME";
       line3.children[4].innerHTML = mydata[5][4];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 5) {
-      line3.children[1].innerHTML = "EPS235b";
+      line3.children[1].innerHTML = "EPS115b";
       line3.children[2].innerHTML = "DIDACTIQUE DES APS : BASKET BALL";
       line3.children[4].innerHTML = mydata[5][5];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 6) {
-      line3.children[1].innerHTML = "EPS235f";
-      line3.children[2].innerHTML = "DIDACTIQUE DES APS : FOOTBALL";
+      line3.children[1].innerHTML = "EPS115j";
+      line3.children[2].innerHTML = "DIDACTIQUE DES APS : JUDO";
       line3.children[4].innerHTML = mydata[5][6];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 7) {
-      line3.children[1].innerHTML = "EPS235g";
-      line3.children[2].innerHTML = "DIDACTIQUE DES APS : Gymnastique";
+      line3.children[1].innerHTML = "EPS115l";
+      line3.children[2].innerHTML = "DIDACTIQUE DES APS : LUTTE";
       line3.children[4].innerHTML = mydata[5][7];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 8) {
-      line3.children[1].innerHTML = "EPS235j";
-      line3.children[2].innerHTML = "DIDACTIQUE DES APS : JUDO";
+      line3.children[1].innerHTML = "EPS116";
+      line3.children[2].innerHTML = "LA PHYSIOLOGIE DE L'EXERCICE I";
       line3.children[4].innerHTML = mydata[5][8];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 9) {
-      line3.children[1].innerHTML = "EPS235l";
-      line3.children[2].innerHTML = "DIDACTIQUE DES APS : LUTTE";
+      line3.children[1].innerHTML = "EPS117";
+      line3.children[2].innerHTML = "INFORMATIQUE";
       line3.children[4].innerHTML = mydata[5][9];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 10) {
-      line3.children[1].innerHTML = "EPS236";
-      line3.children[2].innerHTML = "PEDAGOGIE PRATIQUE II";
+      line3.children[1].innerHTML = "EPS118";
+      line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION FRANCAISE";
       line3.children[4].innerHTML = mydata[5][10];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     }
 
     if (i == 11) {
-      line3.children[1].innerHTML = "EPS237";
-      line3.children[2].innerHTML = "FORMATION BILINGUE - Anglais appliqué au APS";
+      line3.children[1].innerHTML = "EPS119";
+      line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION ANGLAISE. Anglaise- Forbi";
       line3.children[4].innerHTML = mydata[5][11];
-      line3.children[6].innerHTML = '3';
-      pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
-    }
-
-    if (i == 12) {
-      line3.children[1].innerHTML = "EPS238";
-      line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION FRANCAISE";
-      line3.children[4].innerHTML = mydata[5][12];
-      line3.children[6].innerHTML = '3';
-      pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
-    }
-
-    if (i == 13) {
-      line3.children[1].innerHTML = "EPS239";
-      line3.children[2].innerHTML = "INFORMATIQUE";
-      line3.children[4].innerHTML = mydata[5][13];
-      line3.children[6].innerHTML = '3';
+      line3.children[6].innerHTML = '1';
       pagination.innerText = "Page ".concat(i + 1, " / ").concat(mydata[5].length);
     } //Tableau des students
 
@@ -473,14 +433,6 @@ window.addEventListener('load', function () {
             td.innerHTML = "".concat(listStudent[j][12][8]);
           }
 
-          if (i == 12) {
-            td.innerHTML = "".concat(listStudent[j][13][8]);
-          }
-
-          if (i == 13) {
-            td.innerHTML = "".concat(listStudent[j][14][8]);
-          }
-
           td.setAttribute('class', 'cc');
         }
 
@@ -532,14 +484,6 @@ window.addEventListener('load', function () {
           if (i == 11) {
             td.innerHTML = "".concat(listStudent[j][12][9]);
           }
-
-          if (i == 12) {
-            td.innerHTML = "".concat(listStudent[j][13][9]);
-          }
-
-          if (i == 13) {
-            td.innerHTML = "".concat(listStudent[j][14][9]);
-          }
         }
 
         if (k == 5) {
@@ -590,14 +534,6 @@ window.addEventListener('load', function () {
 
           if (i == 11) {
             td.innerHTML = "".concat(listStudent[j][12][0]);
-          }
-
-          if (i == 12) {
-            td.innerHTML = "".concat(listStudent[j][13][0]);
-          }
-
-          if (i == 13) {
-            td.innerHTML = "".concat(listStudent[j][14][0]);
           }
         }
 
@@ -697,22 +633,6 @@ window.addEventListener('load', function () {
               td.innerHTML = 0;
             }
           }
-
-          if (i == 12) {
-            if (listStudent[j][13][5]) {
-              td.innerHTML = "".concat(listStudent[j][13][6]);
-            } else {
-              td.innerHTML = 0;
-            }
-          }
-
-          if (i == 13) {
-            if (listStudent[j][14][5]) {
-              td.innerHTML = "".concat(listStudent[j][14][6]);
-            } else {
-              td.innerHTML = 0;
-            }
-          }
         }
 
         if (k == 7) {
@@ -806,22 +726,6 @@ window.addEventListener('load', function () {
 
           if (i == 11) {
             if (listStudent[j][12][5]) {
-              td.innerHTML = 'Validée';
-            } else {
-              td.innerHTML = 'Non Validée';
-            }
-          }
-
-          if (i == 12) {
-            if (listStudent[j][13][5]) {
-              td.innerHTML = 'Validée';
-            } else {
-              td.innerHTML = 'Non Validée';
-            }
-          }
-
-          if (i == 13) {
-            if (listStudent[j][14][5]) {
               td.innerHTML = 'Validée';
             } else {
               td.innerHTML = 'Non Validée';
@@ -1165,62 +1069,6 @@ window.addEventListener('load', function () {
               td.innerHTML = 'F';
             }
           }
-
-          if (i == 12) {
-            if (listStudent[j][13][0] >= 16) {
-              td.innerHTML = 'A';
-            } else if (listStudent[j][13][0] >= 15 && listStudent[j][13][0] < 16) {
-              td.innerHTML = 'A-';
-            } else if (listStudent[j][13][0] >= 14 && listStudent[j][13][0] < 15) {
-              td.innerHTML = 'B+';
-            } else if (listStudent[j][13][0] >= 13 && listStudent[j][13][0] < 14) {
-              td.innerHTML = 'B';
-            } else if (listStudent[j][13][0] >= 12 && listStudent[j][13][0] < 13) {
-              td.innerHTML = 'B-';
-            } else if (listStudent[j][13][0] >= 11 && listStudent[j][13][0] < 12) {
-              td.innerHTML = 'C+';
-            } else if (listStudent[j][13][0] >= 10 && listStudent[j][13][0] < 11) {
-              td.innerHTML = 'C';
-            } else if (listStudent[j][13][0] >= 9 && listStudent[j][13][0] < 10) {
-              td.innerHTML = 'C-';
-            } else if (listStudent[j][13][0] >= 8 && listStudent[j][13][0] < 9) {
-              td.innerHTML = 'D+';
-            } else if (listStudent[j][13][0] >= 7 && listStudent[j][13][0] < 8) {
-              td.innerHTML = 'D';
-            } else if (listStudent[j][13][0] >= 6 && listStudent[j][13][0] < 7) {
-              td.innerHTML = 'E';
-            } else if (listStudent[j][13][0] >= 0 && listStudent[j][13][0] < 6) {
-              td.innerHTML = 'F';
-            }
-          }
-
-          if (i == 13) {
-            if (listStudent[j][14][0] >= 16) {
-              td.innerHTML = 'A';
-            } else if (listStudent[j][14][0] >= 15 && listStudent[j][14][0] < 16) {
-              td.innerHTML = 'A-';
-            } else if (listStudent[j][14][0] >= 14 && listStudent[j][14][0] < 15) {
-              td.innerHTML = 'B+';
-            } else if (listStudent[j][14][0] >= 13 && listStudent[j][14][0] < 14) {
-              td.innerHTML = 'B';
-            } else if (listStudent[j][14][0] >= 12 && listStudent[j][14][0] < 13) {
-              td.innerHTML = 'B-';
-            } else if (listStudent[j][14][0] >= 11 && listStudent[j][14][0] < 12) {
-              td.innerHTML = 'C+';
-            } else if (listStudent[j][14][0] >= 10 && listStudent[j][14][0] < 11) {
-              td.innerHTML = 'C';
-            } else if (listStudent[j][14][0] >= 9 && listStudent[j][14][0] < 10) {
-              td.innerHTML = 'C-';
-            } else if (listStudent[j][14][0] >= 8 && listStudent[j][14][0] < 9) {
-              td.innerHTML = 'D+';
-            } else if (listStudent[j][14][0] >= 7 && listStudent[j][14][0] < 8) {
-              td.innerHTML = 'D';
-            } else if (listStudent[j][14][0] >= 6 && listStudent[j][14][0] < 7) {
-              td.innerHTML = 'E';
-            } else if (listStudent[j][14][0] >= 0 && listStudent[j][14][0] < 6) {
-              td.innerHTML = 'F';
-            }
-          }
         }
 
         line.appendChild(td);
@@ -1478,46 +1326,6 @@ window.addEventListener('load', function () {
 
       ligneStat4.children[4].innerHTML = mydata[7][11]['Très Bien'];
       ligneStat4.children[5].innerHTML = "".concat(mydata[7][11]['pourcentageTB'], " %");
-    }
-
-    if (i == 12) {
-      //Ligne 1
-      ligneStat1.children[1].innerHTML = mydata[1].length;
-      ligneStat1.children[4].innerHTML = mydata[7][12]['Passable'];
-      ligneStat1.children[5].innerHTML = "".concat(mydata[7][12]['pourcentageP'], " %"); //Ligne2
-
-      ligneStat2.children[1].innerHTML = mydata[6][12]['nombre'];
-      ligneStat2.children[2].innerHTML = "".concat(mydata[6][12]['pourcentage'], " %");
-      ligneStat2.children[4].innerHTML = mydata[7][12]['Assez Bien'];
-      ligneStat2.children[5].innerHTML = "".concat(mydata[7][12]['pourcentageAB'], " %"); //Ligne3
-
-      ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][12]['nombre'];
-      ligneStat3.children[2].innerHTML = "".concat(floatfix(mydata[6][12]['pourcentage']), " %");
-      ligneStat3.children[4].innerHTML = mydata[7][12]['Bien'];
-      ligneStat3.children[5].innerHTML = "".concat(mydata[7][12]['pourcentageB'], " %"); //Ligne4
-
-      ligneStat4.children[4].innerHTML = mydata[7][12]['Très Bien'];
-      ligneStat4.children[5].innerHTML = "".concat(mydata[7][12]['pourcentageTB'], " %");
-    }
-
-    if (i == 13) {
-      //Ligne 1
-      ligneStat1.children[1].innerHTML = mydata[1].length;
-      ligneStat1.children[4].innerHTML = mydata[7][13]['Passable'];
-      ligneStat1.children[5].innerHTML = "".concat(mydata[7][13]['pourcentageP'], " %"); //Ligne2
-
-      ligneStat2.children[1].innerHTML = mydata[6][13]['nombre'];
-      ligneStat2.children[2].innerHTML = "".concat(mydata[6][13]['pourcentage'], " %");
-      ligneStat2.children[4].innerHTML = mydata[7][13]['Assez Bien'];
-      ligneStat2.children[5].innerHTML = "".concat(mydata[7][13]['pourcentageAB'], " %"); //Ligne3
-
-      ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][13]['nombre'];
-      ligneStat3.children[2].innerHTML = "".concat(floatfix(mydata[6][13]['pourcentage']), " %");
-      ligneStat3.children[4].innerHTML = mydata[7][13]['Bien'];
-      ligneStat3.children[5].innerHTML = "".concat(mydata[7][13]['pourcentageB'], " %"); //Ligne4
-
-      ligneStat4.children[4].innerHTML = mydata[7][13]['Très Bien'];
-      ligneStat4.children[5].innerHTML = "".concat(mydata[7][13]['pourcentageTB'], " %");
     }
 
     return clone;

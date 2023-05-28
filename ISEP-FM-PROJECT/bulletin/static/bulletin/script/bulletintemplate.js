@@ -92,8 +92,6 @@ window.addEventListener('load',()=>{
     }
 })
 
-
-
 /**
  * DECLARATION DES FONCTIONS DE GENERATION DES BULLETTINS DES SEMESTRES 1, 3, 5
  */
@@ -4020,7 +4018,7 @@ function BullSTAPS1(clone, i){
   for(j=0; j<=ligneEPS119.childElementCount-1; j++){
     if(j==2){ligneEPS119.children[j].innerHTML = listStudent[i][12][0]}//note info
     if(j==3){ligneEPS119.children[j].innerHTML = listStudent[i][12][1]}//coef info
-    if(j==4){ligneEPS119.children[j].innerHTML = listStudent[i][1][2]}//total note math * coef
+    if(j==4){ligneEPS119.children[j].innerHTML = listStudent[i][12][2]}//total note math * coef
     if(j==5){ligneEPS119.children[j].innerHTML = listStudent[i][11][4]}//
     if(j==6){if(listStudent[i][12][5]){ligneEPS119.children[j].innerHTML = "VALIDEE"}else{ligneEPS119.children[j].innerHTML ="NON VALIDEE"}}//Mention
     if(j==7){ligneEPS119.children[j].innerHTML = mydata[4] } //session

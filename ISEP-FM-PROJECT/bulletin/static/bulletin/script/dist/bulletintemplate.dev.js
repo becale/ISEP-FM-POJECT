@@ -4423,7 +4423,7 @@ function BullSTAPS1(clone, i) {
 
 
     if (j == 4) {
-      ligneEPS119.children[j].innerHTML = listStudent[i][1][2];
+      ligneEPS119.children[j].innerHTML = listStudent[i][12][2];
     } //total note math * coef
 
 

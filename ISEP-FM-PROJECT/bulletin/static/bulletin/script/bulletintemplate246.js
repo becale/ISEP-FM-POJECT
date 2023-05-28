@@ -149,7 +149,7 @@ function GenerateBullMDS1Semestre1(){
 
   var bulltitle=document.createElement('div')
   bulltitle.setAttribute('id','bull-title')
-  bulltitle.innerHTML=`BULLETIN DE NOTES SEMESTRE 1`
+  bulltitle.innerHTML=`RELEVE DE NOTES SEMESTRE 1`
 
   var bullchecktitle=document.createElement('div')
   bullchecktitle.setAttribute('id','bull-check-title')
@@ -829,6 +829,7 @@ tr333.appendChild(td188)
   //Retour Du composant Bulletin
   return(containerbull)
 }
+
 /*DECLARATION S1 STAPS*/
 function GenerateBullStaps1Semestre1(){
   var br = document.createElement('br')
@@ -885,7 +886,7 @@ function GenerateBullStaps1Semestre1(){
 
   var bulltitle=document.createElement('div')
   bulltitle.setAttribute('id','bull-title')
-  bulltitle.innerHTML=`BULLETIN DE NOTES SEMESTRE 1`
+  bulltitle.innerHTML=`RELEVE DE NOTES SEMESTRE 1`
 
   var bullchecktitle=document.createElement('div')
   bullchecktitle.setAttribute('id','bull-check-title')
@@ -1700,7 +1701,7 @@ function GenerateBullStaps2Semestre3(){
 
   var bulltitle=document.createElement('div')
   bulltitle.setAttribute('id','bull-title')
-  bulltitle.innerHTML=`BULLETIN DE NOTES SEMESTRE 3`
+  bulltitle.innerHTML=`RELEVE DE NOTES FIN D'ANNEE`
 
   var bullchecktitle=document.createElement('div')
   bullchecktitle.setAttribute('id','bull-check-title')
@@ -2527,7 +2528,13 @@ function GenerateBullStaps2Semestre3(){
   var main=document.createElement('main')
   main.appendChild(bullchecktitle)
   main.appendChild(infostudent)
+
+  /**SEMESTRE 2 */
+  semestreResult2 = semestreResult.cloneNode(true)
+  semestreResult2.setAttribute('id', 'semestreResult2')
+
   main.appendChild(semestreResult)
+  main.appendChild(semestreResult2)
 
   //Footer
   var visa=document.createElement('div')
@@ -2550,6 +2557,12 @@ function GenerateBullStaps2Semestre3(){
   body[0].appendChild(containerbull)*/
     return (containerbull)
   }
+
+/*DECLARATION S4 STAPS*/
+
+
+
+
 /*DECLARATION SEMESTRE 5 EVE */
 function GenerateBullEVEsemestre5(){
   var br = document.createElement('br')
@@ -2605,7 +2618,7 @@ function GenerateBullEVEsemestre5(){
 
   var bulltitle=document.createElement('div')
   bulltitle.setAttribute('id','bull-title')
-  bulltitle.innerHTML=`BULLETIN DE NOTES SEMESTRE 5`
+  bulltitle.innerHTML=`RELEVE DE NOTES SEMESTRE 5`
 
   var bullchecktitle=document.createElement('div')
   bullchecktitle.setAttribute('id','bull-check-title')
@@ -3149,7 +3162,7 @@ function GenerateBullMSOsemestre5(){
 
   var bulltitle=document.createElement('div')
   bulltitle.setAttribute('id','bull-title')
-  bulltitle.innerHTML=`BULLETIN DE NOTES SEMESTRE 5`
+  bulltitle.innerHTML=`RELEVE DE NOTES SEMESTRE 5`
 
   var bullchecktitle=document.createElement('div')
   bullchecktitle.setAttribute('id','bull-check-title')

@@ -138,7 +138,7 @@ function GenerateBullMDS1Semestre1() {
   bullcheck.innerHTML = "DAF/SG/DE/PR";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 1";
+  bulltitle.innerHTML = "RELEVE DE NOTES SEMESTRE 1";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);
@@ -820,7 +820,7 @@ function GenerateBullStaps1Semestre1() {
   bullcheck.innerHTML = "DAF/SG/DE/PR";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 1";
+  bulltitle.innerHTML = "RELEVE DE NOTES SEMESTRE 1";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);
@@ -1525,7 +1525,7 @@ function GenerateBullStaps2Semestre3() {
   bullcheck.innerHTML = "DAF/SG/DE/PR";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 3";
+  bulltitle.innerHTML = "RELEVE DE NOTES FIN D'ANNEE";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);
@@ -2240,7 +2240,12 @@ function GenerateBullStaps2Semestre3() {
   var main = document.createElement('main');
   main.appendChild(bullchecktitle);
   main.appendChild(infostudent);
-  main.appendChild(semestreResult); //Footer
+  /**SEMESTRE 2 */
+
+  semestreResult2 = semestreResult.cloneNode(true);
+  semestreResult2.setAttribute('id', 'semestreResult2');
+  main.appendChild(semestreResult);
+  main.appendChild(semestreResult2); //Footer
 
   var visa = document.createElement('div');
   visa.setAttribute('class', 'visa');
@@ -2260,6 +2265,8 @@ function GenerateBullStaps2Semestre3() {
 
   return containerbull;
 }
+/*DECLARATION S4 STAPS*/
+
 /*DECLARATION SEMESTRE 5 EVE */
 
 
@@ -2304,7 +2311,7 @@ function GenerateBullEVEsemestre5() {
   bullcheck.innerHTML = "DAF/SG/DE/PR";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 5";
+  bulltitle.innerHTML = "RELEVE DE NOTES SEMESTRE 5";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);
@@ -2799,7 +2806,7 @@ function GenerateBullMSOsemestre5() {
   bullcheck.innerHTML = "DAF/SG/DE/PR";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 5";
+  bulltitle.innerHTML = "RELEVE DE NOTES SEMESTRE 5";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);

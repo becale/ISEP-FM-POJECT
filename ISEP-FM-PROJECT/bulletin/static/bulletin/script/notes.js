@@ -88,7 +88,8 @@ function modal(){
 }
 
 /******************************** REQUEST *************************************************************/
-function getUe(){
+function getUe()
+{
   var xmlhttp = new XMLHttpRequest();
   var url = "http://localhost:8000/UeAPI/";
 

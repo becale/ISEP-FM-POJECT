@@ -1,0 +1,467 @@
+body{
+    font-family: inherit;
+}
+.container-bull {
+    width: 22cm;
+    height: 29.7cm;
+    border:solid black 3px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    padding: 0.5cm;
+    padding-top: 0.01cm;
+    overflow: hidden;
+    /*For Printer*/
+    print-color-adjust: exact;
+}
+/*Logo_Title*/
+#logo-title{
+    background-color: beige;
+    border: solid black 2px;
+    width: 14cm;
+    height: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5cm;
+
+    padding-bottom: 5px;  
+}
+#logo > img{
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+#head-left{
+    background-color: bisque;
+}
+#head-right{
+    background-color: antiquewhite;
+}
+#logo{
+    background-color: blueviolet;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.1cm;
+    margin-bottom: 0.2cm;
+
+    width: 3cm;
+    height: 3cm;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+#title{
+    box-sizing: border-box;
+}
+.slogan{
+    font-style: oblique;
+    text-align: center;
+    font-size: smaller;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.title-info{
+    text-align: center;
+    font-size: small;
+}
+/*HR*/
+hr{
+    border: #9c790d solid 0.1cm;
+}
+
+/*Bull Check*/
+#bull-check-title{
+    /*background-color: brown;*/
+    box-sizing: border-box;
+    height: 100%;
+
+    margin-bottom: 15px;
+    margin-left: 16%;
+    margin-right: 16%;
+}
+#bull-check{
+    font-size: small;
+    /*margin-top: none;*/
+    margin-bottom: 5px;
+    /*background-color: brown;*/
+    box-sizing: border-box;
+    height: 100%;
+}
+#bull-title{
+    /*background-color: rgb(173, 184, 172);*/
+    padding: 5px;
+    box-sizing: border-box;
+    height: 100%;
+    margin-top: 20px;
+
+    /*margin-bottom: 0.1cm;
+    margin-top: 0.3cm;*/
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    border: 1px solid #C7B54D;
+}
+
+/*INFOS STUDENT*/
+#info-student{
+    display: flex;
+    justify-content: space-between;
+
+    /*background-color: black;*/
+    box-sizing: border-box;
+
+    height: 100%;
+    width: 100%;
+
+    font-size: 85%;
+    margin-bottom: 10px;
+}
+#info-student-1{
+    /*background-color: azure;*/
+    width: 40%;
+    height: 100%;
+
+    padding-left: 0.2cm;
+    padding-top: 0.1cm;
+}
+#info-student-2{
+    /*background-color: rgb(204, 241, 189);*/
+    width: 40%;
+    height: 100%;
+
+    padding-left: 0.2cm;
+    padding-top: 0.1cm;
+}
+#info-student-3{
+    /*background-color: rgb(35, 194, 194);*/
+    width: 15%;
+    height: 100%;
+
+    padding-left: 0.2cm;
+    padding-top: 0.1cm;
+}
+/*.info-student-style{
+    margin-bottom: 0.15cm;
+}*/
+/*SEMESTER RESULTS*/
+#semester-result{
+    /*background-color: rgb(236, 226, 226);*/
+    width: 100%;
+    height: 100%;
+
+    margin-top: 0.10cm;
+    box-sizing: border-box;
+}
+/***Table 1***/
+.table-1{
+    /*box-sizing: border-box;*/
+
+    /*table-layout: fixed;*/
+    /*border-spacing: 0;*/
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid rgb(0, 0, 0);
+}
+/*Thead Styling*/
+thead th:nth-child(1n+0){
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+
+    font-size: 0.28cm;
+}
+thead th:nth-child(1){
+    width: 0.74cm;
+}
+thead th:nth-child(2){
+    width: 2cm;
+}
+thead th:nth-child(3){
+    width: 2cm;
+}
+thead th:nth-child(4){
+    width: 5cm;
+}
+thead th:nth-child(5){
+    width: 1.25cm;
+}
+thead th:nth-child(6){
+    width: 1cm;
+}
+thead th:nth-child(7){
+    width: 1cm;
+}
+thead th:nth-child(8){
+    width: 1.5cm;
+}
+thead th:nth-child(9){
+    width: 1cm;
+}
+thead th:nth-child(10){
+    width: 1.5cm;
+}
+thead th:nth-child(11){
+    width: 1.75cm;
+}
+thead th:nth-child(12){
+    width: 1.25cm;
+}
+/*TBODY*/
+tbody tr{
+    font-size: 0.28cm;
+    text-align: center;
+    border-right: 2px;
+}
+#semestre{
+    writing-mode: vertical-rl;
+    padding: 5px;
+}
+
+tr td{
+    border-top: 1.5px dotted black;
+    border-left: 1.5px dotted black;
+    border-right: 1.5px dotted black;
+
+    /*Diminution police Tableau*/
+    font-size: 9px;
+}
+ th{
+    border: 2px solid black;
+}
+/*Tbody00*/
+#tbody00 tr:nth-child(2){
+    border-bottom: black dotted 1.5px;
+}
+#tbody00 tr:nth-child(6){
+    border-bottom: black dotted 1.5px;
+}
+/*#tbody00 tr:nth-child(7){
+    border-bottom: black solid 2px;
+}*/
+#tbody00 tr:nth-child(8){
+    border-bottom: black solid 2px;
+}
+/*#tbody00 tr:nth-child(9) > td{
+    border-top: black solid 2px;
+}
+#tbody00 tr:nth-child(10) > td{
+    border-bottom: black solid 4px;
+}*/
+
+
+/*Tbody01*/
+#tbody01 tr:nth-child(2){
+    border-bottom: black dotted 1.5px;
+}
+#tbody01 tr:nth-child(4){
+    border-bottom: black solid 2px;
+    /*background-color: #C7B54D;*/
+}
+#tbody01 tr:nth-child(7) > td{
+    border-right: solid black 2px;
+}
+
+
+th{
+    border: 2px solid black;
+}
+tbody tr:nth-child(2){
+    border-bottom: black solid 2px;
+}
+tbody tr:nth-child(6){
+    border-bottom: black solid 2px;
+}
+tbody tr:nth-child(9){
+    border-bottom: black solid 2px;
+}
+tbody tr:nth-child(11) > td{
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    border-right: 2px solid black;
+}
+
+
+
+/***Table 2***/
+#table-2{
+    box-sizing: border-box;
+
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+}
+
+#table-2 > thead th:nth-child(n){
+    /*background-color: aquamarine;*/
+    /*font-weight: lighter;*/
+    border: none;
+    border-bottom: black solid 2px;
+    line-height: 0.01cm;
+}
+.tbody-2 tr:nth-child(11) > td{
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    border-right: 2px solid black;
+}
+
+/***Table 3***/
+#table-3{
+    box-sizing: border-box;
+    table-layout: fixed;
+
+    /*background-color: #C7B54D;*/
+
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid rgb(0, 0, 0);
+
+    /*DISPLAY DU TAB 3*/
+    display: none;
+}
+#table-3 > thead th:nth-child(n){
+    /*background-color: #C7B54D;*/
+    font-weight: lighter;
+    border: none;
+    border-bottom: black solid 2px;
+    line-height: 0.1cm;
+}
+#tbody-3  th{
+    text-align: left;
+}
+#tbody-3 tr{
+    /*background-color: #C7B54D/*aqua;*/
+    border: none;
+}
+#tbody-3 td{
+    /*background-color: aqua;*/
+    background-color: #e9d87b/*aqua*/;
+    border: none;
+}
+
+.decision{
+    margin-top: 0.01cm;
+    font-size: 70%;
+    margin-left: 2.74cm;
+    font-style: italic;
+}
+.dot{
+    display: inline-block;
+    border-bottom: dotted 1.5px black;
+    width: 5cm;
+}
+.visa{
+    font-size: 50%;
+    font-weight: bolder;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 7cm;
+    float: right;
+    margin-top: 4cm;
+    /*background-color: aquamarine;*/
+    text-align: center;
+    border-radius: 15%;
+
+    /**/
+    display: none;
+}
+
+/* LOGO BACKGROUND*/
+.box{
+    position: absolute;
+    /*background-color: black;*/
+
+    top: 380px;
+    left: 260px;
+    height: 600px;
+    width: 828px;
+
+}
+.imgback{
+    display: block;
+    position:absolute;
+    width: 100%;
+    height: 95%;
+    z-index: 10;
+    opacity: 0.1;
+    /*width: 100%;
+    height: 100%;
+    margin: auto;*/
+    
+}
+#semester-result{
+    /*margin-top: 50px;*/
+    background: url("{% static 'bulletin/image/logo.jpeg' %}");
+    background-repeat: no-repeat;
+    background-size: auto;
+}
+
+/*Generation*/
+#generateBull{
+    top: 15px;
+    position: sticky;
+}
+
+/*#tr33-border-top{
+    border-bottom: dotted 2px black;
+}*/
+#tr333-border-top{
+    border-bottom: solid 2px black;
+}
+
+#info-student-3{
+    text-align: right;
+}
+
+/*LIGNE DIFFERENTS BULL*/
+#ligne-EPS118 > td{
+    border-top: black dotted 1.5px;
+    border-bottom: black dotted 1.5px;
+    border-right: black dotted 1.5px;
+}
+
+#ligne-EPS119 > td{
+    border-bottom: black solid 2px;
+}
+
+#ligne-13 > td{
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    border-right: black solid 2px;
+}
+
+#ligne-EPS115b{
+    border-bottom: none;
+}
+
+#ligne-eps235b{
+    border-bottom: dotted 1.5px black;
+}
+/*{
+
+}*/
+#ligne-eps235j{
+    border-bottom: dotted 1.5px black;
+}
+#ligne-eps236 > td{
+    border-top: black dotted 1.5px;
+    border-bottom: black dotted 1.5px;
+    border-right: black dotted 1.5px;
+}
+#ligne-eps236{
+    border-bottom: black solid 2px;
+}
+#resultat-eps2 > td{
+    border-top: black solid 2px;
+    border-bottom: black solid 2px;
+    border-right: black solid 2px;
+}
+#ligne-MDS117 {
+    border-top: dotted black 1.5px;
+    border-bottom: dotted black 1.5px;
+    border-right: dotted black 1.5px;
+}

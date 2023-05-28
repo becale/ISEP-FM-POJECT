@@ -10,7 +10,7 @@
         {% load static %}
 
         <!--<link rel="stylesheet" href="{% static "bulletin/css/releveCommun.css" %}" media="screen">-->
-        <link rel="stylesheet" href="{% static 'bulletin/css/releveCommunstaps2.css' %}" >
+        <link rel="stylesheet" href="{% static 'bulletin/css/releveCommuns2staps2.css' %}" >
         <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}"> 
         <!--<link rel="stylesheet" href="{static 'bulletin/css/releveCommunPrint.css'}">-->
 
@@ -87,7 +87,7 @@
                     <table id="table1">
                         <thead>
                             <th rowspan=""></th>
-                            <th>UE Fondamentales</th>
+                            <!--<th>UE Fondamentales</th>-->
                             <th>UE Professionnelles</th>
                             <th>UE Transversales</th>
                         </thead>
@@ -101,7 +101,7 @@
                                     Bordereau de NOTES EPS2 2022-2023
                                </td>
                                <!--Tableau des UE FONDAMENTALES-->
-                               <td rowspan="3">
+                               <td rowspan="3" style='display:none'>
                                     <table id="nested1">
                                         <tr id="nestedl1">
                                             <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS231</td>
@@ -119,19 +119,19 @@
                                <td rowspan="3">
                                     <table id="nested2">
                                         <tr id="nestedl2">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">EPS233</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">Stage-Pro</td>
                                             <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS234</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS245a ath</td>
                                             <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS235 ath</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS235 bsk</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS235 foot</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS235 gym</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS235 judo</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS235 lutte</td>
-                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS245f foot</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS245j judo</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS245g Gym</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS246 Ana</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS247 Physio</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS248 Eps</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS249 Trauma</td>
                                             <!--<td rowspan="3" class="nested-border nested2-td-with">Moy EPS235</td>-->
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS236</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS250 Peda-Pra</td>
                                             <td rowspan="3" class="nested-border nested2-td-with">Moy Groupe</td>
                                             <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Mention</td>
                                         </tr>
@@ -144,11 +144,11 @@
                                <td rowspan="3">
                                     <table id="nested3">
                                         <tr id="nestedl3">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS237</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS251</td>
                                             <!--<td rowspan="3" class="nested-border">Menrtion</td>-->
-                                            <td rowspan="3" class="nested-border">EPS238</td>
+                                            <!--<td rowspan="3" class="nested-border">EPS238</td>-->
                                             <!--<td rowspan="3" class="nested-border">Menrtion</td>-->
-                                            <td rowspan="3" class="nested-border">EPS239</td>
+                                            <td rowspan="3" class="nested-border">EPS252</td>
                                             <td rowspan="3" class="nested-border">Moy Groupe</td>
                                             <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
                                         </tr>
@@ -192,12 +192,12 @@
                                 </td>
 
                                 <!--Tableau CONTENANT LES INFOS DES ETUDIANTS (TABE2)--> 
-                               <td id="tabf">
+                               <td id="tabf" style="display:none">
                                     <table id="nested11">
                                         <tr class="tabuef" style="">
                                             <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
-                                            <!--<td rowspan="3" class="nested-border">2</td>-->
-                                            <td rowspan="3" class="nested-border"></td>
+                                            <td rowspan="3" class="nested-border">2</td>
+                                            <!--<td rowspan="3" class="nested-border"></td>-->
                                             <td rowspan="3" class="nested-border"></td>
                                             <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>  
@@ -220,7 +220,7 @@
                                     <table id="nested22">
                                         <tr class="tabuep">
                                             <td rowspan="3" id="" class="nested-border nested2-td-with" style="border-left: 0px;"></td>
-                                            <!--<td rowspan="3" class="nested-border nested2-td-with"></td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
                                             <td rowspan="3" class="nested-border nested2-td-with"></td>
                                             <!--<td rowspan="3" class="nested-border nested2-td-with"></td>-->
                                             <td rowspan="3" class="nested-border nested2-td-with"></td>
@@ -268,7 +268,7 @@
                                             <!--<td rowspan="3" class="nested-border">2</td>-->
                                             <td rowspan="3" class="nested-border"></td>
                                             <!--<td rowspan="3" class="nested-border">2</td>-->
-                                            <td rowspan="3" class="nested-border"></td>
+                                            <!--<td rowspan="3" class="nested-border"></td>-->
                                             <td rowspan="3" class="nested-border"></td>
                                             <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
                                         </tr>
@@ -335,7 +335,7 @@
 
             <main>
                 <div id="title">
-                    BORDEREAU DE NOTES  SEMESTRE 3 EPS2  2022-2023
+                    BORDEREAU DE NOTES  SEMESTRE 4 EPS2  2022-2023
                 </div>
 
                 <!--TABLEAU GENERAL-->
@@ -586,7 +586,7 @@
             <main class="container">
                 <div class="row title-doc">
                     <div id="title-doc" class="col-10 title-doc-style">PROCES VERBAL DES NOTES</div> 
-                    <span class=" col-2 span-style">Edition du : 11-01-2023</span>   
+                    <span class=" col-2 span-style">Edition du : 17-05-2023</span>   
                 </div>
 
                 <div class="row info-serie">

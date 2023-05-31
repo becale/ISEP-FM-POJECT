@@ -1647,7 +1647,7 @@ function GenerateBullStaps2Semestre3() {
   tr2.appendChild(td10); //Line 3
 
   var td11 = document.createElement('td');
-  td11.setAttribute('id', 'EPS231-codeue');
+  td11.setAttribute('id', 'EPS232-codeue');
   td11.innerHTML = "EPS232";
   var td12 = document.createElement('td');
   td12.setAttribute('id', 'EPS232-matiere');
@@ -1973,7 +1973,41 @@ function GenerateBullStaps2Semestre3() {
   tr7.appendChild(td50);
   tr7.appendChild(td51);
   tr7.appendChild(td52);
-  tr7.appendChild(td53); //Line 8
+  tr7.appendChild(td53); //
+  //Line 7
+
+  /*var td455=document.createElement('td')
+  td455.setAttribute("id","EPS236-codeue")
+  td455.innerHTML=`EPS236`
+    var td466=document.createElement('td')
+  td466.setAttribute("id","EPS236-matiere")
+  td466.innerHTML=`Pédagogie Pratique II`
+    var td477=document.createElement('td')
+  td477.setAttribute("id","EPS236-note")
+    var td488=document.createElement('td')
+  td488.setAttribute("id","EPS236-coef")
+    var td499=document.createElement('td')
+  td499.setAttribute("id","EPS236-total")
+    var td500=document.createElement('td')
+  td500.setAttribute("id","EPS236-rang")
+    var td511=document.createElement('td')
+  td511.setAttribute("id","EPS236-mention")
+    var td522=document.createElement('td')
+  td522.setAttribute("id","EPS236-session")
+    var td533=document.createElement('td')
+  td533.setAttribute("id","EPS236-credits")
+    var tr77=document.createElement('tr')
+  tr77.setAttribute('id','ligne-eps236')
+  tr77.appendChild(td455)
+  tr77.appendChild(td466)
+  tr77.appendChild(td477)
+  tr77.appendChild(td488)
+  tr77.appendChild(td499)
+  tr77.appendChild(td500)
+  tr77.appendChild(td511)
+  tr77.appendChild(td522)
+  tr77.appendChild(td533)*/
+  //Line 8
 
   var th3 = document.createElement('th');
   th3.setAttribute('scope', 'row');
@@ -2244,6 +2278,60 @@ function GenerateBullStaps2Semestre3() {
 
   semestreResult2 = semestreResult.cloneNode(true);
   semestreResult2.setAttribute('id', 'semestreResult2');
+  /**MODIFICATION SEMESTRE 2 */
+  //Ligne 1 & 2
+
+  semestreResult2.children[0].children[1].children[0].children[0].innerHTML = "SEMESTRE 4";
+
+  for (j = 2; j <= 11; j++) {
+    semestreResult2.children[0].children[1].children[0].children[j].innerHTML = "--";
+  }
+
+  for (j = 0; j <= 8; j++) {
+    semestreResult2.children[0].children[1].children[1].children[j].innerHTML = "--";
+  } //Ligne 3
+
+
+  semestreResult2.children[0].children[1].children[2].children[1].innerHTML = "EPS244";
+  semestreResult2.children[0].children[1].children[2].children[2].innerHTML = "Sage-Professionnel"; //Ligne 4
+
+  semestreResult2.children[0].children[1].children[3].children[0].innerHTML = "EPS245a";
+  semestreResult2.children[0].children[1].children[3].children[1].innerHTML = "Didactique des APS : Athlétisme II"; //Ligne 5
+
+  semestreResult2.children[0].children[1].children[4].children[0].innerHTML = "EPS245f";
+  semestreResult2.children[0].children[1].children[4].children[1].innerHTML = "DIDACTIQUE DES APS : FOOTBALL II"; //Ligne 6
+
+  semestreResult2.children[0].children[1].children[5].children[0].innerHTML = "EPS245j";
+  semestreResult2.children[0].children[1].children[5].children[1].innerHTML = "DIDACTIQUE DES APS : JUDO II"; //Ligne 7
+
+  semestreResult2.children[0].children[1].children[6].children[0].innerHTML = "EPS245g";
+  semestreResult2.children[0].children[1].children[6].children[1].innerHTML = "DIDACTIQUE DES APS : GY"; //Ligne 8
+
+  semestreResult2.children[0].children[1].children[7].children[0].innerHTML = "EPS246";
+  semestreResult2.children[0].children[1].children[7].children[1].innerHTML = "ANATOMIE"; //Ligne 9
+
+  semestreResult2.children[0].children[1].children[8].children[0].innerHTML = "EPS247";
+  semestreResult2.children[0].children[1].children[8].children[1].innerHTML = "PHYSIOLOGIE"; //Ligne 10
+
+  semestreResult2.children[0].children[1].children[9].children[0].innerHTML = "EPS248";
+  semestreResult2.children[0].children[1].children[9].children[1].innerHTML = "EDUCATION PHYSIQUE : Loisirs II"; //Ligne 11
+
+  semestreResult2.children[0].children[1].children[10].children[0].innerHTML = "EPS249";
+  semestreResult2.children[0].children[1].children[10].children[1].innerHTML = "TRAUMATOLOGIE - PREMIERS SECOURS"; //INSERTION DU NOEUD
+
+  nodeToCopy = semestreResult2.children[0].children[1].children[10];
+  newNode = nodeToCopy.cloneNode(true);
+  newNode.setAttribute('id', 'ligne-eps250');
+  parentNode = semestreResult2.children[0].children[1];
+  parentNode.insertBefore(newNode, nodeToCopy);
+  /**MODIFICATIONS STYLE */
+
+  parentNode.children[2].children[0].setAttribute('rowspan', "10");
+  parentNode.children[2].children[6].setAttribute('rowspan', "10");
+  parentNode.children[0].children[0].setAttribute('rowspan', "16"); //parentNode.children[3].children[8].setAttribute('rowspan', "3")
+
+  parentNode.children[4].children[8].setAttribute('rowspan', ""); //Fixation sur le MAIN
+
   main.appendChild(semestreResult);
   main.appendChild(semestreResult2); //Footer
 

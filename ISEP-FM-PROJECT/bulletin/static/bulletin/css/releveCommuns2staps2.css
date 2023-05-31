@@ -579,8 +579,9 @@
   padding-top: 1.5cm;
   }
   
-  .head-stat tr>:nth-child(2){
+  .head-stat tr > :nth-child(2){
   text-decoration: underline;
+  width: 2.5cm;
   }
   .head-stat tr>:nth-child(3){
   text-decoration: underline;
@@ -599,7 +600,7 @@
   width: 1.3cm;
   
   position: relative;
-  top: 5.5cm;
+  top: 4.5cm;
   left: 18cm;
   
   }

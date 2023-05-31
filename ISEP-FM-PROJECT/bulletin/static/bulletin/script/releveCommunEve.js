@@ -92,15 +92,20 @@ window.addEventListener('load',()=>{
                     //if(listStudent[i][2][5]){tab15.cells[j].innerHTML= "V"}else{tab15.cells[j].innerHTML= "NV"}
                     //tab15.cells[j].innerHTML=listStudent[i][3][0]
                 }
+                /**MOYENNE GROUPE 1 */
                 if(j==4){
                     tab15.cells[j].innerHTML= listStudent[i][1][3];
+                    tab15.cells[j].setAttribute('class','titleStyle')
+                    tab15.cells[j].classList.add('class','tdStyle')
 
                     //if(listStudent[i][3][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
                     //tab116.cells[j].innerHTML= '/'
                 }
-                if(j==5){/** MENTION */
-                    if(listStudent[i][1][3] >= 10){tab15.cells[j].innerHTML='V'}else{tab15.cells[j].innerHTML='NV'}
-                     
+                if(j==5){ /*CREDITS*/            /** MENTION */
+                    //if(listStudent[i][1][3] >= 10){tab15.cells[j].innerHTML='V'}else{tab15.cells[j].innerHTML='NV'}
+                    tab15.cells[j].innerHTML= listStudent[i][1][7]+listStudent[i][2][7]+listStudent[i][3][7]+listStudent[i][4][7]
+                    tab15.cells[j].setAttribute('class','titleStyle') 
+                    tab15.cells[j].classList.add('class','tdStyle')
                     //tab116.cells[j].innerHTML= '/'
                 }
             }
@@ -115,8 +120,19 @@ window.addEventListener('load',()=>{
                 if(j==0){tab23.cells[j].innerHTML = listStudent[i][5][0]};
                 if(j==1){tab23.cells[j].innerHTML = listStudent[i][6][0]}
 
-                if(j==2){ tab23.cells[j].innerHTML = listStudent[i][5][3] };
-                if(j==3){if(listStudent[i][5][3] >=10){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
+                /**MOYENNE GROUPE 2 */
+                if(j==2){ 
+                    tab23.cells[j].innerHTML = listStudent[i][5][3] 
+                    tab23.cells[j].setAttribute('class','titleStyle')
+                    tab23.cells[j].classList.add('class','tdStyle')
+                };
+                /**CREDITS */
+                if(j==3){
+                    //if(listStudent[i][5][3] >=10){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}
+                    tab23.cells[j].innerHTML = listStudent[i][5][7]+listStudent[i][6][7]
+                    tab23.cells[j].setAttribute('class','titleStyle')
+                    tab23.cells[j].classList.add('class','tdStyle')
+                };
             }
 
             //tab3

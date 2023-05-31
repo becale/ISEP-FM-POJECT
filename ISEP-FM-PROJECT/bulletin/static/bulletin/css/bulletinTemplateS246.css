@@ -4,7 +4,7 @@ body{
 .container-bull {
     width: 22cm;
     height: 29.7cm;
-    border:solid black 3px;
+    /*border:solid black 3px;*/
 
     margin-left: auto;
     margin-right: auto;
@@ -201,10 +201,10 @@ thead th:nth-child(9){
     width: 1cm;
 }
 thead th:nth-child(10){
-    width: 1.5cm;
+    width: 1.7cm;
 }
 thead th:nth-child(11){
-    width: 1.75cm;
+    width: 1.5cm;
 }
 thead th:nth-child(12){
     width: 1.25cm;
@@ -218,6 +218,7 @@ tbody tr{
 #semestre{
     writing-mode: vertical-rl;
     padding: 5px;
+    transform: rotate(180deg);
 }
 
 tr td{
@@ -464,4 +465,9 @@ tbody tr:nth-child(11) > td{
     border-top: dotted black 1.5px;
     border-bottom: dotted black 1.5px;
     border-right: dotted black 1.5px;
+}
+
+/*SEMESTRE 4 ___ SEMESTRE 4*/
+#semestreResult2{
+    margin-top: 15px;
 }

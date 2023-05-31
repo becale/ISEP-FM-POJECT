@@ -110,7 +110,7 @@ window.addEventListener('load',()=>{
                 }
                 if(j==3){
                     if(listStudent[i][1][3] >= 10){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"};
-                    tab116.cells[j].innerHTML = listStudent[i][1][7]+listStudent[i][2][7]+listStudent[i][3][7]+listStudent[i][4][7]+listStudent[i][10][7]+listStudent[i][11][7]+listStudent[i][12][7]//+listStudent[i][13][7]+listStudent[i][14][7]; //Credits Obtenus
+                    tab116.cells[j].innerHTML = listStudent[i][1][7]+listStudent[i][5][7]+listStudent[i][6][7]+listStudent[i][7][7]+listStudent[i][8][7]+listStudent[i][9][7]+listStudent[i][10][7]+listStudent[i][11][7]+listStudent[i][12][7]//+listStudent[i][13][7]+listStudent[i][14][7]; //Credits Obtenus
                 }
                 if(j==4){
                     tab15.cells[j].innerHTML= listStudent[i][1][3];

@@ -3641,7 +3641,7 @@ def resultatCommuns4staps2(request):
 
                     round( (EPS115a[j]*coefS1STAPS1[1]+EPS115f[j]*coefS1STAPS1[2]+EPS115j[j]*coefS1STAPS1[3]+EPS115g[j]*coefS1STAPS1[4])/(coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]), 2 ), 
                     
-                    sort115g.index(EPS115g[j])+1, (EPS115g[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if (EPS115g[j] >=10) else 0, EPS115gcc[j]['note_cc'], EPS115gsn[j]['note_sn'] 
+                    sort115g.index(EPS115g[j])+1, (EPS115g[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if ( (EPS115a[j]+EPS115f[j]+EPS115j[j]+EPS115g[j]) >=40) else 0, EPS115gcc[j]['note_cc'], EPS115gsn[j]['note_sn'] 
 
                     ],
 

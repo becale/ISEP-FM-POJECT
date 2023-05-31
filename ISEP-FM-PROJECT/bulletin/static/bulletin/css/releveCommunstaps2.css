@@ -2,9 +2,7 @@
 *{
     box-sizing: border-box;
   }
-  body {
-    /*background: rgb(204,204,204); */
-  }
+
   #page {
     background: white;
     display: block;
@@ -279,7 +277,7 @@
   
   .tabuet > td{
     font-size: 10px;
-    width: 14.28%;
+    width: 20%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -562,6 +560,7 @@
   
   #table-stat th {
   border: none;
+  width: 2.5cm;
   }
   #table-stat td{
   border: none;
@@ -661,4 +660,10 @@
 
   #table2-head th:nth-child(1){
     width: 7cm;
+  }
+
+  /**SEMESTRE RESULTS 2*/
+
+  #semestreResult2{
+    
   }

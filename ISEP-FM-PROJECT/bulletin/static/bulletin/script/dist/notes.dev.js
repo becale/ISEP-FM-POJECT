@@ -25,9 +25,14 @@ getButtonId();
 function modal() {
   tbodylistStudent = document.getElementById('listetudiant'); // Get the modal For the add 
 
-  modal = document.getElementById("myModal"); // Get the buttons that open the modal
+  modal = document.getElementById("myModal");
+  main = document.getElementById('main');
+  modal2 = modal.cloneNode(true);
+  modal2.setAttribute('id', 'modal2');
+  main.appendChild(modal2); // Get the buttons that open the modal
 
   var btn = document.getElementsByClassName("myBtn");
+  var btn1 = document.getElementsByClassName("myBtn-1");
   /**BOUTON DE FERMETURE NOTES */
   // GET the button that closes the modal
 
@@ -38,32 +43,22 @@ function modal() {
     //console.log(tbodylistStudent);
     tbodylistStudent.innerHTML = "";
     modal.style.display = "none";
+  }; //MODAL 2
+
+
+  spanClose1 = document.getElementsByClassName("close")[1]; //When the user clicks on span (x), close the modal
+
+  spanClose1.onclick = function () {
+    /**VIDAGE DU CONTENEUR DE LISTE DES ETUDIANTS */
+    //console.log(tbodylistStudent);
+    modal2.children[0].children[0].children[2].children[0].children[0].children[1].innerHTML = "";
+    modal2.style.display = "none";
   };
-  /*****BOUTON DE MODIFICATION NOTES */
-  // Get the buttons that open the modal
-  //var btn1 = document.getElementsByClassName("myBtn-1");
-  //var btn = document.getElementById("myBtn");
-  // GET the button that closes the modal
-  //var spanClose = document.getElementsByClassName("close")[0];
-  // when the user clicks the button, open the modal
-
-  /*for(let i=0; i<btn1.length; i++){
-  btn1[i].onclick = function(){
-    modal.style.display = "block"
-    };
-  }*/
-
-  /**AJOUT DYNAMIQUE DES REGLES DE VALIDATION AUX INPUT DU FORMULAIRE */
-
-  /*btn[i].onclick=function(){
-    
-  }*/
-
   /**ITERATION AFIN D'OBTENIR LES LISTES DES ETUDIANTS INSCRITS DANS LES MATIERES */
 
 
   var _loop = function _loop(i) {
-    btn[i].onclick = function () {
+    btn[i].onclick = function (e) {
       if (myArr[i].code_UE.startsWith("EPS1")) {
         getetudiantStapsNiveau1();
       } else if (myArr[i].code_UE.startsWith("MDS1") || myArr[i].code_UE
@@ -86,6 +81,34 @@ function modal() {
 
   for (var i = 0; i < btn.length; i++) {
     _loop(i);
+  }
+  /**Btn-1 */
+
+
+  var _loop2 = function _loop2(_i) {
+    btn1[_i].onclick = function (e) {
+      if (myArr[_i].code_UE.startsWith("EPS1")) {
+        getetudiantStapsNiveau1R();
+      } else if (myArr[_i].code_UE.startsWith("MDS1") || myArr[_i].code_UE
+      /*.startsWith*/
+      == "MDS111b") {
+        getetudiantMDSNiveau1();
+      } else if (myArr[_i].code_UE.startsWith("EPS2")) {
+        getetudiantStapsNiveau2();
+      } else if (myArr[_i].code_UE.startsWith("MAS")) {
+        getAllEtudiantNiveau3();
+      } else if (myArr[_i].code_UE.startsWith("EVE")) {
+        getetudiantEVENiveau3();
+      } else if (myArr[_i].code_UE.startsWith("MSO")) {
+        getetudiantMSONiveau3();
+      }
+
+      modal2.style.display = "block";
+    };
+  };
+
+  for (var _i = 0; _i < btn1.length; _i++) {
+    _loop2(_i);
   }
 }
 /******************************** REQUEST *************************************************************/
@@ -142,9 +165,9 @@ function getUe() {
         var addPathImg1 = "/static/bulletin/icones/edit.png";
         imgbtn1.setAttribute("src", addPathImg1);
         var myBtn1 = document.createElement('button');
-        myBtn1.setAttribute('id', "myBtn");
-        myBtn1.setAttribute('class', 'myBtn-1');
-        myBtn1.appendChild(imgbtn1);
+        myBtn1.setAttribute('id', "myBtn-".concat(i));
+        myBtn1.setAttribute('class', 'myBtn-1'); //myBtn1.appendChild(imgbtn1)
+
         var add = document.createElement('div');
         add.setAttribute("id", "add");
         add.appendChild(myBtn);
@@ -187,7 +210,7 @@ function getUe() {
 }
 
 getUe();
-/** REQUEST ETUDIANTS STAPTS NIVEAU 1 */
+/** REQUEST ETUDIANTS STAPS NIVEAU 1 */
 
 function getetudiantStapsNiveau1() {
   var xmlhttp = new XMLHttpRequest();
@@ -195,7 +218,8 @@ function getetudiantStapsNiveau1() {
 
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      myEtudiantStaps1 = JSON.parse(this.responseText);
+      myEtudiantStaps1 = JSON.parse(this.responseText); //SN & CC
+
       /** Ajout des lignes pour insertion des notes des étudiants */
 
       /**Changement du TITRE Du modal */
@@ -240,6 +264,144 @@ function getetudiantStapsNiveau1() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      } //RATTRAPAGE
+
+
+      for (var _i2 = 0; _i2 < myEtudiantStaps1.length; _i2++) {
+        var _tabledata = document.createElement('td');
+
+        _tabledata.setAttribute('scope', 'row');
+
+        _tabledata.innerText = myEtudiantStaps1[_i2].id;
+
+        var _tabledata2 = document.createElement('td');
+
+        _tabledata2.innerText = myEtudiantStaps1[_i2].matricule;
+        var nom = myEtudiantStaps1[_i2].nom + ' ' + myEtudiantStaps1[_i2].prenom;
+
+        var _tabledata3 = document.createElement('td');
+
+        _tabledata3.innerText = nom;
+
+        var _tabledata4Input = document.createElement('input');
+
+        _tabledata4Input.type = "text";
+
+        _tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[_i2].matricule, "  ").concat(idUe));
+
+        _tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[_i2].matricule, " ").concat(idUe));
+
+        _tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[_i2].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+
+        _tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
+
+
+        var _tabledata4 = document.createElement('td');
+
+        _tabledata4.appendChild(_tabledata4Input);
+
+        var _tabledata5Input = document.createElement('input');
+
+        _tabledata5Input.type = "text";
+
+        _tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1[_i2].matricule, " ").concat(idUe));
+
+        _tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[_i2].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
+
+
+        _tabledata5Input.setAttribute('class', 'noteField');
+
+        var _tabledata5 = document.createElement('td');
+
+        _tabledata5.appendChild(_tabledata5Input);
+
+        var _ligne = document.createElement('tr');
+
+        _ligne.appendChild(_tabledata);
+
+        _ligne.appendChild(_tabledata2);
+
+        _ligne.appendChild(_tabledata3);
+
+        _ligne.appendChild(_tabledata4);
+
+        _ligne.appendChild(_tabledata5);
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+
+
+        var _listStudent = document.getElementById('listetudiant');
+
+        _listStudent.appendChild(_ligne);
+      }
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
+/** REQUEST ETUDIANTS STAPS NIVEAU 1 RATTRAPAGE */
+
+
+function getetudiantStapsNiveau1R() {
+  //MODAL RECU
+  //myFormRt = myForm.cloneNode(true)
+  //myFormRt.setAttribute('id', 'myformrt')
+  //modal.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none"
+  //myForm.children[2].children[0].children[0].children[0].children[0].children[4].style.display = 'none'
+  //console.log(myForm);
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantStaps1/";
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      myEtudiantStaps1 = JSON.parse(this.responseText); //SN & CC
+
+      /** Ajout des lignes pour insertion des notes des étudiants */
+
+      /**Changement du TITRE Du modal */
+      //listeTitle = document.getElementById('listetudiant-title')
+
+      listeTitle = modal2.children[0].children[0].children[1].children[1];
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+
+      for (var i = 0; i < myEtudiantStaps1.length; i++) {
+        var tabledata1 = document.createElement('td');
+        tabledata1.setAttribute('scope', 'row');
+        tabledata1.innerText = myEtudiantStaps1[i].id;
+        var tabledata2 = document.createElement('td');
+        tabledata2.innerText = myEtudiantStaps1[i].matricule;
+        var nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom;
+        var tabledata3 = document.createElement('td');
+        tabledata3.innerText = nom;
+        var tabledata4Input = document.createElement('input');
+        tabledata4Input.type = "text";
+        tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
+
+        var tabledata4 = document.createElement('td');
+        tabledata4.appendChild(tabledata4Input);
+        var tabledata5Input = document.createElement('input');
+        tabledata5Input.type = "text";
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('required', '');
+        tabledata5Input.setAttribute('class', 'noteField');
+        var tabledata5 = document.createElement('td');
+        tabledata5.appendChild(tabledata5Input);
+        var ligne = document.createElement('tr');
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4); //ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+
+        var listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1];
+        listStudent12.appendChild(ligne);
       }
     }
   };

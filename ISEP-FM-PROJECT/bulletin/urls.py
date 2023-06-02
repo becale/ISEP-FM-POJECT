@@ -18,6 +18,8 @@ urlpatterns=[
     path('etudiantNiveau3EVE/', views.EtudiantNiveau3EVE, name="etudiantniveau3EVE"),
 
     path('notes/ajoutNoteEtudiant/', views.AddNoteEtudiant,name="addNoteEtudiant"),
+    path('notes/ajoutNoteEtudiantRattrapage/', views.AddNoteEtudiantRattrapage,name="addNoteEtudiantRattrapage"),
+
     path('BulletinUnique/',views.BulletinUnique, name="bulletinUnique"),
     path('BulletinSpecialite/',views.BulletinSpecialite, name="bulletinSpacialite"),
     path('BullS2EPS/', views.test, name="bull"),

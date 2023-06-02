@@ -2614,24 +2614,65 @@ function GenerateBullStaps2Semestre3(){
   //Ligne 11
   semestreResult2.children[0].children[1].children[10].children[0].innerHTML="EPS249"
   semestreResult2.children[0].children[1].children[10].children[1].innerHTML="TRAUMATOLOGIE - PREMIERS SECOURS"
+  //Ligne 13
+  semestreResult2.children[0].children[1].children[11].children[1].innerHTML="EPS251"
+  semestreResult2.children[0].children[1].children[11].children[2].innerHTML="ECONOMIE GENERALE"
+  //Ligne 14
+  semestreResult2.children[0].children[1].children[12].children[0].innerHTML="EPS252"
+  semestreResult2.children[0].children[1].children[12].children[1].innerHTML="TECHNIQUE D'EXPRESSION FRANCAISE II"
+
 
   //INSERTION DU NOEUD
   nodeToCopy = semestreResult2.children[0].children[1].children[10]
 
   newNode = nodeToCopy.cloneNode(true)
   newNode.setAttribute('id', 'ligne-eps250')
+  //newNode.children[1].innerHTML = "PEDAGOGIE PRATIQUE III"
+
   parentNode = semestreResult2.children[0].children[1]
   parentNode.insertBefore(newNode, nodeToCopy)
+    //Ligne 12
+    semestreResult2.children[0].children[1].children[11].children[0].innerHTML="EPS250"
+    semestreResult2.children[0].children[1].children[11].children[1].innerHTML="PEDAGOGIE PRATIQUE III"
+    //line
+    semestreResult2.children[0].children[1].children[15].children[0].innerHTML="RESULTATS SEMESTRE 4"
+    semestreResult2.children[0].children[1].children[15].children[5].innerHTML="Total Crédits Semestre 4"
+
+
+  //node 248
+  node248 = semestreResult2.children[0].children[1].children[9]
+  tdvar = semestreResult2.children[0].children[1].children[10].children[8]
+  tdcredit = tdvar.cloneNode(true)
+  tdcredit.setAttribute('id', 'eps248-credit')
+  node248.insertBefore(tdcredit, node248.lastChild)
+
+  //node 247
+  tdcredit1 = tdvar.cloneNode(true)
+  tdcredit1.setAttribute('id', 'eps247-credit')
+  node247 = semestreResult2.children[0].children[1].children[8]
+  node247.insertBefore(tdcredit1, node247.lastChild)
+
+  //node 246
+  tdcredit12 = tdvar.cloneNode(true)
+  tdcredit12.setAttribute('id', 'eps246-credit')
+  node246 = semestreResult2.children[0].children[1].children[7]
+  node246.insertBefore(tdcredit12, node246.lastChild)
+
 
   /**MODIFICATIONS STYLE */
   parentNode.children[2].children[0].setAttribute('rowspan', "10")
 
   parentNode.children[2].children[6].setAttribute('rowspan', "10")
 
-  parentNode.children[0].children[0].setAttribute('rowspan', "16")
+  parentNode.children[0].children[0].setAttribute('rowspan', "15") //16 à 15
 
-  //parentNode.children[3].children[8].setAttribute('rowspan', "3")
-  parentNode.children[4].children[8].setAttribute('rowspan', "")
+  parentNode.children[3].children[8].setAttribute('rowspan', "4")
+  parentNode.children[4].children[8].style.display="none";
+
+  parentNode.children[14].style.display = "none"
+
+  parentNode.children[12].children[0].setAttribute('rowspan', "2")
+  parentNode.children[12].children[6].setAttribute('rowspan', "2")
   
 
 

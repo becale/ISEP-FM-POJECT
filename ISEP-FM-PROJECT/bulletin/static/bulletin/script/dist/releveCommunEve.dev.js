@@ -92,7 +92,39 @@ window.addEventListener('load', function () {
 
 
         if (j == 4) {
-          tab15.cells[j].innerHTML = listStudent[i][1][3];
+          var check0 = 0;
+          var check1 = 0;
+          var check2 = 0;
+          var check3 = 0;
+
+          if (listStudent[i][1][0] <= 7) {
+            check0 = 1;
+          }
+
+          if (listStudent[i][2][0] <= 7) {
+            check1 = 1;
+          }
+
+          if (listStudent[i][3][0] <= 7) {
+            check2 = 1;
+          }
+
+          if (listStudent[i][4][0] <= 7) {
+            check3 = 1;
+          }
+
+          check = check0 + check1 + check2 + check3; //console.log(listStudent[i][1][0]);
+
+          if (check > 0) {
+            tab15.cells[j].innerHTML = '--';
+          } else {
+            tab15.cells[j].innerHTML = listStudent[i][1][3];
+          }
+
+          if (listStudent[i][1][3] < 10) {
+            tab15.cells[j].innerHTML = '--';
+          }
+
           tab15.cells[j].setAttribute('class', 'titleStyle');
           tab15.cells[j].classList.add('class', 'tdStyle'); //if(listStudent[i][3][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
           //tab116.cells[j].innerHTML= '/'
@@ -129,7 +161,30 @@ window.addEventListener('load', function () {
 
 
         if (j == 2) {
-          tab23.cells[j].innerHTML = listStudent[i][5][3];
+          var check00 = 0;
+          var check11 = 0;
+
+          if (listStudent[i][1][0] <= 7) {
+            check00 = 1;
+          }
+
+          if (listStudent[i][2][0] <= 7) {
+            check11 = 1;
+          }
+
+          checka = check00 + check11;
+
+          if (checka > 0) {
+            tab23.cells[j].innerHTML = '--';
+          } else {
+            tab23.cells[j].innerHTML = listStudent[i][5][3];
+          }
+
+          if (listStudent[i][5][3] < 10) {
+            tab23.cells[j].innerHTML = '--';
+          } //tab23.cells[j].innerHTML = listStudent[i][5][3] 
+
+
           tab23.cells[j].setAttribute('class', 'titleStyle');
           tab23.cells[j].classList.add('class', 'tdStyle');
         }
@@ -158,10 +213,14 @@ window.addEventListener('load', function () {
           tab33.cells[j].innerHTML = listStudent[i][7][1];
         }
 
-        ;
+        ; //Moyenne
 
         if (j == 1) {
-          tab33.cells[j].innerHTML = listStudent[i][7][2];
+          if (listStudent[i][7][2] < 10) {
+            tab33.cells[j].innerHTML = '--';
+          } else {
+            tab33.cells[j].innerHTML = listStudent[i][7][2];
+          }
         }
 
         ;
@@ -803,4 +862,16 @@ window.addEventListener('load', function () {
 
 function floatfix(a) {
   return (100 - a).toFixed(2);
+}
+
+function checkNote(a) {
+  var check = 0;
+
+  for (i = 0; i <= a.length; i++) {
+    if (a[i] <= 7) {
+      check += 1;
+    }
+  }
+
+  return check;
 }

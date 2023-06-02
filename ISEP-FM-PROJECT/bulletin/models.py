@@ -147,8 +147,9 @@ class Evaluation(models.Model):
     note_sn = models.FloatField(null=False)
     note_Examen = models.FloatField(null=False)
     date_Examen = models.DateField(null=True, default='1800-01-01', blank=True)
-    #note_rattrapage = models.FloatField(null=True)
-    #date_Rattrapage = models.DateField(null=True)
+    
+    note_rattrapage = models.FloatField(null=True)
+    date_Rattrapage = models.DateField(null=True)
 
     #Ajout du champ date pour les évaluation
 

@@ -278,11 +278,11 @@ tbody tr:nth-child(6){
 tbody tr:nth-child(9){
     border-bottom: black solid 2px;
 }
-tbody tr:nth-child(11) > td{
+/*tbody tr:nth-child(11) > td{
     border-top: black solid 2px;
     border-bottom: black solid 2px;
     border-right: 2px solid black;
-}
+}*/
 
 
 

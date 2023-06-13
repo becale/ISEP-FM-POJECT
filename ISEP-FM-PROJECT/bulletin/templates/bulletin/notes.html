@@ -47,6 +47,7 @@
             <div id="myModal" class="modal">
                 <!-- Modal content -->
                 <div class="modal-content" id="modal-content">
+
                     <form id="myForm">
                         {% csrf_token %} 
                         <div class="modal-header">
@@ -69,14 +70,54 @@
                                 </table>
                             </div>
                         </div>
+
                         <div class="modal-footer">
                             <!--<button class="submit-note"  type="submit" value="AJOUTER LES NOTES"></button>-->
                             <input id="submit" type="submit" value="AJOUTER LES NOTES">
                         </div>
+
                     </form>
+
                 </div>
             </div>
-            </div>
+            <!--</div>-->
+
+             <!-- Modal2 -->
+             <div id="modal2" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content" id="modal-content">
+
+                    <form id="myform2">
+                        {% csrf_token %} 
+                        <div class="modal-header">
+                            <span class="close">&times;</span>
+                            <h2 id="listetudiant-title">LISTE DES ETUDIANTS INSCRITS A L'UE XXXXX POUR L'ANNEE 202X-202X</h2>
+                        </div>
+                        <div class="modal-body">
+                            <!--<div id="modalNotes">-->
+                            <div id="modalNote-body" class="">
+                                <table id="table-form" class="fixed-header">
+                                    <thead id=""> <!-- id="table-head" -->
+                                        <th scope="col">N<sup>0</sup></th>
+                                        <th scope="col">Matricule (s)</th>
+                                        <th scope="col">Nom (s)</th>
+                                        <th scope="col">Contrôle Continu (CC)</th>
+                                        <th scope="col">Session Normale (SN)</th>
+                                    </thead>
+                                <tbody id="listetudiant2"> </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <!--<button class="submit-note"  type="submit" value="AJOUTER LES NOTES"></button>-->
+                            <input id="submit2" type="submit" value="AJOUTER LES NOTES">
+                        </div>
+
+                    </form>
+                </div>
+             </div>
+            
 
                 <div class="row">
                     <!--<div class="col-3"></div>-->

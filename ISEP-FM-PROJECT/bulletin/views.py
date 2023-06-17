@@ -10,6 +10,7 @@ from django.views.generic import View
 from .utils import render_to_pdf 
 
 import statistics as stat
+#import numpy as np
 
 
 # Create your views here.
@@ -125,34 +126,34 @@ def bulls1epsmds(request, filiere):
         creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
         creditS1MDS1 = epurationCre(creditS1MDS1)
         
-        MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_Examen'))
+        MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN').values('note_Examen'))
         sort111 = epurationTriCroissant(MDS111)
 
-        MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_Examen'))
+        MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN').values('note_Examen'))
         sort111b = epurationTriCroissant(MDS111b)
 
-        MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_Examen'))
+        MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN').values('note_Examen'))
         sort112 = epurationTriCroissant(MDS112)
 
-        MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_Examen'))
+        MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN').values('note_Examen'))
         sort112b = epurationTriCroissant(MDS112b)
 
-        MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_Examen'))
+        MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN').values('note_Examen'))
         sort113 = epurationTriCroissant(MDS113)
 
-        MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_Examen'))
+        MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN').values('note_Examen'))
         sort114 = epurationTriCroissant(MDS114)
 
-        MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_Examen'))
+        MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115 = epurationTriCroissant(MDS115)
 
-        MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_Examen'))
+        MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN').values('note_Examen'))
         sort116 = epurationTriCroissant(MDS116)
 
-        MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_Examen'))
+        MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN').values('note_Examen'))
         sort117 = epurationTriCroissant(MDS117)
 
-        MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_Examen'))
+        MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN').values('note_Examen'))
         sort117b = epurationTriCroissant(MDS117b)
 
         listeMatrice = []
@@ -228,40 +229,40 @@ def bulls1epsmds(request, filiere):
         creditS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("nombre_credit"))
         creditS1STAPS1 = epurationCre(creditS1STAPS1)
 
-        EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=50).values('note_Examen'))
+        EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_Examen'))
         sort111 = epurationTriCroissant(EPS111)
 
-        EPS112 = list(Evaluation.objects.filter(uniteEnseignement_id=51).values('note_Examen'))
+        EPS112 = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='EXAMEN').values('note_Examen'))
         sort112 = epurationTriCroissant(EPS112)
 
-        EPS113 = list(Evaluation.objects.filter(uniteEnseignement_id=52).values('note_Examen'))
+        EPS113 = list(Evaluation.objects.filter(uniteEnseignement_id=52, natureEvaluation='EXAMEN').values('note_Examen'))
         sort113 = epurationTriCroissant(EPS113)
 
-        EPS114 = list(Evaluation.objects.filter(uniteEnseignement_id=53).values('note_Examen'))
+        EPS114 = list(Evaluation.objects.filter(uniteEnseignement_id=53, natureEvaluation='EXAMEN').values('note_Examen'))
         sort114 = epurationTriCroissant(EPS114)
 
-        EPS115a = list(Evaluation.objects.filter(uniteEnseignement_id=54).values('note_Examen'))
+        EPS115a = list(Evaluation.objects.filter(uniteEnseignement_id=54, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115a = epurationTriCroissant(EPS115a)
 
-        EPS115b = list(Evaluation.objects.filter(uniteEnseignement_id=55).values('note_Examen'))
+        EPS115b = list(Evaluation.objects.filter(uniteEnseignement_id=55, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115b = epurationTriCroissant(EPS115b) 
 
-        EPS115j = list(Evaluation.objects.filter(uniteEnseignement_id=56).values('note_Examen'))
+        EPS115j = list(Evaluation.objects.filter(uniteEnseignement_id=56, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115j = epurationTriCroissant(EPS115j)
 
-        EPS115l = list(Evaluation.objects.filter(uniteEnseignement_id=57).values('note_Examen'))
+        EPS115l = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115l = epurationTriCroissant(EPS115l)
 
-        EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=58).values('note_Examen'))
+        EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN').values('note_Examen'))
         sort116 = epurationTriCroissant(EPS116)
 
-        EPS117 = list(Evaluation.objects.filter(uniteEnseignement_id=59).values('note_Examen')) 
+        EPS117 = list(Evaluation.objects.filter(uniteEnseignement_id=59, natureEvaluation='EXAMEN').values('note_Examen')) 
         sort117 = epurationTriCroissant(EPS117)
 
-        EPS118 = list(Evaluation.objects.filter(uniteEnseignement_id=60).values('note_Examen'))
+        EPS118 = list(Evaluation.objects.filter(uniteEnseignement_id=60, natureEvaluation='EXAMEN').values('note_Examen'))
         sort118 = epurationTriCroissant(EPS118)
 
-        EPS119 = list(Evaluation.objects.filter(uniteEnseignement_id=61).values('note_Examen'))
+        EPS119 = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='EXAMEN').values('note_Examen'))
         sort119 = epurationTriCroissant(EPS119)
 
         student = {}
@@ -363,34 +364,34 @@ def bulls2epsmds(request, filiere):
         creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=2,filiere="GESTION").values("nombre_credit"))
         creditS1MDS1 = epurationCre(creditS1MDS1)
 
-        MDS121 =list(Evaluation.objects.filter(uniteEnseignement_id=88).values('note_Examen'))
+        MDS121 =list(Evaluation.objects.filter(uniteEnseignement_id=88, natureEvaluation='EXAMEN').values('note_Examen'))
         sort111 = epurationTriCroissant(MDS121)
 
-        MDS121b =list(Evaluation.objects.filter(uniteEnseignement_id=89).values('note_Examen'))
+        MDS121b =list(Evaluation.objects.filter(uniteEnseignement_id=89, natureEvaluation='EXAMEN').values('note_Examen'))
         sort111b = epurationTriCroissant(MDS121b)
 
-        MDS122 =list(Evaluation.objects.filter(uniteEnseignement_id=90).values('note_Examen'))
+        MDS122 =list(Evaluation.objects.filter(uniteEnseignement_id=90, natureEvaluation='EXAMEN').values('note_Examen'))
         sort112 = epurationTriCroissant(MDS122)
 
-        MDS122b =list(Evaluation.objects.filter(uniteEnseignement_id=91).values('note_Examen'))
+        MDS122b =list(Evaluation.objects.filter(uniteEnseignement_id=91, natureEvaluation='EXAMEN').values('note_Examen'))
         sort112b = epurationTriCroissant(MDS122b)
 
-        MDS123 =list(Evaluation.objects.filter(uniteEnseignement_id=92).values('note_Examen'))
+        MDS123 =list(Evaluation.objects.filter(uniteEnseignement_id=92, natureEvaluation='EXAMEN').values('note_Examen'))
         sort113 = epurationTriCroissant(MDS123)
 
-        MDS124 =list(Evaluation.objects.filter(uniteEnseignement_id=93).values('note_Examen'))
+        MDS124 =list(Evaluation.objects.filter(uniteEnseignement_id=93, natureEvaluation='EXAMEN').values('note_Examen'))
         sort114 = epurationTriCroissant(MDS124)
 
-        MDS125 =list(Evaluation.objects.filter(uniteEnseignement_id=95).values('note_Examen'))
+        MDS125 =list(Evaluation.objects.filter(uniteEnseignement_id=95, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115 = epurationTriCroissant(MDS125)
 
-        MDS126 =list(Evaluation.objects.filter(uniteEnseignement_id=96).values('note_Examen'))
+        MDS126 =list(Evaluation.objects.filter(uniteEnseignement_id=96, natureEvaluation='EXAMEN').values('note_Examen'))
         sort116 = epurationTriCroissant(MDS126)
 
-        MDS127 =list(Evaluation.objects.filter(uniteEnseignement_id=97).values('note_Examen'))
+        MDS127 =list(Evaluation.objects.filter(uniteEnseignement_id=97, natureEvaluation='EXAMEN').values('note_Examen'))
         sort117 = epurationTriCroissant(MDS127)
 
-        MDS127b =list(Evaluation.objects.filter(uniteEnseignement_id=98).values('note_Examen'))
+        MDS127b =list(Evaluation.objects.filter(uniteEnseignement_id=98, natureEvaluation='EXAMEN').values('note_Examen'))
         sort117b = epurationTriCroissant(MDS127b)
 
 
@@ -464,40 +465,40 @@ def bulls2epsmds(request, filiere):
         creditS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="STAPS").values("nombre_credit"))
         creditS1STAPS1 = epurationCre(creditS1STAPS1)
 
-        EPS121 = list(Evaluation.objects.filter(uniteEnseignement_id=99).values('note_Examen'))
+        EPS121 = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_Examen'))
         sort111 = epurationTriCroissant(EPS121)
 
-        EPS122 = list(Evaluation.objects.filter(uniteEnseignement_id=100).values('note_Examen'))
+        EPS122 = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='EXAMEN').values('note_Examen'))
         sort112 = epurationTriCroissant(EPS122)
 
-        EPS123 = list(Evaluation.objects.filter(uniteEnseignement_id=101).values('note_Examen'))
+        EPS123 = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='EXAMEN').values('note_Examen'))
         sort113 = epurationTriCroissant(EPS123)
 
-        EPS124 = list(Evaluation.objects.filter(uniteEnseignement_id=102).values('note_Examen'))
+        EPS124 = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='EXAMEN').values('note_Examen'))
         sort114 = epurationTriCroissant(EPS124)
 
-        EPS125a = list(Evaluation.objects.filter(uniteEnseignement_id=103).values('note_Examen'))
+        EPS125a = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115a = epurationTriCroissant(EPS125a)
 
-        EPS125b = list(Evaluation.objects.filter(uniteEnseignement_id=104).values('note_Examen'))
+        EPS125b = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115b = epurationTriCroissant(EPS125b) 
 
-        EPS125j = list(Evaluation.objects.filter(uniteEnseignement_id=105).values('note_Examen'))
+        EPS125j = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115j = epurationTriCroissant(EPS125j)
 
-        EPS125l = list(Evaluation.objects.filter(uniteEnseignement_id=106).values('note_Examen'))
+        EPS125l = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='EXAMEN').values('note_Examen'))
         sort115l = epurationTriCroissant(EPS125l)
 
-        EPS126 = list(Evaluation.objects.filter(uniteEnseignement_id=108).values('note_Examen'))
+        EPS126 = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='EXAMEN').values('note_Examen'))
         sort116 = epurationTriCroissant(EPS126)
 
-        EPS127 = list(Evaluation.objects.filter(uniteEnseignement_id=109).values('note_Examen')) 
+        EPS127 = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='EXAMEN').values('note_Examen')) 
         sort117 = epurationTriCroissant(EPS127)
 
-        EPS128 = list(Evaluation.objects.filter(uniteEnseignement_id=110).values('note_Examen'))
+        EPS128 = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='EXAMEN').values('note_Examen'))
         sort118 = epurationTriCroissant(EPS128)
 
-        EPS129 = list(Evaluation.objects.filter(uniteEnseignement_id=111).values('note_Examen'))
+        EPS129 = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_Examen'))
         sort119 = epurationTriCroissant(EPS129)
 
         student = {}
@@ -586,6 +587,8 @@ def bulls2epsmds(request, filiere):
 
     return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS}) 
 
+
+## NIVEAU 2 ##
 ####################################################################################### STAPS2 ###############################################################################
 #EPS2 SEMESTRE3
 def bulls3eps2(request, filiere):
@@ -600,46 +603,46 @@ def bulls3eps2(request, filiere):
     creditS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=3,filiere="STAPS").values("nombre_credit"))
     creditS1STAPS1 = epurationCre(creditS1STAPS1)
 
-    EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=62).values('note_Examen'))
+    EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=62, natureEvaluation='EXAMEN').values('note_Examen'))
     sort111 = epurationTriCroissant(EPS111)
 
-    EPS112 = list(Evaluation.objects.filter(uniteEnseignement_id=63).values('note_Examen'))
+    EPS112 = list(Evaluation.objects.filter(uniteEnseignement_id=63, natureEvaluation='EXAMEN').values('note_Examen'))
     sort112 = epurationTriCroissant(EPS112)
 
-    EPS113 = list(Evaluation.objects.filter(uniteEnseignement_id=64).values('note_Examen'))
+    EPS113 = list(Evaluation.objects.filter(uniteEnseignement_id=64, natureEvaluation='EXAMEN').values('note_Examen'))
     sort113 = epurationTriCroissant(EPS113)
 
-    EPS114 = list(Evaluation.objects.filter(uniteEnseignement_id=65).values('note_Examen'))
+    EPS114 = list(Evaluation.objects.filter(uniteEnseignement_id=65, natureEvaluation='EXAMEN').values('note_Examen'))
     sort114 = epurationTriCroissant(EPS114)
 
-    EPS115a = list(Evaluation.objects.filter(uniteEnseignement_id=66).values('note_Examen'))
+    EPS115a = list(Evaluation.objects.filter(uniteEnseignement_id=66, natureEvaluation='EXAMEN').values('note_Examen'))
     sort115a = epurationTriCroissant(EPS115a)
 
-    EPS115b = list(Evaluation.objects.filter(uniteEnseignement_id=67).values('note_Examen'))
+    EPS115b = list(Evaluation.objects.filter(uniteEnseignement_id=67, natureEvaluation='EXAMEN').values('note_Examen'))
     sort115b = epurationTriCroissant(EPS115b) 
 
-    EPS115f = list(Evaluation.objects.filter(uniteEnseignement_id=68).values('note_Examen'))
+    EPS115f = list(Evaluation.objects.filter(uniteEnseignement_id=68, natureEvaluation='EXAMEN').values('note_Examen'))
     sort115f = epurationTriCroissant(EPS115f)
 
-    EPS115g = list(Evaluation.objects.filter(uniteEnseignement_id=69).values('note_Examen'))
+    EPS115g = list(Evaluation.objects.filter(uniteEnseignement_id=69, natureEvaluation='EXAMEN').values('note_Examen'))
     sort115g = epurationTriCroissant(EPS115g)
 
-    EPS115j = list(Evaluation.objects.filter(uniteEnseignement_id=70).values('note_Examen'))
+    EPS115j = list(Evaluation.objects.filter(uniteEnseignement_id=70, natureEvaluation='EXAMEN').values('note_Examen'))
     sort115j = epurationTriCroissant(EPS115j)
 
-    EPS115l = list(Evaluation.objects.filter(uniteEnseignement_id=71).values('note_Examen')) 
+    EPS115l = list(Evaluation.objects.filter(uniteEnseignement_id=71, natureEvaluation='EXAMEN').values('note_Examen')) 
     sort115l = epurationTriCroissant(EPS115l)
 
-    EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=72).values('note_Examen'))
+    EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=72, natureEvaluation='EXAMEN').values('note_Examen'))
     sort116 = epurationTriCroissant(EPS116)
 
-    EPS117 = list(Evaluation.objects.filter(uniteEnseignement_id=73).values('note_Examen'))
+    EPS117 = list(Evaluation.objects.filter(uniteEnseignement_id=73, natureEvaluation='EXAMEN').values('note_Examen'))
     sort117 = epurationTriCroissant(EPS117)
 
-    EPS118 = list(Evaluation.objects.filter(uniteEnseignement_id=74).values('note_Examen'))
+    EPS118 = list(Evaluation.objects.filter(uniteEnseignement_id=74, natureEvaluation='EXAMEN').values('note_Examen'))
     sort118 = epurationTriCroissant(EPS118)
 
-    EPS119 = list(Evaluation.objects.filter(uniteEnseignement_id=75).values('note_Examen'))
+    EPS119 = list(Evaluation.objects.filter(uniteEnseignement_id=75, natureEvaluation='EXAMEN').values('note_Examen'))
     sort119 = epurationTriCroissant(EPS119)
 
     ############################################# NOTES RATTRAPAGES SEMESTRE 3 #######################################################################################
@@ -686,41 +689,41 @@ def bulls3eps2(request, filiere):
 
     listeMatriceR = []
     
-    for j in range ( len(infoEtudiantSTAPS1) ):
+    #for j in range ( len(infoEtudiantSTAPS1) ):
 
-        matriceR = [
-            infoEtudiantSTAPS1[j],
+    #    matriceR = [
+    #        infoEtudiantSTAPS1[j],
 
-            EPS111R[j],
+    #        EPS111R[j],
 
-            EPS112R[j],
+    #        EPS112R[j],
 
-            EPS113R[j],
+    #        EPS113R[j],
 
-            EPS114R[j],
+    #        EPS114R[j],
 
-            EPS115aR[j],
+    #        EPS115aR[j],
 
-            EPS115bR[j],
+    #        EPS115bR[j],
 
-            EPS115fR[j],
+    #        EPS115fR[j],
 
-            EPS115gR[j],
+    #        EPS115gR[j],
 
-            EPS115jR[j],
+    #        EPS115jR[j],
 
-            EPS115lR[j],
+    #        EPS115lR[j],
 
-            EPS116R[j],
+    #        EPS116R[j],
 
-            EPS117R[j],
+    #        EPS117R[j],
 
-            EPS118R[j],
+    #        EPS118R[j],
 
-            EPS119R[j]
-        ]
+    #        EPS119R[j]
+    #    ]
 
-        listeMatriceR.append(matriceR)
+    #    listeMatriceR.append(matriceR)
     
     staps1Moyenne = []
     listeMatrice = []
@@ -735,7 +738,9 @@ def bulls3eps2(request, filiere):
 
                     [ EPS112[j], coefS1STAPS1[1], EPS112[j]*coefS1STAPS1[1], "MOYENNE", sort112.index(EPS112[j])+1,(EPS112[j]>=10), creditS1STAPS1[1]],
 
-                    [ EPS113[j], coefS1STAPS1[2], EPS113[j]*coefS1STAPS1[2], round(  ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115b[j]*coefS1STAPS1[5]) + (EPS115f[j]*coefS1STAPS1[6]) + (EPS115g[j]*coefS1STAPS1[7]) + (EPS115j[j]*coefS1STAPS1[8]) + (EPS115l[j]*coefS1STAPS1[9]) + (EPS116[j]*coefS1STAPS1[10]) ) / (coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]), 2 ), 
+                    [ EPS113[j], coefS1STAPS1[2], EPS113[j]*coefS1STAPS1[2], 
+                    
+                      round(  ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115b[j]*coefS1STAPS1[5])  + (EPS115g[j]*coefS1STAPS1[7]) + (EPS115j[j]*coefS1STAPS1[8]) + (EPS115l[j]*coefS1STAPS1[9]) + (EPS116[j]*coefS1STAPS1[10]) ) / ( coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5] +coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10] ), 2 ), #+ (EPS115f[j]*coefS1STAPS1[6]) +coefS1STAPS1[6]
                     
                       sort113.index(EPS113[j])+1, 
 
@@ -777,15 +782,12 @@ def bulls3eps2(request, filiere):
                     [ EPS119[j],  coefS1STAPS1[13], EPS119[j]*coefS1STAPS1[13], "MOYENNE", sort119.index(EPS119[j])+1, (EPS119[j] >=10), creditS1STAPS1[13] ],
 
                     [ 
-                        ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13]), 
+                        ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]  +coefS1STAPS1[6]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13]),  #+coefS1STAPS1[7]
                     
-                    round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ,2), 
+                        round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6] +EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ,2), #+EPS115g[j]*coefS1STAPS1[7], 
 
-                    round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13] ), 2), #moyenne
+                        round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]  +EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]  +coefS1STAPS1[6]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13] ), 2), #moyenne , , +coefS1STAPS1[7] , +EPS115g[j]*coefS1STAPS1[7]
                         
-                        4,
-
-                        5
                     ]
             ]
             
@@ -869,7 +871,9 @@ def bulls4eps2(request, filiere):
 
                     [ EPS112[j], coefS1STAPS1[1], EPS112[j]*coefS1STAPS1[1], "MOYENNE", sort112.index(EPS112[j])+1,(EPS112[j]>=10), creditS1STAPS1[1]],
 
-                    [ EPS113[j], coefS1STAPS1[2], EPS113[j]*coefS1STAPS1[2], round(  ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115b[j]*coefS1STAPS1[5]) + (EPS115f[j]*coefS1STAPS1[6]) + (EPS115g[j]*coefS1STAPS1[7]) + (EPS115j[j]*coefS1STAPS1[8]) + (EPS115l[j]*coefS1STAPS1[9]) + (EPS116[j]*coefS1STAPS1[10]) ) / (coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]), 2 ), 
+                    [ EPS113[j], coefS1STAPS1[2], EPS113[j]*coefS1STAPS1[2], 
+
+                      round(  ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115f[j]*coefS1STAPS1[6]) + (EPS115b[j]*coefS1STAPS1[5])  + (EPS115j[j]*coefS1STAPS1[8]) + (EPS115l[j]*coefS1STAPS1[9]) + (EPS116[j]*coefS1STAPS1[10]) ) / (coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6] +coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]), 2 ), # +  +coefS1STAPS1[7] , +  (EPS115g[j]*coefS1STAPS1[7])
                     
                       sort113.index(EPS113[j])+1, 
 
@@ -894,6 +898,8 @@ def bulls4eps2(request, filiere):
 
                     [ EPS116[j],  coefS1STAPS1[10], EPS116[j]*coefS1STAPS1[10], "MOYENNE", sort116.index(EPS116[j])+1, (EPS116[j] >=10), creditS1STAPS1[10] ],
 
+
+
                     [ EPS117[j],  coefS1STAPS1[11], EPS117[j]*coefS1STAPS1[11], 
 
                         round( ( (EPS117[j]*coefS1STAPS1[11]) + (EPS118[j]*coefS1STAPS1[12]) + (EPS119[j]*coefS1STAPS1[13]) ) / ( coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13]), 2 ),
@@ -911,15 +917,12 @@ def bulls4eps2(request, filiere):
                     [ EPS119[j],  coefS1STAPS1[13], EPS119[j]*coefS1STAPS1[13], "MOYENNE", sort119.index(EPS119[j])+1, (EPS119[j] >=10), creditS1STAPS1[13] ],
 
                     [ 
-                        ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13]), 
+                        ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]  +coefS1STAPS1[6]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13]), #+coefS1STAPS1[7]
                     
-                    round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ,2), 
+                    round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ,2),  # ,  +EPS115g[j]*coefS1STAPS1[7]
 
-                    round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13] ), 2), #moyenne
+                    round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5] +EPS115f[j]*coefS1STAPS1[6] +EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]  +coefS1STAPS1[6]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13] ), 2), #moyenne , , +coefS1STAPS1[7], +EPS115g[j]*coefS1STAPS1[7]
                         
-                        4,
-
-                        5
                     ]
             ]
             
@@ -1017,10 +1020,10 @@ def bulls4eps2(request, filiere):
             matrice2 = [
                     infoEtudiantSTAPS2[j],
 
-                    #STAGE-PROFESSIONNEL
+                    #STAGE-PROFESSIONNEL 1
                     [ EPS1112[j], coefS1STAPS2[0], EPS1112[j]*coefS1STAPS2[0], "MOYENNE", sort1112.index(EPS1112[j])+1,(EPS1112[j]>=10), creditS1STAPS2[0], creditS1STAPS2[0] if (EPS1112[j]>=10) else 0, EPS1112cc[j]['note_cc'], EPS1112sn[j]['note_sn'] ],
 
-                    #DIDACTIQUE DES APS
+                    #DIDACTIQUE DES APS 2
                     [ EPS115a2[j], coefS1STAPS2[1], EPS115a2[j]*coefS1STAPS2[1], "MOYENNE", sort115a2.index(EPS115a2[j])+1, (EPS115a2[j] >=10), creditS1STAPS2[1], creditS1STAPS2[1] if (EPS115a2[j] >=10) else 0, EPS115a2cc[j]['note_cc'], EPS115a2sn[j]['note_sn'] ], 
 
                     [ EPS115f2[j], coefS1STAPS2[2], EPS115f2[j]*coefS1STAPS2[2], "MOYENNE", sort115f2.index(EPS115f2[j])+1, (EPS115f2[j] >=10), creditS1STAPS2[2], creditS1STAPS2[2] if (EPS115f2[j] >=10) else 0, EPS115f2cc[j]['note_cc'], EPS115f2sn[j]['note_sn'] ],
@@ -1035,22 +1038,22 @@ def bulls4eps2(request, filiere):
 
                     ],
 
-                    #ANATOMIE
+                    #ANATOMIE 6
                     [ EPS1122[j], coefS1STAPS2[5], EPS1122[j]*coefS1STAPS2[5], "MOYENNE", sort1122.index(EPS1122[j])+1, (EPS1122[j]>=10), creditS1STAPS2[5], creditS1STAPS2[5] if (EPS1122[j]>=10) else 0 , EPS1122cc[j]['note_cc'], EPS1122sn[j]['note_sn'] ],
 
-                    #PHYSIOLOGIE
+                    #PHYSIOLOGIE 7
                     [ EPS1133[j], coefS1STAPS2[6], EPS1133[j]*coefS1STAPS2[6], "MOYENNE", sort1133.index(EPS1133[j])+1, (EPS1133[j] >=10), creditS1STAPS2[6], creditS1STAPS2[6] if (EPS1133[j] >=10) else 0, EPS1133cc[j]['note_cc'], EPS1133sn[j]['note_sn'] ],
 
-                    #EDUCATION PHYSIQUE : LOISIRS II
+                    #EDUCATION PHYSIQUE : LOISIRS II 8 
                     [ EPS1144[j],  coefS1STAPS2[7], EPS1144[j]*coefS1STAPS2[7], "MOYENNE", sort1144.index(EPS1144[j])+1, (EPS1144[j] >=10), creditS1STAPS2[7], creditS1STAPS2[7] if (EPS1144[j] >=10) else 0, EPS1144cc[j]['note_cc'], EPS1144sn[j]['note_sn'] ],
 
-                    #TRAUMATOLOGIE - PREMIERS SECOURS
+                    #TRAUMATOLOGIE - PREMIERS SECOURS 9
                     [ EPS1166[j],  coefS1STAPS2[8], EPS1166[j]*coefS1STAPS2[8], "MOYENNE", sort1166.index(EPS1166[j])+1, (EPS1166[j] >=10), creditS1STAPS2[8], creditS1STAPS2[8] if (EPS1166[j] >=10) else 0, EPS1166cc[j]['note_cc'], EPS1166sn[j]['note_sn'] ],
 
-                    #PEDAGOGIE PRATIQUE III
+                    #PEDAGOGIE PRATIQUE III 10
                     [ EPS1177[j],  coefS1STAPS2[9], EPS1177[j]*coefS1STAPS2[9], 
 
-                        round( (EPS1122[j]*coefS1STAPS2[0]+EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4]+EPS1122[j]*coefS1STAPS2[5]+EPS1133[j]*coefS1STAPS2[6]+EPS1144[j]*coefS1STAPS2[7]+EPS1166[j]*coefS1STAPS2[8]+EPS1177[j]*coefS1STAPS2[9])/(coefS1STAPS2[0]+coefS1STAPS2[1]+coefS1STAPS2[2]+coefS1STAPS2[3]+coefS1STAPS2[4]+coefS1STAPS2[5]+coefS1STAPS2[6]+coefS1STAPS2[7]+coefS1STAPS2[8]+coefS1STAPS2[9]), 2),
+                        round( (EPS1112[j]*coefS1STAPS2[0]+EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4]+EPS1122[j]*coefS1STAPS2[5]+EPS1133[j]*coefS1STAPS2[6]+EPS1144[j]*coefS1STAPS2[7]+EPS1166[j]*coefS1STAPS2[8]+EPS1177[j]*coefS1STAPS2[9])/(coefS1STAPS2[0]+coefS1STAPS2[1]+coefS1STAPS2[2]+coefS1STAPS2[3]+coefS1STAPS2[4]+coefS1STAPS2[5]+coefS1STAPS2[6]+coefS1STAPS2[7]+coefS1STAPS2[8]+coefS1STAPS2[9]), 2),
                         
                         sort1177.index(EPS1177[j])+1, 
 
@@ -1065,7 +1068,7 @@ def bulls4eps2(request, filiere):
                         EPS1177sn[j]['note_sn'] 
                     ],
 
-                    #ECONOMIE  
+                    #ECONOMIE  11
                     [ EPS1188[j],  coefS1STAPS2[10], EPS1188[j]*coefS1STAPS2[10], 
 
                         "MOYENNE", 
@@ -1083,10 +1086,12 @@ def bulls4eps2(request, filiere):
                         EPS1188sn[j]['note_sn'] 
                     ],
 
-                    #FRANCAIS
+                    #FRANCAIS 12
                     [ EPS1199[j],  coefS1STAPS2[11], EPS1199[j]*coefS1STAPS2[11], 
 
-                        round( (EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11]) / (coefS1STAPS2[10]+coefS1STAPS2[11]) ,2), #"MOYENNE",
+                        round( (EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11]) / (coefS1STAPS2[10]+coefS1STAPS2[11]) ,2), 
+
+                        #"MOYENNE",
 
                         sort1199.index(EPS1199[j])+1, 
 
@@ -1100,17 +1105,14 @@ def bulls4eps2(request, filiere):
                     ],
 
                     
-                    #SOMME
+                    #SOMME 13 
                     [ 
                         ( coefS1STAPS2[0]+coefS1STAPS2[1]+coefS1STAPS2[2]+coefS1STAPS2[3]+coefS1STAPS2[4]+coefS1STAPS2[5]+coefS1STAPS2[6]+coefS1STAPS2[7]+coefS1STAPS2[8]+coefS1STAPS2[9]+coefS1STAPS2[10]+coefS1STAPS2[11]), 
                     
-                    round( EPS1122[j]*coefS1STAPS2[0]+EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4]+EPS1122[j]*coefS1STAPS2[5]+EPS1133[j]*coefS1STAPS2[6]+EPS1144[j]*coefS1STAPS2[7]+EPS1166[j]*coefS1STAPS2[8]+EPS1177[j]*coefS1STAPS2[9]+EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11] ,2), 
+                        round( EPS1112[j]*coefS1STAPS2[0]+EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4]+EPS1122[j]*coefS1STAPS2[5]+EPS1133[j]*coefS1STAPS2[6]+EPS1144[j]*coefS1STAPS2[7]+EPS1166[j]*coefS1STAPS2[8]+EPS1177[j]*coefS1STAPS2[9]+EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11] ,2), 
 
-                    round(( EPS1122[j]*coefS1STAPS2[0]+EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4]+EPS1122[j]*coefS1STAPS2[5]+EPS1133[j]*coefS1STAPS2[6]+EPS1144[j]*coefS1STAPS2[7]+EPS1166[j]*coefS1STAPS2[8]+EPS1177[j]*coefS1STAPS2[9]+EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11] ) / ( coefS1STAPS2[0]+coefS1STAPS2[1]+coefS1STAPS2[2]+coefS1STAPS2[3]+coefS1STAPS2[4]+coefS1STAPS2[5]+coefS1STAPS2[6]+coefS1STAPS2[7]+coefS1STAPS2[8]+coefS1STAPS2[9]+coefS1STAPS2[10]+coefS1STAPS2[11]), 2), #moyenne
+                        round(( EPS1112[j]*coefS1STAPS2[0]+EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4]+EPS1122[j]*coefS1STAPS2[5]+EPS1133[j]*coefS1STAPS2[6]+EPS1144[j]*coefS1STAPS2[7]+EPS1166[j]*coefS1STAPS2[8]+EPS1177[j]*coefS1STAPS2[9]+EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11] ) / ( coefS1STAPS2[0]+coefS1STAPS2[1]+coefS1STAPS2[2]+coefS1STAPS2[3]+coefS1STAPS2[4]+coefS1STAPS2[5]+coefS1STAPS2[6]+coefS1STAPS2[7]+coefS1STAPS2[8]+coefS1STAPS2[9]+coefS1STAPS2[10]+coefS1STAPS2[11]), 2), #moyenne
                         
-                        4,
-
-                        5
                     ]
             ]
             
@@ -1229,11 +1231,15 @@ def bulls4eps2(request, filiere):
     semestre1MDS.append(listMatriceRattrapage)
 
 ################################################## MATRICE DE SYNTHESE SEMESTRE 4 #################################################################
+    listematriceSynthese = matriceSynthese(listeMatrice2, listMatriceRattrapage, listeMatrice)
+    semestre1MDS.append(listematriceSynthese)
 
     return render(request,'bulletin/BulletinTemplate/bullS4eps.html', {'semestre1MDS': semestre1MDS} ) #
 
 
-#################################################################################################################################### NIVEAU 3###############################
+
+
+## NIVEAU 3##
 #EVE SEMESTRE5
 def bulls5msoeve(request, filiere):
 
@@ -4355,27 +4361,27 @@ def resultatCommunEve(request):
     }
 
 
-    MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_Examen'))
-    MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_cc'))
-    MAS315sn = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_sn'))
+    MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS315sn = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_sn'))
     sort315 = epurationTriCroissant(MAS315)
 
-    MAS325 = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_Examen'))
-    MAS325cc = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_cc'))
-    MAS325sn = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_sn'))
+    MAS325 = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS325cc = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS325sn = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_sn'))
     sort325 = epurationTriCroissant(MAS325)
 
-    MAS335 = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_Examen'))
-    MAS335cc = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_cc'))
-    MAS335sn = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_sn'))
+    MAS335 = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS335cc = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS335sn = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_sn'))
     sort335 = epurationTriCroissant(MAS335)
 
-    MAS345 = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_Examen'))
-    MAS345cc = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_cc'))
-    MAS345sn = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_sn'))
+    MAS345 = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS345cc = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS345sn = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_sn'))
     sort345 = epurationTriCroissant(MAS345)
 
-    EVE355 = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_Examen'))
+    EVE355 = list(Evaluation.objects.filter(uniteEnseignement_id=80, natureEvaluation='EXAMEN').values('note_Examen'))
     EVE355cc = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_cc'))
     EVE355sn = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_sn'))
     sort355 = epurationTriCroissant(EVE355)
@@ -4728,7 +4734,74 @@ def brokeR(a):
 
 
 
+#MATRICE DE SYNTHESE
+def matriceSynthese(matI, matR, mats3):
 
+    listeMoyenne = []
+    listeTotaleMoyenne = []
+
+    #matS = np.array(matI)
+    matS = matI
+
+    #i compteur de candidats
+    for i in range(len(matI)):
+
+        #j compteur de matière
+        for j in range(1,len(matR[0])):
+            
+            #print(matR[i][j])
+            if (matR[i][j] > 0):
+                #0 nouvelle Note
+                matS[i][j][0] = matR[i][j]
+                #2 noteCoefficiée
+                matS[i][j][2] = matS[i][j][0] * matS[i][j][1]
+
+                #5
+                matS[i][j][5] = (matS[i][j][0] >= 10)
+
+                #7
+                matS[i][j][7] = (matS[i][j][6] if matS[i][j][0]>=10 else 0)
+
+                #Au niveau des sommes
+                #Ligne 5 moyenne
+                matS[i][5][3] =  round( ( matS[i][2][0]*matS[i][2][1]+ matS[i][3][0]*matS[i][3][1]+ matS[i][4][0]*matS[i][4][1]+ matS[i][5][0]*matS[i][5][1])/(matS[i][2][1]+matS[i][3][1]+matS[i][4][1]+matS[i][5][1]), 2 )
+
+                #Ligne 10 moyenne
+                matS[i][10][3] = round( ( matS[i][1][0]*matS[i][1][1]+ matS[i][2][0]*matS[i][2][1]+ matS[i][3][0]*matS[i][3][1]+ matS[i][4][0]*matS[i][4][1]+ matS[i][5][0]*matS[i][5][1] +matS[i][6][0]*matS[i][6][1]+matS[i][7][0]*matS[i][7][1]+ matS[i][8][0]*matS[i][8][1]+ matS[i][9][0]*matS[i][9][1]+ matS[i][10][0]*matS[i][10][1] )/( matS[i][1][1]+matS[i][2][1]+matS[i][3][1]+matS[i][4][1]+matS[i][5][1]+matS[i][6][1]+matS[i][7][1]+matS[i][8][1]+matS[i][9][1]+matS[i][10][1] ), 2)
+
+                #Ligne 12 moyenne
+                matS[i][12][3] = round( ( matS[i][11][0]*matS[i][11][1]+matS[i][12][0]*matS[i][12][1] ) / ( matS[i][11][1]+matS[i][12][1] ) ,2)
+
+
+                #Ligne 13 MOYENNE TOTAL
+                matS[i][13][0]  = ( matS[i][1][1]+matS[i][2][1]+matS[i][3][1]+matS[i][4][1]+matS[i][5][1]+matS[i][6][1]+matS[i][7][1]+matS[i][8][1]+matS[i][9][1]+matS[i][10][1]+matS[i][11][1]+matS[i][12][1] )
+
+                matS[i][13][1] =  round ( matS[i][1][0]*matS[i][1][1]+ matS[i][2][0]*matS[i][2][1]+ matS[i][3][0]*matS[i][3][1]+ matS[i][4][0]*matS[i][4][1]+ matS[i][5][0]*matS[i][5][1] +matS[i][6][0]*matS[i][6][1]+matS[i][7][0]*matS[i][7][1]+ matS[i][8][0]*matS[i][8][1]+ matS[i][9][0]*matS[i][9][1]+ matS[i][10][0]*matS[i][10][1]+matS[i][11][0]*matS[i][11][1]+matS[i][12][0]*matS[i][12][1] ,2)
+                
+                matS[i][13][2] = round (  (matS[i][13][1] / matS[i][13][0]) , 2)
+
+                matS[i][j].append('Rattrapage')
+            
+            
+
+
+        #tableau contenant les nouvelles moyennes
+        listeMoyenne.append(matS[i][13][2])
+
+        #val = 
+        listeTotaleMoyenne.append( round(((matS[i][13][1] + mats3[i][15][1]) ), 2) ) #/(matS[i][13][0]+mats3[i][15][0])) ) 
+        listeTotaleMoyenne.sort(reverse=True)
+        
+        #listeTotaleMoyenne.append(matS[i][13][1])
+
+
+
+    listeMoyenne.sort(reverse=True)
+
+
+
+
+    return matS, listeMoyenne, listeTotaleMoyenne
 
 
 

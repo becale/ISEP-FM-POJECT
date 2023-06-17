@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" href="{% static "bulletin/css/bulletinTemplateS246.css" %}">
-    <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}">
-    <title>Bulletin</title>
-    
-</head>
-<body id="body">
-    <div id="generateBull">
-        <!--<button>Générer Bulletin</button>-->
-        {{ semestre1MDS|json_script:"semestre1MDS" }} 
-    </div>
-    
-    <!--<div class="container-bull">-->
-        <!--<header>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
+        <link rel="stylesheet" href="{% static "bulletin/css/bulletinTemplateS246.css" %}">
+        <link rel="stylesheet" href="{% static "bulletin/css/bootsrap/bootstrap.min.css" %}">
+        <title>Bulletin</title>
+
+    </head>
+
+    <body id="body">
+        <div id="generateBull">
+            <!--<button>Générer Bulletin</button>-->
+            {{ semestre1MDS|json_script:"semestre1MDS" }}
+        </div>
+
+        <div class="container-bull">
+            <!--<header>
             <div id="logo-title">
                 <div>
                     <div id="head-left"></div>
@@ -31,11 +32,11 @@
                     </div>
                 </div>
             </div>
-        </header>
+            </header>
         <hr>-->
-        
-        <!--<main>
-            <div id="bull-check-title">
+
+        <main>
+            <!--<div id="bull-check-title">
                 <div  id="bull-check">DAF/SER/DFF/FFFF/FFFF</div>
                 <div id="bull-title">
                     BULLETIN DE NOTES DU SEMESTRE 1
@@ -62,11 +63,11 @@
                     </div>
                 </div>
             </div>-->
-            <!--<div id="semester-result">-->
-                <!--<div class="box">
+            <!--<div id="semester-result0">
+                <div class="box">
                     <img class="imgback" src="{% static "bulletin/image/logo.jpeg" %}" alt="Filigrane">
-                </div>-->
-                <!--<table class="table-1">
+                </div>
+                <table class="table-1">
                     <thead>
                         <tr>
                             <th scope="col">&nbsp;&nbsp;</th>
@@ -98,7 +99,7 @@
                             <td id="EPS111-session"></td>
                             <td id="EPS111-credits"></td>
                         </tr>
-                    <tr>
+                        <<tr>
                             <td id="EPS112-codeue">EPS 112</td>
                             <td id="EPS112-matiere">Psychologie du Sport-Sociologie du Sport</td>
                             <td id="EPS112-note"></td>
@@ -199,8 +200,8 @@
                             <td id="resultat-credits"></td>
                         </tr>
                     </tbody>
-                </table>-->
-                <!--<table id="table-2">
+                </table>
+                <table id="table-2">
                     <thead>
                         <tr>
                             <th scope="col" >&nbsp;&nbsp;</th>
@@ -343,7 +344,7 @@
                         </tr>
                     </tbody>
                 </table>-->
-                <!--<table id="table-3">
+            <!--<table id="table-3">
                     <thead>
                         <tr>
                             <th scope="col" >&nbsp;&nbsp;</th>
@@ -407,16 +408,51 @@
                         </tr>
                     </tbody>
                 </table>-->
-        <!--</main>-->
+            <table id="recpas3s4">
+                <thead>
+                    <tr>
+                        <th colspan="6">RESULTATS (S4 + S5)</th>
+                        <!--<th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>-->
+                    </tr>
+                </thead>
+                <tbody id="recpas3s4body">
+                    <tr>
+                        <th>Coefficient</th>
+                        <th>Total Points</th>
+                        <th>Moyenne</th>
+                        <th>Rang</th>
+                        <th>Crédits Obtenus</th>
+                        <th>Décision</th>
+                    </tr>
+                    <tr>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="visa">
+                <span class="a">Le Directeur des Etudes</span>
+                <span class="b">La Présidente / Fondatrice</span>
+            </div>
+        </main>
         <!--<footer>
             <div class="decision">
-                Décision du conseil des professeurs :  <div class="dot">ADMIS(E)</div>
                 <div class="visa">
                     VISA CHEF ETABLISSEMENT
                 </div>
+                <div></div>
+                
             </div> 
         </footer>-->
-    <!--</div>-->
+    </div>
 
     <!--<div id="semester-result">
                 <div class="box">
@@ -440,8 +476,15 @@
                         </tr>
                     </thead>
     <div>-->
-        <script id="semsetre" type="application/json">{"semestre1": 'semestre1MDS'}</script>
-        <script src="{% static 'bulletin/script/bulletintemplate246.js' %}"></script>
-        <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script>   
-</body>
+
+
+            <script id="semsetre" type="application/json">
+                {
+                    "semestre1": 'semestre1MDS'
+                }
+            </script>
+            <script src="{% static 'bulletin/script/bulletintemplate246.js' %}"></script>
+            <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script>
+    </body>
+
 </html>

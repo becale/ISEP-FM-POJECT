@@ -14,7 +14,7 @@ body {
     overflow: hidden;
     /*For Printer*/
     print-color-adjust: exact;
-    display: none;
+    /*display: none;*/
 }
 
 
@@ -260,8 +260,9 @@ tr td {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    border-bottom: 1px solid black;
     /*Diminution police Tableau*/
-    font-size: 9px;
+    font-size: 10px;
 }
 
 th {
@@ -507,9 +508,9 @@ visa {
 /*LIGNE DIFFERENTS BULL*/
 
 #ligne-EPS118>td {
-    border-top: black dotted 1.5px;
-    border-bottom: black dotted 1.5px;
-    border-right: black dotted 1.5px;
+    border-top: black solid 1.5px;
+    border-bottom: black solid 1.5px;
+    border-right: black solid 1.5px;
 }
 
 #ligne-EPS119>td {
@@ -527,7 +528,7 @@ visa {
 }
 
 #ligne-eps235b {
-    border-bottom: dotted 1.5px black;
+    border-bottom: solid 1.5px black;
 }
 
 
@@ -536,13 +537,13 @@ visa {
 }*/
 
 #ligne-eps235j {
-    border-bottom: dotted 1.5px black;
+    border-bottom: solid 1.5px black;
 }
 
 #ligne-eps236>td {
-    border-top: black dotted 1.5px;
-    border-bottom: black dotted 1.5px;
-    border-right: black dotted 1.5px;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    border-right: black solid 1px;
 }
 
 #ligne-eps236 {
@@ -556,9 +557,9 @@ visa {
 }
 
 #ligne-MDS117 {
-    border-top: dotted black 1.5px;
-    border-bottom: dotted black 1.5px;
-    border-right: dotted black 1.5px;
+    border-top: solid black 1.5px;
+    border-bottom: solid black 1.5px;
+    border-right: solid black 1.5px;
 }
 
 
@@ -604,7 +605,7 @@ footer {
 }
 
 #visa {
-    padding-top: 3.5cm;
+    padding-top: 4cm;
     font-size: 10px;
 }
 
@@ -615,4 +616,46 @@ footer {
 .b {
     padding-left: 16.2cm;
     font-weight: bold;
+}
+
+
+/*SEMESTRE 2 MDS1*/
+
+#semester-result-2 {
+    margin-top: 15px;
+}
+
+.line10 {
+    border-bottom: 2px solid black;
+}
+
+#recpas1s2 {
+    box-sizing: border-box;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    margin-top: 0.5cm
+}
+
+#recpas1s2>thead {
+    background-color: #C7B54D;
+}
+
+#visa1 {
+    padding-top: 6cm;
+    font-size: 9.6px;
+}
+
+#tbody00 tr:nth-child(2) {
+    border-bottom: black solid 1px;
+}
+
+#tbody00 tr:nth-child(6) {
+    border-bottom: black solid 1px;
+}
+
+#ligne-13 {
+    background-color: #C7B54D;
 }

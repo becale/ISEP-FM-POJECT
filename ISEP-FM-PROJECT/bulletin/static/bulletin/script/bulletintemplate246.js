@@ -146,11 +146,11 @@ function GenerateBullMDS1Semestre1() {
     //MAIN
     var bullcheck = document.createElement('div')
     bullcheck.setAttribute('id', 'bull-check')
-    bullcheck.innerHTML = `DAF/SG/DE/PR`
+    bullcheck.innerHTML = `DE/PF`
 
     var bulltitle = document.createElement('div')
     bulltitle.setAttribute('id', 'bull-title')
-    bulltitle.innerHTML = `RELEVE DE NOTES SEMESTRE 1`
+    bulltitle.innerHTML = `RELEVE DE NOTES`
 
     var bullchecktitle = document.createElement('div')
     bullchecktitle.setAttribute('id', 'bull-check-title')
@@ -190,10 +190,10 @@ function GenerateBullMDS1Semestre1() {
     info22.innerHTML = `Matricule : `
     var info33 = document.createElement('div')
     info33.setAttribute('class', 'info-student-style')
-    info33.innerHTML = `Date De Naissance : `
+    info33.innerHTML = `Date de Naissance : `
     var info44 = document.createElement('div')
     info44.setAttribute('class', 'info-student-style')
-    info44.innerHTML = `Lieu De Naissance : `
+    info44.innerHTML = `Lieu de Naissance : `
     var info55 = document.createElement('div')
     info55.setAttribute('class', 'info-student-style')
     info55.innerHTML = `Année Académique : `
@@ -333,7 +333,7 @@ function GenerateBullMDS1Semestre1() {
 
     var td12 = document.createElement('td')
     td12.setAttribute('id', 'MDS112-matiere')
-    td12.innerHTML = `Mathématiques Financières`
+    td12.innerHTML = `Mathématiques Financières I`
 
     var td13 = document.createElement('td')
     td13.setAttribute('id', 'MDS112-note')
@@ -380,7 +380,7 @@ function GenerateBullMDS1Semestre1() {
 
     var td122 = document.createElement('td')
     td122.setAttribute('id', 'MDS112-matiere')
-    td122.innerHTML = `Statistiques Descriptives`
+    td122.innerHTML = `Statistiques Descriptives I`
 
     var td133 = document.createElement('td')
     td133.setAttribute('id', 'MDS112-note')
@@ -519,7 +519,7 @@ function GenerateBullMDS1Semestre1() {
 
     var td37 = document.createElement('td')
     td37.setAttribute("id", "MDS115-matiere")
-    td37.innerHTML = `Outils De Gestion Du Sport I`
+    td37.innerHTML = `Outils de Gestion de Sport I`
 
     var td38 = document.createElement('td')
     td38.setAttribute("id", "MDS115-note")
@@ -606,7 +606,7 @@ function GenerateBullMDS1Semestre1() {
 
     var td56 = document.createElement('td')
     td56.setAttribute("id", "MDS117-matiere")
-    td56.innerHTML = `Technique D'Expression Anglaise`
+    td56.innerHTML = `Technique d'expression anglaise`
 
     var td57 = document.createElement('td')
     td57.setAttribute("id", "MDS117-note")
@@ -661,7 +661,7 @@ function GenerateBullMDS1Semestre1() {
 
     var td566 = document.createElement('td')
     td566.setAttribute("id", "MDS117-matiere")
-    td566.innerHTML = `Technique D'Expression Française`
+    td566.innerHTML = `Technique d'expression française`
 
     var td577 = document.createElement('td')
     td577.setAttribute("id", "MDS117-note")
@@ -700,6 +700,8 @@ function GenerateBullMDS1Semestre1() {
     tr88.appendChild(td622)
     tr88.appendChild(td633)
     tr88.appendChild(td644)
+        //style
+    tr88.setAttribute('class', 'line10')
 
 
     //Line 9
@@ -826,12 +828,29 @@ function GenerateBullMDS1Semestre1() {
     semestreResult.setAttribute('id', 'semester-result')
     semestreResult.appendChild(table1)
     semestreResult.appendChild(table3)
+        //Style du tab3
+    semestreResult.children[1].style.display = 'none'
+        /**SEMESTRE RESULT 2 */
+    semestreResultmds2 = semestreResult.cloneNode(true)
+    semestreResultmds2.setAttribute('id', 'semester-result-2')
+        //
+    bx = document.getElementById('recpas1s2')
+    s1s2mds = bx.cloneNode(true)
+
+    by = document.getElementById('visa1')
+    s1s2mdsvisa = by.cloneNode(true)
 
     //Main
     var main = document.createElement('main')
     main.appendChild(bullchecktitle)
     main.appendChild(infostudent)
     main.appendChild(semestreResult)
+        /**SEMESTRE RESULT 2 */
+    main.appendChild(semestreResultmds2)
+
+    main.appendChild(s1s2mds)
+    main.appendChild(s1s2mdsvisa)
+
 
     //Footer
     var visa = document.createElement('div')
@@ -849,9 +868,17 @@ function GenerateBullMDS1Semestre1() {
     containerbull.appendChild(main)
     containerbull.appendChild(footer)
 
+    /*** BULLETINS SEMESTRE 2 MDS1  */
 
 
-    //Retour Du composant Bulletin
+
+
+
+
+
+
+
+    //Retour de composant Bulletin
     return (containerbull)
 }
 
@@ -907,11 +934,11 @@ function GenerateBullStaps1Semestre1() {
     //MAIN
     var bullcheck = document.createElement('div')
     bullcheck.setAttribute('id', 'bull-check')
-    bullcheck.innerHTML = `DAF/SG/DE/PR`
+    bullcheck.innerHTML = `DE/PF`
 
     var bulltitle = document.createElement('div')
     bulltitle.setAttribute('id', 'bull-title')
-    bulltitle.innerHTML = `RELEVE DE NOTES SEMESTRE 1`
+    bulltitle.innerHTML = `RELEVE DE NOTES`
 
     var bullchecktitle = document.createElement('div')
     bullchecktitle.setAttribute('id', 'bull-check-title')
@@ -951,10 +978,10 @@ function GenerateBullStaps1Semestre1() {
     info22.innerHTML = `Matricule : `
     var info33 = document.createElement('div')
     info33.setAttribute('class', 'info-student-style')
-    info33.innerHTML = `Date De Naissance : `
+    info33.innerHTML = `Date de Naissance : `
     var info44 = document.createElement('div')
     info44.setAttribute('class', 'info-student-style')
-    info44.innerHTML = `Lieu De Naissance : `
+    info44.innerHTML = `Lieu de Naissance : `
     var info55 = document.createElement('div')
     info55.setAttribute('class', 'info-student-style')
     info55.innerHTML = `Année Académique : `
@@ -1101,7 +1128,7 @@ function GenerateBullStaps1Semestre1() {
 
     var td21 = document.createElement('td')
     td21.setAttribute("id", "EPS113-matiere")
-    td21.innerHTML = `Didactique De l'EPS I`
+    td21.innerHTML = `Didactique de l'EPS I`
 
     var td22 = document.createElement('td')
     td22.setAttribute("id", "EPS113-note")
@@ -1314,7 +1341,7 @@ function GenerateBullStaps1Semestre1() {
 
     var td37j = document.createElement('td')
     td37j.setAttribute("id", "EPS115j-matiere")
-    td37j.innerHTML = `Didactique des APS: Lutte`
+    td37j.innerHTML = `Didactique dees APS: Lutte`
 
     var td38j = document.createElement('td')
     td38j.setAttribute("id", "EPS115j-note")
@@ -1449,7 +1476,7 @@ function GenerateBullStaps1Semestre1() {
 
     var td46 = document.createElement('td')
     td46.setAttribute("id", "EPS118-matiere")
-    td46.innerHTML = `Technique D'Expression Française`
+    td46.innerHTML = `Technique d'expression française`
 
     var td47 = document.createElement('td')
     td47.setAttribute("id", "EPS118-note")
@@ -1491,7 +1518,7 @@ function GenerateBullStaps1Semestre1() {
 
     var td46 = document.createElement('td')
     td46.setAttribute("id", "EPS119-matiere")
-    td46.innerHTML = `Technique D'Expression Anglaise. Anglaise- Forbi`
+    td46.innerHTML = `Technique d'expression anglaise. Anglaise- Forbi`
 
     var td47 = document.createElement('td')
     td47.setAttribute("id", "EPS119-note")
@@ -1659,12 +1686,26 @@ function GenerateBullStaps1Semestre1() {
     semestreResult.setAttribute('id', 'semester-result')
     semestreResult.appendChild(table1)
     semestreResult.appendChild(table3)
+        /**SEMESTRE RESULT 2 */
+    semestreResulteps2 = semestreResult.cloneNode(true)
+    semestreResulteps2.setAttribute('id', 'semester-result-2')
+        //
+    bx1 = document.getElementById('recpas1s2')
+    s1s2eps = bx1.cloneNode(true)
+
+    by1 = document.getElementById('visa1')
+    s1s2epsvisa = by1.cloneNode(true)
 
     //Main
     var main = document.createElement('main')
     main.appendChild(bullchecktitle)
     main.appendChild(infostudent)
     main.appendChild(semestreResult)
+        /**SEMESTRE RESULT 2 */
+    main.appendChild(semestreResulteps2)
+
+    main.appendChild(s1s2eps)
+    main.appendChild(s1s2epsvisa)
 
     //Footer
     var visa = document.createElement('div')
@@ -1737,7 +1778,7 @@ function GenerateBullStaps2Semestre3() {
 
     var bullcheck = document.createElement('div')
     bullcheck.setAttribute('id', 'bull-check')
-    bullcheck.innerHTML = `DAF/SG/DE/PR`
+    bullcheck.innerHTML = `DE/PF`
 
     var bulltitle = document.createElement('div')
     bulltitle.setAttribute('id', 'bull-title')
@@ -1781,10 +1822,10 @@ function GenerateBullStaps2Semestre3() {
     info22.innerHTML = `Matricule : `
     var info33 = document.createElement('div')
     info33.setAttribute('class', 'info-student-style')
-    info33.innerHTML = `Date De Naissance : `
+    info33.innerHTML = `Date de Naissance : `
     var info44 = document.createElement('div')
     info44.setAttribute('class', 'info-student-style')
-    info44.innerHTML = `Lieu De Naissance : `
+    info44.innerHTML = `Lieu de Naissance : `
     var info55 = document.createElement('div')
     info55.setAttribute('class', 'info-student-style')
     info55.innerHTML = `Année Académique : `
@@ -1930,7 +1971,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td21 = document.createElement('td')
     td21.setAttribute("id", "EPS233-matiere")
-    td21.innerHTML = `Didactique De l'EPS III`
+    td21.innerHTML = `Didactique de l'EPS III`
 
     var td22 = document.createElement('td')
     td22.setAttribute("id", "EPS233-note")
@@ -2018,7 +2059,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td37a = document.createElement('td')
     td37a.setAttribute("id", "EPS235a-matiere")
-    td37a.innerHTML = `Didactique Des APS: Athlétisme`
+    td37a.innerHTML = `Didactique des APS: Athlétisme`
 
     var td38a = document.createElement('td')
     td38a.setAttribute("id", "EPS235a-note")
@@ -2060,7 +2101,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td37b = document.createElement('td')
     td37b.setAttribute("id", "EPS235b-matiere")
-    td37b.innerHTML = `Didactique Des APS: Basket Ball`
+    td37b.innerHTML = `Didactique des APS: Basket Ball`
 
     var td38b = document.createElement('td')
     td38b.setAttribute("id", "EPS235b-note")
@@ -2102,7 +2143,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td37f = document.createElement('td')
     td37f.setAttribute("id", "EPS235f-matiere")
-    td37f.innerHTML = `Didactique Des APS: Football`
+    td37f.innerHTML = `Didactique des APS: Football`
 
     var td38f = document.createElement('td')
     td38f.setAttribute("id", "EPS235f-note")
@@ -2143,7 +2184,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td37g = document.createElement('td')
     td37g.setAttribute("id", "EPS235g-matiere")
-    td37g.innerHTML = `Didactique Des APS: Gymnastique`
+    td37g.innerHTML = `Didactique des APS: Gymnastique`
 
     var td38g = document.createElement('td')
     td38g.setAttribute("id", "EPS235g-note")
@@ -2184,7 +2225,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td37j = document.createElement('td')
     td37j.setAttribute("id", "EPS235j-matiere")
-    td37j.innerHTML = `Didactique Des APS: Judo`
+    td37j.innerHTML = `Didactique des APS: Judo`
 
     var td38j = document.createElement('td')
     td38j.setAttribute("id", "EPS235j-note")
@@ -2226,7 +2267,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td37l = document.createElement('td')
     td37l.setAttribute("id", "EPS235l-matiere")
-    td37l.innerHTML = `Didactique Des APS: Lutte`
+    td37l.innerHTML = `Didactique des APS: Lutte`
 
     var td38l = document.createElement('td')
     td38l.setAttribute("id", "EPS235l-note")
@@ -2406,7 +2447,7 @@ function GenerateBullStaps2Semestre3() {
 
     var td46 = document.createElement('td')
     td46.setAttribute("id", "EPS238-matiere")
-    td46.innerHTML = `Technique D'Expression Française`
+    td46.innerHTML = `Technique d'expression française`
 
     var td47 = document.createElement('td')
     td47.setAttribute("id", "EPS238-note")
@@ -2622,6 +2663,7 @@ function GenerateBullStaps2Semestre3() {
     semestreResult.appendChild(table1)
     semestreResult.appendChild(table3)
 
+
     //Main
     var main = document.createElement('main')
     main.appendChild(bullchecktitle)
@@ -2674,10 +2716,10 @@ function GenerateBullStaps2Semestre3() {
     semestreResult2.children[0].children[1].children[10].children[1].innerHTML = "Traumatologie - Premiers Secours"
         //Ligne 13
     semestreResult2.children[0].children[1].children[11].children[1].innerHTML = "EPS251"
-    semestreResult2.children[0].children[1].children[11].children[2].innerHTML = "Eonomie Du Sport"
+    semestreResult2.children[0].children[1].children[11].children[2].innerHTML = "Economie du sport"
         //Ligne 14
     semestreResult2.children[0].children[1].children[12].children[0].innerHTML = "EPS252"
-    semestreResult2.children[0].children[1].children[12].children[1].innerHTML = "Technique D'Expression Française II"
+    semestreResult2.children[0].children[1].children[12].children[1].innerHTML = "Technique d'expression française II"
 
 
     //INSERTION DU NOEUD
@@ -2784,9 +2826,6 @@ function GenerateBullStaps2Semestre3() {
 
 
 
-
-
-
 /*DECLARATION SEMESTRE 5 EVE */
 function GenerateBullEVEsemestre5() {
     var br = document.createElement('br')
@@ -2838,11 +2877,11 @@ function GenerateBullEVEsemestre5() {
 
     var bullcheck = document.createElement('div')
     bullcheck.setAttribute('id', 'bull-check')
-    bullcheck.innerHTML = `DAF/SG/DE/PR`
+    bullcheck.innerHTML = `DE/PF`
 
     var bulltitle = document.createElement('div')
     bulltitle.setAttribute('id', 'bull-title')
-    bulltitle.innerHTML = `RELEVE DE NOTES SEMESTRE 5`
+    bulltitle.innerHTML = `RELEVE DE NOTES`
 
     var bullchecktitle = document.createElement('div')
     bullchecktitle.setAttribute('id', 'bull-check-title')
@@ -2882,10 +2921,10 @@ function GenerateBullEVEsemestre5() {
     info22.innerHTML = `Matricule : `
     var info33 = document.createElement('div')
     info33.setAttribute('class', 'info-student-style')
-    info33.innerHTML = `Date De Naissance : `
+    info33.innerHTML = `Date de Naissance : `
     var info44 = document.createElement('div')
     info44.setAttribute('class', 'info-student-style')
-    info44.innerHTML = `Lieu De Naissance : `
+    info44.innerHTML = `Lieu de Naissance : `
     var info55 = document.createElement('div')
     info55.setAttribute('class', 'info-student-style')
     info55.innerHTML = `Année Académique : `
@@ -2938,7 +2977,7 @@ function GenerateBullEVEsemestre5() {
     td1.innerHTML = `MAS315`
     var td2 = document.createElement('td')
     td2.setAttribute('id', 'MAS315-matiere')
-    td2.innerHTML = `Environnement Institutionnel De la pratique du Sport`
+    td2.innerHTML = `Environnement Institutionnel de la pratique du Sport`
     var td3 = document.createElement('td')
     td3.setAttribute('id', 'MAS315-note')
 
@@ -3112,7 +3151,7 @@ function GenerateBullEVEsemestre5() {
 
     var td56 = document.createElement('td')
     td56.setAttribute("id", "EVE355-matiere")
-    td56.innerHTML = `Multimédias dans le Développement Du Sport et Des Loisirs`
+    td56.innerHTML = `Multimédias dans le Développement de Sport et Des Loisirs`
 
     var td57 = document.createElement('td')
     td57.setAttribute("id", "EVE355-note")
@@ -3159,7 +3198,7 @@ function GenerateBullEVEsemestre5() {
 
     var td46 = document.createElement('td')
     td46.setAttribute("id", "EVE365-matiere")
-    td46.innerHTML = `Ingénierie De L'Animation Sportive Et Culturelle`
+    td46.innerHTML = `Ingénierie de L'Animation Sportive Et Culturelle`
 
     var td47 = document.createElement('td')
     td47.setAttribute("id", "EVE365-note")
@@ -3320,10 +3359,18 @@ function GenerateBullEVEsemestre5() {
     semestreResult.appendChild(table1)
     semestreResult.appendChild(table3)
 
+    /**SEMESTRE 6 RESULT */
+    semestreResulteve6 = semestreResult.cloneNode(true)
+    semestreResulteve6.setAttribute('id', 'semester-result-2')
+
+    //Main
     var main = document.createElement('main')
     main.appendChild(bullchecktitle)
     main.appendChild(infostudent)
     main.appendChild(semestreResult)
+        /**SEMESTRE 6 RESULT */
+    main.appendChild(semestreResulteve6)
+
 
     var visa = document.createElement('div')
     visa.setAttribute('class', 'visa')
@@ -3343,6 +3390,10 @@ function GenerateBullEVEsemestre5() {
     body[0].appendChild(containerbull)*/
     return (containerbull)
 }
+
+
+
+
 /*DECLARATION GENERATION SEEMESTRE 5 MSO */
 function GenerateBullMSOsemestre5() {
     var br = document.createElement('br')
@@ -3397,11 +3448,11 @@ function GenerateBullMSOsemestre5() {
 
     var bullcheck = document.createElement('div')
     bullcheck.setAttribute('id', 'bull-check')
-    bullcheck.innerHTML = `DAF/SG/DE/PR`
+    bullcheck.innerHTML = `DE/PF`
 
     var bulltitle = document.createElement('div')
     bulltitle.setAttribute('id', 'bull-title')
-    bulltitle.innerHTML = `RELEVE DE NOTES SEMESTRE 5`
+    bulltitle.innerHTML = `RELEVE DE NOTES`
 
     var bullchecktitle = document.createElement('div')
     bullchecktitle.setAttribute('id', 'bull-check-title')
@@ -3441,10 +3492,10 @@ function GenerateBullMSOsemestre5() {
     info22.innerHTML = `Matricule : `
     var info33 = document.createElement('div')
     info33.setAttribute('class', 'info-student-style')
-    info33.innerHTML = `Date De Naissance : `
+    info33.innerHTML = `Date de Naissance : `
     var info44 = document.createElement('div')
     info44.setAttribute('class', 'info-student-style')
-    info44.innerHTML = `Lieu De Naissance : `
+    info44.innerHTML = `Lieu de Naissance : `
     var info55 = document.createElement('div')
     info55.setAttribute('class', 'info-student-style')
     info55.innerHTML = `Année Académique : `
@@ -3497,7 +3548,7 @@ function GenerateBullMSOsemestre5() {
     td1.innerHTML = `MAS315`
     var td2 = document.createElement('td')
     td2.setAttribute('id', 'MAS315-matiere')
-    td2.innerHTML = `Environnement Institutionnel De la pratique du Sport`
+    td2.innerHTML = `Environnement Institutionnel de la pratique du Sport`
     var td3 = document.createElement('td')
     td3.setAttribute('id', 'MAS315-note')
 
@@ -3718,7 +3769,7 @@ function GenerateBullMSOsemestre5() {
 
     var td46 = document.createElement('td')
     td46.setAttribute("id", "MSO365-matiere")
-    td46.innerHTML = `Psychologie Du Travail Et des Organisations`
+    td46.innerHTML = `Psychologie de Travail Et des Organisations`
 
     var td47 = document.createElement('td')
     td47.setAttribute("id", "MSO365-note")
@@ -3952,7 +4003,7 @@ function BullMDS1(clone, i) {
                 ligneMDS111.children[9].innerHTML = "VALIDEE"
             } else { ligneMDS111.children[9].innerHTML = "NON VALIDEE" }
         } //Mention
-        if (j == 10) {} //Session
+        if (j == 10) { ligneMDS111.children[j].innerHTML = mydata[4] } //Session
         if (j == 11) { if ((listStudent[i][1][0] + listStudent[i][2][0]) >= 20) { ligneMDS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneMDS111.children[j].innerHTML = 0 } } //Crédits
     }
 
@@ -3966,7 +4017,7 @@ function BullMDS1(clone, i) {
         if (j == 6) {
             if (listStudent[i][2][5]) { ligneMDS111b.children[6].innerHTML = "VALIDEE" } else { ligneMDS111b.children[6].innerHTML = "NON VALIDEE" }
         }
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS111b.children[j].innerHTML = mydata[4] } //Session
         if (j == 8) { if ((listStudent[i][1][0] + listStudent[i][2][0]) >= 20) { ligneMDS111b.children[j].innerHTML = listStudent[i][2][6] } else { ligneMDS111b.children[j].innerHTML = 0 } } //Crédits
     }
 
@@ -3978,7 +4029,7 @@ function BullMDS1(clone, i) {
         if (j == 4) { /*val=ligneMDS112.children[2].innerHTML*ligneMDS112.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneMDS112.children[j].innerHTML = listStudent[i][3][2] } //total note math * coef
         if (j == 5) { ligneMDS112.children[j].innerHTML = listStudent[i][3][4] } //Rang
         if (j == 6) { if (listStudent[i][3][0] >= 20) { ligneMDS112.children[j].innerHTML = "VALIDEE" } else { ligneMDS112.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS112.children[j].innerHTML = mydata[4] } //Session
         if (j == 8) { if ((listStudent[i][3][0] + listStudent[i][4][0]) >= 20) { ligneMDS112.children[j].innerHTML = listStudent[i][3][6] } else { ligneMDS112.children[j].innerHTML = 0 } } //nombre_crédits
     }
 
@@ -3990,7 +4041,7 @@ function BullMDS1(clone, i) {
         if (j == 4) { /*val=ligneMDS112b.children[2].innerHTML*ligneMDS112b.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneMDS112b.children[j].innerHTML = listStudent[i][4][2] } //total note math * coef
         if (j == 5) { ligneMDS112b.children[j].innerHTML = listStudent[i][4][4] } //Rang
         if (j == 6) { if (listStudent[i][4][0] >= 10) { ligneMDS112b.children[j].innerHTML = "VALIDEE" } else { ligneMDS112b.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS112b.children[j].innerHTML = mydata[4] } //Session
         //if(j==8){if( /*ligneMDS112b.children[2].innerHTML>=10*/(ligneMDS112.children[2].innerHTML + ligneMDS112b.children[2].innerHTML) >=20 ){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
     }
 
@@ -4012,7 +4063,7 @@ function BullMDS1(clone, i) {
         } //moyenne donc (totalmath + totalinfo)/2
         if (j == 7) { ligneMDS113.children[j].innerHTML = listStudent[i][5][4] } //Rang
         if (j == 8) { if (listStudent[i][5][0] >= 10) { ligneMDS113.children[j].innerHTML = "VALIDEE" } else { ligneMDS113.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 9) {}
+        if (j == 9) { ligneMDS113.children[j].innerHTML = mydata[4] }
         if (j == 10) { if (listStudent[i][5][0] >= 10) { ligneMDS113.children[j].innerHTML = listStudent[i][5][6] } else { ligneMDS113.children[j].innerHTML = 0 } } //Crédits
     }
 
@@ -4024,7 +4075,7 @@ function BullMDS1(clone, i) {
         if (j == 4) { /*val=ligneMDS114.children[2].innerHTML*ligneMDS114.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneMDS114.children[j].innerHTML = listStudent[i][6][2] } //total note math * coef
         if (j == 5) { ligneMDS114.children[j].innerHTML = listStudent[i][6][4] } //Rang
         if (j == 6) { if (listStudent[i][6][0] >= 10) { ligneMDS114.children[j].innerHTML = "VALIDEE" } else { ligneMDS114.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS114.children[j].innerHTML = mydata[4] } //Session
         if (j == 8) { if (listStudent[i][6][0] >= 10) { ligneMDS114.children[j].innerHTML = listStudent[i][6][6] } else { ligneMDS114.children[j].innerHTML = 0 } } //nombre_crédits
     }
 
@@ -4036,7 +4087,7 @@ function BullMDS1(clone, i) {
         if (j == 4) { /*val=ligneMDS115.children[2].innerHTML*ligneMDS115.children[3].innerHTML; val=val.toFixed(2);val=parseFloat(val);*/ ligneMDS115.children[j].innerHTML = listStudent[i][7][2] } //total note math * coef
         if (j == 5) { ligneMDS115.children[j].innerHTML = listStudent[i][7][4] } //Rang
         if (j == 6) { if (listStudent[i][7][0] >= 10) { ligneMDS115.children[j].innerHTML = "VALIDEE" } else { ligneMDS115.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS115.children[j].innerHTML = mydata[4] } //Session
         if (j == 8) { if (listStudent[i][7][0] >= 10) { ligneMDS115.children[j].innerHTML = listStudent[i][7][6] } else { ligneMDS115.children[j].innerHTML = 0 } } //nombre_crédits
     }
 
@@ -4048,7 +4099,7 @@ function BullMDS1(clone, i) {
         if (j == 4) { /*val=ligneMDS116.children[2].innerHTML*ligneMDS116.children[3].innerHTML;val=val.toFixed(2);val=parseFloat(val);*/ ligneMDS116.children[j].innerHTML = listStudent[i][8][2] } //total note math * coef
         if (j == 5) { ligneMDS116.children[j].innerHTML = listStudent[i][8][4] } //Rang
         if (j == 6) { if (listStudent[i][8][0] >= 10) { ligneMDS116.children[j].innerHTML = "VALIDEE" } else { ligneMDS116.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS116.children[j].innerHTML = mydata[4] } //Session
         if (j == 8) { if (listStudent[i][8][0] >= 10) { ligneMDS116.children[j].innerHTML = listStudent[i][8][6] } else { ligneMDS116.children[j].innerHTML = 0 } } //nombre_crédits
     }
 
@@ -4069,7 +4120,7 @@ function BullMDS1(clone, i) {
 
         if (j == 7) { ligneMDS117.children[j].innerHTML = listStudent[i][9][4] } //Rang
         if (j == 8) { if (listStudent[i][9][0] >= 10) { ligneMDS117.children[j].innerHTML = "VALIDEE" } else { ligneMDS117.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 9) {}
+        if (j == 9) { ligneMDS117.children[j].innerHTML = mydata[4] }
         if (j == 10) { if ((listStudent[i][9][0]) >= 10) { ligneMDS117.children[j].innerHTML = listStudent[i][9][6] } else { ligneMDS117.children[j].innerHTML = 0 } } //Crédits
     }
 
@@ -4078,16 +4129,17 @@ function BullMDS1(clone, i) {
     for (j = 0; j <= ligneMDS117b.childElementCount - 1; j++) {
         if (j == 2) { ligneMDS117b.children[j].innerHTML = listStudent[i][10][0] } //note math
         if (j == 3) { ligneMDS117b.children[j].innerHTML = listStudent[i][10][1] } //coef math
-        if (j == 4) { /*val=ligneMDS117b.children[3].innerHTML*ligneMDS117b.children[2].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneMDS117b.children[j].innerHTML = listStudent[i][10][2] } //total note math * coef
+        if (j == 4) { ligneMDS117b.children[j].innerHTML = listStudent[i][10][2] } //total note math * coef
         if (j == 5) { ligneMDS117b.children[j].innerHTML = listStudent[i][10][4] } //Rang
         if (j == 6) { if (listStudent[i][10][0] >= 10) { ligneMDS117b.children[j].innerHTML = "VALIDEE" } else { ligneMDS117b.children[j].innerHTML = "NON VALIDEE" } } //Mention
-        if (j == 7) {} //Session
+        if (j == 7) { ligneMDS117b.children[j].innerHTML = mydata[4] } //Session
         if (j == 8) { if (listStudent[i][10][0] >= 10) { ligneMDS117b.children[j].innerHTML = listStudent[i][10][6] } else { ligneMDS117b.children[j].innerHTML = 0 } } //Credit
 
     }
 
     //LINE DEs RESULTATS
     resultat = tbody.children[10]
+    resultat.style.backgroundColor = "#C7B54D"
     for (j = 0; j <= resultat.childElementCount - 1; j++) {
         if (j == 1) {
             resultat.children[1].innerHTML = listStudent[i][11][0] /*sommeInt1(ligneMDS111.children[5].innerHTML,ligneMDS111b.children[3].innerHTML,ligneMDS112.children[3].innerHTML,ligneMDS112b.children[3].innerHTML,ligneMDS113.children[4].innerHTML,ligneMDS114.children[3].innerHTML,ligneMDS115.children[3].innerHTML,ligneMDS116.children[3].innerHTML,ligneMDS117.children[4].innerHTML,ligneMDS117b.children[3].innerHTML);*/
@@ -4125,8 +4177,222 @@ function BullMDS1(clone, i) {
         if (j == 4) {}
     }
 
+    /********************************************************************************* SEMESTRE 2 MDS1 LIGNE *************************************************************************************************/
+
+    data = mydata[7][0]
+    s2mds = clone.childNodes[2].children[3]
+    s2mdsbody = s2mds.children[0].children[1]
+
+
+
+    //LIGNE 1
+    var ligne11 = s2mdsbody.children[0]
+    ligne11.children[0].innerHTML = "SEMESTRE 2"
+    ligne11.children[2].innerHTML = "MDS121"
+    ligne11.children[3].innerHTML = "Mathématiques II"
+
+    for (j = 0; j <= ligne11.childElementCount - 1; j++) {
+        if (j == 4) { ligne11.children[j].innerHTML = data[i][1][0] }
+        if (j == 5) { ligne11.children[j].innerHTML = data[i][1][1] }
+        if (j == 6) { ligne11.children[j].innerHTML = data[i][1][2] }
+        if (j == 7) { ligne11.children[j].innerHTML = data[i][1][3] }
+        if (j == 8) { ligne11.children[j].innerHTML = data[i][1][4] }
+        if (j == 9) {
+            if (data[i][1][5]) { ligne11.children[j].innerHTML = "VALIDEE" } else { ligne11.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 10) { if (data[i][1][8]) { ligne11.children[j].innerHTML = 'RATTRAPAGE' } else { ligne11.children[j].innerHTML = mydata[8] } }
+        if (j == 11) { if ((data[i][1][0] + data[i][2][0]) >= 20) { ligne11.children[j].innerHTML = data[i][1][7] } else { ligne11.children[j].innerHTML = 0 } }
+    }
+
+    //LIGNE 2
+    var ligne22 = s2mdsbody.children[1]
+    ligne22.children[0].innerHTML = "MDS121"
+    ligne22.children[1].innerHTML = "Informatique II"
+
+    for (j = 0; j <= ligne22.childElementCount - 1; j++) {
+        if (j == 2) { ligne22.children[j].innerHTML = data[i][2][0] }
+        if (j == 3) { ligne22.children[j].innerHTML = data[i][2][1] }
+        if (j == 4) { ligne22.children[j].innerHTML = data[i][2][2] }
+        if (j == 5) { ligne22.children[j].innerHTML = data[i][2][4] }
+        if (j == 6) { if (data[i][2][5]) { ligne22.children[j].innerHTML = "VALIDEE" } else { ligne22.children[j].innerHTML = "NON VALIDEE" } }
+        if (j == 7) { if (data[i][2][8]) { ligne22.children[j].innerHTML = 'RATTRAPAGE' } else { ligne22.children[j].innerHTML = mydata[8] } }
+    }
+
+    //LIGNE 3
+    var ligne33 = s2mdsbody.children[2]
+    ligne33.children[0].innerHTML = "MDS122"
+    ligne33.children[1].innerHTML = "Mathématiques Financières II"
+
+    for (j = 0; j <= ligne33.childElementCount - 1; j++) {
+        if (j == 2) { ligne33.children[j].innerHTML = data[i][3][0] }
+        if (j == 3) { ligne33.children[j].innerHTML = data[i][3][1] }
+        if (j == 4) { ligne33.children[j].innerHTML = data[i][3][2] }
+        if (j == 5) { ligne33.children[j].innerHTML = data[i][3][4] }
+        if (j == 6) { if (data[i][3][5]) { ligne33.children[j].innerHTML = "VALIDEE" } else { ligne33.children[j].innerHTML = "NON VALIDEE" } }
+        if (j == 7) { if (data[i][3][8]) { ligne33.children[j].innerHTML = 'RATTRAPAGE' } else { ligne33.children[j].innerHTML = mydata[8] } }
+        if (j == 8) { if ((data[i][3][0] + data[i][4][0]) >= 20) { ligne33.children[j].innerHTML = data[i][3][6] } else { ligne33.children[j].innerHTML = 0 } }
+    }
+
+    //LIGNE 4
+    var ligne44 = s2mdsbody.children[3]
+    ligne44.children[0].innerHTML = "MDS122"
+    ligne44.children[1].innerHTML = "Statistiques Descriptives II"
+
+    for (j = 0; j <= ligne44.childElementCount - 1; j++) {
+        if (j == 2) { ligne44.children[j].innerHTML = data[i][4][0] }
+        if (j == 3) { ligne44.children[j].innerHTML = data[i][4][1] }
+        if (j == 4) { ligne44.children[j].innerHTML = data[i][4][2] }
+        if (j == 5) { ligne44.children[j].innerHTML = data[i][4][4] }
+        if (j == 6) { if (data[i][4][5]) { ligne44.children[j].innerHTML = "VALIDEE" } else { ligne44.children[j].innerHTML = "NON VALIDEE" } }
+        if (j == 7) { if (data[i][4][8]) { ligne44.children[j].innerHTML = 'RATTRAPAGE' } else { ligne44.children[j].innerHTML = mydata[8] } }
+        //if (j == 8) { if ((data[i][3][0] + data[i][4][0]) >= 20) { ligne44.children[j].innerHTML = data[i][3][7] } else { ligne44.children[j].innerHTML = 0 } }
+    }
+
+    //LIGNE 5
+    var ligne55 = s2mdsbody.children[4]
+    ligne55.children[1].innerHTML = "MDS123"
+    ligne55.children[2].innerHTML = "Environnement Jurique et Comptable II"
+
+    for (j = 0; j <= ligne55.childElementCount - 1; j++) {
+        if (j == 3) { ligne55.children[j].innerHTML = data[i][5][0] }
+        if (j == 4) { ligne55.children[j].innerHTML = data[i][5][1] }
+        if (j == 5) { ligne55.children[j].innerHTML = data[i][5][2] }
+        if (j == 6) { ligne55.children[j].innerHTML = data[i][5][3] }
+        if (j == 7) { ligne55.children[j].innerHTML = data[i][5][4] }
+        if (j == 8) { if (data[i][5][5]) { ligne55.children[j].innerHTML = "VALIDEE" } else { ligne55.children[j].innerHTML = "NON VALIDEE" } }
+        if (j == 9) { if (data[i][5][8]) { ligne55.children[j].innerHTML = 'RATTRAPAGE' } else { ligne55.children[j].innerHTML = mydata[8] } }
+        if (j == 10) { ligne55.children[j].innerHTML = data[i][5][7] }
+    }
+
+    //LIGNE 6
+    var ligne66 = s2mdsbody.children[5]
+    ligne66.children[0].innerHTML = "MDS124"
+    ligne66.children[1].innerHTML = "Management des ressources humaines et Méthodologie"
+
+    for (j = 0; j <= ligne66.childElementCount - 1; j++) {
+        if (j == 2) { ligne66.children[j].innerHTML = data[i][6][0] }
+        if (j == 3) { ligne66.children[j].innerHTML = data[i][6][1] }
+        if (j == 4) { ligne66.children[j].innerHTML = data[i][6][2] }
+        if (j == 5) { ligne66.children[j].innerHTML = data[i][6][4] }
+        if (j == 6) { if (data[i][6][5]) { ligne66.children[j].innerHTML = 'VALIDEE' } else { ligne66.children[j].innerHTML = 'NON VALIDEE' } }
+        if (j == 7) { if (data[i][6][8]) { ligne66.children[j].innerHTML = 'RATTRAPAGE' } else { ligne66.children[j].innerHTML = mydata[8] } }
+        if (j == 8) { ligne66.children[j].innerHTML = data[i][6][7] }
+        //if (j == 9) {}
+    }
+
+    //LIGNE 7
+    var ligne77 = s2mdsbody.children[6]
+    ligne77.children[0].innerHTML = "MDS125"
+    ligne77.children[1].innerHTML = "Outils de gestion du sport II"
+
+    for (j = 0; j <= ligne77.childElementCount - 1; j++) {
+        if (j == 2) { ligne77.children[j].innerHTML = data[i][7][0] }
+        if (j == 3) { ligne77.children[j].innerHTML = data[i][7][1] }
+        if (j == 4) { ligne77.children[j].innerHTML = data[i][7][2] }
+        if (j == 5) { ligne77.children[j].innerHTML = data[i][7][4] }
+        if (j == 6) { if (data[i][7][5]) { ligne77.children[j].innerHTML = 'VALIDEE' } else { ligne77.children[j].innerHTML = 'NON VALIDEE' } }
+        if (j == 7) { if (data[i][7][8]) { ligne77.children[j].innerHTML = 'RATTRAPAGE' } else { ligne77.children[j].innerHTML = mydata[8] } }
+        if (j == 8) { ligne77.children[j].innerHTML = data[i][7][7] }
+    }
+
+    //LIGNE 8
+    var ligne88 = s2mdsbody.children[7]
+    ligne88.children[0].innerHTML = "MDS126"
+    ligne88.children[1].innerHTML = "Gestion des structures et organisations sportives II"
+
+    for (j = 0; j <= ligne88.childElementCount - 1; j++) {
+        if (j == 2) { ligne88.children[j].innerHTML = data[i][8][0] }
+        if (j == 3) { ligne88.children[j].innerHTML = data[i][8][1] }
+        if (j == 4) { ligne88.children[j].innerHTML = data[i][8][2] }
+        if (j == 5) { ligne88.children[j].innerHTML = data[i][8][4] }
+        if (j == 6) { if (data[i][8][5]) { ligne88.children[j].innerHTML = 'VALIDEE' } else { ligne88.children[j].innerHTML = 'NON VALIDEE' } }
+        if (j == 7) { if (data[i][8][8]) { ligne88.children[j].innerHTML = 'RATTRAPAGE' } else { ligne88.children[j].innerHTML = mydata[8] } }
+        if (j == 8) { ligne88.children[j].innerHTML = data[i][8][7] }
+    }
+
+    //LIGNE 9
+    var ligne99 = s2mdsbody.children[8]
+        //ligne99.children[0].innerHTML = "MDS127"
+    ligne99.children[1].innerHTML = "MDS127"
+    ligne99.children[2].innerHTML = "Technique d'expression anglaise"
+
+    for (j = 0; j <= ligne99.childElementCount - 1; j++) {
+        if (j == 3) { ligne99.children[j].innerHTML = data[i][9][0] }
+        if (j == 4) { ligne99.children[j].innerHTML = data[i][9][1] }
+        if (j == 5) { ligne99.children[j].innerHTML = data[i][9][2] }
+        if (j == 6) { ligne99.children[j].innerHTML = data[i][9][3] }
+        if (j == 7) { ligne99.children[j].innerHTML = data[i][9][4] }
+        if (j == 8) { if (data[i][9][5]) { ligne99.children[j].innerHTML = 'VALIDEE' } else { ligne99.children[j].innerHTML = 'NON VALIDEE' } }
+        if (j == 9) { if (data[i][9][8]) { ligne99.children[j].innerHTML = 'RATTRAPAGE' } else { ligne99.children[j].innerHTML = mydata[8] } }
+        if (j == 10) { ligne99.children[j].innerHTML = data[i][9][7] }
+    }
+
+    //LIGNE 10
+    var ligne100 = s2mdsbody.children[9]
+    ligne100.children[0].innerHTML = "MDS127"
+    ligne100.children[1].innerHTML = "Technique d'expression française"
+
+    for (j = 0; j <= ligne100.childElementCount - 1; j++) {
+        if (j == 2) { ligne100.children[j].innerHTML = data[i][10][0] }
+        if (j == 3) { ligne100.children[j].innerHTML = data[i][10][1] }
+        if (j == 4) { ligne100.children[j].innerHTML = data[i][10][2] }
+        if (j == 5) { ligne100.children[j].innerHTML = data[i][10][4] }
+        if (j == 6) { if (data[i][10][5]) { ligne100.children[j].innerHTML = 'VALIDEE' } else { ligne100.children[j].innerHTML = 'NON VALIDEE' } }
+        if (j == 7) { if (data[i][10][8]) { ligne100.children[j].innerHTML = 'RATTRAPAGE' } else { ligne100.children[j].innerHTML = mydata[8] } }
+        if (j == 8) { ligne100.children[j].innerHTML = data[i][10][7] }
+    }
+    //style
+    ligne100.setAttribute('class', 'line10')
+
+
+    //LIGNE 11
+    s2mdsResult = s2mdsbody.children[10]
+    s2mdsResult.style.backgroundColor = "#C7B54D"
+    s2mdsResult.children[0].innerHTML = "RESULTATS SEMESTRE 2"
+    s2mdsResult.children[5].innerHTML = "Total Crédits Semestre 2"
+
+    for (j = 0; j <= s2mdsResult.childElementCount - 1; j++) {
+        if (j == 1) { s2mdsResult.children[j].innerHTML = data[i][11][0] }
+        if (j == 2) { s2mdsResult.children[j].innerHTML = data[i][11][1] }
+        if (j == 3) { s2mdsResult.children[j].innerHTML = data[i][11][2] }
+        if (j == 4) { s2mdsResult.children[j].innerHTML = mydata[7][1].indexOf(data[i][11][2]) + 1 }
+        if (j == 6) { s2mdsResult.children[j].innerHTML = (data[i][1][7] + data[i][3][7] + data[i][5][7] + data[i][6][7] + data[i][7][7] + data[i][8][7] + data[i][9][7] + data[i][10][7]) }
+    }
+
+    /**RESULTATS S1 & S2 MDS */
+    /*bx = document.getElementById('recpas1s2')
+    s1s2mds = bx.cloneNode(true)
+
+    s1s2mdsvisa = document.getElementById('visa')
+    s1s2mdsvisa = s1s2mdsvisa.cloneNode(true)*/
+    s1s2mdsrecap = clone.children[2].children[4].children[1].children[1]
+        //s1s2mdsrecap.style.backgroundColor = "#C7B54D"
+        // = tmps1s2mds.cloneNode(true)
+
+    for (j = 0; j <= s1s2mdsrecap.childElementCount - 1; j++) {
+        if (j == 0) { s1s2mdsrecap.children[j].innerHTML = sommeInt2(resultat.children[1].innerHTML, s2mdsResult.children[1].innerHTML) }
+        if (j == 1) { s1s2mdsrecap.children[j].innerHTML = sommeFloat2(resultat.children[2].innerHTML, s2mdsResult.children[2].innerHTML) }
+        if (j == 2) { s1s2mdsrecap.children[j].innerHTML = `${(parseFloat(s1s2mdsrecap.children[1].innerHTML) / s1s2mdsrecap.children[0].innerHTML).toFixed(2)} / 20` }
+        if (j == 3) {
+            var total = parseFloat(s1s2mdsrecap.children[1].innerHTML)
+            s1s2mdsrecap.children[j].innerHTML = `${mydata[7][2].indexOf(total) + 1}  /  ${data.length}`
+        }
+        if (j == 4) { s1s2mdsrecap.children[j].innerHTML = `${ sommeInt2(resultat.lastChild.innerHTML, s2mdsResult.lastChild.innerHTML) }  /  60` }
+        if (j == 5) {
+            var moyenne = parseFloat(s1s2mdsrecap.children[2].innerHTML)
+            if (moyenne >= 10) { s1s2mdsrecap.children[j].innerHTML = "ADMIS(E)" } else { s1s2mdsrecap.children[j].innerHTML = "REFUSE(E)" }
+        }
+    }
+
+
+
+
+
     return (clone)
 }
+
+
+
 /**FONCTION BULL 1er SEMESTRE */
 
 /**FONCTION BULLETIN STAPS1 */
@@ -4357,11 +4623,281 @@ function BullSTAPS1(clone, i) {
         if (j == 4) {}
     }
 
+    /*********************************************************************SEMESTRE 2 STAPS ************************************************************* */
+    data2 = mydata[6]
+    s2eps = clone.childNodes[2].children[3]
+    s2epsbody = s2eps.children[0].children[1]
+
+
+    //Ligne 1
+    var ligne11 = s2epsbody.children[0]
+    ligne11.children[0].innerHTML = "SEMESTRE 2"
+    ligne11.children[2].innerHTML = "EPS121"
+    ligne11.children[3].innerHTML = "Activités phyiques adaptées - Sport pour tous"
+
+    for (j = 0; j <= ligne11.childElementCount - 1; j++) {
+        if (j == 4) { ligne11.children[j].innerHTML = data2[i][1][0] }
+        if (j == 5) { ligne11.children[j].innerHTML = data2[i][1][1] }
+        if (j == 6) { ligne11.children[j].innerHTML = data2[i][1][2] }
+        if (j == 7) { ligne11.children[j].innerHTML = data2[i][1][3] }
+        if (j == 8) { ligne11.children[j].innerHTML = data2[i][1][4] }
+        if (j == 9) {
+            if (data2[i][1][5]) { ligne11.children[j].innerHTML = "VALIDEE" } else { ligne11.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 10) { if (data2[i][1][8]) { ligne11.children[j].innerHTML = 'RATTRAPAGE' } else { ligne11.children[j].innerHTML = mydata[9] } }
+        if (j == 11) { ligne11.children[j].innerHTML = data2[i][1][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 2
+    var ligne22 = s2epsbody.children[1]
+    ligne22.children[0].innerHTML = "EPS122"
+    ligne22.children[1].innerHTML = "Traumatologie - Premiers secours"
+
+    for (j = 0; j <= ligne22.childElementCount - 1; j++) {
+        if (j == 2) { ligne22.children[j].innerHTML = data2[i][2][0] }
+        if (j == 3) { ligne22.children[j].innerHTML = data2[i][2][1] }
+        if (j == 4) { ligne22.children[j].innerHTML = data2[i][2][2] }
+        if (j == 5) { ligne22.children[j].innerHTML = data2[i][2][4] }
+        if (j == 6) { if (data2[i][2][5]) { ligne22.children[j].innerHTML = "VALIDEE" } else { ligne22.children[j].innerHTML = "NON VALIDEE" } }
+        if (j == 7) { if (data2[i][2][8]) { ligne22.children[j].innerHTML = 'RATTRAPAGE' } else { ligne22.children[j].innerHTML = mydata[9] } }
+        if (j == 8) { ligne22.children[j].innerHTML = data2[i][2][7] }
+    }
+
+    //Ligne 3
+    var ligne33 = s2epsbody.children[2]
+        //ligne33.children[0].innerHTML = "SEMESTRE 2"
+    ligne33.children[1].innerHTML = "EPS123"
+    ligne33.children[2].innerHTML = "Théorie et Méthodologie de l'entrainement"
+
+    for (j = 0; j <= ligne33.childElementCount - 1; j++) {
+        if (j == 3) { ligne33.children[j].innerHTML = data2[i][3][0] }
+        if (j == 4) { ligne33.children[j].innerHTML = data2[i][3][1] }
+        if (j == 5) { ligne33.children[j].innerHTML = data2[i][3][2] }
+        if (j == 6) { ligne33.children[j].innerHTML = data2[i][3][3] }
+        if (j == 7) { ligne33.children[j].innerHTML = data2[i][3][4] }
+        if (j == 8) {
+            if (data2[i][3][5]) { ligne33.children[j].innerHTML = "VALIDEE" } else { ligne33.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 9) { if (data2[i][3][8]) { ligne33.children[j].innerHTML = 'RATTRAPAGE' } else { ligne33.children[j].innerHTML = mydata[9] } }
+        if (j == 10) { ligne33.children[j].innerHTML = data2[i][3][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 4
+    var ligne44 = s2epsbody.children[3]
+        //ligne44.children[0].innerHTML = "SEMESTRE 2"
+    ligne44.children[0].innerHTML = "EPS124"
+    ligne44.children[1].innerHTML = "Anatomie II"
+
+    for (j = 0; j <= ligne44.childElementCount - 1; j++) {
+        if (j == 2) { ligne44.children[j].innerHTML = data2[i][4][0] }
+        if (j == 3) { ligne44.children[j].innerHTML = data2[i][4][1] }
+        if (j == 4) { ligne44.children[j].innerHTML = data2[i][4][2] }
+        //if (j == 5) { ligne44.children[j].innerHTML = data2[i][4][3] }
+        if (j == 5) { ligne44.children[j].innerHTML = data2[i][4][4] }
+        if (j == 6) {
+            if (data2[i][4][5]) { ligne44.children[j].innerHTML = "VALIDEE" } else { ligne44.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][4][8]) { ligne44.children[j].innerHTML = 'RATTRAPAGE' } else { ligne44.children[j].innerHTML = mydata[9] } }
+        if (j == 8) { ligne44.children[j].innerHTML = data2[i][4][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 5
+    var ligne55 = s2epsbody.children[4]
+        //ligne55.children[0].innerHTML = "SEMESTRE 2"
+    ligne55.children[0].innerHTML = "EPS125"
+    ligne55.children[1].innerHTML = "Didactique de APS: Athlétisme II"
+
+    for (j = 0; j <= ligne55.childElementCount - 1; j++) {
+        if (j == 2) { ligne55.children[j].innerHTML = data2[i][5][0] }
+        if (j == 3) { ligne55.children[j].innerHTML = data2[i][5][1] }
+        if (j == 4) { ligne55.children[j].innerHTML = data2[i][5][2] }
+        //if (j == 5) { ligne55.children[j].innerHTML = data2[i][4][3] }
+        if (j == 5) { ligne55.children[j].innerHTML = data2[i][4][4] }
+        if (j == 6) {
+            if (data2[i][5][5]) { ligne55.children[j].innerHTML = "VALIDEE" } else { ligne55.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][5][8]) { ligne55.children[j].innerHTML = 'RATTRAPAGE' } else { ligne55.children[j].innerHTML = mydata[9] } }
+        if (j == 8) { ligne55.children[j].innerHTML = data2[i][5][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 6
+    var ligne66 = s2epsbody.children[5]
+        //ligne66.children[0].innerHTML = "SEMESTRE 2"
+    ligne66.children[0].innerHTML = "EPS125"
+    ligne66.children[1].innerHTML = "Didactique de APS: Gymnastique"
+
+    for (j = 0; j <= ligne66.childElementCount - 1; j++) {
+        if (j == 2) { ligne66.children[j].innerHTML = data2[i][6][0] }
+        if (j == 3) { ligne66.children[j].innerHTML = data2[i][6][1] }
+        if (j == 4) { ligne66.children[j].innerHTML = data2[i][6][2] }
+        //if (j == 5) { ligne66.children[j].innerHTML = data2[i][4][3] }
+        if (j == 5) { ligne66.children[j].innerHTML = data2[i][6][4] }
+        if (j == 6) {
+            if (data2[i][6][5]) { ligne66.children[j].innerHTML = "VALIDEE" } else { ligne66.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][6][8]) { ligne66.children[j].innerHTML = 'RATTRAPAGE' } else { ligne66.children[j].innerHTML = mydata[9] } }
+        //if (j == 8) { ligne66.children[j].innerHTML = data2[i][][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 7
+    var ligne77 = s2epsbody.children[6]
+        //ligne77.children[0].innerHTML = "SEMESTRE 2"
+    ligne77.children[0].innerHTML = "EPS125"
+    ligne77.children[1].innerHTML = "Didactique de APS: Judo"
+
+    for (j = 0; j <= ligne77.childElementCount - 1; j++) {
+        if (j == 2) { ligne77.children[j].innerHTML = data2[i][7][0] }
+        if (j == 3) { ligne77.children[j].innerHTML = data2[i][7][1] }
+        if (j == 4) { ligne77.children[j].innerHTML = data2[i][7][2] }
+        //if (j == 5) { ligne77.children[j].innerHTML = data2[i][4][3] }
+        if (j == 5) { ligne77.children[j].innerHTML = data2[i][7][4] }
+        if (j == 6) {
+            if (data2[i][7][5]) { ligne77.children[j].innerHTML = "VALIDEE" } else { ligne77.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][7][8]) { ligne77.children[j].innerHTML = 'RATTRAPAGE' } else { ligne77.children[j].innerHTML = mydata[9] } }
+        //if (j == 8) { ligne66.children[j].innerHTML = data2[i][][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 8
+    var ligne88 = s2epsbody.children[7]
+        //ligne88.children[0].innerHTML = "SEMESTRE 2"
+    ligne88.children[0].innerHTML = "EPS125"
+    ligne88.children[1].innerHTML = "Didactique de APS: Football"
+
+    for (j = 0; j <= ligne88.childElementCount - 1; j++) {
+        if (j == 2) { ligne88.children[j].innerHTML = data2[i][8][0] }
+        if (j == 3) { ligne88.children[j].innerHTML = data2[i][8][1] }
+        if (j == 4) { ligne88.children[j].innerHTML = data2[i][8][2] }
+        //if (j == 5) { ligne88.children[j].innerHTML = data2[i][4][3] }
+        if (j == 5) { ligne88.children[j].innerHTML = data2[i][8][4] }
+        if (j == 6) {
+            if (data2[i][8][5]) { ligne88.children[j].innerHTML = "VALIDEE" } else { ligne88.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][8][8]) { ligne88.children[j].innerHTML = 'RATTRAPAGE' } else { ligne88.children[j].innerHTML = mydata[9] } }
+        //if (j == 8) { ligne66.children[j].innerHTML = data2[i][][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 9
+    var ligne99 = s2epsbody.children[8]
+        //ligne99.children[0].innerHTML = "SEMESTRE 2"
+    ligne99.children[0].innerHTML = "EPS126"
+    ligne99.children[1].innerHTML = "Pédagogie pratique"
+
+    for (j = 0; j <= ligne99.childElementCount - 1; j++) {
+        if (j == 2) { ligne99.children[j].innerHTML = data2[i][9][0] }
+        if (j == 3) { ligne99.children[j].innerHTML = data2[i][9][1] }
+        if (j == 4) { ligne99.children[j].innerHTML = data2[i][9][2] }
+        //if (j == 5) { ligne99.children[j].innerHTML = data2[i][4][3] }
+        if (j == 5) { ligne99.children[j].innerHTML = data2[i][9][4] }
+        if (j == 6) {
+            if (data2[i][9][5]) { ligne99.children[j].innerHTML = "VALIDEE" } else { ligne99.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][9][8]) { ligne99.children[j].innerHTML = 'RATTRAPAGE' } else { ligne99.children[j].innerHTML = mydata[9] } }
+        if (j == 8) { ligne99.children[j].innerHTML = data2[i][9][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 10
+    var ligne100 = s2epsbody.children[9]
+        //ligne100.children[0].innerHTML = "SEMESTRE 2"
+    ligne100.children[1].innerHTML = "EPS127"
+    ligne100.children[2].innerHTML = "Technique d'expression française II"
+
+    for (j = 0; j <= ligne100.childElementCount - 1; j++) {
+        if (j == 3) { ligne100.children[j].innerHTML = data2[i][10][0] }
+        if (j == 4) { ligne100.children[j].innerHTML = data2[i][10][1] }
+        if (j == 5) { ligne100.children[j].innerHTML = data2[i][10][2] }
+        if (j == 6) { ligne100.children[j].innerHTML = data2[i][10][3] }
+        if (j == 7) { ligne100.children[j].innerHTML = data2[i][10][4] }
+        if (j == 8) {
+            if (data2[i][10][5]) { ligne100.children[j].innerHTML = "VALIDEE" } else { ligne100.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 9) { if (data2[i][10][8]) { ligne100.children[j].innerHTML = 'RATTRAPAGE' } else { ligne100.children[j].innerHTML = mydata[9] } }
+        if (j == 10) { ligne100.children[j].innerHTML = data2[i][10][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 11
+    var ligne111 = s2epsbody.children[10]
+        //ligne111.children[0].innerHTML = "SEMESTRE 2"
+    ligne111.children[0].innerHTML = "EPS128"
+    ligne111.children[1].innerHTML = "Droit du sport"
+
+    for (j = 0; j <= ligne111.childElementCount - 1; j++) {
+        if (j == 2) { ligne111.children[j].innerHTML = data2[i][11][0] }
+        if (j == 3) { ligne111.children[j].innerHTML = data2[i][11][1] }
+        if (j == 4) { ligne111.children[j].innerHTML = data2[i][11][2] }
+        //if (j == 6) { ligne111.children[j].innerHTML = data2[i][11][3] }
+        if (j == 5) { ligne111.children[j].innerHTML = data2[i][11][4] }
+        if (j == 6) {
+            if (data2[i][11][5]) { ligne111.children[j].innerHTML = "VALIDEE" } else { ligne111.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][11][8]) { ligne111.children[j].innerHTML = 'RATTRAPAGE' } else { ligne111.children[j].innerHTML = mydata[9] } }
+        if (j == 8) { ligne111.children[j].innerHTML = data2[i][11][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 12
+    var ligne111 = s2epsbody.children[11]
+        //ligne111.children[0].innerHTML = "SEMESTRE 2"
+    ligne111.children[0].innerHTML = "EPS129"
+    ligne111.children[1].innerHTML = "Stage-Pratique"
+
+    for (j = 0; j <= ligne111.childElementCount - 1; j++) {
+        if (j == 2) { ligne111.children[j].innerHTML = data2[i][12][0] }
+        if (j == 3) { ligne111.children[j].innerHTML = data2[i][12][1] }
+        if (j == 4) { ligne111.children[j].innerHTML = data2[i][12][2] }
+        //if (j == 6) { ligne111.children[j].innerHTML = data2[i][11][3] }
+        if (j == 5) { ligne111.children[j].innerHTML = data2[i][12][4] }
+        if (j == 6) {
+            if (data2[i][12][5]) { ligne111.children[j].innerHTML = "VALIDEE" } else { ligne111.children[j].innerHTML = "NON VALIDEE" }
+        }
+        if (j == 7) { if (data2[i][12][8]) { ligne111.children[j].innerHTML = 'RATTRAPAGE' } else { ligne111.children[j].innerHTML = mydata[9] } }
+        if (j == 8) { ligne111.children[j].innerHTML = data2[i][12][7] } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+    }
+
+    //Ligne 13
+    /*var ligne13 = document.getElementById('ligne-13')
+    ligne13.style.backgroundColor = "#C7B54D"*/
+    //LIGNE 11
+    s2epsResult = s2epsbody.children[12]
+    s2epsResult.style.backgroundColor = "#C7B54D"
+    s2epsResult.children[0].innerHTML = "RESULTATS SEMESTRE 2"
+    s2epsResult.children[5].innerHTML = "Total Crédits Semestre 2"
+
+    for (j = 0; j <= s2epsResult.childElementCount - 1; j++) {
+        if (j == 1) { s2epsResult.children[j].innerHTML = data2[i][13][0] }
+        if (j == 2) { s2epsResult.children[j].innerHTML = data2[i][13][1] }
+        if (j == 3) { s2epsResult.children[j].innerHTML = data2[i][13][2] }
+        if (j == 4) { s2epsResult.children[j].innerHTML = mydata[7].indexOf(data2[i][13][2]) + 1 }
+        if (j == 6) { s2epsResult.children[j].innerHTML = (data2[i][1][7] + data2[i][2][7] + data2[i][3][7] + data2[i][4][7] + data2[i][5][7] + data2[i][9][7] + data2[i][10][7] + data2[i][11][7] + data2[i][12][7]) }
+    }
+
+    /**RESULTATS S1 & S2 MDS */
+
+    s1s2epsrecap = clone.children[2].children[4].children[1].children[1]
+
+    for (j = 0; j <= s1s2epsrecap.childElementCount - 1; j++) {
+        if (j == 0) { s1s2epsrecap.children[j].innerHTML = sommeInt2(resultat.children[1].innerHTML, s2epsResult.children[1].innerHTML) }
+        if (j == 1) { s1s2epsrecap.children[j].innerHTML = sommeFloat2(resultat.children[2].innerHTML, s2epsResult.children[2].innerHTML) }
+        if (j == 2) { s1s2epsrecap.children[j].innerHTML = `${(parseFloat(s1s2epsrecap.children[1].innerHTML) / s1s2epsrecap.children[0].innerHTML).toFixed(2)} / 20` }
+        if (j == 3) {
+            var total = parseFloat(s1s2epsrecap.children[1].innerHTML)
+            s1s2epsrecap.children[j].innerHTML = `${mydata[7].indexOf(data2[i][13][2]) + 1}  /  ${data2.length}`
+        }
+        if (j == 4) { s1s2epsrecap.children[j].innerHTML = `${ sommeInt2(resultat.lastChild.innerHTML, s2epsResult.lastChild.innerHTML) }  /  60` }
+        if (j == 5) {
+            var moyenne = parseFloat(s1s2epsrecap.children[2].innerHTML)
+            if (moyenne >= 10) { s1s2epsrecap.children[j].innerHTML = "ADMIS(E)" } else { s1s2epsrecap.children[j].innerHTML = "REFUSE(E)" }
+        }
+    }
+
 
 
 
     return (clone)
 }
+
+
+
+
 /**FONCTION BULLETIN STAPS2 */
 function BullSTAPS2(clone, i) {
 
@@ -4880,6 +5416,8 @@ function BullSTAPS2(clone, i) {
 
     return clone
 }
+
+
 
 /**FONCTION BULLETIN EVE */
 function BullEVE(clone, i) {

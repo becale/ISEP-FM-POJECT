@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% load static %}
-        <link rel="stylesheet" href="{% static "bulletin/css/bulletinTemplateS246.css" %}">
-        <link rel="stylesheet" href="{% static "bulletin/css/bootsrap/bootstrap.min.css" %}">
-        <title>Bulletin</title>
-
-    </head>
-
-    <body id="body">
-        <div id="generateBull">
-            <!--<button>Générer Bulletin</button>-->
-            {{ semestre1MDS|json_script:"semestre1MDS" }}
-        </div>
-
-        <div class="container-bull">
-            <!--<header>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static "bulletin/css/bulletinTemplateS246.css" %}">
+    <link rel="stylesheet" href="{% static 'bulletin/css/bootsrap/bootstrap.min.css' %}">
+    <title>Bulletin</title>
+    
+</head>
+<body id="body">
+    <div id="generateBull">
+        <!--<button>Générer Bulletin</button>-->
+        {{ semestre1MDS|json_script:"semestre1MDS" }} 
+    </div>
+    
+    <div class="container-bull">
+        <!--<header>
             <div id="logo-title">
                 <div>
                     <div id="head-left"></div>
@@ -32,9 +31,9 @@
                     </div>
                 </div>
             </div>
-            </header>
+        </header>
         <hr>-->
-
+        
         <main>
             <!--<div id="bull-check-title">
                 <div  id="bull-check">DAF/SER/DFF/FFFF/FFFF</div>
@@ -63,11 +62,11 @@
                     </div>
                 </div>
             </div>-->
-            <!--<div id="semester-result0">
-                <div class="box">
+            <!--<div id="semester-result">-->
+                <!--<div class="box">
                     <img class="imgback" src="{% static "bulletin/image/logo.jpeg" %}" alt="Filigrane">
-                </div>
-                <table class="table-1">
+                </div>-->
+                <!--<table class="table-1">
                     <thead>
                         <tr>
                             <th scope="col">&nbsp;&nbsp;</th>
@@ -99,7 +98,7 @@
                             <td id="EPS111-session"></td>
                             <td id="EPS111-credits"></td>
                         </tr>
-                        <<tr>
+                    <tr>
                             <td id="EPS112-codeue">EPS 112</td>
                             <td id="EPS112-matiere">Psychologie du Sport-Sociologie du Sport</td>
                             <td id="EPS112-note"></td>
@@ -171,7 +170,7 @@
                         </tr>
                         <tr>
                             <td id="EPS118-codeue">EPS 118</td>
-                            <td id="EPS118-matiere">Technique d'expression française</td>
+                            <td id="EPS118-matiere">Technique D'Expression Française</td>
                             <td id="EPS118-note"></td>
                             <td id="EPS118-coef"></td>
                             <td id="EPS118-total"></td>
@@ -181,7 +180,7 @@
                             <td id="EPS118-credits"></td>
                         </tr>
                             <td id="EPS119-codeue">EPS 119</td>
-                            <td id="EPS119-matiere">Technique d'Expression Anglaise. Anglaise- Forbi</td>
+                            <td id="EPS119-matiere">Technique D'Expression Anglaise. Anglaise- Forbi</td>
                             <td id="EPS119-note"></td>
                             <td id="EPS119-coef"></td>
                             <td id="EPS119-total"></td>
@@ -200,8 +199,8 @@
                             <td id="resultat-credits"></td>
                         </tr>
                     </tbody>
-                </table>
-                <table id="table-2">
+                </table>-->
+                <!--<table id="table-2">
                     <thead>
                         <tr>
                             <th scope="col" >&nbsp;&nbsp;</th>
@@ -305,7 +304,7 @@
                         </tr>
                         <tr>
                             <td>EPS 128</td>
-                            <td>Création d'Entreprise</td>
+                            <td>Création D'Entreprise</td>
                             <td>1</td>
                             <td>5</td>
                             <td>6</td>
@@ -344,7 +343,7 @@
                         </tr>
                     </tbody>
                 </table>-->
-            <!--<table id="table-3">
+                <!--<table id="table-3">
                     <thead>
                         <tr>
                             <th scope="col" >&nbsp;&nbsp;</th>
@@ -408,83 +407,53 @@
                         </tr>
                     </tbody>
                 </table>-->
-            <table id="recpas3s4">
-                <thead>
-                    <tr>
-                        <th colspan="6">RESULTATS (S4 + S5)</th>
-                        <!--<th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>-->
-                    </tr>
-                </thead>
-                <tbody id="recpas3s4body">
-                    <tr>
-                        <th>Coefficient</th>
-                        <th>Total Points</th>
-                        <th>Moyenne</th>
-                        <th>Rang</th>
-                        <th>Crédits Obtenus</th>
-                        <th>Décision</th>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div id="visa">
-                <span class="a">Le Directeur des Etudes</span>
-                <span class="b">La Présidente / Fondatrice</span>
-            </div>
+                <table id="recpas3s4">
+                    <thead>
+                        <tr>
+                            <th colspan="6">RESULTATS (S4 + S5)</th>
+                            <!--<th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>-->
+                        </tr>
+                    </thead>
+                    <tbody id="recpas3s4body">
+                        <tr>
+                            <th>Coefficient</th>
+                            <th>Total Points</th>
+                            <th>Moyenne</th>
+                            <th>Rang</th>
+                            <th>Crédits Obtenus</th>
+                            <th>Décision</th>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="visa">
+                    <span class="a">Le Directeur des Etudes</span>
+                    <span class="b">La Présidente / Fondatrice</span>
+                </div>
         </main>
         <!--<footer>
             <div class="decision">
+                Décision du conseil des professeurs :  <div class="dot">ADMIS(E)</div>
                 <div class="visa">
                     VISA CHEF ETABLISSEMENT
                 </div>
-                <div></div>
-                
             </div> 
         </footer>-->
     </div>
 
-    <!--<div id="semester-result">
-                <div class="box">
-                    <img class="imgback" src="{% static "bulletin/image/logo.jpeg" %}" alt="Filigrane">
-                </div>
-                <table class="table-1">
-                    <thead>
-                        <tr>
-                            <th scope="col">&nbsp;&nbsp;</th>
-                            <th scope="col">Groupe UE</th>
-                            <th scope="col">Code UE</th>
-                            <th scope="col">Matière</th>
-                            <th scope="col">Note</th>
-                            <th scope="col">Coef</th>
-                            <th scope="col">Total</th>
-                            <th scope="col">Moyenne Groupe</th>
-                            <th scope="col">Rang</th>
-                            <th scope="col">Mention</th>
-                            <th scope="col">Session</th>
-                            <th scope="col">Crédits Obtenus</th>
-                        </tr>
-                    </thead>
-    <div>-->
-
-
-            <script id="semsetre" type="application/json">
-                {
-                    "semestre1": 'semestre1MDS'
-                }
-            </script>
-            <script src="{% static 'bulletin/script/bulletintemplate246.js' %}"></script>
-            <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script>
-    </body>
-
+        <script id="semsetre" type="application/json">{"semestre1": 'semestre1MDS'}</script>
+        <script src="{% static 'bulletin/script/bulletintemplate246.js' %}"></script>
+        <script src="{% static 'bulletin/script/bootstrap.min.js' %}"></script>   
+</body>
 </html>

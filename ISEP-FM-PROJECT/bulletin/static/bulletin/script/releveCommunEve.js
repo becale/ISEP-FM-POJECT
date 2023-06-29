@@ -469,10 +469,8 @@ window.addEventListener('load', () => {
         body.appendChild(page2)
 
     }
+
     PageRattrapage()
-
-
-
 
     function PageSynthese() {
         listStudent = mydata[1]
@@ -684,10 +682,8 @@ window.addEventListener('load', () => {
 
         body.appendChild(page3)
     }
+
     PageSynthese()
-
-
-
 
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */

@@ -19,12 +19,9 @@
     </head>
 
     <body id="body">
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
 
         <div id="page" size="A4" layout="landscape">
-            <div id="container" class="container">
+            <div id="container" class="">
 
                 {{ semestre1MDS|json_script:"semestre1MDS" }} 
 
@@ -58,16 +55,16 @@
 
                 <main>
                     <div id="title">
-                        BORDEREAU DE NOTES 1er SEMESTRE EPS1  2022-2023
+                        PROCES VERBAL MODULAIRE 2<sup>eme</sup> SEMESTRE EPS1  2022-2023
                     </div>
 
                     <!--TABLEAU GENERAL-->
                     <table id="table1">
                         <thead>
                             <th rowspan=""></th>
-                            <th>UE Fondamentales</th>
-                            <th>UE Professionnelles</th>
-                            <th>UE Transversales</th>
+                            <th class="titleStyle">UE Fondamentales</th>
+                            <th class="titleStyle">UE Professionnelles</th>
+                            <th class="titleStyle">UE Transversales</th>
                         </thead>
 
                         <!--TBODY TABLEAU GENERAL-->
@@ -75,18 +72,18 @@
                             <!--GRANDE LIGNE1-->
                             <tr>
                                 <!--Grande Ligne Vide-->
-                               <td rowspan="3">
-                                BORDEREAU DE NOTES 1er SEMESTRE EPS1  2022-2023
+                               <td class="titleStyle" rowspan="3">
+                                PROCES VERBAL 2<sup>eme</sup> SEMESTRE EPS1  2022-2023
                                </td>
                                <!--Tableau des UE FONDAMENTALES-->
                                <td rowspan="3">
                                     <table id="nested1">
                                         <tr id="nestedl1">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS111</td>
-                                            <!--<td rowspan="3" class="nested-border">Mention</td>-->
-                                            <td rowspan="3" class="nested-border">EPS112</td>
-                                            <td rowspan="3" class="nested-border">Moy Grpe</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS121</td>
+                                            <!--<td rowspan="3" class="nested-border">Crédits</td>-->
+                                            <td rowspan="3" class="nested-border">EPS122</td>
+                                            <td rowspan="3" class="nested-border titleStyle">Moy Grpe</td>
+                                            <td rowspan="3" class="nested-border titleStyle" style="border-right: 0px;">Crédits</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -97,19 +94,19 @@
                                <td rowspan="3">
                                     <table id="nested2">
                                         <tr id="nestedl2">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">EPS113</td>
-                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS114</td>
-                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 ath</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 bsk</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 judo</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 lutte</td>
-                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Mention</td>-->
-                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Moy EPS115</td>-->
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS116</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Moy Groupe</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Mention</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">EPS123</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Crédits</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS124</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Crédits</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 Ath</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 Gym</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 Judo</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 Football</td>
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Crédits</td>-->
+                                            <!--<td rowspan="3" class="nested-border nested2-td-with">Moy EPS125</td>-->
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS126</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with titleStyle">Moy Groupe</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with titleStyle" style="border-right: 0px;">Crédits</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -120,19 +117,18 @@
                                <td rowspan="3">
                                     <table id="nested3">
                                         <tr id="nestedl3">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS117</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS127</td>
                                             <!--<td rowspan="3" class="nested-border">Menrtion</td>-->
-                                            <td rowspan="3" class="nested-border">EPS118</td>
-                                            <!--<td rowspan="3" class="nested-border">Mention</td>-->
-                                            <td rowspan="3" class="nested-border">EPS119</td>
-                                            <td rowspan="3" class="nested-border">Moy Groupe</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Mention</td>
+                                            <td rowspan="3" class="nested-border">EPS128</td>
+                                            <!--<td rowspan="3" class="nested-border">Crédits</td>-->
+                                            <td rowspan="3" class="nested-border">EPS129</td>
+                                            <td rowspan="3" class="nested-border titleStyle">Moy Groupe</td>
+                                            <td rowspan="3" class="nested-border titleStyle" style="border-right: 0px;">Crédits</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
                                     </table>
                                </td>
-
                             </tr>
 
                             <tr></tr>
@@ -174,8 +170,8 @@
                                             <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
                                             <!--<td rowspan="3" class="nested-border"></td>-->
                                             <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
+                                            <td rowspan="3" class="nested-border titleStyle"></td>
+                                            <td rowspan="3" class="nested-border titleStyle" style="border-right: 0px;"></td>
                                         </tr>  
                                     </table>
                                     <!--AJOUT DEUXIEME TABLEAU-->
@@ -205,8 +201,8 @@
                                             <td rowspan="3" class="nested-border nested2-td-with"></td>
                                             <!--<td rowspan="3" class="nested-border nested2-td-with">9</td>-->
                                             <td rowspan="3" class="nested-border nested2-td-with"></td>
-                                            <td rowspan="3" class="nested-border nested2-td-with"></td>
-                                            <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with titleStyle"></td>
+                                            <td rowspan="3" class="nested-border nested2-td-with titleStyle" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -240,12 +236,11 @@
                                             <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
                                             <td rowspan="3" class="nested-border"></td>
                                             <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
+                                            <td rowspan="3" class="nested-border titleStyle"></td>
+                                            <td rowspan="3" class="nested-border titleStyle" style="border-right: 0px;"></td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
-                                       
                                     </table> 
                                      <!--AJOUT CINQUIEME TABLEAU-->
                                      <!--<table id="nested33">
@@ -262,21 +257,17 @@
                                         <tr></tr>
                                     </table> -->
                                 </td>
-
                             </tr>
-
                         </tbody>
                     </table>
-
                 </main>
-
                 <!--<footer></footer>-->
             </div>
         </div>
         
         <!--DEUXIEME PARTIE-->
         <div id="part2" size="A4" layout="landscape" >
-            <div class="container" id="">
+            <div id="container">
                 <header class="header">
                     <div class="row">
                         <div class="col-4 logo-center-t ">
@@ -307,7 +298,7 @@
     
                 <main>
                     <div id="title">
-                        BORDEREAU DE NOTES 1er SEMESTRE  2022-2023
+                        PROCES VERBAL MODULAIRE 2<sup>eme</sup> SEMESTRE EPS1  2022-2023
                     </div>
     
                     <!--TABLEAU GENERAL-->
@@ -329,11 +320,11 @@
                                <td rowspan="3">
                                     <table id="nested1">
                                         <tr id="nestedl1">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">Total Points</td>
-                                            <td rowspan="3" class="nested-border">Moyenne</td>
-                                            <td rowspan="3" class="nested-border">Rang</td>
-                                            <td rowspan="3" class="nested-border">Crédits</td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;">Discipline</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border titleStyle" style="border-left: 0px;">Total Points</td>
+                                            <td rowspan="3" class="nested-border titleStyle">Moyenne</td>
+                                            <td rowspan="3" class="nested-border titleStyle">Crédits</td>
+                                            <td rowspan="3" class="nested-border titleStyle">Rang</td>
+                                            <td rowspan="3" class="nested-border titleStyle" style="border-right: 0px;">Discipline</td>
                                         </tr>
                                         <tr></tr>
                                         <tr></tr>
@@ -344,18 +335,18 @@
                                <!--<td rowspan="3">
                                     <table id="nested2">
                                         <tr id="nestedl2">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">EPS113</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS114</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 ath</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 bsk</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 judo</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS115 lutte</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Moy EPS115</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">EPS116</td>
-                                            <td rowspan="3" class="nested-border nested2-td-with">Mention</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border nested2-td-with" style="border-left: 0px;">EPS123</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Crédits</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS124</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Crédits</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 ath</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 bsk</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 judo</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS125 lutte</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Crédits</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Moy EPS125</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">EPS126</td>
+                                            <td rowspan="3" class="nested-border nested2-td-with">Crédits</td>
                                             <td rowspan="3" class="nested-border nested2-td-with" style="border-right: 0px;">Moy Groupe</td>
                                         </tr>
                                         <tr></tr>
@@ -367,12 +358,12 @@
                                <!--<td rowspan="3">
                                     <table id="nested3">
                                         <tr id="nestedl3">
-                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS117</td>
+                                            <td rowspan="3" id="nested1-line1" class="nested-border" style="border-left: 0px;">EPS127</td>
                                             <td rowspan="3" class="nested-border">Menrtion</td>
-                                            <td rowspan="3" class="nested-border">EPS118</td>
-                                            <td rowspan="3" class="nested-border">Mention</td>
-                                            <td rowspan="3" class="nested-border">EPS119</td>
-                                            <td rowspan="3" class="nested-border">Mention</td>
+                                            <td rowspan="3" class="nested-border">EPS128</td>
+                                            <td rowspan="3" class="nested-border">Crédits</td>
+                                            <td rowspan="3" class="nested-border">EPS129</td>
+                                            <td rowspan="3" class="nested-border">Crédits</td>
                                             <td rowspan="3" class="nested-border" style="border-right: 0px;">Moy Groupe</td>
                                         </tr>
                                         <tr></tr>
@@ -418,11 +409,11 @@
                                <td id="tabf">
                                     <table id="nested11">
                                         <tr class="tabuef" style="">
-                                            <td rowspan="3" id="" class="nested-border" style="border-left: 0px;"></td>
-                                            <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border"></td>
-                                            <td rowspan="3" class="nested-border" style="border-right: 0px;"></td>
+                                            <td rowspan="3" id="" class="nested-border titleStyle" style="border-left: 0px;"></td>
+                                            <td rowspan="3" class="nested-border titleStyle"></td>
+                                            <td rowspan="3" class="nested-border titleStyle"></td>
+                                            <td rowspan="3" class="nested-border titleStyle"></td>
+                                            <td rowspan="3" class="nested-border titleStyle" style="border-right: 0px;"></td>
                                         </tr>  
                                     </table>
                                     <!--AJOUT DEUXIEME TABLEAU-->
@@ -517,7 +508,6 @@
     
                         </tbody>
                     </table>
-    
                 </main>
             </div>
         <div>
@@ -581,7 +571,7 @@
                                 <th scope="col">Moy./20</th>
                                 <th scope="col">Crédit</th>
                                 <th scope="col">Décision</th>
-                                <th scope="col">Mention</th>
+                                <th scope="col">Crédits</th>
                             </tr>
                         </thead>
                         <tbody>

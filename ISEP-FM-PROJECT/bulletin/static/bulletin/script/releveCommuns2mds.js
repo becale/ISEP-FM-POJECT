@@ -437,7 +437,7 @@ window.addEventListener('load', () => {
 
     function PageSynthese() {
 
-        synthese = mydata[10]
+        synthese = mydata[8]
 
         page2 = document.getElementById('page')
         page2 = page2.cloneNode(true)

@@ -7,9 +7,12 @@ window.addEventListener('load', function () {
 
   function Page1() {
     listStudent = mydata[1];
-    bigtab = document.getElementById('table1'); //page2.children[1].children[1].children[1]
+    page0 = document.getElementById('page');
+    page0 = page0.cloneNode(true);
+    bigtab = page0.children[0].children[2].children[1]; //page2.children[1].children[1].children[1]
 
     page = document.getElementById("part2");
+    page = page.cloneNode(true);
     bigtab1 = page.children[1].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
 
     worktab = bigtab.children[1];
@@ -53,21 +56,8 @@ window.addEventListener('load', function () {
         if (j == 3) {
           tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
           tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-          /*tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
-          tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']*/
         }
-        /*if(j==4){
-            tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-            tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-        }
-        if(j==5){
-            tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
-            tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-        
-        }*/
-
-      } //tab0 Page2
-      //tab1
+      } //tab1
 
 
       tab1 = temp.children[1];
@@ -87,39 +77,33 @@ window.addEventListener('load', function () {
 
       for (j = 0; j <= tab15.childElementCount - 1; j++) {
         if (j == 0) {
-          tab15.cells[j].innerHTML = listStudent[i][1][0];
-          tab116.cells[j].innerHTML = listStudent[i][13][1];
+          tab15.cells[j].innerHTML = '-/-'; //listStudent[i][1][0];
+          //tab116.cells[j].innerHTML = listStudent[i][13][1]
         }
 
         ;
 
         if (j == 1) {
-          tab116.cells[j].innerHTML = listStudent[i][13][2];
-          tab15.cells[j].innerHTML = listStudent[i][2][0]; //if(listStudent[i][1][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
+          tab15.cells[j].innerHTML = '-/-';
+          /*moyr = listStudent[i][13][2]
+          if ((uet1112cr + uep110cr) < 30) {
+              moyr = '--'
+          }*/
+          //tab116.cells[j].innerHTML = moyr //listStudent[i][13][2]
         }
 
         if (j == 2) {
-          tab15.cells[j].innerHTML = listStudent[i][1][3]; //tab15.cells[j].innerHTML= listStudent[i][2][0];
-
-          tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2]) + 1;
+          tab15.cells[j].innerHTML = '-/-'; //tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2]) + 1;
         }
 
         if (j == 3) {
-          if (listStudent[i][1][3] >= 10) {
-            tab15.cells[j].innerHTML = "V";
-          } else {
-            tab15.cells[j].innerHTML = "NV";
-          }
-
-          ;
-          tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7]; //+listStudent[i][13][7]+listStudent[i][14][7]; //Credits Obtenus
+          tab15.cells[j].innerHTML = '-/-'; //if (listStudent[i][1][3] >= 10) { tab15.cells[j].innerHTML = "V" } else { tab15.cells[j].innerHTML = "NV" };
+          //tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7] //+listStudent[i][13][7]+listStudent[i][14][7]; //Credits Obtenus
         }
 
-        if (j == 4) {
-          tab15.cells[j].innerHTML = listStudent[i][1][3]; //tab116.cells[j].innerHTML= '/'
+        if (j == 4) {//tab15.cells[j].innerHTML = listStudent[i][1][3];
+          //tab116.cells[j].innerHTML = '/'
         }
-
-        tab116.cells[4].innerHTML = '/';
       } //tab2
 
 
@@ -139,7 +123,7 @@ window.addEventListener('load', function () {
           tab23.cells[j].innerHTML = listStudent[i][2][0];
         }
 
-        ; //{if(listStudent[i][3][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
+        ;
 
         if (j == 2) {
           tab23.cells[j].innerHTML = listStudent[i][3][0];
@@ -151,7 +135,7 @@ window.addEventListener('load', function () {
           tab23.cells[j].innerHTML = listStudent[i][4][0];
         }
 
-        ; //{{if(listStudent[i][4][5]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};};
+        ;
 
         if (j == 4) {
           tab23.cells[j].innerHTML = listStudent[i][5][0];
@@ -179,33 +163,85 @@ window.addEventListener('load', function () {
           tab23.cells[j].innerHTML = listStudent[i][9][0];
         }
 
-        ; //if((listStudent[i][5][0]+listStudent[i][6][0]+listStudent[i][7][0]+listStudent[i][8][0]) >=40){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}};
+        ;
 
         if (j == 9) {
           tab23.cells[j].innerHTML = listStudent[i][10][0];
         }
 
-        ; //val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]); val=val.toFixed(2);val=parseFloat(val); tab23.cells[j].innerHTML =val};
+        ; //RECAPITULATIF UE PRO
 
         if (j == 10) {
-          tab23.cells[j].innerHTML = listStudent[i][10][3];
-        } //{tab23.cells[j].innerHTML =listStudent[i][3][3]}
+          //Moyenne Groupe
+          var uep1cr = listStudent[i][1][6];
 
+          if (listStudent[i][1][0] < 10) {
+            uep1cr = 0;
+          }
+
+          var uep2cr = listStudent[i][2][6];
+          var uep3cr = listStudent[i][3][6];
+          var uep4cr = listStudent[i][4][6];
+          var uep5cr = listStudent[i][5][6];
+          var uep2345cr = listStudent[i][5][6];
+
+          if (listStudent[i][2][0] + listStudent[i][3][0] + listStudent[i][4][0] + listStudent[i][5][0] < 40) {
+            uep2345cr = 0;
+          }
+
+          var uep6cr = listStudent[i][6][6];
+
+          if (listStudent[i][6][0] < 10) {
+            uep6cr = 0;
+          }
+
+          var uep7cr = listStudent[i][7][6];
+
+          if (listStudent[i][7][0] < 10) {
+            uep7cr = 0;
+          }
+
+          var uep8cr = listStudent[i][8][6];
+
+          if (listStudent[i][8][0] < 10) {
+            uep8cr = 0;
+          }
+
+          var uep9cr = listStudent[i][9][6];
+
+          if (listStudent[i][9][0] < 10) {
+            uep9cr = 0;
+          }
+
+          var uep10cr = listStudent[i][10][6];
+
+          if (listStudent[i][10][0] < 10) {
+            uep10cr = 0;
+          }
+          /**VERIFICATION MODULATION CREDIT */
+
+
+          if (listStudent[i][1][0] + listStudent[i][5][3] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0] + listStudent[i][9][0] + listStudent[i][10][0] >= 70) {
+            uep110cr = listStudent[i][1][6] + listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6] + listStudent[i][9][6] + listStudent[i][10][6];
+          } else {
+            uep110cr = uep1cr + uep2345cr + uep6cr + uep7cr + uep8cr + uep9cr + uep10cr;
+          }
+          /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+
+
+          moyuep = listStudent[i][10][3];
+
+          if (moyuep >= 10 && listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7 && listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && listStudent[i][5][0] >= 7 && listStudent[i][6][0] >= 7 && listStudent[i][7][0] >= 7 && listStudent[i][8][0] >= 7 && listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7) {//moyuefcr = uef34cr + uef12cr
+          } else {
+            moyuep = '--';
+          }
+
+          tab23.cells[j].innerHTML = moyuep;
+        }
 
         if (j == 11) {
-          if (listStudent[i][10][3] >= 10) {
-            tab23.cells[j].innerHTML = 'V';
-          } else {
-            tab23.cells[j].innerHTML = 'NV';
-          }
-        } //{ val = ((listStudent[i][5][0]*listStudent[i][5][1])+(listStudent[i][6][0]*listStudent[i][6][1])+(listStudent[i][7][0]*listStudent[i][7][1])+(listStudent[i][8][0]*listStudent[i][8][1])+(listStudent[i][9][0]*listStudent[i][9][1])+(listStudent[i][10][0]*listStudent[i][10][1]))/(listStudent[i][5][1]+listStudent[i][6][1]+listStudent[i][7][1]+listStudent[i][8][1]+listStudent[i][9][1]+listStudent[i][10][1]); val=val.toFixed(2); val=parseFloat(val) ;tab23.cells[j].innerHTML =val};
-
-        /*if(j==12)
-        if(j==13){
-            if(listStudent[i][11][0]){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}
-        };
-        if(j==14) {} */
-
+          tab23.cells[j].innerHTML = uep110cr;
+        }
       } //tab3
 
 
@@ -225,37 +261,779 @@ window.addEventListener('load', function () {
           tab33.cells[j].innerHTML = listStudent[i][12][0];
         }
 
-        ; //{if( listStudent[i][12][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};
+        ;
 
         if (j == 2) {
-          tab33.cells[j].innerHTML = listStudent[i][12][3];
-        } //{tab33.cells[j].innerHTML =listStudent[i][12][0]};
+          var uet1 = listStudent[i][11][6];
 
-
-        if (j == 3) {
-          if (listStudent[i][12][3] >= 10) {
-            tab33.cells[j].innerHTML = 'V';
-          } else {
-            tab33.cells[j].innerHTML = 'NV';
+          if (listStudent[i][11][0] < 10) {
+            uet1 = 0;
           }
 
-          ;
+          var uet2 = listStudent[i][12][6];
+
+          if (listStudent[i][12][0] < 10) {
+            uet2 = 0;
+          }
+          /**VERIFICATION MODULATION */
+
+
+          if (listStudent[i][11][0] * 2 + listStudent[i][12][0] >= 30) {
+            uet1112cr = listStudent[i][11][6] + listStudent[i][12][6];
+          } else {
+            uet1112cr = uet1 + uet2;
+          }
+          /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+
+
+          moyuet = listStudent[i][12][3];
+
+          if (moyuet >= 10 && listStudent[i][11][0] >= 7 && listStudent[i][12][0] >= 7) {} else {
+            moyuet = "--";
+          }
+
+          tab33.cells[j].innerHTML = moyuet;
         }
 
-        ; //{tab33.cells[j].innerHTML = listStudent[i][12][3]};//{if( listStudent[i][13][5] ){ tab33.cells[j].innerHTML ='V' }else{ tab33.cells[j].innerHTML ='NV'};};//
-        //if(j==4)
+        if (j == 3) {
+          tab33.cells[j].innerHTML = uet1112cr;
+        }
 
-        /*if(j==5)//119
-        if(j==6)*/
+        ;
+      } //RESULTATS 
+
+
+      tab116 = tab115['0']; //good line*/
+
+      for (j = 0; j <= tab15.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab116.cells[j].innerHTML = listStudent[i][13][1];
+        }
+
+        ;
+
+        if (j == 1) {
+          moyr = listStudent[i][13][2];
+
+          if (uet1112cr + uep110cr + 1 < 30) {
+            moyr = '--';
+          }
+
+          tab116.cells[j].innerHTML = moyr; //listStudent[i][13][2]
+        }
+
+        if (j == 2) {
+          tab116.cells[j].innerHTML = uet1112cr + uep110cr + 1;
+        }
+
+        if (j == 3) {
+          tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2]) + 1; //listStudent[i][1][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7] //+listStudent[i][13][7]+listStudent[i][14][7]; //Credits Obtenus
+        }
+
+        if (j == 4) {//tab116.cells[j].innerHTML = '/'
+        }
+
+        tab116.cells[4].innerHTML = '/';
       } //Ajoute de la ligne au grand tableau
 
 
       worktab.appendChild(temp);
       worktab1.appendChild(temp1);
+      body.appendChild(page0);
+      body.appendChild(page);
     }
   }
 
   Page1();
+
+  function PageRattrapage() {
+    rattrapage = mydata[10];
+    page2 = document.getElementById('page');
+    page2 = page2.cloneNode(true);
+    page2.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 4<sup>eme</sup> SEMESTRE EPS2  2022-2023";
+    bigtab2 = page2.children[0].children[2].children[1];
+    page3 = document.getElementById("part2");
+    page3 = page3.cloneNode(true);
+    page3.children[1].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 4<sup>eme</sup> SEMESTRE EPS2  2022-2023";
+    bigtab3 = page3.children[1].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
+
+    worktab2 = bigtab2.children[1];
+    worktab3 = bigtab3.children[1];
+
+    for (i = 0; i <= mydata[1].length - 1; i++) {
+      temp2 = worktab2.children[3].cloneNode(true);
+      temp3 = worktab3.children[3].cloneNode(true); //tab0 NOMS ET INFOS ETUDIANTS
+
+      tab0 = temp2.children[0];
+      tab01 = tab0.children.nested4;
+      tab02 = tab01.children;
+      tab03 = tab02['0'];
+      tab04 = tab03.children;
+      tab05 = tab04[0]; //good  
+      ////
+
+      tab00 = temp3.children[0];
+      tab001 = tab00.children.nested4;
+      tab002 = tab001.children;
+      tab003 = tab002['0'];
+      tab004 = tab003.children;
+      tab005 = tab004[0]; //good*/
+
+      for (j = 0; j <= tab05.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab05.cells[j].innerHTML = i + 1;
+          tab005.cells[j].innerHTML = i + 1;
+        }
+
+        if (j == 1) {
+          tab05.cells[j].innerHTML = listStudent[i][0]['nom'];
+          tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
+        }
+
+        if (j == 2) {
+          tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
+          tab005.cells[j].innerHTML = listStudent[i][0]['prenom'];
+        }
+
+        if (j == 3) {
+          tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+          tab005.cells[j].innerHTML = listStudent[i][0]['matricule']; //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+        }
+      } //tab1 UE FONDAMENTALES
+
+
+      tab1 = temp2.children[1];
+      tab11 = tab1.children.nested11;
+      tab12 = tab11.children;
+      tab13 = tab12['0'];
+      tab14 = tab13.children;
+      tab15 = tab14[0]; //good line
+      ///
+
+      tab111 = temp3.children[1];
+      tab112 = tab111.children.nested11;
+      tab113 = tab112.children;
+      tab114 = tab113['0'];
+      tab115 = tab114.children;
+      tab116 = tab115['0']; //good line*/
+
+      for (j = 0; j <= tab15.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+
+        if (j == 1) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+
+        if (j == 2) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+
+        if (j == 3) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+      } //tab2 UE PROFESSIONNELLES
+
+
+      tab2 = temp2.children[2];
+      tab21 = tab2.children.nested22;
+      tab22 = tab21.children['0'];
+      tab23 = tab22.children['0'];
+
+      for (j = 0; j <= tab23.childElementCount - 1; j++) {
+        if (j == 0) {
+          if (rattrapage[i][1] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][1];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 1) {
+          if (rattrapage[i][2] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][2];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 2) {
+          if (rattrapage[i][3] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][3];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 3) {
+          if (rattrapage[i][4] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][4];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 4) {
+          if (rattrapage[i][5] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][5];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 5) {
+          if (rattrapage[i][6] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][6];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 6) {
+          if (rattrapage[i][7] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][7];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 7) {
+          /*eps125Somme = (listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) / (4)
+            var uef3cr = listStudent[i][3][6]
+          if (listStudent[i][3][0] < 10) { uef3cr = 0 }
+            var uef4cr = listStudent[i][4][6]
+          if (listStudent[i][4][0] < 10) { uef4cr = 0 }
+            var uef5cr = listStudent[i][5][6]
+          if (listStudent[i][5][5] == false) { uef5cr = 0 }
+            var uef9cr = listStudent[i][9][6]
+          if (listStudent[i][9][0] < 10) { uef9cr = 0 }
+            moyuep = listStudent[i][3][3]
+          moyuepcr = 
+            if (moyuep >= 10 && (listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && eps125Somme >= 7 && listStudent[i][9][0] >= 7)) {
+              console.log('OK');
+              moyuepcr = listStudent[i][3][6] + listStudent[i][4][6] + listStudent[i][5][7] + listStudent[i][9][6]
+          } else {
+              moyuep = '--'
+              moyuepcr = uef3cr + uef4cr + uef5cr + uef9cr
+          }*/
+          if (rattrapage[i][8] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][8];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 8) {
+          if (rattrapage[i][9] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][9];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 9) {
+          if (rattrapage[i][10] > 0) {
+            tab23.cells[j].innerHTML = rattrapage[i][10];
+          } else {
+            tab23.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 10) {
+          tab23.cells[j].innerHTML = '--';
+        }
+
+        if (j == 11) {
+          tab23.cells[j].innerHTML = '--';
+        }
+      } //tab3 UE TRANSVERSALES
+
+
+      tab3 = temp2.children[3];
+      tab31 = tab3.children.nested33;
+      tab32 = tab31.children['0'];
+      tab33 = tab32.children['0'];
+
+      for (j = 0; j <= tab33.childElementCount - 1; j++) {
+        if (j == 0) {
+          if (rattrapage[i][11] > 0) {
+            tab33.cells[j].innerHTML = rattrapage[i][11];
+          } else {
+            tab33.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 1) {
+          if (rattrapage[i][12] > 0) {
+            tab33.cells[j].innerHTML = rattrapage[i][12];
+          } else {
+            tab33.cells[j].innerHTML = '--';
+          }
+        }
+
+        ;
+
+        if (j == 2) {
+          var uet1 = listStudent[i][11][6];
+
+          if (rattrapage[i][11] < 10) {
+            uet1 = 0;
+          }
+
+          var uet2 = listStudent[i][12][6];
+
+          if (rattrapage[i][12] < 10) {
+            uet2 = 0;
+          }
+          /**VERIFICATION MODULATION */
+
+
+          if (rattrapage[i][11] * 2 + rattrapage[i][12] >= 30) {
+            uet1112cr = listStudent[i][11][6] + listStudent[i][12][6];
+          } else {
+            uet1112cr = uet1 + uet2;
+          }
+          /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+
+
+          moyuet = listStudent[i][12][3];
+
+          if (moyuet >= 10 && rattrapage[i][11] >= 7 && rattrapage[i][12] >= 7) {} else {
+            moyuet = "--";
+          }
+
+          tab33.cells[j].innerHTML = moyuet;
+        }
+
+        if (j == 3) {
+          tab33.cells[j].innerHTML = uet1112cr;
+        }
+
+        ;
+      } //RESULTATS
+
+
+      for (j = 0; j <= tab116.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab116.cells[j].innerHTML = '--';
+        } //total }
+
+
+        if (j == 1) {
+          tab116.cells[j].innerHTML = '--';
+        }
+
+        if (j == 2) {
+          tab116.cells[j].innerHTML = '--';
+        }
+
+        if (j == 3) {
+          tab116.cells[j].innerHTML = '--';
+        } //rang }
+
+
+        if (j == 4) {
+          tab116.cells[j].innerHTML = "--";
+        }
+      } //Ajoute de la ligne au grand tableau
+
+
+      worktab2.appendChild(temp2);
+      worktab3.appendChild(temp3);
+      body.appendChild(page2);
+      body.appendChild(page3);
+    }
+  }
+
+  PageRattrapage();
+
+  function PageSynthese() {
+    synthese = mydata[11];
+    page4 = document.getElementById('page');
+    page4 = page4.cloneNode(true);
+    page4.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 4<sup>eme</sup> SEMESTRE EPS2  2022-2023";
+    bigtab4 = page4.children[0].children[2].children[1];
+    page5 = document.getElementById("part2");
+    page5 = page5.cloneNode(true);
+    page5.children[1].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 4<sup>eme</sup> SEMESTRE EPS2  2022-2023";
+    bigtab5 = page5.children[1].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
+
+    worktab4 = bigtab4.children[1];
+    worktab5 = bigtab5.children[1];
+
+    for (i = 0; i <= mydata[1].length - 1; i++) {
+      temp4 = worktab4.children[3].cloneNode(true);
+      temp5 = worktab5.children[3].cloneNode(true); //tab0 NOMS ET INFOS ETUDIANTS
+
+      tab0 = temp4.children[0];
+      tab01 = tab0.children.nested4;
+      tab02 = tab01.children;
+      tab03 = tab02['0'];
+      tab04 = tab03.children;
+      tab05 = tab04[0]; //good  
+      ////
+
+      tab00 = temp5.children[0];
+      tab001 = tab00.children.nested4;
+      tab002 = tab001.children;
+      tab003 = tab002['0'];
+      tab004 = tab003.children;
+      tab005 = tab004[0]; //good*/
+
+      for (j = 0; j <= tab05.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab05.cells[j].innerHTML = i + 1;
+          tab005.cells[j].innerHTML = i + 1;
+        }
+
+        if (j == 1) {
+          tab05.cells[j].innerHTML = listStudent[i][0]['nom'];
+          tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
+        }
+
+        if (j == 2) {
+          tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
+          tab005.cells[j].innerHTML = listStudent[i][0]['prenom'];
+        }
+
+        if (j == 3) {
+          tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+          tab005.cells[j].innerHTML = listStudent[i][0]['matricule']; //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+        }
+      } //tab1 UE FONDAMENTALES
+
+
+      tab1 = temp4.children[1];
+      tab11 = tab1.children.nested11;
+      tab12 = tab11.children;
+      tab13 = tab12['0'];
+      tab14 = tab13.children;
+      tab15 = tab14[0]; //good line
+      ///
+
+      tab111 = temp5.children[1];
+      tab112 = tab111.children.nested11;
+      tab113 = tab112.children;
+      tab114 = tab113['0'];
+      tab115 = tab114.children;
+      tab116 = tab115['0']; //good line*/
+
+      for (j = 0; j <= tab15.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+
+        if (j == 1) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+
+        if (j == 2) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+
+        if (j == 3) {
+          tab15.cells[j].innerHTML = '-/-';
+        }
+      } //tab2 UE PROFESSIONNELLES
+
+
+      tab2 = temp4.children[2];
+      tab21 = tab2.children.nested22;
+      tab22 = tab21.children['0'];
+      tab23 = tab22.children['0'];
+
+      for (j = 0; j <= tab23.childElementCount - 1; j++) {
+        if (j == 0) {
+          /*if (synthese[i][1] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][1][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 1) {
+          /*if (synthese[i][2][0] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][2][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 2) {
+          /*if (synthese[i][3][0] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][3][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 3) {
+          /*if (synthese[i][4][0] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][4][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 4) {
+          /*if (synthese[i][5][0] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][5][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 5) {
+          /*if (synthese[i][6][0] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][6][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 6) {
+          /*if (synthese[i][7][0] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][7][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 7) {
+          /*eps125Somme = (listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) / (4)
+            var uef3cr = listStudent[i][3][6]
+          if (listStudent[i][3][0] < 10) { uef3cr = 0 }
+            var uef4cr = listStudent[i][4][6]
+          if (listStudent[i][4][0] < 10) { uef4cr = 0 }
+            var uef5cr = listStudent[i][5][6]
+          if (listStudent[i][5][5] == false) { uef5cr = 0 }
+            var uef9cr = listStudent[i][9][6]
+          if (listStudent[i][9][0] < 10) { uef9cr = 0 }
+            moyuep = listStudent[i][3][3]
+          moyuepcr = 
+            if (moyuep >= 10 && (listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && eps125Somme >= 7 && listStudent[i][9][0] >= 7)) {
+              console.log('OK');
+              moyuepcr = listStudent[i][3][6] + listStudent[i][4][6] + listStudent[i][5][7] + listStudent[i][9][6]
+          } else {
+              moyuep = '--'
+              moyuepcr = uef3cr + uef4cr + uef5cr + uef9cr
+          }*/
+
+          /*if (synthese[i][8] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][8][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        ;
+
+        if (j == 8) {
+          /*if (synthese[i][9] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][9][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        if (j == 9) {
+          /*if (synthese[i][10] > 0) {*/
+          tab23.cells[j].innerHTML = synthese[i][10][0];
+          /*} else { tab23.cells[j].innerHTML = '--' }*/
+        }
+
+        if (j == 10) {
+          var uep1cr = listStudent[i][1][6];
+
+          if (listStudent[i][1][0] < 10) {
+            uep1cr = 0;
+          }
+
+          var uep2cr = listStudent[i][2][6];
+          var uep3cr = listStudent[i][3][6];
+          var uep4cr = listStudent[i][4][6];
+          var uep5cr = listStudent[i][5][6];
+          var uep2345cr = listStudent[i][5][6];
+
+          if (listStudent[i][2][0] + listStudent[i][3][0] + listStudent[i][4][0] + listStudent[i][5][0] < 40) {
+            uep2345cr = 0;
+          }
+
+          var uep6cr = listStudent[i][6][6];
+
+          if (listStudent[i][6][0] < 10) {
+            uep6cr = 0;
+          }
+
+          var uep7cr = listStudent[i][7][6];
+
+          if (listStudent[i][7][0] < 10) {
+            uep7cr = 0;
+          }
+
+          var uep8cr = listStudent[i][8][6];
+
+          if (listStudent[i][8][0] < 10) {
+            uep8cr = 0;
+          }
+
+          var uep9cr = listStudent[i][9][6];
+
+          if (listStudent[i][9][0] < 10) {
+            uep9cr = 0;
+          }
+
+          var uep10cr = listStudent[i][10][6];
+
+          if (listStudent[i][10][0] < 10) {
+            uep10cr = 0;
+          }
+          /**VERIFICATION MODULATION CREDIT */
+
+
+          if (synthese[i][1][0] + synthese[i][5][3] + synthese[i][6][0] + synthese[i][7][0] + synthese[i][8][0] + synthese[i][9][0] + synthese[i][10][0] >= 70) {
+            uep110cr = listStudent[i][1][6] + listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6] + listStudent[i][9][6] + listStudent[i][10][6];
+          } else {
+            uep110cr = uep1cr + uep2345cr + uep6cr + uep7cr + uep8cr + uep9cr + uep10cr;
+          }
+          /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+
+
+          moyuep = synthese[i][10][3];
+
+          if (moyuep >= 10 && synthese[i][1][0] >= 7 && synthese[i][2][0] >= 7 && synthese[i][3][0] >= 7 && synthese[i][4][0] >= 7 && synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7 && synthese[i][7][0] >= 7 && synthese[i][8][0] >= 7 && synthese[i][9][0] >= 7 && synthese[i][10][0] >= 7) {//moyuefcr = uef34cr + uef12cr
+          } else {
+            moyuep = '--';
+          }
+
+          tab23.cells[j].innerHTML = moyuep;
+        }
+
+        if (j == 11) {
+          tab23.cells[j].innerHTML = uep110cr;
+        }
+      } //tab3 UE TRANSVERSALES
+
+
+      tab3 = temp4.children[3];
+      tab31 = tab3.children.nested33;
+      tab32 = tab31.children['0'];
+      tab33 = tab32.children['0'];
+
+      for (j = 0; j <= tab33.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab33.cells[j].innerHTML = synthese[i][11][0];
+        }
+
+        ;
+
+        if (j == 1) {
+          tab33.cells[j].innerHTML = synthese[i][12][0];
+        }
+
+        ;
+
+        if (j == 2) {
+          var uet1 = listStudent[i][11][6];
+
+          if (synthese[i][11][0] < 10) {
+            uet1 = 0;
+          }
+
+          var uet2 = listStudent[i][12][6];
+
+          if (synthese[i][12][0] < 10) {
+            uet2 = 0;
+          }
+          /**VERIFICATION MODULATION */
+
+
+          if (synthese[i][11][0] * 2 + synthese[i][12][0] >= 30) {
+            uet1112cr = listStudent[i][11][6] + listStudent[i][12][6];
+          } else {
+            uet1112cr = uet1 + uet2;
+          }
+          /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+
+
+          moyuet = synthese[i][12][3];
+
+          if (moyuet >= 10 && synthese[i][11][0] >= 7 && synthese[i][12][0] >= 7) {} else {
+            moyuet = "--";
+          }
+
+          tab33.cells[j].innerHTML = moyuet;
+        }
+
+        if (j == 3) {
+          tab33.cells[j].innerHTML = uet1112cr;
+        }
+
+        ;
+      } //RESULTATS 
+
+
+      tab116 = tab115['0']; //good line*/
+
+      for (j = 0; j <= tab15.childElementCount - 1; j++) {
+        if (j == 0) {
+          tab116.cells[j].innerHTML = synthese[i][13][1];
+        }
+
+        ;
+
+        if (j == 1) {
+          moyr = synthese[i][13][2];
+
+          if (uet1112cr + uep110cr + 1 < 30) {
+            moyr = '--';
+          }
+
+          tab116.cells[j].innerHTML = moyr; //listStudent[i][13][2]
+        }
+
+        if (j == 2) {
+          tab116.cells[j].innerHTML = uet1112cr + uep110cr + 1;
+        }
+
+        if (j == 3) {
+          if (uet1112cr + uep110cr + 1 < 30) {
+            tab116.cells[j].innerHTML = '--';
+          } else {
+            tab116.cells[j].innerHTML = mydata[12].indexOf(synthese[i][13][2]) + 1;
+          }
+        }
+
+        if (j == 4) {//tab116.cells[j].innerHTML = '/'
+        }
+
+        tab116.cells[4].innerHTML = '/';
+      } //Ajoute de la ligne au grand tableau
+
+
+      worktab4.appendChild(temp4);
+      worktab5.appendChild(temp5);
+      body.appendChild(page4);
+      body.appendChild(page5);
+    }
+  }
+
+  PageSynthese();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
 
   function ListProcess() {

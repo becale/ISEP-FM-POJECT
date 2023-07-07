@@ -34,6 +34,7 @@ body {
     height: 29.7cm;
     padding: 1cm;
     display: none;
+    margin-bottom: 1.5cm;
 }
 
 #page[size="A4"][layout="landscape"] {
@@ -213,18 +214,22 @@ td {
 /*thead FORMAT UNIVERSEL*/
 
 
-/*thead th:nth-child(1){
+/*thead th:nth-child(1) {
     width: 12.2cm;
-  }
-  thead th:nth-child(2){
+}*/
+
+
+/*  thead th:nth-child(2){
     width: 7cm;
   }
   thead th:nth-child(3){
     width: 5cm;
-  }
-  thead th:nth-child(4){
-    width: 3.5cm;
   }*/
+
+
+/*thead th:nth-child(4) {
+    width: 5.5cm;
+}*/
 
 
 /*Nested-table*/
@@ -511,6 +516,8 @@ footer {
 
 .info-serie {
     height: 0.6cm;
+    font-size: 11.3px;
+    text-align: center;
     /*background-color: bisque;*/
     /*margin-top: 0.2cm;*/
     margin-bottom: 0.1cm;

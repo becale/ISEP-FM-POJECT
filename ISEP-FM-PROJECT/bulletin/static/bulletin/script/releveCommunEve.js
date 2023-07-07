@@ -510,18 +510,6 @@ window.addEventListener('load', () => {
                     tab05r.cells[j].innerHTML = listStudent[i][0]['matricule'];
                     //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
                 }
-                /*if(j==3){
-                    tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
-                    //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
-                }
-                if(j==4){
-                    tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-                    //tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-                }
-                if(j==5){
-                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                    //tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                }*/
             }
 
             //tab1

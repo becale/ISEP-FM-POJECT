@@ -14,14 +14,12 @@ window.addEventListener('load', () => {
         page = document.getElementById("part2")
         page = page.cloneNode(true)
 
-        //bigtab1 = page.children[1].children[1]
         bigtab1 = page.children[0].children[1].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab = bigtab.children[1]
         worktab1 = bigtab1.children[1]
             //Ligne des 4 tableaux
-
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -176,6 +174,7 @@ window.addEventListener('load', () => {
             tab31 = tab3.children.nested33
             tab32 = tab31.children['0']
             tab33 = tab32.children['0']
+
             for (j = 0; j <= tab33.childElementCount - 1; j++) {
                 if (j == 0) { tab33.cells[j].innerHTML = listStudent[i][10][0] };
                 if (j == 1) { tab33.cells[j].innerHTML = listStudent[i][11][0] };
@@ -210,8 +209,8 @@ window.addEventListener('load', () => {
                 }
 
                 //Ajoute de la ligne au grand tableau
-                worktab.appendChild(temp)
-                worktab1.appendChild(temp1)
+                /* worktab.appendChild(temp)
+                 worktab1.appendChild(temp1)*/
             }
 
             //RESULTATS
@@ -231,6 +230,7 @@ window.addEventListener('load', () => {
             body.appendChild(page0)
             body.appendChild(page)
         }
+
     }
     Page1_2()
 

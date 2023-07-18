@@ -553,7 +553,7 @@ function GenerateBullMDS1Semestre1() {
   td544.innerHTML = "MDS117";
   var td566 = document.createElement('td');
   td566.setAttribute("id", "MDS117-matiere");
-  td566.innerHTML = "Technique D'Expression Fran\xE7aise";
+  td566.innerHTML = "Technique d'expression fran\xE7aise";
   var td577 = document.createElement('td');
   td577.setAttribute("id", "MDS117-note");
   var td588 = document.createElement('td');
@@ -1246,7 +1246,7 @@ function GenerateBullStaps1Semestre1() {
   td45.innerHTML = "EPS118";
   var td46 = document.createElement('td');
   td46.setAttribute("id", "EPS118-matiere");
-  td46.innerHTML = "Technique D'Expression Fran\xE7aise";
+  td46.innerHTML = "Technique d'expression fran\xE7aise";
   var td47 = document.createElement('td');
   td47.setAttribute("id", "EPS118-note");
   var td48 = document.createElement('td');
@@ -2021,7 +2021,7 @@ function GenerateBullStaps2Semestre3() {
   td45.innerHTML = "EPS238";
   var td46 = document.createElement('td');
   td46.setAttribute("id", "EPS238-matiere");
-  td46.innerHTML = "Technique D'Expression Fran\xE7aise";
+  td46.innerHTML = "Technique d'expression fran\xE7aise";
   var td47 = document.createElement('td');
   td47.setAttribute("id", "EPS238-note");
   var td48 = document.createElement('td');
@@ -5632,6 +5632,10 @@ function BullEVE(clone, i) {
   resultat = tbody.children[6];
 
   for (j = 0; j <= resultat.childElementCount - 1; j++) {
+    if (j == 0) {
+      resultats6.children[j].innerHTML = 'RESULTATS SEMESTRE 5';
+    }
+
     if (j == 1) {
       resultat.children[1].innerHTML = listStudent[i][7][0];
       /*sommeInt1(ligneMDS111.children[5].innerHTML,ligneMDS111b.children[3].innerHTML,ligneMDS112.children[3].innerHTML,ligneMDS112b.children[3].innerHTML,ligneMDS113.children[4].innerHTML,ligneMDS114.children[3].innerHTML,ligneMDS115.children[3].innerHTML,ligneMDS116.children[3].innerHTML,ligneMDS117.children[4].innerHTML,ligneMDS117b.children[3].innerHTML);*/
@@ -5650,6 +5654,10 @@ function BullEVE(clone, i) {
 
     if (j == 4) {
       resultat.children[j].innerHTML = mydata[2].indexOf(listStudent[i][7][2]) + 1;
+    }
+
+    if (j == 5) {
+      resultats6.children[j].innerHTML = 'Total Crédits Semestre 5';
     }
 
     if (j == 6) {

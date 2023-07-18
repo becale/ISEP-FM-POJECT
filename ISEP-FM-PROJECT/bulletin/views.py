@@ -564,6 +564,7 @@ def bulls2epsmds(request, filiere):
 ################################################## SEMESTRE 1 GESTION SYNTHESE ##############################################################################
         semestre1MDS = [filiere,  listeMatriceS1Ges, mdsS1Moyenne,  moymdsS1, session] 
 
+
 ################################################## SEMESTRE 2 GESTION #######################################################################################
 
         infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
@@ -807,6 +808,7 @@ def bulls2epsmds(request, filiere):
 
     elif (filiere == 'STAPS1'):
 
+
 ################################################## SEMESTRE 1 EPS ########################################################################################################################################################
         infoEtudiantSTAPS1 =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
@@ -935,7 +937,6 @@ def bulls2epsmds(request, filiere):
             
         semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session ]
 
-
 ################################################## SEMESTRE 1 EPS RATTRAPAGE ################################################################################
         
         EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_Examen'))
@@ -1009,9 +1010,9 @@ def bulls2epsmds(request, filiere):
             ]
             listeMatriceS1EpsR.append(matriceS1EpsR)
 
-
 ################################################## SEMESTRE 1 EPS SYNTHESE ##################################################################################
         semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1Eps ]
+
 
 ################################################## SEMESTRE 2 EPS ########################################################################################################################################################     
         infoEtudiantSTAPS1 =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
@@ -1153,7 +1154,6 @@ def bulls2epsmds(request, filiere):
         #semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1Eps ]  Venant du haut S1
         semestre1MDS += [listeMatriceS2Eps ,staps2Moyenne ,moy2 ,session2]#[filiere, listeMatrice, staps1Moyenne, moy, session ]
     
-    
 ################################################## SEMESTRE 2 EPS RATTRAPAGE ################################################################################
         EPS121R = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_Examen'))
         sort121R = epurationTriCroissant(EPS121R)
@@ -1233,7 +1233,6 @@ def bulls2epsmds(request, filiere):
                 EPS129R[j]
             ]
             listeMatriceS2epsR.append(matriceS2epsR)
-        
 
 ################################################## SEMESTRE 2 EPS SYNTHESE ##################################################################################
         #RESULTAT APRES SYNTHESE
@@ -2005,21 +2004,27 @@ def bulls6msoeve(request, filiere):
 
     MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76).values('note_Examen','note_cc','note_sn'))
     sort315 = epurationTriCroissant(MAS315)
+    MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_cc'))
 
     MAS325 = list(Evaluation.objects.filter(uniteEnseignement_id=77).values('note_Examen'))
     sort325 = epurationTriCroissant(MAS325)
+    MAS325cc = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_cc'))
 
     MAS335 = list(Evaluation.objects.filter(uniteEnseignement_id=78).values('note_Examen'))
     sort335 = epurationTriCroissant(MAS335)
+    MAS335cc = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_cc'))
 
     MAS345 = list(Evaluation.objects.filter(uniteEnseignement_id=79).values('note_Examen'))
     sort345 = epurationTriCroissant(MAS345)
+    MAS345cc = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_cc'))
 
     EVE355 = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_Examen'))
     sort355 = epurationTriCroissant(EVE355)
+    EVE355cc = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_cc'))
 
     EVE365 = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_Examen'))
     sort365 = epurationTriCroissant(EVE365)
+    EVE365cc = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_cc'))
 
     listeMatrice = []
     EVEMoyenne = []
@@ -2082,10 +2087,248 @@ def bulls6msoeve(request, filiere):
         session = 'Janvier 2023'
 
 ############################################################### SEMESTRE 5 EVE RATTRAPAGE ###################################################################################################    
+    MAS315R = list(Evaluation.objects.filter(uniteEnseignement_id=76, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort316 = epurationRattrapage(MAS315R)
+
+    MAS325R = list(Evaluation.objects.filter(uniteEnseignement_id=77, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort326 = epurationRattrapage(MAS325R)
+
+    MAS335R = list(Evaluation.objects.filter(uniteEnseignement_id=78, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort336 = epurationRattrapage(MAS335R)
+
+    MAS345R = list(Evaluation.objects.filter(uniteEnseignement_id=79, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort346 = epurationRattrapage(MAS345R)
+
+    EVE355R = list(Evaluation.objects.filter(uniteEnseignement_id=80, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort356 = epurationRattrapage(EVE355R)
+
+    EVE365R = list(Evaluation.objects.filter(uniteEnseignement_id=81, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort366 = epurationRattrapage(EVE365R)
+
+    listeMatriceRs5EVE = []
+    listeMatriceRs5EVEex = []
     
+
+    for j in range (len(infoEtudiantEVE)):
+        matriceRs5EVE = [
+
+            infoEtudiantEVE[j],
+            
+            MAS315R[j],
+
+            MAS325R[j],
+            
+            MAS335R[j],
+            
+            MAS345R[j],
+            
+            EVE355R[j],
+            
+            EVE365R[j],
+        ]
+
+        matriceRs5EVEex = [
+
+            infoEtudiantEVE[j],
+            
+            ( round( MAS315R[j]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (MAS315R[j] > 0) else MAS315R[j] ) ,
+
+            ( round( MAS325R[j]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (MAS325R[j] > 0) else MAS325R[j] ) ,
+            
+            ( round( MAS335R[j]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (MAS335R[j] > 0) else MAS335R[j] ) ,
+            
+            ( round( MAS345R[j]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (MAS345R[j] > 0) else MAS345R[j] ) ,
+            
+            ( round( EVE355R[j]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (EVE355R[j] > 0) else EVE355R[j] ) ,
+            
+            ( round( EVE365R[j]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (EVE365R[j] > 0) else EVE365R[j] ) ,
+        ]
+        listeMatriceRs5EVE.append(matriceRs5EVE)
+        listeMatriceRs5EVEex.append(matriceRs5EVEex)
+
 ############################################################### SEMESTRE 5 EVE SYNTHESE   ###################################################################################################
+    listeMatriceS5 =  []
+    EVEMoyennes5 = []
+
+    for j in range( len(infoEtudiantEVE) ):
+
+        matricesS5EVE = [
+            
+            infoEtudiantEVE[j],
+
+            [ 
+                ( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) 
+                
+                , coefS5EVE[0]
+                
+                , round(( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0], 2)
+
+                , round( ((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0]) + (MAS325[j]*coefS5EVE[1]) + (MAS335[j]*coefS5EVE[2]) + (MAS345[j]*coefS5EVE[3])) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2)
+                
+                , sort315.index(( MAS315[j] ) )+1 #round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else
+
+                , (( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] )  >=10)
+
+                , creditS5EVE[0]
+
+                , creditS5EVE[0] if((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] )  >=10)) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs5EVE[j][1]> 0 else " ")
+                
+                #, MAS315cc[j]['note_cc']
+                
+                #, MAS315sn[j]['note_sn'],
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) 
+                
+                , coefS5EVE[1]
+                
+                , round(( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) *coefS5EVE[1], 2)
+                
+                , 'MOYENNE'
+                
+                , sort325.index((  MAS325[j] ) )+1 #round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) >=10)
+
+                , creditS5EVE[1]
+                
+                , creditS5EVE[1] if (( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) >=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs5EVE[j][2]> 0 else " ")
+                
+                #, MAS325cc[j]['note_cc']
+                
+                #, MAS325sn[j]['note_sn'],  
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) 
+                
+                , coefS5EVE[2]
+                
+                , round(( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2], 2)
+                
+                , 'MOYENNE'
+                
+                , sort335.index((  MAS335[j] ) )+1 #round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) >=10)
+                
+                , creditS5EVE[2]
+                
+                , creditS5EVE[2] if (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) >=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs5EVE[j][3]> 0 else " ")
+                
+                #, MAS335cc[j]['note_cc']
+                
+                #, MAS335sn[j]['note_sn'] 
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )
+                
+                , coefS5EVE[3]
+                
+                , round(( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3], 2)
+                
+                , 'MOYENNE'
+                
+                , sort345.index((  MAS345[j] ))+1 #round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else
+                 
+                , (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )>=10)
+                
+                , creditS5EVE[3]
+                
+                , creditS5EVE[3] if (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )>=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs5EVE[j][4]> 0 else " ")
+                
+                #, MAS345cc[j]['note_cc']
+                
+                #, MAS345sn[j]['note_sn']
+                
+                #, [ ( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) , ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) , ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) , ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )], MAS345R[j] 
+                
+                ],
+            
+            #MODULE 2
+            [ 
+                ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )
+                
+                , coefS5EVE[4]
+                
+                , round(( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4], 2)
+
+                , round((( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) *coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
+
+                , sort355.index((  EVE355[j] ))+1 #round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else
+
+                , (( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )>=10)
+
+                , creditS5EVE[4]
+
+                , creditS5EVE[4] if((( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )>=10)) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs5EVE[j][5]> 0 else " ")
+
+                #, EVE355cc[j]['note_cc']
+                
+                #, EVE355sn[j]['note_sn']
+
+                #, EVE355R[j]['note_rattrapage']
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) 
+                
+                , coefS5EVE[5]
+                
+                , round(( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5], 2)
+                
+                , 'MOYENNE'
+                
+                , sort365.index((  EVE365[j] ))+1 #round(listeMatriceRs5EVE[j][6]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )>=10)
+                
+                , creditS5EVE[5]
+                
+                , creditS5EVE[5] if (( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )>=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs5EVE[j][6]> 0 else " ")
+                
+                #, EVE365cc[j]['note_cc']
+                
+                #, EVE365sn[j]['note_sn']
+                
+                #, [ ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] ), ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) ], EVE365R[j] 
+            ],
+
+            [ 
+                (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
     
-    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session]
+                round( (( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0] + ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) *coefS5EVE[1] + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2] + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3]+( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5] ), 2),
+
+                round((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2] + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3] + ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
+            ],
+        ]
+
+        listeMatriceS5.append(matricesS5EVE)
+        EVEMoyennes5.append(matricesS5EVE[7][2])
+    
+    EVEMoyennes5.sort(reverse=True)
+
+    moys5 = stat.mean(EVEMoyennes5)
+    moys5 = round(moys5, 2)
+    sessions5 = 'Janvier 2023'
+
+
+    semestre1MDS = [filiere, listeMatriceS5, EVEMoyennes5, moy, sessions5] #listeMatriceS5 , EVEMoyennes5,  sessions5
+
 
 ############################################################### SEMESTRE 6 EVE ###################################################################################################
     infoEtudiantEVE = list( Etudiant.objects.filter(filiere="MAS", niveau=3, Specialite="EVENEMENTIEL").values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
@@ -2096,7 +2339,7 @@ def bulls6msoeve(request, filiere):
     creditS5EVE = list(UniteEnseignement.objects.filter(semestre_id=6,filiere="MAS").values("nombre_credit"))
     creditS5EVE = epurationCre(creditS5EVE)
 
-    MAS316 = list(Evaluation.objects.filter(uniteEnseignement_id=82).values('note_Examen','note_cc','note_sn'))
+    MAS316 = list(Evaluation.objects.filter(uniteEnseignement_id=82).values('note_Examen'))#,'note_cc','note_sn'))
     sort316 = epurationTriCroissant(MAS316)
 
     MAS326 = list(Evaluation.objects.filter(uniteEnseignement_id=83).values('note_Examen'))
@@ -2181,7 +2424,7 @@ def bulls6msoeve(request, filiere):
 ############################################################### SEMESTRE 6 EVE RATTRAPAGE ###################################################################################################
     infoMAS316R = ""
     MAS316R = list(Evaluation.objects.filter(uniteEnseignement_id=82, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
-    sort316R = epurationRattrapage(MAS316R)
+    sort315 = epurationRattrapage(MAS316R)
 
     infoMAS326R = ""
     MAS326R = list(Evaluation.objects.filter(uniteEnseignement_id=83, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
@@ -2262,13 +2505,17 @@ def bulls6msoeve(request, filiere):
 
                 , round( ((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0]) + (MAS326[j]*coefS5EVE[1]) + (MAS336[j]*coefS5EVE[2]) + (MAS346[j]*coefS5EVE[3])) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2)
                 
-                #, sort315.index(( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) )+1
+                , sort316.index(( MAS316[j] ) )+1 #round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else
 
                 , (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] )  >=10)
 
                 , creditS5EVE[0]
 
                 , creditS5EVE[0] if((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] )  >=10)) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs6EVE[j][1]> 0 else " ")
+
+                #, ("RATTRAPAGE" if listeMatriceRs6EVE[j][1]> 0)
                 
                 #, MAS316cc[j]['note_cc']
                 
@@ -2284,13 +2531,15 @@ def bulls6msoeve(request, filiere):
                 
                 , 'MOYENNE'
                 
-                #, sort325.index(( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) )+1
+                , sort326.index((  MAS326[j] ) )+1 #round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else
                 
                 , (( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) >=10)
 
                 , creditS5EVE[1]
                 
                 , creditS5EVE[1] if (( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) >=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs6EVE[j][2]> 0 else " ")
                 
                 #, MAS326cc[j]['note_cc']
                 
@@ -2306,13 +2555,15 @@ def bulls6msoeve(request, filiere):
                 
                 , 'MOYENNE'
                 
-                #, sort335.index(( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) )+1
+                , sort336.index((  MAS336[j] ) )+1 #round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else
                 
                 , (( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) >=10)
                 
                 , creditS5EVE[2]
                 
                 , creditS5EVE[2] if (( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) >=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs6EVE[j][3]> 0 else " ")
                 
                 #, MAS336cc[j]['note_cc']
                 
@@ -2328,13 +2579,15 @@ def bulls6msoeve(request, filiere):
                 
                 , 'MOYENNE'
                 
-                #, sort345.index(( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] ))+1
-                
+                , sort346.index((  MAS346[j] ))+1 #round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else
+                 
                 , (( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )>=10)
                 
                 , creditS5EVE[3]
                 
                 , creditS5EVE[3] if (( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )>=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs6EVE[j][4]> 0 else " ")
                 
                 #, MAS346cc[j]['note_cc']
                 
@@ -2346,21 +2599,23 @@ def bulls6msoeve(request, filiere):
             
             #MODULE 2
             [ 
-                ( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )
+                ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )
                 
                 , coefS5EVE[4]
                 
-                , round(( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4], 2)
+                , round(( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4], 2)
 
-                , round((( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + EVE366[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
+                , round((( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + EVE366[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
 
-                #, sort355.index(( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ))+1
+                , sort356.index((  EVE356[j] ))+1 #round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else
 
-                , (( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)
+                , (( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)
 
                 , creditS5EVE[4]
 
-                , creditS5EVE[4] if((( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)) else 0
+                , creditS5EVE[4] if((( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs6EVE[j][5]> 0 else " ")
 
                 #, EVE356cc[j]['note_cc']
                 
@@ -2370,35 +2625,37 @@ def bulls6msoeve(request, filiere):
             ],
             
             [ 
-                ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ) 
+                ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ) 
                 
                 , coefS5EVE[5]
                 
-                , round(( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5], 2)
+                , round(( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5], 2)
                 
                 , 'MOYENNE'
                 
-                #, sort365.index(( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ))+1
+                , sort366.index((  EVE366[j] ))+1 #round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else
                 
-                , (( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )>=10)
+                , (( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )>=10)
                 
                 , creditS5EVE[5]
                 
-                , creditS5EVE[5] if (( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )>=10) else 0
+                , creditS5EVE[5] if (( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )>=10) else 0
+
+                , ("RATTRAPAGE" if listeMatriceRs6EVE[j][6]> 0 else " ")
                 
                 #, EVE366cc[j]['note_cc']
                 
                 #, EVE366sn[j]['note_sn']
                 
-                #, [ ( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ), ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ) ], EVE366R[j] 
+                #, [ ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ), ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ) ], EVE366R[j] 
             ],
 
             [ 
                 (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
     
-                round( (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + ( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) *coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3]+( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5] ), 2),
+                round( (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + ( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) *coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3]+( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5] ), 2),
 
-                round((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + MAS326[j]*coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3] + ( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
+                round((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + MAS326[j]*coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3] + ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
             ],
         ]
 
@@ -7012,21 +7269,21 @@ def resultatCommuns6Eve(request):
             
             #MODULE 2
             [ 
-                ( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )
+                ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )
                 
                 , coefS5EVE[4]
                 
-                , round(( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4], 2)
+                , round(( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4], 2)
 
-                , round((( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + EVE366[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
+                , round((( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + EVE366[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
 
-                #, sort355.index(( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ))+1
+                #, sort355.index(( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ))+1
 
-                , (( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)
+                , (( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)
 
                 , creditS5EVE[4]
 
-                , creditS5EVE[4] if((( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)) else 0
+                , creditS5EVE[4] if((( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )>=10)) else 0
 
                 , EVE356cc[j]['note_cc']
                 
@@ -7056,15 +7313,15 @@ def resultatCommuns6Eve(request):
                 
                 , EVE366sn[j]['note_sn']
                 
-                #, [ ( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ), ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ) ], EVE366R[j] 
+                #, [ ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] ), ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] ) ], EVE366R[j] 
             ],
 
             [ 
                 (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
     
-                round( (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + ( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) *coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3]+( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5] ), 2),
+                round( (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + ( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) *coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3]+( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5] ), 2),
 
-                round((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + MAS326[j]*coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3] + ( round(listeMatriceRs6EVE[j][5]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
+                round((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + MAS326[j]*coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3] + ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + MAS356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
             ],
         ]
 

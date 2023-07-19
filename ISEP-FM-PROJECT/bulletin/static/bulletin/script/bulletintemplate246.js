@@ -3235,7 +3235,7 @@ function GenerateBullEVEsemestre5() {
     //Line 11
     var td100 = document.createElement('td')
     td100.setAttribute('colspan', '4')
-    td100.innerHTML = `RESULTATS SEMESTRE 1`
+    td100.innerHTML = `RESULTATS SEMESTRE 5`
 
     var td101 = document.createElement('td')
     td101.setAttribute("id", "resultat-coef")
@@ -3252,7 +3252,7 @@ function GenerateBullEVEsemestre5() {
     var td105 = document.createElement('td')
     td105.setAttribute("colspan", "2")
     td105.setAttribute("id", "resultat")
-    td105.innerHTML = `Total Crédits Semestre 1`
+    td105.innerHTML = `Total Crédits Semestre 5`
 
     var td106 = document.createElement('td')
     td106.setAttribute("id", "resultat-crédits")
@@ -3363,6 +3363,21 @@ function GenerateBullEVEsemestre5() {
     semestreResulteve6 = semestreResult.cloneNode(true)
     semestreResulteve6.setAttribute('id', 'semester-result-2')
 
+    var s5s6 = document.getElementById('recpas3s4')
+    s5s6recap = s5s6.cloneNode(true)
+
+    var v = document.getElementById('visa')
+    visa = v.cloneNode(true)
+
+    //FOOTER
+    /*var visa = document.createElement('div')
+    visa.setAttribute('class', 'visa')
+    visa.innerHTML = "VISA CHEF ETABLISSEMENT"
+
+    var footer = document.createElement('footer')
+    footer.appendChild(visa)*/
+
+
     //Main
     var main = document.createElement('main')
     main.appendChild(bullchecktitle)
@@ -3370,21 +3385,18 @@ function GenerateBullEVEsemestre5() {
     main.appendChild(semestreResult)
         /**SEMESTRE 6 RESULT */
     main.appendChild(semestreResulteve6)
+    main.appendChild(s5s6recap)
+    main.appendChild(visa)
 
 
-    var visa = document.createElement('div')
-    visa.setAttribute('class', 'visa')
-    visa.innerHTML = "VISA CHEF ETABLISSEMENT"
 
-    var footer = document.createElement('footer')
-    footer.appendChild(visa)
 
     containerbull = document.createElement('div')
     containerbull.setAttribute('class', 'container-bull')
     containerbull.appendChild(header)
     containerbull.appendChild(hr)
     containerbull.appendChild(main)
-    containerbull.appendChild(footer)
+        //containerbull.appendChild(footer)
 
     /*body=document.getElementsByTagName('body')
     body[0].appendChild(containerbull)*/
@@ -3806,7 +3818,7 @@ function GenerateBullMSOsemestre5() {
     //Line 11
     var td100 = document.createElement('td')
     td100.setAttribute('colspan', '4')
-    td100.innerHTML = `RESULTATS SEMESTRE 1`
+    td100.innerHTML = `RESULTATS SEMESTRE 5`
 
     var td101 = document.createElement('td')
     td101.setAttribute("id", "resultat-coef")
@@ -3823,7 +3835,7 @@ function GenerateBullMSOsemestre5() {
     var td105 = document.createElement('td')
     td105.setAttribute("colspan", "2")
     td105.setAttribute("id", "resultat")
-    td105.innerHTML = `Total Crédits Semestre 1`
+    td105.innerHTML = `Total Crédits Semestre 5`
 
     var td106 = document.createElement('td')
     td106.setAttribute("id", "resultat-crédits")
@@ -5541,7 +5553,7 @@ function BullEVE(clone, i) {
 
     //LINE DEs RESULTATS
     resultat = tbody.children[6]
-    resultat.style.backgroundColor = "#9c790d"
+    resultat.style.backgroundColor = "#C7B54D"
     for (j = 0; j <= resultat.childElementCount - 1; j++) {
         if (j == 1) { resultat.children[1].innerHTML = listStudent[i][7][0] }
         if (j == 2) { resultat.children[2].innerHTML = listStudent[i][7][1] }
@@ -5704,7 +5716,7 @@ function BullEVE(clone, i) {
 
     //LINE DEs RESULTATS
     resultats6 = s6body.children[6]
-    resultats6.style.backgroundColor = "#9c790d"
+    resultats6.style.backgroundColor = "#C7B54D"
     for (j = 0; j <= resultats6.childElementCount - 1; j++) {
         if (j == 0) { resultats6.children[j].innerHTML = 'RESULTATS SEMESTRE 6' }
         if (j == 1) {
@@ -5718,8 +5730,25 @@ function BullEVE(clone, i) {
         if (j == 6) { resultats6.children[j].innerHTML = sommeInt6(ligneMAS316.children[11].innerHTML, ligneMAS326.children[8].innerHTML, ligneMAS336.children[8].innerHTML, ligneMAS346.children[8].innerHTML, ligneEVE356.children[10].innerHTML, ligneEVE366.children[8].innerHTML) } /**TOtal Crédit */
     }
 
+    // SEMESTRE 5 & 6 RESULT
+    resultats5s6 = clone.children[2].children[4]
 
+    ligneresultat = resultats5s6.children[1].children[1]
 
+    for (j = 0; j <= ligneresultat.childElementCount - 1; j++) {
+        if (j == 0) { ligneresultat.children[j].innerHTML = sommeInt2(resultat.children[1].innerHTML, resultats6.children[1].innerHTML) }
+        if (j == 1) { ligneresultat.children[j].innerHTML = sommeFloat2(resultat.children[2].innerHTML, resultats6.children[2].innerHTML) }
+        if (j == 2) { ligneresultat.children[j].innerHTML = `${(parseFloat(ligneresultat.children[1].innerHTML) / ligneresultat.children[0].innerHTML).toFixed(2)} / 20` }
+        if (j == 3) {
+            var total = parseFloat(ligneresultat.children[1].innerHTML)
+            ligneresultat.children[j].innerHTML = `${mydata[11].indexOf(total) + 1}  /  ${semestre6.length}`
+        }
+        if (j == 4) { ligneresultat.children[j].innerHTML = `${ sommeInt2(resultat.lastChild.innerHTML, resultats6.lastChild.innerHTML) }  /  60` }
+        if (j == 5) {
+            var moyenne = parseFloat(ligneresultat.children[2].innerHTML)
+            if (moyenne >= 10) { ligneresultat.children[j].innerHTML = "ADMIS(E)" } else { ligneresultat.children[j].innerHTML = "ECHEC" }
+        }
+    }
 
 
 

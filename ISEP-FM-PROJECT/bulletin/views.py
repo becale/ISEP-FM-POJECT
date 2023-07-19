@@ -2489,6 +2489,7 @@ def bulls6msoeve(request, filiere):
 ############################################################### SEMESTRE 6 EVE SYNTHESE   ###################################################################################################
     listeMatriceS =  []
     EVEMoyennes6 = []
+    TotalPoint = []
 
     for j in range( len(infoEtudiantEVE) ):
 
@@ -2655,21 +2656,25 @@ def bulls6msoeve(request, filiere):
     
                 round( (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + ( round(listeMatriceRs6EVE[j][2]*0.7 + MAS326cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][2]> 0 ) else MAS326[j] ) *coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3]+( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5] ), 2),
 
-                round((( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + MAS326[j]*coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3] + ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
+                round( (( round(listeMatriceRs6EVE[j][1]*0.7 + MAS316cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][1]> 0 ) else MAS316[j] ) *coefS5EVE[0] + MAS326[j]*coefS5EVE[1] + ( round(listeMatriceRs6EVE[j][3]*0.7 + MAS336cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][3]> 0 ) else MAS336[j] ) *coefS5EVE[2] + ( round(listeMatriceRs6EVE[j][4]*0.7 + MAS346cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][4]> 0 ) else MAS346[j] )*coefS5EVE[3] + ( round(listeMatriceRs6EVE[j][5]*0.7 + EVE356cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][5]> 0 ) else EVE356[j] )*coefS5EVE[4] + ( round(listeMatriceRs6EVE[j][6]*0.7 + EVE366cc[j]['note_cc']*0.3, 2) if (listeMatriceRs6EVE[j][6]> 0 ) else EVE366[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
             ],
         ]
 
         listeMatriceS.append(matricesS6EVE)
 
         EVEMoyennes6.append(matricesS6EVE[7][2])
-        EVEMoyennes6.sort(reverse=True)
+        
+        TotalPoint.append(  round(listeMatriceS5[j][7][1] + listeMatriceS[j][7][1], 2) ) #round(listeMatriceS5[j][7][1], 2)
 
-        moy6 = stat.mean(EVEMoyennes6)
-        moy6 = round(moy6, 2)
-        session6 = ''
+
+    EVEMoyennes6.sort(reverse=True)    
+    TotalPoint.sort(reverse=True)
+    moy6 = stat.mean(EVEMoyennes6)
+    moy6 = round(moy6, 2)
+    session6 = ''
 
     
-    semestre1MDS += [listeMatrice2, EVEMoyenne2, moy2, session2, listeMatriceS, EVEMoyennes6]
+    semestre1MDS += [listeMatrice2, EVEMoyenne2, moy2, session2, listeMatriceS, EVEMoyennes6, TotalPoint]
 
     return render(request,'bulletin/BulletinTemplate/bullS6eve.html', {'semestre1MDS': semestre1MDS} ) #, {'semestre1MDS': semestre1MDS}
 

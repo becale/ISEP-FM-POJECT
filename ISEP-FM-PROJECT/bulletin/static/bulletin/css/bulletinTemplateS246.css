@@ -301,7 +301,7 @@ th {
 /*Tbody01*/
 
 #tbody01 tr:nth-child(2) {
-    border-bottom: black dotted 1.5px;
+    border-bottom: black solid 1px;
 }
 
 #tbody01 tr:nth-child(4) {

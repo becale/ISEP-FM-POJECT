@@ -15,6 +15,15 @@ body {
     display: none;
 }
 
+#pageS {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1cm;
+    /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
+    /*display: none;*/
+}
+
 #page2 {
     background: white;
     display: block;
@@ -38,6 +47,14 @@ body {
 }
 
 #page[size="A4"][layout="landscape"] {
+    width: 29.7cm;
+    height: 21cm;
+    padding-top: 1cm;
+    padding-bottom: 1cm;
+    display: block;
+}
+
+#pageS[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
     padding-top: 1cm;
@@ -210,6 +227,17 @@ td {
     border: 1px black solid;
 }
 
+#table2s {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px black solid;
+}
+
+#table2s thead :nth-child(1) {
+    /*background-color: blue;*/
+    width: 10.3cm;
+}
+
 
 /*thead FORMAT UNIVERSEL*/
 
@@ -290,6 +318,16 @@ td {
     /*border-top: 1px solid black;*/
 }
 
+.tabuefs2>td {
+    font-size: 10px;
+    width: 16.67%;
+    text-align: center;
+    /*background-color: violet;*/
+    height: 0.6cm;
+    font-weight: normal;
+    /*border-top: 1px solid black;*/
+}
+
 
 /*Tab-Nom*/
 
@@ -304,7 +342,7 @@ td {
 
 .tabuep>td {
     font-size: 10px;
-    width: 20%;
+    width: 25%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;
@@ -319,6 +357,31 @@ td {
     height: 0.6cm;
     font-weight: bold;
     background-color: #d5d5d5;
+}
+
+.tabuesp2>td {
+    font-size: 10px;
+    width: 25%;
+    text-align: center;
+    /*background-color: violet;*/
+    height: 0.6cm;
+    font-weight: bold;
+    /*background-color: #d5d5d5;*/
+}
+
+.tabmoyg>td {
+    font-size: 10px;
+    width: 50%;
+    text-align: center;
+    /*background-color: violet;*/
+    height: 0.6cm;
+    font-weight: bold;
+    background-color: #d5d5d5;
+}
+
+.tabuef-border>td {
+    border-top: 1px solid black;
+    background-color: aqua;
 }
 
 
@@ -452,6 +515,16 @@ td {
 }
 
 #nested33 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#nested44 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#nested55 {
     border-collapse: collapse;
     width: 100%;
 }
@@ -742,4 +815,9 @@ tbody tr>:nth-child(3) {
     padding-top: 0.1cm;
     width: 27.7cm;
     height: 21cm;
+}
+
+.fg {
+    background-color: greenyellow;
+    display: block;
 }

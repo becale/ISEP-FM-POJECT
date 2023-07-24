@@ -66,14 +66,6 @@ window.addEventListener('load', () => {
             tab13 = tab12['0']
             tab14 = tab13.children
             tab15 = tab14[0] //good line
-                //
-                /*tab111 = temp1.children[1]
-                tab112 = tab111.children.nested11
-                tab113 = tab112.children
-                tab114 = tab113['0']
-                tab115 = tab114.children
-                tab116 = tab115['0'] //good line*/
-
 
             for (j = 0; j <= tab15.childElementCount - 1; j++) {
                 if (j == 0) {
@@ -144,6 +136,7 @@ window.addEventListener('load', () => {
             tab21 = tab2.children.nested22
             tab22 = tab21.children['0']
             tab23 = tab22.children['0']
+
             for (j = 0; j <= tab23.childElementCount - 1; j++) {
                 if (j == 0) { tab23.cells[j].innerHTML = listStudent[i][5][0] };
                 if (j == 1) { tab23.cells[j].innerHTML = listStudent[i][6][0] }
@@ -220,6 +213,7 @@ window.addEventListener('load', () => {
 
     function PageRattrapage() {
         listStudent = mydata[1]
+        rattrapage = mydata[8]
 
         page2 = document.getElementById('page')
         page2 = page2.cloneNode(true)
@@ -259,18 +253,6 @@ window.addEventListener('load', () => {
                     tab05r.cells[j].innerHTML = listStudent[i][0]['matricule'];
                     //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
                 }
-                /*if(j==3){
-                    tab05.cells[j].innerHTML = listStudent[i][0]['date_naissance'];
-                    //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
-                }
-                if(j==4){
-                    tab05.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-                    //tab005.cells[j].innerHTML = listStudent[i][0]['lieu_naissance'];
-                }
-                if(j==5){
-                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                    //tab005.cells[j].innerHTML = listStudent[i][0]['matricule'];
-                }*/
             }
 
             //tab1
@@ -280,38 +262,28 @@ window.addEventListener('load', () => {
             tab13 = tab12['0']
             tab14 = tab13.children
             tab15 = tab14[0] //good line
-                //
-                /*tab111 = temp1.children[1]
-                tab112 = tab111.children.nested11
-                tab113 = tab112.children
-                tab114 = tab113['0']
-                tab115 = tab114.children
-                tab116 = tab115['0'] //good line*/
 
             for (j = 0; j <= tab15.childElementCount - 1; j++) {
                 if (j == 0) {
-                    tab15.cells[j].innerHTML = listStudent[i][1][10] //listStudent[i][1][0];
-                    if (listStudent[i][1][10] == 0 || listStudent[i][1][10] == null) { tab15.cells[j].innerHTML = '--' } else {
-                        tab15.cells[j].innerHTML = listStudent[i][1][10] //listStudent[i][1][0];
+                    if (rattrapage[i][1] == 0 || rattrapage[i][1] == null) { tab15.cells[j].innerHTML = '--' } else {
+                        tab15.cells[j].innerHTML = rattrapage[i][1]
                     }
-                    //tab116.cells[j].innerHTML = listStudent[i][13][1]
                 };
 
                 if (j == 1) {
-                    tab15.cells[j].innerHTML = '--' //listStudent[i][2][0]
+                    if (rattrapage[i][2] == 0 || rattrapage[i][2] == null) { tab15.cells[j].innerHTML = '--' } else {
+                        tab15.cells[j].innerHTML = rattrapage[i][2]
+                    }
                 }
                 if (j == 2) {
-                    tab15.cells[j].innerHTML = '--' //listStudent[i][3][0];
-                        //if((listStudent[i][1][0]+listStudent[i][2][0])>=20){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
-                        //tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2])+1;
+                    if (rattrapage[i][3] == 0 || rattrapage[i][3] == null) { tab15.cells[j].innerHTML = '--' } else {
+                        tab15.cells[j].innerHTML = rattrapage[i][3]
+                    }
                 }
                 if (j == 3) {
-                    if (listStudent[i][4][11]['note_rattrapage'] == 0 || listStudent[i][4][11]['note_rattrapage'] == null) { tab15.cells[j].innerHTML = '--' } else {
-                        tab15.cells[j].innerHTML = listStudent[i][4][11]['note_rattrapage'] //listStudent[i][4][0]; //EVE345
+                    if (rattrapage[i][4] == 0 || rattrapage[i][4] == null) { tab15.cells[j].innerHTML = '--' } else {
+                        tab15.cells[j].innerHTML = rattrapage[i][4]
                     }
-
-                    //if(listStudent[i][2][5]){tab15.cells[j].innerHTML= "V"}else{tab15.cells[j].innerHTML= "NV"}
-                    //tab15.cells[j].innerHTML=listStudent[i][3][0]
                 }
                 /**MOYENNE GROUPE 1 */
                 if (j == 4) {
@@ -327,7 +299,6 @@ window.addEventListener('load', () => {
 
                     check = check0 + check1 + check2 + check3
 
-                    //console.log(listStudent[i][1][0]);
                     tab15.cells[j].innerHTML = '--';
 
                     //if (check > 0) { tab15.cells[j].innerHTML = '--'; } else { tab15.cells[j].innerHTML = listStudent[i][1][3]; }
@@ -342,19 +313,9 @@ window.addEventListener('load', () => {
                     let creditmat4 = 0
                     if (listStudent[i][1][10] == 0) { creditmat1 = 0 } else { creditmat1 = listStudent[i][1][6] }
 
-                    if (listStudent[i][4][11]['note_rattrapage'] == 0) { creditmat4 = 0 } else { creditmat4 = listStudent[i][4][6] }
-
-                    if (listStudent[i][1][10] == 0 || listStudent[i][4][11]['note_rattrapage'] == 0) {
-                        tab15.cells[j].innerHTML = '--'
-                    } else {
-                        tab15.cells[j].innerHTML = creditmat1 + creditmat4
-                    }
-
-
 
                     tab15.cells[j].setAttribute('class', 'titleStyle')
                     tab15.cells[j].classList.add('class', 'tdStyle')
-                        //tab116.cells[j].innerHTML= '/'
                 }
             }
 
@@ -363,22 +324,26 @@ window.addEventListener('load', () => {
             tab21 = tab2.children.nested22
             tab22 = tab21.children['0']
             tab23 = tab22.children['0']
+
             for (j = 0; j <= tab23.childElementCount - 1; j++) {
                 if (j == 0) {
-                    if (listStudent[i][5][10] == 0 || listStudent[i][5][10] == null) {
+                    if (rattrapage[i][5] == 0 || rattrapage[i][5] == null) {
                         tab23.cells[j].innerHTML = '--'
                     } else {
-                        tab23.cells[j].innerHTML = listStudent[i][5][10] /*listStudent[i][5][0]*/
+                        tab23.cells[j].innerHTML = rattrapage[i][5]
                     }
-
-
                 };
 
                 if (j == 1) {
-                    if (listStudent[i][6][11]['note_rattrapage'] == 0 || listStudent[i][6][11]['note_rattrapage'] == null) {
+                    /*if (listStudent[i][6][11]['note_rattrapage'] == 0 || listStudent[i][6][11]['note_rattrapage'] == null) {
                         tab23.cells[j].innerHTML = '--' //listStudent[i][6][0]
                     } else {
                         tab23.cells[j].innerHTML = listStudent[i][6][11]['note_rattrapage']
+                    }*/
+                    if (rattrapage[i][6] == 0 || rattrapage[i][6] == null) {
+                        tab23.cells[j].innerHTML = '--'
+                    } else {
+                        tab23.cells[j].innerHTML = rattrapage[i][6]
                     }
 
                 }
@@ -406,13 +371,13 @@ window.addEventListener('load', () => {
                 if (j == 3) {
                     if (listStudent[i][5][10] == 0 || listStudent[i][5][10] == null) { creditmat1 = 0 } else { creditmat1 = listStudent[i][5][6] }
 
-                    if (listStudent[i][6][11]['note_rattrapage'] == 0 || listStudent[i][6][11]['note_rattrapage'] == null) { creditmat2 = 0 } else { creditmat2 = listStudent[i][6][6] }
+                    /*if (listStudent[i][6][11]['note_rattrapage'] == 0 || listStudent[i][6][11]['note_rattrapage'] == null) { creditmat2 = 0 } else { creditmat2 = listStudent[i][6][6] }
 
                     if (listStudent[i][6][11]['note_rattrapage'] == 0 || listStudent[i][6][11]['note_rattrapage'] == null) {
                         tab23.cells[j].innerHTML = '--'
                     } else {
                         tab23.cells[j].innerHTML = creditmat1 + creditmat2
-                    }
+                    }*/
 
 
                     /*if (listStudent[i][5][3] >= 10 && checka <= 0) {
@@ -424,6 +389,7 @@ window.addEventListener('load', () => {
                     tab23.cells[j].classList.add('class', 'tdStyle')
                 };
             }
+
 
             //tab3
             tab3 = temp1.children[3]
@@ -475,6 +441,9 @@ window.addEventListener('load', () => {
     function PageSynthese() {
         listStudent = mydata[1]
 
+        synthese = mydata[9]
+
+
         page3 = document.getElementById('page')
         page3 = page3.cloneNode(true)
 
@@ -484,190 +453,182 @@ window.addEventListener('load', () => {
         worktab2 = bigtab2.children[1]
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
+
             temp2 = worktab2.children[3].cloneNode(true)
-                //tab0
-            tab0r = temp2.children[0]
-            tab01r = tab0r.children.nested4
-            tab02r = tab01r.children
-            tab03r = tab02r['0']
-            tab04r = tab03r.children
-            tab05r = tab04r[0] //good  
+
+            //tab0 NOMS ET INFOS ETUDIANTS
+            tab0 = temp2.children[0]
+            tab01 = tab0.children.nested4
+            tab02 = tab01.children
+            tab03 = tab02['0']
+            tab04 = tab03.children
+            tab05 = tab04[0] //good  
 
             for (j = 0; j <= tab05.childElementCount - 1; j++) {
                 if (j == 0) {
-                    tab05r.cells[j].innerHTML = i + 1;
-                    //tab005.cells[j].innerHTML = i+1;
+                    tab05.cells[j].innerHTML = i + 1;
+
+                    //tab005.cells[j].innerHTML = i + 1;
                 }
                 if (j == 1) {
-                    tab05r.cells[j].innerHTML = listStudent[i][0]['nom'];
+                    tab05.cells[j].innerHTML = listStudent[i][0]['nom'];
                     //tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
                 }
                 if (j == 2) {
-                    tab05r.cells[j].innerHTML = listStudent[i][0]['prenom'];
+                    tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
                     //tab005.cells[j].innerHTML = listStudent[i][0]['prenom']
                 }
                 if (j == 3) {
-                    tab05r.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['matricule']
                     //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
                 }
             }
 
-            //tab1
+            //tab1 UE FONDAMENTALES
             tab1 = temp2.children[1]
             tab11 = tab1.children.nested11
             tab12 = tab11.children
             tab13 = tab12['0']
             tab14 = tab13.children
             tab15 = tab14[0] //good line
-                //
-                /*tab111 = temp1.children[1]
-                tab112 = tab111.children.nested11
-                tab113 = tab112.children
-                tab114 = tab113['0']
-                tab115 = tab114.children
-                tab116 = tab115['0'] //good line*/
 
             for (j = 0; j <= tab15.childElementCount - 1; j++) {
                 if (j == 0) {
-                    tab15.cells[j].innerHTML = listStudent[i][1][0];
-                    //tab116.cells[j].innerHTML = listStudent[i][13][1]
+                    tab15.cells[j].innerHTML = synthese[i][1][0];
                 };
-
                 if (j == 1) {
-                    tab15.cells[j].innerHTML = listStudent[i][2][0]
+                    tab15.cells[j].innerHTML = synthese[i][2][0]
                 }
                 if (j == 2) {
-                    tab15.cells[j].innerHTML = listStudent[i][3][0];
-                    //if((listStudent[i][1][0]+listStudent[i][2][0])>=20){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
-                    //tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2])+1;
+                    tab15.cells[j].innerHTML = synthese[i][3][0]
                 }
                 if (j == 3) {
-                    tab15.cells[j].innerHTML = listStudent[i][4][0];
-
-                    //if(listStudent[i][2][5]){tab15.cells[j].innerHTML= "V"}else{tab15.cells[j].innerHTML= "NV"}
-                    //tab15.cells[j].innerHTML=listStudent[i][3][0]
+                    tab15.cells[j].innerHTML = synthese[i][4][0]
                 }
-                /**MOYENNE GROUPE 1 */
                 if (j == 4) {
-                    let check0 = 0
-                    let check1 = 0
-                    let check2 = 0
-                    let check3 = 0
+                    var uef1cr = synthese[i][1][5]
+                    if ((synthese[i][1][0]) < 10) { uef1cr = 0 }
 
-                    if (listStudent[i][1][0] < 7) { check0 = 1 }
-                    if (listStudent[i][2][0] < 7) { check1 = 1 }
-                    if (listStudent[i][3][0] < 7) { check2 = 1 }
-                    if (listStudent[i][4][0] < 7) { check3 = 1 }
+                    var uef2cr = synthese[i][2][5]
+                    if ((synthese[i][2][0]) < 10) { uef2cr = 0 }
 
-                    check = check0 + check1 + check2 + check3
+                    var uef3cr = synthese[i][3][5]
+                    if ((synthese[i][3][0]) < 10) { uef3cr = 0 }
 
-                    //console.log(listStudent[i][1][0]);
+                    var uef4cr = synthese[i][4][5]
+                    if ((synthese[i][4][0]) < 10) { uef4cr = 0 }
 
-                    if (check > 0) { tab15.cells[j].innerHTML = '--'; } else { tab15.cells[j].innerHTML = listStudent[i][1][3]; }
-
-                    if (listStudent[i][1][3] < 10) { tab15.cells[j].innerHTML = '--'; }
-
-                    tab15.cells[j].setAttribute('class', 'titleStyle')
-                    tab15.cells[j].classList.add('class', 'tdStyle')
-
-                    //if(listStudent[i][3][5]){tab15.cells[j].innerHTML="V"}else{tab15.cells[j].innerHTML="NV"}
-                    //tab116.cells[j].innerHTML= '/'
-                }
-                if (j == 5) { /*CREDITS*/ /** MENTION */
-                    //if(listStudent[i][1][3] >= 10){tab15.cells[j].innerHTML='V'}else{tab15.cells[j].innerHTML='NV'}
-                    tab15.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7]
-
-
-
-                    if (listStudent[i][1][3] >= 10 && check <= 0) {
-                        credit1 = listStudent[i][1][6] + listStudent[i][2][6] + listStudent[i][3][6] + listStudent[i][4][6]
-                        tab15.cells[j].innerHTML = credit1
+                    /**VERIFICATION MODULATION */
+                    if ((synthese[i][1][0] + synthese[i][2][0] + synthese[i][3][0] + synthese[i][4][0]) >= 40) {
+                        uef1234cr = synthese[i][1][5] + synthese[i][2][5] + synthese[i][3][5] + synthese[i][4][5]
+                    } else {
+                        uef1234cr = uef1cr + uef2cr + uef3cr + uef4cr
                     }
 
-                    tab15.cells[j].setAttribute('class', 'titleStyle')
-                    tab15.cells[j].classList.add('class', 'tdStyle')
-                        //tab116.cells[j].innerHTML= '/'
+                    /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+                    moyuef = synthese[i][1][3]
+                    if (moyuef >= 10 && (synthese[i][1][0] >= 7 && synthese[i][2][0] >= 7 && synthese[i][3][0] >= 7 && synthese[i][4][0] >= 7)) {
+                        //moyuefcr = uef34cr + uef12cr
+                    } else {
+                        moyuef = '--'
+                    }
+
+
+                    tab15.cells[j].innerHTML = moyuef
+                }
+                if (j == 5) {
+                    tab15.cells[j].innerHTML = uef1234cr
                 }
             }
 
-            //tab2
+            //tab2 UE PECIALES
             tab2 = temp2.children[2]
             tab21 = tab2.children.nested22
             tab22 = tab21.children['0']
             tab23 = tab22.children['0']
+
             for (j = 0; j <= tab23.childElementCount - 1; j++) {
-                if (j == 0) { tab23.cells[j].innerHTML = listStudent[i][5][0] };
-                if (j == 1) { tab23.cells[j].innerHTML = listStudent[i][6][0] }
+                if (j == 0) {
+                    tab23.cells[j].innerHTML = synthese[i][5][0]
 
-                /**MOYENNE GROUPE 2 */
-                if (j == 2) {
-
-                    let check00 = 0
-                    let check11 = 0
-
-                    if (listStudent[i][1][0] < 7) { check00 = 1 }
-                    if (listStudent[i][2][0] < 7) { check11 = 1 }
-
-                    checka = check00 + check11
-                    if (checka > 0) { tab23.cells[j].innerHTML = '--'; } else { tab23.cells[j].innerHTML = listStudent[i][5][3]; }
-
-                    if (listStudent[i][5][3] < 10) { tab23.cells[j].innerHTML = '--'; }
-
-                    //tab23.cells[j].innerHTML = listStudent[i][5][3] 
-                    tab23.cells[j].setAttribute('class', 'titleStyle')
-                    tab23.cells[j].classList.add('class', 'tdStyle')
+                    /*if (listStudent[i][0]['matricule'] == "EVE22012" || listStudent[i][0]['matricule'] == "EVE22014") {
+                        tab23.cells[j].innerHTML = '--'
+                    }*/
                 };
-                /**CREDITS */
-                if (j == 3) {
-                    //if(listStudent[i][5][3] >=10){tab23.cells[j].innerHTML ='V'}else{tab23.cells[j].innerHTML ='NV'}
+                if (j == 1) {
+                    tab23.cells[j].innerHTML = synthese[i][6][0]
 
-                    tab23.cells[j].innerHTML = listStudent[i][5][7] + listStudent[i][6][7]
+                    /*if (listStudent[i][0]['matricule'] == "EVE22012" || listStudent[i][0]['matricule'] == "EVE22014") {
+                        tab23.cells[j].innerHTML = '--'
+                    }*/
+                };
+                if (j == 2) {
+                    var ues1cr = synthese[i][5][5]
+                    if ((synthese[i][5][0]) < 10) { ues1cr = 0 }
 
-                    if (listStudent[i][5][3] >= 10 && checka <= 0) {
-                        credit2 = listStudent[i][5][6] + listStudent[i][6][6]
-                        tab23.cells[j].innerHTML = credit2
+                    var ues2cr = synthese[i][6][5]
+                    if ((synthese[i][6][0]) < 10) { ues2cr = 0 }
+
+                    /**VERIFICATION MODULATION */
+                    if ((synthese[i][5][0] + synthese[i][6][0]) >= 20) {
+                        ues12cr = synthese[i][5][5] + synthese[i][6][5]
+                    } else {
+                        ues12cr = ues1cr + ues2cr
                     }
 
-                    tab23.cells[j].setAttribute('class', 'titleStyle')
-                    tab23.cells[j].classList.add('class', 'tdStyle')
+                    /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
+                    moyues = synthese[i][5][3]
+                    if (moyues >= 10 && synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7) {
+
+                    } else {
+                        moyues = "--"
+                    }
+
+                    tab23.cells[j].innerHTML = moyues
+                };
+                if (j == 3) {
+                    tab23.cells[j].innerHTML = ues12cr
                 };
             }
 
-            //tab3
+            //tab3 //RESULTATS
             tab3 = temp2.children[3]
             tab31 = tab3.children.nested33
             tab32 = tab31.children['0']
             tab33 = tab32.children['0']
-
             for (j = 0; j <= tab33.childElementCount - 1; j++) {
-                if (j == 0) { tab33.cells[j].innerHTML = listStudent[i][7][1] };
-                //Moyenne
+
+                if (j == 0) {
+                    tab33.cells[j].innerHTML = synthese[i][7][1];
+                };
                 if (j == 1) {
-                    if (listStudent[i][7][2] < 10 || (parseInt(tab15.cells[5].innerHTML) + parseInt(tab23.cells[3].innerHTML)) < 30) { tab33.cells[j].innerHTML = '--' } else { tab33.cells[j].innerHTML = listStudent[i][7][2] }
+                    moyfs = synthese[i][7][2]
+                    if ((uef1234cr + ues12cr) < 30) {
+                        moyfs = "--"
+                    }
+
+                    tab33.cells[j].innerHTML = moyfs
                 };
                 if (j == 2) {
-                    tab33.cells[j] = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7]
 
-                    //console.log(parseInt(tab23.cells[3].innerHTML) + 3);
-
-                    tab33.cells[j].innerHTML = parseInt(tab15.cells[5].innerHTML) + parseInt(tab23.cells[3].innerHTML)
-                } //listStudent[i][9][3]}; //Nombre de crédits
-                if (j == 3) { tab33.cells[j].innerHTML = '/' /*mydata[2].indexOf(listStudent[i][7][2]) + 1*/ }
-
-                if (j == 4) { tab33.cells[j].innerHTML = ' /' }; //listStudent[i][9][3]};
-
+                    tab33.cells[j].innerHTML = uef1234cr + ues12cr
+                };
+                if (j == 3) {
+                    tab33.cells[j].innerHTML = mydata[10].indexOf(synthese[i][7][2]) + 1
+                };
+                if (j == 4) {
+                    tab33.cells[j].innerHTML = '--'
+                };
             }
 
-
-
-
+            //Ajoute de la ligne au grand tableau
             worktab2.appendChild(temp2)
+
+            //body.appendChild(page3)
         }
 
         //Ajoute de la ligne au grand tableau
-
-
-
         body.appendChild(page3)
     }
 
@@ -697,7 +658,7 @@ window.addEventListener('load', () => {
     }
     ListProcess()
 
-    function ListProcessR() {
+    /*function ListProcessR() {
         body = document.getElementById('body')
 
         page = document.getElementById('page2')
@@ -719,6 +680,7 @@ window.addEventListener('load', () => {
     //ListProcessR()
 
     /**FONCTION DE REMPLISSAGE DU CLONE */
+
     function fullfill(clone, i) {
         //Pagination
         pagination = clone.children[3]
@@ -929,7 +891,7 @@ window.addEventListener('load', () => {
         //Tableau des Student
         tab = clone.children[2].children[0]
 
-        listStudent = mydata[1]
+        listStudent = mydata[9] //mydata[1]
 
         tableContainer = document.getElementById('tableContainer')
 
@@ -956,30 +918,30 @@ window.addEventListener('load', () => {
 
                 }
                 if (k == 3) { //CC
-                    if (i == 0) { td.innerHTML = `${listStudent[j][1][8]}` }
-                    if (i == 1) { td.innerHTML = `${listStudent[j][2][8]}` }
-                    if (i == 2) { td.innerHTML = `${listStudent[j][3][8]}` }
-                    if (i == 3) { td.innerHTML = `${listStudent[j][4][8]}` }
-                    if (i == 4) { td.innerHTML = `${listStudent[j][5][8]}` }
-                    if (i == 5) { td.innerHTML = `${listStudent[j][6][8]}` }
-                    td.setAttribute('class', 'cc')
-                }
-                if (k == 4) { //TPE
-                    if (i == 0) { td.innerHTML = `${listStudent[j][1][8]}` }
-                    if (i == 1) { td.innerHTML = `${listStudent[j][2][8]}` }
-                    if (i == 2) { td.innerHTML = `${listStudent[j][3][8]}` }
-                    if (i == 3) { td.innerHTML = `${listStudent[j][4][8]}` }
-                    if (i == 4) { td.innerHTML = `${listStudent[j][5][8]}` }
-                    if (i == 5) { td.innerHTML = `${listStudent[j][6][8]}` }
-                    td.setAttribute('class', 'cc')
-                }
-                if (k == 5) { //SN
                     if (i == 0) { td.innerHTML = `${listStudent[j][1][9]}` }
                     if (i == 1) { td.innerHTML = `${listStudent[j][2][9]}` }
                     if (i == 2) { td.innerHTML = `${listStudent[j][3][9]}` }
                     if (i == 3) { td.innerHTML = `${listStudent[j][4][9]}` }
                     if (i == 4) { td.innerHTML = `${listStudent[j][5][9]}` }
                     if (i == 5) { td.innerHTML = `${listStudent[j][6][9]}` }
+                    td.setAttribute('class', 'cc')
+                }
+                if (k == 4) { //TPE
+                    if (i == 0) { td.innerHTML = `${listStudent[j][1][9]}` }
+                    if (i == 1) { td.innerHTML = `${listStudent[j][2][9]}` }
+                    if (i == 2) { td.innerHTML = `${listStudent[j][3][9]}` }
+                    if (i == 3) { td.innerHTML = `${listStudent[j][4][9]}` }
+                    if (i == 4) { td.innerHTML = `${listStudent[j][5][9]}` }
+                    if (i == 5) { td.innerHTML = `${listStudent[j][6][9]}` }
+                    td.setAttribute('class', 'cc')
+                }
+                if (k == 5) { //SN
+                    if (i == 0) { td.innerHTML = `${listStudent[j][1][10]}` }
+                    if (i == 1) { td.innerHTML = `${listStudent[j][2][10]}` }
+                    if (i == 2) { td.innerHTML = `${listStudent[j][3][10]}` }
+                    if (i == 3) { td.innerHTML = `${listStudent[j][4][10]}` }
+                    if (i == 4) { td.innerHTML = `${listStudent[j][5][10]}` }
+                    if (i == 5) { td.innerHTML = `${listStudent[j][6][10]}` }
                 }
                 if (k == 6) { //Moyenne
                     if (i == 0) {
@@ -1185,6 +1147,7 @@ window.addEventListener('load', () => {
         }
         return (clone)
     }
+
 
     /**FONCTION REMPLISSAGE PV RATTRAPAGE */
     function fullfillr(clone, i) {
@@ -1424,30 +1387,30 @@ window.addEventListener('load', () => {
 
                 }
                 if (k == 3) { //CC
-                    if (i == 0) { td.innerHTML = `${listStudent[j][1][8]}` }
-                    if (i == 1) { td.innerHTML = `${listStudent[j][2][8]}` }
-                    if (i == 2) { td.innerHTML = `${listStudent[j][3][8]}` }
-                    if (i == 3) { td.innerHTML = `${listStudent[j][4][8]}` }
-                    if (i == 4) { td.innerHTML = `${listStudent[j][5][8]}` }
-                    if (i == 5) { td.innerHTML = `${listStudent[j][6][8]}` }
+                    if (i == 0) { td.innerHTML = `${listStudent[j][1][2]}` }
+                    if (i == 1) { td.innerHTML = `${listStudent[j][2][2]}` }
+                    if (i == 2) { td.innerHTML = `${listStudent[j][3][2]}` }
+                    if (i == 3) { td.innerHTML = `${listStudent[j][4][7]}` }
+                    if (i == 4) { td.innerHTML = `${listStudent[j][5][7]}` }
+                    if (i == 5) { td.innerHTML = `${listStudent[j][6][7]}` }
                     td.setAttribute('class', 'cc')
                 }
                 if (k == 4) { //TPE
+                    if (i == 0) { td.innerHTML = `${listStudent[j][1][7]}` }
+                    if (i == 1) { td.innerHTML = `${listStudent[j][2][7]}` }
+                    if (i == 2) { td.innerHTML = `${listStudent[j][3][7]}` }
+                    if (i == 3) { td.innerHTML = `${listStudent[j][4][7]}` }
+                    if (i == 4) { td.innerHTML = `${listStudent[j][5][7]}` }
+                    if (i == 5) { td.innerHTML = `${listStudent[j][6][7]}` }
+                    td.setAttribute('class', 'cc')
+                }
+                if (k == 5) { //SN
                     if (i == 0) { td.innerHTML = `${listStudent[j][1][8]}` }
                     if (i == 1) { td.innerHTML = `${listStudent[j][2][8]}` }
                     if (i == 2) { td.innerHTML = `${listStudent[j][3][8]}` }
                     if (i == 3) { td.innerHTML = `${listStudent[j][4][8]}` }
                     if (i == 4) { td.innerHTML = `${listStudent[j][5][8]}` }
                     if (i == 5) { td.innerHTML = `${listStudent[j][6][8]}` }
-                    td.setAttribute('class', 'cc')
-                }
-                if (k == 5) { //SN
-                    if (i == 0) { td.innerHTML = `${listStudent[j][1][9]}` }
-                    if (i == 1) { td.innerHTML = `${listStudent[j][2][9]}` }
-                    if (i == 2) { td.innerHTML = `${listStudent[j][3][9]}` }
-                    if (i == 3) { td.innerHTML = `${listStudent[j][4][9]}` }
-                    if (i == 4) { td.innerHTML = `${listStudent[j][5][9]}` }
-                    if (i == 5) { td.innerHTML = `${listStudent[j][6][9]}` }
                 }
                 if (k == 6) { //Moyenne
                     if (i == 0) {

@@ -6451,8 +6451,7 @@ def resultatCommunEve(request):
 
     creditS5EVE = list(UniteEnseignement.objects.filter(semestre_id=5,filiere="MAS").values("nombre_credit"))
     creditS5EVE = epurationCre(creditS5EVE)
-
-
+##################################################### S5 STATS VAL #########################################################################################################################################################################
     val1 = {
         'nombre': 0,
         'pourcentage': 0,
@@ -6570,7 +6569,7 @@ def resultatCommunEve(request):
         'pourcentageEc': 0,
     }
 
-
+##################################################### PV SEMESTRE 5 #####################################################################################################################################
     MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_Examen'))
     MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_cc'))
     MAS315sn = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_sn'))
@@ -6596,36 +6595,10 @@ def resultatCommunEve(request):
     EVE355sn = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_sn'))
     sort355 = epurationTriCroissant(EVE355)
 
-    EVE365 = list(Evaluation.objects.filter(uniteEnseignement_id=81, note_rattrapage=None).values('note_Examen'))
+    EVE365 = list(Evaluation.objects.filter(uniteEnseignement_id=81, natureEvaluation='EXAMEN').values('note_Examen'))
     EVE365cc = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_cc'))
     EVE365sn = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_sn'))
     sort365 = epurationTriCroissant(EVE365)
-
-   
-######################################################## RATTRAPAGE ####################################################################################################################################
-    infoMAS315R = ""
-    MAS315R = list(Evaluation.objects.filter(uniteEnseignement_id=76, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
-
-    infoMAS325R = ""
-    MAS325R = list(Evaluation.objects.filter(uniteEnseignement_id=77, note_Examen=0, note_cc=0, note_sn=0).values('note_rattrapage'))
-    #sort325 = epurationTriCroissant(MAS325)
-
-    infoMAS335R =""
-    MAS335R = list(Evaluation.objects.filter(uniteEnseignement_id=78, note_Examen=0, note_cc=0, note_sn=0).values('note_rattrapage'))
-    #sort335 = epurationTriCroissant(MAS335)
-
-    infoMAS345R =""
-    MAS345R = list(Evaluation.objects.filter(uniteEnseignement_id=79, note_Examen=0, note_cc=0, note_sn=0).values('note_rattrapage'))
-    #sort345 = epurationTriCroissant(MAS345)
-
-    infoEVE355R = ""
-    EVE355R = list(Evaluation.objects.filter(uniteEnseignement_id=80, note_Examen=0, note_cc=0, note_sn=0).values('note_rattrapage'))
-    #sort355 = epurationTriCroissant(EVE355)
-
-    infoEVE365R = ""
-    EVE365R = list(Evaluation.objects.filter(uniteEnseignement_id=81, note_Examen=0, note_cc=0, note_sn=0).values('note_rattrapage'))
-    #sort365 = epurationTriCroissant(EVE365)
-
 
     listeMatrice = []
     EVEMoyenne = []
@@ -6644,69 +6617,282 @@ def resultatCommunEve(request):
 
                 (MAS315[j] >=10),
 
-                creditS5EVE[0],
-
-                creditS5EVE[0] if((MAS315[j] >=10)) else 0,#crédit obtenu
-
-                MAS315cc[j]['note_cc'],
-
-                MAS315sn[j]['note_sn'],
-
-                #RATTRAPAGE
-                MAS315R[j]['note_rattrapage']
-
+                creditS5EVE[0] 
             ],
             
-            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1], creditS5EVE[1] if (MAS325[j]>=10) else 0, MAS325cc[j]['note_cc'],MAS325sn[j]['note_sn'],  ],
+            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1] ],
             
-            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2], creditS5EVE[2] if (MAS335[j]>=10) else 0, MAS335cc[j]['note_cc'],MAS335sn[j]['note_sn'] ],
+            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2] ],
             
-            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3], creditS5EVE[3] if (MAS345[j]>=10) else 0, MAS345cc[j]['note_cc'],MAS345sn[j]['note_sn'], [ MAS315[j], MAS325[j], MAS335[j], MAS345[j]], MAS345R[j] ],
+            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3] ],
             
-            #MODULE 2
             [ EVE355[j], coefS5EVE[4], round(EVE355[j]*coefS5EVE[4], 2), 
 
-                round((EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2), 
+                round((EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2), #
 
                 sort355.index(EVE355[j])+1, 
 
                 (EVE355[j]>=10),
 
-                creditS5EVE[4],
-                creditS5EVE[4] if((EVE355[j]>=10)) else 0,
-
-                EVE355cc[j]['note_cc'],
-                EVE355sn[j]['note_sn'],
-
-                EVE355R[j]['note_rattrapage']
+                creditS5EVE[4] 
             ],
             
-            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5], creditS5EVE[5] if (EVE365[j]>=10) else 0, EVE365cc[j]['note_cc'],EVE365sn[j]['note_sn'], [ EVE355[j], EVE365[j] ], EVE365R[j] ],
+            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5] ],
         
             [ 
                 (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
     
                 round( (MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5] ), 2),
 
-                round((MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
-            ],
-        
+                round((MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),2)
+            ]
         ]
 
         creditObtenus = 0
         listeCredit = []
-        #print(listeMatrice[1])
-        #print(listeMatrice[])
 
+       
         listeMatrice.append(matrice)
         EVEMoyenne.append(matrice[7][2])
         EVEMoyenne.sort(reverse=True)
 
         moy = stat.mean(EVEMoyenne)
         moy = round(moy, 2)
-        session = ''
+        session = 'Janvier 2023'
+ 
+##################################################### PV SEMESTRE 5 RATTRAPAGE ####################################################################################################################################
+    MAS315R = list(Evaluation.objects.filter(uniteEnseignement_id=76, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))  
+    sort316 = epurationRattrapage(MAS315R)
 
-    #STATS VALIDATION
+    MAS325R = list(Evaluation.objects.filter(uniteEnseignement_id=77, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort326 = epurationRattrapage(MAS325R)
+
+    MAS335R = list(Evaluation.objects.filter(uniteEnseignement_id=78, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort336 = epurationRattrapage(MAS335R)
+
+    MAS345R = list(Evaluation.objects.filter(uniteEnseignement_id=79, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort346 = epurationRattrapage(MAS345R)
+
+    EVE355R = list(Evaluation.objects.filter(uniteEnseignement_id=80, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort356 = epurationRattrapage(EVE355R)
+
+    EVE365R = list(Evaluation.objects.filter(uniteEnseignement_id=81, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort366 = epurationRattrapage(EVE365R)
+
+    listeMatriceRs5EVE = []
+    listeMatriceRs5EVEex = []
+    
+
+    for j in range (len(infoEtudiantEVE)):
+        matriceRs5EVE = [
+
+            infoEtudiantEVE[j],
+            
+            MAS315R[j],
+
+            MAS325R[j],
+            
+            MAS335R[j],
+            
+            MAS345R[j],
+            
+            EVE355R[j],
+            
+            EVE365R[j],
+        ]
+
+        matriceRs5EVEex = [
+
+            infoEtudiantEVE[j],
+            
+            ( round( MAS315R[j]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (MAS315R[j] > 0) else MAS315R[j] ) ,
+
+            ( round( MAS325R[j]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (MAS325R[j] > 0) else MAS325R[j] ) ,
+            
+            ( round( MAS335R[j]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (MAS335R[j] > 0) else MAS335R[j] ) ,
+            
+            ( round( MAS345R[j]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (MAS345R[j] > 0) else MAS345R[j] ) ,
+            
+            ( round( EVE355R[j]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (EVE355R[j] > 0) else EVE355R[j] ) ,
+            
+            ( round( EVE365R[j]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (EVE365R[j] > 0) else EVE365R[j] ) ,
+        ]
+        listeMatriceRs5EVE.append(matriceRs5EVE)
+        listeMatriceRs5EVEex.append(matriceRs5EVEex)
+
+##################################################### PV SEMESTRE 5 EVE SYNTHESE   ###################################################################################################
+    listeMatriceS5 =  []
+    EVEMoyennes5 = []
+
+    for j in range( len(infoEtudiantEVE) ):
+
+        matricesS5EVE = [
+            
+            infoEtudiantEVE[j],
+
+            [ 
+                ( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) 
+                
+                , coefS5EVE[0]
+                
+                , round(( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0], 2)
+
+                , round( ((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0]) + ( ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] )*coefS5EVE[1]) + (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] )*coefS5EVE[2])  + (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3]) ) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2)  # (MAS335[j]*coefS5EVE[2]) ,  (MAS345[j]*coefS5EVE[3])
+                
+                #, round( ((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0]) + ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] ) ) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2)
+
+                #, sort315.index(( MAS315[j] ) )+1 #round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else
+
+                , (( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] )  >=10)
+
+                , creditS5EVE[0]
+
+                , creditS5EVE[0] if((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] )  >=10)) else 0
+
+                , MAS315cc[j]['note_cc']
+                
+                , MAS315sn[j]['note_sn'],
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) 
+                
+                , coefS5EVE[1]
+                
+                , round(( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) *coefS5EVE[1], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort325.index((  MAS325[j] ) )+1 #round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) >=10)
+
+                , creditS5EVE[1]
+                
+                , creditS5EVE[1] if (( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) >=10) else 0
+
+                , MAS325cc[j]['note_cc']
+                
+                , MAS325sn[j]['note_sn'],  
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) 
+                
+                , coefS5EVE[2]
+                
+                , round(( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort335.index((  MAS335[j] ) )+1 #round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) >=10)
+                
+                , creditS5EVE[2]
+                
+                , creditS5EVE[2] if (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) >=10) else 0
+
+                , MAS335cc[j]['note_cc']
+                
+                , MAS335sn[j]['note_sn'] 
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )
+                
+                , coefS5EVE[3]
+                
+                , round(( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort345.index((  MAS345[j] ))+1 #round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else
+                 
+                , (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )>=10)
+                
+                , creditS5EVE[3]
+                
+                , creditS5EVE[3] if (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )>=10) else 0
+
+                , MAS345cc[j]['note_cc']
+                
+                , MAS345sn[j]['note_sn']
+                
+                #, [ ( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) , ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) , ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) , ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )], MAS345R[j] 
+                
+                ],
+            
+            #MODULE 2
+            [ 
+                ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )
+                
+                , coefS5EVE[4]
+                
+                , round(( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4], 2)
+
+                , round((( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) *coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
+
+                #, sort355.index((  EVE355[j] ))+1 #round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else
+
+                , (( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )>=10)
+
+                , creditS5EVE[4]
+
+                , creditS5EVE[4] if((( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )>=10)) else 0
+
+                , EVE355cc[j]['note_cc']
+                
+                , EVE355sn[j]['note_sn']
+
+                #, EVE355R[j]['note_rattrapage']
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) 
+                
+                , coefS5EVE[5]
+                
+                , round(( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort365.index((  EVE365[j] ))+1 #round(listeMatriceRs5EVE[j][6]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )>=10)
+                
+                , creditS5EVE[5]
+                
+                , creditS5EVE[5] if (( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )>=10) else 0
+
+                , EVE365cc[j]['note_cc']
+                
+                , EVE365sn[j]['note_sn']
+                
+                #, [ ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] ), ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) ], EVE365R[j] 
+            ],
+
+            [ 
+                (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
+    
+                round( (( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0] + ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) *coefS5EVE[1] + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2] + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3]+( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5] ), 2),
+
+                round((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2] + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3] + ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
+            ],
+        ]
+
+        listeMatriceS5.append(matricesS5EVE)
+        EVEMoyennes5.append(matricesS5EVE[7][2])
+    
+    EVEMoyennes5.sort(reverse=True)
+
+    moys5 = stat.mean(EVEMoyennes5)
+    moys5 = round(moys5, 2)
+    sessions5 = 'Janvier 2023'
+
+    #semestre1MDS = [filiere, listeMatriceS5, EVEMoyennes5, moy, sessions5] #listeMatriceS5 , EVEMoyennes5,  sessions5
+
+##################################################### STATS VALIDATION ############################################################################################################################
     for i in range (len(MAS315)):
         if MAS315[i] >= 10:
             val1['nombre']+=1
@@ -6738,7 +6924,7 @@ def resultatCommunEve(request):
             val1['nombre']+=1
     val1['pourcentage']= round(((val1['nombre']/ len(infoEtudiantEVE))*100), 2) #round(2,(val1['nombre']/ len(infoEtudiantEVE))*100)
 
-    #STAT MENTION
+##################################################### STAT MENTION ###############################################################################################################################################
     statMention(MAS315,m315)
     pourcentageMention(m315, len(infoEtudiantEVE))
 
@@ -6760,7 +6946,9 @@ def resultatCommunEve(request):
     UEStats = [val1, val2, val3, val4, val5, val6]
     UEstats_mention = [m315, m325, m335, m345, e355, e365]
 
-    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE, UEStats, UEstats_mention]
+
+
+    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE, UEStats, UEstats_mention, listeMatriceRs5EVE, listeMatriceS5, EVEMoyennes5] #listeMatriceS5
 
     return render(request, 'bulletin/releveCommun/releveCommunEve.html', {'semestre1MDS': semestre1MDS})
 
@@ -6782,6 +6970,329 @@ def resultatCommuns6Eve(request):
 
     creditS5EVE = list(UniteEnseignement.objects.filter(semestre_id=6,filiere="MAS").values("nombre_credit"))
     creditS5EVE = epurationCre(creditS5EVE)
+
+##################################################### PV SEMESTRE 5 #####################################################################################################################################
+    MAS315 = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS315cc = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS315sn = list(Evaluation.objects.filter(uniteEnseignement_id=76, natureEvaluation='EXAMEN').values('note_sn'))
+    sort315 = epurationTriCroissant(MAS315)
+
+    MAS325 = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS325cc = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS325sn = list(Evaluation.objects.filter(uniteEnseignement_id=77, natureEvaluation='EXAMEN').values('note_sn'))
+    sort325 = epurationTriCroissant(MAS325)
+
+    MAS335 = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS335cc = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS335sn = list(Evaluation.objects.filter(uniteEnseignement_id=78, natureEvaluation='EXAMEN').values('note_sn'))
+    sort335 = epurationTriCroissant(MAS335)
+
+    MAS345 = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_Examen'))
+    MAS345cc = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_cc'))
+    MAS345sn = list(Evaluation.objects.filter(uniteEnseignement_id=79, natureEvaluation='EXAMEN').values('note_sn'))
+    sort345 = epurationTriCroissant(MAS345)
+
+    EVE355 = list(Evaluation.objects.filter(uniteEnseignement_id=80, natureEvaluation='EXAMEN').values('note_Examen'))
+    EVE355cc = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_cc'))
+    EVE355sn = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_sn'))
+    sort355 = epurationTriCroissant(EVE355)
+
+    EVE365 = list(Evaluation.objects.filter(uniteEnseignement_id=81, natureEvaluation='EXAMEN').values('note_Examen'))
+    EVE365cc = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_cc'))
+    EVE365sn = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_sn'))
+    sort365 = epurationTriCroissant(EVE365)
+
+    listeMatrice = []
+    EVEMoyenne = []
+
+    for j in range( len(infoEtudiantEVE) ):
+
+        matrice = [
+            
+            infoEtudiantEVE[j],
+
+            [ MAS315[j], coefS5EVE[0], round(MAS315[j]*coefS5EVE[0], 2),
+
+                round( ((MAS315[j]*coefS5EVE[0]) + (MAS325[j]*coefS5EVE[1]) + (MAS335[j]*coefS5EVE[2]) + (MAS345[j]*coefS5EVE[3])) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2), 
+
+                sort315.index(MAS315[j])+1, 
+
+                (MAS315[j] >=10),
+
+                creditS5EVE[0] 
+            ],
+            
+            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1] ],
+            
+            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2] ],
+            
+            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3] ],
+            
+            [ EVE355[j], coefS5EVE[4], round(EVE355[j]*coefS5EVE[4], 2), 
+
+                round((EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2), 
+
+                sort355.index(EVE355[j])+1, 
+
+                (EVE355[j]>=10),
+
+                creditS5EVE[4] 
+            ],
+            
+            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5] ],
+        
+            [ 
+                (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
+    
+                round( (MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5] ), 2),
+
+                round((MAS315[j]*coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + MAS325[j]*coefS5EVE[2] + MAS345[j]*coefS5EVE[3]+EVE355[j]*coefS5EVE[4] + EVE365[j]*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),2)
+            ]
+        ]
+
+        creditObtenus = 0
+        listeCredit = []
+
+       
+        listeMatrice.append(matrice)
+        EVEMoyenne.append(matrice[7][2])
+        EVEMoyenne.sort(reverse=True)
+
+        moy = stat.mean(EVEMoyenne)
+        moy = round(moy, 2)
+        session = 'Janvier 2023'
+
+##################################################### PV SEMESTRE 5 RATTRAPAGE ####################################################################################################################################
+    MAS315R = list(Evaluation.objects.filter(uniteEnseignement_id=76, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))  
+    sort316 = epurationRattrapage(MAS315R)
+
+    MAS325R = list(Evaluation.objects.filter(uniteEnseignement_id=77, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort326 = epurationRattrapage(MAS325R)
+
+    MAS335R = list(Evaluation.objects.filter(uniteEnseignement_id=78, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort336 = epurationRattrapage(MAS335R)
+
+    MAS345R = list(Evaluation.objects.filter(uniteEnseignement_id=79, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort346 = epurationRattrapage(MAS345R)
+
+    EVE355R = list(Evaluation.objects.filter(uniteEnseignement_id=80, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort356 = epurationRattrapage(EVE355R)
+
+    EVE365R = list(Evaluation.objects.filter(uniteEnseignement_id=81, note_Examen=0, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort366 = epurationRattrapage(EVE365R)
+
+    listeMatriceRs5EVE = []
+    listeMatriceRs5EVEex = []
+    
+
+    for j in range (len(infoEtudiantEVE)):
+        matriceRs5EVE = [
+
+            infoEtudiantEVE[j],
+            
+            MAS315R[j],
+
+            MAS325R[j],
+            
+            MAS335R[j],
+            
+            MAS345R[j],
+            
+            EVE355R[j],
+            
+            EVE365R[j],
+        ]
+
+        matriceRs5EVEex = [
+
+            infoEtudiantEVE[j],
+            
+            ( round( MAS315R[j]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (MAS315R[j] > 0) else MAS315R[j] ) ,
+
+            ( round( MAS325R[j]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (MAS325R[j] > 0) else MAS325R[j] ) ,
+            
+            ( round( MAS335R[j]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (MAS335R[j] > 0) else MAS335R[j] ) ,
+            
+            ( round( MAS345R[j]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (MAS345R[j] > 0) else MAS345R[j] ) ,
+            
+            ( round( EVE355R[j]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (EVE355R[j] > 0) else EVE355R[j] ) ,
+            
+            ( round( EVE365R[j]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (EVE365R[j] > 0) else EVE365R[j] ) ,
+        ]
+        listeMatriceRs5EVE.append(matriceRs5EVE)
+        listeMatriceRs5EVEex.append(matriceRs5EVEex)
+
+##################################################### PV SEMESTRE 5 EVE SYNTHESE   ###################################################################################################
+    listeMatriceS5 =  []
+    EVEMoyennes5 = []
+
+    for j in range( len(infoEtudiantEVE) ):
+
+        matricesS5EVE = [
+            
+            infoEtudiantEVE[j],
+
+            [ 
+                ( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) 
+                
+                , coefS5EVE[0]
+                
+                , round(( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0], 2)
+
+                , round( ((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0]) + ( ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] )*coefS5EVE[1]) + (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] )*coefS5EVE[2])  + (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3]) ) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2)
+
+                #, round( ((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0]) + (MAS325[j]*coefS5EVE[1]) + (MAS335[j]*coefS5EVE[2]) + (MAS345[j]*coefS5EVE[3])) / (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]), 2)
+                
+                #, sort315.index(( MAS315[j] ) )+1 #round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else
+
+                , (( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] )  >=10)
+
+                , creditS5EVE[0]
+
+                , creditS5EVE[0] if((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] )  >=10)) else 0
+
+                , MAS315cc[j]['note_cc']
+                
+                , MAS315sn[j]['note_sn'],
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) 
+                
+                , coefS5EVE[1]
+                
+                , round(( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) *coefS5EVE[1], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort325.index((  MAS325[j] ) )+1 #round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) >=10)
+
+                , creditS5EVE[1]
+                
+                , creditS5EVE[1] if (( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) >=10) else 0
+
+                , MAS325cc[j]['note_cc']
+                
+                , MAS325sn[j]['note_sn'],  
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) 
+                
+                , coefS5EVE[2]
+                
+                , round(( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort335.index((  MAS335[j] ) )+1 #round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) >=10)
+                
+                , creditS5EVE[2]
+                
+                , creditS5EVE[2] if (( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) >=10) else 0
+
+                , MAS335cc[j]['note_cc']
+                
+                , MAS335sn[j]['note_sn'] 
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )
+                
+                , coefS5EVE[3]
+                
+                , round(( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort345.index((  MAS345[j] ))+1 #round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else
+                 
+                , (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )>=10)
+                
+                , creditS5EVE[3]
+                
+                , creditS5EVE[3] if (( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )>=10) else 0
+
+                , MAS345cc[j]['note_cc']
+                
+                , MAS345sn[j]['note_sn']
+                
+                #, [ ( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) , ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) , ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) , ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )], MAS345R[j] 
+                
+                ],
+            
+            #MODULE 2
+            [ 
+                ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )
+                
+                , coefS5EVE[4]
+                
+                , round(( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4], 2)
+
+                , round((( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) *coefS5EVE[5] )/(coefS5EVE[4]+coefS5EVE[5]), 2)
+
+                #, sort355.index((  EVE355[j] ))+1 #round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else
+
+                , (( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )>=10)
+
+                , creditS5EVE[4]
+
+                , creditS5EVE[4] if((( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )>=10)) else 0
+
+                , EVE355cc[j]['note_cc']
+                
+                , EVE355sn[j]['note_sn']
+
+                #, EVE355R[j]['note_rattrapage']
+            ],
+            
+            [ 
+                ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) 
+                
+                , coefS5EVE[5]
+                
+                , round(( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5], 2)
+                
+                , 'MOYENNE'
+                
+                #, sort365.index((  EVE365[j] ))+1 #round(listeMatriceRs5EVE[j][6]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else
+                
+                , (( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )>=10)
+                
+                , creditS5EVE[5]
+                
+                , creditS5EVE[5] if (( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )>=10) else 0
+
+                , EVE365cc[j]['note_cc']
+                
+                , EVE365sn[j]['note_sn']
+                
+                #, [ ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] ), ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] ) ], EVE365R[j] 
+            ],
+
+            [ 
+                (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),
+    
+                round( (( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0] + ( round(listeMatriceRs5EVE[j][2]*0.7 + MAS325cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][2]> 0 ) else MAS325[j] ) *coefS5EVE[1] + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2] + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3]+( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5] ), 2),
+
+                round((( round(listeMatriceRs5EVE[j][1]*0.7 + MAS315cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][1]> 0 ) else MAS315[j] ) *coefS5EVE[0] + MAS325[j]*coefS5EVE[1] + ( round(listeMatriceRs5EVE[j][3]*0.7 + MAS335cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][3]> 0 ) else MAS335[j] ) *coefS5EVE[2] + ( round(listeMatriceRs5EVE[j][4]*0.7 + MAS345cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][4]> 0 ) else MAS345[j] )*coefS5EVE[3] + ( round(listeMatriceRs5EVE[j][5]*0.7 + EVE355cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][5]> 0 ) else EVE355[j] )*coefS5EVE[4] + ( round(listeMatriceRs5EVE[j][6]*0.7 + EVE365cc[j]['note_cc']*0.3, 2) if (listeMatriceRs5EVE[j][6]> 0 ) else EVE365[j] )*coefS5EVE[5])/(coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]), 2)
+            ],
+        ]
+
+        listeMatriceS5.append(matricesS5EVE)
+        EVEMoyennes5.append(matricesS5EVE[7][2])
+    
+    EVEMoyennes5.sort(reverse=True)
+
+    moys5 = stat.mean(EVEMoyennes5)
+    moys5 = round(moys5, 2)
+    sessions5 = 'Janvier 2023'
+
+    #semestre1MDS = [filiere, listeMatriceS5, EVEMoyennes5, moy, sessions5] #listeMatriceS5 , EVEMoyennes5,  sessions5
 
 #################################################### S6 STATS VAL ############################################################################################################################
     val1 = {
@@ -6927,7 +7438,7 @@ def resultatCommuns6Eve(request):
     EVE356sn = list(Evaluation.objects.filter(uniteEnseignement_id=86).values('note_sn'))
     sort355 = epurationTriCroissant(EVE356)
 
-    EVE366 = list(Evaluation.objects.filter(uniteEnseignement_id=87, note_rattrapage=None).values('note_Examen'))
+    EVE366 = list(Evaluation.objects.filter(uniteEnseignement_id=87, natureEvaluation='EXAMEN').values('note_Examen'))
     EVE366cc = list(Evaluation.objects.filter(uniteEnseignement_id=87).values('note_cc'))
     EVE366sn = list(Evaluation.objects.filter(uniteEnseignement_id=87).values('note_sn'))
     sort365 = epurationTriCroissant(EVE366)
@@ -7175,6 +7686,8 @@ def resultatCommuns6Eve(request):
     listeMatriceS =  []
     EVEMoyennes6 = []
 
+    EVEMoyes5s6 = []
+
     for j in range( len(infoEtudiantEVE) ):
 
         matricesS6EVE = [
@@ -7332,6 +7845,8 @@ def resultatCommuns6Eve(request):
 
         listeMatriceS.append(matricesS6EVE)
 
+        EVEMoyes5s6.append( round( (listeMatriceS5[j][7][2]  + matricesS6EVE[7][2])/2, 2) )
+
         EVEMoyennes6.append(matricesS6EVE[7][2])
         EVEMoyennes6.sort(reverse=True)
 
@@ -7389,7 +7904,7 @@ def resultatCommuns6Eve(request):
 
 
 
-    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE, UEStats, UEstats_mention, listeMatriceS, UeNomCode, EVEMoyennes6, listeMatriceRs6EVEex]
+    semestre1MDS = [filiere, listeMatrice, EVEMoyenne, moy, session, creditS5EVE, UEStats, UEstats_mention, listeMatriceS, UeNomCode, EVEMoyennes6, listeMatriceRs6EVEex, listeMatriceS5, EVEMoyes5s6]
 
     return render(request, 'bulletin/releveCommun/releveCommuns6Eve.html', {'semestre1MDS': semestre1MDS}) #, {'semestre1MDS': semestre1MDS}
 

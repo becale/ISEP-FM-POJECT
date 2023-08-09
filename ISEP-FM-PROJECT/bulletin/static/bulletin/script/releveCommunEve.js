@@ -447,6 +447,10 @@ window.addEventListener('load', () => {
         page3 = document.getElementById('page')
         page3 = page3.cloneNode(true)
 
+        //Changement Title
+        page3.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 5<sup>eme</sup> SEMESTRE LICENCE PRO L3 MAS EVE 2022-2023"
+
+
         bigtab2 = page3.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
@@ -658,7 +662,7 @@ window.addEventListener('load', () => {
     }
     ListProcess()
 
-    /*function ListProcessR() {
+    function ListProcessR() {
         body = document.getElementById('body')
 
         page = document.getElementById('page2')
@@ -677,7 +681,7 @@ window.addEventListener('load', () => {
         //Fixation de ListProcess sur le body de la page
         body.appendChild(listProcesr)
     }
-    //ListProcessR()
+    ListProcessR()
 
     /**FONCTION DE REMPLISSAGE DU CLONE */
 
@@ -1387,9 +1391,9 @@ window.addEventListener('load', () => {
 
                 }
                 if (k == 3) { //CC
-                    if (i == 0) { td.innerHTML = `${listStudent[j][1][2]}` }
-                    if (i == 1) { td.innerHTML = `${listStudent[j][2][2]}` }
-                    if (i == 2) { td.innerHTML = `${listStudent[j][3][2]}` }
+                    if (i == 0) { td.innerHTML = `${listStudent[j][1][7]}` }
+                    if (i == 1) { td.innerHTML = `${listStudent[j][2][7]}` }
+                    if (i == 2) { td.innerHTML = `${listStudent[j][3][7]}` }
                     if (i == 3) { td.innerHTML = `${listStudent[j][4][7]}` }
                     if (i == 4) { td.innerHTML = `${listStudent[j][5][7]}` }
                     if (i == 5) { td.innerHTML = `${listStudent[j][6][7]}` }
@@ -1424,12 +1428,12 @@ window.addEventListener('load', () => {
                     if (i == 5) { td.innerHTML = `${listStudent[j][6][0]}` }
                 }
                 if (k == 7) { //Crédit
-                    if (i == 0) { td.innerHTML = `${listStudent[j][1][7]}` }
-                    if (i == 1) { td.innerHTML = `${listStudent[j][2][7]}` }
-                    if (i == 2) { td.innerHTML = `${listStudent[j][3][7]}` }
-                    if (i == 3) { td.innerHTML = `${listStudent[j][4][7]}` }
-                    if (i == 4) { td.innerHTML = `${listStudent[j][5][7]}` }
-                    if (i == 5) { td.innerHTML = `${listStudent[j][6][7]}` }
+                    if (i == 0) { td.innerHTML = `${listStudent[j][1][6]}` }
+                    if (i == 1) { td.innerHTML = `${listStudent[j][2][6]}` }
+                    if (i == 2) { td.innerHTML = `${listStudent[j][3][6]}` }
+                    if (i == 3) { td.innerHTML = `${listStudent[j][4][6]}` }
+                    if (i == 4) { td.innerHTML = `${listStudent[j][5][6]}` }
+                    if (i == 5) { td.innerHTML = `${listStudent[j][6][6]}` }
                 }
                 if (k == 8) { //Decision
                     if (i == 0) { if (listStudent[j][1][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }

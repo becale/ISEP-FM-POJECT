@@ -6617,14 +6617,21 @@ def resultatCommunEve(request):
 
                 (MAS315[j] >=10),
 
-                creditS5EVE[0] 
+                creditS5EVE[0],
+
+                MAS315cc[j]['note_cc'],
+                MAS315sn[j]['note_sn'],
+
             ],
             
-            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1] ],
+            [ MAS325[j], coefS5EVE[1], round(MAS325[j]*coefS5EVE[1], 2), 'MOYENNE', sort325.index(MAS325[j])+1, (MAS325[j]>=10) ,creditS5EVE[1], MAS325cc[j]['note_cc'],
+                MAS325sn[j]['note_sn'], ],
             
-            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2] ],
+            [ MAS335[j], coefS5EVE[2], round(MAS335[j]*coefS5EVE[2], 2), 'MOYENNE', sort335.index(MAS335[j])+1, (MAS335[j]>=10), creditS5EVE[2], MAS335cc[j]['note_cc'],
+                MAS335sn[j]['note_sn'] ],
             
-            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3] ],
+            [ MAS345[j], coefS5EVE[3], round(MAS345[j]*coefS5EVE[3], 2), 'MOYENNE', sort345.index(MAS345[j])+1, (MAS345[j]>=10), creditS5EVE[3], MAS345cc[j]['note_cc'],
+                MAS345sn[j]['note_sn'] ],
             
             [ EVE355[j], coefS5EVE[4], round(EVE355[j]*coefS5EVE[4], 2), 
 
@@ -6634,10 +6641,16 @@ def resultatCommunEve(request):
 
                 (EVE355[j]>=10),
 
-                creditS5EVE[4] 
+                creditS5EVE[4],
+
+                EVE355cc[j]['note_cc'],
+
+                EVE355sn[j]['note_sn'],
             ],
             
-            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5] ],
+            [ EVE365[j], coefS5EVE[5], round(EVE365[j]*coefS5EVE[5], 2), 'MOYENNE', sort365.index(EVE365[j])+1, (EVE365[j]>=10), creditS5EVE[5], EVE365cc[j]['note_cc'],
+
+                EVE365sn[j]['note_sn'], ],
         
             [ 
                 (coefS5EVE[0]+coefS5EVE[1]+coefS5EVE[2]+coefS5EVE[3]+coefS5EVE[4]+coefS5EVE[5]),

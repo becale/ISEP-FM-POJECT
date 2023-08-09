@@ -12,6 +12,25 @@ class Etudiant(models.Model):
     date_naissance = models.DateField()
     lieu_naissance = models.CharField(max_length=200)
     nationalite = models.CharField(max_length=200)
+
+    moyS1 = models.FloatField(null=True, blank=True)
+    crS1 = models.IntegerField(null=True, blank=True)
+    
+    moyS2 = models.FloatField(null=True, blank=True)
+    crS2 = models.IntegerField(null=True, blank=True)
+
+    moyS3 = models.FloatField(null=True, blank=True)
+    crS3 = models.IntegerField(null=True,blank=True)
+
+    moyS4 = models.FloatField(null=True,blank=True)
+    crS4 = models.IntegerField(null=True, blank=True)
+
+    moyS5 = models.FloatField(null=True, blank=True)
+    crS5 = models.IntegerField(null=True, blank=True)
+
+    moyS6 = models.FloatField(null=True, blank=True)
+    crS6 = models.IntegerField(null=True, blank=True)
+
     
     class Sexe(models.TextChoices):
         FEMININ = "FEMININ"

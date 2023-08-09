@@ -24,6 +24,15 @@ body {
     /*display: none;*/
 }
 
+#pageA {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1cm;
+    /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
+    /*display: none;*/
+}
+
 #page2 {
     background: white;
     display: block;
@@ -55,6 +64,14 @@ body {
 }
 
 #pageS[size="A4"][layout="landscape"] {
+    width: 29.7cm;
+    height: 21cm;
+    padding-top: 1cm;
+    padding-bottom: 1cm;
+    display: block;
+}
+
+#pageA[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
     padding-top: 1cm;
@@ -236,6 +253,13 @@ td {
 #table2s thead :nth-child(1) {
     /*background-color: blue;*/
     width: 10.3cm;
+}
+
+#tableA {
+    margin-top: 0.2cm;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px black solid;
 }
 
 
@@ -579,8 +603,20 @@ footer {
     padding-left: 5px;
 }
 
+.title-doc-style-A {
+    text-align: center;
+    /*text-decoration: underline;*/
+    font-weight: bold;
+    padding-left: 5px;
+}
+
 #title-doc {
     padding-left: 22%;
+}
+
+#title-docA {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .span-style {

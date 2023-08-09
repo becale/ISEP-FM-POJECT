@@ -880,13 +880,18 @@ window.addEventListener('load', () => {
 
             //Ajoute de la ligne au grand tableau
             worktabS.appendChild(tempS)
-            console.log(i);
+                //console.log(i);
 
         }
 
         body.appendChild(pageS)
     }
     SyntheseAnnuelle()
+
+    function ListeAdmis() {
+
+    }
+    ListeAdmis()
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
     function ListProcess() {

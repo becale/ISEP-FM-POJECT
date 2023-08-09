@@ -3506,10 +3506,15 @@ function BullMDS1(clone, i) {
 
 
     if (j == 9) {
-      if (listStudent[i][1][5]) {
-        ligneMDS111.children[9].innerHTML = "VALIDEE";
-      } else {
-        ligneMDS111.children[9].innerHTML = "NON VALIDEE";
+      /*if (listStudent[i][1][5]) {
+          ligneMDS111.children[9].innerHTML = "VALIDEE"
+      } else { ligneMDS111.children[9].innerHTML = "NON VALIDEE" }*/
+      if (listStudent[i][1][0] >= 7 && listStudent[i][1][0] < 10 && listStudent[i][1][3] >= 10) {
+        ligneMDS111.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][1][0] >= 10) {
+        ligneMDS111.children[j].innerHTML = "VALIDEE";
+      } else if (listStudent[i][1][0] < 10) {
+        ligneMDS111.children[j].innerHTML = "NON VALIDEE";
       }
     } //Mention
 
@@ -3520,11 +3525,12 @@ function BullMDS1(clone, i) {
 
 
     if (j == 11) {
-      if (listStudent[i][1][0] + listStudent[i][2][0] >= 20) {
+      if (listStudent[i][1][0] >= 7 && listStudent[i][1][3] >= 10 || listStudent[i][1][0] >= 10) {
         ligneMDS111.children[j].innerHTML = listStudent[i][1][6];
       } else {
         ligneMDS111.children[j].innerHTML = 0;
-      }
+      } //if ((listStudent[i][1][0] + listStudent[i][2][0]) >= 20) { ligneMDS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneMDS111.children[j].innerHTML = 0 } 
+
     } //Crédits
 
   } //LIGNE MDS11b
@@ -3555,11 +3561,14 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][2][5]) {
-        ligneMDS111b.children[6].innerHTML = "VALIDEE";
-      } else {
-        ligneMDS111b.children[6].innerHTML = "NON VALIDEE";
-      }
+      if (listStudent[i][2][0] >= 7 && listStudent[i][2][0] < 10 && listStudent[i][1][3] >= 10) {
+        ligneMDS111b.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][2][0] >= 10) {
+        ligneMDS111b.children[j].innerHTML = "VALIDEE";
+      } else if (listStudent[i][2][0] < 10) {
+        ligneMDS111b.children[j].innerHTML = "NON VALIDEE";
+      } //if (listStudent[i][2][5]) { ligneMDS111b.children[6].innerHTML = "VALIDEE" } else { ligneMDS111b.children[6].innerHTML = "NON VALIDEE" }
+
     }
 
     if (j == 7) {
@@ -3568,11 +3577,12 @@ function BullMDS1(clone, i) {
 
 
     if (j == 8) {
-      if (listStudent[i][1][0] + listStudent[i][2][0] >= 20) {
+      if (listStudent[i][2][0] >= 7 && listStudent[i][1][3] >= 10 || listStudent[i][2][0] >= 10) {
         ligneMDS111b.children[j].innerHTML = listStudent[i][2][6];
       } else {
         ligneMDS111b.children[j].innerHTML = 0;
-      }
+      } //if ((listStudent[i][1][0] + listStudent[i][2][0]) >= 20) { ligneMDS111b.children[j].innerHTML = listStudent[i][2][6] } else { ligneMDS111b.children[j].innerHTML = 0 } 
+
     } //Crédits
 
   } //LIGNE MDS112
@@ -3603,11 +3613,14 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][3][0] >= 20) {
+      if (listStudent[i][3][0] >= 7 && listStudent[i][3][0] < 10 && listStudent[i][1][3] >= 10) {
+        ligneMDS112.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][3][0] >= 10) {
         ligneMDS112.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][3][0] < 10) {
         ligneMDS112.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (listStudent[i][3][0] >= 20) { ligneMDS112.children[j].innerHTML = "VALIDEE" } else { ligneMDS112.children[j].innerHTML = "NON VALIDEE" } 
+
     } //Mention
 
 
@@ -3617,14 +3630,15 @@ function BullMDS1(clone, i) {
 
 
     if (j == 8) {
-      if (listStudent[i][3][0] + listStudent[i][4][0] >= 20) {
+      if (listStudent[i][3][0] >= 7 && listStudent[i][1][3] >= 10 || listStudent[i][4][0] >= 7 && listStudent[i][1][3] >= 10 || listStudent[i][3][0] >= 10 || listStudent[i][4][0] >= 10) {
         ligneMDS112.children[j].innerHTML = listStudent[i][3][6];
       } else {
         ligneMDS112.children[j].innerHTML = 0;
-      }
+      } //if ((listStudent[i][3][0] + listStudent[i][4][0]) >= 20) { ligneMDS112.children[j].innerHTML = listStudent[i][3][6] } else { ligneMDS112.children[j].innerHTML = 0 } 
+
     } //nombre_crédits
 
-  } //LIGNE MDS112
+  } //LIGNE MDS112b
 
 
   var ligneMDS112b = tbody.children[3];
@@ -3652,17 +3666,21 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][4][0] >= 10) {
+      if (listStudent[i][4][0] >= 7 && listStudent[i][4][0] < 10 && listStudent[i][1][3] >= 10) {
+        ligneMDS112b.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][4][0] >= 10) {
         ligneMDS112b.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][3][0] < 10) {
         ligneMDS112b.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (listStudent[i][4][0] >= 10) { ligneMDS112b.children[j].innerHTML = "VALIDEE" } else { ligneMDS112b.children[j].innerHTML = "NON VALIDEE" } 
+
     } //Mention
 
 
     if (j == 7) {
       ligneMDS112b.children[j].innerHTML = mydata[4];
     } //Session
+    //if ((listStudent[i][4][0] >= 7 && listStudent[i][1][3] >= 10) || (listStudent[i][4][0] >= 10)) { ligneMDS112b.children[j].innerHTML = listStudent[i][4][6] } else { ligneMDS112b.children[j].innerHTML = 0 }
     //if(j==8){if( /*ligneMDS112b.children[2].innerHTML>=10*/(ligneMDS112.children[2].innerHTML + ligneMDS112b.children[2].innerHTML) >=20 ){ligneMDS112.children[j].innerHTML = creditUe[2]['nombre_credit']}else{ligneMDS112.children[j].innerHTML = 0}} //nombre_crédits
 
   } //LIGNE MDS113
@@ -3705,6 +3723,14 @@ function BullMDS1(clone, i) {
 
 
     if (j == 8) {
+      if (listStudent[i][5][0] >= 7 && listStudent[i][5][0] < 10 && listStudent[i][5][3] >= 10) {
+        ligneMDS113.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][3][0] >= 10) {
+        ligneMDS113.children[j].innerHTML = "VALIDEE";
+      } else if (listStudent[i][3][0] < 10) {
+        ligneMDS113.children[j].innerHTML = "NON VALIDEE";
+      }
+
       if (listStudent[i][5][0] >= 10) {
         ligneMDS113.children[j].innerHTML = "VALIDEE";
       } else {
@@ -3753,9 +3779,11 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][6][0] >= 10) {
+      if (listStudent[i][6][0] >= 7 && listStudent[i][6][0] < 10 && listStudent[i][5][3] >= 10) {
+        ligneMDS114.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][6][0] >= 10) {
         ligneMDS114.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][6][0] < 10) {
         ligneMDS114.children[j].innerHTML = "NON VALIDEE";
       }
     } //Mention
@@ -3767,7 +3795,7 @@ function BullMDS1(clone, i) {
 
 
     if (j == 8) {
-      if (listStudent[i][6][0] >= 10) {
+      if (listStudent[i][6][0] >= 7 && listStudent[i][5][3] >= 10 || listStudent[i][6][0] >= 10) {
         ligneMDS114.children[j].innerHTML = listStudent[i][6][6];
       } else {
         ligneMDS114.children[j].innerHTML = 0;
@@ -3802,11 +3830,14 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][7][0] >= 10) {
+      if (listStudent[i][7][0] >= 7 && listStudent[i][7][0] < 10 && listStudent[i][5][3] >= 10) {
+        ligneMDS115.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][7][0] >= 10) {
         ligneMDS115.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][7][0] < 10) {
         ligneMDS115.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (listStudent[i][7][0] >= 10) { ligneMDS115.children[j].innerHTML = "VALIDEE" } else { ligneMDS115.children[j].innerHTML = "NON VALIDEE" }
+
     } //Mention
 
 
@@ -3851,11 +3882,14 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][8][0] >= 10) {
+      if (listStudent[i][8][0] >= 7 && listStudent[i][8][0] < 10 && listStudent[i][5][3] >= 10) {
+        ligneMDS116.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][8][0] >= 10) {
         ligneMDS116.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][8][0] < 10) {
         ligneMDS116.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (listStudent[i][8][0] >= 10) { ligneMDS116.children[j].innerHTML = "VALIDEE" } else { ligneMDS116.children[j].innerHTML = "NON VALIDEE" } 
+
     } //Mention
 
 
@@ -3910,11 +3944,15 @@ function BullMDS1(clone, i) {
 
 
     if (j == 8) {
-      if (listStudent[i][9][0] >= 10) {
+      if (listStudent[i][9][0] >= 7 && listStudent[i][9][0] < 10 && listStudent[i][9][3] >= 10) {
+        ligneMDS117.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][9][0] >= 10) {
         ligneMDS117.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][9][0] < 10) {
         ligneMDS117.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (listStudent[i][6][0] >= 10) { ligneMDS114.children[j].innerHTML = listStudent[i][6][6] } else { ligneMDS114.children[j].innerHTML = 0 } 
+      //if (listStudent[i][9][0] >= 10) { ligneMDS117.children[j].innerHTML = "VALIDEE" } else { ligneMDS117.children[j].innerHTML = "NON VALIDEE" } 
+
     } //Mention
 
 
@@ -3957,11 +3995,14 @@ function BullMDS1(clone, i) {
 
 
     if (j == 6) {
-      if (listStudent[i][10][0] >= 10) {
+      if (listStudent[i][10][0] >= 7 && listStudent[i][10][0] < 10 && listStudent[i][9][3] >= 10) {
+        ligneMDS117b.children[j].innerHTML = "MODULATION";
+      } else if (listStudent[i][10][0] >= 10) {
         ligneMDS117b.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (listStudent[i][10][0] < 10) {
         ligneMDS117b.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (listStudent[i][10][0] >= 10) { ligneMDS117b.children[j].innerHTML = "VALIDEE" } else { ligneMDS117b.children[j].innerHTML = "NON VALIDEE" } 
+
     } //Mention
 
 
@@ -4006,7 +4047,7 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 6) {
-      resultat.children[j].innerHTML = sommeInt(ligneMDS111.children[11].innerHTML, ligneMDS112.children[8].innerHTML, ligneMDS113.children[10].innerHTML, ligneMDS114.children[8].innerHTML, ligneMDS115.children[8].innerHTML, ligneMDS116.children[8].innerHTML, ligneMDS117.children[10].innerHTML);
+      resultat.children[j].innerHTML = sommeIntmds(ligneMDS111.children[11].innerHTML, ligneMDS112.children[8].innerHTML, ligneMDS113.children[10].innerHTML, ligneMDS114.children[8].innerHTML, ligneMDS115.children[8].innerHTML, ligneMDS116.children[8].innerHTML, ligneMDS117.children[10].innerHTML, ligneMDS117b.children[8].innerHTML);
     }
     /**TOtal Crédit */
 
@@ -4085,11 +4126,14 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 9) {
-      if (data[i][1][5]) {
+      if (data[i][1][0] >= 7 && data[i][1][0] < 10 && data[i][1][3] >= 10) {
+        ligne11.children[j].innerHTML = "MODULATION";
+      } else if (data[i][1][0] >= 10) {
         ligne11.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (data[i][1][0] < 10) {
         ligne11.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (data[i][1][5]) { ligne11.children[j].innerHTML = "VALIDEE" } else { ligne11.children[j].innerHTML = "NON VALIDEE" }
+
     }
 
     if (j == 10) {
@@ -4132,11 +4176,14 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 6) {
-      if (data[i][2][5]) {
+      if (data[i][2][0] >= 7 && data[i][2][0] < 10 && data[i][1][3] >= 10) {
+        ligne22.children[j].innerHTML = "MODULATION";
+      } else if (data[i][2][0] >= 10) {
         ligne22.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (data[i][2][0] < 10) {
         ligne22.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (data[i][2][5]) { ligne22.children[j].innerHTML = "VALIDEE" } else { ligne22.children[j].innerHTML = "NON VALIDEE" } 
+
     }
 
     if (j == 7) {
@@ -4171,11 +4218,14 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 6) {
-      if (data[i][3][5]) {
+      if (data[i][3][0] >= 7 && data[i][3][0] < 10 && data[i][1][3] >= 10) {
+        ligne33.children[j].innerHTML = "MODULATION";
+      } else if (data[i][3][0] >= 10) {
         ligne33.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (data[i][3][0] < 10) {
         ligne33.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (data[i][3][5]) { ligne33.children[j].innerHTML = "VALIDEE" } else { ligne33.children[j].innerHTML = "NON VALIDEE" } 
+
     }
 
     if (j == 7) {
@@ -4218,11 +4268,14 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 6) {
-      if (data[i][4][5]) {
+      if (data[i][2][0] >= 7 && data[i][4][0] < 10 && data[i][1][3] >= 10) {
+        ligne44.children[j].innerHTML = "MODULATION";
+      } else if (data[i][4][0] >= 10) {
         ligne44.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (data[i][4][0] < 10) {
         ligne44.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (data[i][4][5]) { ligne44.children[j].innerHTML = "VALIDEE" } else { ligne44.children[j].innerHTML = "NON VALIDEE" } 
+
     }
 
     if (j == 7) {
@@ -4262,11 +4315,14 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 8) {
-      if (data[i][5][5]) {
+      if (data[i][5][0] >= 7 && data[i][5][0] < 10 && data[i][5][3] >= 10) {
+        ligne55.children[j].innerHTML = "MODULATION";
+      } else if (data[i][5][0] >= 10) {
         ligne55.children[j].innerHTML = "VALIDEE";
-      } else {
+      } else if (data[i][5][0] < 10) {
         ligne55.children[j].innerHTML = "NON VALIDEE";
-      }
+      } //if (data[i][5][5]) { ligne55.children[j].innerHTML = "VALIDEE" } else { ligne55.children[j].innerHTML = "NON VALIDEE" } 
+
     }
 
     if (j == 9) {
@@ -4278,7 +4334,13 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 10) {
-      ligne55.children[j].innerHTML = data[i][5][7];
+      if (data[i][5][0] >= 7 && data[i][5][3] >= 10 || data[i][5][0] >= 10) {
+        ligne55.children[j].innerHTML = data[i][5][6];
+      } else {
+        ligne55.children[j].innerHTML = 0;
+      } //Crédits
+      //ligne55.children[j].innerHTML = data[i][5][7] 
+
     }
   } //LIGNE 6
 
@@ -4321,7 +4383,13 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 8) {
-      ligne66.children[j].innerHTML = data[i][6][7];
+      if (data[i][6][0] >= 7 && data[i][5][3] >= 10 || data[i][6][0] >= 10) {
+        ligne66.children[j].innerHTML = data[i][6][6];
+      } else {
+        ligne66.children[j].innerHTML = 0;
+      } //Crédits
+      //ligne66.children[j].innerHTML = data[i][6][7] 
+
     } //if (j == 9) {}
 
   } //LIGNE 7
@@ -4349,11 +4417,14 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 6) {
-      if (data[i][7][5]) {
-        ligne77.children[j].innerHTML = 'VALIDEE';
-      } else {
-        ligne77.children[j].innerHTML = 'NON VALIDEE';
-      }
+      if (data[i][7][0] >= 7 && data[i][7][0] < 10 && data[i][5][3] >= 10) {
+        ligne77.children[j].innerHTML = "MODULATION";
+      } else if (data[i][7][0] >= 10) {
+        ligne77.children[j].innerHTML = "VALIDEE";
+      } else if (data[i][7][0] < 10) {
+        ligne77.children[j].innerHTML = "NON VALIDEE";
+      } //if (data[i][5][5]) { ligne55.children[j].innerHTML = "VALIDEE" } else { ligne55.children[j].innerHTML = "NON VALIDEE" }
+
     }
 
     if (j == 7) {
@@ -4365,7 +4436,13 @@ function BullMDS1(clone, i) {
     }
 
     if (j == 8) {
-      ligne77.children[j].innerHTML = data[i][7][7];
+      if (data[i][7][0] >= 7 && data[i][5][3] >= 10 || data[i][7][0] >= 10) {
+        ligne77.children[j].innerHTML = data[i][7][6];
+      } else {
+        ligne77.children[j].innerHTML = 0;
+      } //Crédits
+      //ligne77.children[j].innerHTML = data[i][7][7] 
+
     }
   } //LIGNE 8
 
@@ -8192,6 +8269,19 @@ function sommeInt(a, b, c, d, e, f, g) {
   f = parseInt(f);
   g = parseInt(g);
   result = a + b + c + d + e + f + g;
+  return result;
+}
+
+function sommeIntmds(a, b, c, d, e, f, g, h) {
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+  d = parseInt(d);
+  e = parseInt(e);
+  f = parseInt(f);
+  g = parseInt(g);
+  h = parseInt(h);
+  result = a + b + c + d + e + f + g + h;
   return result;
 }
 

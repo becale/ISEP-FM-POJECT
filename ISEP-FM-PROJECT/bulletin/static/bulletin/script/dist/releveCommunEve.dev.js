@@ -521,7 +521,9 @@ window.addEventListener('load', function () {
     listStudent = mydata[1];
     synthese = mydata[9];
     page3 = document.getElementById('page');
-    page3 = page3.cloneNode(true);
+    page3 = page3.cloneNode(true); //Changement Title
+
+    page3.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 5<sup>eme</sup> SEMESTRE LICENCE PRO L3 MAS EVE 2022-2023";
     bigtab2 = page3.children[0].children[2].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
 
     worktab2 = bigtab2.children[1];
@@ -770,22 +772,26 @@ window.addEventListener('load', function () {
   }
 
   ListProcess();
-  /*function ListProcessR() {
-      body = document.getElementById('body')
-        page = document.getElementById('page2')
-      pagePvr = page.cloneNode(true)
-        listProcesr = document.createElement('div');
-        for (i = 0; i <= 6; i++) {
-          cloner = pagePvr.cloneNode(true)
-          cloner.style.display = 'block'
-          cloner = fullfillr(cloner, i)
-            listProcesr.appendChild(cloner)
-      }
-        //Fixation de ListProcess sur le body de la page
-      body.appendChild(listProcesr)
+
+  function ListProcessR() {
+    body = document.getElementById('body');
+    page = document.getElementById('page2');
+    pagePvr = page.cloneNode(true);
+    listProcesr = document.createElement('div');
+
+    for (i = 0; i <= 6; i++) {
+      cloner = pagePvr.cloneNode(true);
+      cloner.style.display = 'block';
+      cloner = fullfillr(cloner, i);
+      listProcesr.appendChild(cloner);
+    } //Fixation de ListProcess sur le body de la page
+
+
+    body.appendChild(listProcesr);
   }
-  //ListProcessR()
-    /**FONCTION DE REMPLISSAGE DU CLONE */
+
+  ListProcessR();
+  /**FONCTION DE REMPLISSAGE DU CLONE */
 
   function fullfill(clone, i) {
     //Pagination
@@ -1602,15 +1608,15 @@ window.addEventListener('load', function () {
         if (k == 3) {
           //CC
           if (i == 0) {
-            td.innerHTML = "".concat(listStudent[j][1][2]);
+            td.innerHTML = "".concat(listStudent[j][1][7]);
           }
 
           if (i == 1) {
-            td.innerHTML = "".concat(listStudent[j][2][2]);
+            td.innerHTML = "".concat(listStudent[j][2][7]);
           }
 
           if (i == 2) {
-            td.innerHTML = "".concat(listStudent[j][3][2]);
+            td.innerHTML = "".concat(listStudent[j][3][7]);
           }
 
           if (i == 3) {
@@ -1715,27 +1721,27 @@ window.addEventListener('load', function () {
         if (k == 7) {
           //Crédit
           if (i == 0) {
-            td.innerHTML = "".concat(listStudent[j][1][7]);
+            td.innerHTML = "".concat(listStudent[j][1][6]);
           }
 
           if (i == 1) {
-            td.innerHTML = "".concat(listStudent[j][2][7]);
+            td.innerHTML = "".concat(listStudent[j][2][6]);
           }
 
           if (i == 2) {
-            td.innerHTML = "".concat(listStudent[j][3][7]);
+            td.innerHTML = "".concat(listStudent[j][3][6]);
           }
 
           if (i == 3) {
-            td.innerHTML = "".concat(listStudent[j][4][7]);
+            td.innerHTML = "".concat(listStudent[j][4][6]);
           }
 
           if (i == 4) {
-            td.innerHTML = "".concat(listStudent[j][5][7]);
+            td.innerHTML = "".concat(listStudent[j][5][6]);
           }
 
           if (i == 5) {
-            td.innerHTML = "".concat(listStudent[j][6][7]);
+            td.innerHTML = "".concat(listStudent[j][6][6]);
           }
         }
 

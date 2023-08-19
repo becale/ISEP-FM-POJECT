@@ -5633,7 +5633,7 @@ function BullEVE(clone, i) {
 
   for (j = 0; j <= resultat.childElementCount - 1; j++) {
     if (j == 0) {
-      resultats6.children[j].innerHTML = 'RESULTATS SEMESTRE 5';
+      resultat.children[j].innerHTML = 'RESULTATS SEMESTRE 5';
     }
 
     if (j == 1) {
@@ -5657,7 +5657,7 @@ function BullEVE(clone, i) {
     }
 
     if (j == 5) {
-      resultats6.children[j].innerHTML = 'Total Crédits Semestre 5';
+      resultat.children[j].innerHTML = 'Total Crédits Semestre 5';
     }
 
     if (j == 6) {

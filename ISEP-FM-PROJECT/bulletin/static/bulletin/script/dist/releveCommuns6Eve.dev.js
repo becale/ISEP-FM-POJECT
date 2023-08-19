@@ -1071,7 +1071,154 @@ window.addEventListener('load', function () {
 
   SyntheseAnnuelle();
 
-  function ListeAdmis() {}
+  function ListeAdmis() {
+    moyCredit = mydata[8];
+    pageA = document.getElementById('pageA');
+    pageA = pageA.cloneNode(true);
+    pageA.style.display = "block"; //Changement Title
+    //Tbody
+
+    worktabA = pageA.children[0].children[1].children[1].children[1]; //Ligne
+
+    lineA = worktabA.children[0];
+
+    for (i = 0; i <= mydata[1].length - 1; i++) {
+      tempA = lineA.cloneNode(true);
+
+      for (j = 0; j <= tempA.childElementCount - 1; j++) {
+        if (j == 0) {
+          tempA.cells[j].innerHTML = i + 1;
+        }
+
+        if (j == 1) {
+          tempA.cells[j].innerHTML = moyCredit[i][0]['matricule'];
+        }
+
+        if (j == 2) {
+          tempA.cells[j].innerHTML = "".concat(moyCredit[i][0]['nom'], "  ").concat(moyCredit[i][0]['prenom']);
+        }
+
+        if (j == 3) {
+          if (moyCredit[i][0]['sexe'] == "MASCULIN") {
+            tempA.cells[j].innerHTML = 'M';
+          } else if (moyCredit[i][0]['sexe'] == "FEMININ") {
+            tempA.cells[j].innerHTML = 'F';
+          }
+        }
+
+        if (j == 4) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['moyS1'];
+
+          if (moyCredit[i][7][3]['moyS1'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 5) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['crS1'];
+
+          if (moyCredit[i][7][3]['crS1'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 6) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['moyS2'];
+
+          if (moyCredit[i][7][3]['moyS1'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 7) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['crS2'];
+
+          if (moyCredit[i][7][3]['crS2'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 8) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['moyS3'];
+
+          if (moyCredit[i][7][3]['moyS3'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 9) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['crS3'];
+
+          if (moyCredit[i][7][3]['crS3'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 10) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['moyS4'];
+
+          if (moyCredit[i][7][3]['moyS4'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 11) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['crS4'];
+
+          if (moyCredit[i][7][3]['crS4'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 12) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['moyS5'];
+
+          if (moyCredit[i][7][3]['moyS5'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 13) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['crS5'];
+
+          if (moyCredit[i][7][3]['crS5'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 14) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['moyS6'];
+
+          if (moyCredit[i][7][3]['moyS6'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 15) {
+          tempA.cells[j].innerHTML = moyCredit[i][7][3]['crS6'];
+
+          if (moyCredit[i][7][3]['crS6'] == null) {
+            tempA.cells[j].innerHTML = '--';
+          }
+        }
+
+        if (j == 16) {
+          tempA.cells[j].innerHTML = sommeMoyFloat6(tempA.cells[4].innerHTML, tempA.cells[6].innerHTML, tempA.cells[8].innerHTML, tempA.cells[10].innerHTML, tempA.cells[12].innerHTML, tempA.cells[14].innerHTML);
+        }
+
+        if (j == 17) {
+          tempA.cells[j].innerHTML = sommeCrInt6(tempA.cells[5].innerHTML, tempA.cells[7].innerHTML, tempA.cells[9].innerHTML, tempA.cells[11].innerHTML, tempA.cells[13].innerHTML, tempA.cells[15].innerHTML);
+        }
+      }
+
+      worktabA.appendChild(tempA);
+    } //Ajoute de la ligne au grand tableau
+    //worktabA.appendChild(temp2)
+
+
+    lineA.style.display = "none";
+    body.appendChild(pageA);
+  }
 
   ListeAdmis();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
@@ -1776,5 +1923,86 @@ function sommeInt4(a, b, c, d) {
   c = parseInt(c);
   d = parseInt(d);
   result = a + b + c + d;
+  return result;
+}
+
+function sommeMoyFloat6(a, b, c, d, e, f) {
+  var control = 0;
+
+  if (a == '--') {
+    a = 0;
+    control += 1;
+  }
+
+  if (b == '--') {
+    b = 0;
+    control += 1;
+  }
+
+  if (c == '--') {
+    c = 0;
+    control += 1;
+  }
+
+  if (d == '--') {
+    d = 0;
+    control += 1;
+  }
+
+  if (e == '--') {
+    e = 0;
+    control += 1;
+  }
+
+  if (f == '--') {
+    f = 0;
+    control += 1;
+  }
+
+  a = parseFloat(a);
+  b = parseFloat(b);
+  c = parseFloat(c);
+  d = parseFloat(d);
+  e = parseFloat(e);
+  f = parseFloat(f);
+  result = (a + b + c + d + e + f) / (6 - control);
+  result = result.toFixed(2);
+  return result;
+}
+
+function sommeCrInt6(a, b, c, d, e, f) {
+  var control = 0;
+
+  if (a == '--') {
+    a = 0;
+  }
+
+  if (b == '--') {
+    b = 0;
+  }
+
+  if (c == '--') {
+    c = 0;
+  }
+
+  if (d == '--') {
+    d = 0;
+  }
+
+  if (e == '--') {
+    e = 0;
+  }
+
+  if (f == '--') {
+    f = 0;
+  }
+
+  a = parseInt(a);
+  b = parseInt(b);
+  c = parseInt(c);
+  d = parseInt(d);
+  e = parseInt(e);
+  f = parseInt(f);
+  result = a + b + c + d + e + f;
   return result;
 }

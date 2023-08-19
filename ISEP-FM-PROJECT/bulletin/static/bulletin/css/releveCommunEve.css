@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-body {
-    /*background: rgb(204,204,204); */
-}
-
 #page {
     background: white;
     display: block;
@@ -26,7 +22,7 @@ body {
 
 #pageA {
     background: white;
-    display: block;
+    display: none;
     margin: 0 auto;
     margin-bottom: 1cm;
     /*box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);*/
@@ -255,11 +251,25 @@ td {
     width: 10.3cm;
 }
 
+#table2s thead :nth-child(3) {
+    /*background-color: blue;*/
+    width: 3.5cm;
+}
+
 #tableA {
     margin-top: 0.2cm;
     border-collapse: collapse;
     width: 100%;
     border: 1px black solid;
+}
+
+#tableA thead {
+    background-color: #808080;
+    color: white;
+}
+
+.tdA {
+    text-align: left;
 }
 
 
@@ -334,7 +344,7 @@ td {
 
 .tabuef>td {
     font-size: 10px;
-    width: 16%;
+    width: 16.67%;
     text-align: center;
     /*background-color: violet;*/
     height: 0.6cm;

@@ -4545,14 +4545,14 @@ function BullEVE(clone, i) {
     //LINE DEs RESULTATS
     resultat = tbody.children[6]
     for (j = 0; j <= resultat.childElementCount - 1; j++) {
-        if (j == 0) { resultats6.children[j].innerHTML = 'RESULTATS SEMESTRE 5' }
+        if (j == 0) { resultat.children[j].innerHTML = 'RESULTATS SEMESTRE 5' }
         if (j == 1) {
             resultat.children[1].innerHTML = listStudent[i][7][0] /*sommeInt1(ligneMDS111.children[5].innerHTML,ligneMDS111b.children[3].innerHTML,ligneMDS112.children[3].innerHTML,ligneMDS112b.children[3].innerHTML,ligneMDS113.children[4].innerHTML,ligneMDS114.children[3].innerHTML,ligneMDS115.children[3].innerHTML,ligneMDS116.children[3].innerHTML,ligneMDS117.children[4].innerHTML,ligneMDS117b.children[3].innerHTML);*/
         }
         if (j == 2) { resultat.children[2].innerHTML = listStudent[i][7][1] } /*sommeFloat(ligneMDS111b.children[4].innerHTML, ligneMDS111.children[6].innerHTML, ligneMDS112.children[4].innerHTML, ligneMDS113.children[5].innerHTML, ligneMDS114.children[4].innerHTML, ligneMDS115.children[4].innerHTML,ligneMDS116.children[4].innerHTML, ligneMDS117.children[5].innerHTML, ligneMDS112b.children[4].innerHTML, ligneMDS117b.children[4].innerHTML) }*/
         if (j == 3) { /*val = resultat.children[2].innerHTML / resultat.children[1].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ resultat.children[j].innerHTML = listStudent[i][7][2] }
         if (j == 4) { resultat.children[j].innerHTML = mydata[2].indexOf(listStudent[i][7][2]) + 1 }
-        if (j == 5) { resultats6.children[j].innerHTML = 'Total Crédits Semestre 5' }
+        if (j == 5) { resultat.children[j].innerHTML = 'Total Crédits Semestre 5' }
         if (j == 6) { resultat.children[j].innerHTML = sommeInt6(ligneMAS315.children[11].innerHTML, ligneMAS325.children[8].innerHTML, ligneMAS335.children[8].innerHTML, ligneMAS345.children[8].innerHTML, ligneMAS355.children[10].innerHTML, ligneMAS365.children[8].innerHTML /*, ligneMDS117.children[10].innerHTML*/ ) } /**TOtal Crédit */
     }
 

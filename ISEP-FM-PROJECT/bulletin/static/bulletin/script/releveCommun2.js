@@ -475,6 +475,8 @@ window.addEventListener('load', () => {
             }
 
 
+
+
             //Ajoute de la ligne au grand tableau
             worktab2.appendChild(temp4)
             worktab3.appendChild(temp5)

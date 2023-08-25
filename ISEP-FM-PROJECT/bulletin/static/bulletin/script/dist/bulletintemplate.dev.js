@@ -3817,7 +3817,7 @@ function BullMDS1(clone, i) {
 
     if (j == 4) {
       v = mydata[2].length - 1;
-      ligne1.children[j].innerHTML = "".concat(mydata[2][v], " / 20");
+      ligne1.children[j].innerHTML = "".concat(mydata[2][j], " / 20");
     }
   } //LLIGNE 2
 

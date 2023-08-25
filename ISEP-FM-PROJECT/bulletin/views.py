@@ -482,7 +482,7 @@ def bulls2epsmds(request, filiere):
 
                    round (MDS111[j]*coefS1MDS1[0]+MDS111b[j]*coefS1MDS1[1]+MDS112[j]*coefS1MDS1[2]+MDS112b[j]*coefS1MDS1[3]+MDS113[j]*coefS1MDS1[4]+MDS114[j]*coefS1MDS1[5]+MDS115[j]*coefS1MDS1[6]+MDS116[j]*coefS1MDS1[7]+ MDS117[j]*coefS1MDS1[8]+MDS117b[j]*coefS1MDS1[9] , 2),
 
-                   round (( MDS111[j]*coefS1MDS1[0]+MDS111b[j]*coefS1MDS1[1]+MDS112[j]*coefS1MDS1[2]+MDS112b[j]*coefS1MDS1[3]+MDS113[j]*coefS1MDS1[4]+MDS114[j]*coefS1MDS1[5]+MDS115[j]*coefS1MDS1[6]+MDS116[j]*coefS1MDS1[7]+ MDS117[j]*coefS1MDS1[8]+MDS117b[j]*coefS1MDS1[9] )/( coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]+coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]+coefS1MDS1[8]+coefS1MDS1[9] ),2)
+                   round (( MDS111[j]*coefS1MDS1[0] + MDS111b[j]*coefS1MDS1[1] + MDS112[j]*coefS1MDS1[2] + MDS112b[j]*coefS1MDS1[3] + MDS113[j]*coefS1MDS1[4] + MDS114[j]*coefS1MDS1[5] + MDS115[j]*coefS1MDS1[6] + MDS116[j]*coefS1MDS1[7] + MDS117[j]*coefS1MDS1[8] + MDS117b[j]*coefS1MDS1[9] )/( coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]+coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]+coefS1MDS1[8]+coefS1MDS1[9] ),2)
                 ]
 
             ]
@@ -2933,64 +2933,64 @@ def resultatCommunepsmds(request):
     }
 
 ########################################################### PV SEMESTRE 1    ############################################################################################################################
-    EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=50).values('note_Examen'))
-    EPS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=50).values('note_cc'))
-    EPS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=50).values('note_sn'))
+    EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_sn'))
     sort111 = epurationTriCroissant(EPS111)
 
-    EPS112 = list(Evaluation.objects.filter(uniteEnseignement_id=51).values('note_Examen'))
-    EPS112cc = list(Evaluation.objects.filter(uniteEnseignement_id=51).values('note_cc'))
-    EPS112sn = list(Evaluation.objects.filter(uniteEnseignement_id=51).values('note_sn'))
+    EPS112 = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS112cc = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS112sn = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='EXAMEN').values('note_sn'))
     sort112 = epurationTriCroissant(EPS112)
 
-    EPS113 = list(Evaluation.objects.filter(uniteEnseignement_id=52).values('note_Examen'))
-    EPS113cc = list(Evaluation.objects.filter(uniteEnseignement_id=52).values('note_cc'))
-    EPS113sn = list(Evaluation.objects.filter(uniteEnseignement_id=52).values('note_sn'))
+    EPS113 = list(Evaluation.objects.filter(uniteEnseignement_id=52, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS113cc = list(Evaluation.objects.filter(uniteEnseignement_id=52, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS113sn = list(Evaluation.objects.filter(uniteEnseignement_id=52, natureEvaluation='EXAMEN').values('note_sn'))
     sort113 = epurationTriCroissant(EPS113)
 
-    EPS114 = list(Evaluation.objects.filter(uniteEnseignement_id=53).values('note_Examen'))
-    EPS114cc = list(Evaluation.objects.filter(uniteEnseignement_id=53).values('note_cc'))
-    EPS114sn = list(Evaluation.objects.filter(uniteEnseignement_id=53).values('note_sn'))
+    EPS114 = list(Evaluation.objects.filter(uniteEnseignement_id=53, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS114cc = list(Evaluation.objects.filter(uniteEnseignement_id=53, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS114sn = list(Evaluation.objects.filter(uniteEnseignement_id=53, natureEvaluation='EXAMEN').values('note_sn'))
     sort114 = epurationTriCroissant(EPS114)
 
-    EPS115a = list(Evaluation.objects.filter(uniteEnseignement_id=54).values('note_Examen'))
-    EPS115acc = list(Evaluation.objects.filter(uniteEnseignement_id=54).values('note_cc'))
-    EPS115asn = list(Evaluation.objects.filter(uniteEnseignement_id=54).values('note_sn'))
+    EPS115a = list(Evaluation.objects.filter(uniteEnseignement_id=54, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS115acc = list(Evaluation.objects.filter(uniteEnseignement_id=54, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS115asn = list(Evaluation.objects.filter(uniteEnseignement_id=54, natureEvaluation='EXAMEN').values('note_sn'))
     sort115a = epurationTriCroissant(EPS115a)
 
-    EPS115b = list(Evaluation.objects.filter(uniteEnseignement_id=55).values('note_Examen'))
-    EPS115bcc = list(Evaluation.objects.filter(uniteEnseignement_id=55).values('note_cc'))
-    EPS115bsn = list(Evaluation.objects.filter(uniteEnseignement_id=55).values('note_sn'))
+    EPS115b = list(Evaluation.objects.filter(uniteEnseignement_id=55, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS115bcc = list(Evaluation.objects.filter(uniteEnseignement_id=55, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS115bsn = list(Evaluation.objects.filter(uniteEnseignement_id=55, natureEvaluation='EXAMEN').values('note_sn'))
     sort115b = epurationTriCroissant(EPS115b) 
 
-    EPS115j = list(Evaluation.objects.filter(uniteEnseignement_id=56).values('note_Examen'))
-    EPS115jcc = list(Evaluation.objects.filter(uniteEnseignement_id=56).values('note_cc'))
-    EPS115jsn = list(Evaluation.objects.filter(uniteEnseignement_id=56).values('note_sn'))
+    EPS115j = list(Evaluation.objects.filter(uniteEnseignement_id=56, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS115jcc = list(Evaluation.objects.filter(uniteEnseignement_id=56, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS115jsn = list(Evaluation.objects.filter(uniteEnseignement_id=56, natureEvaluation='EXAMEN').values('note_sn'))
     sort115j = epurationTriCroissant(EPS115j)
 
-    EPS115l = list(Evaluation.objects.filter(uniteEnseignement_id=57).values('note_Examen'))
-    EPS115lcc = list(Evaluation.objects.filter(uniteEnseignement_id=57).values('note_cc'))
-    EPS115lsn = list(Evaluation.objects.filter(uniteEnseignement_id=57).values('note_sn'))
+    EPS115l = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS115lcc = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS115lsn = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='EXAMEN').values('note_sn'))
     sort115l = epurationTriCroissant(EPS115l)
 
-    EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=58).values('note_Examen'))
-    EPS116cc = list(Evaluation.objects.filter(uniteEnseignement_id=58).values('note_cc'))
-    EPS116sn = list(Evaluation.objects.filter(uniteEnseignement_id=58).values('note_sn'))
+    EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS116cc = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS116sn = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN').values('note_sn'))
     sort116 = epurationTriCroissant(EPS116)
 
-    EPS117 = list(Evaluation.objects.filter(uniteEnseignement_id=59).values('note_Examen'))
-    EPS117cc = list(Evaluation.objects.filter(uniteEnseignement_id=59).values('note_cc')) 
-    EPS117sn = list(Evaluation.objects.filter(uniteEnseignement_id=59).values('note_sn')) 
+    EPS117 = list(Evaluation.objects.filter(uniteEnseignement_id=59, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS117cc = list(Evaluation.objects.filter(uniteEnseignement_id=59, natureEvaluation='EXAMEN').values('note_cc')) 
+    EPS117sn = list(Evaluation.objects.filter(uniteEnseignement_id=59, natureEvaluation='EXAMEN').values('note_sn')) 
     sort117 = epurationTriCroissant(EPS117)
 
-    EPS118 = list(Evaluation.objects.filter(uniteEnseignement_id=60).values('note_Examen'))
-    EPS118cc = list(Evaluation.objects.filter(uniteEnseignement_id=60).values('note_cc'))
-    EPS118sn = list(Evaluation.objects.filter(uniteEnseignement_id=60).values('note_sn'))
+    EPS118 = list(Evaluation.objects.filter(uniteEnseignement_id=60, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS118cc = list(Evaluation.objects.filter(uniteEnseignement_id=60, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS118sn = list(Evaluation.objects.filter(uniteEnseignement_id=60, natureEvaluation='EXAMEN').values('note_sn'))
     sort118 = epurationTriCroissant(EPS118)
 
-    EPS119 = list(Evaluation.objects.filter(uniteEnseignement_id=61).values('note_Examen'))
-    EPS119cc = list(Evaluation.objects.filter(uniteEnseignement_id=61).values('note_cc'))
-    EPS119sn = list(Evaluation.objects.filter(uniteEnseignement_id=61).values('note_sn'))
+    EPS119 = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='EXAMEN').values('note_Examen'))
+    EPS119cc = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='EXAMEN').values('note_cc'))
+    EPS119sn = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='EXAMEN').values('note_sn'))
     sort119 = epurationTriCroissant(EPS119)
 
     student = {}
@@ -4070,7 +4070,6 @@ def resultatCommuns2staps(request):
 #PV MDS1 SEMESTRE1
 def resultatCommunmds(request):
     
-
     infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
     coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient", "intitule_UE"))
@@ -4273,54 +4272,54 @@ def resultatCommunmds(request):
     }
 
         
-    MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_Examen'))
-    MDS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_cc'))
-    MDS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=40).values('note_sn'))
+    MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN').values('note_sn'))
     sort111 = epurationTriCroissant(MDS111)
 
-    MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_Examen'))
-    MDS111bcc =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_cc'))
-    MDS111bsn =list(Evaluation.objects.filter(uniteEnseignement_id=41).values('note_sn'))
+    MDS111b =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS111bcc =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS111bsn =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN').values('note_sn'))
     sort111b = epurationTriCroissant(MDS111b)
 
-    MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_Examen'))
-    MDS112cc =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_cc'))
-    MDS112sn =list(Evaluation.objects.filter(uniteEnseignement_id=42).values('note_sn'))
+    MDS112 =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS112cc =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS112sn =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN').values('note_sn'))
     sort112 = epurationTriCroissant(MDS112)
 
-    MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_Examen'))
-    MDS112bcc =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_cc'))
-    MDS112bsn =list(Evaluation.objects.filter(uniteEnseignement_id=43).values('note_sn'))
+    MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS112bcc =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS112bsn =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN').values('note_sn'))
     sort112b = epurationTriCroissant(MDS112b)
 
-    MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_Examen'))
-    MDS113cc =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_cc'))
-    MDS113sn =list(Evaluation.objects.filter(uniteEnseignement_id=44).values('note_sn'))
+    MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS113cc =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS113sn =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN').values('note_sn'))
     sort113 = epurationTriCroissant(MDS113)
 
-    MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_Examen'))
-    MDS114cc =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_cc'))
-    MDS114sn =list(Evaluation.objects.filter(uniteEnseignement_id=45).values('note_sn'))
+    MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS114cc =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS114sn =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN').values('note_sn'))
     sort114 = epurationTriCroissant(MDS114)
 
-    MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_Examen'))
-    MDS115cc =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_cc'))
-    MDS115sn =list(Evaluation.objects.filter(uniteEnseignement_id=46).values('note_sn'))
+    MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS115cc =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS115sn =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN').values('note_sn'))
     sort115 = epurationTriCroissant(MDS115)
 
-    MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_Examen'))
-    MDS116cc =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_cc'))
-    MDS116sn =list(Evaluation.objects.filter(uniteEnseignement_id=47).values('note_sn'))
+    MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS116cc =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS116sn =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN').values('note_sn'))
     sort116 = epurationTriCroissant(MDS116)
 
-    MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_Examen'))
-    MDS117cc =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_cc'))
-    MDS117sn =list(Evaluation.objects.filter(uniteEnseignement_id=48).values('note_sn'))
+    MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS117cc =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS117sn =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN').values('note_sn'))
     sort117 = epurationTriCroissant(MDS117)
 
-    MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_Examen'))
-    MDS117bcc =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_cc'))
-    MDS117bsn =list(Evaluation.objects.filter(uniteEnseignement_id=49).values('note_sn'))
+    MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN').values('note_Examen'))
+    MDS117bcc =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN').values('note_cc'))
+    MDS117bsn =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN').values('note_sn'))
     sort117b = epurationTriCroissant(MDS117b)
 
     listeMatrice = []
@@ -5199,8 +5198,6 @@ def resultatCommuns2mds(request):
     semestre1MDS = [filiere, listeMatrice, mds1Moyenne, moy, session, creditS1MDS1, UEStats, UEstats_mention, UeNomCode, listeMatrices2GesR, listeMatriceS] #filiere, listeMatrice, staps1Moyenne, moy, session
 
     return render(request, 'bulletin/releveCommun/releveCommuns2mds.html', {'semestre1MDS': semestre1MDS})
-
-##########################################################################################################################################################################################################################################################################
 
 
 
@@ -7297,13 +7294,13 @@ def resultatCommuns6Eve(request):
     sort345 = epurationTriCroissant(MAS345)
 
     EVE355 = list(Evaluation.objects.filter(uniteEnseignement_id=80, natureEvaluation='EXAMEN').values('note_Examen'))
-    EVE355cc = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_cc'))
-    EVE355sn = list(Evaluation.objects.filter(uniteEnseignement_id=80).values('note_sn'))
+    EVE355cc = list(Evaluation.objects.filter(uniteEnseignement_id=80, natureEvaluation='EXAMEN').values('note_cc'))
+    EVE355sn = list(Evaluation.objects.filter(uniteEnseignement_id=80, natureEvaluation='EXAMEN').values('note_sn'))
     sort355 = epurationTriCroissant(EVE355)
 
     EVE365 = list(Evaluation.objects.filter(uniteEnseignement_id=81, natureEvaluation='EXAMEN').values('note_Examen'))
-    EVE365cc = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_cc'))
-    EVE365sn = list(Evaluation.objects.filter(uniteEnseignement_id=81).values('note_sn'))
+    EVE365cc = list(Evaluation.objects.filter(uniteEnseignement_id=81, natureEvaluation='EXAMEN').values('note_cc'))
+    EVE365sn = list(Evaluation.objects.filter(uniteEnseignement_id=81, natureEvaluation='EXAMEN').values('note_sn'))
     sort365 = epurationTriCroissant(EVE365)
 
     listeMatrice = []
@@ -7739,13 +7736,13 @@ def resultatCommuns6Eve(request):
     sort345 = epurationTriCroissant(MAS346)
 
     EVE356 = list(Evaluation.objects.filter(uniteEnseignement_id=86, natureEvaluation='EXAMEN').values('note_Examen'))
-    EVE356cc = list(Evaluation.objects.filter(uniteEnseignement_id=86).values('note_cc'))
-    EVE356sn = list(Evaluation.objects.filter(uniteEnseignement_id=86).values('note_sn'))
+    EVE356cc = list(Evaluation.objects.filter(uniteEnseignement_id=86, natureEvaluation='EXAMEN').values('note_cc'))
+    EVE356sn = list(Evaluation.objects.filter(uniteEnseignement_id=86, natureEvaluation='EXAMEN').values('note_sn'))
     sort355 = epurationTriCroissant(EVE356)
 
     EVE366 = list(Evaluation.objects.filter(uniteEnseignement_id=87, natureEvaluation='EXAMEN').values('note_Examen'))
-    EVE366cc = list(Evaluation.objects.filter(uniteEnseignement_id=87).values('note_cc'))
-    EVE366sn = list(Evaluation.objects.filter(uniteEnseignement_id=87).values('note_sn'))
+    EVE366cc = list(Evaluation.objects.filter(uniteEnseignement_id=87, natureEvaluation='EXAMEN').values('note_cc'))
+    EVE366sn = list(Evaluation.objects.filter(uniteEnseignement_id=87, natureEvaluation='EXAMEN').values('note_sn'))
     sort365 = epurationTriCroissant(EVE366)
 
     listeMatrice = []

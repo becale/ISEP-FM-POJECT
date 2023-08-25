@@ -4,7 +4,7 @@ window.addEventListener('load', () => {
     console.log(mydata)
 
 
-    function Page1() {
+    /*function Page1() {
         listStudent = mydata[1]
 
         //console.log(listStudent);
@@ -36,12 +36,12 @@ window.addEventListener('load', () => {
             tab04 = tab03.children
             tab05 = tab04[0] //good  
                 ////
-                /*tab00 = temp1.children[0]
+                //tab00 = temp1.children[0]
                 tab001 = tab00.children.nested4
                 tab002 = tab001.children
                 tab003 = tab002['0']
                 tab004 =tab003.children
-                tab005 = tab004[0]//good*/
+                tab005 = tab004[0]//good
 
             for (j = 0; j <= tab05.childElementCount - 1; j++) {
                 if (j == 0) {
@@ -74,7 +74,7 @@ window.addEventListener('load', () => {
                 tab113 = tab112.children
                 tab114 = tab113['0']
                 tab115 = tab114.children
-                tab116 = tab115['0'] //good line*/
+                tab116 = tab115['0'] //good line
 
             for (j = 0; j <= tab15.childElementCount - 1; j++) {
                 if (j == 0) {
@@ -147,7 +147,683 @@ window.addEventListener('load', () => {
                 //worktab1.appendChild(temp1)
         }
     }
+    Page1()*/
+
+    function Page1() {
+        listStudent = mydata[1]
+
+        page0 = document.getElementById('page')
+        page0 = page0.cloneNode(true)
+
+        page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+
+        bigtab = page0.children[0].children[2].children[1]
+
+        //page2.children[1].children[1].children[1]
+        /*page = document.getElementById("page2")
+        bigtab1 = page.children[1].children[1]*/
+
+
+        //Tableau Sur lequel on ajoute les nouvelles lignes
+        worktab = bigtab.children[1]
+            //worktab1 = bigtab1.children[1]
+            //Ligne des 4 tableaux
+
+
+        for (i = 0; i <= mydata[1].length - 1; i++) {
+
+            temp = worktab.children[3].cloneNode(true)
+
+            //temp1 = worktab1.children[3].cloneNode(true)
+
+            //tab0
+            tab0 = temp.children[0]
+            tab01 = tab0.children.nested4
+            tab02 = tab01.children
+            tab03 = tab02['0']
+            tab04 = tab03.children
+            tab05 = tab04[0] //good  
+
+            for (j = 0; j <= tab05.childElementCount - 1; j++) {
+                if (j == 0) {
+                    tab05.cells[j].innerHTML = i + 1;
+                }
+                if (j == 1) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['nom'];
+                }
+                if (j == 2) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
+                }
+                if (j == 3) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                }
+            }
+
+            //tab0 Page2
+
+            //tab1
+            tab1 = temp.children[1]
+            tab11 = tab1.children.nested11
+            tab12 = tab11.children
+            tab13 = tab12['0']
+            tab14 = tab13.children
+            tab15 = tab14[0] //good line
+
+            for (j = 0; j <= tab15.childElementCount - 1; j++) {
+                if (j == 0) {
+                    tab15.cells[j].innerHTML = listStudent[i][1][0];
+                };
+
+                if (j == 1) {
+                    tab15.cells[j].innerHTML = listStudent[i][2][0]
+                }
+                if (j == 2) {
+                    tab15.cells[j].innerHTML = listStudent[i][3][0]
+                }
+                if (j == 3) {
+
+                    tab15.cells[j].innerHTML = listStudent[i][4][0]
+                }
+                if (j == 4) {
+                    var uef12cr = listStudent[i][1][6]
+                    if ((listStudent[i][1][0] + listStudent[i][2][0]) < 20) { uef12cr = 0 }
+                    /*var uef2cr = listStudent[i][2][6]
+                    if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
+
+                    var uef34cr = listStudent[i][3][6]
+                    if ((listStudent[i][3][0] + listStudent[i][4][0]) < 20) { uef34cr = 0 }
+                    /*var uef2cr = listStudent[i][4][6]
+                    if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
+
+                    moyuef = listStudent[i][1][3]
+                    if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7 && listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7)) {
+                        //console.log('OK');
+                        moyuefcr = uef34cr + uef12cr
+                    } else {
+                        moyuef = '--'
+                            //moyuefcr = uef1cr + uef2cr
+                    }
+
+                    tab15.cells[j].innerHTML = moyuef //listStudent[i][1][3];
+                }
+                if (j == 5) {
+                    tab15.cells[j].innerHTML = uef12cr + uef34cr
+                }
+            }
+
+            //tab2
+            tab2 = temp.children[2]
+            tab21 = tab2.children.nested22
+            tab22 = tab21.children['0']
+            tab23 = tab22.children['0']
+            for (j = 0; j <= tab23.childElementCount - 1; j++) {
+                if (j == 0) { tab23.cells[j].innerHTML = listStudent[i][5][0] };
+                if (j == 1) { tab23.cells[j].innerHTML = listStudent[i][6][0] };
+                if (j == 2) { tab23.cells[j].innerHTML = listStudent[i][7][0] };
+                if (j == 3) { tab23.cells[j].innerHTML = listStudent[i][8][0] };
+
+                if (j == 4) {
+                    /*var uef56cr = listStudent[i][5][6]
+                    if ((listStudent[i][5][0] + listStudent[i][6][0]) < 20) { uef56cr = 0 }
+
+                    var uef78cr = listStudent[i][7][6]
+                    if ((listStudent[i][7][0] + listStudent[i][8][0]) < 20) { uef78cr = 0 }*/
+
+                    var uef5cr = listStudent[i][5][6]
+                    if ((listStudent[i][5][0]) < 10) { uef5cr = 0 }
+
+                    var uef6cr = listStudent[i][6][6]
+                    if ((listStudent[i][6][0]) < 10) { uef6cr = 0 }
+
+                    var uef7cr = listStudent[i][7][6]
+                    if ((listStudent[i][7][0]) < 10) { uef7cr = 0 }
+
+                    var uef8cr = listStudent[i][8][6]
+                    if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
+
+                    var moyuefcr = listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]
+                    if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) < 40) { uef5678cr = uef5cr + uef6cr + uef7cr + uef8cr }
+
+
+                    moyuep = listStudent[i][5][3]
+                    if (moyuep >= 10 && (listStudent[i][5][0] >= 7 && listStudent[i][6][0] >= 7 && listStudent[i][7][0] >= 7 && listStudent[i][8][0] >= 7)) {
+                        /*console.log('OK');
+                        moyuepcr = uef56cr + uef78cr*/
+                    } else {
+                        moyuep = '--'
+                        moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
+                    }
+
+                    tab23.cells[j].innerHTML = moyuep //listStudent[i][5][3]
+                };
+                if (j == 5) { tab23.cells[j].innerHTML = moyuefcr }; //Crédits
+            }
+
+            //tab3
+            tab3 = temp.children[3]
+            tab31 = tab3.children.nested33
+            tab32 = tab31.children['0']
+            tab33 = tab32.children['0']
+
+            for (j = 0; j <= tab33.childElementCount - 1; j++) {
+                if (j == 0) { tab33.cells[j].innerHTML = listStudent[i][9][0] };
+                if (j == 1) { tab33.cells[j].innerHTML = listStudent[i][10][0] };;
+
+                if (j == 2) {
+
+                    var uef9cr = listStudent[i][9][6]
+                    if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
+
+                    var uef10cr = listStudent[i][10][6]
+                    if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
+
+                    var uef910cr = listStudent[i][10][6] + listStudent[i][9][6]
+                    if ((listStudent[i][10][0] + listStudent[i][9][0]) < 20) { uef910cr = uef9cr + uef10cr }
+
+                    moyuet = listStudent[i][9][3]
+                    if (moyuet >= 10 && (listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7)) {
+
+                        moyuetcr = uef9cr + uef10cr
+                    } else {
+                        moyuet = '--'
+                            //moyuefcr = uef1cr + uef2cr
+                    }
+
+                    tab33.cells[j].innerHTML = moyuet //listStudent[i][9][3] 
+                };
+                if (j == 3) { tab33.cells[j].innerHTML = uef910cr }
+            }
+
+            //tab4
+            tab4 = temp.children[4]
+            tab41 = tab4.children.nested333
+            tab42 = tab41.children['0']
+            tab43 = tab42.children['0']
+            for (j = 0; j <= tab43.childElementCount - 1; j++) {
+                if (j == 0) { tab43.cells[j].innerHTML = listStudent[i][11][1] };
+                if (j == 1) { tab43.cells[j].innerHTML = listStudent[i][11][2] };;
+                if (j == 2) { tab43.cells[j].innerHTML = '/' } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
+                if (j == 3) { tab43.cells[j].innerHTML = '/' /*mydata[2].indexOf(listStudent[i][11][2]) + 1*/ }
+
+                if (j == 4) { tab43.cells[j].innerHTML = '/' };
+            }
+
+            //Ajoute de la ligne au grand tableau
+            worktab.appendChild(temp)
+
+            body.appendChild(page0)
+        }
+    }
     Page1()
+
+    function PageRattrapage() {
+        listStudent = mydata[1]
+        rattrapage = mydata[9]
+
+
+        page1 = document.getElementById('page')
+        page1 = page1.cloneNode(true)
+
+        //Changement Title
+        page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 2<sup>eme</sup> SEMESTRE MDS1  2022-2023"
+
+        bigtab1 = page1.children[0].children[2].children[1]
+
+        //Tableau Sur lequel on ajoute les nouvelles lignes
+        worktab1 = bigtab1.children[1]
+
+        for (i = 0; i <= mydata[1].length - 1; i++) {
+
+            temp1 = worktab1.children[3].cloneNode(true)
+
+            //tab0 NOMS ET INFOS ETUDIANTS
+            tab0 = temp1.children[0]
+            tab01 = tab0.children.nested4
+            tab02 = tab01.children
+            tab03 = tab02['0']
+            tab04 = tab03.children
+            tab05 = tab04[0] //good  
+
+            for (j = 0; j <= tab05.childElementCount - 1; j++) {
+                if (j == 0) {
+                    tab05.cells[j].innerHTML = i + 1;
+
+                    //tab005.cells[j].innerHTML = i + 1;
+                }
+                if (j == 1) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['nom'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
+                }
+                if (j == 2) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['prenom']
+                }
+                if (j == 3) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['matricule']
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+                }
+            }
+
+            //tab1 UE FONDAMENTALES
+            tab1 = temp1.children[1]
+            tab11 = tab1.children.nested11
+            tab12 = tab11.children
+            tab13 = tab12['0']
+            tab14 = tab13.children
+            tab15 = tab14[0] //good line
+
+            for (j = 0; j <= tab15.childElementCount - 1; j++) {
+                if (j == 0) {
+                    ue1r = sommeFloat2(0.7 * rattrapage[i][1], 0.3 * listStudent[i][1][8])
+                    if (rattrapage[i][1] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue1r; }
+                }
+                if (j == 1) {
+                    ue2r = sommeFloat2(0.7 * rattrapage[i][2], 0.3 * listStudent[i][2][8])
+                    if (rattrapage[i][2] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue2r; }
+                }
+                if (j == 2) {
+
+                    /*var uef1cr = listStudent[i][1][6]
+                    if (listStudent[i][1][0] < 10) { uef1cr = 0 } 
+
+                    var uef2cr = listStudent[i][2][6]
+                    if (listStudent[i][2][0] < 10) { uef2cr = 0 } 
+
+                    moyuef = listStudent[i][1][3]
+
+                    if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7)) {
+                        moyuefcr = listStudent[i][1][6] + listStudent[i][2][6]
+                    } else {
+                        moyuef = '--'
+                        moyuefcr = uef1cr + uef2cr
+                    }*/
+
+                    ue3r = sommeFloat2(0.7 * rattrapage[i][3], 0.3 * listStudent[i][3][8])
+                    if (rattrapage[i][3] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue3r; }
+
+                }
+                if (j == 3) {
+                    ue4r = sommeFloat2(0.7 * rattrapage[i][4], 0.3 * listStudent[i][4][8])
+                    if (rattrapage[i][4] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue4r; }
+
+                }
+                if (j == 4) {
+                    /*if (rattrapage[i][4] == 0) {*/
+                    tab15.cells[j].innerHTML = '--' /*} else { tab15.cells[j].innerHTML = rattrapage[i][4]; }*/
+
+                }
+                if (j == 5) {
+
+                    var ue1 = listStudent[i][1][6]
+                    if (ue1r < 10) { ue1 = 0 }
+
+                    var ue2 = listStudent[i][2][6]
+                    if ((ue2r) < 10) { ue2 = 0 }
+
+                    var ue3 = listStudent[i][3][6]
+                    if (ue3r < 10) { ue3 = 0 }
+
+                    var ue4 = listStudent[i][4][6]
+                    if (ue4r < 10) { ue4 = 0 }
+
+                    ue12 = 0
+                    ue34 = 0
+                    if (ue1r > 10 || ue2r > 10) { ue12 = listStudent[i][1][6] }
+
+                    if (ue3r > 10 || ue4r > 10) { ue34 = listStudent[i][3][6] }
+
+                    /*if ((ue4r + ue3r) < 20) { ue4 = 0 } else {}
+                    if ((ue4r + ue3r) < 20) { ue4 = 0 } else {}*/
+
+                    tab15.cells[j].innerHTML = ue12 + ue34
+                }
+            }
+
+            //tab2 UE PROFESSIONNELLES
+            tab2 = temp1.children[2]
+            tab21 = tab2.children.nested22
+            tab22 = tab21.children['0']
+            tab23 = tab22.children['0']
+
+            for (j = 0; j <= tab23.childElementCount - 1; j++) {
+                if (j == 0) {
+                    ue5r = sommeFloat2(0.7 * rattrapage[i][5], 0.3 * listStudent[i][5][8])
+                    if (rattrapage[i][5] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue5r; }
+                };
+                if (j == 1) {
+                    ue6r = sommeFloat2(0.7 * rattrapage[i][6], 0.3 * listStudent[i][6][8])
+                    if (rattrapage[i][6] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue6r; }
+                };
+                if (j == 2) {
+                    ue7r = sommeFloat2(0.7 * rattrapage[i][7], 0.3 * listStudent[i][7][8])
+                    if (rattrapage[i][7] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue7r; }
+                };
+                if (j == 3) {
+                    ue8r = sommeFloat2(0.7 * rattrapage[i][8], 0.3 * listStudent[i][8][8])
+                    if (rattrapage[i][8] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue8r; }
+                };
+                if (j == 4) { tab23.cells[j].innerHTML = '--' /*listStudent[i][7][0]*/ };
+                if (j == 5) {
+
+                    var ue5 = listStudent[i][5][6]
+                    if (ue5r < 10) { ue5 = 0 }
+                    var ue6 = listStudent[i][6][6]
+                    if ((ue6r) < 10) { ue6 = 0 }
+
+                    var ue7 = listStudent[i][7][6]
+                    if (ue7r < 10) { ue7 = 0 }
+                    var ue8 = listStudent[i][8][6]
+                    if (ue8r < 10) { ue8 = 0 }
+
+                    ue56 = 0
+                    ue78 = 0
+                    if (ue5r > 10 || ue6r > 10) { ue56 = listStudent[i][5][6] }
+
+                    if (ue7r > 10 || ue8r > 10) { ue78 = listStudent[i][7][6] }
+
+
+                    tab23.cells[j].innerHTML = ue56 + ue78 /*listStudent[i][8][0]*/
+                };
+
+            }
+
+            //tab3 UE TRANSVERSALES
+            tab3 = temp1.children[3]
+            tab31 = tab3.children.nested33
+            tab32 = tab31.children['0']
+            tab33 = tab32.children['0']
+            for (j = 0; j <= tab33.childElementCount - 1; j++) {
+                if (j == 0) {
+                    ue9r = sommeFloat2(0.7 * rattrapage[i][9], 0.3 * listStudent[i][9][8])
+                    if (rattrapage[i][9] == 0) { tab33.cells[j].innerHTML = '--' } else { tab33.cells[j].innerHTML = ue9r; }
+                };
+                if (j == 1) {
+                    ue10r = sommeFloat2(0.7 * rattrapage[i][10], 0.3 * listStudent[i][10][8])
+                    if (rattrapage[i][10] == 0) { tab33.cells[j].innerHTML = '--' } else { tab33.cells[j].innerHTML = ue10r; }
+                };
+                if (j == 2) { tab33.cells[j].innerHTML = "--" /*Moyenne Groupe*/ };
+
+                if (j == 3) {
+
+                    var ue9 = listStudent[i][9][6]
+                    if (ue9r < 10) { ue9 = 0 }
+
+                    var ue10 = listStudent[i][10][6]
+                    if ((ue10r) < 10) { ue10 = 0 }
+
+                    tab33.cells[j].innerHTML = ue9 + ue10 //Crédits
+                };
+            }
+
+            //RESULTATS
+            tab44 = temp1.children[4]
+            tab441 = tab44.children.nested333
+            tab442 = tab441.children['0']
+            tab443 = tab442.children['0']
+            for (j = 0; j <= tab443.childElementCount - 1; j++) {
+                if (j == 0) { tab443.cells[j].innerHTML = '--'; } //total }
+                if (j == 1) { tab443.cells[j].innerHTML = '--';; } //moyenne }
+                if (j == 2) { tab443.cells[j].innerHTML = '--'; } //moyuefcr + moyuepcr + moyuetcr
+                if (j == 3) { tab443.cells[j].innerHTML = '--'; } //rang }
+                if (j == 4) { tab443.cells[j].innerHTML = "--" }
+            }
+
+
+
+            //Ajoute de la ligne au grand tableau
+            worktab1.appendChild(temp1)
+
+            body.appendChild(page1)
+        }
+    }
+    //PageRattrapage()
+
+    function PageSynthese() {
+
+        synthese = mydata[10]
+
+        page2 = document.getElementById('page')
+        page2 = page2.cloneNode(true)
+
+        //Changement Title
+        page2.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+
+        bigtab2 = page2.children[0].children[2].children[1]
+
+        //Tableau Sur lequel on ajoute les nouvelles lignes
+        worktab2 = bigtab2.children[1]
+
+        for (i = 0; i <= mydata[1].length - 1; i++) {
+
+            temp2 = worktab2.children[3].cloneNode(true)
+
+            //tab0 NOMS ET INFOS ETUDIANTS
+            tab0 = temp2.children[0]
+            tab01 = tab0.children.nested4
+            tab02 = tab01.children
+            tab03 = tab02['0']
+            tab04 = tab03.children
+            tab05 = tab04[0] //good  
+
+            for (j = 0; j <= tab05.childElementCount - 1; j++) {
+                if (j == 0) {
+                    tab05.cells[j].innerHTML = i + 1;
+
+                    //tab005.cells[j].innerHTML = i + 1;
+                }
+                if (j == 1) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['nom'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['nom'];
+                }
+                if (j == 2) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['prenom'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['prenom']
+                }
+                if (j == 3) {
+                    tab05.cells[j].innerHTML = listStudent[i][0]['matricule'];
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['matricule']
+                    //tab005.cells[j].innerHTML = listStudent[i][0]['date_naissance']
+                }
+            }
+
+            //tab1 UE FONDAMENTALES
+            tab1 = temp2.children[1]
+            tab11 = tab1.children.nested11
+            tab12 = tab11.children
+            tab13 = tab12['0']
+            tab14 = tab13.children
+            tab15 = tab14[0] //good line
+
+            for (j = 0; j <= tab15.childElementCount - 1; j++) {
+                if (j == 0) {
+                    tab15.cells[j].innerHTML = synthese[i][1][0];
+                };
+
+                if (j == 1) {
+                    tab15.cells[j].innerHTML = synthese[i][2][0]
+                }
+                if (j == 2) {
+                    tab15.cells[j].innerHTML = synthese[i][3][0]
+                }
+                if (j == 3) {
+
+                    tab15.cells[j].innerHTML = synthese[i][4][0]
+                }
+                if (j == 4) {
+                    var uef12cr = synthese[i][1][6]
+
+                    if ((synthese[i][1][0] + synthese[i][2][0]) < 20) { uef12cr = 0 }
+                    /*var uef2cr = listStudent[i][2][6]
+                    if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
+
+                    var uef34cr = listStudent[i][3][6]
+                    if ((synthese[i][3][0] + synthese[i][4][0]) < 20) { uef34cr = 0 }
+                    /*var uef2cr = listStudent[i][4][6]
+                    if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
+
+                    moyuef = synthese[i][1][3]
+                    if (moyuef >= 10 && (synthese[i][1][0] >= 7 && synthese[i][2][0] >= 7 && synthese[i][3][0] >= 7 && synthese[i][4][0] >= 7)) {
+
+                        moyuefcr = uef34cr + uef12cr
+                    } else {
+                        moyuef = '--'
+                            //moyuefcr = uef1cr + uef2cr
+                    }
+
+                    tab15.cells[j].innerHTML = moyuef //listStudent[i][1][3];
+                }
+                if (j == 5) {
+                    tab15.cells[j].innerHTML = uef12cr + uef34cr
+                }
+            }
+
+            //tab2 UE PROFESSIONNELLES
+            tab2 = temp2.children[2]
+            tab21 = tab2.children.nested22
+            tab22 = tab21.children['0']
+            tab23 = tab22.children['0']
+
+            for (j = 0; j <= tab23.childElementCount - 1; j++) {
+                if (j == 0) {
+                    ue5r = synthese[i][5][0] //sommeFloat2(0.7 * rattrapage[i][5], 0.3 * listStudent[i][5][8])
+                    tab23.cells[j].innerHTML = synthese[i][5][0]
+                        //if (rattrapage[i][5] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue5r; }
+                };
+                if (j == 1) {
+                    ue6r = synthese[i][6][0] //sommeFloat2(0.7 * rattrapage[i][6], 0.3 * listStudent[i][6][8])
+                    tab23.cells[j].innerHTML = synthese[i][6][0]
+                        //if (rattrapage[i][6] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue6r; }
+                };
+                if (j == 2) {
+                    ue7r = synthese[i][7][0] //sommeFloat2(0.7 * rattrapage[i][7], 0.3 * listStudent[i][7][8])
+                    tab23.cells[j].innerHTML = synthese[i][7][0]
+                        //if (rattrapage[i][7] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue7r; }
+                };
+                if (j == 3) {
+                    ue8r = synthese[i][8][0] //sommeFloat2(0.7 * rattrapage[i][8], 0.3 * listStudent[i][8][8])
+                    tab23.cells[j].innerHTML = synthese[i][8][0]
+                        //if (rattrapage[i][8] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue8r; }
+                };
+                if (j == 4) {
+
+                    var uef56cr = synthese[i][5][6]
+
+                    if ((synthese[i][5][0] + synthese[i][6][0]) < 20) { uef56cr = 0 }
+                    /*var uef2cr = listStudent[i][2][6]
+                    if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
+
+                    var uef78cr = synthese[i][7][6]
+                    if ((synthese[i][7][0] + synthese[i][8][0]) < 20) { uef78cr = 0 }
+                    /*var uef2cr = listStudent[i][4][6]
+                    if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
+
+                    moyuep = synthese[i][5][3]
+                    if (moyuep >= 10 && (synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7 && synthese[i][7][0] >= 7 && synthese[i][8][0] >= 7)) {
+
+                        moyuefcr = uef56cr + uef78cr
+                    } else {
+                        moyuep = '--'
+                            //moyuefcr = uef1cr + uef2cr
+                    }
+
+                    tab23.cells[j].innerHTML = moyuep
+                };
+                if (j == 5) {
+
+                    var ue5 = listStudent[i][5][6]
+                    if (ue5r < 10) { ue5 = 0 }
+                    var ue6 = listStudent[i][6][6]
+                    if ((ue6r) < 10) { ue6 = 0 }
+
+                    var ue7 = listStudent[i][7][6]
+                    if (ue7r < 10) { ue7 = 0 }
+                    var ue8 = listStudent[i][8][6]
+                    if (ue8r < 10) { ue8 = 0 }
+
+                    ue56 = 0
+                    ue78 = 0
+                    if ((ue5r + ue6r + ue7r + ue8r) >= 40) { ue5678 = synthese[i][5][6] + synthese[i][6][6] + synthese[i][7][6] + synthese[i][8][6] } else { ue5678 = ue5 + ue6 + ue7 + ue8 }
+
+                    //if (ue7r > 10 || ue8r > 10) { ue78 = listStudent[i][7][6] }
+
+
+                    tab23.cells[j].innerHTML = ue5678 /*listStudent[i][8][0]*/
+                };
+
+            }
+
+            //tab3 UE TRANSVERSALES
+            tab3 = temp2.children[3]
+            tab31 = tab3.children.nested33
+            tab32 = tab31.children['0']
+            tab33 = tab32.children['0']
+            for (j = 0; j <= tab33.childElementCount - 1; j++) {
+
+                ue910 = 0
+
+                if (j == 0) {
+                    ue9r = synthese[i][9][0]; //sommeFloat2(0.7 * rattrapage[i][9], 0.3 * listStudent[i][9][8])
+                    /*if (ue9r < 10) { tab33.cells[j].innerHTML = '--' } else {*/
+                    tab33.cells[j].innerHTML = ue9r; //}
+                };
+                if (j == 1) {
+                    ue10r = synthese[i][10][0] //sommeFloat2(0.7 * rattrapage[i][10], 0.3 * listStudent[i][10][8])
+                        /*if (ue10r < 10) { tab33.cells[j].innerHTML = '--' } else {*/
+                    tab33.cells[j].innerHTML = ue10r; //}
+                };
+                if (j == 2) {
+
+                    if (((ue9r + ue10r) >= 20) && ue9r >= 7 && ue10r >= 7) {
+                        moyuet = synthese[i][9][3]
+                    } else { moyuet = "--" }
+
+                    tab33.cells[j].innerHTML = moyuet /*Moyenne Groupe*/
+                };
+                if (j == 3) {
+
+                    var ue910 = 0
+                    var ue9 = listStudent[i][9][6]
+                    if (ue9r < 10) { ue9 = 0 }
+
+                    var ue10 = listStudent[i][10][6]
+                    if ((ue10r) < 10) { ue10 = 0 }
+
+                    if ((ue9r + ue10r) >= 20) { ue910 = listStudent[i][9][6] + listStudent[i][10][6] } else { ue910 = ue9 + ue10 }
+
+                    tab33.cells[j].innerHTML = ue910 //Crédits
+                };
+            }
+
+            //RESULTATS
+            tab44 = temp2.children[4]
+            tab441 = tab44.children.nested333
+            tab442 = tab441.children['0']
+            tab443 = tab442.children['0']
+            for (j = 0; j <= tab443.childElementCount - 1; j++) {
+                if (j == 0) { tab443.cells[j].innerHTML = synthese[i][11][1] } //total }
+
+                if (j == 1) {
+                    /* if ((synthese[i][1][3] + synthese[i][5][3] + synthese[i][9][3]) >= 30)*/
+                    tab443.cells[j].innerHTML = synthese[i][11][2]
+                        /*} else { tab443.cells[j].innerHTML = '--' } //moyenne }*/
+                }
+                if (j == 2) { tab443.cells[j].innerHTML = '/'; } //moyuefcr + moyuepcr + moyuetcr
+
+                if (j == 3) { tab443.cells[j].innerHTML = '/'; } //rang }
+
+                if (j == 4) { tab443.cells[j].innerHTML = "/" }
+            }
+
+
+            //Ajoute de la ligne au grand tableau
+            worktab2.appendChild(temp2)
+
+            body.appendChild(page2)
+        }
+
+    }
+    //PageSynthese()
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
     function ListProcess() {
@@ -911,4 +1587,15 @@ window.addEventListener('load', () => {
 
 function floatfix(a) {
     return (100 - a).toFixed(2)
+}
+
+function sommeFloat2(a, b) {
+    /*a = parseFloat(a)
+    b = parseFloat(b);*/
+
+    result = a + b
+
+    result = result.toFixed(2)
+
+    return (result)
 }

@@ -189,7 +189,7 @@ thead th:nth-child(1n+0) {
     height: 100%;
     text-align: center;
     box-sizing: border-box;
-    font-size: 0.28cm;
+    font-size: 0.30cm;
 }
 
 thead th:nth-child(1) {
@@ -209,11 +209,11 @@ thead th:nth-child(4) {
 }
 
 thead th:nth-child(5) {
-    width: 1.25cm;
+    width: 1cm;
 }
 
 thead th:nth-child(6) {
-    width: 1cm;
+    width: 0.8cm;
 }
 
 thead th:nth-child(7) {
@@ -221,7 +221,7 @@ thead th:nth-child(7) {
 }
 
 thead th:nth-child(8) {
-    width: 1.5cm;
+    width: 1.25cm;
 }
 
 thead th:nth-child(9) {
@@ -229,11 +229,11 @@ thead th:nth-child(9) {
 }
 
 thead th:nth-child(10) {
-    width: 1.7cm;
+    width: 1.45cm;
 }
 
 thead th:nth-child(11) {
-    width: 1.5cm;
+    width: 1.75cm;
 }
 
 thead th:nth-child(12) {
@@ -244,7 +244,7 @@ thead th:nth-child(12) {
 /*TBODY*/
 
 tbody tr {
-    font-size: 0.28cm;
+    font-size: 0.29cm;
     text-align: center;
     border-right: 2px;
     border-bottom: 1px solid black;
@@ -262,7 +262,7 @@ tr td {
     border-right: 1px solid black;
     border-bottom: 1px solid black;
     /*Diminution police Tableau*/
-    font-size: 10px;
+    font-size: 11.5px;
 }
 
 th {
@@ -508,9 +508,9 @@ visa {
 /*LIGNE DIFFERENTS BULL*/
 
 #ligne-EPS118>td {
-    border-top: black solid 1.5px;
-    border-bottom: black solid 1.5px;
-    border-right: black solid 1.5px;
+    border-top: black solid 1px;
+    border-bottom: black solid 1px;
+    border-right: black solid 1px;
 }
 
 #ligne-EPS119>td {
@@ -605,8 +605,8 @@ footer {
 }
 
 #visa {
-    padding-top: 4cm;
-    font-size: 10px;
+    padding-top: 3cm;
+    font-size: 11px;
 }
 
 .a {
@@ -622,7 +622,7 @@ footer {
 /*SEMESTRE 2 MDS1*/
 
 #semester-result-2 {
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .line10 {
@@ -644,7 +644,7 @@ footer {
 }
 
 #visa1 {
-    padding-top: 4.5cm;
+    padding-top: 3cm;
     font-size: 9.6px;
 }
 

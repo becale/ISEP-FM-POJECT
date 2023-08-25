@@ -671,7 +671,6 @@ window.addEventListener('load', () => {
                 if (j == 4) { tab443.cells[j].innerHTML = "/" }
             }
 
-
             //Ajoute de la ligne au grand tableau
             worktab2.appendChild(temp2)
 

@@ -3927,7 +3927,7 @@ function BullMDS1(clone, i) {
         if (j == 2) { ligne1.children[j].innerHTML = `${mydata[3]} / 20` }
         if (j == 4) {
             v = mydata[2].length - 1;
-            ligne1.children[j].innerHTML = `${mydata[2][v]} / 20`
+            ligne1.children[j].innerHTML = `${mydata[2][j]} / 20`
         }
     }
 

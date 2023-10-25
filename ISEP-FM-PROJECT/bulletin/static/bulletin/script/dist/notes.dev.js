@@ -23,13 +23,19 @@ getButtonId();
 /********************************** MODAL *************************************************/
 
 function modal() {
+  tbodylistStudent2 = document.getElementById('listetudiant2');
   tbodylistStudent = document.getElementById('listetudiant'); // Get the modal For the add 
 
   modal = document.getElementById("myModal");
-  main = document.getElementById('main');
-  modal2 = modal.cloneNode(true);
-  modal2.setAttribute('id', 'modal2');
-  main.appendChild(modal2); // Get the buttons that open the modal
+  main = document.getElementById('main'); //modal2 = modal.cloneNode(true)
+  //modal2.setAttribute('id', 'modal2')
+
+  modal2 = document.getElementById('modal2');
+  modal2.children[0].children[0].setAttribute('id', 'myform2');
+  modal2.children[0].children[0].children[2].children[0].children[0].children[1].setAttribute('id', 'listetudiant2');
+  main.appendChild(modal2);
+  modalf = $('.modal-footer')[1];
+  modalf.children[0].setAttribute('id', 'submit2'); // Get the buttons that open the modal
 
   var btn = document.getElementsByClassName("myBtn");
   var btn1 = document.getElementsByClassName("myBtn-1");
@@ -92,15 +98,15 @@ function modal() {
       } else if (myArr[_i].code_UE.startsWith("MDS1") || myArr[_i].code_UE
       /*.startsWith*/
       == "MDS111b") {
-        getetudiantMDSNiveau1();
+        getetudiantMDSNiveau1R();
       } else if (myArr[_i].code_UE.startsWith("EPS2")) {
-        getetudiantStapsNiveau2();
+        getetudiantStapsNiveau2R();
       } else if (myArr[_i].code_UE.startsWith("MAS")) {
-        getAllEtudiantNiveau3();
+        getAllEtudiantNiveau3R();
       } else if (myArr[_i].code_UE.startsWith("EVE")) {
-        getetudiantEVENiveau3();
+        getetudiantEVENiveau3R();
       } else if (myArr[_i].code_UE.startsWith("MSO")) {
-        getetudiantMSONiveau3();
+        getetudiantMSONiveau3R();
       }
 
       modal2.style.display = "block";
@@ -169,10 +175,14 @@ function getUe() {
         myBtn1.setAttribute('class', 'myBtn-1'); //myBtn1.appendChild(imgbtn1)
 
         var add = document.createElement('div');
+        var textMessage = document.createTextNode('SN');
         add.setAttribute("id", "add");
+        myBtn.appendChild(textMessage);
         add.appendChild(myBtn);
         var modify = document.createElement('div');
+        var textMessage1 = document.createTextNode('SR');
         modify.setAttribute("id", "modify");
+        myBtn1.appendChild(textMessage1);
         modify.appendChild(myBtn1);
         var bigBoy = document.createElement('div');
         bigBoy.setAttribute('id', "big-boy");
@@ -264,75 +274,6 @@ function getetudiantStapsNiveau1() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
-      } //RATTRAPAGE
-
-
-      for (var _i2 = 0; _i2 < myEtudiantStaps1.length; _i2++) {
-        var _tabledata = document.createElement('td');
-
-        _tabledata.setAttribute('scope', 'row');
-
-        _tabledata.innerText = myEtudiantStaps1[_i2].id;
-
-        var _tabledata2 = document.createElement('td');
-
-        _tabledata2.innerText = myEtudiantStaps1[_i2].matricule;
-        var nom = myEtudiantStaps1[_i2].nom + ' ' + myEtudiantStaps1[_i2].prenom;
-
-        var _tabledata3 = document.createElement('td');
-
-        _tabledata3.innerText = nom;
-
-        var _tabledata4Input = document.createElement('input');
-
-        _tabledata4Input.type = "text";
-
-        _tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[_i2].matricule, "  ").concat(idUe));
-
-        _tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[_i2].matricule, " ").concat(idUe));
-
-        _tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[_i2].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
-
-
-        _tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
-
-
-        var _tabledata4 = document.createElement('td');
-
-        _tabledata4.appendChild(_tabledata4Input);
-
-        var _tabledata5Input = document.createElement('input');
-
-        _tabledata5Input.type = "text";
-
-        _tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1[_i2].matricule, " ").concat(idUe));
-
-        _tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[_i2].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
-
-
-        _tabledata5Input.setAttribute('class', 'noteField');
-
-        var _tabledata5 = document.createElement('td');
-
-        _tabledata5.appendChild(_tabledata5Input);
-
-        var _ligne = document.createElement('tr');
-
-        _ligne.appendChild(_tabledata);
-
-        _ligne.appendChild(_tabledata2);
-
-        _ligne.appendChild(_tabledata3);
-
-        _ligne.appendChild(_tabledata4);
-
-        _ligne.appendChild(_tabledata5);
-        /** TBODDY du modal afin d'ajouter les étudiants par filière */
-
-
-        var _listStudent = document.getElementById('listetudiant');
-
-        _listStudent.appendChild(_ligne);
       }
     }
   };
@@ -344,12 +285,12 @@ function getetudiantStapsNiveau1() {
 
 
 function getetudiantStapsNiveau1R() {
-  //MODAL RECU
-  //myFormRt = myForm.cloneNode(true)
-  //myFormRt.setAttribute('id', 'myformrt')
-  //modal.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none"
-  //myForm.children[2].children[0].children[0].children[0].children[0].children[4].style.display = 'none'
-  //console.log(myForm);
+  //Masquage de la div SN
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)";
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none";
+  myform2 = document.getElementById('modal2').children[0].children[0];
+  myform2.setAttribute('id', 'myform2'); //console.log(myForm);
+
   var xmlhttp = new XMLHttpRequest();
   var url = "http://localhost:8000/etudiantStaps1/";
 
@@ -376,9 +317,9 @@ function getetudiantStapsNiveau1R() {
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('input');
         tabledata4Input.type = "text";
-        tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
-        tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantStaps1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
         tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
 
@@ -470,6 +411,75 @@ function getetudiantMDSNiveau1() {
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }
+/** REQUEST ETUDIANTS MDS NIVEAU 1 RATTRAPAGE */
+
+
+function getetudiantMDSNiveau1R() {
+  //Masquage de la div SN
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)";
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none";
+  myform2 = document.getElementById('modal2').children[0].children[0];
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantMDS1/";
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      myEtudiantMDS1 = JSON.parse(this.responseText);
+      /** Ajout des lignes pour insertion des notes des étudiants */
+
+      /**Changement du TITRE Du modal */
+      //listeTitle = document.getElementById('listetudiant-title')
+
+      listeTitle = modal2.children[0].children[0].children[1].children[1];
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+      tbodyMDS1 = document.getElementById('listetudiant');
+
+      for (var i = 0; i < myEtudiantMDS1.length; i++) {
+        var tabledata1 = document.createElement('td');
+        tabledata1.innerText = myEtudiantMDS1[i].id;
+        var tabledata2 = document.createElement('td');
+        tabledata2.innerText = myEtudiantMDS1[i].matricule;
+        var nom = myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom;
+        var tabledata3 = document.createElement('td');
+        tabledata3.innerText = nom;
+        var tabledata4Input = document.createElement('input');
+        tabledata4Input.type = "text";
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantMDS1[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantMDS1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
+
+        var tabledata4 = document.createElement('td');
+        tabledata4.appendChild(tabledata4Input);
+        var tabledata5Input = document.createElement('input');
+        tabledata5Input.type = "text";
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+        tabledata5Input.setAttribute('class', 'noteField');
+        var tabledata5 = document.createElement('td');
+        tabledata5.appendChild(tabledata5Input);
+        var ligne = document.createElement('tr');
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4); //ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+
+        /*const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)*/
+
+        var listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1];
+        listStudent12.appendChild(ligne);
+      }
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
 /**  REQUEST ETUDIANT STAPS NIVEAU 2 */
 
 
@@ -525,6 +535,74 @@ function getetudiantStapsNiveau2() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      }
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
+/**  REQUEST ETUDIANT STAPS NIVEAU 2 RATTRAPAGE */
+
+
+function getetudiantStapsNiveau2R() {
+  //Masquage de la div SN
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)";
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none";
+  myform2 = document.getElementById('modal2').children[0].children[0];
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantStaps2/";
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      myEtudiantStaps2 = JSON.parse(this.responseText);
+      /** Ajout des lignes pour insertion des notes des étudiants */
+
+      /**Changement du TITRE Du modal */
+      //listeTitle = document.getElementById('listetudiant-title')
+      //console.log(listeTitle);
+      //listeTitle.innerHTML=""
+
+      listeTitle = modal2.children[0].children[0].children[1].children[1];
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X"); //tbodyMDS1 = document.getElementById('listetudiant')
+
+      for (var i = 0; i < myEtudiantStaps2.length; i++) {
+        var tabledata1 = document.createElement('td');
+        tabledata1.setAttribute('scope', 'row');
+        tabledata1.innerText = myEtudiantStaps2[i].id;
+        var tabledata2 = document.createElement('td');
+        tabledata2.innerText = myEtudiantStaps2[i].matricule;
+        var nom = myEtudiantStaps2[i].nom + ' ' + myEtudiantStaps2[i].prenom;
+        var tabledata3 = document.createElement('td');
+        tabledata3.innerText = nom;
+        var tabledata4Input = document.createElement('input');
+        tabledata4Input.type = "text";
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantStaps2[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantStaps2[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField');
+        var tabledata4 = document.createElement('td');
+        tabledata4.appendChild(tabledata4Input);
+        var tabledata5Input = document.createElement('input');
+        tabledata5Input.type = "text";
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps2[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+        tabledata5Input.setAttribute('class', 'noteField');
+        var tabledata5 = document.createElement('td');
+        tabledata5.appendChild(tabledata5Input);
+        var ligne = document.createElement('tr');
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4); //ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        //const listStudent = document.getElementById('listetudiant')
+
+        var listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1];
+        listStudent12.appendChild(ligne);
       }
     }
   };
@@ -593,6 +671,73 @@ function getAllEtudiantNiveau3() {
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }
+/**REQUEST ETUDIANT NIVEAU 3 RATTRAPAGE */
+
+
+function getAllEtudiantNiveau3R() {
+  //Masquage de la div SN
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)";
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none";
+  myform2 = document.getElementById('modal2').children[0].children[0];
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantNiveau3/";
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      myEtudiantNiveau3 = JSON.parse(this.responseText);
+      /** Ajout des lignes pour insertion des notes des étudiants */
+
+      /**Changement du TITRE Du modal */
+      //listeTitle = document.getElementById('listetudiant-title')
+
+      listeTitle = modal2.children[0].children[0].children[1].children[1];
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+
+      for (var i = 0; i < myEtudiantNiveau3.length; i++) {
+        var tabledata1 = document.createElement('td');
+        tabledata1.setAttribute('scope', 'row');
+        tabledata1.innerText = myEtudiantNiveau3[i].id;
+        var tabledata2 = document.createElement('td');
+        tabledata2.innerText = myEtudiantNiveau3[i].matricule;
+        var nom = myEtudiantNiveau3[i].nom + ' ' + myEtudiantNiveau3[i].prenom;
+        var tabledata3 = document.createElement('td');
+        tabledata3.innerText = nom;
+        var tabledata4Input = document.createElement('input');
+        tabledata4Input.type = "text";
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantNiveau3[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantNiveau3[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField');
+        var tabledata4 = document.createElement('td');
+        tabledata4.appendChild(tabledata4Input);
+        var tabledata5Input = document.createElement('input');
+        tabledata5Input.type = "text";
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '');
+
+        tabledata5Input.setAttribute('class', 'noteField');
+        var tabledata5 = document.createElement('td');
+        tabledata5.appendChild(tabledata5Input);
+        var ligne = document.createElement('tr');
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4); //ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        //const listStudent = document.getElementById('listetudiant')
+        //listStudent.appendChild(ligne)
+
+        var listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1];
+        listStudent12.appendChild(ligne);
+      }
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
 /** REQUEST ETUDIANTS EVE */
 
 
@@ -606,8 +751,9 @@ function getetudiantEVENiveau3() {
       /** Ajout des lignes pour insertion des notes des étudiants */
 
       /**Changement du TITRE Du modal */
+      //listeTitle = document.getElementById('listetudiant-title')
 
-      listeTitle = document.getElementById('listetudiant-title');
+      listeTitle = modal2.children[0].children[0].children[1].children[1];
       listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
 
       for (var i = 0; i < myEtudiantNiveau3EVE.length; i++) {
@@ -620,13 +766,13 @@ function getetudiantEVENiveau3() {
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('input');
-        tabledata4Input.type = "text"; //console.log(element.parentElement.parentElement.parentElement.parentElement.children[0].innerText);
-
+        tabledata4Input.type = "text";
         tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantNiveau3EVE[i].matricule, "  ").concat(idUe));
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required','')
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantNiveau3EVE[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
-        tabledata4Input.setAttribute('class', 'noteField');
+        tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
+
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
@@ -647,6 +793,74 @@ function getetudiantEVENiveau3() {
 
         var listStudent = document.getElementById('listetudiant');
         listStudent.appendChild(ligne);
+      }
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
+/** REQUEST ETUDIANTS EVE RATTRAPAGE */
+
+
+function getetudiantEVENiveau3R() {
+  //Masquage de la div SN
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)";
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none";
+  myform2 = document.getElementById('modal2').children[0].children[0];
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantNiveau3EVE/";
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      myEtudiantNiveau3EVE = JSON.parse(this.responseText);
+      /** Ajout des lignes pour insertion des notes des étudiants */
+
+      /**Changement du TITRE Du modal */
+      //listeTitle = document.getElementById('listetudiant-title')
+
+      listeTitle = modal2.children[0].children[0].children[1].children[1];
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+
+      for (var i = 0; i < myEtudiantNiveau3EVE.length; i++) {
+        var tabledata1 = document.createElement('td');
+        tabledata1.setAttribute('scope', 'row');
+        tabledata1.innerText = myEtudiantNiveau3EVE[i].id;
+        var tabledata2 = document.createElement('td');
+        tabledata2.innerText = myEtudiantNiveau3EVE[i].matricule;
+        var nom = myEtudiantNiveau3EVE[i].nom + ' ' + myEtudiantNiveau3EVE[i].prenom;
+        var tabledata3 = document.createElement('td');
+        tabledata3.innerText = nom;
+        var tabledata4Input = document.createElement('input');
+        tabledata4Input.type = "text";
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantNiveau3EVE[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantNiveau3EVE[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
+
+        var tabledata4 = document.createElement('td');
+        tabledata4.appendChild(tabledata4Input);
+        var tabledata5Input = document.createElement('input');
+        tabledata5Input.type = "text";
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3EVE[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+        tabledata5Input.setAttribute('class', 'noteField');
+        var tabledata5 = document.createElement('td');
+        tabledata5.appendChild(tabledata5Input);
+        var ligne = document.createElement('tr');
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4); //ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        //const listStudent = document.getElementById('listetudiant')
+        //listStudent.appendChild(ligne)
+
+        var listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1];
+        listStudent12.appendChild(ligne);
       }
     }
   };
@@ -715,12 +929,77 @@ function getetudiantMSONiveau3() {
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }
+/** REQUEST ETUDIANTS MSO RATTRAPAGE */
+
+
+function getetudiantMSONiveau3R() {
+  //Masquage de la div SN
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)";
+  modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[4].style.display = "none";
+  myform2 = document.getElementById('modal2').children[0].children[0];
+  myform2.setAttribute('id', 'myform2');
+  var xmlhttp = new XMLHttpRequest();
+  var url = "http://localhost:8000/etudiantNiveau3MSO/";
+
+  xmlhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      myEtudiantNiveau3MSO = JSON.parse(this.responseText);
+      /** Ajout des lignes pour insertion des notes des étudiants */
+
+      /**Changement du TITRE Du modal */
+
+      listeTitle = document.getElementById('listetudiant-title');
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+
+      for (var i = 0; i < myEtudiantNiveau3MSO.length; i++) {
+        var tabledata1 = document.createElement('td');
+        tabledata1.setAttribute('scope', 'row');
+        tabledata1.innerText = myEtudiantNiveau3MSO[i].id;
+        var tabledata2 = document.createElement('td');
+        tabledata2.innerText = myEtudiantNiveau3MSO[i].matricule;
+        var nom = myEtudiantNiveau3MSO[i].nom + ' ' + myEtudiantNiveau3MSO[i].prenom;
+        var tabledata3 = document.createElement('td');
+        tabledata3.innerText = nom;
+        var tabledata4Input = document.createElement('input');
+        tabledata4Input.type = "text";
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantNiveau3MSO[i].matricule, "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantNiveau3MSO[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+
+        tabledata4Input.setAttribute('class', 'noteField');
+        var tabledata4 = document.createElement('td');
+        tabledata4.appendChild(tabledata4Input);
+        var tabledata5Input = document.createElement('input');
+        tabledata5Input.type = "text";
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantNiveau3MSO[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
+
+        tabledata5Input.setAttribute('class', 'noteField');
+        var tabledata5 = document.createElement('td');
+        tabledata5.appendChild(tabledata5Input);
+        var ligne = document.createElement('tr');
+        ligne.appendChild(tabledata1);
+        ligne.appendChild(tabledata2);
+        ligne.appendChild(tabledata3);
+        ligne.appendChild(tabledata4); //ligne.appendChild(tabledata5);
+
+        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+
+        /*const listStudent = document.getElementById('listetudiant')
+        listStudent.appendChild(ligne)*/
+      }
+    }
+  };
+
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+}
 /** SEND DATA TO THE SERVER */
 
 
-$(function () {
-  dataString = $("#myForm").serializeArray();
-  options = {
+$(function Examen() {
+  dataString1 = $("#myForm").serializeArray();
+  options1 = {
     //data : dataString,
     //target:"",
     url: 'ajoutNoteEtudiant/',
@@ -732,14 +1011,43 @@ $(function () {
   jQuery.validator.addClassRules("noteField", {
     required: true
   });
-  $("form").submit(function (e) {
+  $("#myForm").submit(function (e) {
     e.preventDefault();
     console.log('OK');
   }).validate({
     submitHandler: function submitHandler(form) {
-      $("#myForm").ajaxSubmit(options);
+      $("#myForm").ajaxSubmit(options1);
       tbodylistStudent.innerHTML = "";
       modal.style.display = "none";
+      alert("LES NOTES ONT ETE ENREGISTREES AVEC SUCCESS");
+    }
+  });
+});
+/** SEND DATA TO THE SERVER */
+//RATTRAPAGE
+
+$(function Rattrapage() {
+  dataString = $("#myform2").serializeArray();
+  options = {
+    //data : dataString,
+    //target:"",
+    url: 'ajoutNoteEtudiantRattrapage/',
+    type: "POST",
+    success: ""
+  };
+  /**Validation par classe */
+
+  jQuery.validator.addClassRules("noteField", {
+    required: true
+  });
+  $("#myform2").submit(function (e) {
+    e.preventDefault();
+  }).validate({
+    submitHandler: function submitHandler() {
+      $("#myform2").ajaxSubmit(options);
+      modal2.children[0].children[0].children[2].children[0].children[0].children[1].innerHTML = ""; //tbodylistStudent2.innerHTML = ""
+
+      modal2.style.display = "none";
       alert("LES NOTES ONT ETE ENREGISTREES AVEC SUCCESS");
     }
   });

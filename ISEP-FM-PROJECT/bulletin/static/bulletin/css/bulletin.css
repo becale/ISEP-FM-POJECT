@@ -149,6 +149,8 @@
     
     margin-bottom: 10px;
     padding-bottom: 10px;
+
+    justify-items: center;
 }
 /*MATIERE*/
 .matiere{

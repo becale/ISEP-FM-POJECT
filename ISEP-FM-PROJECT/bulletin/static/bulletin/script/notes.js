@@ -177,11 +177,15 @@ function getUe() {
                     //myBtn1.appendChild(imgbtn1)
 
                 const add = document.createElement('div')
+                const textMessage = document.createTextNode('SN')
                 add.setAttribute("id", "add")
+                myBtn.appendChild(textMessage)
                 add.appendChild(myBtn)
 
                 const modify = document.createElement('div')
+                const textMessage1 = document.createTextNode('SR')
                 modify.setAttribute("id", "modify")
+                myBtn1.appendChild(textMessage1)
                 modify.appendChild(myBtn1)
 
                 const bigBoy = document.createElement('div')

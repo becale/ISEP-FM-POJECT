@@ -424,11 +424,11 @@ window.addEventListener('load', function () {
 
   function PageRattrapage() {
     listStudent = mydata[1];
-    rattrapage = mydata[9];
+    rattrapage = mydata[8];
     page1 = document.getElementById('page');
     page1 = page1.cloneNode(true); //Changement Title
 
-    page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 2<sup>eme</sup> SEMESTRE MDS1  2022-2023";
+    page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 1<sup>er</sup> SEMESTRE MDS1  2022-2023";
     bigtab1 = page1.children[0].children[2].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
 
     worktab1 = bigtab1.children[1];
@@ -770,11 +770,12 @@ window.addEventListener('load', function () {
       worktab1.appendChild(temp1);
       body.appendChild(page1);
     }
-  } //PageRattrapage()
+  }
 
+  PageRattrapage();
 
   function PageSynthese() {
-    synthese = mydata[10];
+    synthese = mydata[9];
     page2 = document.getElementById('page');
     page2 = page2.cloneNode(true); //Changement Title
 
@@ -1092,10 +1093,10 @@ window.addEventListener('load', function () {
       worktab2.appendChild(temp2);
       body.appendChild(page2);
     }
-  } //PageSynthese()
+  }
 
+  PageSynthese();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
-
 
   function ListProcess() {
     body = document.getElementById('body');

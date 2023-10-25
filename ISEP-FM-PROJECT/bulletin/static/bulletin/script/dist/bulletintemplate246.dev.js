@@ -135,7 +135,7 @@ function GenerateBullMDS1Semestre1() {
 
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DE/PF";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "RELEVE DE NOTES";
@@ -298,7 +298,7 @@ function GenerateBullMDS1Semestre1() {
   td11.innerHTML = "MDS112";
   var td12 = document.createElement('td');
   td12.setAttribute('id', 'MDS112-matiere');
-  td12.innerHTML = "Math\xE9matiques Financi\xE8res I";
+  td12.innerHTML = "Math\xE9matiques financi\xE8res I";
   var td13 = document.createElement('td');
   td13.setAttribute('id', 'MDS112-note');
   var td14 = document.createElement('td');
@@ -335,7 +335,7 @@ function GenerateBullMDS1Semestre1() {
   td111.innerHTML = "MDS112";
   var td122 = document.createElement('td');
   td122.setAttribute('id', 'MDS112-matiere');
-  td122.innerHTML = "Statistiques Descriptives I";
+  td122.innerHTML = "Statistiques descriptives I";
   var td133 = document.createElement('td');
   td133.setAttribute('id', 'MDS112-note');
   var td144 = document.createElement('td');
@@ -376,7 +376,7 @@ function GenerateBullMDS1Semestre1() {
   td20.innerHTML = "MDS113";
   var td21 = document.createElement('td');
   td21.setAttribute("id", "MDS113-matiere");
-  td21.innerHTML = "Environnement Jurique Et Comptable I";
+  td21.innerHTML = "Environnement juridique et comptable I";
   var td22 = document.createElement('td');
   td22.setAttribute("id", "MDS113-note");
   var td222 = document.createElement('td');
@@ -443,7 +443,7 @@ function GenerateBullMDS1Semestre1() {
   td377.innerHTML = "MDS115";
   var td37 = document.createElement('td');
   td37.setAttribute("id", "MDS115-matiere");
-  td37.innerHTML = "Outils de Gestion de Sport I";
+  td37.innerHTML = "Outils de gestion de sport I";
   var td38 = document.createElement('td');
   td38.setAttribute("id", "MDS115-note");
   var td39 = document.createElement('td');
@@ -474,7 +474,7 @@ function GenerateBullMDS1Semestre1() {
   td45.innerHTML = "MDS116";
   var td46 = document.createElement('td');
   td46.setAttribute("id", "MDS116-matiere");
-  td46.innerHTML = "Gestion Des Structures Et organisation Sportives I";
+  td46.innerHTML = "Gestion des structures et organisations sportives I";
   var td47 = document.createElement('td');
   td47.setAttribute("id", "MDS116-note");
   var td48 = document.createElement('td');
@@ -837,7 +837,7 @@ function GenerateBullStaps1Semestre1() {
 
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DE/PF";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "RELEVE DE NOTES";
@@ -1556,7 +1556,7 @@ function GenerateBullStaps2Semestre3() {
   var hr = document.createElement('hr');
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DE/PF";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "RELEVE DE NOTES";
@@ -2476,7 +2476,7 @@ function GenerateBullEVEsemestre5() {
   var hr = document.createElement('hr');
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DE/PF";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "RELEVE DE NOTES";
@@ -2987,7 +2987,7 @@ function GenerateBullMSOsemestre5() {
   var hr = document.createElement('hr');
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DE/PF";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "RELEVE DE NOTES";
@@ -3465,15 +3465,7 @@ function BullMDS1(clone, i) {
   info2.children[1].innerHTML = info2.children[1].innerHTML + " ".concat(listStudent[i][0]['matricule']);
   info2.children[2].innerHTML = info2.children[2].innerHTML + " ".concat(listStudent[i][0]['date_naissance']);
   info2.children[3].innerHTML = info2.children[3].innerHTML + " ".concat(listStudent[i][0]['lieu_naissance']);
-  info2.children[4].innerHTML = info2.children[4].innerHTML + " 2022-2023";
-  /* info2 = clone.children[2].children[1].children[1]
-   for(j=1; j<=info2.childElementCount-1; j++){
-     if(j==1){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['matricule']}`}
-     if(j==2){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['date_naissance']}`}
-     if(j==3){info2.children[j].innerHTML = info2.children[j].innerHTML +` ${listStudent[i][0]['lieu_naissance']}`}
-     //if(j==4){info1.children[j].innerHTML = info1.children[j].innerHTML +` ${infoEtudiant[i]['anneeaca']}`} //Année Academique
-   }*/
-  //Tableau de notes
+  info2.children[4].innerHTML = info2.children[4].innerHTML + " 2022-2023"; //Tableau de notes
 
   var tbody = clone.children[2].children[2].children[0].children[1]; //LIGNE MDS11
 
@@ -4038,6 +4030,7 @@ function BullMDS1(clone, i) {
 
     if (j == 4) {
       resultat.children[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2]) + 1;
+      /** "SDF" */
     }
 
     if (j == 6) {
@@ -4192,7 +4185,7 @@ function BullMDS1(clone, i) {
 
   var ligne33 = s2mdsbody.children[2];
   ligne33.children[0].innerHTML = "MDS122";
-  ligne33.children[1].innerHTML = "Mathématiques Financières II";
+  ligne33.children[1].innerHTML = "Mathématiques financières II";
 
   for (j = 0; j <= ligne33.childElementCount - 1; j++) {
     if (j == 2) {
@@ -4242,7 +4235,7 @@ function BullMDS1(clone, i) {
 
   var ligne44 = s2mdsbody.children[3];
   ligne44.children[0].innerHTML = "MDS122";
-  ligne44.children[1].innerHTML = "Statistiques Descriptives II";
+  ligne44.children[1].innerHTML = "Statistiques descriptives II";
 
   for (j = 0; j <= ligne44.childElementCount - 1; j++) {
     if (j == 2) {
@@ -4284,7 +4277,7 @@ function BullMDS1(clone, i) {
 
   var ligne55 = s2mdsbody.children[4];
   ligne55.children[1].innerHTML = "MDS123";
-  ligne55.children[2].innerHTML = "Environnement Jurique et Comptable II";
+  ligne55.children[2].innerHTML = "Environnement juridique et comptable II";
 
   for (j = 0; j <= ligne55.childElementCount - 1; j++) {
     if (j == 3) {
@@ -4645,8 +4638,7 @@ function BullMDS1(clone, i) {
         s1s2mdsrecap.children[j].innerHTML = "REFUSE(E)";
       }
     }
-  } //return (clone)
-
+  }
 
   return clone;
 }

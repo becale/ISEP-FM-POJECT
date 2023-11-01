@@ -175,6 +175,17 @@ class Evaluation(models.Model):
     def __str__(self):
         return str(self.natureEvaluation +'_'+self.uniteEnseignement.code_UE+'_'+self.etudiant.nom)
 
+class Calendrier(models.Model):
+    annee_academique = models.CharField(max_length=50)
+
+    debut_SN1 = models.DateField(null=True, default="", blank=True)
+    fin_SN1 = models.DateField(null=True, default="", blank=True)
+
+    debut_SN2 = models.DateField(null=True, default="", blank=True)
+    fin_SN2 = models.DateField(null=True, default="", blank=True)
+
+    def __str__(self):
+        return str('Annee Acamdeique '+self.annee_academique )
 
 """class Filiere(models.Model):
     intitule_fil = models.CharField(200='200')

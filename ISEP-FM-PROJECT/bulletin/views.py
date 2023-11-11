@@ -1783,40 +1783,40 @@ def bulls2epsmds(request, filiere):
             listeMatriceS1EpsCC.append(matriceS1EpsCC)
             
 ################################################## SEMESTRE 1 EPS RATTRAPAGE ################################################################################
-        EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort111R = epurationRattrapage(EPS111R)
 
-        EPS112R = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS112R = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort112R = epurationRattrapage(EPS112R)
 
-        EPS113R = list(Evaluation.objects.filter(uniteEnseignement_id=52, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS113R = list(Evaluation.objects.filter(uniteEnseignement_id=52, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort113R = epurationRattrapage(EPS113R)
 
-        EPS114R = list(Evaluation.objects.filter(uniteEnseignement_id=53, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS114R = list(Evaluation.objects.filter(uniteEnseignement_id=53, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort114R = epurationRattrapage(EPS114R)
 
-        EPS115aR = list(Evaluation.objects.filter(uniteEnseignement_id=54, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS115aR = list(Evaluation.objects.filter(uniteEnseignement_id=54, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort115aR = epurationRattrapage(EPS115aR)
 
-        EPS115bR = list(Evaluation.objects.filter(uniteEnseignement_id=55, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS115bR = list(Evaluation.objects.filter(uniteEnseignement_id=55, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort115b = epurationRattrapage(EPS115bR) 
 
-        EPS115jR = list(Evaluation.objects.filter(uniteEnseignement_id=56, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS115jR = list(Evaluation.objects.filter(uniteEnseignement_id=56, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort115jR = epurationRattrapage(EPS115jR)
 
-        EPS115lR = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS115lR = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort115lR = epurationRattrapage(EPS115lR)
 
-        EPS116R = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS116R = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort116R = epurationRattrapage(EPS116R)
 
-        EPS117R = list(Evaluation.objects.filter(uniteEnseignement_id=59, natureEvaluation='EXAMEN').values('note_rattrapage')) 
+        EPS117R = list(Evaluation.objects.filter(uniteEnseignement_id=59, natureEvaluation='RATTRAPAGE').values('note_rattrapage')) 
         sort117R = epurationRattrapage(EPS117R)
 
-        EPS118R = list(Evaluation.objects.filter(uniteEnseignement_id=60, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS118R = list(Evaluation.objects.filter(uniteEnseignement_id=60, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort118R = epurationRattrapage(EPS118R)
 
-        EPS119R = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='EXAMEN').values('note_rattrapage'))
+        EPS119R = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
         sort119R = epurationRattrapage(EPS119R)
 
         listeMatriceS1EpsR = []
@@ -1857,13 +1857,13 @@ def bulls2epsmds(request, filiere):
 ################################################## SEMESTRE 1 EPS SYNTHESE ##################################################################################
         #Synhèse EPS1 Semestre 1
 
-        #listeMatriceS1EpsSynthese = matriceSyntheseEPS1(listeMatriceS1Eps, listeMatriceS1EpsR, listeMatriceS1Eps, listeMatriceS1EpsCC)
+        listeMatriceS1EpsSynthese = matriceSyntheseEPS1(listeMatriceS1Eps, listeMatriceS1EpsR, listeMatriceS1Eps, listeMatriceS1EpsCC)
 
         #Décompte de crédit
-        #EPSCreditCount2(listeMatriceS1EpsSynthese)
+        EPSCreditCount2(listeMatriceS1EpsSynthese)
         
 
-        semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1Eps] #, listeMatriceS1EpsSynthese  #, listeMatriceS2EpsSynthese
+        semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1EpsSynthese] #,listeMatriceS1Eps , listeMatriceS1EpsSynthese  #, listeMatriceS2EpsSynthese
 
 ################################################## SEMESTRE 2 EPS ########################################################################################################################################################     
         infoEtudiantSTAPS1 =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
@@ -1875,45 +1875,73 @@ def bulls2epsmds(request, filiere):
         creditS1STAPS1 = epurationCre(creditS1STAPS1)
 
         EPS121 = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS121cc = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS121sn = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_sn'))
         sort121 = epurationTriCroissant(EPS121)
 
         EPS122 = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS122cc = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS122sn = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='EXAMEN').values('note_sn'))
         sort122 = epurationTriCroissant(EPS122)
 
         EPS123 = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS123cc = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS123sn = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='EXAMEN').values('note_sn'))
         sort123 = epurationTriCroissant(EPS123)
 
         EPS124 = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS124cc = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS124sn = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='EXAMEN').values('note_sn'))
         sort124 = epurationTriCroissant(EPS124)
 
         EPS125a = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS125acc = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS125asn = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='EXAMEN').values('note_sn'))
         sort125a = epurationTriCroissant(EPS125a)
 
         EPS125b = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS125bcc = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS125bsn = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='EXAMEN').values('note_sn'))
         sort125b = epurationTriCroissant(EPS125b) 
 
         EPS125g = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS125gcc = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS125gsn = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='EXAMEN').values('note_sn'))
         sort125g = epurationTriCroissant(EPS125g)
 
         EPS125j = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS125jcc = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS125jsn = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='EXAMEN').values('note_sn'))
         sort125j = epurationTriCroissant(EPS125j)
 
         EPS125l = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS125lcc = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS125lsn = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='EXAMEN').values('note_sn'))
         sort125l = epurationTriCroissant(EPS125l)
 
         EPS125f = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS125fcc = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS125fsn = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='EXAMEN').values('note_sn'))
         sort125f = epurationTriCroissant(EPS125f)
 
         EPS126 = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS126cc = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS126sn = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='EXAMEN').values('note_sn'))
         sort126 = epurationTriCroissant(EPS126)
 
         EPS127 = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='EXAMEN').values('note_Examen')) 
+        EPS127cc = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS127sn = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='EXAMEN').values('note_sn'))
         sort127 = epurationTriCroissant(EPS127)
 
         EPS128 = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS128cc = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS128sn = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='EXAMEN').values('note_sn'))
         sort128 = epurationTriCroissant(EPS128)
 
         EPS129 = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_Examen'))
+        EPS129cc = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_cc'))
+        EPS129sn = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_sn'))
         sort129 = epurationTriCroissant(EPS129)
 
         student = {}
@@ -2082,50 +2110,91 @@ def bulls2epsmds(request, filiere):
         session2 = 'Mai 2023'
             
         #semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1Eps ]  Venant du haut S1
-        semestre1MDS += [listeMatriceS2Eps ,staps2Moyenne ,moy2 ,session2]#[filiere, listeMatrice, staps1Moyenne, moy, session ]
-    
+        #semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1EpsSynthese, listeMatriceS2Eps ,staps2Moyenne ,moy2 ,session2]
+        #semestre1MDS += [listeMatriceS2Eps ,staps2Moyenne ,moy2 ,session2]#[filiere, listeMatrice, staps1Moyenne, moy, session ]
+
+################################################## SEMESTRE 2 EPS CC ########################################################################################################################################################
+        listeMatriceS2EpsCC = []
+
+        for j in range( len(infoEtudiantSTAPS1) ):
+
+            matriceS2EpsCC = [
+
+                infoEtudiantSTAPS1[j],
+
+                EPS121cc[j]['note_cc'],
+
+                EPS122cc[j]['note_cc'],
+
+                EPS123cc[j]['note_cc'],
+
+                EPS124cc[j]['note_cc'],
+
+                EPS125acc[j]['note_cc'],
+                
+                #EPS125bcc[j]['note_cc'],
+
+                EPS125gcc[j]['note_cc'],
+
+                EPS125jcc[j]['note_cc'],
+
+                #EPS125lcc[j]['note_cc'],
+
+                EPS125fcc[j]['note_cc'],
+
+                EPS126cc[j]['note_cc'],
+
+                EPS127cc[j]['note_cc'],
+
+                EPS128cc[j]['note_cc'],
+
+                EPS129cc[j]['note_cc'],
+
+            ]
+            listeMatriceS2EpsCC.append(matriceS2EpsCC)
+
 ################################################## SEMESTRE 2 EPS RATTRAPAGE ################################################################################
-        EPS121R = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort121R = epurationTriCroissant(EPS121R)
+        EPS121R = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort121R = epurationRattrapage(EPS121R)
 
-        EPS122R = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort122R = epurationTriCroissant(EPS122R)
+        EPS122R = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort122R = epurationRattrapage(EPS122R)
 
-        EPS123R = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort123R = epurationTriCroissant(EPS123R)
+        EPS123R = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort123R = epurationRattrapage(EPS123R)
 
-        EPS124R = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort124R = epurationTriCroissant(EPS124R)
+        EPS124R = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort124R = epurationRattrapage(EPS124R)
 
-        EPS125aR = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort125aR = epurationTriCroissant(EPS125aR)
+        EPS125aR = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort125aR = epurationRattrapage(EPS125aR)
 
-        EPS125bR = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort125bR= epurationTriCroissant(EPS125bR) 
+        EPS125bR = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort125bR= epurationRattrapage(EPS125bR) 
 
-        EPS125gR = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort125gR= epurationTriCroissant(EPS125gR) 
+        EPS125gR = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort125gR= epurationRattrapage(EPS125gR) 
 
-        EPS125jR = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort125jR = epurationTriCroissant(EPS125jR)
+        EPS125jR = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort125jR = epurationRattrapage(EPS125jR)
 
-        EPS125lR = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort125lR = epurationTriCroissant(EPS125lR)
+        EPS125lR = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort125lR = epurationRattrapage(EPS125lR)
 
-        EPS125fR = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort125fR = epurationTriCroissant(EPS125lR)
+        EPS125fR = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort125fR = epurationRattrapage(EPS125fR)
 
-        EPS126R = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort126R = epurationTriCroissant(EPS126R)
+        EPS126R = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort126R = epurationRattrapage(EPS126R)
 
-        EPS127R = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='EXAMEN').values('note_Examen')) 
-        sort127R = epurationTriCroissant(EPS127R)
+        EPS127R = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='RATTRAPAGE').values('note_rattrapage')) 
+        sort127R = epurationRattrapage(EPS127R)
 
-        EPS128R = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort128R = epurationTriCroissant(EPS128R)
+        EPS128R = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort128R = epurationRattrapage(EPS128R)
 
-        EPS129R = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_Examen'))
-        sort129R = epurationTriCroissant(EPS129R)
+        EPS129R = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        sort129R = epurationRattrapage(EPS129R)
 
 
         listeMatriceS2epsR = [ ]
@@ -2167,9 +2236,20 @@ def bulls2epsmds(request, filiere):
 ################################################## SEMESTRE 2 EPS SYNTHESE ##################################################################################
         #Synthèse EPS2 Semestre 2
 
-        #listeMatriceS2EpsSynthese = matriceSyntheseEPS1(listeMatriceS1Eps, listeMatriceS1EpsR, listeMatriceS1Eps, listeMatriceS1EpsCC)
+        #print(listeMatriceS2Eps)
+        #print(listeMatriceS1Eps)
 
-        #semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1Eps ] #, listeMatriceS2EpsSynthese
+        #print(len(listeMatriceS2Eps))
+        #print(len(listeMatriceS1Eps))
+
+        listeMatriceS2EpsSynthese = matriceSyntheseEPS1(listeMatriceS2Eps, listeMatriceS2epsR, listeMatriceS1Eps, listeMatriceS2EpsCC)
+        
+
+        #Décompte de crédit
+        EPSCreditCount2(listeMatriceS2EpsSynthese)
+
+        #semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1Eps, listeMatriceS2EpsSynthese ] #, listeMatriceS2EpsSynthese
+        semestre1MDS = [filiere, listeMatriceS1Eps, staps1MoyenneS1Eps, moyS1Eps, session, listeMatriceS1EpsSynthese, listeMatriceS2EpsSynthese[0] ,staps2Moyenne ,moy2 ,session2, listeMatriceS2EpsSynthese]#,listeMatriceS2Eps listeMatriceS2EpsSynthese]
 
     return render(request,'bulletin/BulletinTemplate/bullS2epsmds.html', {'semestre1MDS': semestre1MDS}) 
 
@@ -3926,8 +4006,7 @@ def resultatCommunepsmds(request):
     EPS119sn = list(Evaluation.objects.filter(uniteEnseignement_id=61, natureEvaluation='EXAMEN').values('note_sn'))
     sort119 = epurationTriCroissant(EPS119)
 
-    student = {}
-    temp = {}
+    
     staps1 = []
     staps1Moyenne = []
     listeMatrice = [ ]
@@ -4014,6 +4093,41 @@ def resultatCommunepsmds(request):
         session = 'Janvier 2023'
 
         filiere = 'STAPS'
+
+########################################################### PV SEMESTRE 1 EPS CC     ########################################################################################################################################################
+    listeMatriceS1EpsCC = []
+
+    for j in range( len(infoEtudiantSTAPS1) ):
+
+            matriceS1EpsCC = [
+
+                infoEtudiantSTAPS1[j],
+
+                EPS111cc[j]["note_cc"],
+
+                EPS112cc[j]["note_cc"],
+
+                EPS113cc[j]["note_cc"],
+
+                EPS114cc[j]["note_cc"],
+
+                EPS115acc[j]["note_cc"],
+
+                EPS115bcc[j]["note_cc"],
+
+                EPS115jcc[j]["note_cc"],
+
+                EPS115lcc[j]["note_cc"],
+
+                EPS116cc[j]["note_cc"],
+
+                EPS117cc[j]["note_cc"],
+
+                EPS118cc[j]["note_cc"],
+
+                EPS119cc[j]["note_cc"],
+            ]
+            listeMatriceS1EpsCC.append(matriceS1EpsCC)
 
 ########################################################### PV SEMESTRE 1 RATTRAPAGE ############################################################################################################################
     EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='RATTRAPAGE').values('note_rattrapage')) 
@@ -4117,10 +4231,11 @@ def resultatCommunepsmds(request):
         listeMatriceRs1EPS1ex.append(matriceRs1EPS1ex)
 
 ########################################################### PV SEMESTRE 1 SYNTHESE   ############################################################################################################################
-    listeMatrices1eps = []
-    staps1Moyenne = []
+    
+    #listeMatrices1eps = []
+    #staps1Moyenne = []
 
-    for j in range( len(infoEtudiantSTAPS1) ):
+    """for j in range( len(infoEtudiantSTAPS1) ):
 
         matriceS1EPS = [
                 infoEtudiantSTAPS1[j],
@@ -4295,6 +4410,14 @@ def resultatCommunepsmds(request):
         staps1Moyenne.append(matrice[13][2])
 
         listeMatrices1eps.append(matriceS1EPS)
+    """
+
+    #Synhèse EPS1 Semestre 1
+
+    listeMatriceS1EpsSynthese = matriceSyntheseEPS1(listeMatrice, listeMatriceRs1EPS1, listeMatrice, listeMatriceS1EpsCC)
+
+    #Décompte de crédit
+    EPSCreditCount2(listeMatriceS1EpsSynthese)
 
 ########################################################### STATS VALIDATION ####################################################################################################################################
     for i in range (len(EPS111)):
@@ -4387,7 +4510,7 @@ def resultatCommunepsmds(request):
     UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12]
     UEstats_mention = [e111, e112, e113, e114, e115a, e115b, e115j, e115l, e116, e117, e118, e119]
                 
-    semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, listeMatriceRs1EPS1, listeMatrices1eps ] #
+    semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, listeMatriceRs1EPS1, listeMatriceS1EpsSynthese[0],  listeMatriceS1EpsSynthese ] #, listeMatrices1eps
 
     return render(request, 'bulletin/releveCommun/releveCommun.html', {'semestre1MDS': semestre1MDS})
 
@@ -9760,12 +9883,12 @@ def EPSCreditCount2(matrice):
         Fonction permettant de compter le nombre de crédit total par semestre en EPS1
     """
     #print(matrice)
+    matlen = matrice[0]
 
-    for j in range(len(matrice)):
+    for j in range(len(matlen)):
 
-        mat = matrice[j]
-        print(mat)
-        print(mat[1][0])
+
+        mat = matlen[j]
 
         ##UE Fondamentales
         #ligne 1
@@ -10054,7 +10177,6 @@ def matriceSyntheseEPS1(matI, matRa, mats1, matcc):
 
     matS = copy.deepcopy(matI)
 
-    
 
     #i compteur de candidats
     for i in range(len(matI)):
@@ -10062,7 +10184,7 @@ def matriceSyntheseEPS1(matI, matRa, mats1, matcc):
 
         #j compteur de matière
         for j in range(1, len(matR)):
-            print(matR)
+            #print(matR)
             #print(matR[i][j])
             if (matR[j] > 0):
                 #0 nouvelle note
@@ -10095,19 +10217,19 @@ def matriceSyntheseEPS1(matI, matRa, mats1, matcc):
                 
                 matS[i][13][2] = round (  (matS[i][13][1] / matS[i][13][0]) , 2)
 
-                #matS[i][j].append('Rattrapage')
+                matS[i][j].append('Rattrapage')
         
         #tableau contenant les nouvelles moyennes
-        #listeMoyenne.append(matS[i][13][2])
+        listeMoyenne.append(matS[i][13][2])
 
-        #listeTotalMoyenne.append( round( (matS[i][13][1] + mats1[i][13][1]) , 2) )
-        #listeTotalMoyenne.sort(reverse=True)
+        listeTotalMoyenne.append( round( (matS[i][13][1] + mats1[i][13][1]) , 2) )
+        listeTotalMoyenne.sort(reverse=True)
 
 
     #listeMoyenne.sort(reverse=True)
 
 
-    return matS #, listeMoyenne, listeTotalMoyenne
+    return matS , listeMoyenne, listeTotalMoyenne
 
 
 

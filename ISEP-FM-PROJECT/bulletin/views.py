@@ -154,7 +154,7 @@ def AddNoteEtudiantRattrapage(request):
 
 
 
-################################# REQUETES POUR BULLETIN SEMESTRE 1 3 5 | SEMESTRE 2 4 6 #############################################################
+###########################################################  REQUETES POUR BULLETIN SEMESTRE 1 3 5 | SEMESTRE 2 4 6 #############################################################
 #EPS1 ET MDS1 SEMESTRE 1
 def bulls1epsmds(request, filiere):
 
@@ -1075,7 +1075,8 @@ def bulls1epsmds(request, filiere):
             moy = stat.mean(staps1Moyenne)
             moy = round(moy, 2)
             session = 'Janvier 2023'
-
+        
+        #La liste de matrice possédant le décompte de crédit(listeMatrices1epsSynthese) est située en position 1 aprés filière
         semestre1MDS = [filiere, listeMatrices1epsSynthese, staps1Moyenne, moy, session, listeMatrice ] #listeMatrices1epsSynthese
 
     return render(request,'bulletin/BulletinTemplate/bullS1eps.html', {'semestre1MDS': semestre1MDS}) 
@@ -3700,7 +3701,7 @@ def bulls6msoeve(request, filiere):
 
 
 
-################################################################################################# PROCES VERBAUX #########################################################################################################################################################################################################################
+########################################################### PROCES VERBAUX #########################################################################################################################################################################################################################
 
 #PV EPS1 SEMESTRE1
 def resultatCommunepsmds(request):
@@ -3945,7 +3946,7 @@ def resultatCommunepsmds(request):
         'pourcentageEc': 0,
     }
 
-########################################################### PV SEMESTRE 1    ############################################################################################################################
+########################################################### PV SEMESTRE 1 EPS   ############################################################################################################################
     EPS111 = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_Examen'))
     EPS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_cc'))
     EPS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='EXAMEN').values('note_sn'))
@@ -4044,30 +4045,60 @@ def resultatCommunepsmds(request):
                         [ EPS115a[j], coefS1STAPS1[4], EPS115a[j]*coefS1STAPS1[4], "MOYENNE", sort115a.index(EPS115a[j])+1, (EPS115a[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if (EPS115a[j] >=10) else 0, EPS115acc[j]['note_cc'], EPS115asn[j]['note_sn'] ], #crédits
 
                         [ EPS115b[j], coefS1STAPS1[5], EPS115b[j]*coefS1STAPS1[5], "MOYENNE", sort115b.index(EPS115b[j])+1, (EPS115b[j] >=10), creditS1STAPS1[5], creditS1STAPS1[5] if (EPS115b[j] >=10) else 0, EPS115bcc[j]['note_cc'], EPS115bsn[j]['note_sn'] ],
-
-                        [ EPS115j[j], coefS1STAPS1[6], EPS115j[j]*coefS1STAPS1[6], "MOYENNE", sort115j.index(EPS115j[j])+1, (EPS115j[j] >=10), creditS1STAPS1[6], creditS1STAPS1[6] if (EPS115j[j] >=10) else 0, EPS115jcc[j]['note_cc'], EPS115jsn[j]['note_sn'] ],
+                        
+                        #7
+                        [ 
+                            EPS115j[j]
+                            , coefS1STAPS1[6]
+                            , EPS115j[j]*coefS1STAPS1[6]
+                            , "MOYENNE"
+                            , sort115j.index(EPS115j[j])+1
+                            , (EPS115j[j] >=10)
+                            , creditS1STAPS1[6]
+                            , creditS1STAPS1[6] if (EPS115j[j] >=10) else 0
+                            , EPS115jcc[j]['note_cc']
+                            , EPS115jsn[j]['note_sn'] 
+                        ],
 
                         [ EPS115l[j], coefS1STAPS1[7], EPS115l[j]*coefS1STAPS1[7], "MOYENNE", sort115l.index(EPS115l[j])+1, (EPS115l[j] >=10), creditS1STAPS1[7], creditS1STAPS1[7] if ((EPS115a[j]+EPS115b[j]+EPS115j[j]+EPS115l[j]) >=40) else 0, EPS115lcc[j]['note_cc'], EPS115lsn[j]['note_sn']  ],
 
                         [ EPS116[j],  coefS1STAPS1[8], EPS116[j]*coefS1STAPS1[8], "MOYENNE", sort116.index(EPS116[j])+1, (EPS116[j] >=10), creditS1STAPS1[8], creditS1STAPS1[8] if (EPS116[j] >=10) else 0, EPS116cc[j]['note_cc'], EPS116sn[j]['note_sn'] ],
 
-                        [ EPS117[j], coefS1STAPS1[9], 
-
-                            EPS117[j]*coefS1STAPS1[9], 
-
-                            round( ((EPS117[j]*coefS1STAPS1[9]) + (EPS118[j]*coefS1STAPS1[10]) + (EPS119[j]*coefS1STAPS1[11])) / ( coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]) ,2), 
-
-                            sort117.index(EPS117[j])+1, 
-
-                            (EPS117[j] >=10), 
+                        [ 
+                            EPS117[j]
                             
-                            creditS1STAPS1[9],
-                            creditS1STAPS1[9] if (EPS117[j] >=10) else 0,
+                            , coefS1STAPS1[9] 
 
-                            EPS117cc[j]['note_cc'], EPS117sn[j]['note_sn']
+                            , EPS117[j]*coefS1STAPS1[9]
+
+                            , round( ((EPS117[j]*coefS1STAPS1[9]) + (EPS118[j]*coefS1STAPS1[10]) + (EPS119[j]*coefS1STAPS1[11])) / ( coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]) ,2)
+
+                            , sort117.index(EPS117[j])+1
+
+                            , (EPS117[j] >=10) 
+                            
+                            , creditS1STAPS1[9]
+
+                            , creditS1STAPS1[9] if (EPS117[j] >=10) else 0
+                            , EPS117cc[j]['note_cc']
+                            , EPS117sn[j]['note_sn']
                         ],
 
-                        [ EPS118[j], coefS1STAPS1[10], EPS118[j]*coefS1STAPS1[10], "MOYENNE", sort118.index(EPS118[j])+1, (EPS118[j] >=10), creditS1STAPS1[10], creditS1STAPS1[10] if (EPS118[j] >=10) else 0, EPS118cc[j]['note_cc'], EPS118sn[j]['note_sn'] ],
+                        #11
+                        [ 
+                            EPS118[j]
+                            , coefS1STAPS1[10]
+                            , EPS118[j]*coefS1STAPS1[10]
+                            , "MOYENNE"
+                            , sort118.index(EPS118[j])+1
+                            , (EPS118[j] >=10)
+                            , creditS1STAPS1[10]
+                            #7
+                            , creditS1STAPS1[10] if (EPS118[j] >=10) else 0
+
+                            , EPS118cc[j]['note_cc']
+                            , EPS118sn[j]['note_sn'] 
+                        ],
 
                         [ EPS119[j], coefS1STAPS1[11], EPS119[j]*coefS1STAPS1[11], "MOYENNE", sort119.index(EPS119[j])+1, (EPS119[j] >=10), creditS1STAPS1[11], creditS1STAPS1[11] if (EPS119[j] >=10) else 0, EPS119cc[j]['note_cc'], EPS119sn[j]['note_sn'] ],
 
@@ -4129,7 +4160,7 @@ def resultatCommunepsmds(request):
             ]
             listeMatriceS1EpsCC.append(matriceS1EpsCC)
 
-########################################################### PV SEMESTRE 1 RATTRAPAGE ############################################################################################################################
+########################################################### PV SEMESTRE 1 EPS RATTRAPAGE ############################################################################################################################
     EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='RATTRAPAGE').values('note_rattrapage')) 
     sort111R = epurationRattrapage(EPS111R)
 
@@ -4230,7 +4261,7 @@ def resultatCommunepsmds(request):
         listeMatriceRs1EPS1.append(matriceRs1EPS1)
         listeMatriceRs1EPS1ex.append(matriceRs1EPS1ex)
 
-########################################################### PV SEMESTRE 1 SYNTHESE   ############################################################################################################################
+########################################################### PV SEMESTRE 1 EPS SYNTHESE   ############################################################################################################################
     
     #listeMatrices1eps = []
     #staps1Moyenne = []
@@ -4411,13 +4442,13 @@ def resultatCommunepsmds(request):
 
         listeMatrices1eps.append(matriceS1EPS)
     """
-
     #Synhèse EPS1 Semestre 1
 
     listeMatriceS1EpsSynthese = matriceSyntheseEPS1(listeMatrice, listeMatriceRs1EPS1, listeMatrice, listeMatriceS1EpsCC)
 
     #Décompte de crédit
-    EPSCreditCount2(listeMatriceS1EpsSynthese)
+    EPSCreditCount22(listeMatriceS1EpsSynthese)
+    #listeMatriceS1EpsSynthese = EPSCreditCount22(listeMatriceS1EpsSynthese)
 
 ########################################################### STATS VALIDATION ####################################################################################################################################
     for i in range (len(EPS111)):
@@ -4509,7 +4540,8 @@ def resultatCommunepsmds(request):
 
     UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12]
     UEstats_mention = [e111, e112, e113, e114, e115a, e115b, e115j, e115l, e116, e117, e118, e119]
-                
+
+    #La liste de matrice qui contient les décomptes de crédit(listeMatriceS1EpsSynthese[0])          
     semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, listeMatriceRs1EPS1, listeMatriceS1EpsSynthese[0],  listeMatriceS1EpsSynthese ] #, listeMatrices1eps
 
     return render(request, 'bulletin/releveCommun/releveCommun.html', {'semestre1MDS': semestre1MDS})
@@ -9939,6 +9971,94 @@ def EPSCreditCount2(matrice):
         #ligne 10
         if (((mat[10][0]) >=7 and mat[10][0] < 10) and  mat[10][3] >=10 ) or (mat[10][0] >= 10):
             #mat[10][7] = mat[10][6]
+            
+            mat[10].append(mat[10][6])
+        else:
+            #mat[10][7] = 0
+            mat[10].append(0)
+
+        #ligne 11
+        if (((mat[11][0]) >=7 and mat[11][0] < 10) and  mat[10][3] >=10 ) or (mat[11][0] >= 10):
+            #mat[11][7] = mat[11][6]
+            print(mat[11])
+            mat[11].append(mat[11][6])
+        else:
+            #mat[11][7] = 0
+            mat[11].append(0)
+
+        #ligne 12
+        if (((mat[12][0]) >=7 and mat[12][0] < 10) and  mat[10][3] >=10 ) or (mat[12][0] >= 10):
+            #mat[12][7] = mat[12][6]
+            mat[12].append(mat[12][6])
+        else:
+            mat[12].append(0)
+
+        ##Ajout total crédit à MAT 13
+        mat[13].append(mat[1][7]+mat[2][7]+mat[3][7]+mat[4][7]+mat[5][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7])
+
+## EPS1 DECOMPTE CREDIT
+def EPSCreditCount22(matrice):
+    """
+        Fonction permettant de compter le nombre de crédit total par semestre en EPS1
+    """
+    #print(matrice)
+    matlen = matrice[0]
+
+    for j in range(len(matlen)):
+
+
+        mat = matlen[j]
+
+        ##UE Fondamentales
+        #ligne 1
+        if (((mat[1][0]) >=7 and mat[1][0] < 10) and  mat[1][3] >=10 ) or (mat[1][0] >= 10):
+            #mat[1][7] = mat[1][6]
+            mat[1].append(mat[1][6])
+        else:
+            #mat[1][7] = 0
+            mat[1].append(0)
+        #ligne 2
+        if (((mat[2][0]) >=7 and mat[2][0] < 10) and  mat[1][3] >=10 ) or (mat[2][0] >= 10):
+            #mat[2][7] = mat[2][6]
+            mat[2].append(mat[2][6])
+        else:
+            #mat[2][7] = 0
+            mat[2].append(0)
+        ##UE Pro
+        #ligne 3
+        if (((mat[3][0]) >=7 and mat[3][0] < 10) and  mat[3][3] >=10 ) or (mat[3][0] >= 10):
+            #mat[3][7] = mat[3][6]
+            mat[3].append(mat[3][6])
+        else:
+            #mat[3][7] = 0
+            mat[3].append(0)
+        #ligne 4
+        if (((mat[4][0]) >=7 and mat[4][0] < 10) and  mat[3][3] >=10 ) or (mat[4][0] >= 10):
+            #mat[4][7] = mat[4][6]
+            mat[4].append(mat[4][6])
+        else:
+            #mat[4][7] = 0
+            mat[4].append(0)
+        #ligne 5-8
+        note5678 = round((mat[5][0]+mat[6][0]+mat[7][0]+mat[8][0])/4, 2)
+        if (((note5678 >= 7 and note5678 < 10 ) and mat[3][3] >=10) or note5678 >= 10):
+            #mat[5][7] = mat[5][6]
+            mat[5].append(mat[5][6])
+        else:
+            #mat[5][7] = 0
+            mat[5].append(0)
+        #ligne 9
+        if (((mat[9][0]) >=7 and mat[9][0] < 10) and  mat[3][3] >=10 ) or (mat[9][0] >= 10):
+            #mat[9][7] = mat[9][6]
+            mat[9].append(mat[9][6])
+        else:
+            #mat[9][7] = 0
+            mat[9].append(0)
+        ##UE Transversales
+        #ligne 10
+        if (((mat[10][0]) >=7 and mat[10][0] < 10) and  mat[10][3] >=10 ) or (mat[10][0] >= 10):
+            
+            #mat[10][7] = mat[10][6]
             mat[10].append(mat[10][6])
         else:
             #mat[10][7] = 0
@@ -9960,8 +10080,7 @@ def EPSCreditCount2(matrice):
             mat[12].append(0)
 
         ##Ajout total crédit à MAT 13
-        mat[13].append(mat[1][7]+mat[2][7]+mat[3][7]+mat[4][7]+mat[5][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7])
-
+        mat[13].append(mat[1][10]+mat[2][10]+mat[3][10]+mat[4][10]+mat[5][10]+mat[9][10]+mat[10][10]+mat[11][10]+mat[12][10])
 
 #MATRICE DE SYNTHESE EPS2
 #Il faut ajouter la matrice de CC

@@ -9849,7 +9849,7 @@ def MDSCreditCountS2(matrice):
         student.save()
 
 
-## EPS1 DECOMPTE CREDIT
+## EPS1 DECOMPTE CREDIT SEMESTRE 1
 def EPSCreditCount(matrice):
     """
         Fonction permettant de compter le nombre de crédit total par semestre en EPS1
@@ -9909,18 +9909,24 @@ def EPSCreditCount(matrice):
     ##Ajout total crédit à MAT 13
     matrice[13].append(matrice[1][7]+matrice[2][7]+matrice[3][7]+matrice[4][7]+matrice[5][7]+matrice[9][7]+matrice[10][7]+matrice[11][7]+matrice[12][7])
 
-## EPS1 DECOMPTE CREDIT
+
+## EPS1 DECOMPTE CREDIT SEMESTRE 2
 def EPSCreditCount2(matrice):
     """
-        Fonction permettant de compter le nombre de crédit total par semestre en EPS1
+        Fonction permettant de compter le nombre de crédit total semestre2 en EPS1 
+
+        Plus l'ajout de la moyenne et des crédits sur chaque étudiant
     """
     #print(matrice)
     matlen = matrice[0]
+
+    print(matlen[0][13])
 
     for j in range(len(matlen)):
 
 
         mat = matlen[j]
+        
 
         ##UE Fondamentales
         #ligne 1
@@ -9980,7 +9986,7 @@ def EPSCreditCount2(matrice):
         #ligne 11
         if (((mat[11][0]) >=7 and mat[11][0] < 10) and  mat[10][3] >=10 ) or (mat[11][0] >= 10):
             #mat[11][7] = mat[11][6]
-            print(mat[11])
+            #print(mat[11])
             mat[11].append(mat[11][6])
         else:
             #mat[11][7] = 0
@@ -9995,6 +10001,16 @@ def EPSCreditCount2(matrice):
 
         ##Ajout total crédit à MAT 13
         mat[13].append(mat[1][7]+mat[2][7]+mat[3][7]+mat[4][7]+mat[5][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7])
+
+
+        #Enregistrement des notes et crédits de Semestre1 en MDS1
+        e_matri = mat[0]['matricule']
+        #print(e_matri)
+        studenteps = Etudiant.objects.get(matricule = e_matri)
+        studenteps.moyS2 = mat[13][2] 
+        studenteps.crS2 = mat[13][3]
+        studenteps.save()
+
 
 ## EPS1 DECOMPTE CREDIT
 def EPSCreditCount22(matrice):
@@ -10081,6 +10097,7 @@ def EPSCreditCount22(matrice):
 
         ##Ajout total crédit à MAT 13
         mat[13].append(mat[1][10]+mat[2][10]+mat[3][10]+mat[4][10]+mat[5][10]+mat[9][10]+mat[10][10]+mat[11][10]+mat[12][10])
+
 
 #MATRICE DE SYNTHESE EPS2
 #Il faut ajouter la matrice de CC

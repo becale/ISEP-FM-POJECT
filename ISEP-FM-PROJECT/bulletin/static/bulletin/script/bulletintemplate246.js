@@ -5089,6 +5089,7 @@ function BullSTAPS2(clone, i) {
         if (j == 7) { ligneEPS111.children[j].innerHTML = listStudent[i][1][3] } //moyenne donc (totalmath + totalinfo)/2
         if (j == 8) { ligneEPS111.children[j].innerHTML = listStudent[i][1][4] } //Rang
         if (j == 9) {
+            // if (((listStudent[i][1][0] >= 7 && listStudent[i][1][0] < 10) && listStudent[i][1][3] >= 10)) { ligneMAS315.children[j].innerHTML = "Validée" } else if ((listStudent[i][1][0] >= 10)) { ligneMAS315.children[j].innerHTML = "Validée" } else if (listStudent[i][1][0] < 10) { ligneMAS315.children[j].innerHTML = "Non validée" }
             if (listStudent[i][1][5]) {
                 ligneEPS111.children[j].innerHTML = "Validée"
                 ligneEPS111.children[9].innerHTML = "Validée"

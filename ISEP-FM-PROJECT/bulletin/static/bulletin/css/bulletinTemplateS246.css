@@ -605,8 +605,12 @@ footer {
 }
 
 #visa {
-    padding-top: 3cm;
-    font-size: 11px;
+    padding-top: 2.03cm;
+    font-size: 13px;
+}
+#visa-eve6 {
+    padding-top: 5.5cm;
+    font-size: 13px;
 }
 
 .a {
@@ -614,7 +618,7 @@ footer {
 }
 
 .b {
-    padding-left: 15.6cm;
+    padding-left: 14.45cm;
     font-weight: bold;
 }
 

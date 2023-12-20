@@ -9723,6 +9723,7 @@ def brokeR(a):
 def MDSCreditCount(matrice):
     """
         Fonction permettant de compter le nombre de crédit total par semestre en MDS1
+
     """
     #ligne 1 & 2 
     ##UE Fondamentales
@@ -9782,6 +9783,8 @@ def MDSCreditCount(matrice):
 def MDSCreditCountS2(matrice):
     """
         Fonction permettant de compter le nombre de crédit total par semestre en MDS1
+        
+        Et décision  si Admis ou pas
     """
     for j in range(len(matrice[0])):
         
@@ -9847,6 +9850,8 @@ def MDSCreditCountS2(matrice):
         student.moyS2 = mat[11][2] 
         student.crS2  = mat[11][3] 
         student.save()
+
+        #Test d'admission
 
 
 ## EPS1 DECOMPTE CREDIT SEMESTRE 1
@@ -10169,6 +10174,7 @@ def matriceSynthese(matI, matR, mats3):
 
 
 #MATRICE DE SYNTHESE MDS1
+#MDS1 S1
 def matriceSynthesemds(matI, matR, matSi, matcc): #
     
     listeMoyenne = []
@@ -10237,6 +10243,7 @@ def matriceSynthesemds(matI, matR, matSi, matcc): #
 
     return matS, listeMoyenne, listeTotaleMoyenne
 
+#MDS1 S2
 def matriceSynthesemds1(matI, matR, matSi, matcc): #
     
     listeMoyenne = []

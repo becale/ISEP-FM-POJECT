@@ -1,6 +1,11 @@
+//import  BullSTAPS1 from  './BulletinTemplate246Function/BullSTAPS1.js';
+//import  BullSTAPS2 from  '../BulletinTemplate246Function/BullSTAPS2.js';
+
 window.addEventListener('load', () => {
+    
+
     //Recuperation de la variable des données
-    mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
+    var mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
     console.log(mydata)
 
     //Génération dynamique du tableau de bulletin
@@ -15,7 +20,7 @@ window.addEventListener('load', () => {
         for (i = 0; i < mydata[1].length; i++) {
             clone = containerrr.cloneNode(true);
             //Execution des traitements sur container
-            clone = BullMDS1(clone, i)
+            clone = BullMDS1(clone, i, mydata)
 
             /**MOYENNE */
             moY[i] = globalThis.resultat.children[3].innerHTML
@@ -35,7 +40,7 @@ window.addEventListener('load', () => {
         for (i = 0; i < mydata[1].length; i++) {
             clone = containeer.cloneNode(true);
             //Execution des traitements sur container
-            clone = BullSTAPS1(clone, i)
+            clone = BullSTAPS1(clone, i, mydata)
                 //Puis ajout au containerList
             listcontainer.appendChild(clone)
         }
@@ -43,12 +48,12 @@ window.addEventListener('load', () => {
         body.appendChild(listcontainer)
     } else if (mydata[0] == 'STAPS2') {
         body = document.getElementById('body')
-        containeer = GenerateBullStaps2Semestre3()
-        listcontainer = document.createElement('div')
-        for (i = 0; i < mydata[1].length; i++) {
-            clone = containeer.cloneNode(true);
+        var containeer = GenerateBullStaps2Semestre3()
+        var listcontainer = document.createElement('div')
+        for (var i = 0; i < mydata[1].length; i++) {
+            var clone = containeer.cloneNode(true);
             //Execution des traitements sur container
-            clone = BullSTAPS2(clone, i)
+            clone = BullSTAPS2(clone, i, mydata)
                 //Puis ajout au containerList
             listcontainer.appendChild(clone)
         }
@@ -1855,7 +1860,7 @@ function GenerateBullStaps2Semestre3() {
     //thead -Line 1
     var tr1 = document.createElement('tr')
     var thvalue = ["", "Groupe UE", "Code UE", "Matière", "Note", "Coef", "Total", "Moyenne Groupe", "Rang", "Mention", "Session", "Crédits Obtenus"]
-    for (i = 0; i < thvalue.length; i++) {
+    for (let i = 0; i < thvalue.length; i++) {
         var th = document.createElement('th')
         th.setAttribute("scope", "col")
         th.innerHTML = thvalue[i]
@@ -2576,7 +2581,7 @@ function GenerateBullStaps2Semestre3() {
     tbody.appendChild(tr10)
     tbody.appendChild(tr11)
 
-    table1 = document.createElement('table')
+    var table1 = document.createElement('table')
     table1.setAttribute('class', 'table-1')
     table1.appendChild(thead1)
     table1.appendChild(tbody)
@@ -2584,7 +2589,7 @@ function GenerateBullStaps2Semestre3() {
     //table3
     //thead2
     var tr12 = document.createElement('tr')
-    for (i = 0; i <= 11; i++) {
+    for (var i = 0; i <= 11; i++) {
         var th = document.createElement('th')
         th.setAttribute('scope', 'col')
         if (i == 0) { th.innerHTML = `&nbsp;&nbsp;` }
@@ -2673,7 +2678,7 @@ function GenerateBullStaps2Semestre3() {
     /*s4 = document.getElementById('semester-result0')
     s44 = s4.cloneNode(true)*/
 
-    semestreResult2 = semestreResult.cloneNode(true)
+    var semestreResult2 = semestreResult.cloneNode(true)
     semestreResult2.setAttribute('id', 'semestreResult2')
 
     /**MODIFICATION SEMESTRE 4 */
@@ -2681,7 +2686,7 @@ function GenerateBullStaps2Semestre3() {
 
     semestreResult2.children[0].children[1].children[0].children[0].innerHTML = "SEMESTRE 4"
 
-    for (j = 2; j <= 11; j++) {
+    for (var j = 2; j <= 11; j++) {
         semestreResult2.children[0].children[1].children[0].children[j].innerHTML = "--"
     }
     for (j = 0; j <= 8; j++) {
@@ -2723,13 +2728,13 @@ function GenerateBullStaps2Semestre3() {
 
 
     //INSERTION DU NOEUD
-    nodeToCopy = semestreResult2.children[0].children[1].children[10]
+    var nodeToCopy = semestreResult2.children[0].children[1].children[10]
 
-    newNode = nodeToCopy.cloneNode(true)
+    var newNode = nodeToCopy.cloneNode(true)
     newNode.setAttribute('id', 'ligne-eps250')
         //newNode.children[1].innerHTML = "PEDAGOGIE PRATIQUE III"
 
-    parentNode = semestreResult2.children[0].children[1]
+    var parentNode = semestreResult2.children[0].children[1]
     parentNode.insertBefore(newNode, nodeToCopy)
         //Ligne 12
     semestreResult2.children[0].children[1].children[11].children[0].innerHTML = "EPS250"
@@ -2740,22 +2745,22 @@ function GenerateBullStaps2Semestre3() {
 
 
     //node 248
-    node248 = semestreResult2.children[0].children[1].children[9]
-    tdvar = semestreResult2.children[0].children[1].children[10].children[8]
-    tdcredit = tdvar.cloneNode(true)
+    var node248 = semestreResult2.children[0].children[1].children[9]
+    var tdvar = semestreResult2.children[0].children[1].children[10].children[8]
+    var tdcredit = tdvar.cloneNode(true)
     tdcredit.setAttribute('id', 'eps248-credit')
     node248.insertBefore(tdcredit, node248.lastChild)
 
     //node 247
-    tdcredit1 = tdvar.cloneNode(true)
+    var tdcredit1 = tdvar.cloneNode(true)
     tdcredit1.setAttribute('id', 'eps247-credit')
-    node247 = semestreResult2.children[0].children[1].children[8]
+    var node247 = semestreResult2.children[0].children[1].children[8]
     node247.insertBefore(tdcredit1, node247.lastChild)
 
     //node 246
-    tdcredit12 = tdvar.cloneNode(true)
+    var tdcredit12 = tdvar.cloneNode(true)
     tdcredit12.setAttribute('id', 'eps246-credit')
-    node246 = semestreResult2.children[0].children[1].children[7]
+    var node246 = semestreResult2.children[0].children[1].children[7]
     node246.insertBefore(tdcredit12, node246.lastChild)
 
 
@@ -2778,10 +2783,10 @@ function GenerateBullStaps2Semestre3() {
     /** RESULTAT FINAL */
     //var temp = document.getElementById('semester-result0')
 
-    s4result = semestreResult2.cloneNode(true)
+    var s4result = semestreResult2.cloneNode(true)
 
     var s4s3 = document.getElementById('recpas3s4')
-    s4s3recap = s4s3.cloneNode(true)
+    var s4s3recap = s4s3.cloneNode(true)
 
     var v = document.getElementById('visa')
     visa = v.cloneNode(true)
@@ -2806,7 +2811,7 @@ function GenerateBullStaps2Semestre3() {
     footer.appendChild(visa)
 
     //TEST
-    containerbull = document.createElement('div')
+    var containerbull = document.createElement('div')
     containerbull.setAttribute('class', 'container-bull')
     containerbull.appendChild(header)
     containerbull.appendChild(hr)
@@ -3402,10 +3407,6 @@ function GenerateBullEVEsemestre5() {
     body[0].appendChild(containerbull)*/
     return (containerbull)
 }
-
-
-
-
 /*DECLARATION GENERATION SEEMESTRE 5 MSO */
 function GenerateBullMSOsemestre5() {
     var br = document.createElement('br')
@@ -3980,13 +3981,8 @@ function GenerateBullMSOsemestre5() {
 
 
 
-
-
-
-
-
 /**FONCTION BULLETIN MDS */
-function BullMDS1(clone, i) {
+function BullMDS1(clone, i, mydata) {
 
     //DONNEES RECUPEREES DE LA BD
     listStudent = mydata[1]
@@ -4473,11 +4469,10 @@ function BullMDS1(clone, i) {
 }
 
 
-
 /**FONCTION BULL 1er SEMESTRE */
 
 /**FONCTION BULLETIN STAPS1 */
-function BullSTAPS1(clone, i) {
+function BullSTAPS1(clone, i, mydata) {
 
     //DONNEES RECUPEREES DE LA BD
     listStudent = mydata[1]
@@ -5052,36 +5047,33 @@ function BullSTAPS1(clone, i) {
     return (clone)
 }
 
-
-
-
 /**FONCTION BULLETIN STAPS2 */
-function BullSTAPS2(clone, i) {
+function BullSTAPS2(clone, i, mydata) {
 
     //DONNEES RECUPEREES DE LA BD
-    listStudent = mydata[1]
+    var listStudent = mydata[1]
 
     //Info Utilisateur
-    info1 = clone.children[2].children[1].children[0]
+    var info1 = clone.children[2].children[1].children[0]
     info1.children[2].innerHTML = info1.children[2].innerHTML + ` ${listStudent[i][0]['nom']}`
     info1.children[3].innerHTML = info1.children[3].innerHTML + ` ${listStudent[i][0]['prenom']}`
 
-    info2 = clone.children[2].children[1].children[1]
+    var info2 = clone.children[2].children[1].children[1]
     info2.children[1].innerHTML = info2.children[1].innerHTML + ` ${listStudent[i][0]['matricule']}`
     info2.children[2].innerHTML = info2.children[2].innerHTML + ` ${listStudent[i][0]['date_naissance']}`
     info2.children[3].innerHTML = info2.children[3].innerHTML + ` ${listStudent[i][0]['lieu_naissance']}`
-    info2.children[4].innerHTML = info2.children[4].innerHTML + ` 2022-2023`
+    info2.children[4].innerHTML = info2.children[4].innerHTML + ` 2022-2023`   //Ajout de la variable  de la date
 
     //RESULTATS
     var tbody = clone.children[2].children[2].children[0].children[1]
 
     //LIGNE EPS111
     var ligneEPS111 = tbody.children[0]
-    for (j = 0; j <= ligneEPS111.childElementCount - 1; j++) {
+    for (var j = 0; j <= ligneEPS111.childElementCount - 1; j++) {
         if (j == 4) { ligneEPS111.children[j].innerHTML = listStudent[i][1][0] } //note 
         if (j == 5) { ligneEPS111.children[j].innerHTML = listStudent[i][1][1] } //coef
         if (j == 6) {
-            val = ligneEPS111.children[4].innerHTML * ligneEPS111.children[5].innerHTML;
+            var val = ligneEPS111.children[4].innerHTML * ligneEPS111.children[5].innerHTML;
             val = val.toFixed(2);
             val = parseFloat(val);
             ligneEPS111.children[j].innerHTML = val
@@ -5089,18 +5081,22 @@ function BullSTAPS2(clone, i) {
         if (j == 7) { ligneEPS111.children[j].innerHTML = listStudent[i][1][3] } //moyenne donc (totalmath + totalinfo)/2
         if (j == 8) { ligneEPS111.children[j].innerHTML = listStudent[i][1][4] } //Rang
         if (j == 9) {
-            // if (((listStudent[i][1][0] >= 7 && listStudent[i][1][0] < 10) && listStudent[i][1][3] >= 10)) { ligneMAS315.children[j].innerHTML = "Validée" } else if ((listStudent[i][1][0] >= 10)) { ligneMAS315.children[j].innerHTML = "Validée" } else if (listStudent[i][1][0] < 10) { ligneMAS315.children[j].innerHTML = "Non validée" }
-            if (listStudent[i][1][5]) {
+            if (((listStudent[i][1][0] >= 7 && listStudent[i][1][0] < 10) && listStudent[i][1][3] >= 10)) { ligneEPS111.children[j].innerHTML = "Validée" } else if ((listStudent[i][1][0] >= 10)) { ligneEPS111.children[j].innerHTML = "Validée" } else if (listStudent[i][1][0] < 10) { ligneEPS111.children[j].innerHTML = "Non validée" }
+            /*if (listStudent[i][1][5]) {
                 ligneEPS111.children[j].innerHTML = "Validée"
                 ligneEPS111.children[9].innerHTML = "Validée"
-            } else { ligneEPS111.children[9].innerHTML = "Non validée" }
+            } else { ligneEPS111.children[9].innerHTML = "Non validée" }*/
         } //Mention
         if (j == 10) { ligneEPS111.children[j].innerHTML = mydata[4] } //Session
-        if (j == 11) { if (listStudent[i][1][0] >= 10) { ligneEPS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS111.children[j].innerHTML = 0 } } //Crédits
+        if (j == 11) { 
+            //if (listStudent[i][1][0] >= 10) { ligneEPS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS111.children[j].innerHTML = 0 } 
+            if ((listStudent[i][1][0] >= 7 && listStudent[i][1][2] >= 10) || (listStudent[i][1][0] >= 10)) { ligneEPS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS111.children[j].innerHTML = 0 }
+        } //Crédits
+        
     }
 
     //LIGNE EPS112
-    ligneEPS112 = tbody.children[1]
+    var ligneEPS112 = tbody.children[1]
     for (j = 0; j <= ligneEPS112.childElementCount - 1; j++) {
         if (j == 2) { ligneEPS112.children[j].innerHTML = listStudent[i][2][0] } //note info
         if (j == 3) { ligneEPS112.children[j].innerHTML = listStudent[i][2][1] } //coef info
@@ -5150,9 +5146,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][1] } //coef info
         if (j == 4) { /*val=ligneEPS115a.children[2].innerHTML*ligneEPS115a.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115a.children[j].innerHTML = listStudent[i][5][2] } //total note math * coef
         if (j == 5) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][4] } //
-        if (j == 6) { if (listStudent[i][5][5]) { ligneEPS115a.children[j].innerHTML = "Validée" } else { ligneEPS115a.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) { 
+            if (((listStudent[i][5][5] >= 7 && listStudent[i][5][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115a.children[j].innerHTML = "Validée" } else if ((listStudent[i][5][0] >= 10)) { ligneEPS115a.children[j].innerHTML = "Validée" } else if (listStudent[i][5][0] < 10) { ligneEPS115a.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][5][5]) { ligneEPS115a.children[j].innerHTML = "Validée" } else { ligneEPS115a.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS115a.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0] + listStudent[i][9][0] + listStudent[i][10][0]) >= 48) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][6] } else { ligneEPS115a.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) { 
+            //if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0] + listStudent[i][9][0] + listStudent[i][10][0]) >= 48) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][6] } else { ligneEPS115a.children[j].innerHTML = 0 } 
+            if ((listStudent[i][5][0] >= 7 && listStudent[i][3][3] >= 10) || (listStudent[i][5][0] >= 10)) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][6] } else { ligneEPS115a.children[j].innerHTML = 0 }
+        } //nombre_crédits
     }
 
     //LIGNE EPS115b
@@ -5270,7 +5272,7 @@ function BullSTAPS2(clone, i) {
     }
 
     //LINE DEs RESULTATS
-    resultat = tbody.children[14]
+    var resultat = tbody.children[14]
     for (j = 0; j <= resultat.childElementCount - 1; j++) {
         if (j == 1) {
             resultat.children[1].innerHTML = listStudent[i][15][0];
@@ -5310,12 +5312,12 @@ function BullSTAPS2(clone, i) {
     resultat.style.backgroundColor = "#C7B54D"
 
     // ##################### SEMESTRE 4 ###################################################################################
-    listStudent2 = mydata[10][0]
-    s4body = clone.children[2].children[3].children[0].children[1]
+    var listStudent2 = mydata[10][0]
+    var s4body = clone.children[2].children[3].children[0].children[1]
 
     //Ligne 3
     var ligne33 = s4body.children[2]
-    for (j = 0; j <= ligne33.childElementCount - 1; j++) {
+    for (var j = 0; j <= ligne33.childElementCount - 1; j++) {
         if (j == 3) { ligne33.children[j].innerHTML = listStudent2[i][1][0] }
         if (j == 4) { ligne33.children[j].innerHTML = listStudent2[i][1][1] }
         if (j == 5) { ligne33.children[j].innerHTML = listStudent2[i][1][2] }
@@ -5532,7 +5534,7 @@ function BullSTAPS2(clone, i) {
 
     //Ligne 16 
     /*var*/
-    ligne16 = s4body.children[15]
+    var ligne16 = s4body.children[15]
     ligne16.style.backgroundColor = 'rgb(199, 181, 77)'
     for (j = 0; j <= 6; j++) {
         //if (j == 0) { ligne16.children[j].innerHTML = "" }
@@ -5547,9 +5549,9 @@ function BullSTAPS2(clone, i) {
     }
 
     // SEMESTRE 4 & 3 RESULT
-    resultats4s3 = clone.children[2].children[4]
+    var resultats4s3 = clone.children[2].children[4]
 
-    ligneresultat = resultats4s3.children[1].children[1]
+    var ligneresultat = resultats4s3.children[1].children[1]
 
     for (j = 0; j <= ligneresultat.childElementCount - 1; j++) {
         if (j == 0) { ligneresultat.children[j].innerHTML = sommeInt2(resultat.children[1].innerHTML, ligne16.children[1].innerHTML) }
@@ -5574,8 +5576,6 @@ function BullSTAPS2(clone, i) {
 
     return clone
 }
-
-
 
 /**FONCTION BULLETIN EVE */
 function BullEVE(clone, i) {
@@ -5889,7 +5889,6 @@ function BullEVE(clone, i) {
     return (clone)
 }
 
-/** */
 
 //FONCTIONS
 function Moyenne3(a, b, c, coef) {
@@ -5943,7 +5942,7 @@ function sommeInt2(a, b) {
     a = parseInt(a)
     b = parseInt(b);
 
-    result = a + b
+    var result = a + b
 
     return (result)
 }
@@ -6000,7 +5999,7 @@ function sommeInt9(a, b, c, d, e, f, g, h, i) {
     h = parseInt(h);
     i = parseInt(i)
 
-    result = a + b + c + d + e + f + g + h + i
+    var result = a + b + c + d + e + f + g + h + i
     return (result)
 }
 
@@ -6054,7 +6053,7 @@ function sommeFloat2(a, b) {
     a = parseFloat(a)
     b = parseFloat(b);
 
-    result = a + b
+    var result = a + b
     result = result.toFixed(2)
     result = parseFloat(result)
 

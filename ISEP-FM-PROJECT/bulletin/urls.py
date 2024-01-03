@@ -50,6 +50,9 @@ urlpatterns=[
     path('bulletin-collectif/Semestre5/EVE', views.resultatCommunEve, name="resultCommunEve"),
     path('bulletin-collectif/Semestre6/EVE', views.resultatCommuns6Eve, name="resultCommuns6Eve"),
 
+    #Clôturation de l'année Académique
+    path('deliberation', views.deliberation, name="deliberation"),
+
 
     
     #path('releveCommun/semestre1/<filiere>', views.resultatCommunepsmds, name="resultCommun"),

@@ -2219,7 +2219,7 @@ def bulls2epsmds(request, filiere):
 
                 #EPS125lR[j],
                 EPS125fR[j],
-                
+
                 EPS126R[j],
 
                 EPS127R[j],
@@ -3143,7 +3143,6 @@ def bulls4eps2(request, filiere):
                         EPS115a2[j]
                         , coefS1STAPS2[1]
                         , EPS115a2[j]*coefS1STAPS2[1]
-                        #, "MOYENNE"
                         , round( (EPS115a2[j]*coefS1STAPS2[1]+EPS115f2[j]*coefS1STAPS2[2]+EPS115j2[j]*coefS1STAPS2[3]+EPS115g2[j]*coefS1STAPS2[4])/(coefS1STAPS2[1]+coefS1STAPS2[2]+coefS1STAPS2[3]+coefS1STAPS2[4]), 2 ) #Moyenne des APS
                         , sort115a2.index(EPS115a2[j])+1
                         , (EPS115a2[j] >=10)
@@ -3267,8 +3266,7 @@ def bulls4eps2(request, filiere):
                         EPS1188[j]
                         ,  coefS1STAPS2[10]
                         , EPS1188[j]*coefS1STAPS2[10]
-                        #, "MOYENNE"
-                        , round( (EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11]) / (coefS1STAPS2[10]+coefS1STAPS2[11]) ,2)
+                        , 'MOYENNE'#round( (EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11]) / (coefS1STAPS2[10]+coefS1STAPS2[11]) ,2)
                         , sort1188.index(EPS1188[j])+1
                         , (EPS1188[j] >=10)
                         , creditS1STAPS2[10]
@@ -3284,10 +3282,9 @@ def bulls4eps2(request, filiere):
                         , EPS1199[j]*coefS1STAPS2[11]
                         , round( (EPS1188[j]*coefS1STAPS2[10]+EPS1199[j]*coefS1STAPS2[11]) / (coefS1STAPS2[10]+coefS1STAPS2[11]) ,2)
                         , sort1199.index(EPS1199[j])+1
-                        #"MOYENNE",
                         , (EPS1199[j] >=10)
                         , creditS1STAPS2[11]
-                        , creditS1STAPS2[11] if (EPS1199[j] >=10) else 0
+                        #, creditS1STAPS2[11] if (EPS1199[j] >=10) else 0
                         , EPS1199cc[j]['note_cc']
                         , EPS1199sn[j]['note_sn']
                     ],
@@ -3463,6 +3460,7 @@ def bulls4eps2(request, filiere):
 
 ################################################## MATRICE DE SYNTHESE SEMESTRE 4 #################################################################
     listematriceSynthese = matriceSynthese(listeMatrice2, listMatriceRattrapage, listeMatriceSyntheseEps2S3)
+    EPS2CreditCountS4(listematriceSynthese[0])
     semestre1MDS.append(listematriceSynthese)
 
     listeSyntheseTest, listeR, listeE = matriceSyntheseEPS2S4( listeMatrice2, listMatriceRattrapage, listeMatriceEPS2s4CC, listeMatriceSyntheseEps2S3 )
@@ -10708,7 +10706,7 @@ def EPS2CreditCountS3(matrice):
             mat[11].append(0)
         ##UE Transversales
         #ligne 12
-        if (((mat[12][0]) >=7 and mat[12][0] < 10) and  mat[12][3] >=10 ) or (mat[10][0] >= 10):
+        if (((mat[12][0]) >=7 and mat[12][0] < 10) and  mat[12][3] >=10 ) or (mat[12][0] >= 10):
             mat[12].append( mat[12][6])
         else:
             mat[12].append(0)
@@ -10739,15 +10737,19 @@ def EPS2CreditCountS4(matrice):
 
         #ligne 3
         if ( ( (mat[1][0]) >=7 and mat[1][0] < 10) and  mat[1][3] >=10 ) or (mat[1][0] >= 10):
-            mat[1].append( mat[1][6])
+            #mat[1].append( mat[1][6])
+            mat[1][7] = ( mat[1][6] )
         else:
-            mat[1].append(0)
+            #mat[1].append(0)
+            mat[1][7] = 0
         #ligne 4-7
         note4567 = round((mat[2][0]+mat[3][0]+mat[4][0]+mat[5][0])/4, 2)
         if (((note4567 >= 7 and note4567 < 10 ) and mat[1][3] >=10) or note4567 >= 10):
-            mat[5].append( mat[5][6])
+            #mat[5].append( mat[5][6])
+            mat[5][7] = ( mat[5][6] )
         else:
-            mat[5].append(0)
+            #mat[5].append(0)
+            mat[5][7] = 0
         #if (((mat[2][0]) >=7 and mat[2][0] < 10) and  mat[1][3] >=10 ) or (mat[2][0] >= 10):
         #    mat[2].append( mat[2][6])
         #else:
@@ -10771,30 +10773,39 @@ def EPS2CreditCountS4(matrice):
 
         #ligne 8
         if (((mat[6][0]) >=7 and mat[3][0] < 10) and  mat[1][3] >=10 ) or (mat[6][0] >= 10):
-            mat[6].append( mat[6][6])
+            mat[6][7] = ( mat[6][6] )
         else:
-            mat[6].append(0)
+            mat[6][7] = 0
         #ligne 9
         if (((mat[7][0]) >=7 and mat[7][0] < 10) and  mat[1][3] >=10 ) or (mat[7][0] >= 10):
-            mat[7].append( mat[7][6])
+            #mat[7].append( mat[7][6])
+            mat[7][7] = ( mat[6][6] )
         else:
-            mat[7].append(0)
+            #mat[7].append(0)
+            mat[7][7] = 0
         #ligne 10
-        if (((mat[8][0]) >=7 and mat[8][0] < 10) and  mat[1][3] >=10 ) or (mat[8][0] >= 10):
-            mat[8].append( mat[8][6])
+        if ( ( (mat[8][0]) >=7 and mat[8][0] < 10 ) and  mat[1][3] >=10 ) or ( mat[8][0] >= 10 ):
+            #mat[8].append( mat[8][6])
+            mat[8][7] = ( mat[8][6] )
         else:
-            mat[8].append(0)
+            #mat[8].append(0)
+            mat[8][7] = 0
         #ligne 11
         if (((mat[9][0]) >=7 and mat[9][0] < 10) and  mat[1][3] >=10 ) or (mat[9][0] >= 10):
-            mat[9].append( mat[9][6])
+            #mat[9].append( mat[9][6])
+            mat[9][7] = ( mat[9][6] )
         else:
-            mat[9].append(0)
+            #mat[9].append(0)
+            mat[9][7] = 0
         ##UE Transversales
         #ligne 12
         if (((mat[10][0]) >=7 and mat[10][0] < 10) and  mat[1][3] >=10 ) or (mat[10][0] >= 10):
-            mat[10].append( mat[10][6])
+            #mat[10].append( mat[10][6])
+            mat[10][7] = ( mat[10][6])
+            #mat[10][7] = ( len(mat[10]) )
         else:
-            mat[10].append(0)
+            #mat[10].append(0)
+            mat[10][7] = 0
         #ligne 13
         #if (((mat[13][0]) >=7 and mat[13][0] < 10) and  mat[12][3] >=10 ) or (mat[13][0] >= 10):
         #    mat[13].append( mat[13][6])
@@ -10802,10 +10813,12 @@ def EPS2CreditCountS4(matrice):
         #    mat[13].append(0)
 
         #ligne 13
-        if (((mat[11][0]) >=7 and mat[11][0] < 10) and  mat[11][3] >=10 ) or (mat[11][0] >= 10):
-            mat[11].append( mat[11][6])
+        if (((mat[11][0]) >=7 and mat[11][0] < 10) and  mat[12][3] >=10 ) or (mat[11][0] >= 10):
+            #mat[11].append( mat[11][6])
+            mat[11][7] = ( mat[11][6] )
         else:
-            mat[11].append(0)
+            #mat[11].append(0)
+            mat[11][7] = 0
         #ligne 14
         #if (((mat[14][0]) >=7 and mat[14][0] < 10) and  mat[12][3] >=10 ) or (mat[14][0] >= 10):
         #    mat[14].append( mat[14][6])
@@ -10813,13 +10826,16 @@ def EPS2CreditCountS4(matrice):
         #    mat[14].append(0)
 
         #ligne 14
-        if (((mat[12][0]) >=7 and mat[12][0] < 10) and  mat[11][3] >=10 ) or (mat[12][0] >= 10):
-            mat[12].append( mat[12][6])
+        if (((mat[12][0]) >=7 and mat[12][0] < 10) and  mat[12][3] >=10 ) or (mat[12][0] >= 10):
+            #mat[12].append( mat[12][6])
+            mat[12][7] = ( mat[12][6] )
         else:
-            mat[12].append(0)
+            #mat[12].append(0)
+            mat[12][7] = ( mat[12][6] )
         ##Ajout total crédit à MAT 13
         #mat[15].append(mat[1][7]+mat[2][7]+mat[3][7]+mat[4][7]+mat[5][7]+mat[11][7]+mat[12][7]+mat[13][7]+mat[14][7])
-        mat[13].append(mat[1][7]+mat[2][7]+mat[6][7]+mat[7][7]+mat[8][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7])
+        #print(mat[2][7],mat[6][7],mat[7][7],mat[8][7],mat[9][7])
+        mat[13].append(mat[1][7]+mat[2][7]+mat[6][7]+mat[7][7]+mat[8][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7]) #mat[1][7]+mat[2][7]+mat[6][7]+mat[7][7]+mat[8][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7]
 
 
 #MATRICE DE SYNTHESE EPS2
@@ -10955,7 +10971,7 @@ def matriceSynthese(matI, matR, mats3):
                 matS[i][j][5] = (matS[i][j][0] >= 10)
 
                 #7
-                matS[i][j][7] = (matS[i][j][6] if matS[i][j][0]>=10 else 0)
+                #matS[i][j][7] = (matS[i][j][6] if matS[i][j][0]>=10 else 0)
 
                 #Au niveau des sommes
                 #Ligne 5 moyenne
@@ -10981,7 +10997,7 @@ def matriceSynthese(matI, matR, mats3):
         listeMoyenne.append(matS[i][13][2])
 
         #val =
-        listeTotaleMoyenne.append( round(((matS[i][13][1] + mats3[i][15][1]) ), 2) ) #/(matS[i][13][0]+mats3[i][15][0])) ) 
+        listeTotaleMoyenne.append( round(((matS[i][13][1] + mats3[i][15][1]) ), 2) ) #/(matS[i][13][0]+mats3[i][15][0])) )
         listeTotaleMoyenne.sort(reverse=True)
 
         #listeTotaleMoyenne.append(matS[i][13][1])

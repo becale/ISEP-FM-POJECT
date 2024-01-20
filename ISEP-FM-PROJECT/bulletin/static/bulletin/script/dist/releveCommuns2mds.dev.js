@@ -1706,7 +1706,7 @@ window.addEventListener('load', function () {
     ligneStat3 = tabstat.children[0].children[1].children[2];
     ligneStat4 = tabstat.children[0].children[1].children[3];
 
-    if (1 == 0) {
+    if (i == 0) {
       //Ligne 1
       ligneStat1.children[1].innerHTML = mydata[1].length;
       ligneStat1.children[4].innerHTML = mydata[7][0]['Passable'];

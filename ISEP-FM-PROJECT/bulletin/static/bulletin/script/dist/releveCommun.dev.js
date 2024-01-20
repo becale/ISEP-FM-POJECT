@@ -4,7 +4,7 @@ window.addEventListener('load', function () {
   //Recuperation de la variable des données
   mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
   console.log(mydata);
-  /*function Page1(){ 
+  /*function Page1(){
       /*listStudent = mydata[1]
         bigtab = document.getElementById('table1')
         //page2.children[1].children[1].children[1]
@@ -128,7 +128,9 @@ window.addEventListener('load', function () {
       Page1()*/
 
   function Page1_2() {
-    listStudent = mydata[1];
+    //listStudent = mydata[1]
+    //données data matrice synthèse
+    listStudent = mydata[9];
     page0 = document.getElementById('page');
     page0 = page0.cloneNode(true);
     bigtab = page0.children[0].children[2].children[1];
@@ -472,7 +474,7 @@ window.addEventListener('load', function () {
       tab02 = tab01.children;
       tab03 = tab02['0'];
       tab04 = tab03.children;
-      tab05 = tab04[0]; //good  
+      tab05 = tab04[0]; //good
       ////
 
       tab00 = temp3.children[0];
@@ -522,11 +524,11 @@ window.addEventListener('load', function () {
 
       for (j = 0; j <= tab15.childElementCount - 1; j++) {
         if (j == 0) {
-          tab15.cells[j].innerHTML = listStudent[i][1]; //'--';
+          tab15.cells[j].innerHTML = '--'; //listStudent[i][1] //;
         }
 
         if (j == 1) {
-          tab15.cells[j].innerHTML = '--'; //listStudent[i][2][0];
+          tab15.cells[j].innerHTML = '--'; //listStudent[i][2]
         }
 
         if (j == 2) {
@@ -548,7 +550,8 @@ window.addEventListener('load', function () {
         }
 
         if (j == 3) {
-          tab15.cells[j].innerHTML = moyuefcr;
+          tab15.cells[j].innerHTML = '--'; //moyuefcr
+
           tab116.cells[j].innerHTML = '--'; //mydata[2].indexOf(listStudent[i][13][2]) + 1 //rang
         }
 

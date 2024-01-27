@@ -1376,7 +1376,7 @@ def bulls2epsmds(request, filiere):
 
         #Liste Matrice CC
         listeMatrices2GesCC = []
-        
+
         for j in range(len(infoEtudiantMDS)):
 
             matrices2GesCC = [
@@ -1416,9 +1416,18 @@ def bulls2epsmds(request, filiere):
 
                 matrice = [
                     infoEtudiantMDS[j],
-                    
+
                     #Ligne 1
-                    [ MDS121[j], coefS1MDS1[0], MDS121[j]*coefS1MDS1[0], round( ((MDS121[j]*coefS1MDS1[0]) + (MDS121b[j]*coefS1MDS1[1]) + ( MDS122[j]*coefS1MDS1[2]) + (MDS122b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2), sort121.index(MDS121[j])+1,(MDS121[j]>=10), creditS1MDS1[0],  creditS1MDS1[0] if (MDS121[j]>=10) else 0  ],
+                    [
+                        MDS121[j]
+                        , coefS1MDS1[0]
+                        , MDS121[j]*coefS1MDS1[0]
+                        , round( ((MDS121[j]*coefS1MDS1[0]) + (MDS121b[j]*coefS1MDS1[1]) + ( MDS122[j]*coefS1MDS1[2]) + (MDS122b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2)
+                        , sort121.index(MDS121[j])+1
+                        , (MDS121[j]>=10)
+                        , creditS1MDS1[0]
+                        , creditS1MDS1[0] if (MDS121[j]>=10) else 0
+                    ],
 
                     [ MDS121b[j], coefS1MDS1[1], MDS121b[j]*coefS1MDS1[1], "MOYENNE", sort121b.index(MDS121b[j])+1,(MDS121b[j]>=10), creditS1MDS1[1], creditS1MDS1[1] if (MDS121b[j]>=10) else 0],
 
@@ -1427,10 +1436,10 @@ def bulls2epsmds(request, filiere):
                     [ MDS122b[j], coefS1MDS1[3], MDS122b[j]*coefS1MDS1[3], "MOYENNE", sort122b.index(MDS122b[j])+1,(MDS122b[j]>=10), creditS1MDS1[3], creditS1MDS1[3] if (MDS122b[j]>=10) else 0 ],
 
                     #Ligne 5
-                    [ MDS123[j], coefS1MDS1[4], MDS123[j]*coefS1MDS1[4], 
+                    [ MDS123[j], coefS1MDS1[4], MDS123[j]*coefS1MDS1[4],
 
                         round( ((MDS123[j]*coefS1MDS1[4]) + (MDS124[j]*coefS1MDS1[5]) + MDS125[j]*coefS1MDS1[6] + MDS126[j]*coefS1MDS1[7])/(coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]), 2), 
-                    
+
                         sort123.index(MDS123[j])+1,
 
                         (MDS123[j]>=10), 
@@ -1485,7 +1494,7 @@ def bulls2epsmds(request, filiere):
 
                 #filiere, listeMatrice, staps1Moyenne, moy, session
 
-        #semestre1MDS = [filiere,  listeMatrice, mds1Moyenne,  moy, session] 
+        #semestre1MDS = [filiere,  listeMatrice, mds1Moyenne,  moy, session]
 
 ################################################## SEMESTRE 2 GESTION RATTRAPAGE ############################################################################
 
@@ -1558,6 +1567,7 @@ def bulls2epsmds(request, filiere):
         sessionD = "Mai 2023"
 
         semestre1MDS = [filiere,  listeMatriceS1Ges, mdsS1Moyenne,  moy, session, listeMatrices2Ges, listeMatrices2GesR, listeMatricemdsS2Synthese, sessionD, listeMatrices2GesCC, listeMatricemdsS1Synthese] #mds1Moyenne , listeMatricemdsS1Synthese
+
 
 ################################################## SEMESTRE 1 EPS ########################################################################################################################################################
     elif (filiere == 'STAPS1'):
@@ -4593,15 +4603,26 @@ def resultatCommunepsmds(request):
         matrice = [
                         infoEtudiantSTAPS1[j],
 
-                        [ EPS111[j], coefS1STAPS1[0], EPS111[j]*coefS1STAPS1[0], round( ((EPS111[j]*coefS1STAPS1[0]) + (EPS112[j]*coefS1STAPS1[1]))/(coefS1STAPS1[0]+coefS1STAPS1[1]), 2), sort111.index(EPS111[j])+1,(EPS111[j]>=10), creditS1STAPS1[0], creditS1STAPS1[0] if (EPS111[j]>=10) else 0, EPS111cc[j]['note_cc'], EPS111sn[j]['note_sn'] ],
+                        [
+                            EPS111[j]
+                            , coefS1STAPS1[0]
+                            , EPS111[j]*coefS1STAPS1[0]
+                            , round( ((EPS111[j]*coefS1STAPS1[0]) + (EPS112[j]*coefS1STAPS1[1]))/(coefS1STAPS1[0]+coefS1STAPS1[1]), 2)
+                            , sort111.index(EPS111[j])+1
+                            , (EPS111[j]>=10)
+                            , creditS1STAPS1[0]
+                            , creditS1STAPS1[0] if (EPS111[j]>=10) else 0
+                            , EPS111cc[j]['note_cc']
+                            , EPS111sn[j]['note_sn']
+                        ],
 
                         [ EPS112[j], coefS1STAPS1[1], EPS112[j]*coefS1STAPS1[1], "MOYENNE", sort112.index(EPS112[j])+1,(EPS112[j]>=10), creditS1STAPS1[1], creditS1STAPS1[1] if (EPS112[j]>=10) else 0, EPS112cc[j]['note_cc'], EPS112sn[j]['note_sn'] ],
 
-                        [ EPS113[j], 
+                        [ EPS113[j],
 
-                            coefS1STAPS1[2], 
+                            coefS1STAPS1[2],
 
-                            EPS113[j]*coefS1STAPS1[2], 
+                            EPS113[j]*coefS1STAPS1[2],
 
                             round( ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115b[j]*coefS1STAPS1[5]) + (EPS115j[j]*coefS1STAPS1[6]) + (EPS115l[j]*coefS1STAPS1[7]) + (EPS116[j]*coefS1STAPS1[8]) )/( coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]) ,2), 
                             
@@ -4609,10 +4630,10 @@ def resultatCommunepsmds(request):
                             
                             (EPS113[j] >=10),
                             
-                            creditS1STAPS1[2], 
+                            creditS1STAPS1[2],
                             creditS1STAPS1[2] if(EPS113[j] >=10) else 0,
 
-                            EPS113cc[j]['note_cc'], 
+                            EPS113cc[j]['note_cc'],
                             EPS113sn[j]['note_sn']
                         ],
 
@@ -4673,25 +4694,26 @@ def resultatCommunepsmds(request):
                             , creditS1STAPS1[10] if (EPS118[j] >=10) else 0
 
                             , EPS118cc[j]['note_cc']
-                            , EPS118sn[j]['note_sn'] 
+                            , EPS118sn[j]['note_sn']
                         ],
 
                         [ EPS119[j], coefS1STAPS1[11], EPS119[j]*coefS1STAPS1[11], "MOYENNE", sort119.index(EPS119[j])+1, (EPS119[j] >=10), creditS1STAPS1[11], creditS1STAPS1[11] if (EPS119[j] >=10) else 0, EPS119cc[j]['note_cc'], EPS119sn[j]['note_sn'] ],
 
-                        [ 
+                        [
                             ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11] ), #coefsomme
 
                             round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115j[j]*coefS1STAPS1[6]+EPS115l[j]*coefS1STAPS1[7]+EPS116[j]*coefS1STAPS1[8]+EPS117[j]*coefS1STAPS1[9]+EPS118[j]*coefS1STAPS1[10]+EPS119[j]*coefS1STAPS1[11], 2),
 
                             round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115j[j]*coefS1STAPS1[6]+EPS115l[j]*coefS1STAPS1[7]+EPS116[j]*coefS1STAPS1[8]+EPS117[j]*coefS1STAPS1[9]+EPS118[j]*coefS1STAPS1[10]+EPS119[j]*coefS1STAPS1[11] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]), 2 ),
 
-                            4,
-                            5
+                            #4,
+                            #5
                         ]
         ]
 
         staps1Moyenne.append(matrice[13][2])
 
+        EPSCreditCount(matrice)
         listeMatrice.append(matrice)
 
         staps1Moyenne.sort(reverse=True)
@@ -5130,7 +5152,7 @@ def resultatCommuns2staps(request):
 
     infoEtudiantSTAPS1 =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
-########################################################### PV SEMESTRE 2            ###############################################################################################################################
+########################################################### PV SEMESTRE 2 ###############################################################################################################################
     #UE NOM ET CODE
     UeNomCode = list( UniteEnseignement.objects.filter(semestre_id = 2, Specialite="EPS").values("code_UE","intitule_UE", "semestre_id", "nombre_credit") )
 
@@ -5212,13 +5234,6 @@ def resultatCommuns2staps(request):
     EPS129sn = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_sn'))
     sort129 = epurationTriCroissant(EPS129)
 
-    student = {}
-    temp = {}
-    staps1 = []
-    staps2Moyenne = []
-    listeMatriceS2Eps = [ ]
-
-
     val1 = {
         'nombre': 0,
         'pourcentage': 0,
@@ -5268,48 +5283,214 @@ def resultatCommuns2staps(request):
         'pourcentage': 0,
     }
 
+    student = {}
+    temp = {}
+    staps1 = []
+    staps2Moyenne = []
+    listeMatriceS2Eps = []
+
+    for j in range( len(infoEtudiantSTAPS1) ):
+
+        #for j in range( len(coefS1STAPS1) ):
+        matrice = [
+                infoEtudiantSTAPS1[j],
+
+                [ 
+                    EPS121[j]
+                    , coefS1STAPS1[0]
+                    , EPS121[j]*coefS1STAPS1[0]
+                    , round( ((EPS121[j]*coefS1STAPS1[0]) + (EPS122[j]*coefS1STAPS1[1]))/(coefS1STAPS1[0]+coefS1STAPS1[1]), 2)
+                    , sort121.index(EPS121[j])+1,(EPS121[j]>=10)
+                    , creditS1STAPS1[0]
+                    , creditS1STAPS1[0] if(EPS121[j]>=10) else 0 
+                ],
+
+                [ 
+                    EPS122[j]
+                    , coefS1STAPS1[1]
+                    , EPS122[j]*coefS1STAPS1[1]
+                    , "MOYENNE"
+                    , sort122.index(EPS122[j])+1
+                    #, (EPS122[j]>=10)
+                    , creditS1STAPS1[1]
+                    , creditS1STAPS1[1] if(EPS122[j]>=10) else 0 
+                ],
+
+                [ 
+                    EPS123[j]
+                    , coefS1STAPS1[2]
+                    , EPS123[j]*coefS1STAPS1[2]
+                    , round( ( (EPS123[j]*coefS1STAPS1[2]) + (EPS124[j]*coefS1STAPS1[3]) + (EPS125a[j]*coefS1STAPS1[4]) + (EPS125g[j]*coefS1STAPS1[5]) + (EPS125j[j]*coefS1STAPS1[6]) + (EPS125f[j]*coefS1STAPS1[7]) + (EPS126[j]*coefS1STAPS1[8]) )/( coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]) ,2)  #EPS125b[j] , EPS125l[j]
+                    , sort123.index(EPS123[j])+1
+                    #, (EPS123[j] >=10)
+                    , creditS1STAPS1[2]
+                    , creditS1STAPS1[2] if (EPS123[j] >=10) else 0
+                ],
+
+                [ 
+                    EPS124[j]
+                    , coefS1STAPS1[3]
+                    , EPS124[j]*coefS1STAPS1[3]
+                    , "MOYENNE"
+                    , sort124.index(EPS124[j])+1
+                    #, (EPS124[j] >=10)
+                    , creditS1STAPS1[3]
+                    , creditS1STAPS1[3] if (EPS124[j] >=10) else 0  
+                ],
+
+                [ 
+                    EPS125a[j]
+                    , coefS1STAPS1[4]
+                    , EPS125a[j]*coefS1STAPS1[4]
+                    , "MOYENNE"
+                    , sort125a.index(EPS125a[j])+1
+                    #, (EPS125a[j] >=10)
+                    , creditS1STAPS1[4]
+                    , creditS1STAPS1[4] if((EPS125a[j]+EPS125g[j]+EPS125f[j]+EPS125j[j]) >= 40) else 0 
+                ], #crédits
+
+                #[ EPS125b[j], coefS1STAPS1[5], EPS125b[j]*coefS1STAPS1[5], "MOYENNE", sort125b.index(EPS125b[j])+1, (EPS125b[j] >=10), creditS1STAPS1[5], creditS1STAPS1[5] if(EPS125b[j] >=10) else 0 ],
+                [ 
+                    EPS125g[j]
+                    , coefS1STAPS1[13]
+                    , EPS125g[j]*coefS1STAPS1[13]
+                    , "MOYENNE"
+                    , sort125g.index(EPS125g[j])+1
+                    #, (EPS125g[j] >=10)
+                    , creditS1STAPS1[13]
+                    , creditS1STAPS1[13] if(EPS125g[j] >=10) else 0 
+                ],
+
+                [ 
+                    EPS125j[j]
+                    , coefS1STAPS1[6]
+                    , EPS125j[j]*coefS1STAPS1[6]
+                    , "MOYENNE"
+                    , sort125j.index(EPS125j[j])+1
+                    #, (EPS125j[j] >=10)
+                    , creditS1STAPS1[6]
+                    , creditS1STAPS1[6] if(EPS125j[j] >=10) else 0 
+                ],
+
+                #[ EPS125l[j], coefS1STAPS1[7], EPS125l[j]*coefS1STAPS1[7], "MOYENNE", sort125l.index(EPS125l[j])+1, (EPS125l[j] >=10), creditS1STAPS1[7], creditS1STAPS1[7] if (EPS125l[j] >=10) else 0  ],
+                [ 
+                    EPS125f[j]
+                    , coefS1STAPS1[8]
+                    , EPS125f[j]*coefS1STAPS1[8]
+                    , "MOYENNE"
+                    , sort125f.index(EPS125f[j])+1
+                    #, (EPS125f[j] >=10)
+                    , creditS1STAPS1[8]
+                    , creditS1STAPS1[8] if(EPS125f[j] >=10) else 0 
+                ],
+
+                [ 
+                    EPS126[j]
+                    , coefS1STAPS1[9]
+                    , EPS126[j]*coefS1STAPS1[9]
+                    , "MOYENNE"
+                    , sort126.index(EPS126[j])+1
+                    #, (EPS126[j] >=10)
+                    , creditS1STAPS1[9]
+                    , creditS1STAPS1[9] if(EPS126[j] >=10) else 0 
+                ],
+
+                [ 
+                    EPS127[j]
+                    , coefS1STAPS1[10]
+                    , EPS127[j]*coefS1STAPS1[10]
+                    , round( ((EPS127[j]*coefS1STAPS1[10]) + (EPS128[j]*coefS1STAPS1[10]) + (EPS129[j]*coefS1STAPS1[12])) / ( coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]) ,2)
+                    , sort127.index(EPS127[j])+1
+                    #, (EPS127[j] >=10)    
+                    , creditS1STAPS1[10]
+                    , creditS1STAPS1[10] if(EPS127[j] >=10) else 0
+                ],
+
+                [ 
+                    EPS128[j]
+                    , coefS1STAPS1[11]
+                    , EPS128[j]*coefS1STAPS1[11]
+                    , "MOYENNE"
+                    , sort128.index(EPS128[j])+1
+                    #, (EPS128[j] >=10)
+                    , creditS1STAPS1[10]
+                    , creditS1STAPS1[11] if(EPS128[j] >=10) else 0  
+                ],
+
+                [ 
+                    EPS129[j]
+                    , coefS1STAPS1[12]
+                    , EPS129[j]*coefS1STAPS1[12]
+                    , "MOYENNE"
+                    , sort129.index(EPS129[j])+1
+                    #, (EPS129[j] >=10)
+                    , creditS1STAPS1[12] 
+                    , creditS1STAPS1[12] if(EPS129[j] >=10) else 0 
+                ],
+
+                [ 
+                    ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[13]+coefS1STAPS1[6]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12] ),
+
+                    round( EPS121[j]*coefS1STAPS1[0]+EPS122[j]*coefS1STAPS1[1]+EPS123[j]*coefS1STAPS1[2]+EPS124[j]*coefS1STAPS1[3]+EPS125a[j]*coefS1STAPS1[4]+EPS125g[j]*coefS1STAPS1[13]+EPS125j[j]*coefS1STAPS1[6]+EPS125f[j]*coefS1STAPS1[8]+EPS126[j]*coefS1STAPS1[9]+EPS127[j]*coefS1STAPS1[10]+EPS128[j]*coefS1STAPS1[11]+EPS129[j]*coefS1STAPS1[12], 2),
+
+                    round(( EPS121[j]*coefS1STAPS1[0]+EPS122[j]*coefS1STAPS1[1]+EPS123[j]*coefS1STAPS1[2]+EPS124[j]*coefS1STAPS1[3]+EPS125a[j]*coefS1STAPS1[4]+EPS125g[j]*coefS1STAPS1[13]+EPS125j[j]*coefS1STAPS1[6]+EPS125f[j]*coefS1STAPS1[8]+EPS126[j]*coefS1STAPS1[9]+EPS127[j]*coefS1STAPS1[10]+EPS128[j]*coefS1STAPS1[11]+EPS129[j]*coefS1STAPS1[12] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[13]+coefS1STAPS1[6]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]), 2 ),
+
+                ]
+        ]
+        staps2Moyenne.append(matrice[13][2])
+
+        listeMatriceS2Eps.append(matrice)
+
+        #infoEtudiantSTAPS1, coefS1STAPS1, creditS1STAPS1, EPS121, EPS122, EPS123, EPS124, EPS125a ,EPS125b, EPS125j, EPS125l, EPS126, EPS127, EPS128, EPS129, 
+
+        staps2Moyenne.sort(reverse=True)
+        moy2 = stat.mean(staps2Moyenne)
+        moy2 = round(moy2, 2)
+        session2 = 'Mai 2023'
+
 ########################################################### PV SEMESTRE 2 RATTRAPAGE ##############################################################################################################################
-    EPS121R = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort121R = epurationTriCroissant(EPS121R)
+    EPS121R = list(Evaluation.objects.filter(uniteEnseignement_id=99, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort121R = epurationRattrapage(EPS121R)
 
-    EPS122R = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort122R = epurationTriCroissant(EPS122R)
+    EPS122R = list(Evaluation.objects.filter(uniteEnseignement_id=100, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort122R = epurationRattrapage(EPS122R)
 
-    EPS123R = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort123R = epurationTriCroissant(EPS123R)
+    EPS123R = list(Evaluation.objects.filter(uniteEnseignement_id=101, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort123R = epurationRattrapage(EPS123R)
 
-    EPS124R = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort124R = epurationTriCroissant(EPS124R)
+    EPS124R = list(Evaluation.objects.filter(uniteEnseignement_id=102, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort124R = epurationRattrapage(EPS124R)
 
-    EPS125aR = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort125aR = epurationTriCroissant(EPS125aR)
+    EPS125aR = list(Evaluation.objects.filter(uniteEnseignement_id=103, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort125aR = epurationRattrapage(EPS125aR)
 
-    EPS125bR = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort125bR= epurationTriCroissant(EPS125bR) 
+    EPS125bR = list(Evaluation.objects.filter(uniteEnseignement_id=104, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort125bR= epurationRattrapage(EPS125bR) 
 
-    EPS125gR = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort125gR= epurationTriCroissant(EPS125gR) 
+    EPS125gR = list(Evaluation.objects.filter(uniteEnseignement_id=124, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort125gR= epurationRattrapage(EPS125gR) 
 
-    EPS125jR = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort125jR = epurationTriCroissant(EPS125jR)
+    EPS125jR = list(Evaluation.objects.filter(uniteEnseignement_id=105, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort125jR = epurationRattrapage(EPS125jR)
 
-    EPS125lR = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort125lR = epurationTriCroissant(EPS125lR)
+    EPS125lR = list(Evaluation.objects.filter(uniteEnseignement_id=106, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort125lR = epurationRattrapage(EPS125lR)
 
-    EPS125fR = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort125fR = epurationTriCroissant(EPS125lR)
+    EPS125fR = list(Evaluation.objects.filter(uniteEnseignement_id=107, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort125fR = epurationRattrapage(EPS125fR)
 
-    EPS126R = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort126R = epurationTriCroissant(EPS126R)
+    EPS126R = list(Evaluation.objects.filter(uniteEnseignement_id=108, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort126R = epurationRattrapage(EPS126R)
 
-    EPS127R = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='EXAMEN').values('note_Examen')) 
-    sort127R = epurationTriCroissant(EPS127R)
+    EPS127R = list(Evaluation.objects.filter(uniteEnseignement_id=109, natureEvaluation='RATTRAPAGE').values('note_rattrapage')) 
+    sort127R = epurationRattrapage(EPS127R)
 
-    EPS128R = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort128R = epurationTriCroissant(EPS128R)
+    EPS128R = list(Evaluation.objects.filter(uniteEnseignement_id=110, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort128R = epurationRattrapage(EPS128R)
 
-    EPS129R = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='EXAMEN').values('note_Examen'))
-    sort129R = epurationTriCroissant(EPS129R)
+    EPS129R = list(Evaluation.objects.filter(uniteEnseignement_id=111, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+    sort129R = epurationRattrapage(EPS129R)
+
 
 
     listeMatriceS2epsR = [ ]
@@ -5346,10 +5527,55 @@ def resultatCommuns2staps(request):
 
             EPS129R[j]
         ]
-        listeMatriceS2epsR.append(matriceS2epsR)    
+        listeMatriceS2epsR.append(matriceS2epsR)
 
-########################################################### PV SEMESTRE 2 SYNTHESE   ############################################################################################################################
-    #listeMatriceS2EpsSynthese = matriceSyntheseEPS1(listeMatriceS2Eps, listeMatriceS2epsR, listeMatriceS1Eps, listeMatriceS2EpsCC)
+########################################################### PV SEMESTRE 2 EPS CC  ########################################################################################################################################################
+    listeMatriceS2EpsCC = []
+
+    for j in range( len(infoEtudiantSTAPS1) ):
+
+            matriceS2EpsCC = [
+
+                infoEtudiantSTAPS1[j],
+
+                EPS121cc[j]['note_cc'],
+
+                EPS122cc[j]['note_cc'],
+
+                EPS123cc[j]['note_cc'],
+
+                EPS124cc[j]['note_cc'],
+
+                EPS125acc[j]['note_cc'],
+
+                #EPS125bcc[j]['note_cc'],
+
+                EPS125gcc[j]['note_cc'],
+
+                EPS125jcc[j]['note_cc'],
+
+                #EPS125lcc[j]['note_cc'],
+
+                EPS125fcc[j]['note_cc'],
+
+                EPS126cc[j]['note_cc'],
+
+                EPS127cc[j]['note_cc'],
+
+                EPS128cc[j]['note_cc'],
+
+                EPS129cc[j]['note_cc'],
+
+            ]
+            listeMatriceS2EpsCC.append(matriceS2EpsCC)
+
+########################################################### PV SEMESTRE 2 SYNTHESE  ############################################################################################################################
+    listeMatriceS2EpsSynthese  = matriceSyntheseEPS1PV(listeMatriceS2Eps, listeMatriceS2epsR, listeMatriceS2EpsCC)
+    #listeMatriceS2EpsSynthese = []
+
+    #Décompte de crédit
+    EPSCreditCount2(listeMatriceS2EpsSynthese)
+
 ########################################################### STAT MENTION ###############################################################################################################################################
 
     e111 = {
@@ -5799,8 +6025,8 @@ def resultatCommuns2staps(request):
 
     UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12]
     UEstats_mention = [e111, e112, e113, e114, e115a, e115g, e115j, e115f, e116, e117, e118, e119] #e115b , e115l
-                
-    semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, UeNomCode ] 
+
+    semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, UeNomCode, listeMatriceS2epsR,  listeMatriceS2EpsSynthese ]
 
     return render(request, 'bulletin/releveCommun/releveCommun2.html', {'semestre1MDS': semestre1MDS} )
 
@@ -6012,7 +6238,7 @@ def resultatCommunmds(request):
         'pourcentageEc': 0,
     }
 
-########################################################### PV SEMESTRE 1    ############################################################################################################################        
+########################################################### PV SEMESTRE 1    ############################################################################################################################
 
     MDS111 =list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN').values('note_Examen'))
     MDS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN').values('note_cc'))
@@ -6136,6 +6362,8 @@ def resultatCommunmds(request):
                 ]
 
         ]
+        #Decompte des crédits totaux PV semestre 1 Gestion
+        MDSCreditCountPV(matrice)
 
         listeMatrice.append(matrice)
         mds1Moyenne.append(matrice[11][2])
@@ -6444,6 +6672,7 @@ def resultatCommunmds(request):
 
     #DECOMPTE DE CREDITS
     #MDSCreditCount()
+
 ########################################################### STATS VALIDATION ####################################################################################################################################
     for i in range (len(MDS111)):
         if MDS111[i] >= 10:
@@ -6526,6 +6755,7 @@ def resultatCommunmds(request):
     semestre1MDS = [filiere, listeMatrice, mds1Moyenne, moy, session, creditS1MDS1, UEStats, UEstats_mention, listeMatriceS1GesR, listeMatriceSynthese, listeMatricemdsS1Synthese ] #filiere, listeMatrice, staps1Moyenne, moy, session
 
     return render(request, 'bulletin/releveCommun/releveCommunmds.html', {'semestre1MDS': semestre1MDS})
+
 
 #PV MDS1 SEMESTRE2
 def resultatCommuns2mds(request):
@@ -6793,7 +7023,17 @@ def resultatCommuns2mds(request):
         matrice = [
                 infoEtudiantMDS[j],
 
-                [ MDS111[j], coefS1MDS1[0], MDS111[j]*coefS1MDS1[0], round( ((MDS111[j]*coefS1MDS1[0]) + (MDS111b[j]*coefS1MDS1[1]) + ( MDS112[j]*coefS1MDS1[2]) + (MDS112b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2), sort111.index(MDS111[j])+1,(MDS111[j]>=10), creditS1MDS1[0], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0 , MDS111cc[j]['note_cc'], MDS111sn[j]['note_sn']  ],
+                [
+                    MDS111[j]
+                    , coefS1MDS1[0]
+                    , MDS111[j]*coefS1MDS1[0]
+                    , round( ((MDS111[j]*coefS1MDS1[0]) + (MDS111b[j]*coefS1MDS1[1]) + ( MDS112[j]*coefS1MDS1[2]) + (MDS112b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2)
+                    , sort111.index(MDS111[j])+1,(MDS111[j]>=10)
+                    , creditS1MDS1[0]
+                    , creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0
+                    , MDS111cc[j]['note_cc']
+                    , MDS111sn[j]['note_sn']
+                ],
 
                 [ MDS111b[j], coefS1MDS1[1], MDS111b[j]*coefS1MDS1[1], "MOYENNE", sort111b.index(MDS111b[j])+1,(MDS111b[j]>=10), creditS1MDS1[1], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0, MDS111bcc[j]['note_cc'], MDS111bsn[j]['note_sn'] ],
 
@@ -6848,6 +7088,8 @@ def resultatCommuns2mds(request):
                 ]
 
         ]
+        #Decompte des crédits totaux PV semestre 1 Gestion
+        MDSCreditCountPV(matrice)
 
         listeMatrice.append(matrice)
         mds1Moyenne.append(matrice[11][2])
@@ -6859,7 +7101,7 @@ def resultatCommuns2mds(request):
 
         filiere="GESTION"
 
-########################################################### MATRICE RATTRAPAGE ########################################################### 
+########################################################### MATRICE RATTRAPAGE ###########################################################
     MDS121R =list(Evaluation.objects.filter(uniteEnseignement_id=88, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
     sort121R = epurationRattrapage(MDS121R)
 
@@ -7158,6 +7400,9 @@ def resultatCommuns2mds(request):
                 ]
 
         ]
+        #Decompte des crédits totaux PV semestre 1 Gestion
+        MDSCreditCountPV(matrice)
+
         listeMatriceS.append(matrice)
 
 ########################################################### STATS VALIDATION ####################################################################################################################################
@@ -8777,7 +9022,7 @@ def resultatCommunEve(request):
     filiere = 'EVE'
 
     infoEtudiantEVE = list( Etudiant.objects.filter(filiere="MAS", niveau=3, Specialite="EVENEMENTIEL").values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance','id'))
-    
+
     coefS5EVE = list( UniteEnseignement.objects.filter(semestre_id=5,filiere="MAS").values("coefficient", "intitule_UE"))
     coefS5EVE = epurationCoef(coefS5EVE)
 
@@ -10640,7 +10885,8 @@ def EPSCreditCount(matrice):
         matrice[4][7] = 0
     #ligne 5-8
     note5678 = round((matrice[5][0]+matrice[6][0]+matrice[7][0]+matrice[8][0])/4, 2)
-    if (((note5678 >= 7 and note5678 < 10 ) and matrice[3][3] >=10) or note5678 >= 10):
+
+    if ( (((matrice[5][0] >= 7 and matrice[5][0] < 10 ) and matrice[3][3] >=10) or matrice[5][0] >= 10) and (((matrice[6][0] >= 7 and matrice[6][0] < 10 ) and matrice[3][3] >=10) or matrice[6][0] >= 10) and (((matrice[7][0] >= 7 and matrice[7][0] < 10 ) and matrice[3][3] >=10) or matrice[7][0] >= 10) and (((matrice[8][0] >= 7 and matrice[8][0] < 10 ) and matrice[3][3] >=10) or matrice[8][0] >= 10) ):
         matrice[5][7] = matrice[5][6]
     else:
         matrice[5][7] = 0
@@ -10676,10 +10922,10 @@ def EPSCreditCount2(matrice):
 
         Plus l'ajout de la moyenne et des crédits sur chaque étudiant
     """
-    #print(matrice)
+    print(matrice)
     matlen = matrice[0]
 
-    print(matlen[0][13])
+    print(matlen)
 
     for j in range(len(matlen)):
 
@@ -11358,6 +11604,8 @@ def matriceSyntheseEPS1(matI, matRa, mats1, matcc):
 
     matS = copy.deepcopy(matI)
 
+    #print(matRa)
+
 
     #i compteur de candidats
     for i in range(len(matI)):
@@ -11409,7 +11657,67 @@ def matriceSyntheseEPS1(matI, matRa, mats1, matcc):
     #listeMoyenne.sort(reverse=True)
     return matS , listeMoyenne, listeTotalMoyenne
 
+#MATRICE DE SYNTHESE EPS1
+def matriceSyntheseEPS1PV(matI, matRa, matcc):
 
+    listeMoyenne = []
+    listeTotalMoyenne = []
+
+    matS = copy.deepcopy(matI)
+
+    #print(matRa[0])
+        #print(matRa[1])
+        #print(matRa[2])
+
+    #i compteur de candidats
+    for i in range(len(matI)):
+        matR = matRa[i]
+
+        #j compteur de matière
+        for j in range(1, len(matR)):
+            #print(matR)
+            #print(matR[i][j])
+            if (matR[j] > 0):
+                #0 nouvelle note
+                matS[i][j][0] = round(matR[j]*0.7 + matcc[i][j]*0.3, 2)
+
+                #2 noteCoefficiée
+                matS[i][j][2] = matS[i][j][0] * matS[i][j][1]
+
+                #6
+                #credit_count = ( matS[i][j][6] if matS[i][j][0] >= 10 else 0 )
+                matS[i][j][6] = ( matS[i][j][6] if matS[i][j][0] >= 10 else 0 )
+                #matS[i][j].append(credit_count)
+
+                #Au niveau des sommes
+                #Ligne 1 moyenne
+                matS[i][1][3] = round (( matS[i][1][0]*matS[i][1][1] + matS[i][2][0]*matS[i][2][1] )/( matS[i][1][1] + matS[i][2][1] ), 2)
+
+                #Ligne 3 moyenne
+                matS[i][3][3] = round( ( matS[i][3][0]*matS[i][3][1] + matS[i][4][0]*matS[i][4][1] + matS[i][5][0]*matS[i][5][1] + matS[i][6][0]*matS[i][6][1] + matS[i][7][0]*matS[i][7][1] + matS[i][8][0]*matS[i][8][1] + matS[i][9][0]*matS[i][9][1] )/( matS[i][3][1]+matS[i][4][1]+matS[i][5][1]+matS[i][6][1]+matS[i][7][1]+matS[i][8][1]+matS[i][9][1]), 2)
+
+                #Ligne 10 moyenne
+                matS[i][10][3] = round( ( matS[i][10][0]*matS[i][10][1] + matS[i][11][0]*matS[i][11][1] + matS[i][12][0]*matS[i][12][1] )/( matS[i][10][1] + matS[i][11][1] + matS[i][12][1] ), 2)
+
+
+                #Ligne 13 Moyenne TOTAL
+                matS[i][13][0] = ( matS[i][1][1]+matS[i][2][1]+matS[i][3][1]+matS[i][4][1]+matS[i][5][1]+matS[i][6][1]+matS[i][7][1]+matS[i][8][1]+matS[i][9][1]+matS[i][10][1]+matS[i][11][1]+matS[i][12][1] )
+
+                matS[i][13][1] = round( matS[i][1][0]*matS[i][1][1]+matS[i][2][0]*matS[i][2][1]+matS[i][3][0]*matS[i][3][1]+ matS[i][4][0]*matS[i][4][1]+ matS[i][5][0]*matS[i][5][1]+matS[i][6][0]*matS[i][6][1]+matS[i][7][0]*matS[i][7][1]+ matS[i][8][0]*matS[i][8][1]+ matS[i][9][0]*matS[i][9][1]+ matS[i][10][0]*matS[i][10][1]+matS[i][11][0]*matS[i][11][1]+matS[i][12][0]*matS[i][12][1] , 2)
+
+                matS[i][13][2] = round (  (matS[i][13][1] / matS[i][13][0]) , 2)
+
+                matS[i][j].append('Rattrapage')
+
+        #tableau contenant les nouvelles moyennes
+        listeMoyenne.append(matS[i][13][2])
+
+        #listeTotalMoyenne.append( round( (matS[i][13][1] + mats1[i][13][1]) , 2) )
+        #listeTotalMoyenne.sort(reverse=True)
+
+
+    #listeMoyenne.sort(reverse=True)
+    return matS , listeMoyenne, listeTotalMoyenne
 
 
 

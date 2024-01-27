@@ -150,9 +150,9 @@ window.addEventListener('load', () => {
     Page1()*/
 
     function Page1() {
-        listStudent = mydata[9]
+        listStudent = mydata[1]
 
-        page0 = document.getElementById('page')
+        var page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
         page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"

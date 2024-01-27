@@ -1,9 +1,9 @@
 window.addEventListener('load',()=>{
     //Recuperation de la variable des données
      mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
-     console.log(mydata) 
+     console.log(mydata)
 
-    function Page1(){ 
+    function Page1(){
         listStudent = mydata[1]
 
         bigtab = document.getElementById('table1')
@@ -17,7 +17,7 @@ window.addEventListener('load',()=>{
         worktab = bigtab.children[1]
         worktab1 = bigtab1.children[1]
         //Ligne des 4 tableaux
-        
+
 
         for(i=0; i<=mydata[1].length-1; i++){
 
@@ -30,7 +30,7 @@ window.addEventListener('load',()=>{
             tab02 = tab01.children
             tab03 = tab02['0']
             tab04 = tab03.children
-            tab05 = tab04[0] //good  
+            tab05 = tab04[0] //good
             ////
             tab00 = temp1.children[0]
             tab001 = tab00.children.nested4
@@ -167,6 +167,8 @@ window.addEventListener('load',()=>{
         }}
         Page1()
 
+
+
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
     function ListProcess(){
 
@@ -189,7 +191,7 @@ window.addEventListener('load',()=>{
     }
 
 
-    function fullfill(clone, i) { 
+    function fullfill(clone, i) {
         //Pagination
 
         pagination=clone.children[3]
@@ -1186,13 +1188,11 @@ window.addEventListener('load',()=>{
         return(clone)
     }
 
-
         ListProcess()
     })
 
-    function floatfix(a){
-        return (100 - a).toFixed(2)
-    } 
-
 
     
+    function floatfix(a){
+        return (100 - a).toFixed(2)
+    }

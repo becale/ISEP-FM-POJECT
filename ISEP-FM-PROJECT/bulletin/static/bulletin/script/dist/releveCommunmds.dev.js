@@ -126,8 +126,8 @@ window.addEventListener('load', function () {
   Page1()*/
 
   function Page1() {
-    listStudent = mydata[9];
-    page0 = document.getElementById('page');
+    listStudent = mydata[1];
+    var page0 = document.getElementById('page');
     page0 = page0.cloneNode(true);
     page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023";
     bigtab = page0.children[0].children[2].children[1]; //page2.children[1].children[1].children[1]

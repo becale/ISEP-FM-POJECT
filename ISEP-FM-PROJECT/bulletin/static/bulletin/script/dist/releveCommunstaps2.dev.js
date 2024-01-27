@@ -24,7 +24,7 @@ window.addEventListener('load', function () {
       tab02 = tab01.children;
       tab03 = tab02['0'];
       tab04 = tab03.children;
-      tab05 = tab04[0]; //good  
+      tab05 = tab04[0]; //good
       ////
 
       tab00 = temp1.children[0];

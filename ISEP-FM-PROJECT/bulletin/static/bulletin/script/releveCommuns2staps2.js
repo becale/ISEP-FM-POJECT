@@ -21,7 +21,6 @@ window.addEventListener('load', () => {
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab = bigtab.children[1]
 
-
         worktab1 = bigtab1.children[1]
             //Ligne des 4 tableaux
 
@@ -763,10 +762,6 @@ window.addEventListener('load', () => {
                 }
                 tab116.cells[4].innerHTML = '/'
             }
-
-
-
-
 
 
             //Ajoute de la ligne au grand tableau
@@ -1800,6 +1795,7 @@ window.addEventListener('load', () => {
 
     ListProcess()
 })
+
 
 function floatfix(a) {
     return (100 - a).toFixed(2)

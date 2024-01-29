@@ -5646,7 +5646,7 @@ function BullSTAPS2(clone, i, mydata) {
         if (j == 4) { ligne16.children[j].innerHTML = mydata[10][1].indexOf(listStudent2[i][13][2]) + 1 }
         //if (j == 5) { ligne16.children[j].innerHTML = "OBOSSO" }
         if (j == 6) {
-            ligne16.children[j].innerHTML = sommeInt9(ligne33.lastChild.innerHTML, ligne44.lastChild.innerHTML, ligne88.lastChild.innerHTML, lignee99.lastChild.innerHTML, ligne10.lastChild.innerHTML, ligne11.lastChild.innerHTML, ligne12.lastChild.innerHTML, ligne13.lastChild.innerHTML, ligne14.lastChild.innerHTML)
+            ligne16.children[j].innerHTML =  (sommeInt9(ligne33.lastChild.innerHTML, ligne44.lastChild.innerHTML, ligne88.lastChild.innerHTML, lignee99.lastChild.innerHTML, ligne10.lastChild.innerHTML, ligne11.lastChild.innerHTML, ligne12.lastChild.innerHTML, ligne13.lastChild.innerHTML, ligne14.lastChild.innerHTML)  )
         }
     }
 

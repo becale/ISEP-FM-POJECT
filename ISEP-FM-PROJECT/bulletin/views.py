@@ -11530,7 +11530,7 @@ def EPS2CreditCountS4(matrice):
         ##Ajout total crédit à MAT 13
         #mat[15].append(mat[1][7]+mat[2][7]+mat[3][7]+mat[4][7]+mat[5][7]+mat[11][7]+mat[12][7]+mat[13][7]+mat[14][7])
         #print(mat[2][7],mat[6][7],mat[7][7],mat[8][7],mat[9][7])
-        mat[13].append(mat[1][7]+mat[2][7]+mat[6][7]+mat[7][7]+mat[8][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7]) #mat[1][7]+mat[2][7]+mat[6][7]+mat[7][7]+mat[8][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7]
+        mat[13].append(mat[1][7]+mat[2][7]+mat[6][7]+mat[7][7]+mat[8][7]+mat[9][7]+mat[10][7]+mat[11][7]+mat[12][7])
 
         #Enregistrement de la moyenne et crédits semestre 4
         e_matri = mat[0]["matricule"]
@@ -12080,6 +12080,15 @@ def pourcentageMention(ue, b):
 
 
 def deliberation(request):
+
+    #EPS1
+
+    #EPS2
+
+    #MDS1
+
+    #MDS2
+
 
     template = loader.get_template('bulletin/home.html')
     return HttpResponse(template.render({}, request))

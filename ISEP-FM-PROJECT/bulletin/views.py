@@ -81,22 +81,22 @@ def UEAPI(request):
 
     s1 = list(UniteEnseignement.objects.filter(semestre_id=1).values())
     s3 = list(UniteEnseignement.objects.filter(semestre_id=3).values())
-    s5 = list(UniteEnseignement.objects.filter(semestre_id=5).values())
+    #s5 = list(UniteEnseignement.objects.filter(semestre_id=5).values())
     ueSemestre135 = []
     ueSemestre135 += s1
-    ueSemestre135 += s3 
-    ueSemestre135 += s5
+    ueSemestre135 += s3
+    #ueSemestre135 += s5
     #ueSemestre135.append(s1)
     #ueSemestre135.append(s3)
     #ueSemestre135.append(s5)
 
     s2 = list(UniteEnseignement.objects.filter(semestre_id=2).values())
     s4 = list(UniteEnseignement.objects.filter(semestre_id=4).values())
-    s6 = list(UniteEnseignement.objects.filter(semestre_id=6).values())
+    #s6 = list(UniteEnseignement.objects.filter(semestre_id=6).values())
     ueSemestre246 = []
     ueSemestre246 += s2
     ueSemestre246 += s4
-    ueSemestre246 += s6
+    #ueSemestre246 += s6
     #ueSemestre246.append(s2)
     #ueSemestre246.append(s4)
     #ueSemestre246.append(s6)
@@ -12082,12 +12082,22 @@ def pourcentageMention(ue, b):
 def deliberation(request):
 
     #EPS1
-
-    #EPS2
+    infoStaps1 = list(Etudiant.objects.filter(niveau=1, filiere="STAPS").values('matricule','nom','prenom','moyS1', 'crS1', 'moyS2', 'crS2', 'niveau'))
 
     #MDS1
+    infoMds1 = list(Etudiant.objects.filter(niveau=1, filiere="GESTION").values('matricule','nom','prenom','moyS1', 'crS1', 'moyS2', 'crS2', 'niveau'))
+
+
+    #EPS2
+    infoStaps2 = list(Etudiant.objects.filter(niveau=2, filiere="STAPS").values('matricule','nom','prenom','moyS1', 'crS1', 'moyS2', 'crS2', 'niveau'))
+
 
     #MDS2
+
+    #MDS3
+
+    #STAPS3
+
 
 
     template = loader.get_template('bulletin/home.html')

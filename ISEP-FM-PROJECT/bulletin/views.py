@@ -62,6 +62,11 @@ def EtudiantNiveau2Staps(request):
 
     return JsonResponse(etudiantStaps2, safe= False)
 
+def EtudiantNiveau2Mds(request):
+    etudiantMds2 = list(Etudiant.objects.filter(filiere="GESTION", niveau=2).values())
+
+    return JsonResponse(etudiantMds2, safe= False)
+
 def EtudiantNiveau3(request):
     etudiantMAS = list(Etudiant.objects.filter(filiere="MAS", niveau=3).values())
 
@@ -7501,6 +7506,8 @@ def resultatCommunstaps2(request):
 
     filiere = ["STAPS2"]
 
+    dateExamen = list(Semestre.objects.filter(id=1).values('date_SN', 'date_CC'))
+
     infoEtudiantSTAPS1 =list(Etudiant.objects.filter(filiere="STAPS", niveau=2).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
     coefS1STAPS1 = list(UniteEnseignement.objects.filter(semestre_id=3,filiere="STAPS").values("coefficient"))
@@ -9192,8 +9199,16 @@ def resultatCommuns4staps2(request):
     return render(request, 'bulletin/releveCommun/releveCommuns2staps2.html', {'semestre1MDS': semestre1MDS})
 
 
+#PV MDS2 SEMESTRE 3
+def resultatCommunmds2(request):
+
+    return render(request, 'bulletin/releveCommun/releveCommunMds2.html', {})
 
 
+#PV MDS2 SEMESTRE 4
+def resultatCommuns4mds2(request):
+
+    return render(request, 'bulletin/releveCommun/releveCommuns4Mds2.html', {})
 
 
 
@@ -12081,15 +12096,63 @@ def pourcentageMention(ue, b):
 
 def deliberation(request):
 
+    #EPS2
+    infoStaps2 = list(Etudiant.objects.filter(niveau=2, filiere="STAPS").values('matricule','nom','prenom','moyS3', 'crS3', 'moyS4', 'crS4', 'niveau', 'redoublant'))
+    for etudiant in infoStaps2:
+        #print(etudiant)
+        student = Etudiant.objects.get(matricule = etudiant["matricule"])
+
+        if (etudiant["moyS3"] == None or  etudiant["moyS4"] == None):
+            break
+
+        if ( (((etudiant["moyS3"] + etudiant["moyS4"])/2) >= 10 ) and (etudiant["redoublant"] == 0 ) ):
+            #etudiant["niveau"] = str(int(etudiant["niveau"]) + 1)
+            student.niveau = str(int(3))
+        else:
+            #etudiant["redoublant"] = 1
+            student.redoublant = 1
+
+        student.save()
+
     #EPS1
     infoStaps1 = list(Etudiant.objects.filter(niveau=1, filiere="STAPS").values('matricule','nom','prenom','moyS1', 'crS1', 'moyS2', 'crS2', 'niveau'))
+    for etudiant in infoStaps1:
+        #student_matri = etudiant["matricule"]
+        student = Etudiant.objects.get(matricule = etudiant["matricule"])
+
+        if (etudiant["moyS1"] == None or  etudiant["moyS2"] == None):
+            break
+
+        if ( ((etudiant["moyS1"] + etudiant["moyS2"])/2) >= 10 ):
+            student.niveau = str(2)
+
+        else:
+            #etudiant["redoublant"] = 1
+            student.redoublant = 1
+
+        student.save()
+
+        print(student)
+
+
 
     #MDS1
     infoMds1 = list(Etudiant.objects.filter(niveau=1, filiere="GESTION").values('matricule','nom','prenom','moyS1', 'crS1', 'moyS2', 'crS2', 'niveau'))
+    for etudiant in infoMds1:
+        #student_matri = etudiant["matricule"]
+        student = Etudiant.objects.get(matricule = etudiant["matricule"])
 
+        if (etudiant["moyS1"] == None or  etudiant["moyS2"] == None):
+            break
 
-    #EPS2
-    infoStaps2 = list(Etudiant.objects.filter(niveau=2, filiere="STAPS").values('matricule','nom','prenom','moyS1', 'crS1', 'moyS2', 'crS2', 'niveau'))
+        if ( ((etudiant["moyS1"] + etudiant["moyS2"])/2) >= 10 ):
+            #etudiant["niveau"] = str(int(etudiant["niveau"]) + 1)
+            student.niveau = str(2)
+        else:
+            #etudiant["redoublant"] = 1
+            student.redoublant = 1
+
+        student.save()
 
 
     #MDS2

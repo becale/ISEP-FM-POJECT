@@ -13,6 +13,7 @@ urlpatterns=[
     path('etudiantStaps1/', views.EtudiantNiveau1Staps, name="etudiantstaps1"),
     path('etudiantMDS1/', views.EtudiantNiveau1MDS, name="etudiantmds1"),
     path('etudiantStaps2/', views.EtudiantNiveau2Staps, name="etudiantstaps2"),
+    path('etudiantMds2/', views.EtudiantNiveau2Mds, name="etudiantmds2"),
     path('etudiantNiveau3/', views.EtudiantNiveau3, name="etudiantniveau3"),
     path('etudiantNiveau3MSO/', views.EtudiantNiveau3MSO, name="etudiantniveau3MSO"),
     path('etudiantNiveau3EVE/', views.EtudiantNiveau3EVE, name="etudiantniveau3EVE"),
@@ -42,9 +43,13 @@ urlpatterns=[
     path('bulletin-collectif/Semestre2/GESTION', views.resultatCommuns2mds, name="resultCommuns2mds"),
     path('bulletin-collectif/Semestre2/STAPS1', views.resultatCommuns2staps, name="resultCommuns2staps"),
 
-    #SEMESTRE 3 & 4
+    #SEMESTRE 3 & 4 STAPS2
     path('bulletin-collectif/Semestre3/STAPS2', views.resultatCommunstaps2, name="resultCommunstaps2"),
     path('bulletin-collectif/Semestre4/STAPS2', views.resultatCommuns4staps2, name="resultCommuns4staps2"),
+
+    #SEMESTRE 3 & 4 MDS2
+    path('bulletin-collectif/Semestre3/MDS2', views.resultatCommunmds2, name="resultCommunmds2"),
+    path('bulletin-collectif/Semestre4/MDS2', views.resultatCommuns4mds2, name="resultCommuns4mds2"),
 
     #SEMESTRE 5 & 6
     path('bulletin-collectif/Semestre5/EVE', views.resultatCommunEve, name="resultCommunEve"),

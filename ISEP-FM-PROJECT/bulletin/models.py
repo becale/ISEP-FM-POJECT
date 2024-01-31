@@ -88,7 +88,7 @@ class Etudiant(models.Model):
 
         def __str__(self):
             return str(self)
-    redoublant = models.CharField(choices=Redoublant.choices)
+    redoublant = models.CharField(max_length=10,choices=Redoublant.choices, default= 0,)
 
     def __str__(self):
         return str(self.nom)

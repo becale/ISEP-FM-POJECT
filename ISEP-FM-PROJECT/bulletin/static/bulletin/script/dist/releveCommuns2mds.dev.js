@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
 
   function Page1() {
     listStudent = mydata[1];
-    page0 = document.getElementById('page');
+    var page0 = document.getElementById('page');
     page0 = page0.cloneNode(true);
     page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  2<sup>eme</sup> SEMESTRE MDS1  2022-2023";
     bigtab = page0.children[0].children[2].children[1]; //page2.children[1].children[1].children[1]
@@ -247,7 +247,7 @@ window.addEventListener('load', function () {
             moyuet = '--'; //moyuefcr = uef1cr + uef2cr
           }
 
-          tab33.cells[j].innerHTML = moyuet; //listStudent[i][9][3] 
+          tab33.cells[j].innerHTML = moyuet; //listStudent[i][9][3]
         }
 
         ;
@@ -278,7 +278,8 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 2) {
-          tab43.cells[j].innerHTML = '/';
+          tab43.cells[j].innerHTML = listStudent[i][11][3];
+          /*'/'*/
         } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
 
 
@@ -955,7 +956,9 @@ window.addEventListener('load', function () {
         }
 
         if (j == 2) {
-          tab443.cells[j].innerHTML = '/';
+          tab443.cells[j].innerHTML = synthese[i][11][3]
+          /*'/'*/
+          ;
         } //moyuefcr + moyuepcr + moyuetcr
 
 
@@ -1706,7 +1709,7 @@ window.addEventListener('load', function () {
     ligneStat3 = tabstat.children[0].children[1].children[2];
     ligneStat4 = tabstat.children[0].children[1].children[3];
 
-    if (1 == 0) {
+    if (i == 0) {
       //Ligne 1
       ligneStat1.children[1].innerHTML = mydata[1].length;
       ligneStat1.children[4].innerHTML = mydata[7][0]['Passable'];

@@ -31,6 +31,7 @@ class Etudiant(models.Model):
     moyS6 = models.FloatField(null=True, blank=True)
     crS6 = models.IntegerField(null=True, blank=True)
 
+
     
     class Sexe(models.TextChoices):
         FEMININ = "FEMININ"
@@ -80,6 +81,14 @@ class Etudiant(models.Model):
     filiere = models.CharField(max_length=200,choices=Filiere.choices)
     Specialite = models.CharField(max_length=200, choices=Specialite.choices)
     niveau = models.CharField(max_length=200,choices=Niveau.choices)
+
+    class Redoublant(models.TextChoices):
+        oui = '1'
+        non = '0'
+
+        def __str__(self):
+            return str(self)
+    redoublant = models.CharField(max_length=10,choices=Redoublant.choices, default= 0,)
 
     def __str__(self):
         return str(self.nom)
@@ -175,6 +184,17 @@ class Evaluation(models.Model):
     def __str__(self):
         return str(self.natureEvaluation +'_'+self.uniteEnseignement.code_UE+'_'+self.etudiant.nom)
 
+class Calendrier(models.Model):
+    annee_academique = models.CharField(max_length=50)
+
+    debut_SN1 = models.DateField(null=True, default="", blank=True)
+    fin_SN1 = models.DateField(null=True, default="", blank=True)
+
+    debut_SN2 = models.DateField(null=True, default="", blank=True)
+    fin_SN2 = models.DateField(null=True, default="", blank=True)
+
+    def __str__(self):
+        return str('Annee Acamdeique '+self.annee_academique )
 
 """class Filiere(models.Model):
     intitule_fil = models.CharField(200='200')

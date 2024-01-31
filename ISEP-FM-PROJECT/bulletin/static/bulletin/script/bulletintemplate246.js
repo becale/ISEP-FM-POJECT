@@ -1,6 +1,11 @@
+//import  BullSTAPS1 from  './BulletinTemplate246Function/BullSTAPS1.js';
+//import  BullSTAPS2 from  '../BulletinTemplate246Function/BullSTAPS2.js';
+
 window.addEventListener('load', () => {
+    
+
     //Recuperation de la variable des données
-    mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
+    var mydata = JSON.parse(document.getElementById('semestre1MDS').textContent);
     console.log(mydata)
 
     //Génération dynamique du tableau de bulletin
@@ -15,7 +20,7 @@ window.addEventListener('load', () => {
         for (i = 0; i < mydata[1].length; i++) {
             clone = containerrr.cloneNode(true);
             //Execution des traitements sur container
-            clone = BullMDS1(clone, i)
+            clone = BullMDS1(clone, i, mydata)
 
             /**MOYENNE */
             moY[i] = globalThis.resultat.children[3].innerHTML
@@ -35,7 +40,7 @@ window.addEventListener('load', () => {
         for (i = 0; i < mydata[1].length; i++) {
             clone = containeer.cloneNode(true);
             //Execution des traitements sur container
-            clone = BullSTAPS1(clone, i)
+            clone = BullSTAPS1(clone, i, mydata)
                 //Puis ajout au containerList
             listcontainer.appendChild(clone)
         }
@@ -43,12 +48,12 @@ window.addEventListener('load', () => {
         body.appendChild(listcontainer)
     } else if (mydata[0] == 'STAPS2') {
         body = document.getElementById('body')
-        containeer = GenerateBullStaps2Semestre3()
-        listcontainer = document.createElement('div')
-        for (i = 0; i < mydata[1].length; i++) {
-            clone = containeer.cloneNode(true);
+        var containeer = GenerateBullStaps2Semestre3()
+        var listcontainer = document.createElement('div')
+        for (var i = 0; i < mydata[1].length; i++) {
+            var clone = containeer.cloneNode(true);
             //Execution des traitements sur container
-            clone = BullSTAPS2(clone, i)
+            clone = BullSTAPS2(clone, i, mydata)
                 //Puis ajout au containerList
             listcontainer.appendChild(clone)
         }
@@ -1855,7 +1860,7 @@ function GenerateBullStaps2Semestre3() {
     //thead -Line 1
     var tr1 = document.createElement('tr')
     var thvalue = ["", "Groupe UE", "Code UE", "Matière", "Note", "Coef", "Total", "Moyenne Groupe", "Rang", "Mention", "Session", "Crédits Obtenus"]
-    for (i = 0; i < thvalue.length; i++) {
+    for (let i = 0; i < thvalue.length; i++) {
         var th = document.createElement('th')
         th.setAttribute("scope", "col")
         th.innerHTML = thvalue[i]
@@ -2576,7 +2581,7 @@ function GenerateBullStaps2Semestre3() {
     tbody.appendChild(tr10)
     tbody.appendChild(tr11)
 
-    table1 = document.createElement('table')
+    var table1 = document.createElement('table')
     table1.setAttribute('class', 'table-1')
     table1.appendChild(thead1)
     table1.appendChild(tbody)
@@ -2584,7 +2589,7 @@ function GenerateBullStaps2Semestre3() {
     //table3
     //thead2
     var tr12 = document.createElement('tr')
-    for (i = 0; i <= 11; i++) {
+    for (var i = 0; i <= 11; i++) {
         var th = document.createElement('th')
         th.setAttribute('scope', 'col')
         if (i == 0) { th.innerHTML = `&nbsp;&nbsp;` }
@@ -2673,7 +2678,7 @@ function GenerateBullStaps2Semestre3() {
     /*s4 = document.getElementById('semester-result0')
     s44 = s4.cloneNode(true)*/
 
-    semestreResult2 = semestreResult.cloneNode(true)
+    var semestreResult2 = semestreResult.cloneNode(true)
     semestreResult2.setAttribute('id', 'semestreResult2')
 
     /**MODIFICATION SEMESTRE 4 */
@@ -2681,7 +2686,7 @@ function GenerateBullStaps2Semestre3() {
 
     semestreResult2.children[0].children[1].children[0].children[0].innerHTML = "SEMESTRE 4"
 
-    for (j = 2; j <= 11; j++) {
+    for (var j = 2; j <= 11; j++) {
         semestreResult2.children[0].children[1].children[0].children[j].innerHTML = "--"
     }
     for (j = 0; j <= 8; j++) {
@@ -2723,13 +2728,13 @@ function GenerateBullStaps2Semestre3() {
 
 
     //INSERTION DU NOEUD
-    nodeToCopy = semestreResult2.children[0].children[1].children[10]
+    var nodeToCopy = semestreResult2.children[0].children[1].children[10]
 
-    newNode = nodeToCopy.cloneNode(true)
+    var newNode = nodeToCopy.cloneNode(true)
     newNode.setAttribute('id', 'ligne-eps250')
         //newNode.children[1].innerHTML = "PEDAGOGIE PRATIQUE III"
 
-    parentNode = semestreResult2.children[0].children[1]
+    var parentNode = semestreResult2.children[0].children[1]
     parentNode.insertBefore(newNode, nodeToCopy)
         //Ligne 12
     semestreResult2.children[0].children[1].children[11].children[0].innerHTML = "EPS250"
@@ -2740,22 +2745,22 @@ function GenerateBullStaps2Semestre3() {
 
 
     //node 248
-    node248 = semestreResult2.children[0].children[1].children[9]
-    tdvar = semestreResult2.children[0].children[1].children[10].children[8]
-    tdcredit = tdvar.cloneNode(true)
+    var node248 = semestreResult2.children[0].children[1].children[9]
+    var tdvar = semestreResult2.children[0].children[1].children[10].children[8]
+    var tdcredit = tdvar.cloneNode(true)
     tdcredit.setAttribute('id', 'eps248-credit')
     node248.insertBefore(tdcredit, node248.lastChild)
 
     //node 247
-    tdcredit1 = tdvar.cloneNode(true)
+    var tdcredit1 = tdvar.cloneNode(true)
     tdcredit1.setAttribute('id', 'eps247-credit')
-    node247 = semestreResult2.children[0].children[1].children[8]
+    var node247 = semestreResult2.children[0].children[1].children[8]
     node247.insertBefore(tdcredit1, node247.lastChild)
 
     //node 246
-    tdcredit12 = tdvar.cloneNode(true)
+    var tdcredit12 = tdvar.cloneNode(true)
     tdcredit12.setAttribute('id', 'eps246-credit')
-    node246 = semestreResult2.children[0].children[1].children[7]
+    var node246 = semestreResult2.children[0].children[1].children[7]
     node246.insertBefore(tdcredit12, node246.lastChild)
 
 
@@ -2778,10 +2783,10 @@ function GenerateBullStaps2Semestre3() {
     /** RESULTAT FINAL */
     //var temp = document.getElementById('semester-result0')
 
-    s4result = semestreResult2.cloneNode(true)
+    var s4result = semestreResult2.cloneNode(true)
 
     var s4s3 = document.getElementById('recpas3s4')
-    s4s3recap = s4s3.cloneNode(true)
+    var s4s3recap = s4s3.cloneNode(true)
 
     var v = document.getElementById('visa')
     visa = v.cloneNode(true)
@@ -2806,7 +2811,7 @@ function GenerateBullStaps2Semestre3() {
     footer.appendChild(visa)
 
     //TEST
-    containerbull = document.createElement('div')
+    var containerbull = document.createElement('div')
     containerbull.setAttribute('class', 'container-bull')
     containerbull.appendChild(header)
     containerbull.appendChild(hr)
@@ -3402,10 +3407,6 @@ function GenerateBullEVEsemestre5() {
     body[0].appendChild(containerbull)*/
     return (containerbull)
 }
-
-
-
-
 /*DECLARATION GENERATION SEEMESTRE 5 MSO */
 function GenerateBullMSOsemestre5() {
     var br = document.createElement('br')
@@ -3980,13 +3981,8 @@ function GenerateBullMSOsemestre5() {
 
 
 
-
-
-
-
-
 /**FONCTION BULLETIN MDS */
-function BullMDS1(clone, i) {
+function BullMDS1(clone, i, mydata) {
 
     //DONNEES RECUPEREES DE LA BD
     listStudent = mydata[1]
@@ -4473,11 +4469,10 @@ function BullMDS1(clone, i) {
 }
 
 
-
 /**FONCTION BULL 1er SEMESTRE */
 
 /**FONCTION BULLETIN STAPS1 */
-function BullSTAPS1(clone, i) {
+function BullSTAPS1(clone, i, mydata) {
 
     //DONNEES RECUPEREES DE LA BD
     listStudent = mydata[1]
@@ -4774,7 +4769,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 10) { if (data2[i][1][8]) { ligne11.children[j].innerHTML = 'Rattrapage' } else { ligne11.children[j].innerHTML = mydata[9] } }
         if (j == 11) {
-            if ((data2[i][1][0] >= 7 && data2[i][1][3] >= 10) || (data2[i][1][0] >= 10)) { ligne11.children[j].innerHTML = data2[i][1][6] } else { ligne11.children[j].innerHTML = 0 }
+            ligne11.children[j].innerHTML = data2[i][1][7]
+            //if ((data2[i][1][0] >= 7 && data2[i][1][3] >= 10) || (data2[i][1][0] >= 10)) { ligne11.children[j].innerHTML = data2[i][1][6] } else { ligne11.children[j].innerHTML = 0 }
         }
     }
 
@@ -4794,7 +4790,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][2][8]) { ligne22.children[j].innerHTML = 'Rattrapage' } else { ligne22.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][2][0] >= 7 && data2[i][1][3] >= 10) || (data2[i][2][0] >= 10)) { ligne22.children[j].innerHTML = data2[i][2][6] } else { ligne22.children[j].innerHTML = 0 }
+            ligne22.children[j].innerHTML = data2[i][2][7]
+            //if ((data2[i][2][0] >= 7 && data2[i][1][3] >= 10) || (data2[i][2][0] >= 10)) { ligne22.children[j].innerHTML = data2[i][2][6] } else { ligne22.children[j].innerHTML = 0 }
             //ligne22.children[j].innerHTML = data2[i][2][7] 
         }
     }
@@ -4816,9 +4813,10 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 9) { if (data2[i][3][8]) { ligne33.children[j].innerHTML = 'Rattrapage' } else { ligne33.children[j].innerHTML = mydata[9] } }
         if (j == 10) {
-            if ((data2[i][3][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][2][0] >= 10)) { ligne33.children[j].innerHTML = data2[i][3][6] } else { ligne33.children[j].innerHTML = 0 }
-            //ligne33.children[j].innerHTML = data2[i][3][7] 
-        } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+            ligne33.children[j].innerHTML = data2[i][3][7]
+            //if ((data2[i][3][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][2][0] >= 10)) { ligne33.children[j].innerHTML = data2[i][3][6] } else { ligne33.children[j].innerHTML = 0 }
+            //ligne33.children[j].innerHTML = data2[i][3][7]
+        } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20
     }
 
     //Ligne 4
@@ -4837,7 +4835,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][4][8]) { ligne44.children[j].innerHTML = 'Rattrapage' } else { ligne44.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][4][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][4][0] >= 10)) { ligne44.children[j].innerHTML = data2[i][4][6] } else { ligne44.children[j].innerHTML = 0 }
+            ligne44.children[j].innerHTML = data2[i][4][7]
+            //if ((data2[i][4][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][4][0] >= 10)) { ligne44.children[j].innerHTML = data2[i][4][6] } else { ligne44.children[j].innerHTML = 0 }
         }
     }
 
@@ -4857,7 +4856,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][5][8]) { ligne55.children[j].innerHTML = 'Rattrapage' } else { ligne55.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][5][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][5][0] >= 10)) { ligne55.children[j].innerHTML = data2[i][5][6] } else { ligne55.children[j].innerHTML = 0 }
+            ligne55.children[j].innerHTML = data2[i][5][7]
+            //if ((data2[i][5][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][5][0] >= 10)) { ligne55.children[j].innerHTML = data2[i][5][6] } else { ligne55.children[j].innerHTML = 0 }
             //ligne55.children[j].innerHTML = data2[i][5][7] 
         }
     }
@@ -4879,7 +4879,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][6][8]) { ligne66.children[j].innerHTML = 'Rattrapage' } else { ligne66.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][6][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][6][0] >= 10)) { ligne66.children[j].innerHTML = data2[i][6][6] } else { ligne66.children[j].innerHTML = 0 }
+            ligne66.children[j].innerHTML = data2[i][6][7]
+            //if ((data2[i][6][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][6][0] >= 10)) { ligne66.children[j].innerHTML = data2[i][6][6] } else { ligne66.children[j].innerHTML = 0 }
         }
     }
 
@@ -4900,7 +4901,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][7][8]) { ligne77.children[j].innerHTML = 'Rattrapage' } else { ligne77.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][7][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][7][0] >= 10)) { ligne77.children[j].innerHTML = data2[i][7][6] } else { ligne77.children[j].innerHTML = 0 }
+            ligne77.children[j].innerHTML = data2[i][7][7]
+            //if ((data2[i][7][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][7][0] >= 10)) { ligne77.children[j].innerHTML = data2[i][7][6] } else { ligne77.children[j].innerHTML = 0 }
         }
     }
 
@@ -4921,7 +4923,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][8][8]) { ligne88.children[j].innerHTML = 'Rattrapage' } else { ligne88.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][8][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][8][0] >= 10)) { ligne88.children[j].innerHTML = data2[i][8][6] } else { ligne88.children[j].innerHTML = 0 }
+            ligne88.children[j].innerHTML = data2[i][8][7]
+            //if ((data2[i][8][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][8][0] >= 10)) { ligne88.children[j].innerHTML = data2[i][8][6] } else { ligne88.children[j].innerHTML = 0 }
         }
     }
 
@@ -4942,12 +4945,13 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][9][8]) { ligne99.children[j].innerHTML = 'Rattrapage' } else { ligne99.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][9][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][9][0] >= 10)) { ligne99.children[j].innerHTML = data2[i][9][6] } else { ligne99.children[j].innerHTML = 0 }
+            ligne99.children[j].innerHTML = data2[i][9][7]
+            //if ((data2[i][9][0] >= 7 && data2[i][3][3] >= 10) || (data2[i][9][0] >= 10)) { ligne99.children[j].innerHTML = data2[i][9][6] } else { ligne99.children[j].innerHTML = 0 }
         }
     }
 
     //Ligne 10
-    ligne100 = s2epsbody.children[9]
+    var ligne100 = s2epsbody.children[9]
         //ligne100.children[0].innerHTML = "SEMESTRE 2"
     ligne100.children[1].innerHTML = "EPS127"
     ligne100.children[2].innerHTML = "Technique d'expression française II"
@@ -4963,7 +4967,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 9) { if (data2[i][10][8]) { ligne100.children[j].innerHTML = 'Rattrapage' } else { ligne100.children[j].innerHTML = mydata[9] } }
         if (j == 10) {
-            if ((data2[i][10][0] >= 7 && data2[i][10][3] >= 10) || (data2[i][10][0] >= 10)) { ligne100.children[j].innerHTML = data2[i][10][6] } else { ligne100.children[j].innerHTML = 0 }
+            ligne100.children[j].innerHTML = data2[i][10][7]
+            //if ((data2[i][10][0] >= 7 && data2[i][10][3] >= 10) || (data2[i][10][0] >= 10)) { ligne100.children[j].innerHTML = data2[i][10][6] } else { ligne100.children[j].innerHTML = 0 }
         } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
     }
 
@@ -4984,7 +4989,8 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][11][8]) { ligne111.children[j].innerHTML = 'Rattrapage' } else { ligne111.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][11][0] >= 7 && data2[i][10][3] >= 10) || (data2[i][11][0] >= 10)) { ligne111.children[j].innerHTML = data2[i][11][6] } else { ligne111.children[j].innerHTML = 0 }
+            ligne111.children[j].innerHTML = data2[i][11][7]
+            //if ((data2[i][11][0] >= 7 && data2[i][10][3] >= 10) || (data2[i][11][0] >= 10)) { ligne111.children[j].innerHTML = data2[i][11][6] } else { ligne111.children[j].innerHTML = 0 }
         } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
     }
 
@@ -5005,8 +5011,10 @@ function BullSTAPS1(clone, i) {
         }
         if (j == 7) { if (data2[i][12][8]) { ligne112.children[j].innerHTML = 'Rattrapage' } else { ligne112.children[j].innerHTML = mydata[9] } }
         if (j == 8) {
-            if ((data2[i][12][0] >= 7 && data2[i][10][3] >= 10) || (data2[i][12][0] >= 10)) { ligne112.children[j].innerHTML = data2[i][11][6] } else { ligne112.children[j].innerHTML = 0 }
-        } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20 
+            //ligne112.children[j].innerHTML = data2[i][12][7]
+            ligne112.children[j].innerHTML = data2[i][12][7]
+            //if ((data2[i][12][0] >= 7 && data2[i][10][3] >= 10) || (data2[i][12][0] >= 10)) { ligne112.children[j].innerHTML = data2[i][11][6] } else { ligne112.children[j].innerHTML = 0 }
+        } //else { ligne11.children[j].innerHTML = 0,  + data2[i][2][0]) >= 20
     }
 
     //Ligne 13
@@ -5052,36 +5060,33 @@ function BullSTAPS1(clone, i) {
     return (clone)
 }
 
-
-
-
 /**FONCTION BULLETIN STAPS2 */
-function BullSTAPS2(clone, i) {
+function BullSTAPS2(clone, i, mydata) {
 
     //DONNEES RECUPEREES DE LA BD
-    listStudent = mydata[1]
+    var listStudent = mydata[1]
 
     //Info Utilisateur
-    info1 = clone.children[2].children[1].children[0]
+    var info1 = clone.children[2].children[1].children[0]
     info1.children[2].innerHTML = info1.children[2].innerHTML + ` ${listStudent[i][0]['nom']}`
     info1.children[3].innerHTML = info1.children[3].innerHTML + ` ${listStudent[i][0]['prenom']}`
 
-    info2 = clone.children[2].children[1].children[1]
+    var info2 = clone.children[2].children[1].children[1]
     info2.children[1].innerHTML = info2.children[1].innerHTML + ` ${listStudent[i][0]['matricule']}`
     info2.children[2].innerHTML = info2.children[2].innerHTML + ` ${listStudent[i][0]['date_naissance']}`
     info2.children[3].innerHTML = info2.children[3].innerHTML + ` ${listStudent[i][0]['lieu_naissance']}`
-    info2.children[4].innerHTML = info2.children[4].innerHTML + ` 2022-2023`
+    info2.children[4].innerHTML = info2.children[4].innerHTML + ` 2022-2023`   //Ajout de la variable  de la date
 
     //RESULTATS
     var tbody = clone.children[2].children[2].children[0].children[1]
 
     //LIGNE EPS111
     var ligneEPS111 = tbody.children[0]
-    for (j = 0; j <= ligneEPS111.childElementCount - 1; j++) {
+    for (var j = 0; j <= ligneEPS111.childElementCount - 1; j++) {
         if (j == 4) { ligneEPS111.children[j].innerHTML = listStudent[i][1][0] } //note 
         if (j == 5) { ligneEPS111.children[j].innerHTML = listStudent[i][1][1] } //coef
         if (j == 6) {
-            val = ligneEPS111.children[4].innerHTML * ligneEPS111.children[5].innerHTML;
+            var val = ligneEPS111.children[4].innerHTML * ligneEPS111.children[5].innerHTML;
             val = val.toFixed(2);
             val = parseFloat(val);
             ligneEPS111.children[j].innerHTML = val
@@ -5089,27 +5094,37 @@ function BullSTAPS2(clone, i) {
         if (j == 7) { ligneEPS111.children[j].innerHTML = listStudent[i][1][3] } //moyenne donc (totalmath + totalinfo)/2
         if (j == 8) { ligneEPS111.children[j].innerHTML = listStudent[i][1][4] } //Rang
         if (j == 9) {
-            if (listStudent[i][1][5]) {
+            if (((listStudent[i][1][0] >= 7 && listStudent[i][1][0] < 10) && listStudent[i][1][3] >= 10)) { ligneEPS111.children[j].innerHTML = "Validée" } else if ((listStudent[i][1][0] >= 10)) { ligneEPS111.children[j].innerHTML = "Validée" } else if (listStudent[i][1][0] < 10) { ligneEPS111.children[j].innerHTML = "Non validée" }
+            /*if (listStudent[i][1][5]) {
                 ligneEPS111.children[j].innerHTML = "Validée"
                 ligneEPS111.children[9].innerHTML = "Validée"
-            } else { ligneEPS111.children[9].innerHTML = "Non validée" }
+            } else { ligneEPS111.children[9].innerHTML = "Non validée" }*/
         } //Mention
         if (j == 10) { ligneEPS111.children[j].innerHTML = mydata[4] } //Session
-        if (j == 11) { if (listStudent[i][1][0] >= 10) { ligneEPS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS111.children[j].innerHTML = 0 } } //Crédits
+        if (j == 11) {
+            ligneEPS111.children[j].innerHTML = listStudent[i][1][7]
+            //if (listStudent[i][1][0] >= 10) { ligneEPS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS111.children[j].innerHTML = 0 } 
+            //if ((listStudent[i][1][0] >= 7 && listStudent[i][1][2] >= 10) || (listStudent[i][1][0] >= 10)) { ligneEPS111.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS111.children[j].innerHTML = 0 }
+        } //Crédits
     }
 
     //LIGNE EPS112
-    ligneEPS112 = tbody.children[1]
+    var ligneEPS112 = tbody.children[1]
     for (j = 0; j <= ligneEPS112.childElementCount - 1; j++) {
         if (j == 2) { ligneEPS112.children[j].innerHTML = listStudent[i][2][0] } //note info
         if (j == 3) { ligneEPS112.children[j].innerHTML = listStudent[i][2][1] } //coef info
         if (j == 4) { ligneEPS112.children[j].innerHTML = listStudent[i][2][2] } //val=ligneEPS112.children[2].innerHTML*ligneEPS112.children[3].innerHTML; val= val.toFixed(2); val = parseFloat(val); ligneEPS112.children[j].innerHTML = val}//total note math * coef
         if (j == 5) { ligneEPS112.children[j].innerHTML = listStudent[i][2][4] } //Rang
         if (j == 6) {
-            if (listStudent[i][2][5]) { ligneEPS112.children[6].innerHTML = "Validée" } else { ligneEPS112.children[6].innerHTML = "Non validée" }
+            if (((listStudent[i][2][0] >= 7 && listStudent[i][2][0] < 10) && listStudent[i][1][3] >= 10)) { ligneEPS112.children[j].innerHTML = "Validée" } else if ((listStudent[i][1][0] >= 10)) { ligneEPS112.children[j].innerHTML = "Validée" } else if (listStudent[i][1][0] < 10) { ligneEPS112.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][2][5]) { ligneEPS112.children[6].innerHTML = "Validée" } else { ligneEPS112.children[6].innerHTML = "Non validée" }
         }
         if (j == 7) { ligneEPS112.children[j].innerHTML = mydata[4] } //Session
-        if (j == 8) { if (listStudent[i][2][5]) { ligneEPS112.children[j].innerHTML = listStudent[i][2][6] } else { ligneEPS112.children[j].innerHTML = 0 } } //Crédits
+        if (j == 8) {
+            ligneEPS112.children[j].innerHTML = listStudent[i][2][7]
+            //if ((listStudent[i][2][0] >= 7 && listStudent[i][1][2] >= 10) || (listStudent[i][1][0] >= 10)) { ligneEPS112.children[j].innerHTML = listStudent[i][1][6] } else { ligneEPS112.children[j].innerHTML = 0 }
+            //if (listStudent[i][2][5]) { ligneEPS112.children[j].innerHTML = listStudent[i][2][6] } else { ligneEPS112.children[j].innerHTML = 0 }
+        } //Crédits
     }
 
     //LIGNE EPS113
@@ -5125,9 +5140,15 @@ function BullSTAPS2(clone, i) {
         } //total note math * coef
         if (j == 6) { ligneEPS113.children[j].innerHTML = listStudent[i][3][3] } //
         if (j == 7) { ligneEPS113.children[j].innerHTML = listStudent[i][3][4] }
-        if (j == 8) { if (listStudent[i][3][5]) { ligneEPS113.children[j].innerHTML = "Validée" } else { ligneEPS113.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 8) { 
+            if (((listStudent[i][3][0] >= 7 && listStudent[i][3][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS113.children[j].innerHTML = "Validée" } else if ((listStudent[i][3][0] >= 10)) { ligneEPS113.children[j].innerHTML = "Validée" } else if (listStudent[i][3][0] < 10) { ligneEPS113.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][3][5]) { ligneEPS113.children[j].innerHTML = "Validée" } else { ligneEPS113.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 9) { ligneEPS113.children[j].innerHTML = mydata[4] } // Session
-        if (j == 10) { if (listStudent[i][3][5]) { ligneEPS113.children[j].innerHTML = listStudent[i][3][6] } else { ligneEPS113.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 10) { 
+            ligneEPS113.children[j].innerHTML = listStudent[i][3][7]
+            //if (listStudent[i][3][5]) { ligneEPS113.children[j].innerHTML = listStudent[i][3][6] } else { ligneEPS113.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LIGNE EPS114
@@ -5137,9 +5158,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS114.children[j].innerHTML = listStudent[i][4][1] } //coef info
         if (j == 4) { /*val=ligneEPS114.children[2].innerHTML*ligneEPS114.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS114.children[j].innerHTML = listStudent[i][4][2] } //total note math * coef
         if (j == 5) { ligneEPS114.children[j].innerHTML = listStudent[i][4][4] } //
-        if (j == 6) { if (listStudent[i][4][5]) { ligneEPS114.children[j].innerHTML = "Validée" } else { ligneEPS114.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) { 
+            if (((listStudent[i][4][0] >= 7 && listStudent[i][4][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS114.children[j].innerHTML = "Validée" } else if ((listStudent[i][4][0] >= 10)) { ligneEPS114.children[j].innerHTML = "Validée" } else if (listStudent[i][4][0] < 10) { ligneEPS114.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][4][5]) { ligneEPS114.children[j].innerHTML = "Validée" } else { ligneEPS114.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS114.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][4][5]) { ligneEPS114.children[j].innerHTML = listStudent[i][4][6] } else { ligneEPS114.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) { 
+            ligneEPS114.children[j].innerHTML =  listStudent[i][4][7]
+            //if (listStudent[i][4][5]) { ligneEPS114.children[j].innerHTML = listStudent[i][4][6] } else { ligneEPS114.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LIGNE EPS115a
@@ -5149,9 +5176,16 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][1] } //coef info
         if (j == 4) { /*val=ligneEPS115a.children[2].innerHTML*ligneEPS115a.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115a.children[j].innerHTML = listStudent[i][5][2] } //total note math * coef
         if (j == 5) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][4] } //
-        if (j == 6) { if (listStudent[i][5][5]) { ligneEPS115a.children[j].innerHTML = "Validée" } else { ligneEPS115a.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) {
+            if (((listStudent[i][5][0] >= 7 && listStudent[i][5][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115a.children[j].innerHTML = "Validée" } else if ((listStudent[i][5][0] >= 10)) { ligneEPS115a.children[j].innerHTML = "Validée" } else if (listStudent[i][5][0] < 10) { ligneEPS115a.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][5][5]) { ligneEPS115a.children[j].innerHTML = "Validée" } else { ligneEPS115a.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS115a.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0] + listStudent[i][9][0] + listStudent[i][10][0]) >= 48) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][6] } else { ligneEPS115a.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) { 
+            ligneEPS115a.children[j].innerHTML = listStudent[i][5][7]
+            //if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0] + listStudent[i][9][0] + listStudent[i][10][0]) >= 48) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][6] } else { ligneEPS115a.children[j].innerHTML = 0 } 
+            //if ((listStudent[i][5][0] >= 7 && listStudent[i][3][3] >= 10) || (listStudent[i][5][0] >= 10)) { ligneEPS115a.children[j].innerHTML = listStudent[i][5][6] } else { ligneEPS115a.children[j].innerHTML = 0 }
+        } //nombre_crédits
     }
 
     //LIGNE EPS115b
@@ -5161,9 +5195,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115b.children[j].innerHTML = listStudent[i][6][1] } //coef info
         if (j == 4) { /*val=ligneEPS115b.children[2].innerHTML*ligneEPS115b.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115b.children[j].innerHTML = listStudent[i][6][2] } //total note math * coef
         if (j == 5) { ligneEPS115b.children[j].innerHTML = listStudent[i][5][4] } //
-        if (j == 6) { if (listStudent[i][6][5]) { ligneEPS115b.children[j].innerHTML = "Validée" } else { ligneEPS115b.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) { 
+            if (((listStudent[i][6][0] >= 7 && listStudent[i][6][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115b.children[j].innerHTML = "Validée" } else if ((listStudent[i][6][0] >= 10)) { ligneEPS115b.children[j].innerHTML = "Validée" } else if (listStudent[i][6][0] < 10) { ligneEPS115b.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][6][5]) { ligneEPS115b.children[j].innerHTML = "Validée" } else { ligneEPS115b.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS115b.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][6][5]) { ligneEPS115b.children[j].innerHTML = listStudent[i][6][6] } else { ligneEPS115b.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) { 
+            ligneEPS115b.children[j].innerHTML = listStudent[i][6][7]
+            //if (listStudent[i][6][5]) { ligneEPS115b.children[j].innerHTML = listStudent[i][6][6] } else { ligneEPS115b.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //Ligne EPS115f
@@ -5173,9 +5213,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115f.children[j].innerHTML = listStudent[i][7][1] } //coef info
         if (j == 4) { /*val=ligneEPS115f.children[2].innerHTML*ligneEPS115f.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115f.children[j].innerHTML = listStudent[i][7][2] } //total note math * coef
         if (j == 5) { ligneEPS115f.children[j].innerHTML = listStudent[i][7][4] } //
-        if (j == 6) { if (listStudent[i][7][5]) { ligneEPS115f.children[j].innerHTML = "Validée" } else { ligneEPS115f.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) { 
+            if (((listStudent[i][7][0] >= 7 && listStudent[i][7][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115f.children[j].innerHTML = "Validée" } else if ((listStudent[i][7][0] >= 10)) { ligneEPS115f.children[j].innerHTML = "Validée" } else if (listStudent[i][7][0] < 10) { ligneEPS115f.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][7][5]) { ligneEPS115f.children[j].innerHTML = "Validée" } else { ligneEPS115f.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS115f.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][7][5]) { ligneEPS115f.children[j].innerHTML = listStudent[i][7][6] } else { ligneEPS115f.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) {
+            ligneEPS115f.children[j].innerHTML = listStudent[i][7][7]
+            //if (listStudent[i][7][5]) { ligneEPS115f.children[j].innerHTML = listStudent[i][7][6] } else { ligneEPS115f.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //Ligne EPS115g
@@ -5185,9 +5231,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115g.children[j].innerHTML = listStudent[i][8][1] } //coef info
         if (j == 4) { /*val=ligneEPS115g.children[2].innerHTML*ligneEPS115g.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115g.children[j].innerHTML = listStudent[i][8][2] } //total note math * coef
         if (j == 5) { ligneEPS115g.children[j].innerHTML = listStudent[i][8][4] } //
-        if (j == 6) { if (listStudent[i][8][5]) { ligneEPS115g.children[j].innerHTML = "Validée" } else { ligneEPS115g.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) {
+            if (((listStudent[i][8][0] >= 7 && listStudent[i][8][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115g.children[j].innerHTML = "Validée" } else if ((listStudent[i][8][0] >= 10)) { ligneEPS115g.children[j].innerHTML = "Validée" } else if (listStudent[i][8][0] < 10) { ligneEPS115g.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][8][5]) { ligneEPS115g.children[j].innerHTML = "Validée" } else { ligneEPS115g.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS115g.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][8][5]) { ligneEPS115g.children[j].innerHTML = listStudent[i][8][6] } else { ligneEPS115g.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) {
+            ligneEPS115g.children[j].innerHTML = listStudent[i][8][7]
+            //if (listStudent[i][8][5]) { ligneEPS115g.children[j].innerHTML = listStudent[i][8][6] } else { ligneEPS115g.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LIGNE EPS115j
@@ -5197,7 +5249,12 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115j.children[j].innerHTML = listStudent[i][9][1] } //coef info
         if (j == 4) { /*val=ligneEPS115j.children[2].innerHTML*ligneEPS115j.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115j.children[j].innerHTML = listStudent[i][9][2] } //total note math * coef
         if (j == 5) { ligneEPS115j.children[j].innerHTML = listStudent[i][9][4] } //
-        if (j == 6) { if (listStudent[i][9][5]) { ligneEPS115j.children[j].innerHTML = "Validée" } else { ligneEPS115j.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) { 
+            if (((listStudent[i][9][0] >= 7 && listStudent[i][9][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115j.children[j].innerHTML = "Validée" } else if ((listStudent[i][9][0] >= 10)) { ligneEPS115j.children[j].innerHTML = "Validée" } else if (listStudent[i][9][0] < 10) { ligneEPS115j.children[j].innerHTML = "Non validée" }
+
+            /*if (listStudent[i][9][5]) { 
+                ligneEPS115j.children[j].innerHTML = "Validée" } else { ligneEPS115j.children[j].innerHTML = "Non validée" } */
+        } //Mention
         if (j == 7) { ligneEPS115j.children[j].innerHTML = mydata[4] } //session
         if (j == 8) { if (listStudent[i][9][5]) { ligneEPS115j.children[j].innerHTML = listStudent[i][9][6] } else { ligneEPS115j.children[j].innerHTML = 0 } } //nombre_crédits
     }
@@ -5209,9 +5266,16 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS115l.children[j].innerHTML = listStudent[i][10][1] } //coef info
         if (j == 4) { /*val=ligneEPS115l.children[2].innerHTML*ligneEPS115l.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS115l.children[j].innerHTML = listStudent[i][10][2] } //total note math * coef
         if (j == 5) { ligneEPS115l.children[j].innerHTML = listStudent[i][10][4] } //
-        if (j == 6) { if (listStudent[i][10][5]) { ligneEPS115l.children[j].innerHTML = "Validée" } else { ligneEPS115l.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) {
+            if (((listStudent[i][10][0] >= 7 && listStudent[i][10][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS115l.children[j].innerHTML = "Validée" } else if ((listStudent[i][10][0] >= 10)) { ligneEPS115l.children[j].innerHTML = "Validée" } else if (listStudent[i][10][0] < 10) { ligneEPS115l.children[j].innerHTML = "Non validée" }
+
+            //if (listStudent[i][10][5]) { ligneEPS115l.children[j].innerHTML = "Validée" } else { ligneEPS115l.children[j].innerHTML = "Non validée" }
+        } //Mention
         if (j == 7) { ligneEPS115l.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][10][5]) { ligneEPS115l.children[j].innerHTML = listStudent[i][10][6] } else { ligneEPS115l.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) { 
+            ligneEPS115l.children[j].innerHTML = listStudent[i][10][7]
+            //if (listStudent[i][10][5]) { ligneEPS115l.children[j].innerHTML = listStudent[i][10][6] } else { ligneEPS115l.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LIGNE EPS116
@@ -5221,9 +5285,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS116.children[j].innerHTML = listStudent[i][11][1] } //coef info
         if (j == 4) { /*val=ligneEPS116.children[2].innerHTML*ligneEPS116.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS116.children[j].innerHTML = listStudent[i][11][2] } //total note math * coef
         if (j == 5) { ligneEPS116.children[j].innerHTML = listStudent[i][9][4] } //
-        if (j == 6) { if (listStudent[i][11][5]) { ligneEPS116.children[j].innerHTML = "Validée" } else { ligneEPS116.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) {
+            if (((listStudent[i][11][0] >= 7 && listStudent[i][11][0] < 10) && listStudent[i][3][3] >= 10)) { ligneEPS116.children[j].innerHTML = "Validée" } else if ((listStudent[i][11][0] >= 10)) { ligneEPS116.children[j].innerHTML = "Validée" } else if (listStudent[i][11][0] < 10) { ligneEPS116.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][11][5]) { ligneEPS116.children[j].innerHTML = "Validée" } else { ligneEPS116.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS116.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][11][5]) { ligneEPS116.children[j].innerHTML = listStudent[i][11][6] } else { ligneEPS116.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) {
+            ligneEPS116.children[j].innerHTML = listStudent[i][11][7]
+            //if (listStudent[i][11][5]) { ligneEPS116.children[j].innerHTML = listStudent[i][11][6] } else { ligneEPS116.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LIGNE EPS117
@@ -5239,9 +5309,15 @@ function BullSTAPS2(clone, i) {
         } //total note math * coef
         if (j == 6) { ligneEPS117.children[j].innerHTML = listStudent[i][12][3] } //
         if (j == 7) { ligneEPS117.children[j].innerHTML = listStudent[i][12][4] }
-        if (j == 8) { if (listStudent[i][12][5]) { ligneEPS117.children[j].innerHTML = "Validée" } else { ligneEPS117.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 8) {
+            if (((listStudent[i][12][0] >= 7 && listStudent[i][12][0] < 10) && listStudent[i][12][3] >= 10)) { ligneEPS117.children[j].innerHTML = "Validée" } else if ((listStudent[i][12][0] >= 10)) { ligneEPS117.children[j].innerHTML = "Validée" } else if (listStudent[i][12][0] < 10) { ligneEPS117.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][12][5]) { ligneEPS117.children[j].innerHTML = "Validée" } else { ligneEPS117.children[j].innerHTML = "Non validée" }
+        } //Mention
         if (j == 9) { ligneEPS117.children[j].innerHTML = mydata[4] } // Session
-        if (j == 10) { if (listStudent[i][12][5]) { ligneEPS117.children[j].innerHTML = listStudent[i][12][6] } else { ligneEPS117.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 10) {
+            ligneEPS117.children[j].innerHTML = listStudent[i][12][7]
+            //if (listStudent[i][12][5]) { ligneEPS117.children[j].innerHTML = listStudent[i][12][6] } else { ligneEPS117.children[j].innerHTML = 0 }
+        } //nombre_crédits
     }
 
     //LIGNE EPS118
@@ -5251,9 +5327,15 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS118.children[j].innerHTML = listStudent[i][13][1] } //coef info
         if (j == 4) { /*val=ligneEPS118.children[2].innerHTML*ligneEPS118.children[3].innerHTML; val=val.toFixed(2); val=parseFloat(val);*/ ligneEPS118.children[j].innerHTML = listStudent[i][13][2] } //total note math * coef
         if (j == 5) { ligneEPS118.children[j].innerHTML = listStudent[i][13][4] } //
-        if (j == 6) { if (listStudent[i][13][5]) { ligneEPS118.children[j].innerHTML = "Validée" } else { ligneEPS118.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) {
+            if (((listStudent[i][13][0] >= 7 && listStudent[i][13][0] < 10) && listStudent[i][12][3] >= 10)) { ligneEPS118.children[j].innerHTML = "Validée" } else if ((listStudent[i][13][0] >= 10)) { ligneEPS118.children[j].innerHTML = "Validée" } else if (listStudent[i][13][0] < 10) { ligneEPS118.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][13][5]) { ligneEPS118.children[j].innerHTML = "Validée" } else { ligneEPS118.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS118.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][13][5]) { ligneEPS118.children[j].innerHTML = listStudent[i][13][6] } else { ligneEPS118.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) { 
+            ligneEPS118.children[j].innerHTML = listStudent[i][13][7]
+            //if (listStudent[i][13][5]) { ligneEPS118.children[j].innerHTML = listStudent[i][13][6] } else { ligneEPS118.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LIGNE EPS119
@@ -5263,13 +5345,19 @@ function BullSTAPS2(clone, i) {
         if (j == 3) { ligneEPS119.children[j].innerHTML = listStudent[i][14][1] } //coef info
         if (j == 4) { ligneEPS119.children[j].innerHTML = listStudent[i][14][2] } //total note math * coef
         if (j == 5) { ligneEPS119.children[j].innerHTML = listStudent[i][14][4] } //
-        if (j == 6) { if (listStudent[i][14][5]) { ligneEPS119.children[j].innerHTML = "Validée" } else { ligneEPS119.children[j].innerHTML = "Non validée" } } //Mention
+        if (j == 6) {
+            if (((listStudent[i][14][0] >= 7 && listStudent[i][14][0] < 10) && listStudent[i][12][3] >= 10)) { ligneEPS119.children[j].innerHTML = "Validée" } else if ((listStudent[i][14][0] >= 10)) { ligneEPS119.children[j].innerHTML = "Validée" } else if (listStudent[i][14][0] < 10) { ligneEPS119.children[j].innerHTML = "Non validée" }
+            //if (listStudent[i][14][5]) { ligneEPS119.children[j].innerHTML = "Validée" } else { ligneEPS119.children[j].innerHTML = "Non validée" } 
+        } //Mention
         if (j == 7) { ligneEPS119.children[j].innerHTML = mydata[4] } //session
-        if (j == 8) { if (listStudent[i][14][5]) { ligneEPS119.children[j].innerHTML = listStudent[i][14][6] } else { ligneEPS119.children[j].innerHTML = 0 } } //nombre_crédits
+        if (j == 8) {
+            ligneEPS119.children[j].innerHTML = listStudent[i][14][7]
+            //if (listStudent[i][14][5]) { ligneEPS119.children[j].innerHTML = listStudent[i][14][6] } else { ligneEPS119.children[j].innerHTML = 0 } 
+        } //nombre_crédits
     }
 
     //LINE DEs RESULTATS
-    resultat = tbody.children[14]
+    var resultat = tbody.children[14]
     for (j = 0; j <= resultat.childElementCount - 1; j++) {
         if (j == 1) {
             resultat.children[1].innerHTML = listStudent[i][15][0];
@@ -5309,21 +5397,23 @@ function BullSTAPS2(clone, i) {
     resultat.style.backgroundColor = "#C7B54D"
 
     // ##################### SEMESTRE 4 ###################################################################################
-    listStudent2 = mydata[10][0]
-    s4body = clone.children[2].children[3].children[0].children[1]
+    var listStudent2 = mydata[10][0]
+    var s4body = clone.children[2].children[3].children[0].children[1]
 
     //Ligne 3
     var ligne33 = s4body.children[2]
-    for (j = 0; j <= ligne33.childElementCount - 1; j++) {
+    for (var j = 0; j <= ligne33.childElementCount - 1; j++) {
         if (j == 3) { ligne33.children[j].innerHTML = listStudent2[i][1][0] }
         if (j == 4) { ligne33.children[j].innerHTML = listStudent2[i][1][1] }
         if (j == 5) { ligne33.children[j].innerHTML = listStudent2[i][1][2] }
         if (j == 6) { ligne33.children[j].innerHTML = listStudent2[i][10][3] }
         if (j == 7) { ligne33.children[j].innerHTML = listStudent2[i][1][4] }
         if (j == 8) {
-            if (listStudent2[i][1][5]) { ligne33.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][1][0] >= 7 && listStudent2[i][1][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne33.children[j].innerHTML = "Validée" } else if ((listStudent2[i][1][0] >= 10)) { ligne33.children[j].innerHTML = "Validée" } else if (listStudent2[i][1][0] < 10) { ligne33.children[j].innerHTML = "Non validée" }
+
+            /*if (listStudent2[i][1][5]) { ligne33.children[j].innerHTML = 'Validée' } else {
                 ligne33.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 9) {
             if (listStudent2[i][1][10]) { ligne33.children[j].innerHTML = "Rattrapage" } else { ligne33.children[j].innerHTML = "Mai 2023" }
@@ -5338,9 +5428,11 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne44.children[j].innerHTML = listStudent2[i][2][2] }
         if (j == 5) { ligne44.children[j].innerHTML = listStudent2[i][2][4] }
         if (j == 6) {
-            if (listStudent2[i][2][5]) { ligne44.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][2][0] >= 7 && listStudent2[i][2][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne44.children[j].innerHTML = "Validée" } else if ((listStudent2[i][2][0] >= 10)) { ligne44.children[j].innerHTML = "Validée" } else if (listStudent2[i][2][0] < 10) { ligne44.children[j].innerHTML = "Non validée" }
+
+            /*if (listStudent2[i][2][5]) { ligne44.children[j].innerHTML = 'Validée' } else {
                 ligne44.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][2][10]) { ligne44.children[j].innerHTML = "Rattrapage" } else { ligne44.children[j].innerHTML = "Mai 2023" }
@@ -5356,14 +5448,15 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne55.children[j].innerHTML = listStudent2[i][3][2] }
         if (j == 5) { ligne55.children[j].innerHTML = listStudent2[i][3][4] }
         if (j == 6) {
-            if (listStudent2[i][3][5]) { ligne55.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][3][0] >= 7 && listStudent2[i][3][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne55.children[j].innerHTML = "Validée" } else if ((listStudent2[i][3][0] >= 10)) { ligne55.children[j].innerHTML = "Validée" } else if (listStudent2[i][3][0] < 10) { ligne55.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][3][5]) { ligne55.children[j].innerHTML = 'Validée' } else {
                 ligne55.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][3][10]) { ligne55.children[j].innerHTML = "Rattrapage" } else { ligne55.children[j].innerHTML = "Mai 2023" }
         }
-        //if (j == 8) { ligne55.children[j].innerHTML = listStudent2[i][2][7] }
+        //if (j == 8) { ligne55.children[j].innerHTML = listStudent2[i][2][9] }
     }
 
     //Ligne 6
@@ -5374,14 +5467,15 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne66.children[j].innerHTML = listStudent2[i][4][2] }
         if (j == 5) { ligne66.children[j].innerHTML = listStudent2[i][4][4] }
         if (j == 6) {
-            if (listStudent2[i][4][5]) { ligne66.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][4][0] >= 7 && listStudent2[i][4][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne66.children[j].innerHTML = "Validée" } else if ((listStudent2[i][4][0] >= 10)) { ligne66.children[j].innerHTML = "Validée" } else if (listStudent2[i][4][0] < 10) { ligne66.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][4][5]) { ligne66.children[j].innerHTML = 'Validée' } else {
                 ligne66.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][4][10]) { ligne66.children[j].innerHTML = "Rattrapage" } else { ligne66.children[j].innerHTML = "Mai 2023" }
         }
-        //if (j == 8) { ligne55.children[j].innerHTML = listStudent2[i][2][7] }
+        //if (j == 8) { ligne55.children[j].innerHTML = listStudent2[i][2][9] }
     }
 
     //Ligne 7
@@ -5392,14 +5486,15 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne77.children[j].innerHTML = listStudent2[i][5][2] }
         if (j == 5) { ligne77.children[j].innerHTML = listStudent2[i][5][4] }
         if (j == 6) {
-            if (listStudent2[i][5][5]) { ligne77.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][5][0] >= 7 && listStudent2[i][5][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne77.children[j].innerHTML = "Validée" } else if ((listStudent2[i][5][0] >= 10)) { ligne77.children[j].innerHTML = "Validée" } else if (listStudent2[i][5][0] < 10) { ligne77.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][5][5]) { ligne77.children[j].innerHTML = 'Validée' } else {
                 ligne77.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][5][10]) { ligne77.children[j].innerHTML = "Rattrapage" } else { ligne77.children[j].innerHTML = "Mai 2023" }
         }
-        //if (j == 8) { ligne55.children[j].innerHTML = listStudent2[i][2][7] }
+        //if (j == 8) { ligne55.children[j].innerHTML = listStudent2[i][2][9] }
     }
 
     //Ligne 8
@@ -5410,14 +5505,18 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne88.children[j].innerHTML = listStudent2[i][6][2] }
         if (j == 5) { ligne88.children[j].innerHTML = listStudent2[i][6][4] }
         if (j == 6) {
-            if (listStudent2[i][6][5]) { ligne88.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][6][0] >= 7 && listStudent2[i][6][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne88.children[j].innerHTML = "Validée" } else if ((listStudent2[i][6][0] >= 10)) { ligne88.children[j].innerHTML = "Validée" } else if (listStudent2[i][6][0] < 10) { ligne88.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][6][5]) { ligne88.children[j].innerHTML = 'Validée' } else {
                 ligne88.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][6][10]) { ligne88.children[j].innerHTML = "Rattrapage" } else { ligne88.children[j].innerHTML = "Mai 2023" }
         }
-        if (j == 8) { ligne88.children[j].innerHTML = listStudent2[i][6][7] }
+        if (j == 8) {
+            var length
+            ligne88.children[j].innerHTML = listStudent2[i][6][7]
+        }
     }
     //Ligne 9
     var lignee99 = s4body.children[8]
@@ -5427,9 +5526,10 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { lignee99.children[j].innerHTML = listStudent2[i][7][2] }
         if (j == 5) { lignee99.children[j].innerHTML = listStudent2[i][7][4] }
         if (j == 6) {
-            if (listStudent2[i][7][5]) { lignee99.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][7][0] >= 7 && listStudent2[i][7][0] < 10) && listStudent2[i][1][3] >= 10)) { lignee99.children[j].innerHTML = "Validée" } else if ((listStudent2[i][7][0] >= 10)) { lignee99.children[j].innerHTML = "Validée" } else if (listStudent2[i][7][0] < 10) { lignee99.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][7][5]) { lignee99.children[j].innerHTML = 'Validée' } else {
                 lignee99.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][7][10]) { lignee99.children[j].innerHTML = "Rattrapage" } else { lignee99.children[j].innerHTML = "Mai 2023" }
@@ -5444,9 +5544,10 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne10.children[j].innerHTML = listStudent2[i][8][2] }
         if (j == 5) { ligne10.children[j].innerHTML = listStudent2[i][8][4] }
         if (j == 6) {
-            if (listStudent2[i][8][5]) { ligne10.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][8][0] >= 7 && listStudent2[i][8][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne10.children[j].innerHTML = "Validée" } else if ((listStudent2[i][8][0] >= 10)) { ligne10.children[j].innerHTML = "Validée" } else if (listStudent2[i][8][0] < 10) { ligne10.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][8][5]) { ligne10.children[j].innerHTML = 'Validée' } else {
                 ligne10.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][8][10]) { ligne10.children[j].innerHTML = "Rattrapage" } else { ligne10.children[j].innerHTML = "Mai 2023" }
@@ -5462,9 +5563,10 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne11.children[j].innerHTML = listStudent2[i][9][2] }
         if (j == 5) { ligne11.children[j].innerHTML = listStudent2[i][9][4] }
         if (j == 6) {
-            if (listStudent2[i][9][5]) { ligne11.children[j].innerHTML = 'Validée' } else {
+            if (((listStudent2[i][9][0] >= 7 && listStudent2[i][9][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne11.children[j].innerHTML = "Validée" } else if ((listStudent2[i][9][0] >= 10)) { ligne11.children[j].innerHTML = "Validée" } else if (listStudent2[i][9][0] < 10) { ligne11.children[j].innerHTML = "Non validée" }
+            /*if (listStudent2[i][9][5]) { ligne11.children[j].innerHTML = 'Validée' } else {
                 ligne11.children[j].innerHTML = 'Non validée'
-            }
+            }*/
         }
         if (j == 7) {
             if (listStudent2[i][9][10]) { ligne11.children[j].innerHTML = "Rattrapage" } else { ligne11.children[j].innerHTML = "Mai 2023" }
@@ -5480,9 +5582,10 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne12.children[j].innerHTML = listStudent2[i][10][2] }
         if (j == 5) { ligne12.children[j].innerHTML = listStudent2[i][10][4] }
         if (j == 6) {
-            if (listStudent2[i][10][5]) { ligne12.children[j].innerHTML = 'Validée' } else {
+            /*if (listStudent2[i][10][5]) { ligne12.children[j].innerHTML = 'Validée' } else {
                 ligne12.children[j].innerHTML = 'Non validée'
-            }
+            }*/
+            if (((listStudent2[i][10][0] >= 7 && listStudent2[i][10][0] < 10) && listStudent2[i][1][3] >= 10)) { ligne12.children[j].innerHTML = "Validée" } else if ((listStudent2[i][10][0] >= 10)) { ligne12.children[j].innerHTML = "Validée" } else if (listStudent2[i][10][0] < 10) { ligne12.children[j].innerHTML = "Non validée" }
         }
         if (j == 7) {
             if (listStudent2[i][10][10]) { ligne12.children[j].innerHTML = "Rattrapage" } else { ligne12.children[j].innerHTML = "Mai 2023" }
@@ -5499,9 +5602,10 @@ function BullSTAPS2(clone, i) {
         if (j == 6) { ligne13.children[j].innerHTML = listStudent2[i][12][3] }
         if (j == 7) { ligne13.children[j].innerHTML = listStudent2[i][11][4] }
         if (j == 8) {
-            if (listStudent2[i][11][5]) { ligne13.children[j].innerHTML = 'Validée' } else {
+            /*if (listStudent2[i][11][5]) { ligne13.children[j].innerHTML = 'Validée' } else {
                 ligne13.children[j].innerHTML = 'Non validée'
-            }
+            }*/
+            if (((listStudent2[i][11][0] >= 7 && listStudent2[i][11][0] < 10) && listStudent2[i][12][3] >= 10)) { ligne13.children[j].innerHTML = "Validée" } else if ((listStudent2[i][11][0] >= 10)) { ligne13.children[j].innerHTML = "Validée" } else if (listStudent2[i][11][0] < 10) { ligne13.children[j].innerHTML = "Non validée" }
         }
         if (j == 9) {
             if (listStudent2[i][11][10]) { ligne13.children[j].innerHTML = "Rattrapage" } else { ligne13.children[j].innerHTML = "Mai 2023" }
@@ -5518,9 +5622,10 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne14.children[j].innerHTML = listStudent2[i][12][2] }
         if (j == 5) { ligne14.children[j].innerHTML = listStudent2[i][12][4] }
         if (j == 6) {
-            if (listStudent2[i][12][5]) { ligne14.children[j].innerHTML = 'Validée' } else {
+            /*if (listStudent2[i][12][5]) { ligne14.children[j].innerHTML = 'Validée' } else {
                 ligne14.children[j].innerHTML = 'Non validée'
-            }
+            }*/
+            if (((listStudent2[i][12][0] >= 7 && listStudent2[i][12][0] < 10) && listStudent2[i][12][3] >= 10)) { ligne14.children[j].innerHTML = "Validée" } else if ((listStudent2[i][12][0] >= 10)) { ligne14.children[j].innerHTML = "Validée" } else if (listStudent2[i][12][0] < 10) { ligne14.children[j].innerHTML = "Non validée" }
         }
         if (j == 7) {
             if (listStudent2[i][12][10]) { ligne14.children[j].innerHTML = "Rattrapage" } else { ligne14.children[j].innerHTML = "Mai 2023" }
@@ -5529,9 +5634,9 @@ function BullSTAPS2(clone, i) {
 
     }
 
-    //Ligne 16 
+    //Ligne 16
     /*var*/
-    ligne16 = s4body.children[15]
+    var ligne16 = s4body.children[15]
     ligne16.style.backgroundColor = 'rgb(199, 181, 77)'
     for (j = 0; j <= 6; j++) {
         //if (j == 0) { ligne16.children[j].innerHTML = "" }
@@ -5541,14 +5646,14 @@ function BullSTAPS2(clone, i) {
         if (j == 4) { ligne16.children[j].innerHTML = mydata[10][1].indexOf(listStudent2[i][13][2]) + 1 }
         //if (j == 5) { ligne16.children[j].innerHTML = "OBOSSO" }
         if (j == 6) {
-            ligne16.children[j].innerHTML = sommeInt9(ligne33.lastChild.innerHTML, ligne44.lastChild.innerHTML, ligne88.lastChild.innerHTML, lignee99.lastChild.innerHTML, ligne10.lastChild.innerHTML, ligne11.lastChild.innerHTML, ligne12.lastChild.innerHTML, ligne13.lastChild.innerHTML, ligne14.lastChild.innerHTML)
+            ligne16.children[j].innerHTML =  (sommeInt9(ligne33.lastChild.innerHTML, ligne44.lastChild.innerHTML, ligne88.lastChild.innerHTML, lignee99.lastChild.innerHTML, ligne10.lastChild.innerHTML, ligne11.lastChild.innerHTML, ligne12.lastChild.innerHTML, ligne13.lastChild.innerHTML, ligne14.lastChild.innerHTML)  )
         }
     }
 
     // SEMESTRE 4 & 3 RESULT
-    resultats4s3 = clone.children[2].children[4]
+    var resultats4s3 = clone.children[2].children[4]
 
-    ligneresultat = resultats4s3.children[1].children[1]
+    var ligneresultat = resultats4s3.children[1].children[1]
 
     for (j = 0; j <= ligneresultat.childElementCount - 1; j++) {
         if (j == 0) { ligneresultat.children[j].innerHTML = sommeInt2(resultat.children[1].innerHTML, ligne16.children[1].innerHTML) }
@@ -5573,8 +5678,6 @@ function BullSTAPS2(clone, i) {
 
     return clone
 }
-
-
 
 /**FONCTION BULLETIN EVE */
 function BullEVE(clone, i) {
@@ -5888,7 +5991,6 @@ function BullEVE(clone, i) {
     return (clone)
 }
 
-/** */
 
 //FONCTIONS
 function Moyenne3(a, b, c, coef) {
@@ -5942,7 +6044,7 @@ function sommeInt2(a, b) {
     a = parseInt(a)
     b = parseInt(b);
 
-    result = a + b
+    var result = a + b
 
     return (result)
 }
@@ -5999,7 +6101,7 @@ function sommeInt9(a, b, c, d, e, f, g, h, i) {
     h = parseInt(h);
     i = parseInt(i)
 
-    result = a + b + c + d + e + f + g + h + i
+    var result = a + b + c + d + e + f + g + h + i
     return (result)
 }
 
@@ -6053,7 +6155,7 @@ function sommeFloat2(a, b) {
     a = parseFloat(a)
     b = parseFloat(b);
 
-    result = a + b
+    var result = a + b
     result = result.toFixed(2)
     result = parseFloat(result)
 

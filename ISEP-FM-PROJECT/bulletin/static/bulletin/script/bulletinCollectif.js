@@ -76,6 +76,8 @@ function createSemestre() {
     filiereSpe2="STAPS2";
     specialite2="EDUCATION PHYSIQUE ET SPORTIVE";
 
+    filiereSpe22 = "MDS2"
+
     filiereSpe3="LP3MOIS"
     specialite3=["EVENEMENTIEL","MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS"]
 
@@ -120,7 +122,7 @@ function createSemestre() {
         /*genererBull.setAttribute("class","btn-primary")*/
         /*genererBull.setAttribute("id", `myBtn${i}`)
         genererBull.setAttribute("class", 'myBtn')*/
-        genererBull.innerHTML = "APPERCU BULLETIN(S)";
+        genererBull.innerHTML = "APPERCU PROCES VERBAUX";
 
 
 
@@ -178,7 +180,7 @@ function createSemestre() {
         const genererBull = document.createElement("a")
         genererBull.setAttribute("id", `generateLink${i}`)
         //genererBull.setAttribute("href", "BullS1EPS/MDSs2")
-        genererBull.innerHTML = "APPERCU BULLETIN(S)";
+        genererBull.innerHTML = "APPERCU PROCES VERBAUX";
 
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)
@@ -238,11 +240,11 @@ function createSemestre() {
         /*genererBull.setAttribute("class","btn-primary")*/
         /*genererBull.setAttribute("id", `myBtn${i}`)
         genererBull.setAttribute("class", 'myBtn')*/
-        genererBull.innerHTML = "APPERCU BULLETIN(S)";
+        genererBull.innerHTML = "APPERCU PROCES VERBAUX";
         genererBull.setAttribute("id", `generateLink${i+2}`)
         /*const genererBull = document.createElement("button")
         genererBull.setAttribute("class", 'myBtn')
-        genererBull.innerHTML = "APPERCU BULLETIN(S)";*/
+        genererBull.innerHTML = "APPERCU PROCES VERBAUX";*/
 
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)
@@ -269,9 +271,78 @@ function createSemestre() {
     }
 
     /**
+     * SEMESTRES 3 & 4 MDS2
+     */
+    for(let i=0; i<=2; i++){
+      if(i==0){
+          imgSemestrePath = "/static/bulletin/icones/number_3.png"
+      }else if(i==1){
+          imgSemestrePath = "/static/bulletin/icones/four_4.png"
+      }if(i==2){break}
+      var imgSemestre = document.createElement('img')
+        imgSemestre.setAttribute('src',imgSemestrePath)
+        imgSemestre.setAttribute('alt','One')
+
+        const numeroSemestre = document.createElement('div')
+        numeroSemestre.setAttribute("id", "numero-semestre")
+        numeroSemestre.appendChild(imgSemestre)
+
+        const codeMatiere = document.createElement('div')
+      codeMatiere.setAttribute("id", "code-matiere")
+      var codeMatiereValeur = document.createTextNode(filiereSpe22)
+      codeMatiere.appendChild(codeMatiereValeur)
+
+      const numeroSemestreCodeMatiere = document.createElement("div")
+      numeroSemestreCodeMatiere.setAttribute('id', "numero-semestre-code-matiere")
+      numeroSemestreCodeMatiere.appendChild(numeroSemestre)
+      numeroSemestreCodeMatiere.appendChild(codeMatiere)
+
+      const intituleMatiere = document.createElement('div')
+      intituleMatiere.setAttribute('id','intitule-matiere')
+      var UeTitle = document.createTextNode(specialite[0])
+      intituleMatiere.appendChild(UeTitle)
+
+      
+      const genererBull = document.createElement("a")
+      genererBull.setAttribute("id", `generateLink${i}`)
+      //genererBull.setAttribute("href", "BullSemestre1EPS/MDSs2")
+      /*genererBull.setAttribute("class","btn-primary")*/
+      /*genererBull.setAttribute("id", `myBtn${i}`)
+      genererBull.setAttribute("class", 'myBtn')*/
+      genererBull.innerHTML = "APPERCU PROCES VERBAUX";
+      genererBull.setAttribute("id", `generateLink${i+2}`)
+      /*const genererBull = document.createElement("button")
+      genererBull.setAttribute("class", 'myBtn')
+      genererBull.innerHTML = "APPERCU PROCES VERBAUX";*/
+
+      const bigBoy = document.createElement('div')
+      bigBoy.setAttribute('id', `big-boy`)
+      bigBoy.appendChild(genererBull)
+
+      const addModifyMatiere = document.createElement('div')
+      addModifyMatiere.setAttribute("id", "add-modify-matiere")
+      addModifyMatiere.appendChild(bigBoy)
+
+      const matiere= document.createElement("div")
+      matiere.setAttribute("class", "matiere")
+      matiere.setAttribute("id", `matiere${i+4}`)
+      matiere.appendChild(numeroSemestreCodeMatiere)
+      matiere.appendChild(intituleMatiere)
+      matiere.appendChild(addModifyMatiere)
+
+      listUe.appendChild(matiere)
+      if(imgSemestrePath=="/static/bulletin/icones/number_3.png"){
+        genererBull.setAttribute("href", `Semestre3/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+      }
+      if(imgSemestrePath=="/static/bulletin/icones/four_4.png"){
+        genererBull.setAttribute("href", `Semestre4/${genererBull.parentElement.parentElement.parentElement.children[0].innerText}`)
+      }  
+    }
+
+    /**
      * SEMESTRES 5 
      */
-    for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
+    /*for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
         if(i==2){break}
         var imgSemestrePath = "/static/bulletin/icones/five_5.png"
         var imgSemestre = document.createElement('img')
@@ -298,10 +369,8 @@ function createSemestre() {
         intituleMatiere.appendChild(UeTitle)
 
         const genererBull = document.createElement('a');
-        genererBull.innerHTML = "APPERCU BULLETIN(S)";
+        genererBull.innerHTML = "APPERCU PROCES VERBAUX";
         genererBull.setAttribute("id", `generateLink${i+6}`)
-        /*genererBull.innerHTML="APPERCU BULLETIN(S)";
-        genererBull.setAttribute("class", 'myBtn')*/
 
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)
@@ -323,12 +392,12 @@ function createSemestre() {
         if(genererBull.parentElement.parentElement.parentElement.children[1].innerText =="MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS"){
           genererBull.setAttribute("href", `Semestre5/MSO`)
         }
-    }
+    }*/
 
     /**
      * SEMESTRES 6 
      */
-    for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
+    /*for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
         if(i==2){break}
         imgSemestrePath = "/static/bulletin/icones/number_6.png"
         var imgSemestre = document.createElement('img')
@@ -355,10 +424,9 @@ function createSemestre() {
         intituleMatiere.appendChild(UeTitle)
 
         const genererBull = document.createElement('a');
-        genererBull.innerHTML="APPERCU BULLETIN(S)";
+        genererBull.innerHTML="APPERCU PROCES VERBAUX";
         genererBull.setAttribute("id", `generateLink${i+7}`)
-        //genererBull.setAttribute("class", 'myBtn')
-
+      
         const bigBoy = document.createElement('div')
         bigBoy.setAttribute('id', `big-boy`)
         bigBoy.appendChild(genererBull)
@@ -377,7 +445,7 @@ function createSemestre() {
         listUe.appendChild(matiere)
 
         genererBull.setAttribute("href", `Semestre6/EVE`) //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
-    }
+    }*/
 
     /**POSITION DE LA FONCTION MODAL */
     //modal()

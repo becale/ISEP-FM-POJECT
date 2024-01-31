@@ -78,6 +78,7 @@ function createSemestre() {
   specialite = ["MANAGEMENT DU SPORT", "EDUCATION PHYSIQUE ET SPORTIVE"];
   filiereSpe2 = "STAPS2";
   specialite2 = "EDUCATION PHYSIQUE ET SPORTIVE";
+  filiereSpe22 = "MDS2";
   filiereSpe3 = "LP3MOIS";
   specialite3 = ["EVENEMENTIEL", "MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS"];
   var listUe = document.getElementById("list-ue"); //Semestre N01 STAPS ET GESTION
@@ -117,7 +118,7 @@ function createSemestre() {
     /*genererBull.setAttribute("id", `myBtn${i}`)
     genererBull.setAttribute("class", 'myBtn')*/
 
-    genererBull.innerHTML = "APPERCU BULLETIN(S)";
+    genererBull.innerHTML = "APPERCU PROCES VERBAUX";
     var bigBoy = document.createElement('div');
     bigBoy.setAttribute('id', "big-boy");
     bigBoy.appendChild(genererBull);
@@ -183,7 +184,7 @@ function createSemestre() {
     _genererBull.setAttribute("id", "generateLink".concat(_i)); //genererBull.setAttribute("href", "BullS1EPS/MDSs2")
 
 
-    _genererBull.innerHTML = "APPERCU BULLETIN(S)";
+    _genererBull.innerHTML = "APPERCU PROCES VERBAUX";
 
     var _bigBoy = document.createElement('div');
 
@@ -273,12 +274,12 @@ function createSemestre() {
     genererBull.setAttribute("class", 'myBtn')*/
 
 
-    _genererBull2.innerHTML = "APPERCU BULLETIN(S)";
+    _genererBull2.innerHTML = "APPERCU PROCES VERBAUX";
 
     _genererBull2.setAttribute("id", "generateLink".concat(_i2 + 2));
     /*const genererBull = document.createElement("button")
     genererBull.setAttribute("class", 'myBtn')
-    genererBull.innerHTML = "APPERCU BULLETIN(S)";*/
+    genererBull.innerHTML = "APPERCU PROCES VERBAUX";*/
 
 
     var _bigBoy2 = document.createElement('div');
@@ -316,17 +317,21 @@ function createSemestre() {
     }
   }
   /**
-   * SEMESTRES 5 
+   * SEMESTRES 3 & 4 MDS2
    */
 
 
-  for (var _i3 = 0; _i3 <= 0; _i3++) {
-    //Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
+  for (var _i3 = 0; _i3 <= 2; _i3++) {
+    if (_i3 == 0) {
+      imgSemestrePath = "/static/bulletin/icones/number_3.png";
+    } else if (_i3 == 1) {
+      imgSemestrePath = "/static/bulletin/icones/four_4.png";
+    }
+
     if (_i3 == 2) {
       break;
     }
 
-    var imgSemestrePath = "/static/bulletin/icones/five_5.png";
     var imgSemestre = document.createElement('img');
     imgSemestre.setAttribute('src', imgSemestrePath);
     imgSemestre.setAttribute('alt', 'One');
@@ -341,7 +346,7 @@ function createSemestre() {
 
     _codeMatiere3.setAttribute("id", "code-matiere");
 
-    var codeMatiereValeur = document.createTextNode(filiereSpe3);
+    var codeMatiereValeur = document.createTextNode(filiereSpe22);
 
     _codeMatiere3.appendChild(codeMatiereValeur);
 
@@ -357,17 +362,26 @@ function createSemestre() {
 
     _intituleMatiere3.setAttribute('id', 'intitule-matiere');
 
-    var UeTitle = document.createTextNode(specialite3[_i3]);
+    var UeTitle = document.createTextNode(specialite[0]);
 
     _intituleMatiere3.appendChild(UeTitle);
 
-    var _genererBull3 = document.createElement('a');
+    var _genererBull3 = document.createElement("a");
 
-    _genererBull3.innerHTML = "APPERCU BULLETIN(S)";
+    _genererBull3.setAttribute("id", "generateLink".concat(_i3)); //genererBull.setAttribute("href", "BullSemestre1EPS/MDSs2")
 
-    _genererBull3.setAttribute("id", "generateLink".concat(_i3 + 6));
-    /*genererBull.innerHTML="APPERCU BULLETIN(S)";
+    /*genererBull.setAttribute("class","btn-primary")*/
+
+    /*genererBull.setAttribute("id", `myBtn${i}`)
     genererBull.setAttribute("class", 'myBtn')*/
+
+
+    _genererBull3.innerHTML = "APPERCU PROCES VERBAUX";
+
+    _genererBull3.setAttribute("id", "generateLink".concat(_i3 + 2));
+    /*const genererBull = document.createElement("button")
+    genererBull.setAttribute("class", 'myBtn')
+    genererBull.innerHTML = "APPERCU PROCES VERBAUX";*/
 
 
     var _bigBoy3 = document.createElement('div');
@@ -386,7 +400,7 @@ function createSemestre() {
 
     _matiere3.setAttribute("class", "matiere");
 
-    _matiere3.setAttribute("id", "matiere".concat(_i3 + 6));
+    _matiere3.setAttribute("id", "matiere".concat(_i3 + 4));
 
     _matiere3.appendChild(_numeroSemestreCodeMatiere3);
 
@@ -396,95 +410,106 @@ function createSemestre() {
 
     listUe.appendChild(_matiere3);
 
-    _genererBull3.setAttribute("href", "Semestre5/EVE"); //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
+    if (imgSemestrePath == "/static/bulletin/icones/number_3.png") {
+      _genererBull3.setAttribute("href", "Semestre3/".concat(_genererBull3.parentElement.parentElement.parentElement.children[0].innerText));
+    }
 
-
-    if (_genererBull3.parentElement.parentElement.parentElement.children[1].innerText == "MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS") {
-      _genererBull3.setAttribute("href", "Semestre5/MSO");
+    if (imgSemestrePath == "/static/bulletin/icones/four_4.png") {
+      _genererBull3.setAttribute("href", "Semestre4/".concat(_genererBull3.parentElement.parentElement.parentElement.children[0].innerText));
     }
   }
+  /**
+   * SEMESTRES 5 
+   */
+
+  /*for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
+      if(i==2){break}
+      var imgSemestrePath = "/static/bulletin/icones/five_5.png"
+      var imgSemestre = document.createElement('img')
+      imgSemestre.setAttribute('src',imgSemestrePath)
+      imgSemestre.setAttribute('alt','One')
+        const numeroSemestre = document.createElement('div')
+      numeroSemestre.setAttribute("id", "numero-semestre")
+      numeroSemestre.appendChild(imgSemestre)
+        const codeMatiere = document.createElement('div')
+      codeMatiere.setAttribute("id", "code-matiere")
+      var codeMatiereValeur = document.createTextNode(filiereSpe3)
+      codeMatiere.appendChild(codeMatiereValeur)
+        const numeroSemestreCodeMatiere = document.createElement("div")
+      numeroSemestreCodeMatiere.setAttribute('id', "numero-semestre-code-matiere")
+      numeroSemestreCodeMatiere.appendChild(numeroSemestre)
+      numeroSemestreCodeMatiere.appendChild(codeMatiere)
+        const intituleMatiere = document.createElement('div')
+      intituleMatiere.setAttribute('id','intitule-matiere')
+      var UeTitle = document.createTextNode(specialite3[i])
+      intituleMatiere.appendChild(UeTitle)
+        const genererBull = document.createElement('a');
+      genererBull.innerHTML = "APPERCU PROCES VERBAUX";
+      genererBull.setAttribute("id", `generateLink${i+6}`)
+        const bigBoy = document.createElement('div')
+      bigBoy.setAttribute('id', `big-boy`)
+      bigBoy.appendChild(genererBull)
+        const addModifyMatiere = document.createElement('div')
+      addModifyMatiere.setAttribute("id", "add-modify-matiere")
+      addModifyMatiere.appendChild(bigBoy)
+        const matiere= document.createElement("div")
+      matiere.setAttribute("class", "matiere")
+      matiere.setAttribute("id", `matiere${i+6}`)
+      matiere.appendChild(numeroSemestreCodeMatiere)
+      matiere.appendChild(intituleMatiere)
+      matiere.appendChild(addModifyMatiere)
+        listUe.appendChild(matiere)
+      genererBull.setAttribute("href", `Semestre5/EVE`) //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
+      if(genererBull.parentElement.parentElement.parentElement.children[1].innerText =="MANAGEMENT STRATEGIQUE DES EVENEMENTS SPORTIFS"){
+        genererBull.setAttribute("href", `Semestre5/MSO`)
+      }
+  }*/
+
   /**
    * SEMESTRES 6 
    */
 
+  /*for(let i=0; i<=0; i++){//Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
+      if(i==2){break}
+      imgSemestrePath = "/static/bulletin/icones/number_6.png"
+      var imgSemestre = document.createElement('img')
+      imgSemestre.setAttribute('src',imgSemestrePath)
+      imgSemestre.setAttribute('alt','One')
+        const numeroSemestre = document.createElement('div')
+      numeroSemestre.setAttribute("id", "numero-semestre")
+      numeroSemestre.appendChild(imgSemestre)
+        const codeMatiere = document.createElement('div')
+      codeMatiere.setAttribute("id", "code-matiere")
+      var codeMatiereValeur = document.createTextNode(filiereSpe3)
+      codeMatiere.appendChild(codeMatiereValeur)
+        const numeroSemestreCodeMatiere = document.createElement("div")
+      numeroSemestreCodeMatiere.setAttribute('id', "numero-semestre-code-matiere")
+      numeroSemestreCodeMatiere.appendChild(numeroSemestre)
+      numeroSemestreCodeMatiere.appendChild(codeMatiere)
+        const intituleMatiere = document.createElement('div')
+      intituleMatiere.setAttribute('id','intitule-matiere')
+      var UeTitle = document.createTextNode(specialite3[i])
+      intituleMatiere.appendChild(UeTitle)
+        const genererBull = document.createElement('a');
+      genererBull.innerHTML="APPERCU PROCES VERBAUX";
+      genererBull.setAttribute("id", `generateLink${i+7}`)
+    
+      const bigBoy = document.createElement('div')
+      bigBoy.setAttribute('id', `big-boy`)
+      bigBoy.appendChild(genererBull)
+        const addModifyMatiere = document.createElement('div')
+      addModifyMatiere.setAttribute("id", "add-modify-matiere")
+      addModifyMatiere.appendChild(bigBoy)
+        const matiere= document.createElement("div")
+      matiere.setAttribute("class", "matiere")
+      matiere.setAttribute("id", `matiere${i+8}`)
+      matiere.appendChild(numeroSemestreCodeMatiere)
+      matiere.appendChild(intituleMatiere)
+      matiere.appendChild(addModifyMatiere)
+        listUe.appendChild(matiere)
+        genererBull.setAttribute("href", `Semestre6/EVE`) //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
+  }*/
 
-  for (var _i4 = 0; _i4 <= 0; _i4++) {
-    //Modification du compteur, de 2 à 0 afin d'effacer le semestre 5 MOS
-    if (_i4 == 2) {
-      break;
-    }
-
-    imgSemestrePath = "/static/bulletin/icones/number_6.png";
-    var imgSemestre = document.createElement('img');
-    imgSemestre.setAttribute('src', imgSemestrePath);
-    imgSemestre.setAttribute('alt', 'One');
-
-    var _numeroSemestre4 = document.createElement('div');
-
-    _numeroSemestre4.setAttribute("id", "numero-semestre");
-
-    _numeroSemestre4.appendChild(imgSemestre);
-
-    var _codeMatiere4 = document.createElement('div');
-
-    _codeMatiere4.setAttribute("id", "code-matiere");
-
-    var codeMatiereValeur = document.createTextNode(filiereSpe3);
-
-    _codeMatiere4.appendChild(codeMatiereValeur);
-
-    var _numeroSemestreCodeMatiere4 = document.createElement("div");
-
-    _numeroSemestreCodeMatiere4.setAttribute('id', "numero-semestre-code-matiere");
-
-    _numeroSemestreCodeMatiere4.appendChild(_numeroSemestre4);
-
-    _numeroSemestreCodeMatiere4.appendChild(_codeMatiere4);
-
-    var _intituleMatiere4 = document.createElement('div');
-
-    _intituleMatiere4.setAttribute('id', 'intitule-matiere');
-
-    var UeTitle = document.createTextNode(specialite3[_i4]);
-
-    _intituleMatiere4.appendChild(UeTitle);
-
-    var _genererBull4 = document.createElement('a');
-
-    _genererBull4.innerHTML = "APPERCU BULLETIN(S)";
-
-    _genererBull4.setAttribute("id", "generateLink".concat(_i4 + 7)); //genererBull.setAttribute("class", 'myBtn')
-
-
-    var _bigBoy4 = document.createElement('div');
-
-    _bigBoy4.setAttribute('id', "big-boy");
-
-    _bigBoy4.appendChild(_genererBull4);
-
-    var _addModifyMatiere4 = document.createElement('div');
-
-    _addModifyMatiere4.setAttribute("id", "add-modify-matiere");
-
-    _addModifyMatiere4.appendChild(_bigBoy4);
-
-    var _matiere4 = document.createElement("div");
-
-    _matiere4.setAttribute("class", "matiere");
-
-    _matiere4.setAttribute("id", "matiere".concat(_i4 + 8));
-
-    _matiere4.appendChild(_numeroSemestreCodeMatiere4);
-
-    _matiere4.appendChild(_intituleMatiere4);
-
-    _matiere4.appendChild(_addModifyMatiere4);
-
-    listUe.appendChild(_matiere4);
-
-    _genererBull4.setAttribute("href", "Semestre6/EVE"); //${genererBull.parentElement.parentElement.parentElement.children[1].innerText}
-
-  }
   /**POSITION DE LA FONCTION MODAL */
   //modal()
 

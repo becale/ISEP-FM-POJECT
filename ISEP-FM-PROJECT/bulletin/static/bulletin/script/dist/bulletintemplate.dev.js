@@ -135,10 +135,10 @@ function GenerateBullMDS1Semestre1() {
 
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DAF/SG/DE/PR";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 1";
+  bulltitle.innerHTML = "RELEVE DE NOTES SEMESTRE 1";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);
@@ -817,10 +817,10 @@ function GenerateBullStaps1Semestre1() {
 
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DAF/SG/DE/PR";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
-  bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 1";
+  bulltitle.innerHTML = "RELEVE DE NOTES SEMESTRE 1";
   var bullchecktitle = document.createElement('div');
   bullchecktitle.setAttribute('id', 'bull-check-title');
   bullchecktitle.appendChild(bullcheck);
@@ -1522,7 +1522,7 @@ function GenerateBullStaps2Semestre3() {
   var hr = document.createElement('hr');
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DAF/SG/DE/PR";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 3";
@@ -2301,7 +2301,7 @@ function GenerateBullEVEsemestre5() {
   var hr = document.createElement('hr');
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DAF/SG/DE/PR";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 5";
@@ -2796,7 +2796,7 @@ function GenerateBullMSOsemestre5() {
   var hr = document.createElement('hr');
   var bullcheck = document.createElement('div');
   bullcheck.setAttribute('id', 'bull-check');
-  bullcheck.innerHTML = "DAF/SG/DE/PR";
+  bullcheck.innerHTML = "PF/DE";
   var bulltitle = document.createElement('div');
   bulltitle.setAttribute('id', 'bull-title');
   bulltitle.innerHTML = "BULLETIN DE NOTES SEMESTRE 5";

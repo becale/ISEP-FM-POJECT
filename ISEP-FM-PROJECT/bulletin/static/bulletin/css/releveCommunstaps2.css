@@ -664,6 +664,10 @@
 
   /**SEMESTRE RESULTS 2*/
 
-  #semestreResult2{
+  /*#semestreResult2{
     
-  }
+  }*/
+
+  .titleStyle {
+    background-color: #d5d5d5;
+}

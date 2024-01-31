@@ -4,7 +4,7 @@ body{
 .container-bull {
     width: 22cm;
     height: 29.7cm;
-    border:solid black 3px;
+    /*border:solid black 3px;*/
 
     margin-left: auto;
     margin-right: auto;

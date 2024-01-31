@@ -7,11 +7,11 @@ window.addEventListener('load', function () {
 
   function Page1() {
     listStudent = mydata[1];
-    page0 = document.getElementById('page');
+    var page0 = document.getElementById('page');
     page0 = page0.cloneNode(true);
     bigtab = page0.children[0].children[2].children[1]; //page2.children[1].children[1].children[1]
 
-    page = document.getElementById("part2");
+    var page = document.getElementById("part2");
     page = page.cloneNode(true);
     bigtab1 = page.children[1].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
 
@@ -829,7 +829,7 @@ window.addEventListener('load', function () {
             var uef9cr = listStudent[i][9][6]
           if (listStudent[i][9][0] < 10) { uef9cr = 0 }
             moyuep = listStudent[i][3][3]
-          moyuepcr = 
+          moyuepcr =
             if (moyuep >= 10 && (listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && eps125Somme >= 7 && listStudent[i][9][0] >= 7)) {
               console.log('OK');
               moyuepcr = listStudent[i][3][6] + listStudent[i][4][6] + listStudent[i][5][7] + listStudent[i][9][6]
@@ -985,7 +985,7 @@ window.addEventListener('load', function () {
         }
 
         ;
-      } //RESULTATS 
+      } //RESULTATS
 
 
       tab116 = tab115['0']; //good line*/

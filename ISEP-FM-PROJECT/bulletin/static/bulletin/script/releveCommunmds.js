@@ -152,7 +152,7 @@ window.addEventListener('load', () => {
     function Page1() {
         listStudent = mydata[1]
 
-        page0 = document.getElementById('page')
+        var page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
         page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
@@ -182,7 +182,7 @@ window.addEventListener('load', () => {
             tab02 = tab01.children
             tab03 = tab02['0']
             tab04 = tab03.children
-            tab05 = tab04[0] //good  
+            tab05 = tab04[0] //good
 
             for (j = 0; j <= tab05.childElementCount - 1; j++) {
                 if (j == 0) {
@@ -225,17 +225,17 @@ window.addEventListener('load', () => {
                     tab15.cells[j].innerHTML = listStudent[i][4][0]
                 }
                 if (j == 4) {
-                    var uef12cr = listStudent[i][1][6]
-                    if ((listStudent[i][1][0] + listStudent[i][2][0]) < 20) { uef12cr = 0 }
+                    var uef12cr = listStudent[i][1][5] //listStudent[i][1][6]
+                    //if ((listStudent[i][1][0] + listStudent[i][2][0]) < 20) { uef12cr = 0 }
                     /*var uef2cr = listStudent[i][2][6]
                     if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-                    var uef34cr = listStudent[i][3][6]
-                    if ((listStudent[i][3][0] + listStudent[i][4][0]) < 20) { uef34cr = 0 }
+                    var uef34cr = listStudent[i][3][5] //listStudent[i][3][6]
+                    //if ((listStudent[i][3][0] + listStudent[i][4][0]) < 20) { uef34cr = 0 }
                     /*var uef2cr = listStudent[i][4][6]
                     if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
 
-                    moyuef = listStudent[i][1][3]
+                    var moyuef = listStudent[i][1][3]
                     if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7 && listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7)) {
                         //console.log('OK');
                         moyuefcr = uef34cr + uef12cr
@@ -269,20 +269,20 @@ window.addEventListener('load', () => {
                     var uef78cr = listStudent[i][7][6]
                     if ((listStudent[i][7][0] + listStudent[i][8][0]) < 20) { uef78cr = 0 }*/
 
-                    var uef5cr = listStudent[i][5][6]
-                    if ((listStudent[i][5][0]) < 10) { uef5cr = 0 }
+                    var uef5cr = listStudent[i][5][5]
+                    //if ((listStudent[i][5][0]) < 10) { uef5cr = 0 }
 
-                    var uef6cr = listStudent[i][6][6]
-                    if ((listStudent[i][6][0]) < 10) { uef6cr = 0 }
+                    var uef6cr = listStudent[i][6][5]
+                    //if ((listStudent[i][6][0]) < 10) { uef6cr = 0 }
 
-                    var uef7cr = listStudent[i][7][6]
-                    if ((listStudent[i][7][0]) < 10) { uef7cr = 0 }
+                    var uef7cr = listStudent[i][7][5]
+                    //if ((listStudent[i][7][0]) < 10) { uef7cr = 0 }
 
-                    var uef8cr = listStudent[i][8][6]
-                    if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
+                    var uef8cr = listStudent[i][8][5]
+                    //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
 
-                    var moyuefcr = listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]
-                    if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) < 40) { uef5678cr = uef5cr + uef6cr + uef7cr + uef8cr }
+                    var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr //listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]
+                    //if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) < 40) { uef5678cr = uef5cr + uef6cr + uef7cr + uef8cr }
 
 
                     moyuep = listStudent[i][5][3]
@@ -291,7 +291,7 @@ window.addEventListener('load', () => {
                         moyuepcr = uef56cr + uef78cr*/
                     } else {
                         moyuep = '--'
-                        moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
+                        //moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
                     }
 
                     tab23.cells[j].innerHTML = moyuep //listStudent[i][5][3]
@@ -311,25 +311,24 @@ window.addEventListener('load', () => {
 
                 if (j == 2) {
 
-                    var uef9cr = listStudent[i][9][6]
-                    if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
+                    var uef9cr = listStudent[i][9][5]
+                    //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
 
-                    var uef10cr = listStudent[i][10][6]
-                    if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
+                    var uef10cr = listStudent[i][10][5]
+                    //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
 
-                    var uef910cr = listStudent[i][10][6] + listStudent[i][9][6]
-                    if ((listStudent[i][10][0] + listStudent[i][9][0]) < 20) { uef910cr = uef9cr + uef10cr }
+                    var uef910cr = uef9cr + uef10cr //listStudent[i][10][6] + listStudent[i][9][6]
+                    //if ((listStudent[i][10][0] + listStudent[i][9][0]) < 20) { uef910cr = uef9cr + uef10cr }
 
                     moyuet = listStudent[i][9][3]
                     if (moyuet >= 10 && (listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7)) {
-
-                        moyuetcr = uef9cr + uef10cr
+                        //moyuetcr = uef9cr + uef10cr
                     } else {
                         moyuet = '--'
                             //moyuefcr = uef1cr + uef2cr
                     }
 
-                    tab33.cells[j].innerHTML = moyuet //listStudent[i][9][3] 
+                    tab33.cells[j].innerHTML = moyuet //listStudent[i][9][3]
                 };
                 if (j == 3) { tab33.cells[j].innerHTML = uef910cr }
             }
@@ -343,7 +342,7 @@ window.addEventListener('load', () => {
                 if (j == 0) { tab43.cells[j].innerHTML = listStudent[i][11][1] };
                 if (j == 1) { tab43.cells[j].innerHTML = listStudent[i][11][2] };;
                 if (j == 2) { tab43.cells[j].innerHTML = '/' } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
-                if (j == 3) { tab43.cells[j].innerHTML = '/' /*mydata[2].indexOf(listStudent[i][11][2]) + 1*/ }
+                if (j == 3) { tab43.cells[j].innerHTML = listStudent[i][11][3] } //'/' /*mydata[2].indexOf(listStudent[i][11][2]) + 1*/ }
 
                 if (j == 4) { tab43.cells[j].innerHTML = '/' };
             }
@@ -651,14 +650,14 @@ window.addEventListener('load', () => {
                     tab15.cells[j].innerHTML = synthese[i][4][0]
                 }
                 if (j == 4) {
-                    var uef12cr = synthese[i][1][6]
+                    var uef12cr = synthese[i][1][5]//synthese[i][1][6]
 
-                    if ((synthese[i][1][0] + synthese[i][2][0]) < 20) { uef12cr = 0 }
+                    //if ((synthese[i][1][0] + synthese[i][2][0]) < 20) { uef12cr = 0 }
                     /*var uef2cr = listStudent[i][2][6]
                     if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-                    var uef34cr = listStudent[i][3][6]
-                    if ((synthese[i][3][0] + synthese[i][4][0]) < 20) { uef34cr = 0 }
+                    var uef34cr = synthese[i][3][5] //synthese[i][3][6]
+                    //if ((synthese[i][3][0] + synthese[i][4][0]) < 20) { uef34cr = 0 }
                     /*var uef2cr = listStudent[i][4][6]
                     if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
 
@@ -706,22 +705,24 @@ window.addEventListener('load', () => {
                         //if (rattrapage[i][8] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue8r; }
                 };
                 if (j == 4) {
+                    var uef5cr = synthese[i][5][5]
+                    //if ((synthese[i][5][0]) < 10) { uef5cr = 0 }
 
-                    var uef56cr = synthese[i][5][6]
+                    var uef6cr = synthese[i][6][5]
+                    //if ((synthese[i][6][0]) < 10) { uef6cr = 0 }
 
-                    if ((synthese[i][5][0] + synthese[i][6][0]) < 20) { uef56cr = 0 }
-                    /*var uef2cr = listStudent[i][2][6]
-                    if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
+                    var uef7cr = synthese[i][7][5]
+                    //if ((synthese[i][7][0]) < 10) { uef7cr = 0 }
 
-                    var uef78cr = synthese[i][7][6]
-                    if ((synthese[i][7][0] + synthese[i][8][0]) < 20) { uef78cr = 0 }
-                    /*var uef2cr = listStudent[i][4][6]
-                    if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
+                    var uef8cr = synthese[i][8][5]
+                    //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
+
+                    var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
 
                     moyuep = synthese[i][5][3]
                     if (moyuep >= 10 && (synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7 && synthese[i][7][0] >= 7 && synthese[i][8][0] >= 7)) {
 
-                        moyuefcr = uef56cr + uef78cr
+                        //moyuefcr = uef56cr + uef78cr
                     } else {
                         moyuep = '--'
                             //moyuefcr = uef1cr + uef2cr
@@ -731,24 +732,7 @@ window.addEventListener('load', () => {
                 };
                 if (j == 5) {
 
-                    var ue5 = listStudent[i][5][6]
-                    if (ue5r < 10) { ue5 = 0 }
-                    var ue6 = listStudent[i][6][6]
-                    if ((ue6r) < 10) { ue6 = 0 }
-
-                    var ue7 = listStudent[i][7][6]
-                    if (ue7r < 10) { ue7 = 0 }
-                    var ue8 = listStudent[i][8][6]
-                    if (ue8r < 10) { ue8 = 0 }
-
-                    ue56 = 0
-                    ue78 = 0
-                    if ((ue5r + ue6r + ue7r + ue8r) >= 40) { ue5678 = synthese[i][5][6] + synthese[i][6][6] + synthese[i][7][6] + synthese[i][8][6] } else { ue5678 = ue5 + ue6 + ue7 + ue8 }
-
-                    //if (ue7r > 10 || ue8r > 10) { ue78 = listStudent[i][7][6] }
-
-
-                    tab23.cells[j].innerHTML = ue5678 /*listStudent[i][8][0]*/
+                    tab23.cells[j].innerHTML = moyuefcr //ue5678 /*listStudent[i][8][0]*/
                 };
 
             }
@@ -774,24 +758,36 @@ window.addEventListener('load', () => {
                 };
                 if (j == 2) {
 
-                    if (((ue9r + ue10r) >= 20) && ue9r >= 7 && ue10r >= 7) {
-                        moyuet = synthese[i][9][3]
-                    } else { moyuet = "--" }
+                    var uef9cr = synthese[i][9][5]
+                    //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
+
+                    var uef10cr = synthese[i][10][5]
+                    //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
+
+                    var uef910cr = uef9cr + uef10cr
+
+                    moyuet = synthese[i][9][3]
+                    if (moyuet >= 10 && (synthese[i][9][0] >= 7 && synthese[i][10][0] >= 7)) {
+                        //uef910cr = uef9cr + uef10cr
+                    } else {
+                        moyuet = '--'
+                            //moyuefcr = uef1cr + uef2cr
+                    }
 
                     tab33.cells[j].innerHTML = moyuet /*Moyenne Groupe*/
                 };
                 if (j == 3) {
 
-                    var ue910 = 0
+                    /*var ue910 = 0
                     var ue9 = listStudent[i][9][6]
                     if (ue9r < 10) { ue9 = 0 }
 
                     var ue10 = listStudent[i][10][6]
                     if ((ue10r) < 10) { ue10 = 0 }
 
-                    if ((ue9r + ue10r) >= 20) { ue910 = listStudent[i][9][6] + listStudent[i][10][6] } else { ue910 = ue9 + ue10 }
+                    if ((ue9r + ue10r) >= 20) { ue910 = listStudent[i][9][6] + listStudent[i][10][6] } else { ue910 = ue9 + ue10 }*/
 
-                    tab33.cells[j].innerHTML = ue910 //Crédits
+                    tab33.cells[j].innerHTML = uef910cr //Crédits
                 };
             }
 
@@ -810,7 +806,7 @@ window.addEventListener('load', () => {
                 }
                 if (j == 2) { tab443.cells[j].innerHTML = '/'; } //moyuefcr + moyuepcr + moyuetcr
 
-                if (j == 3) { tab443.cells[j].innerHTML = '/'; } //rang }
+                if (j == 3) { tab443.cells[j].innerHTML = synthese[i][11][3] /*'/'*/; } //rang }
 
                 if (j == 4) { tab443.cells[j].innerHTML = "/" }
             }
@@ -946,7 +942,7 @@ window.addEventListener('load', () => {
         //Tableau des students
         tab = clone.children[2].children[0]
 
-        listStudent = mydata[1]
+        listStudent = mydata[9] //mydata[1]
 
         tableContainer = document.getElementById('tableContainer')
 
@@ -1362,7 +1358,7 @@ window.addEventListener('load', () => {
 
         ligneStat4 = tabstat.children[0].children[1].children[3]
 
-        if (1 == 0) {
+        if (i == 0) {
             //Ligne 1
             ligneStat1.children[1].innerHTML = mydata[1].length
             ligneStat1.children[4].innerHTML = mydata[7][0]['Passable']
@@ -1585,10 +1581,13 @@ window.addEventListener('load', () => {
 })
 
 
+
+
+
+
 function floatfix(a) {
     return (100 - a).toFixed(2)
 }
-
 function sommeFloat2(a, b) {
     /*a = parseFloat(a)
     b = parseFloat(b);*/

@@ -100,6 +100,7 @@ class Semestre(models.Model):
     date_fin = models.DateField(null=True)
     date_CC = models.DateField(null=True)
     date_SN = models.DateField(null=True)
+    date_RT = models.DateField(null=True)
 
     def __str__(self):
         return str('Semestre '+str(self.num_semestre))
@@ -108,7 +109,7 @@ class Semestre(models.Model):
 class UniteEnseignement(models.Model):
 
     etudiant = models.ManyToManyField(
-        Etudiant, 
+        Etudiant,
         through='Evaluation',
         #through_fields=('etudiant','uniteEnseignement'),
         )

@@ -6352,7 +6352,7 @@ def resultatCommunmds(request):
                     MDS117[j]
                     , coefS1MDS1[8]
                     , MDS117[j]*coefS1MDS1[8]
-                    , round(( MDS117[j]*coefS1MDS1[8]+MDS117b[j]*coefS1MDS1[9] )/(coefS1MDS1[8]+coefS1MDS1[9]),2)
+                    , round( ( MDS117[j]*coefS1MDS1[8]+MDS117b[j]*coefS1MDS1[9] )/(coefS1MDS1[8]+coefS1MDS1[9]), 2)
                     , sort117.index(MDS117[j])+1
                     , (MDS117[j]>=10)
                     , creditS1MDS1[8]

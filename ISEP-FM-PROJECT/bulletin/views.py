@@ -7038,14 +7038,26 @@ def resultatCommuns2mds(request):
                     , coefS1MDS1[0]
                     , MDS111[j]*coefS1MDS1[0]
                     , round( ((MDS111[j]*coefS1MDS1[0]) + (MDS111b[j]*coefS1MDS1[1]) + ( MDS112[j]*coefS1MDS1[2]) + (MDS112b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2)
-                    , sort111.index(MDS111[j])+1,(MDS111[j]>=10)
+                    , sort111.index(MDS111[j])+1
+                    ,(MDS111[j]>=10)
                     , creditS1MDS1[0]
                     , creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0
                     , MDS111cc[j]['note_cc']
                     , MDS111sn[j]['note_sn']
                 ],
 
-                [ MDS111b[j], coefS1MDS1[1], MDS111b[j]*coefS1MDS1[1], "MOYENNE", sort111b.index(MDS111b[j])+1,(MDS111b[j]>=10), creditS1MDS1[1], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0, MDS111bcc[j]['note_cc'], MDS111bsn[j]['note_sn'] ],
+                [ 
+                    MDS111b[j]
+                    , coefS1MDS1[1]
+                    , MDS111b[j]*coefS1MDS1[1]
+                    , "MOYENNE"
+                    , sort111b.index(MDS111b[j])+1
+                    , (MDS111b[j]>=10)
+                    , creditS1MDS1[1]
+                    , creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0
+                    , MDS111bcc[j]['note_cc']
+                    , MDS111bsn[j]['note_sn']
+                ],
 
                 [ MDS112[j], coefS1MDS1[2], MDS112[j]*coefS1MDS1[2], "MOYENNE", sort112.index(MDS112[j])+1,(MDS112[j]>=10), creditS1MDS1[2], creditS1MDS1[1] if ((MDS111[j]+MDS111b[j])>=20) else 0 ,MDS112cc[j]['note_cc'], MDS112sn[j]['note_sn']],
 
@@ -7466,10 +7478,10 @@ def resultatCommuns2mds(request):
     statMention(MDS111b,m111b)
     pourcentageMention(m111b, len(infoEtudiantMDS))
 
-    statMention(MDS112,m112)
+    statMention(MDS232,m112)
     pourcentageMention(m112, len(infoEtudiantMDS))
 
-    statMention(MDS112b,m112b)
+    statMention(MDS232b,m112b)
     pourcentageMention(m112b, len(infoEtudiantMDS))
 
     statMention(MDS113,m113)
@@ -9207,7 +9219,540 @@ def resultatCommuns4staps2(request):
 #PV MDS2 SEMESTRE 3
 def resultatCommunmds2(request):
 
-    return render(request, 'bulletin/releveCommun/releveCommunMds2.html', {})
+###########################################################  SEMESTRE 3 VALIDATION   ############################################################################################################################        
+    
+    UeNomCode = list( UniteEnseignement.objects.filter(semestre_id = 3, filiere="GESTION").values("code_UE","intitule_UE", "semestre_id", "nombre_credit") )
+    
+    infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=2).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
+
+    coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient", "intitule_UE"))
+    coefS1MDS1 = epurationCoef(coefS1MDS1)
+
+    creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
+    creditS1MDS1 = epurationCre(creditS1MDS1)
+
+    MDS231 =list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS231cc = list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS231sn = list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort231 = epurationTriCroissant(MDS231)
+
+    MDS231b =list(Evaluation.objects.filter(uniteEnseignement_id=126, natureEvaluation='EXAMEN',date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS231bcc =list(Evaluation.objects.filter(uniteEnseignement_id=126, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS231bsn =list(Evaluation.objects.filter(uniteEnseignement_id=126, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort231b = epurationTriCroissant(MDS231b)
+
+    MDS232 =list(Evaluation.objects.filter(uniteEnseignement_id=127, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS232cc =list(Evaluation.objects.filter(uniteEnseignement_id=127, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS232sn =list(Evaluation.objects.filter(uniteEnseignement_id=127, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort232 = epurationTriCroissant(MDS232)
+
+    MDS232b =list(Evaluation.objects.filter(uniteEnseignement_id=128, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS232bcc =list(Evaluation.objects.filter(uniteEnseignement_id=128, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS232bsn =list(Evaluation.objects.filter(uniteEnseignement_id=128, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort232b = epurationTriCroissant(MDS232b)
+
+    MDS233 =list(Evaluation.objects.filter(uniteEnseignement_id=129, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS233cc =list(Evaluation.objects.filter(uniteEnseignement_id=129, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS233sn =list(Evaluation.objects.filter(uniteEnseignement_id=129, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort233 = epurationTriCroissant(MDS233)
+
+    MDS234 =list(Evaluation.objects.filter(uniteEnseignement_id=130, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS234cc =list(Evaluation.objects.filter(uniteEnseignement_id=130, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS234sn =list(Evaluation.objects.filter(uniteEnseignement_id=130, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort234 = epurationTriCroissant(MDS234)
+
+    MDS235 =list(Evaluation.objects.filter(uniteEnseignement_id=131, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS235cc =list(Evaluation.objects.filter(uniteEnseignement_id=131, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS235sn =list(Evaluation.objects.filter(uniteEnseignement_id=131, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort235 = epurationTriCroissant(MDS235)
+
+    MDS236 =list(Evaluation.objects.filter(uniteEnseignement_id=132, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS236cc =list(Evaluation.objects.filter(uniteEnseignement_id=132, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS236sn =list(Evaluation.objects.filter(uniteEnseignement_id=132, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort236 = epurationTriCroissant(MDS236)
+
+    MDS237 =list(Evaluation.objects.filter(uniteEnseignement_id=133, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS237cc =list(Evaluation.objects.filter(uniteEnseignement_id=133, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS237sn =list(Evaluation.objects.filter(uniteEnseignement_id=133, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort237= epurationTriCroissant(MDS237)
+
+    MDS238 =list(Evaluation.objects.filter(uniteEnseignement_id=134, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS238cc =list(Evaluation.objects.filter(uniteEnseignement_id=134, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS238sn =list(Evaluation.objects.filter(uniteEnseignement_id=134, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort238 = epurationTriCroissant(MDS238)
+    #print(sort117b)
+
+    MDS239 =list(Evaluation.objects.filter(uniteEnseignement_id=135, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS239cc =list(Evaluation.objects.filter(uniteEnseignement_id=135, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS239sn =list(Evaluation.objects.filter(uniteEnseignement_id=135, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort239 = epurationTriCroissant(MDS239)
+
+    val1 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val2 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val3 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val4 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val5 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val6 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val7 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val8 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val9 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val10 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+
+
+    m111 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m111b = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m112 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m112b = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m113 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m114 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m115 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m116 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m117 = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    m117b = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+
+###########################################################  SEMESTRE 3 MDS2   ############################################################################################################################        
+
+    listeMatriceS3Mds2 = []
+    mds2Moyenne = []
+
+    print(len(infoEtudiantMDS))
+
+    for j in range( len(infoEtudiantMDS) ):
+
+        matriceS3Mds2 = [
+
+            infoEtudiantMDS[j],
+
+            #1 MDS231
+            [
+                MDS231[j]
+                , coefS1MDS1[0]
+                , MDS231[j]*coefS1MDS1[0]
+                , round( ((MDS231[j]*coefS1MDS1[0]) + (MDS231b[j]*coefS1MDS1[1]) + ( MDS232[j]*coefS1MDS1[2]) + (MDS232b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2)
+                , sort231.index(MDS231[j])+1
+                ,(MDS231[j]>=10)
+                , creditS1MDS1[0]
+                , creditS1MDS1[1] if ((MDS231[j]+MDS231b[j])>=20) else 0
+                , MDS231cc[j]['note_cc']
+                , MDS231sn[j]['note_sn']
+            ],
+
+            #2 MDS231b
+            [
+                MDS231b[j]
+                , coefS1MDS1[1]
+                , MDS231b[j]*coefS1MDS1[1]
+                , "MOYENNE"
+                , sort231b.index(MDS231b[j])+1
+                , (MDS231b[j]>=10)
+                , creditS1MDS1[1]
+                , creditS1MDS1[1] if ((MDS231[j]+MDS231b[j])>=20) else 0
+                , MDS231bcc[j]['note_cc']
+                , MDS231bsn[j]['note_sn']
+            ],
+
+            #3 MDS232
+            [
+                MDS232[j]
+                , coefS1MDS1[2]
+                , MDS232[j]*coefS1MDS1[2]
+                , "MOYENNE"
+                , sort232.index(MDS232[j])+1
+                , (MDS232[j]>=10)
+                , creditS1MDS1[2]
+                , creditS1MDS1[2] if ((MDS232[j]+MDS232b[j])>=20) else 0
+                , MDS232cc[j]['note_cc']
+                , MDS232sn[j]['note_sn']
+            ],
+
+            #4 MDS232b
+            [
+                MDS232b[j]
+                , coefS1MDS1[3]
+                , MDS232b[j]*coefS1MDS1[3]
+                , "MOYENNE"
+                , sort232b.index(MDS232b[j])+1
+                , (MDS232b[j]>=10)
+                , creditS1MDS1[3]
+                , creditS1MDS1[3] if((MDS232[j]+MDS232b[j])>=20) else 0
+                , MDS232bcc[j]['note_cc']
+                , MDS232bsn[j]['note_sn']
+            ],
+
+            #5 MDS233
+            [
+                MDS233[j]
+                , coefS1MDS1[4]
+                , MDS233[j]*coefS1MDS1[4]
+                , round( ((MDS233[j]*coefS1MDS1[4]) + (MDS234[j]*coefS1MDS1[5]) + MDS235[j]*coefS1MDS1[6] + MDS236[j]*coefS1MDS1[7])/(coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]), 2)
+                , sort233.index(MDS233[j])+1
+                , (MDS233[j]>=10)
+                , creditS1MDS1[4]
+                , creditS1MDS1[4] if (MDS233[j]>=10) else 0
+                , MDS233cc[j]['note_cc']
+                , MDS233sn[j]['note_sn']
+            ],
+
+            #6 MDS234
+            [
+                MDS234[j]
+                , coefS1MDS1[5]
+                , MDS234[j]*coefS1MDS1[5]
+                , "MOYENNE"
+                , sort234.index(MDS234[j])+1
+                , (MDS234[j]>=10)
+                , creditS1MDS1[5]
+                , creditS1MDS1[5] if (MDS234[j]>=10) else 0
+                , MDS234cc[j]['note_cc']
+                , MDS234sn[j]['note_sn']
+            ],
+
+            #7 MDS235
+            [
+                MDS235[j]
+                , coefS1MDS1[6]
+                , MDS235[j]*coefS1MDS1[6]
+                , "MOYENNE"
+                , sort235.index(MDS235[j])+1
+                , (MDS235[j]>=10)
+                , creditS1MDS1[6]
+                , creditS1MDS1[6] if (MDS235[j]>=10) else 0
+                , MDS235cc[j]['note_cc']
+                , MDS235sn[j]['note_sn']
+            ],
+
+            #8 MDS236
+            [
+                MDS236[j]
+                , coefS1MDS1[7]
+                , MDS236[j]*coefS1MDS1[7]
+                , "MOYENNE"
+                , sort236.index(MDS236[j])+1
+                , (MDS236[j]>=10)
+                , creditS1MDS1[7]
+                , creditS1MDS1[7] if (MDS236[j]>=10) else 0
+                , MDS236cc[j]['note_cc']
+                , MDS236sn[j]['note_sn']
+            ],
+
+            #9 MDS237
+            [
+                MDS237[j]
+                , coefS1MDS1[8]
+                , MDS237[j]*coefS1MDS1[8]
+                , round(( MDS237[j]*coefS1MDS1[8]+MDS238[j]*coefS1MDS1[9] )/(coefS1MDS1[8]+coefS1MDS1[9]),2)
+                , sort237.index(MDS237[j])+1
+                , (MDS237[j]>=10)
+                , creditS1MDS1[8]
+                , creditS1MDS1[8] if (MDS237[j]>=10) else 0
+                , MDS237cc[j]['note_cc']
+                , MDS237sn[j]['note_sn']
+            ],
+
+            #10 MDS238
+            [
+                MDS238[j]
+                , coefS1MDS1[9]
+                , MDS238[j]*coefS1MDS1[9]
+                , "MOYENNE"
+                , sort238.index(MDS238[j])+1
+                , (MDS238[j]>=10)
+                , creditS1MDS1[9]
+                , creditS1MDS1[9] if ( (MDS238[j]+MDS237[j]) >=20) else 0
+                , MDS238cc[j]['note_cc']
+                , MDS238sn[j]['note_sn']
+            ],
+
+
+            #11 MDS239
+            #[
+            #    MDS239[j]
+            #    , coefS1MDS1[10]
+            #    , MDS239[j]*coefS1MDS1[10]
+            #    , "MOYENNE"
+            #    , sort238.index(MDS239[j])+1
+            #    , (MDS239[j]>=10)
+            #    , creditS1MDS1[10]
+            #    , creditS1MDS1[10] if ( (MDS239[j]) >=10) else 0
+            #    , MDS239cc[j]['note_cc']
+            #    , MDS239sn[j]['note_sn']
+            #],
+
+            #11 RESULTAT
+            [
+                ( coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]+coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]+coefS1MDS1[8]+coefS1MDS1[9] ),
+
+                round (MDS231[j]*coefS1MDS1[0]+MDS231b[j]*coefS1MDS1[1]+MDS232[j]*coefS1MDS1[2]+MDS232b[j]*coefS1MDS1[3]+MDS233[j]*coefS1MDS1[4]+MDS234[j]*coefS1MDS1[5]+MDS235[j]*coefS1MDS1[6]+MDS236[j]*coefS1MDS1[7]+ MDS237[j]*coefS1MDS1[8]+MDS238[j]*coefS1MDS1[9] , 2),
+
+                round (( MDS231[j]*coefS1MDS1[0]+MDS231b[j]*coefS1MDS1[1]+MDS232[j]*coefS1MDS1[2]+MDS232b[j]*coefS1MDS1[3]+MDS233[j]*coefS1MDS1[4]+MDS234[j]*coefS1MDS1[5]+MDS235[j]*coefS1MDS1[6]+MDS236[j]*coefS1MDS1[7]+ MDS237[j]*coefS1MDS1[8]+MDS238[j]*coefS1MDS1[9] )/( coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]+coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]+coefS1MDS1[8]+coefS1MDS1[9] ),2)
+            ]
+        ]
+        #Decompte des crédits totaux PV semestre 1 Gestion
+        MDSCreditCountPV(matriceS3Mds2)
+
+        listeMatriceS3Mds2.append(matriceS3Mds2)
+        mds2Moyenne.append(matriceS3Mds2[11][2])
+        mds2Moyenne.sort(reverse=True)
+
+        moy = stat.mean(mds2Moyenne)
+        moy = round(moy, 2)
+        session = dateExamen[0]['date_SN'] #'Janvier 2023'
+
+        filiere="GESTION"
+
+###########################################################  SEMESTRE 3 MDS2 VALIDATION   ############################################################################################################################        
+    #STATS VALIDATION
+    for i in range (len(MDS231)):
+        if MDS231[i] >= 10:
+            val1['nombre']+=1
+    val1['pourcentage']= round(((val1['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS231b)):
+        if MDS231b[i] >= 10:
+            val2['nombre']+=1
+    val2['pourcentage']= round(((val2['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS232)):
+        if MDS232[i] >= 10:
+            val3['nombre']+=1
+    val3['pourcentage']= round(((val3['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS232b)):
+        if MDS232b[i] >= 10:
+            val4['nombre']+=1
+    val4['pourcentage']= round(((val4['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS233)):
+        if MDS233[i] >= 10:
+            val5['nombre']+=1
+    val5['pourcentage']= round(((val5['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS234)):
+        if MDS234[i] >= 10:
+            val6['nombre']+=1
+    val6['pourcentage']= round(((val6['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS235)):
+        if MDS235[i] >= 10:
+            val7['nombre']+=1
+    val7['pourcentage']= round(((val7['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS236)):
+        if MDS236[i] >= 10:
+            val8['nombre']+=1
+    val8['pourcentage']= round(((val8['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS237)):
+        if MDS237[i] >= 10:
+            val9['nombre']+=1
+    val9['pourcentage']= round(((val9['nombre']/ len(infoEtudiantMDS))*100), 2)
+    for i in range (len(MDS238)):
+        if MDS238[i] >= 10:
+            val10['nombre']+=1
+    val10['pourcentage']= round(((val10['nombre']/ len(infoEtudiantMDS))*100), 2)
+
+
+    #STATS MENTION
+    statMention(MDS231,m111)
+    pourcentageMention(m111, len(infoEtudiantMDS))
+
+    statMention(MDS231b,m111b)
+    pourcentageMention(m111b, len(infoEtudiantMDS))
+
+    statMention(MDS232,m112)
+    pourcentageMention(m112, len(infoEtudiantMDS))
+
+    statMention(MDS232b,m112b)
+    pourcentageMention(m112b, len(infoEtudiantMDS))
+
+    statMention(MDS233,m113)
+    pourcentageMention(m113, len(infoEtudiantMDS))
+
+    statMention(MDS234,m114)
+    pourcentageMention(m114, len(infoEtudiantMDS))
+
+    statMention(MDS235,m115)
+    pourcentageMention(m115, len(infoEtudiantMDS))
+
+    statMention(MDS236,m116)
+    pourcentageMention(m116, len(infoEtudiantMDS))
+
+    statMention(MDS237,m117)
+    pourcentageMention(m117, len(infoEtudiantMDS))
+
+    statMention(MDS238,m117b)
+    pourcentageMention(m117b, len(infoEtudiantMDS))
+
+    UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10]
+    UEstats_mention = [m111, m111b, m112, m112b, m113, m114, m115, m116, m117, m117b]
+
+###########################################################  SEMESTRE 3 RESULTAT   ############################################################################################################################        
+
+    semestre1MDS = [filiere, listeMatriceS3Mds2, mds2Moyenne, moy, session, creditS1MDS1, UEStats, UEstats_mention, UeNomCode    ]
+
+    return render(request, 'bulletin/releveCommun/releveCommunMds2.html', {'semestre1MDS': semestre1MDS})
 
 
 #PV MDS2 SEMESTRE 4

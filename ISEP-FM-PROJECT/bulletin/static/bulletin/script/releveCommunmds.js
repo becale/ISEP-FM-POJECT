@@ -9,7 +9,8 @@ window.addEventListener('load', () => {
         var page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
-        page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page0.children[0].children[2].children[0].innerHTML =  `PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  ${mydata[11][0]['annee_academique']}`
+        //"PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
 
         bigtab = page0.children[0].children[2].children[1]
 
@@ -20,6 +21,7 @@ window.addEventListener('load', () => {
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab = bigtab.children[1]
+        worktab.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS1 ${mydata[11][0]['annee_academique']}`
             //worktab1 = bigtab1.children[1]
             //Ligne des 4 tableaux
 
@@ -195,7 +197,7 @@ window.addEventListener('load', () => {
             for (j = 0; j <= tab43.childElementCount - 1; j++) {
                 if (j == 0) { tab43.cells[j].innerHTML = listStudent[i][11][1] };
                 if (j == 1) { tab43.cells[j].innerHTML = listStudent[i][11][2] };;
-                if (j == 2) { tab43.cells[j].innerHTML = '/' } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
+                if (j == 2) { tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2]) +1 /*'/'*/ } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
                 if (j == 3) { tab43.cells[j].innerHTML = listStudent[i][11][3] } //'/' /*mydata[2].indexOf(listStudent[i][11][2]) + 1*/ }
 
                 if (j == 4) { tab43.cells[j].innerHTML = '/' };
@@ -430,7 +432,7 @@ window.addEventListener('load', () => {
             body.appendChild(page1)
         }
     }
-    PageRattrapage()
+    //PageRattrapage()
 
     function PageSynthese() {
 
@@ -673,7 +675,7 @@ window.addEventListener('load', () => {
         }
 
     }
-    PageSynthese()
+    //PageSynthese()
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
     function ListProcess() {
@@ -703,11 +705,12 @@ window.addEventListener('load', () => {
 
 
         //Line 1
+        line1 = clone.children[1].children[0].children[1].innerHTML = `Edition du : ${mydata[4]}`
 
         //Line 2
         line2 = clone.children[1].children[1].children[0]
         line2.children[2].innerHTML = ' MANAGEMENT DU SPORT'
-        line2.children[5].innerHTML = '2022/2023'
+        line2.children[5].innerHTML = `${mydata[11][0]['annee_academique']}`
 
         //Third Line
         line3 = clone.children[1].children[2].children[0]
@@ -796,7 +799,7 @@ window.addEventListener('load', () => {
         //Tableau des students
         tab = clone.children[2].children[0]
 
-        listStudent = mydata[9] //mydata[1]
+        listStudent = mydata[1]//mydata[9] //mydata[1]
 
         tableContainer = document.getElementById('tableContainer')
 

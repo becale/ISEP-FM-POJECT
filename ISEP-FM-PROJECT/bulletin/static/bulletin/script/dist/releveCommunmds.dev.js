@@ -9,14 +9,16 @@ window.addEventListener('load', function () {
     listStudent = mydata[1];
     var page0 = document.getElementById('page');
     page0 = page0.cloneNode(true);
-    page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023";
+    page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  ".concat(mydata[11][0]['annee_academique']); //"PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+
     bigtab = page0.children[0].children[2].children[1]; //page2.children[1].children[1].children[1]
 
     /*page = document.getElementById("page2")
     bigtab1 = page.children[1].children[1]*/
     //Tableau Sur lequel on ajoute les nouvelles lignes
 
-    worktab = bigtab.children[1]; //worktab1 = bigtab1.children[1]
+    worktab = bigtab.children[1];
+    worktab.children[0].children[0].innerHTML = "PROCES VERBAL MODULAIRE MDS1 ".concat(mydata[11][0]['annee_academique']); //worktab1 = bigtab1.children[1]
     //Ligne des 4 tableaux
 
     for (i = 0; i <= mydata[1].length - 1; i++) {
@@ -240,7 +242,8 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 2) {
-          tab43.cells[j].innerHTML = '/';
+          tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2]) + 1;
+          /*'/'*/
         } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
 
 
@@ -612,9 +615,8 @@ window.addEventListener('load', function () {
       worktab1.appendChild(temp1);
       body.appendChild(page1);
     }
-  }
+  } //PageRattrapage()
 
-  PageRattrapage();
 
   function PageSynthese() {
     synthese = mydata[9];
@@ -879,10 +881,10 @@ window.addEventListener('load', function () {
       worktab2.appendChild(temp2);
       body.appendChild(page2);
     }
-  }
+  } //PageSynthese()
 
-  PageSynthese();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
+
 
   function ListProcess() {
     body = document.getElementById('body');
@@ -905,11 +907,12 @@ window.addEventListener('load', function () {
   function fullfill(clone, i) {
     //Pagination
     pagination = clone.children[3]; //Line 1
-    //Line 2
+
+    line1 = clone.children[1].children[0].children[1].innerHTML = "Edition du : ".concat(mydata[4]); //Line 2
 
     line2 = clone.children[1].children[1].children[0];
     line2.children[2].innerHTML = ' MANAGEMENT DU SPORT';
-    line2.children[5].innerHTML = '2022/2023'; //Third Line
+    line2.children[5].innerHTML = "".concat(mydata[11][0]['annee_academique']); //Third Line
 
     line3 = clone.children[1].children[2].children[0];
 
@@ -995,7 +998,7 @@ window.addEventListener('load', function () {
 
 
     tab = clone.children[2].children[0];
-    listStudent = mydata[9]; //mydata[1]
+    listStudent = mydata[1]; //mydata[9] //mydata[1]
 
     tableContainer = document.getElementById('tableContainer');
     /**STATS */

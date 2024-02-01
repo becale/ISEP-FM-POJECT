@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
         var page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
-        page0.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
+        page0.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab = page0.children[0].children[2].children[1]
 

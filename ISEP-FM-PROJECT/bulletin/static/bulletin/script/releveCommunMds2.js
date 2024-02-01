@@ -9,7 +9,7 @@ window.addEventListener('load', () => {
         var page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
-        page0.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page0.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab = page0.children[0].children[2].children[1]
 
@@ -20,6 +20,7 @@ window.addEventListener('load', () => {
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab = bigtab.children[1]
+        worktab.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS2 ${mydata[9][0]['annee_academique']}`
             //worktab1 = bigtab1.children[1]
             //Ligne des 4 tableaux
 
@@ -195,7 +196,7 @@ window.addEventListener('load', () => {
             for (j = 0; j <= tab43.childElementCount - 1; j++) {
                 if (j == 0) { tab43.cells[j].innerHTML = listStudent[i][11][1] };
                 if (j == 1) { tab43.cells[j].innerHTML = listStudent[i][11][2] };;
-                if (j == 2) { tab43.cells[j].innerHTML = '/' } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
+                if (j == 2) { tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2]) + 1 } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
                 if (j == 3) { tab43.cells[j].innerHTML = listStudent[i][11][3] } //'/' /*mydata[2].indexOf(listStudent[i][11][2]) + 1*/ }
 
                 if (j == 4) { tab43.cells[j].innerHTML = '/' };
@@ -218,12 +219,13 @@ window.addEventListener('load', () => {
         page1 = page1.cloneNode(true)
 
         //Changement Title
-        page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page1.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab1 = page1.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab1 = bigtab1.children[1]
+        worktab1.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS2 ${mydata[9][0]['annee_academique']}`
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -436,16 +438,17 @@ window.addEventListener('load', () => {
 
         synthese = mydata[9]
 
-        page2 = document.getElementById('page')
+        var page2 = document.getElementById('page')
         page2 = page2.cloneNode(true)
 
         //Changement Title
-        page2.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page2.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab2 = page2.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab2 = bigtab2.children[1]
+        worktab2.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS2 ${mydata[9][0]['annee_academique']}`
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -703,100 +706,103 @@ window.addEventListener('load', () => {
 
 
         //Line 1
+        line1 = clone.children[1].children[0].children[1].innerHTML = `Edition du : ${mydata[4]}`
 
         //Line 2
         line2 = clone.children[1].children[1].children[0]
         line2.children[2].innerHTML = ' MANAGEMENT DU SPORT'
-        line2.children[5].innerHTML = '2022/2023'
+        line2.children[5].innerHTML = `${mydata[9][0]['annee_academique']}`
 
         //Third Line
         line3 = clone.children[1].children[2].children[0]
 
         if (i == 0) {
-            line3.children[1].innerHTML = "MDS111";
-            line3.children[2].innerHTML = "MATHEMATIQUES I";
-            line3.children[4].innerHTML = mydata[5][0]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS111"; //
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"MATHEMATIQUES I";
+            line3.children[4].innerHTML =  mydata[8][i]['nombre_credit'] //mydata[5][0]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 1) {
-            line3.children[1].innerHTML = "MDS111";
-            line3.children[2].innerHTML = "INFORMATIQUE I";
-            line3.children[4].innerHTML = mydata[5][1]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS111";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"INFORMATIQUE I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][1]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 2) {
-            line3.children[1].innerHTML = "MDS112";
-            line3.children[2].innerHTML = "MATHEMATIQUES FINANCIERES";
-            line3.children[4].innerHTML = mydata[5][2]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS112";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"MATHEMATIQUES FINANCIERES";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][2]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 3) {
-            line3.children[1].innerHTML = "MDS112";
-            line3.children[2].innerHTML = "STATISTIQUES DESCRIPTIVES";
-            line3.children[4].innerHTML = mydata[5][3]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS112";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"STATISTIQUES DESCRIPTIVES";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][3]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 4) {
-            line3.children[1].innerHTML = "MDS113";
-            line3.children[2].innerHTML = "ENVIRONNEMENT JURIDIQUE ET COMPTABLE I";
-            line3.children[4].innerHTML = mydata[5][4]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS113";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"ENVIRONNEMENT JURIDIQUE ET COMPTABLE I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][4]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 5) {
-            line3.children[1].innerHTML = "MDS114";
-            line3.children[2].innerHTML = "MARKETING";
-            line3.children[4].innerHTML = mydata[5][5]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE']// "MDS114";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"MARKETING";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][5]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 6) {
-            line3.children[1].innerHTML = "MDS115";
-            line3.children[2].innerHTML = "OUTILS DE GESTION DU SPORT I";
-            line3.children[4].innerHTML = mydata[5][6]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS115";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"OUTILS DE GESTION DU SPORT I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][6]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 7) {
-            line3.children[1].innerHTML = "MDS116";
-            line3.children[2].innerHTML = "GESTION DES STRUCTURES ET ORGANISATIONS SPORTIVES I";
-            line3.children[4].innerHTML = mydata[5][7]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS116";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"GESTION DES STRUCTURES ET ORGANISATIONS SPORTIVES I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][7]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 8) {
-            line3.children[1].innerHTML = "MDS117";
-            line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION ANGLAISE";
-            line3.children[4].innerHTML = mydata[5][8]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE']// "MDS117";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION ANGLAISE";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][8]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 9) {
-            line3.children[1].innerHTML = "MDS117";
-            line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION FRANCAISE";
-            line3.children[4].innerHTML = mydata[5][9]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE']// "MDS117";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION FRANCAISE";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][9]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
 
         //Tableau des students
         tab = clone.children[2].children[0]
 
-        listStudent = mydata[9] //mydata[1]
+        //Car pas encore de notes de rattrapage donc pas de SYNTHESE
+        //listStudent = mydata[9] //mydata[1]
+        listStudent = mydata[1]
 
         tableContainer = document.getElementById('tableContainer')
 
@@ -865,35 +871,35 @@ window.addEventListener('load', () => {
                 }
                 if (k == 6) {
                     if (i == 0) {
-                        if (listStudent[j][1][5]) { td.innerHTML = `${listStudent[j][1][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][1][0] >= 10) { td.innerHTML = `${listStudent[j][1][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 1) {
-                        if (listStudent[j][2][5]) { td.innerHTML = `${listStudent[j][2][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][2][0] >= 10) { td.innerHTML = `${listStudent[j][2][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 2) {
-                        if (listStudent[j][3][5]) { td.innerHTML = `${listStudent[j][3][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][3][0] >= 10) { td.innerHTML = `${listStudent[j][3][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 3) {
-                        if (listStudent[j][4][5]) { td.innerHTML = `${listStudent[j][4][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][4][0] >= 10) { td.innerHTML = `${listStudent[j][4][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 4) {
-                        if (listStudent[j][5][5]) { td.innerHTML = `${listStudent[j][5][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][5][0] >= 10) { td.innerHTML = `${listStudent[j][5][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 5) {
-                        if (listStudent[j][6][5]) { td.innerHTML = `${listStudent[j][6][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][6][0] >= 10) { td.innerHTML = `${listStudent[j][6][6]}` } else { td.innerHTML = 0 }
                     }
 
                     if (i == 6) {
-                        if (listStudent[j][7][5]) { td.innerHTML = `${listStudent[j][7][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][7][0] >= 10) { td.innerHTML = `${listStudent[j][7][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 7) {
-                        if (listStudent[j][8][5]) { td.innerHTML = `${listStudent[j][8][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][8][0] >= 10) { td.innerHTML = `${listStudent[j][8][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 8) {
-                        if (listStudent[j][9][5]) { td.innerHTML = `${listStudent[j][9][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][9][0] >= 10) { td.innerHTML = `${listStudent[j][9][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 9) {
-                        if (listStudent[j][10][5]) { td.innerHTML = `${listStudent[j][10][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][10][0] >= 10) { td.innerHTML = `${listStudent[j][10][6]}` } else { td.innerHTML = 0 }
                     }
                 }
                 if (k == 7) {

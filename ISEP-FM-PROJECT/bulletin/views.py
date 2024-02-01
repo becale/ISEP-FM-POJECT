@@ -18,7 +18,7 @@ from bulletin.view_bull_module.Eps1Mds1_S1 import  *
 
 
 #Date Examen
-dateExamen = list(Semestre.objects.filter(id=1).values('date_SN', 'date_CC'))
+dateExamen = list(Semestre.objects.filter(id=1).values('date_SN', 'date_CC', 'date_RT', 'annee_academique'))
 #Date Rattrapage
 
 
@@ -9225,10 +9225,10 @@ def resultatCommunmds2(request):
     
     infoEtudiantMDS =list(Etudiant.objects.filter(filiere="GESTION", niveau=2).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
-    coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("coefficient", "intitule_UE"))
+    coefS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=3,filiere="GESTION").values("coefficient", "intitule_UE"))
     coefS1MDS1 = epurationCoef(coefS1MDS1)
 
-    creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=1,filiere="GESTION").values("nombre_credit"))
+    creditS1MDS1 = list(UniteEnseignement.objects.filter(semestre_id=3,filiere="GESTION").values("nombre_credit"))
     creditS1MDS1 = epurationCre(creditS1MDS1)
 
     MDS231 =list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
@@ -9497,10 +9497,10 @@ def resultatCommunmds2(request):
             [
                 MDS231[j]
                 , coefS1MDS1[0]
-                , MDS231[j]*coefS1MDS1[0]
+                , round(MDS231[j]*coefS1MDS1[0], 2)
                 , round( ((MDS231[j]*coefS1MDS1[0]) + (MDS231b[j]*coefS1MDS1[1]) + ( MDS232[j]*coefS1MDS1[2]) + (MDS232b[j]*coefS1MDS1[3]))/(coefS1MDS1[0]+coefS1MDS1[1]+coefS1MDS1[2]+coefS1MDS1[3]), 2)
                 , sort231.index(MDS231[j])+1
-                ,(MDS231[j]>=10)
+                , (MDS231[j]>=10)
                 , creditS1MDS1[0]
                 , creditS1MDS1[1] if ((MDS231[j]+MDS231b[j])>=20) else 0
                 , MDS231cc[j]['note_cc']
@@ -9511,7 +9511,7 @@ def resultatCommunmds2(request):
             [
                 MDS231b[j]
                 , coefS1MDS1[1]
-                , MDS231b[j]*coefS1MDS1[1]
+                , round(MDS231b[j]*coefS1MDS1[1], 2)
                 , "MOYENNE"
                 , sort231b.index(MDS231b[j])+1
                 , (MDS231b[j]>=10)
@@ -9525,7 +9525,7 @@ def resultatCommunmds2(request):
             [
                 MDS232[j]
                 , coefS1MDS1[2]
-                , MDS232[j]*coefS1MDS1[2]
+                , round(MDS232[j]*coefS1MDS1[2],2)
                 , "MOYENNE"
                 , sort232.index(MDS232[j])+1
                 , (MDS232[j]>=10)
@@ -9539,7 +9539,7 @@ def resultatCommunmds2(request):
             [
                 MDS232b[j]
                 , coefS1MDS1[3]
-                , MDS232b[j]*coefS1MDS1[3]
+                , round(MDS232b[j]*coefS1MDS1[3], 2)
                 , "MOYENNE"
                 , sort232b.index(MDS232b[j])+1
                 , (MDS232b[j]>=10)
@@ -9553,7 +9553,7 @@ def resultatCommunmds2(request):
             [
                 MDS233[j]
                 , coefS1MDS1[4]
-                , MDS233[j]*coefS1MDS1[4]
+                , round(MDS233[j]*coefS1MDS1[4], 2)
                 , round( ((MDS233[j]*coefS1MDS1[4]) + (MDS234[j]*coefS1MDS1[5]) + MDS235[j]*coefS1MDS1[6] + MDS236[j]*coefS1MDS1[7])/(coefS1MDS1[4]+coefS1MDS1[5]+coefS1MDS1[6]+coefS1MDS1[7]), 2)
                 , sort233.index(MDS233[j])+1
                 , (MDS233[j]>=10)
@@ -9567,7 +9567,7 @@ def resultatCommunmds2(request):
             [
                 MDS234[j]
                 , coefS1MDS1[5]
-                , MDS234[j]*coefS1MDS1[5]
+                , round(MDS234[j]*coefS1MDS1[5], 2)
                 , "MOYENNE"
                 , sort234.index(MDS234[j])+1
                 , (MDS234[j]>=10)
@@ -9581,7 +9581,7 @@ def resultatCommunmds2(request):
             [
                 MDS235[j]
                 , coefS1MDS1[6]
-                , MDS235[j]*coefS1MDS1[6]
+                , round(MDS235[j]*coefS1MDS1[6], 2)
                 , "MOYENNE"
                 , sort235.index(MDS235[j])+1
                 , (MDS235[j]>=10)
@@ -9595,7 +9595,7 @@ def resultatCommunmds2(request):
             [
                 MDS236[j]
                 , coefS1MDS1[7]
-                , MDS236[j]*coefS1MDS1[7]
+                , round(MDS236[j]*coefS1MDS1[7], 2)
                 , "MOYENNE"
                 , sort236.index(MDS236[j])+1
                 , (MDS236[j]>=10)
@@ -9609,7 +9609,7 @@ def resultatCommunmds2(request):
             [
                 MDS237[j]
                 , coefS1MDS1[8]
-                , MDS237[j]*coefS1MDS1[8]
+                , round(MDS237[j]*coefS1MDS1[8], 2)
                 , round(( MDS237[j]*coefS1MDS1[8]+MDS238[j]*coefS1MDS1[9] )/(coefS1MDS1[8]+coefS1MDS1[9]),2)
                 , sort237.index(MDS237[j])+1
                 , (MDS237[j]>=10)
@@ -9623,7 +9623,7 @@ def resultatCommunmds2(request):
             [
                 MDS238[j]
                 , coefS1MDS1[9]
-                , MDS238[j]*coefS1MDS1[9]
+                , round(MDS238[j]*coefS1MDS1[9],2)
                 , "MOYENNE"
                 , sort238.index(MDS238[j])+1
                 , (MDS238[j]>=10)
@@ -9670,6 +9670,12 @@ def resultatCommunmds2(request):
 
         filiere="GESTION"
 
+###########################################################  SEMESTRE 3 MDS2 RATTRAPAGE   ############################################################################################################################        
+    listeMatriceS3Mds2R = []
+###########################################################  SEMESTRE 3 MDS2 CC  ############################################################################################################################        
+    listeMatriceS3Mds2CC = []
+###########################################################  SEMESTRE 3 MDS2 SYNTHESE  ############################################################################################################################        
+    listeMatriceS3Mds2S = []
 ###########################################################  SEMESTRE 3 MDS2 VALIDATION   ############################################################################################################################        
     #STATS VALIDATION
     for i in range (len(MDS231)):
@@ -9750,7 +9756,7 @@ def resultatCommunmds2(request):
 
 ###########################################################  SEMESTRE 3 RESULTAT   ############################################################################################################################        
 
-    semestre1MDS = [filiere, listeMatriceS3Mds2, mds2Moyenne, moy, session, creditS1MDS1, UEStats, UEstats_mention, UeNomCode    ]
+    semestre1MDS = [filiere, listeMatriceS3Mds2, mds2Moyenne, moy, session, creditS1MDS1, UEStats, UEstats_mention, UeNomCode, dateExamen  ]
 
     return render(request, 'bulletin/releveCommun/releveCommunMds2.html', {'semestre1MDS': semestre1MDS})
 

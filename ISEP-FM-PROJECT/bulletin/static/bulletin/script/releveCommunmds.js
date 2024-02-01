@@ -865,39 +865,39 @@ window.addEventListener('load', () => {
                 }
                 if (k == 6) {
                     if (i == 0) {
-                        if (listStudent[j][1][5]) { td.innerHTML = `${listStudent[j][1][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][1][0] >= 10) { td.innerHTML = `${listStudent[j][1][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 1) {
-                        if (listStudent[j][2][5]) { td.innerHTML = `${listStudent[j][2][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][2][0] >= 10) { td.innerHTML = `${listStudent[j][2][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 2) {
-                        if (listStudent[j][3][5]) { td.innerHTML = `${listStudent[j][3][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][3][0] >= 10) { td.innerHTML = `${listStudent[j][3][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 3) {
-                        if (listStudent[j][4][5]) { td.innerHTML = `${listStudent[j][4][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][4][0] >= 10) { td.innerHTML = `${listStudent[j][4][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 4) {
-                        if (listStudent[j][5][5]) { td.innerHTML = `${listStudent[j][5][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][5][0] >= 10) { td.innerHTML = `${listStudent[j][5][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 5) {
-                        if (listStudent[j][6][5]) { td.innerHTML = `${listStudent[j][6][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][6][0] >= 10) { td.innerHTML = `${listStudent[j][6][6]}` } else { td.innerHTML = 0 }
                     }
 
                     if (i == 6) {
-                        if (listStudent[j][7][5]) { td.innerHTML = `${listStudent[j][7][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][7][0] >= 10) { td.innerHTML = `${listStudent[j][7][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 7) {
-                        if (listStudent[j][8][5]) { td.innerHTML = `${listStudent[j][8][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][8][0] >= 10) { td.innerHTML = `${listStudent[j][8][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 8) {
-                        if (listStudent[j][9][5]) { td.innerHTML = `${listStudent[j][9][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][9][0] >= 10) { td.innerHTML = `${listStudent[j][9][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 9) {
-                        if (listStudent[j][10][5]) { td.innerHTML = `${listStudent[j][10][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][10][0] >= 10) { td.innerHTML = `${listStudent[j][10][6]}` } else { td.innerHTML = 0 }
                     }
                 }
                 if (k == 7) {
-                    if (i == 0) { if (listStudent[j][1][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    /*if (i == 0) { if (listStudent[j][1][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 1) { if (listStudent[j][2][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 2) { if (listStudent[j][3][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 3) { if (listStudent[j][4][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
@@ -907,7 +907,18 @@ window.addEventListener('load', () => {
                     if (i == 6) { if (listStudent[j][7][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 7) { if (listStudent[j][8][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 8) { if (listStudent[j][9][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 9) { if (listStudent[j][10][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 9) { if (listStudent[j][10][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }*/
+                    if (i == 0) { if (listStudent[j][1][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 1) { if (listStudent[j][2][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 2) { if (listStudent[j][3][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 3) { if (listStudent[j][4][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 4) { if (listStudent[j][5][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 5) { if (listStudent[j][6][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+
+                    if (i == 6) { if (listStudent[j][7][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 7) { if (listStudent[j][8][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 8) { if (listStudent[j][9][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 9) { if (listStudent[j][10][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                 }
                 if (k == 8) {
                     if (i == 0) {

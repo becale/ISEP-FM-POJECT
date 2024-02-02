@@ -151,15 +151,20 @@ window.addEventListener('load', () => {
         page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
+        page0.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE 1<sup>er</sup> SEMESTRE EPS1  ${mydata[11][0]['annee_academique']}`
+
         bigtab = page0.children[0].children[2].children[1]
 
         page = document.getElementById("part2")
         page = page.cloneNode(true)
+        //page.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE 1<sup>er</sup> SEMESTRE EPS1  ${mydata[11][0]['annee_academique']}`
 
         bigtab1 = page.children[0].children[1].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab = bigtab.children[1]
+        worktab.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS1 ${mydata[11][0]['annee_academique']}`
+
         worktab1 = bigtab1.children[1]
             //Ligne des 4 tableaux
 
@@ -241,7 +246,7 @@ window.addEventListener('load', () => {
 
                     if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7)) {
                         //console.log('OK');
-                        moyuefcr = uef1cr + uef2cr//listStudent[i][1][6] + listStudent[i][2][6]
+                        moyuefcr = /*uef1cr + uef2cr*/ listStudent[i][1][6] + listStudent[i][2][6]
                     } else {
                         moyuef = '--'
                         moyuefcr = uef1cr + uef2cr
@@ -249,7 +254,7 @@ window.addEventListener('load', () => {
                     tab15.cells[j].innerHTML = moyuef //listStudent[i][1][3];
 
 
-                    tab116.cells[j].innerHTML = listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7] //Crédits
+                    tab116.cells[j].innerHTML = listStudent[i][15][3]//listStudent[i][1][7] + listStudent[i][2][7] + listStudent[i][3][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][9][7] + listStudent[i][10][7] + listStudent[i][11][7] + listStudent[i][12][7] //Crédits
                         //tab116.cells[j].innerHTML = ""
                 }
                 if (j == 3) {
@@ -277,9 +282,11 @@ window.addEventListener('load', () => {
                 if (j == 4) { tab23.cells[j].innerHTML = listStudent[i][7][0] };
                 if (j == 5) { tab23.cells[j].innerHTML = listStudent[i][8][0] };
                 if (j == 6) { tab23.cells[j].innerHTML = listStudent[i][9][0] };
+                if (j == 7) { tab23.cells[j].innerHTML = listStudent[i][10][0] };
+                if (j == 8) { tab23.cells[j].innerHTML = listStudent[i][11][0] };
 
-                if (j == 7) {
-                    eps125Somme = (listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) / (4)
+                if (j == 9) {
+                    eps125Somme = (listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]+ listStudent[i][9][0]+ listStudent[i][10][0] ) / (6)
 
                     var uef3cr = listStudent[i][3][7]
                     //if (listStudent[i][3][0] < 10) { uef3cr = 0 }
@@ -290,15 +297,15 @@ window.addEventListener('load', () => {
                     var uef5cr = listStudent[i][5][7]
                     //if (listStudent[i][5][5] == false) { uef5cr = 0 }
 
-                    var uef9cr = listStudent[i][9][7]
+                    var uef9cr = listStudent[i][11][7]
                     //if (listStudent[i][9][0] < 10) { uef9cr = 0 }
 
                     moyuep = listStudent[i][3][3]
                     moyuepcr = 0
 
-                    if (moyuep >= 10 && (listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && listStudent[i][5][0] >= 7 && listStudent[i][6][0] >= 7 &&  listStudent[i][7][0] >= 7 &&  listStudent[i][8][0] >= 7 && /*eps125Somme >= 7 &&*/ listStudent[i][9][0] >= 7)) {
+                    if (moyuep >= 10 && (listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && listStudent[i][5][0] >= 7 && listStudent[i][6][0] >= 7 &&  listStudent[i][7][0] >= 7 &&  listStudent[i][8][0] >= 7 && /*eps125Somme >= 7 &&*/ listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7 && listStudent[i][11][0] >= 7)) {
                         //console.log('OK');
-                        moyuepcr = uef3cr + uef4cr + uef5cr + uef9cr//listStudent[i][3][6] + listStudent[i][4][6] + listStudent[i][5][7] + listStudent[i][9][6]
+                        moyuepcr = /*uef3cr + uef4cr + uef5cr + uef9cr*/ listStudent[i][3][6] + listStudent[i][4][6] + listStudent[i][5][7] + listStudent[i][11][6]
                     } else {
                         moyuep = '--'
                         moyuepcr = uef3cr + uef4cr + uef5cr + uef9cr
@@ -307,7 +314,7 @@ window.addEventListener('load', () => {
 
                     tab23.cells[j].innerHTML = moyuep //listStudent[i][3][3]
                 };
-                if (j == 8) { tab23.cells[j].innerHTML = moyuepcr /*if (listStudent[i][3][3] >= 10) { tab23.cells[j].innerHTML = 'V' } else { tab23.cells[j].innerHTML = 'NV' }*/ };
+                if (j == 10) { tab23.cells[j].innerHTML = moyuepcr /*if (listStudent[i][3][3] >= 10) { tab23.cells[j].innerHTML = 'V' } else { tab23.cells[j].innerHTML = 'NV' }*/ };
 
             }
 
@@ -318,26 +325,26 @@ window.addEventListener('load', () => {
             tab33 = tab32.children['0']
 
             for (j = 0; j <= tab33.childElementCount - 1; j++) {
-                if (j == 0) { tab33.cells[j].innerHTML = listStudent[i][10][0] };
-                if (j == 1) { tab33.cells[j].innerHTML = listStudent[i][11][0] };
-                if (j == 2) { tab33.cells[j].innerHTML = listStudent[i][12][0] };
+                if (j == 0) { tab33.cells[j].innerHTML = listStudent[i][12][0] };
+                if (j == 1) { tab33.cells[j].innerHTML = listStudent[i][13][0] };
+                if (j == 2) { tab33.cells[j].innerHTML = listStudent[i][14][0] };
 
                 if (j == 3) {
 
-                    var uef10cr = listStudent[i][10][6]
-                    if (listStudent[i][10][0] < 10) { uef10cr = 0 }
+                    var uef10cr = listStudent[i][12][7]
+                    //if (listStudent[i][10][0] < 10) { uef10cr = 0 }
 
-                    var uef11cr = listStudent[i][11][6]
-                    if (listStudent[i][11][0] < 10) { uef11cr = 0 }
+                    var uef11cr = listStudent[i][13][7]
+                    //if (listStudent[i][11][0] < 10) { uef11cr = 0 }
 
-                    var uef12cr = listStudent[i][12][6]
-                    if (listStudent[i][12][0] < 10) { uef12cr = 0 }
+                    var uef12cr = listStudent[i][14][7]
+                    //if (listStudent[i][12][0] < 10) { uef12cr = 0 }
 
-                    moyuet = listStudent[i][10][3]
+                    moyuet = listStudent[i][12][3]
 
-                    if (moyuet >= 10 && (listStudent[i][10][0] >= 7 && listStudent[i][11][0] >= 7 && listStudent[i][12][0] >= 7)) {
+                    if (moyuet >= 10 && (listStudent[i][12][0] >= 7 && listStudent[i][13][0] >= 7 && listStudent[i][14][0] >= 7)) {
                         //console.log('OK');
-                        moyuetcr = listStudent[i][10][6] + listStudent[i][11][6] + listStudent[i][12][6]
+                        moyuetcr = /*uef10cr + uef11cr + uef12cr*/ listStudent[i][12][6] + listStudent[i][13][6] + listStudent[i][14][6]
                     } else {
                         moyuet = '--'
                         moyuetcr = uef10cr + uef11cr + uef12cr
@@ -357,10 +364,10 @@ window.addEventListener('load', () => {
 
             //RESULTATS
             for (j = 0; j <= tab116.childElementCount - 1; j++) {
-                if (j == 0) { tab116.cells[j].innerHTML = listStudent[i][13][1]; } //total }
-                if (j == 1) { tab116.cells[j].innerHTML = listStudent[i][13][2]; } //moyenne }
-                if (j == 2) { tab116.cells[j].innerHTML = listStudent[i][13][3];/*moyuefcr + moyuepcr + moyuetcr*/ } //moyuefcr + moyuepcr + moyuetcr
-                if (j == 3) { tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][13][2]) + 1 } //rang }
+                if (j == 0) { tab116.cells[j].innerHTML = listStudent[i][15][1]; } //total }
+                if (j == 1) { tab116.cells[j].innerHTML = listStudent[i][15][2]; } //moyenne }
+                if (j == 2) { tab116.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][15][2]) + 1 /*moyuefcr + moyuepcr + moyuetcr*/ } //moyuefcr + moyuepcr + moyuetcr
+                if (j == 3) { tab116.cells[j].innerHTML = listStudent[i][15][3]; } //rang }
                 if (j == 4) { tab116.cells[j].innerHTML = "--" }
             }
 
@@ -554,7 +561,7 @@ window.addEventListener('load', () => {
             body.appendChild(page3)
         }
     }
-    PageRattrapage()
+    //PageRattrapage()
 
     function PageSynthese() {
         synthese = mydata[9]
@@ -786,7 +793,7 @@ window.addEventListener('load', () => {
 
 
     }
-    PageSynthese()
+    //PageSynthese()
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
     function ListProcess() {
@@ -797,7 +804,7 @@ window.addEventListener('load', () => {
 
         listProces = document.createElement('div');
 
-        for (i = 0; i <= 11; i++) {
+        for (i = 0; i <= 13; i++) {
             clone = page.cloneNode(true)
             clone.style.display = 'block'
             clone = fullfill(clone, i)
@@ -815,108 +822,125 @@ window.addEventListener('load', () => {
         pagination = clone.children[3]
 
         //Line 1
+        line1 = clone.children[1].children[0].children[1].innerHTML = `Edition du : ${mydata[4]}`
 
         //Line 2
         line2 = clone.children[1].children[1].children[0]
         line2.children[2].innerHTML = ' EDUCATION PHYSIQUE ET SPORTIVE'
-        line2.children[5].innerHTML = '2022/2023'
+        line2.children[5].innerHTML = `${mydata[11][0]['annee_academique']}`//'2022/2023'
 
         //Line 3
         line3 = clone.children[1].children[2].children[0]
 
         if (i == 0) {
-            line3.children[1].innerHTML = "EPS111";
-            line3.children[2].innerHTML = "HISTOIRE ET PRINCIPES DE BASE DE L'EDUCATION PHYSIQUE";
-            line3.children[4].innerHTML = mydata[5][0]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[12][i]['code_UE'] //"EPS111";
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"HISTOIRE ET PRINCIPES DE BASE DE L'EDUCATION PHYSIQUE";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][0]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////'1'
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 1) {
-            line3.children[1].innerHTML = "EPS112";
-            line3.children[2].innerHTML = "PSYCHOLOGIE DU SPORT-SOCIOLOGIE DU SPORT";
-            line3.children[4].innerHTML = mydata[5][1]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML =  mydata[12][i]['code_UE'] //"EPS112";
+            line3.children[2].innerHTML =  mydata[12][i]['intitule_UE'] //"PSYCHOLOGIE DU SPORT-SOCIOLOGIE DU SPORT";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][1]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////'1'
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 2) {
             line3.children[1].innerHTML = "EPS113";
-            line3.children[2].innerHTML = "DIDACTIQUE DE l'EPS I";
-            line3.children[4].innerHTML = mydata[5][2]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"DIDACTIQUE DE l'EPS I";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][2]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 3) {
             line3.children[1].innerHTML = "EPS114";
-            line3.children[2].innerHTML = "ANATOMIE 1";
-            line3.children[4].innerHTML = mydata[5][3]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"ANATOMIE 1";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][3]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 4) {
             line3.children[1].innerHTML = "EPS115a";
-            line3.children[2].innerHTML = "DIDACTIQUE DES APS : ATHLETISME";
-            line3.children[4].innerHTML = mydata[5][4]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"DIDACTIQUE DES APS : ATHLETISME";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][4]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 5) {
             line3.children[1].innerHTML = "EPS115b";
-            line3.children[2].innerHTML = "DIDACTIQUE DES APS : BASKET BALL";
-            line3.children[4].innerHTML = mydata[5][5]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"DIDACTIQUE DES APS : BASKET BALL";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][5]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 6) {
             line3.children[1].innerHTML = "EPS115j";
-            line3.children[2].innerHTML = "DIDACTIQUE DES APS : JUDO";
-            line3.children[4].innerHTML = mydata[5][6]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"DIDACTIQUE DES APS : JUDO";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][6]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 7) {
             line3.children[1].innerHTML = "EPS115l";
-            line3.children[2].innerHTML = "DIDACTIQUE DES APS : LUTTE";
-            line3.children[4].innerHTML = mydata[5][7]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"DIDACTIQUE DES APS : LUTTE";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][7]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 8) {
             line3.children[1].innerHTML = "EPS116";
-            line3.children[2].innerHTML = "LA PHYSIOLOGIE DE L'EXERCICE I";
-            line3.children[4].innerHTML = mydata[5][8]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"LA PHYSIOLOGIE DE L'EXERCICE I";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][8]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 9) {
             line3.children[1].innerHTML = "EPS117";
-            line3.children[2].innerHTML = "INFORMATIQUE";
-            line3.children[4].innerHTML = mydata[5][9]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"INFORMATIQUE";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][9]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 10) {
             line3.children[1].innerHTML = "EPS118";
-            line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION FRANCAISE";
-            line3.children[4].innerHTML = mydata[5][10]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION FRANCAISE";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][10]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']////
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
         if (i == 11) {
             line3.children[1].innerHTML = "EPS119";
-            line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION ANGLAISE. Anglaise- Forbi";
-            line3.children[4].innerHTML = mydata[5][11]
-            line3.children[6].innerHTML = '1'
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION ANGLAISE. Anglaise- Forbi";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][11]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']//
+
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+        }
+        if (i == 12) {
+            line3.children[1].innerHTML = "EPS115";
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION ANGLAISE. Anglaise- Forbi";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][11]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']//
+
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+        }
+        if (i == 13) {
+            line3.children[1].innerHTML = "EPS115";
+            line3.children[2].innerHTML = mydata[12][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION ANGLAISE. Anglaise- Forbi";
+            line3.children[4].innerHTML = mydata[12][i]['nombre_credit']//mydata[5][11]
+            line3.children[6].innerHTML = mydata[12][i]['semestre_id']//
 
             pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
         }
@@ -959,11 +983,15 @@ window.addEventListener('load', () => {
 
                     if (i == 6) { td.innerHTML = `${listStudent[j][7][8]}` }
                     if (i == 7) { td.innerHTML = `${listStudent[j][8][8]}` }
-                    if (i == 8) { td.innerHTML = `${listStudent[j][9][8]}` }
-                    if (i == 9) { td.innerHTML = `${listStudent[j][10][8]}` }
+                    if (i == 8) { td.innerHTML = `${listStudent[j][11][8]}` }
+                    if (i == 9) { td.innerHTML = `${listStudent[j][12][8]}` }
 
-                    if (i == 10) { td.innerHTML = `${listStudent[j][11][8]}` }
-                    if (i == 11) { td.innerHTML = `${listStudent[j][12][8]}` }
+                    if (i == 10) { td.innerHTML = `${listStudent[j][13][8]}` }
+                    if (i == 11) { td.innerHTML = `${listStudent[j][14][8]}` }
+
+                    if (i == 12) { td.innerHTML = `${listStudent[j][10][8]}` }
+                    if (i == 13) { td.innerHTML = `${listStudent[j][9][8]}` }
+
                     td.setAttribute('class', 'cc')
                 }
                 if (k == 4) {
@@ -973,13 +1001,17 @@ window.addEventListener('load', () => {
                     if (i == 3) { td.innerHTML = `${listStudent[j][4][9]}` }
                     if (i == 4) { td.innerHTML = `${listStudent[j][5][9]}` }
                     if (i == 5) { td.innerHTML = `${listStudent[j][6][9]}` }
+
                     if (i == 6) { td.innerHTML = `${listStudent[j][7][9]}` }
                     if (i == 7) { td.innerHTML = `${listStudent[j][8][9]}` }
-                    if (i == 8) { td.innerHTML = `${listStudent[j][9][9]}` }
-                    if (i == 9) { td.innerHTML = `${listStudent[j][10][9]}` }
+                    if (i == 8) { td.innerHTML = `${listStudent[j][11][9]}` }
+                    if (i == 9) { td.innerHTML = `${listStudent[j][12][9]}` }
 
-                    if (i == 10) { td.innerHTML = `${listStudent[j][11][9]}` }
-                    if (i == 11) { td.innerHTML = `${listStudent[j][12][9]}` }
+                    if (i == 10) { td.innerHTML = `${listStudent[j][13][9]}` }
+                    if (i == 11) { td.innerHTML = `${listStudent[j][14][9]}` }
+
+                    if (i == 12) { td.innerHTML = `${listStudent[j][10][9]}` }
+                    if (i == 13) { td.innerHTML = `${listStudent[j][9][9]}` }
                 }
                 if (k == 5) {
                     if (i == 0) {
@@ -994,11 +1026,14 @@ window.addEventListener('load', () => {
 
                     if (i == 6) { td.innerHTML = `${listStudent[j][7][0]}` }
                     if (i == 7) { td.innerHTML = `${listStudent[j][8][0]}` }
-                    if (i == 8) { td.innerHTML = `${listStudent[j][9][0]}` }
-                    if (i == 9) { td.innerHTML = `${listStudent[j][10][0]}` }
+                    if (i == 8) { td.innerHTML = `${listStudent[j][11][0]}` }
+                    if (i == 9) { td.innerHTML = `${listStudent[j][12][0]}` }
 
-                    if (i == 10) { td.innerHTML = `${listStudent[j][11][0]}` }
-                    if (i == 11) { td.innerHTML = `${listStudent[j][12][0]}` }
+                    if (i == 10) { td.innerHTML = `${listStudent[j][13][0]}` }
+                    if (i == 11) { td.innerHTML = `${listStudent[j][14][0]}` }
+
+                    if (i == 12) { td.innerHTML = `${listStudent[j][10][0]}` }
+                    if (i == 13) { td.innerHTML = `${listStudent[j][9][0]}` }
                 }
                 if (k == 6) {
                     if (i == 0) {
@@ -1027,17 +1062,24 @@ window.addEventListener('load', () => {
                         if (listStudent[j][8][5]) { td.innerHTML = `${listStudent[j][8][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 8) {
-                        if (listStudent[j][9][5]) { td.innerHTML = `${listStudent[j][9][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][11][5]) { td.innerHTML = `${listStudent[j][11][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 9) {
-                        if (listStudent[j][10][5]) { td.innerHTML = `${listStudent[j][10][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][12][5]) { td.innerHTML = `${listStudent[j][12][6]}` } else { td.innerHTML = 0 }
                     }
 
                     if (i == 10) {
-                        if (listStudent[j][11][5]) { td.innerHTML = `${listStudent[j][11][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][13][5]) { td.innerHTML = `${listStudent[j][13][6]}` } else { td.innerHTML = 0 }
                     }
                     if (i == 11) {
-                        if (listStudent[j][12][5]) { td.innerHTML = `${listStudent[j][12][6]}` } else { td.innerHTML = 0 }
+                        if (listStudent[j][14][5]) { td.innerHTML = `${listStudent[j][14][6]}` } else { td.innerHTML = 0 }
+                    }
+
+                    if (i == 12) {
+                        if (listStudent[j][10][5]) { td.innerHTML = `${listStudent[j][10][6]}` } else { td.innerHTML = 0 }
+                    }
+                    if (i == 13) {
+                        if (listStudent[j][9][5]) { td.innerHTML = `${listStudent[j][9][6]}` } else { td.innerHTML = 0 }
                     }
                 }
                 if (k == 7) {
@@ -1050,11 +1092,14 @@ window.addEventListener('load', () => {
 
                     if (i == 6) { if (listStudent[j][7][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 7) { if (listStudent[j][8][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 8) { if (listStudent[j][9][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 9) { if (listStudent[j][10][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 8) { if (listStudent[j][11][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 9) { if (listStudent[j][12][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
 
-                    if (i == 10) { if (listStudent[j][11][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 11) { if (listStudent[j][12][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 10) { if (listStudent[j][13][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 11) { if (listStudent[j][14][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+
+                    if (i == 12) { if (listStudent[j][10][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
+                    if (i == 13) { if (listStudent[j][9][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                 }
                 if (k == 8) {
                     if (i == 0) {
@@ -1084,7 +1129,6 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 1) {
                         if (listStudent[j][2][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1112,7 +1156,6 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 2) {
                         if (listStudent[j][3][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1140,7 +1183,6 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 3) {
                         if (listStudent[j][4][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1168,7 +1210,6 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 4) {
                         if (listStudent[j][5][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1196,7 +1237,6 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 5) {
                         if (listStudent[j][6][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1225,6 +1265,8 @@ window.addEventListener('load', () => {
                         }
                     }
 
+
+
                     if (i == 6) {
                         if (listStudent[j][7][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1252,7 +1294,6 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 7) {
                         if (listStudent[j][8][0] >= 16) {
                             td.innerHTML = 'A'
@@ -1280,67 +1321,10 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
                     if (i == 8) {
-                        if (listStudent[j][9][0] >= 16) {
-                            td.innerHTML = 'A'
-                        } else if (listStudent[j][9][0] >= 15 && listStudent[j][9][0] < 16) {
-                            td.innerHTML = 'A-'
-                        } else if (listStudent[j][9][0] >= 14 && listStudent[j][9][0] < 15) {
-                            td.innerHTML = 'B+'
-                        } else if (listStudent[j][9][0] >= 13 && listStudent[j][9][0] < 14) {
-                            td.innerHTML = 'B'
-                        } else if (listStudent[j][9][0] >= 12 && listStudent[j][9][0] < 13) {
-                            td.innerHTML = 'B-'
-                        } else if (listStudent[j][9][0] >= 11 && listStudent[j][9][0] < 12) {
-                            td.innerHTML = 'C+'
-                        } else if (listStudent[j][9][0] >= 10 && listStudent[j][9][0] < 11) {
-                            td.innerHTML = 'C'
-                        } else if (listStudent[j][9][0] >= 9 && listStudent[j][9][0] < 10) {
-                            td.innerHTML = 'C-'
-                        } else if (listStudent[j][9][0] >= 8 && listStudent[j][9][0] < 9) {
-                            td.innerHTML = 'D+'
-                        } else if (listStudent[j][9][0] >= 7 && listStudent[j][9][0] < 8) {
-                            td.innerHTML = 'D'
-                        } else if (listStudent[j][9][0] >= 6 && listStudent[j][9][0] < 7) {
-                            td.innerHTML = 'E'
-                        } else if (listStudent[j][9][0] >= 0 && listStudent[j][9][0] < 6) {
-                            td.innerHTML = 'F'
-                        }
-                    }
-
-                    if (i == 9) {
-                        if (listStudent[j][10][0] >= 16) {
-                            td.innerHTML = 'A'
-                        } else if (listStudent[j][10][0] >= 15 && listStudent[j][10][0] < 16) {
-                            td.innerHTML = 'A-'
-                        } else if (listStudent[j][10][0] >= 14 && listStudent[j][10][0] < 15) {
-                            td.innerHTML = 'B+'
-                        } else if (listStudent[j][10][0] >= 13 && listStudent[j][10][0] < 14) {
-                            td.innerHTML = 'B'
-                        } else if (listStudent[j][10][0] >= 12 && listStudent[j][10][0] < 13) {
-                            td.innerHTML = 'B-'
-                        } else if (listStudent[j][10][0] >= 11 && listStudent[j][10][0] < 12) {
-                            td.innerHTML = 'C+'
-                        } else if (listStudent[j][10][0] >= 10 && listStudent[j][10][0] < 11) {
-                            td.innerHTML = 'C'
-                        } else if (listStudent[j][10][0] >= 9 && listStudent[j][10][0] < 10) {
-                            td.innerHTML = 'C-'
-                        } else if (listStudent[j][10][0] >= 8 && listStudent[j][10][0] < 9) {
-                            td.innerHTML = 'D+'
-                        } else if (listStudent[j][10][0] >= 7 && listStudent[j][10][0] < 8) {
-                            td.innerHTML = 'D'
-                        } else if (listStudent[j][10][0] >= 6 && listStudent[j][10][0] < 7) {
-                            td.innerHTML = 'E'
-                        } else if (listStudent[j][10][0] >= 0 && listStudent[j][10][0] < 6) {
-                            td.innerHTML = 'F'
-                        }
-                    }
-
-                    if (i == 10) {
                         if (listStudent[j][11][0] >= 16) {
                             td.innerHTML = 'A'
-                        } else if (listStudent[j][11][0] >= 15 && listStudent[j][11][0] < 16) {
+                        } else if (listStudent[j][11][0] >= 15 && listStudent[j][11][0] < 16) { //listStudent[j][9][0]
                             td.innerHTML = 'A-'
                         } else if (listStudent[j][11][0] >= 14 && listStudent[j][11][0] < 15) {
                             td.innerHTML = 'B+'
@@ -1364,11 +1348,10 @@ window.addEventListener('load', () => {
                             td.innerHTML = 'F'
                         }
                     }
-
-                    if (i == 11) {
+                    if (i == 9) {
                         if (listStudent[j][12][0] >= 16) {
                             td.innerHTML = 'A'
-                        } else if (listStudent[j][12][0] >= 15 && listStudent[j][12][0] < 16) {
+                        } else if (listStudent[j][12][0] >= 15 && listStudent[j][12][0] < 16) { //listStudent[j][10][0]
                             td.innerHTML = 'A-'
                         } else if (listStudent[j][12][0] >= 14 && listStudent[j][12][0] < 15) {
                             td.innerHTML = 'B+'
@@ -1393,6 +1376,119 @@ window.addEventListener('load', () => {
                         }
                     }
 
+
+
+                    if (i == 10) {
+                        if (listStudent[j][13][0] >= 16) {
+                            td.innerHTML = 'A'
+                        } else if (listStudent[j][13][0] >= 15 && listStudent[j][13][0] < 16) { //listStudent[j][11][0]
+                            td.innerHTML = 'A-'
+                        } else if (listStudent[j][13][0] >= 14 && listStudent[j][13][0] < 15) {
+                            td.innerHTML = 'B+'
+                        } else if (listStudent[j][13][0] >= 13 && listStudent[j][13][0] < 14) {
+                            td.innerHTML = 'B'
+                        } else if (listStudent[j][13][0] >= 12 && listStudent[j][13][0] < 13) {
+                            td.innerHTML = 'B-'
+                        } else if (listStudent[j][13][0] >= 11 && listStudent[j][13][0] < 12) {
+                            td.innerHTML = 'C+'
+                        } else if (listStudent[j][13][0] >= 10 && listStudent[j][13][0] < 11) {
+                            td.innerHTML = 'C'
+                        } else if (listStudent[j][13][0] >= 9 && listStudent[j][13][0] < 10) {
+                            td.innerHTML = 'C-'
+                        } else if (listStudent[j][13][0] >= 8 && listStudent[j][13][0] < 9) {
+                            td.innerHTML = 'D+'
+                        } else if (listStudent[j][13][0] >= 7 && listStudent[j][13][0] < 8) {
+                            td.innerHTML = 'D'
+                        } else if (listStudent[j][13][0] >= 6 && listStudent[j][13][0] < 7) {
+                            td.innerHTML = 'E'
+                        } else if (listStudent[j][13][0] >= 0 && listStudent[j][13][0] < 6) {
+                            td.innerHTML = 'F'
+                        }
+                    }
+                    if (i == 11) {
+                        if (listStudent[j][14][0] >= 16) {
+                            td.innerHTML = 'A'
+                        } else if (listStudent[j][14][0] >= 15 && listStudent[j][14][0] < 16) { //listStudent[j][12][0]
+                            td.innerHTML = 'A-'
+                        } else if (listStudent[j][14][0] >= 14 && listStudent[j][14][0] < 15) {
+                            td.innerHTML = 'B+'
+                        } else if (listStudent[j][14][0] >= 13 && listStudent[j][14][0] < 14) {
+                            td.innerHTML = 'B'
+                        } else if (listStudent[j][14][0] >= 12 && listStudent[j][14][0] < 13) {
+                            td.innerHTML = 'B-'
+                        } else if (listStudent[j][14][0] >= 11 && listStudent[j][14][0] < 12) {
+                            td.innerHTML = 'C+'
+                        } else if (listStudent[j][14][0] >= 10 && listStudent[j][14][0] < 11) {
+                            td.innerHTML = 'C'
+                        } else if (listStudent[j][14][0] >= 9 && listStudent[j][14][0] < 10) {
+                            td.innerHTML = 'C-'
+                        } else if (listStudent[j][14][0] >= 8 && listStudent[j][14][0] < 9) {
+                            td.innerHTML = 'D+'
+                        } else if (listStudent[j][14][0] >= 7 && listStudent[j][14][0] < 8) {
+                            td.innerHTML = 'D'
+                        } else if (listStudent[j][14][0] >= 6 && listStudent[j][14][0] < 7) {
+                            td.innerHTML = 'E'
+                        } else if (listStudent[j][14][0] >= 0 && listStudent[j][14][0] < 6) {
+                            td.innerHTML = 'F'
+                        }
+                    }
+
+
+
+                    if (i == 12) {
+                        if (listStudent[j][10][0] >= 16) {
+                            td.innerHTML = 'A'
+                        } else if (listStudent[j][10][0] >= 15 && listStudent[j][10][0] < 16) { //listStudent[j][12][0]
+                            td.innerHTML = 'A-'
+                        } else if (listStudent[j][10][0] >= 14 && listStudent[j][10][0] < 15) {
+                            td.innerHTML = 'B+'
+                        } else if (listStudent[j][10][0] >= 13 && listStudent[j][10][0] < 14) {
+                            td.innerHTML = 'B'
+                        } else if (listStudent[j][10][0] >= 12 && listStudent[j][10][0] < 13) {
+                            td.innerHTML = 'B-'
+                        } else if (listStudent[j][10][0] >= 11 && listStudent[j][10][0] < 12) {
+                            td.innerHTML = 'C+'
+                        } else if (listStudent[j][10][0] >= 10 && listStudent[j][10][0] < 11) {
+                            td.innerHTML = 'C'
+                        } else if (listStudent[j][10][0] >= 9 && listStudent[j][10][0] < 10) {
+                            td.innerHTML = 'C-'
+                        } else if (listStudent[j][10][0] >= 8 && listStudent[j][10][0] < 9) {
+                            td.innerHTML = 'D+'
+                        } else if (listStudent[j][10][0] >= 7 && listStudent[j][10][0] < 8) {
+                            td.innerHTML = 'D'
+                        } else if (listStudent[j][10][0] >= 6 && listStudent[j][10][0] < 7) {
+                            td.innerHTML = 'E'
+                        } else if (listStudent[j][10][0] >= 0 && listStudent[j][10][0] < 6) {
+                            td.innerHTML = 'F'
+                        }
+                    }
+                    if (i == 13) {
+                        if (listStudent[j][9][0] >= 16) {
+                            td.innerHTML = 'A'
+                        } else if (listStudent[j][9][0] >= 15 && listStudent[j][9][0] < 16) { //listStudent[j][12][0]
+                            td.innerHTML = 'A-'
+                        } else if (listStudent[j][9][0] >= 14 && listStudent[j][9][0] < 15) {
+                            td.innerHTML = 'B+'
+                        } else if (listStudent[j][9][0] >= 13 && listStudent[j][9][0] < 14) {
+                            td.innerHTML = 'B'
+                        } else if (listStudent[j][9][0] >= 12 && listStudent[j][9][0] < 13) {
+                            td.innerHTML = 'B-'
+                        } else if (listStudent[j][9][0] >= 11 && listStudent[j][9][0] < 12) {
+                            td.innerHTML = 'C+'
+                        } else if (listStudent[j][9][0] >= 10 && listStudent[j][9][0] < 11) {
+                            td.innerHTML = 'C'
+                        } else if (listStudent[j][9][0] >= 9 && listStudent[j][9][0] < 10) {
+                            td.innerHTML = 'C-'
+                        } else if (listStudent[j][9][0] >= 8 && listStudent[j][9][0] < 9) {
+                            td.innerHTML = 'D+'
+                        } else if (listStudent[j][9][0] >= 7 && listStudent[j][9][0] < 8) {
+                            td.innerHTML = 'D'
+                        } else if (listStudent[j][9][0] >= 6 && listStudent[j][9][0] < 7) {
+                            td.innerHTML = 'E'
+                        } else if (listStudent[j][9][0] >= 0 && listStudent[j][9][0] < 6) {
+                            td.innerHTML = 'F'
+                        }
+                    }
                 }
 
                 line.appendChild(td)
@@ -1542,6 +1638,7 @@ window.addEventListener('load', () => {
             ligneStat4.children[4].innerHTML = mydata[7][5]['Très Bien']
             ligneStat4.children[5].innerHTML = `${(mydata[7][5]['pourcentageTB'])} %`
         }
+
         if (i == 6) {
             //Ligne 1
             ligneStat1.children[1].innerHTML = mydata[1].length
@@ -1668,6 +1765,51 @@ window.addEventListener('load', () => {
             ligneStat4.children[4].innerHTML = mydata[7][11]['Très Bien']
             ligneStat4.children[5].innerHTML = `${(mydata[7][11]['pourcentageTB'])} %`
         }
+
+        if (i == 12) {
+            //Ligne 1
+            ligneStat1.children[1].innerHTML = mydata[1].length
+            ligneStat1.children[4].innerHTML = mydata[7][11]['Passable']
+            ligneStat1.children[5].innerHTML = `${(mydata[7][11]['pourcentageP'])} %`
+                //Ligne2
+            ligneStat2.children[1].innerHTML = mydata[6][11]['nombre']
+            ligneStat2.children[2].innerHTML = `${(mydata[6][11]['pourcentage'])} %`
+
+            ligneStat2.children[4].innerHTML = mydata[7][11]['Assez Bien']
+            ligneStat2.children[5].innerHTML = `${(mydata[7][11]['pourcentageAB'])} %`
+                //Ligne3
+            ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][11]['nombre']
+            ligneStat3.children[2].innerHTML = `${floatfix(mydata[6][11]['pourcentage'])} %`
+
+            ligneStat3.children[4].innerHTML = mydata[7][11]['Bien']
+            ligneStat3.children[5].innerHTML = `${(mydata[7][11]['pourcentageB'])} %`
+                //Ligne4
+            ligneStat4.children[4].innerHTML = mydata[7][11]['Très Bien']
+            ligneStat4.children[5].innerHTML = `${(mydata[7][11]['pourcentageTB'])} %`
+        }
+
+        if (i == 13) {
+            //Ligne 1
+            ligneStat1.children[1].innerHTML = mydata[1].length
+            ligneStat1.children[4].innerHTML = mydata[7][11]['Passable']
+            ligneStat1.children[5].innerHTML = `${(mydata[7][11]['pourcentageP'])} %`
+                //Ligne2
+            ligneStat2.children[1].innerHTML = mydata[6][11]['nombre']
+            ligneStat2.children[2].innerHTML = `${(mydata[6][11]['pourcentage'])} %`
+
+            ligneStat2.children[4].innerHTML = mydata[7][11]['Assez Bien']
+            ligneStat2.children[5].innerHTML = `${(mydata[7][11]['pourcentageAB'])} %`
+                //Ligne3
+            ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][11]['nombre']
+            ligneStat3.children[2].innerHTML = `${floatfix(mydata[6][11]['pourcentage'])} %`
+
+            ligneStat3.children[4].innerHTML = mydata[7][11]['Bien']
+            ligneStat3.children[5].innerHTML = `${(mydata[7][11]['pourcentageB'])} %`
+                //Ligne4
+            ligneStat4.children[4].innerHTML = mydata[7][11]['Très Bien']
+            ligneStat4.children[5].innerHTML = `${(mydata[7][11]['pourcentageTB'])} %`
+        }
+
 
 
         return (clone)

@@ -4280,7 +4280,7 @@ def bulls6msoeve(request, filiere):
         TotalPoint.append(  round(listeMatriceS5[j][7][1] + listeMatriceS[j][7][1], 2) ) #round(listeMatriceS5[j][7][1], 2)
 
 
-    EVEMoyennes6.sort(reverse=True)    
+    EVEMoyennes6.sort(reverse=True)
     TotalPoint.sort(reverse=True)
     moy6 = stat.mean(EVEMoyennes6)
     moy6 = round(moy6, 2)
@@ -4301,6 +4301,8 @@ def bulls6msoeve(request, filiere):
 
 #PV EPS1 SEMESTRE1
 def resultatCommunepsmds(request):
+
+    UeNomCode = list( UniteEnseignement.objects.filter(semestre_id = 1, filiere="STAPS").values("code_UE","intitule_UE", "semestre_id", "nombre_credit") )
 
     infoEtudiantSTAPS1 =list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values('matricule', 'nom', 'prenom', 'date_naissance','lieu_naissance'))
 
@@ -4340,6 +4342,14 @@ def resultatCommunepsmds(request):
         'pourcentage': 0,
     }
     val8 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val88 = {
+        'nombre': 0,
+        'pourcentage': 0,
+    }
+    val888 = {
         'nombre': 0,
         'pourcentage': 0,
     }
@@ -4481,6 +4491,39 @@ def resultatCommunepsmds(request):
         'pourcentageCc': 0,
         'pourcentageEc': 0,
     }
+
+    e115fo = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+    e115at = {
+        'Très Bien': 0,
+        'Bien': 0,
+        'Assez Bien': 0,
+        'Passable': 0,
+        'Ccnf': 0,
+        'Echec':0,
+
+        'pourcentageTB': 0,
+        'pourcentageB': 0,
+        'pourcentageAB': 0,
+        'pourcentageP': 0,
+        'pourcentageCc': 0,
+        'pourcentageEc': 0,
+    }
+
+
     e116 = {
         'Très Bien': 0,
         'Bien': 0,
@@ -4583,13 +4626,15 @@ def resultatCommunepsmds(request):
     EPS115lsn = list(Evaluation.objects.filter(uniteEnseignement_id=57, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
     sort115l = epurationTriCroissant(EPS115l)
 
-    athl115 = list(Evaluation.objects.filter(uniteEnseignement_id=136, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
-    athl115cc = list(Evaluation.objects.filter(uniteEnseignement_id=136, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
-    athl115sn = list(Evaluation.objects.filter(uniteEnseignement_id=136, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-
     foot115 = list(Evaluation.objects.filter(uniteEnseignement_id=137, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     foot115cc = list(Evaluation.objects.filter(uniteEnseignement_id=137, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     foot115sn = list(Evaluation.objects.filter(uniteEnseignement_id=137, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sortfoot115 = epurationTriCroissant(foot115)
+
+    athl115 = list(Evaluation.objects.filter(uniteEnseignement_id=136, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    athl115cc = list(Evaluation.objects.filter(uniteEnseignement_id=136, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    athl115sn = list(Evaluation.objects.filter(uniteEnseignement_id=136, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sortath115 = epurationTriCroissant(athl115)
 
     EPS116 = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     EPS116cc = list(Evaluation.objects.filter(uniteEnseignement_id=58, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
@@ -4619,127 +4664,177 @@ def resultatCommunepsmds(request):
     for j in range( len(infoEtudiantSTAPS1) ):
 
         matrice = [
-                        infoEtudiantSTAPS1[j],
+            infoEtudiantSTAPS1[j],
 
-                        [
-                            EPS111[j]
-                            , coefS1STAPS1[0]
-                            , EPS111[j]*coefS1STAPS1[0]
-                            , round( ((EPS111[j]*coefS1STAPS1[0]) + (EPS112[j]*coefS1STAPS1[1]))/(coefS1STAPS1[0]+coefS1STAPS1[1]), 2)
-                            , sort111.index(EPS111[j])+1
-                            , (EPS111[j]>=10)
-                            , creditS1STAPS1[0]
-                            , creditS1STAPS1[0] if (EPS111[j]>=10) else 0
-                            , EPS111cc[j]['note_cc']
-                            , EPS111sn[j]['note_sn']
-                        ],
+            #1 EPS111
+            [
+                EPS111[j]
+                , coefS1STAPS1[0]
+                , EPS111[j]*coefS1STAPS1[0]
+                , round( ((EPS111[j]*coefS1STAPS1[0]) + (EPS112[j]*coefS1STAPS1[1]))/(coefS1STAPS1[0]+coefS1STAPS1[1]), 2)
+                , sort111.index(EPS111[j])+1
+                , (EPS111[j]>=10)
+                , creditS1STAPS1[0]
+                , creditS1STAPS1[0] if (EPS111[j]>=10) else 0
+                , EPS111cc[j]['note_cc']
+                , EPS111sn[j]['note_sn']
+            ],
 
-                        [ EPS112[j], coefS1STAPS1[1], EPS112[j]*coefS1STAPS1[1], "MOYENNE", sort112.index(EPS112[j])+1,(EPS112[j]>=10), creditS1STAPS1[1], creditS1STAPS1[1] if (EPS112[j]>=10) else 0, EPS112cc[j]['note_cc'], EPS112sn[j]['note_sn'] ],
+            #2 EPS112
+            [ EPS112[j], coefS1STAPS1[1], EPS112[j]*coefS1STAPS1[1], "MOYENNE", sort112.index(EPS112[j])+1,(EPS112[j]>=10), creditS1STAPS1[1], creditS1STAPS1[1] if (EPS112[j]>=10) else 0, EPS112cc[j]['note_cc'], EPS112sn[j]['note_sn'] ],
 
-                        [ EPS113[j],
+            #3 EPS113
+            [ EPS113[j],
 
-                            coefS1STAPS1[2],
+                coefS1STAPS1[2],
 
-                            EPS113[j]*coefS1STAPS1[2],
+                EPS113[j]*coefS1STAPS1[2],
 
-                            round( ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115b[j]*coefS1STAPS1[5]) + (EPS115j[j]*coefS1STAPS1[6]) + (EPS115l[j]*coefS1STAPS1[7]) + (EPS116[j]*coefS1STAPS1[8]) )/( coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]) ,2), 
-                            
-                            sort113.index(EPS113[j])+1,
-                            
-                            (EPS113[j] >=10),
-                            
-                            creditS1STAPS1[2],
-                            creditS1STAPS1[2] if(EPS113[j] >=10) else 0,
+                round( ( (EPS113[j]*coefS1STAPS1[2]) + (EPS114[j]*coefS1STAPS1[3]) + (EPS115a[j]*coefS1STAPS1[4]) + (EPS115b[j]*coefS1STAPS1[5]) + (EPS115j[j]*coefS1STAPS1[6]) + (EPS115l[j]*coefS1STAPS1[7]) + (EPS116[j]*coefS1STAPS1[8]) )/( coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]) ,2), 
+                
+                sort113.index(EPS113[j])+1,
+                
+                (EPS113[j] >=10),
+                
+                creditS1STAPS1[2],
+                creditS1STAPS1[2] if(EPS113[j] >=10) else 0,
 
-                            EPS113cc[j]['note_cc'],
-                            EPS113sn[j]['note_sn']
-                        ],
+                EPS113cc[j]['note_cc'],
+                EPS113sn[j]['note_sn']
+            ],
 
-                        [ EPS114[j],  coefS1STAPS1[3], EPS114[j]*coefS1STAPS1[3], "MOYENNE", sort114.index(EPS114[j])+1, (EPS114[j] >=10), creditS1STAPS1[3], creditS1STAPS1[3] if (EPS114[j] >=10) else 0, EPS114cc[j]['note_cc'], EPS114sn[j]['note_sn']  ],
+            #4 EPS114
+            [ EPS114[j],  coefS1STAPS1[3], EPS114[j]*coefS1STAPS1[3], "MOYENNE", sort114.index(EPS114[j])+1, (EPS114[j] >=10), creditS1STAPS1[3], creditS1STAPS1[3] if (EPS114[j] >=10) else 0, EPS114cc[j]['note_cc'], EPS114sn[j]['note_sn']  ],
 
-                        [ EPS115a[j], coefS1STAPS1[4], EPS115a[j]*coefS1STAPS1[4], "MOYENNE", sort115a.index(EPS115a[j])+1, (EPS115a[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if (EPS115a[j] >=10) else 0, EPS115acc[j]['note_cc'], EPS115asn[j]['note_sn'] ], #crédits
+            #5 EPS115 Volley
+            [ EPS115a[j], coefS1STAPS1[4], EPS115a[j]*coefS1STAPS1[4], "MOYENNE", sort115a.index(EPS115a[j])+1, (EPS115a[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if (EPS115a[j] >=10) else 0, EPS115acc[j]['note_cc'], EPS115asn[j]['note_sn'] ], #crédits
 
-                        [ EPS115b[j], coefS1STAPS1[5], EPS115b[j]*coefS1STAPS1[5], "MOYENNE", sort115b.index(EPS115b[j])+1, (EPS115b[j] >=10), creditS1STAPS1[5], creditS1STAPS1[5] if (EPS115b[j] >=10) else 0, EPS115bcc[j]['note_cc'], EPS115bsn[j]['note_sn'] ],
-                        
-                        #7
-                        [ 
-                            EPS115j[j]
-                            , coefS1STAPS1[6]
-                            , EPS115j[j]*coefS1STAPS1[6]
-                            , "MOYENNE"
-                            , sort115j.index(EPS115j[j])+1
-                            , (EPS115j[j] >=10)
-                            , creditS1STAPS1[6]
-                            , creditS1STAPS1[6] if (EPS115j[j] >=10) else 0
-                            , EPS115jcc[j]['note_cc']
-                            , EPS115jsn[j]['note_sn'] 
-                        ],
+            #6 EPS115 Danse
+            [ EPS115b[j], coefS1STAPS1[5], EPS115b[j]*coefS1STAPS1[5], "MOYENNE", sort115b.index(EPS115b[j])+1, (EPS115b[j] >=10), creditS1STAPS1[5], creditS1STAPS1[5] if (EPS115b[j] >=10) else 0, EPS115bcc[j]['note_cc'], EPS115bsn[j]['note_sn'] ],
+            
+            #7 EPS115 GYMNASTIQUE
+            [ 
+                EPS115j[j]
+                , coefS1STAPS1[6]
+                , EPS115j[j]*coefS1STAPS1[6]
+                , "MOYENNE"
+                , sort115j.index(EPS115j[j])+1
+                , (EPS115j[j] >=10)
+                , creditS1STAPS1[6]
+                , creditS1STAPS1[6] if (EPS115j[j] >=10) else 0
+                , EPS115jcc[j]['note_cc']
+                , EPS115jsn[j]['note_sn'] 
+            ],
 
-                        [ EPS115l[j], coefS1STAPS1[7], EPS115l[j]*coefS1STAPS1[7], "MOYENNE", sort115l.index(EPS115l[j])+1, (EPS115l[j] >=10), creditS1STAPS1[7], creditS1STAPS1[7] if ((EPS115a[j]+EPS115b[j]+EPS115j[j]+EPS115l[j]) >=40) else 0, EPS115lcc[j]['note_cc'], EPS115lsn[j]['note_sn']  ],
+            #8 EPS115 LUTTE
+            [ 
+                EPS115l[j]
+                , coefS1STAPS1[7]
+                , EPS115l[j]*coefS1STAPS1[7]
+                , "MOYENNE"
+                , sort115l.index(EPS115l[j])+1
+                , (EPS115l[j] >=10)
+                , creditS1STAPS1[7]
+                , creditS1STAPS1[7] if ((EPS115a[j]+EPS115b[j]+EPS115j[j]+EPS115l[j]) >=40) else 0
+                , EPS115lcc[j]['note_cc']
+                , EPS115lsn[j]['note_sn']
+            ],
 
-                        [ EPS116[j],  coefS1STAPS1[8], EPS116[j]*coefS1STAPS1[8], "MOYENNE", sort116.index(EPS116[j])+1, (EPS116[j] >=10), creditS1STAPS1[8], creditS1STAPS1[8] if (EPS116[j] >=10) else 0, EPS116cc[j]['note_cc'], EPS116sn[j]['note_sn'] ],
+            #9 EPS115 FOOT
+            [
+                foot115[j]
+                , coefS1STAPS1[7]
+                , foot115[j]*coefS1STAPS1[7]
+                , "MOYENNE"
+                , sortfoot115.index(foot115[j])+1
+                , (foot115[j] >=10)
+                , creditS1STAPS1[7]
+                , creditS1STAPS1[7] if ((EPS115a[j]+EPS115b[j]+EPS115j[j]+EPS115l[j]+foot115[j]+athl115[j]) >=60) else 0
+                , foot115cc[j]['note_cc']
+                , foot115sn[j]['note_sn']
+            ],
 
-                        [ 
-                            EPS117[j]
-                            
-                            , coefS1STAPS1[9] 
+            #10 EPS115 ATHLETISME
+            [
+                athl115[j]
+                , coefS1STAPS1[7]
+                , athl115[j]*coefS1STAPS1[7]
+                , "MOYENNE"
+                , sortath115.index(athl115[j])+1
+                , (athl115[j] >=10)
+                , creditS1STAPS1[7]
+                , creditS1STAPS1[7] if ((EPS115a[j]+EPS115b[j]+EPS115j[j]+EPS115l[j]+foot115[j]+athl115[j]) >=60) else 0
+                , athl115cc[j]['note_cc']
+                , athl115sn[j]['note_sn']
+            ],
 
-                            , EPS117[j]*coefS1STAPS1[9]
+            #11 EPS116 
+            [ EPS116[j],  coefS1STAPS1[8], EPS116[j]*coefS1STAPS1[8], "MOYENNE", sort116.index(EPS116[j])+1, (EPS116[j] >=10), creditS1STAPS1[8], creditS1STAPS1[8] if (EPS116[j] >=10) else 0, EPS116cc[j]['note_cc'], EPS116sn[j]['note_sn'] ],
+            
+            #12 EPS117 
+            [ 
+                EPS117[j]
+                
+                , coefS1STAPS1[9] 
 
-                            , round( ((EPS117[j]*coefS1STAPS1[9]) + (EPS118[j]*coefS1STAPS1[10]) + (EPS119[j]*coefS1STAPS1[11])) / ( coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]) ,2)
+                , EPS117[j]*coefS1STAPS1[9]
 
-                            , sort117.index(EPS117[j])+1
+                , round( ((EPS117[j]*coefS1STAPS1[9]) + (EPS118[j]*coefS1STAPS1[10]) + (EPS119[j]*coefS1STAPS1[11])) / ( coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]) ,2)
 
-                            , (EPS117[j] >=10) 
-                            
-                            , creditS1STAPS1[9]
+                , sort117.index(EPS117[j])+1
 
-                            , creditS1STAPS1[9] if (EPS117[j] >=10) else 0
-                            , EPS117cc[j]['note_cc']
-                            , EPS117sn[j]['note_sn']
-                        ],
+                , (EPS117[j] >=10) 
+                
+                , creditS1STAPS1[9]
 
-                        #11
-                        [ 
-                            EPS118[j]
-                            , coefS1STAPS1[10]
-                            , EPS118[j]*coefS1STAPS1[10]
-                            , "MOYENNE"
-                            , sort118.index(EPS118[j])+1
-                            , (EPS118[j] >=10)
-                            , creditS1STAPS1[10]
-                            #7
-                            , creditS1STAPS1[10] if (EPS118[j] >=10) else 0
+                , creditS1STAPS1[9] if (EPS117[j] >=10) else 0
+                , EPS117cc[j]['note_cc']
+                , EPS117sn[j]['note_sn']
+            ],
 
-                            , EPS118cc[j]['note_cc']
-                            , EPS118sn[j]['note_sn']
-                        ],
+            #13 EPS118
+            [
+                EPS118[j]
+                , coefS1STAPS1[10]
+                , EPS118[j]*coefS1STAPS1[10]
+                , "MOYENNE"
+                , sort118.index(EPS118[j])+1
+                , (EPS118[j] >=10)
+                , creditS1STAPS1[10]
+                #7
+                , creditS1STAPS1[10] if (EPS118[j] >=10) else 0
 
-                        [ EPS119[j], coefS1STAPS1[11], EPS119[j]*coefS1STAPS1[11], "MOYENNE", sort119.index(EPS119[j])+1, (EPS119[j] >=10), creditS1STAPS1[11], creditS1STAPS1[11] if (EPS119[j] >=10) else 0, EPS119cc[j]['note_cc'], EPS119sn[j]['note_sn'] ],
+                , EPS118cc[j]['note_cc']
+                , EPS118sn[j]['note_sn']
+            ],
 
-                        [
-                            ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11] ), #coefsomme
+            #14 EPS119
+            [ EPS119[j], coefS1STAPS1[11], EPS119[j]*coefS1STAPS1[11], "MOYENNE", sort119.index(EPS119[j])+1, (EPS119[j] >=10), creditS1STAPS1[11], creditS1STAPS1[11] if (EPS119[j] >=10) else 0, EPS119cc[j]['note_cc'], EPS119sn[j]['note_sn'] ],
 
-                            round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115j[j]*coefS1STAPS1[6]+EPS115l[j]*coefS1STAPS1[7]+EPS116[j]*coefS1STAPS1[8]+EPS117[j]*coefS1STAPS1[9]+EPS118[j]*coefS1STAPS1[10]+EPS119[j]*coefS1STAPS1[11], 2),
+            #15 RESULTAT
+            [
+                ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+  coefS1STAPS1[7]+coefS1STAPS1[7]  +coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11] ), #coefsomme
 
-                            round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115j[j]*coefS1STAPS1[6]+EPS115l[j]*coefS1STAPS1[7]+EPS116[j]*coefS1STAPS1[8]+EPS117[j]*coefS1STAPS1[9]+EPS118[j]*coefS1STAPS1[10]+EPS119[j]*coefS1STAPS1[11] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]), 2 ),
+                round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115j[j]*coefS1STAPS1[6]+EPS115l[j]*coefS1STAPS1[7]+ foot115[j]*coefS1STAPS1[7]+athl115[j]*coefS1STAPS1[7]  +EPS116[j]*coefS1STAPS1[8]+EPS117[j]*coefS1STAPS1[9]+EPS118[j]*coefS1STAPS1[10]+EPS119[j]*coefS1STAPS1[11], 2),
 
-                            #4,
-                            #5
-                        ]
+                round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115j[j]*coefS1STAPS1[6]+EPS115l[j]*coefS1STAPS1[7]+ foot115[j]*coefS1STAPS1[7]+athl115[j]*coefS1STAPS1[7]  +EPS116[j]*coefS1STAPS1[8]+EPS117[j]*coefS1STAPS1[9]+EPS118[j]*coefS1STAPS1[10]+EPS119[j]*coefS1STAPS1[11] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+ coefS1STAPS1[7]+coefS1STAPS1[7] +coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]), 2 ),
+            ]
         ]
 
-        staps1Moyenne.append(matrice[13][2])
+        staps1Moyenne.append(matrice[15][2])#(matrice[13][2])
 
-        EPSCreditCount(matrice)
+        #EPSCreditCount(matrice)
         listeMatrice.append(matrice)
 
         staps1Moyenne.sort(reverse=True)
         moy = stat.mean(staps1Moyenne)
         moy = round(moy, 2)
-        session = 'Janvier 2023'
+        session = dateExamen[0]['date_SN'] #session = 'Janvier 2023'
 
         filiere = 'STAPS'
+
+    #EPS2CreditCountS3(listeMatrice)
+    EPS2CreditCountS3PV(listeMatrice)
 
 ########################################################### PV SEMESTRE 1 EPS CC     ########################################################################################################################################################
     listeMatriceS1EpsCC = []
@@ -4777,7 +4872,7 @@ def resultatCommunepsmds(request):
             listeMatriceS1EpsCC.append(matriceS1EpsCC)
 
 ########################################################### PV SEMESTRE 1 EPS RATTRAPAGE ############################################################################################################################
-    EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='RATTRAPAGE').values('note_rattrapage')) 
+    """EPS111R = list(Evaluation.objects.filter(uniteEnseignement_id=50, natureEvaluation='RATTRAPAGE', date_Examen=dateExamen[0]['date_SN']).values('note_rattrapage'))
     sort111R = epurationRattrapage(EPS111R)
 
     EPS112R = list(Evaluation.objects.filter(uniteEnseignement_id=51, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
@@ -4875,7 +4970,7 @@ def resultatCommunepsmds(request):
 
         ]
         listeMatriceRs1EPS1.append(matriceRs1EPS1)
-        listeMatriceRs1EPS1ex.append(matriceRs1EPS1ex)
+        listeMatriceRs1EPS1ex.append(matriceRs1EPS1ex)"""
 
 ########################################################### PV SEMESTRE 1 EPS SYNTHESE   ############################################################################################################################
 
@@ -5060,10 +5155,10 @@ def resultatCommunepsmds(request):
     """
     #Synhèse EPS1 Semestre 1
 
-    listeMatriceS1EpsSynthese = matriceSyntheseEPS1(listeMatrice, listeMatriceRs1EPS1, listeMatrice, listeMatriceS1EpsCC)
+    #listeMatriceS1EpsSynthese = matriceSyntheseEPS1(listeMatrice, listeMatriceRs1EPS1, listeMatrice, listeMatriceS1EpsCC)
 
     #Décompte de crédit
-    EPSCreditCount22(listeMatriceS1EpsSynthese)
+    #EPSCreditCount22(listeMatriceS1EpsSynthese)
     #listeMatriceS1EpsSynthese = EPSCreditCount22(listeMatriceS1EpsSynthese)
 
 ########################################################### STATS VALIDATION ####################################################################################################################################
@@ -5097,7 +5192,19 @@ def resultatCommunepsmds(request):
     val7['pourcentage']= round(((val7['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
     for i in range (len(EPS115l)):
         if EPS115l[i] >= 10:
-            val8['nombre']+=1
+            val88['nombre']+=1
+
+    val88['pourcentage']= round(((val88['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
+    for i in range (len(foot115)):
+        if foot115[i] >= 10:
+            val888['nombre']+=1
+
+    val888['pourcentage']= round(((val888['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
+    for i in range (len(athl115)):
+        if athl115[i] >= 10:
+            val9['nombre']+=1
+
+
     val8['pourcentage']= round(((val8['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
     for i in range (len(EPS116)):
         if EPS116[i] >= 10:
@@ -5141,6 +5248,12 @@ def resultatCommunepsmds(request):
     statMention(EPS115l,e115l)
     pourcentageMention(e115l, len(infoEtudiantSTAPS1))
 
+    statMention(foot115,e115fo)
+    pourcentageMention(e115fo, len(infoEtudiantSTAPS1))
+
+    statMention(athl115,e115at)
+    pourcentageMention(e115at, len(infoEtudiantSTAPS1))
+
     statMention(EPS116,e116)
     pourcentageMention(e116, len(infoEtudiantSTAPS1))
 
@@ -5154,11 +5267,13 @@ def resultatCommunepsmds(request):
     pourcentageMention(e119, len(infoEtudiantSTAPS1))
 
 
-    UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12]
-    UEstats_mention = [e111, e112, e113, e114, e115a, e115b, e115j, e115l, e116, e117, e118, e119]
+    UEStats = [val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12 , val88, val888]
+    UEstats_mention = [e111, e112, e113, e114, e115a, e115b, e115j, e115l, e116, e117, e118, e119, e115fo, e115at ]
 
     #La liste de matrice qui contient les décomptes de crédit(listeMatriceS1EpsSynthese[0])          
-    semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, listeMatriceRs1EPS1, listeMatriceS1EpsSynthese[0],  listeMatriceS1EpsSynthese ] #, listeMatrices1eps
+
+    lundi,mardi,mercredi = ([], [], [])
+    semestre1MDS = [filiere, listeMatrice, staps1Moyenne, moy, session , creditS1STAPS1, UEStats, UEstats_mention, lundi,mardi,mercredi, dateExamen, UeNomCode]#, listeMatriceRs1EPS1, listeMatriceS1EpsSynthese[0],  listeMatriceS1EpsSynthese ] #, listeMatrices1eps
 
     return render(request, 'bulletin/releveCommun/releveCommun.html', {'semestre1MDS': semestre1MDS})
 
@@ -6459,7 +6574,7 @@ def resultatCommunmds(request):
 
     listeMatriceS1GesR = []
     matriceS1mdsR = []
-    
+
     """for j in range( len(infoEtudiantMDS) ):
         matriceS1mdsR = [
                 infoEtudiantMDS[j],
@@ -6486,6 +6601,7 @@ def resultatCommunmds(request):
         ]
         listeMatriceS1GesR.append(matriceS1mdsR)
     """
+
 ########################################################### PV SEMESTRE 1 SYNTHESE   ############################################################################################################################
     ##MATRICE SYNTHESE AVEC FONCTION
     """listeMatricemdsS1Synthese, listeMoyenne = matriceSynthesemds1(listeMatrice, listeMatriceS1GesR, listeMatrice, listeMatrices1GesCC )
@@ -7937,7 +8053,19 @@ def resultatCommunstaps2(request):
 
                     [ EPS115j[j], coefS1STAPS1[8], EPS115j[j]*coefS1STAPS1[8], "MOYENNE", sort115j.index(EPS115j[j])+1, (EPS115j[j] >=10), creditS1STAPS1[8], creditS1STAPS1[8] if (EPS115j[j] >=10) else 0, EPS115jcc[j]['note_cc'], EPS115jsn[j]['note_sn'] ],
 
-                    [ EPS115l[j], coefS1STAPS1[9], EPS115l[j]*coefS1STAPS1[9], "MOYENNE", sort115l.index(EPS115l[j])+1, (EPS115l[j] >=10), creditS1STAPS1[9], creditS1STAPS1[9] if ((EPS115a[j]+EPS115b[j]+EPS115f[j]+EPS115g[j]+EPS115j[j]+EPS115l[j])>=60) else 0, EPS115lcc[j]['note_cc'], EPS115lsn[j]['note_sn'] ],
+                    #LIGNE DES APS
+                    [
+                        EPS115l[j]
+                        , coefS1STAPS1[9]
+                        , EPS115l[j]*coefS1STAPS1[9]
+                        , "MOYENNE"
+                        , sort115l.index(EPS115l[j])+1
+                        , (EPS115l[j] >=10)
+                        , creditS1STAPS1[9]
+                        , creditS1STAPS1[9] if ((EPS115a[j]+EPS115b[j]+EPS115f[j]+EPS115g[j]+EPS115j[j]+EPS115l[j])>=60) else 0
+                        , EPS115lcc[j]['note_cc']
+                        , EPS115lsn[j]['note_sn']
+                    ],
 
                     [ EPS116[j],  coefS1STAPS1[10], EPS116[j]*coefS1STAPS1[10], "MOYENNE", sort116.index(EPS116[j])+1, (EPS116[j] >=10), creditS1STAPS1[10], creditS1STAPS1[10] if (EPS116[j] >=10) else 0, EPS116cc[j]['note_cc'], EPS116sn[j]['note_sn'] ],
 
@@ -7964,18 +8092,13 @@ def resultatCommunstaps2(request):
                     [
                         ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13]), 
 
-                    round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ,2), 
+                        round( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ,2), 
 
-                    round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13] ), 2), #moyenne
-
-                        #4,
-
-                        #5
+                        round(( EPS111[j]*coefS1STAPS1[0]+EPS112[j]*coefS1STAPS1[1]+EPS113[j]*coefS1STAPS1[2]+EPS114[j]*coefS1STAPS1[3]+EPS115a[j]*coefS1STAPS1[4]+EPS115b[j]*coefS1STAPS1[5]+EPS115f[j]*coefS1STAPS1[6]+EPS115g[j]*coefS1STAPS1[7]+EPS115j[j]*coefS1STAPS1[8]+EPS115l[j]*coefS1STAPS1[9]+EPS116[j]*coefS1STAPS1[10]+EPS117[j]*coefS1STAPS1[11]+EPS118[j]*coefS1STAPS1[12]+EPS119[j]*coefS1STAPS1[13] ) / ( coefS1STAPS1[0]+coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]+coefS1STAPS1[5]+coefS1STAPS1[6]+coefS1STAPS1[7]+coefS1STAPS1[8]+coefS1STAPS1[9]+coefS1STAPS1[10]+coefS1STAPS1[11]+coefS1STAPS1[12]+coefS1STAPS1[13] ), 2), #moyenne
                     ]
             ]
 
             listeMatrice.append(matrice)
-            
 
             staps1Moyenne.append(matrice[15][2])
             staps1Moyenne.sort(reverse=True)
@@ -8596,12 +8719,14 @@ def resultatCommuns4staps2(request):
 
                     [ EPS115j[j], coefS1STAPS1[3], EPS115j[j]*coefS1STAPS1[3], "MOYENNE", sort115j.index(EPS115j[j])+1, (EPS115j[j] >=10), creditS1STAPS1[3], creditS1STAPS1[3] if (EPS115j[j] >=10) else 0, EPS115jcc[j]['note_cc'], EPS115jsn[j]['note_sn'] ],
 
-                    [ EPS115g[j], coefS1STAPS1[4], EPS115g[j]*coefS1STAPS1[4], 
-
-                    round( (EPS115a[j]*coefS1STAPS1[1]+EPS115f[j]*coefS1STAPS1[2]+EPS115j[j]*coefS1STAPS1[3]+EPS115g[j]*coefS1STAPS1[4])/(coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]), 2 ), 
-                    
-                    sort115g.index(EPS115g[j])+1, (EPS115g[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if ( (EPS115a[j]+EPS115f[j]+EPS115j[j]+EPS115g[j]) >=40) else 0, EPS115gcc[j]['note_cc'], EPS115gsn[j]['note_sn'] 
-
+                    [
+                        EPS115g[j]
+                        , coefS1STAPS1[4]
+                        , EPS115g[j]*coefS1STAPS1[4]
+                        , round( (EPS115a[j]*coefS1STAPS1[1]+EPS115f[j]*coefS1STAPS1[2]+EPS115j[j]*coefS1STAPS1[3]+EPS115g[j]*coefS1STAPS1[4])/(coefS1STAPS1[1]+coefS1STAPS1[2]+coefS1STAPS1[3]+coefS1STAPS1[4]), 2 )
+                        , sort115g.index(EPS115g[j])+1, (EPS115g[j] >=10), creditS1STAPS1[4], creditS1STAPS1[4] if ( (EPS115a[j]+EPS115f[j]+EPS115j[j]+EPS115g[j]) >=40) else 0
+                        , EPS115gcc[j]['note_cc']
+                        , EPS115gsn[j]['note_sn']
                     ],
 
                     #ANATOMIE
@@ -8679,7 +8804,7 @@ def resultatCommuns4staps2(request):
                         
                     ]
             ]
-            
+
             listeMatrice.append(matrice)
 
             staps1Moyenne.append(matrice[13][2])

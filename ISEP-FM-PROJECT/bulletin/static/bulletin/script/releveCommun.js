@@ -1639,6 +1639,7 @@ window.addEventListener('load', () => {
             ligneStat4.children[5].innerHTML = `${(mydata[7][5]['pourcentageTB'])} %`
         }
 
+        
         if (i == 6) {
             //Ligne 1
             ligneStat1.children[1].innerHTML = mydata[1].length
@@ -1671,9 +1672,9 @@ window.addEventListener('load', () => {
 
             ligneStat2.children[4].innerHTML = mydata[7][7]['Assez Bien']
             ligneStat2.children[5].innerHTML = `${(mydata[7][7]['pourcentageAB'])} %`
-                //Ligne3
+                //Ligne3 non validée
             ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][7]['nombre']
-            ligneStat3.children[2].innerHTML = `${floatfix(mydata[6][7]['pourcentage'])} %`
+            ligneStat3.children[2].innerHTML = `${floatfix(mydata[7][7]['pourcentage'])} %`
 
             ligneStat3.children[4].innerHTML = mydata[7][7]['Bien']
             ligneStat3.children[5].innerHTML = `${(mydata[7][7]['pourcentageB'])} %`
@@ -1723,6 +1724,8 @@ window.addEventListener('load', () => {
             ligneStat4.children[4].innerHTML = mydata[7][9]['Très Bien']
             ligneStat4.children[5].innerHTML = `${(mydata[7][9]['pourcentageTB'])} %`
         }
+        
+
         if (i == 10) {
             //Ligne 1
             ligneStat1.children[1].innerHTML = mydata[1].length
@@ -1766,6 +1769,7 @@ window.addEventListener('load', () => {
             ligneStat4.children[5].innerHTML = `${(mydata[7][11]['pourcentageTB'])} %`
         }
 
+
         if (i == 12) {
             //Ligne 1
             ligneStat1.children[1].innerHTML = mydata[1].length
@@ -1787,27 +1791,26 @@ window.addEventListener('load', () => {
             ligneStat4.children[4].innerHTML = mydata[7][11]['Très Bien']
             ligneStat4.children[5].innerHTML = `${(mydata[7][11]['pourcentageTB'])} %`
         }
-
         if (i == 13) {
             //Ligne 1
             ligneStat1.children[1].innerHTML = mydata[1].length
-            ligneStat1.children[4].innerHTML = mydata[7][11]['Passable']
-            ligneStat1.children[5].innerHTML = `${(mydata[7][11]['pourcentageP'])} %`
+            ligneStat1.children[4].innerHTML = mydata[7][13]['Passable']
+            ligneStat1.children[5].innerHTML = `${(mydata[7][13]['pourcentageP'])} %`
                 //Ligne2
-            ligneStat2.children[1].innerHTML = mydata[6][11]['nombre']
-            ligneStat2.children[2].innerHTML = `${(mydata[6][11]['pourcentage'])} %`
+            ligneStat2.children[1].innerHTML = mydata[6][13]['nombre']
+            ligneStat2.children[2].innerHTML = `${(mydata[6][13]['pourcentage'])} %`
 
-            ligneStat2.children[4].innerHTML = mydata[7][11]['Assez Bien']
-            ligneStat2.children[5].innerHTML = `${(mydata[7][11]['pourcentageAB'])} %`
+            ligneStat2.children[4].innerHTML = mydata[7][13]['Assez Bien']
+            ligneStat2.children[5].innerHTML = `${(mydata[7][13]['pourcentageAB'])} %`
                 //Ligne3
-            ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][11]['nombre']
-            ligneStat3.children[2].innerHTML = `${floatfix(mydata[6][11]['pourcentage'])} %`
+            ligneStat3.children[1].innerHTML = mydata[1].length - mydata[6][13]['nombre']
+            ligneStat3.children[2].innerHTML = `${floatfix(mydata[6][13]['pourcentage'])} %`
 
-            ligneStat3.children[4].innerHTML = mydata[7][11]['Bien']
-            ligneStat3.children[5].innerHTML = `${(mydata[7][11]['pourcentageB'])} %`
+            ligneStat3.children[4].innerHTML = mydata[7][13]['Bien']
+            ligneStat3.children[5].innerHTML = `${(mydata[7][13]['pourcentageB'])} %`
                 //Ligne4
-            ligneStat4.children[4].innerHTML = mydata[7][11]['Très Bien']
-            ligneStat4.children[5].innerHTML = `${(mydata[7][11]['pourcentageTB'])} %`
+            ligneStat4.children[4].innerHTML = mydata[7][13]['Très Bien']
+            ligneStat4.children[5].innerHTML = `${(mydata[7][13]['pourcentageTB'])} %`
         }
 
 

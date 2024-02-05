@@ -57,10 +57,80 @@ def EtudiantNiveau1Staps(request):
 
     return JsonResponse(etudiantStaps1, safe= False)
 
+
 def EtudiantNiveau1MDS(request):
+
     etudiantMDS1 = list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values())
 
-    return JsonResponse(etudiantMDS1, safe= False)
+
+    MDS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+
+    MDS111bcc =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS111bsn =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS112cc =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS112sn =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    #sort112 = epurationTriCroissant(MDS112)
+
+    MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS112bcc =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS112bsn =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort112b = epurationTriCroissant(MDS112b)
+
+    MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS113cc =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS113sn =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort113 = epurationTriCroissant(MDS113)
+
+    MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS114cc =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS114sn =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort114 = epurationTriCroissant(MDS114)
+
+    MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS115cc =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS115sn =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort115 = epurationTriCroissant(MDS115)
+
+    MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS116cc =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS116sn =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort116 = epurationTriCroissant(MDS116)
+
+    MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS117cc =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS117sn =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort117 = epurationTriCroissant(MDS117)
+
+    MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS117bcc =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS117bsn =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    sort117b = epurationTriCroissant(MDS117b)
+
+    matriceUENotesMDS1 = {
+        'MDS111': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS111cc["note_cc"], "note_sn": MDS111sn["note_sn"]} for etudiantMDS1,MDS111cc,MDS111sn in zip(etudiantMDS1,MDS111cc,MDS111sn) ]]
+        ,'MDS111b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS111bcc["note_cc"], "note_sn": MDS111bsn["note_sn"]} for etudiantMDS1,MDS111bcc,MDS111bsn in zip(etudiantMDS1,MDS111bcc,MDS111bsn) ]]
+        ,'MDS1112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112cc["note_cc"], "note_sn": MDS112sn["note_sn"]} for etudiantMDS1,MDS112cc,MDS112sn in zip(etudiantMDS1,MDS112cc,MDS112sn) ]]
+        ,'MDS1112b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112bcc["note_cc"], "note_sn": MDS112bsn["note_sn"]} for etudiantMDS1,MDS112bcc,MDS112bsn in zip(etudiantMDS1,MDS112bcc,MDS112bsn) ]]
+    
+        
+        ,'MDS1113': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS113cc["note_cc"], "note_sn": MDS113sn["note_sn"]} for etudiantMDS1,MDS113cc,MDS113sn in zip(etudiantMDS1,MDS113cc,MDS113sn) ]]
+        ,'MDS1114': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS114cc["note_cc"], "note_sn": MDS114sn["note_sn"]} for etudiantMDS1,MDS114cc,MDS114sn in zip(etudiantMDS1,MDS114cc,MDS114sn) ]]
+        ,'MDS1115': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS115cc["note_cc"], "note_sn": MDS115sn["note_sn"]} for etudiantMDS1,MDS115cc,MDS115sn in zip(etudiantMDS1,MDS115cc,MDS115sn) ]]
+        ,'MDS1116': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS116cc["note_cc"], "note_sn": MDS116sn["note_sn"]} for etudiantMDS1,MDS116cc,MDS116sn in zip(etudiantMDS1,MDS116cc,MDS116sn) ]]
+        
+        
+        ,'MDS1117': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117cc["note_cc"], "note_sn": MDS117sn["note_sn"]} for etudiantMDS1,MDS117cc,MDS117sn in zip(etudiantMDS1,MDS117cc,MDS117sn) ]]
+        ,'MDS1112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117bcc["note_cc"], "note_sn": MDS117bsn["note_sn"]} for etudiantMDS1,MDS117bcc,MDS117bsn in zip(etudiantMDS1,MDS117bcc,MDS117bsn) ]]
+    }
+
+    resultat = {
+        'etudiantMDS1' : etudiantMDS1,
+        'matriceUENotesMDS1': matriceUENotesMDS1#{}
+    }
+    return JsonResponse(resultat, safe= False) #etudiantMDS1,
 
 def EtudiantNiveau2Staps(request):
     etudiantStaps2 = list(Etudiant.objects.filter(filiere="STAPS", niveau=2).values())
@@ -4826,6 +4896,9 @@ def resultatCommunepsmds(request):
         #EPSCreditCount(matrice)
         listeMatrice.append(matrice)
 
+        #ESPACE INFOS LISTE DES ETUDIANTS ALLANT AU RATTRAPAGE
+        
+
         staps1Moyenne.sort(reverse=True)
         moy = stat.mean(staps1Moyenne)
         moy = round(moy, 2)
@@ -5166,6 +5239,7 @@ def resultatCommunepsmds(request):
         if EPS111[i] >= 10:
             val1['nombre']+=1
     val1['pourcentage']= round(((val1['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
+
     for i in range (len(EPS112)):
         if EPS112[i] >= 10:
             val2['nombre']+=1
@@ -5192,17 +5266,17 @@ def resultatCommunepsmds(request):
     val7['pourcentage']= round(((val7['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
     for i in range (len(EPS115l)):
         if EPS115l[i] >= 10:
-            val88['nombre']+=1
+            val8['nombre']+=1
 
     val88['pourcentage']= round(((val88['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
     for i in range (len(foot115)):
         if foot115[i] >= 10:
-            val888['nombre']+=1
+            val88['nombre']+=1
 
     val888['pourcentage']= round(((val888['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
     for i in range (len(athl115)):
         if athl115[i] >= 10:
-            val9['nombre']+=1
+            val888['nombre']+=1
 
 
     val8['pourcentage']= round(((val8['nombre']/ len(infoEtudiantSTAPS1))*100), 2)
@@ -11446,7 +11520,17 @@ def saveData(key, values):
             ue = ue_Query[0]
             evaluation = Evaluation(natureEvaluation=natureEvaluation_, note_cc=note_cc, note_sn=note_sn, etudiant=etudiant, note_Examen=note_examen,uniteEnseignement=ue, date_Examen=dateExamen[0]['date_SN'])
 
-            evaluation.save()
+            #Test dexistence , si oui update, sinon création
+            evalTest = Evaluation.objects.filter(etudiant=etudiant, natureEvaluation="EXAMEN", uniteEnseignement= ue, date_Examen=dateExamen[0]['date_SN'])
+            if (Evaluation.objects.filter(etudiant=etudiant, natureEvaluation=natureEvaluation_, uniteEnseignement=ue, date_Examen=dateExamen[0]['date_SN']).exists()):
+                evalTest.note_sn = note_sn
+                evalTest.note_cc = note_cc
+                evalTest.note_Examen=note_examen
+
+                #Update
+                evalTest.save()
+            else:
+                evaluation.save()
 
 def saveDataR(key, value):
 
@@ -12727,6 +12811,14 @@ def epurationTriCroissant(b):
         b[i] = tmp
 
     b = sorted(b, reverse=True)
+    return b
+
+def epurationSN(b):
+    for i in range(len(b)):
+        tmp = b[i]["note_sn"]
+        b[i] = tmp
+
+    #b = sorted(b, reverse=True)
     return b
 
 def epurationCre(b):

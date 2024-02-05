@@ -363,52 +363,187 @@ function getetudiantMDSNiveau1() {
 
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      myEtudiantMDS1 = JSON.parse(this.responseText);
+      myEtudiantMDS1 = JSON.parse(this.responseText); //console.log(myEtudiantMDS1);
+      //console.log(myEtudiantMDS1["etudiantMDS1"]);
+      //console.log(myEtudiantMDS1[1]);
+
       /** Ajout des lignes pour insertion des notes des étudiants */
 
       /**Changement du TITRE Du modal */
 
       listeTitle = document.getElementById('listetudiant-title');
       listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
-      tbodyMDS1 = document.getElementById('listetudiant');
+      tbodyMDS1 = document.getElementById('listetudiant'); //console.log(myEtudiantMDS1['matriceUENotesMDS1']);
 
-      for (var i = 0; i < myEtudiantMDS1.length; i++) {
-        var tabledata1 = document.createElement('td');
-        tabledata1.setAttribute('scope', 'row');
-        tabledata1.innerText = myEtudiantMDS1[i].id;
-        var tabledata2 = document.createElement('td');
-        tabledata2.innerText = myEtudiantMDS1[i].matricule;
-        var nom = myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom;
-        var tabledata3 = document.createElement('td');
-        tabledata3.innerText = nom;
-        var tabledata4Input = document.createElement('input');
-        tabledata4Input.type = "text";
-        tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantMDS1[i].matricule, "  ").concat(idUe));
-        tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required', '');
+      var test = Object.keys(myEtudiantMDS1['matriceUENotesMDS1']).length === 0;
 
-        tabledata4Input.setAttribute('class', 'noteField');
-        var tabledata4 = document.createElement('td');
-        tabledata4.appendChild(tabledata4Input);
-        var tabledata5Input = document.createElement('input');
-        tabledata5Input.type = "text";
-        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantMDS1[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+      if (test) {
+        console.log("OK ON GERE CA OKLM");
 
-        tabledata5Input.setAttribute('class', 'noteField');
-        var tabledata5 = document.createElement('td');
-        tabledata5.appendChild(tabledata5Input);
-        var ligne = document.createElement('tr');
-        ligne.appendChild(tabledata1);
-        ligne.appendChild(tabledata2);
-        ligne.appendChild(tabledata3);
-        ligne.appendChild(tabledata4);
-        ligne.appendChild(tabledata5);
-        /** TBODDY du modal afin d'ajouter les étudiants par filière */
+        for (var i = 0; i < myEtudiantMDS1['etudiantMDS1'].length
+        /*myEtudiantMDS1.length*/
+        ; i++) {
+          var tabledata1 = document.createElement('td');
+          tabledata1.setAttribute('scope', 'row');
+          tabledata1.innerText = myEtudiantMDS1['etudiantMDS1'][i]['id']; //myEtudiantMDS1[0][i].id
 
-        var listStudent = document.getElementById('listetudiant');
-        listStudent.appendChild(ligne);
+          var tabledata2 = document.createElement('td');
+          tabledata2.innerText = myEtudiantMDS1['etudiantMDS1'][i]['matricule']; //myEtudiantMDS1[i].matricule
+
+          var nom = myEtudiantMDS1['etudiantMDS1'][i]['nom']
+          /*myEtudiantMDS1[i].nom*/
+          + ' ' + myEtudiantMDS1['etudiantMDS1'][i]['prenom'];
+          /*myEtudiantMDS1[i].prenom*/
+
+          var tabledata3 = document.createElement('td');
+          tabledata3.innerText = nom;
+          var tabledata4Input = document.createElement('input');
+          tabledata4Input.type = "text";
+          tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantMDS1['etudiantMDS1'][i]['matricule']
+          /*myEtudiantMDS1[i].matricule*/
+          , "  ").concat(idUe));
+          tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantMDS1['etudiantMDS1'][i]['matricule']
+          /*myEtudiantMDS1[i].matricule*/
+          , " ").concat(idUe));
+          tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1['etudiantMDS1'][i]['matricule']
+          /*myEtudiantMDS1[i].matricule*/
+          , " ").concat(idUe)); //tabledata4Input.setAttribute('required', '');
+
+          tabledata4Input.setAttribute('class', 'noteField');
+          var tabledata4 = document.createElement('td');
+          tabledata4.appendChild(tabledata4Input);
+          var tabledata5Input = document.createElement('input');
+          tabledata5Input.type = "text";
+          tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantMDS1['etudiantMDS1'][i]['matricule']
+          /*myEtudiantMDS1[i].matricule*/
+          , " ").concat(idUe));
+          tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantMDS1['etudiantMDS1'][i]['matricule']
+          /*myEtudiantMDS1[i].matricule*/
+          , " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+          tabledata5Input.setAttribute('class', 'noteField');
+          var tabledata5 = document.createElement('td');
+          tabledata5.appendChild(tabledata5Input);
+          var ligne = document.createElement('tr');
+          ligne.appendChild(tabledata1);
+          ligne.appendChild(tabledata2);
+          ligne.appendChild(tabledata3);
+          ligne.appendChild(tabledata4);
+          ligne.appendChild(tabledata5);
+          /** TBODDY du modal afin d'ajouter les étudiants par filière */
+
+          var listStudent = document.getElementById('listetudiant');
+          listStudent.appendChild(ligne);
+        }
+      } else {
+        console.log(myEtudiantMDS1['matriceUENotesMDS1'][0]);
+
+        for (var _i2 = 0; _i2 < myEtudiantMDS1['etudiantMDS1'].length
+        /*myEtudiantMDS1.length*/
+        ; _i2++) {
+          var _tabledata = document.createElement('td');
+
+          _tabledata.setAttribute('scope', 'row');
+
+          _tabledata.innerText = myEtudiantMDS1['etudiantMDS1'][0]['id']; //myEtudiantMDS1[0][i].id
+
+          var _tabledata2 = document.createElement('td');
+
+          _tabledata2.innerText = myEtudiantMDS1[_i2].matricule;
+          var nom = myEtudiantMDS1[_i2].nom + ' ' + myEtudiantMDS1[_i2].prenom;
+
+          var _tabledata3 = document.createElement('td');
+
+          _tabledata3.innerText = nom;
+
+          var _tabledata4Input = document.createElement('input');
+
+          _tabledata4Input.type = "text";
+
+          _tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantMDS1[_i2].matricule, "  ").concat(idUe));
+
+          _tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantMDS1[_i2].matricule, " ").concat(idUe));
+
+          _tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantMDS1[_i2].matricule, " ").concat(idUe)); //tabledata4Input.setAttribute('required', '');
+
+
+          _tabledata4Input.setAttribute('class', 'noteField');
+
+          var _tabledata4 = document.createElement('td');
+
+          _tabledata4.appendChild(_tabledata4Input);
+
+          var _tabledata5Input = document.createElement('input');
+
+          _tabledata5Input.type = "text";
+
+          _tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantMDS1[_i2].matricule, " ").concat(idUe));
+
+          _tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantMDS1[_i2].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required','');
+
+
+          _tabledata5Input.setAttribute('class', 'noteField');
+
+          var _tabledata5 = document.createElement('td');
+
+          _tabledata5.appendChild(_tabledata5Input);
+
+          var _ligne = document.createElement('tr');
+
+          _ligne.appendChild(_tabledata);
+
+          _ligne.appendChild(_tabledata2);
+
+          _ligne.appendChild(_tabledata3);
+
+          _ligne.appendChild(_tabledata4);
+
+          _ligne.appendChild(_tabledata5);
+          /** TBODDY du modal afin d'ajouter les étudiants par filière */
+
+
+          var _listStudent = document.getElementById('listetudiant');
+
+          _listStudent.appendChild(_ligne);
+        }
       }
+      /*for (let i = 0; i < myEtudiantMDS1.length; i++) {
+          const tabledata1 = document.createElement('td')
+          tabledata1.setAttribute('scope', 'row')
+          tabledata1.innerText = myEtudiantMDS1['etudiantMDS1'][0]['id']//myEtudiantMDS1[0][i].id
+            const tabledata2 = document.createElement('td')
+          tabledata2.innerText = myEtudiantMDS1[i].matricule
+            var nom = myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom
+          const tabledata3 = document.createElement('td')
+          tabledata3.innerText = nom
+            const tabledata4Input = document.createElement('input')
+          tabledata4Input.type = "text"
+            tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMDS1[i].matricule}  ${idUe}`)
+          tabledata4Input.setAttribute('name', `CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+          tabledata4Input.setAttribute('id', `CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
+              //tabledata4Input.setAttribute('required', '');
+          tabledata4Input.setAttribute('class', 'noteField')
+            const tabledata4 = document.createElement('td')
+          tabledata4.appendChild(tabledata4Input)
+            const tabledata5Input = document.createElement('input')
+          tabledata5Input.type = "text"
+          tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
+          tabledata5Input.setAttribute('name', `SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
+              //tabledata5Input.setAttribute('required','');
+          tabledata5Input.setAttribute('class', 'noteField')
+          const tabledata5 = document.createElement('td')
+          tabledata5.appendChild(tabledata5Input)
+            const ligne = document.createElement('tr')
+          ligne.appendChild(tabledata1);
+          ligne.appendChild(tabledata2);
+          ligne.appendChild(tabledata3);
+          ligne.appendChild(tabledata4);
+          ligne.appendChild(tabledata5);
+             TBODDY du modal afin d'ajouter les étudiants par filière 
+          const listStudent = document.getElementById('listetudiant')
+          listStudent.appendChild(ligne)
+      }*/
+
     }
   };
 

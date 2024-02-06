@@ -112,18 +112,18 @@ def EtudiantNiveau1MDS(request):
     matriceUENotesMDS1 = {
         'MDS111': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS111cc["note_cc"], "note_sn": MDS111sn["note_sn"]} for etudiantMDS1,MDS111cc,MDS111sn in zip(etudiantMDS1,MDS111cc,MDS111sn) ]]
         ,'MDS111b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS111bcc["note_cc"], "note_sn": MDS111bsn["note_sn"]} for etudiantMDS1,MDS111bcc,MDS111bsn in zip(etudiantMDS1,MDS111bcc,MDS111bsn) ]]
-        ,'MDS1112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112cc["note_cc"], "note_sn": MDS112sn["note_sn"]} for etudiantMDS1,MDS112cc,MDS112sn in zip(etudiantMDS1,MDS112cc,MDS112sn) ]]
-        ,'MDS1112b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112bcc["note_cc"], "note_sn": MDS112bsn["note_sn"]} for etudiantMDS1,MDS112bcc,MDS112bsn in zip(etudiantMDS1,MDS112bcc,MDS112bsn) ]]
+        ,'MDS112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112cc["note_cc"], "note_sn": MDS112sn["note_sn"]} for etudiantMDS1,MDS112cc,MDS112sn in zip(etudiantMDS1,MDS112cc,MDS112sn) ]]
+        ,'MDS112b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112bcc["note_cc"], "note_sn": MDS112bsn["note_sn"]} for etudiantMDS1,MDS112bcc,MDS112bsn in zip(etudiantMDS1,MDS112bcc,MDS112bsn) ]]
     
         
-        ,'MDS1113': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS113cc["note_cc"], "note_sn": MDS113sn["note_sn"]} for etudiantMDS1,MDS113cc,MDS113sn in zip(etudiantMDS1,MDS113cc,MDS113sn) ]]
-        ,'MDS1114': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS114cc["note_cc"], "note_sn": MDS114sn["note_sn"]} for etudiantMDS1,MDS114cc,MDS114sn in zip(etudiantMDS1,MDS114cc,MDS114sn) ]]
-        ,'MDS1115': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS115cc["note_cc"], "note_sn": MDS115sn["note_sn"]} for etudiantMDS1,MDS115cc,MDS115sn in zip(etudiantMDS1,MDS115cc,MDS115sn) ]]
-        ,'MDS1116': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS116cc["note_cc"], "note_sn": MDS116sn["note_sn"]} for etudiantMDS1,MDS116cc,MDS116sn in zip(etudiantMDS1,MDS116cc,MDS116sn) ]]
+        ,'MDS113': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS113cc["note_cc"], "note_sn": MDS113sn["note_sn"]} for etudiantMDS1,MDS113cc,MDS113sn in zip(etudiantMDS1,MDS113cc,MDS113sn) ]]
+        ,'MDS114': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS114cc["note_cc"], "note_sn": MDS114sn["note_sn"]} for etudiantMDS1,MDS114cc,MDS114sn in zip(etudiantMDS1,MDS114cc,MDS114sn) ]]
+        ,'MDS115': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS115cc["note_cc"], "note_sn": MDS115sn["note_sn"]} for etudiantMDS1,MDS115cc,MDS115sn in zip(etudiantMDS1,MDS115cc,MDS115sn) ]]
+        ,'MDS116': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS116cc["note_cc"], "note_sn": MDS116sn["note_sn"]} for etudiantMDS1,MDS116cc,MDS116sn in zip(etudiantMDS1,MDS116cc,MDS116sn) ]]
         
         
-        ,'MDS1117': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117cc["note_cc"], "note_sn": MDS117sn["note_sn"]} for etudiantMDS1,MDS117cc,MDS117sn in zip(etudiantMDS1,MDS117cc,MDS117sn) ]]
-        ,'MDS1112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117bcc["note_cc"], "note_sn": MDS117bsn["note_sn"]} for etudiantMDS1,MDS117bcc,MDS117bsn in zip(etudiantMDS1,MDS117bcc,MDS117bsn) ]]
+        ,'MDS117': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117cc["note_cc"], "note_sn": MDS117sn["note_sn"]} for etudiantMDS1,MDS117cc,MDS117sn in zip(etudiantMDS1,MDS117cc,MDS117sn) ]]
+        ,'MDS117b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117bcc["note_cc"], "note_sn": MDS117bsn["note_sn"]} for etudiantMDS1,MDS117bcc,MDS117bsn in zip(etudiantMDS1,MDS117bcc,MDS117bsn) ]]
     }
 
     resultat = {
@@ -11521,7 +11521,7 @@ def saveData(key, values):
             evaluation = Evaluation(natureEvaluation=natureEvaluation_, note_cc=note_cc, note_sn=note_sn, etudiant=etudiant, note_Examen=note_examen,uniteEnseignement=ue, date_Examen=dateExamen[0]['date_SN'])
 
             #Test dexistence , si oui update, sinon création
-            evalTest = Evaluation.objects.filter(etudiant=etudiant, natureEvaluation="EXAMEN", uniteEnseignement= ue, date_Examen=dateExamen[0]['date_SN'])
+            evalTest = Evaluation.objects.get(etudiant=etudiant, natureEvaluation="EXAMEN", uniteEnseignement= ue, date_Examen=dateExamen[0]['date_SN'])
             if (Evaluation.objects.filter(etudiant=etudiant, natureEvaluation=natureEvaluation_, uniteEnseignement=ue, date_Examen=dateExamen[0]['date_SN']).exists()):
                 evalTest.note_sn = note_sn
                 evalTest.note_cc = note_cc

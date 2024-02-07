@@ -57,59 +57,54 @@ def EtudiantNiveau1Staps(request):
 
     return JsonResponse(etudiantStaps1, safe= False)
 
-
 def EtudiantNiveau1MDS(request):
 
     etudiantMDS1 = list(Etudiant.objects.filter(filiere="GESTION", niveau=1).values())
 
-
     MDS111cc = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS111sn = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-
+    MDS111R = list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
     MDS111bcc =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS111bsn =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    MDS111bR = list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
     MDS112cc =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS112sn =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    #sort112 = epurationTriCroissant(MDS112)
+    MDS112R = list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
-    MDS112b =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     MDS112bcc =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS112bsn =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort112b = epurationTriCroissant(MDS112b)
+    MDS112bR = list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
-    MDS113 =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     MDS113cc =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS113sn =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort113 = epurationTriCroissant(MDS113)
+    MDS113R = list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
-    MDS114 =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     MDS114cc =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS114sn =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort114 = epurationTriCroissant(MDS114)
+    MDS114R = list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
-    MDS115 =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     MDS115cc =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS115sn =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort115 = epurationTriCroissant(MDS115)
+    MDS115R = list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
-    MDS116 =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     MDS116cc =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS116sn =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort116 = epurationTriCroissant(MDS116)
-
-    MDS117 =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
+    MDS116R = list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+   
     MDS117cc =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS117sn =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort117 = epurationTriCroissant(MDS117)
+    MDS117R = list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
-    MDS117b =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_Examen'))
     MDS117bcc =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
     MDS117bsn =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
-    sort117b = epurationTriCroissant(MDS117b)
+    MDS117bR = list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
 
     matriceUENotesMDS1 = {
+
+        #SEMESTRE 1 MDS1 Rattrapage
+
         'MDS111': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS111cc["note_cc"], "note_sn": MDS111sn["note_sn"]} for etudiantMDS1,MDS111cc,MDS111sn in zip(etudiantMDS1,MDS111cc,MDS111sn) ]]
         ,'MDS111b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS111bcc["note_cc"], "note_sn": MDS111bsn["note_sn"]} for etudiantMDS1,MDS111bcc,MDS111bsn in zip(etudiantMDS1,MDS111bcc,MDS111bsn) ]]
         ,'MDS112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS112cc["note_cc"], "note_sn": MDS112sn["note_sn"]} for etudiantMDS1,MDS112cc,MDS112sn in zip(etudiantMDS1,MDS112cc,MDS112sn) ]]
@@ -124,11 +119,63 @@ def EtudiantNiveau1MDS(request):
         
         ,'MDS117': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117cc["note_cc"], "note_sn": MDS117sn["note_sn"]} for etudiantMDS1,MDS117cc,MDS117sn in zip(etudiantMDS1,MDS117cc,MDS117sn) ]]
         ,'MDS117b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_cc":MDS117bcc["note_cc"], "note_sn": MDS117bsn["note_sn"]} for etudiantMDS1,MDS117bcc,MDS117bsn in zip(etudiantMDS1,MDS117bcc,MDS117bsn) ]]
+
+        #SEMESTRE 2 MDS1
+
+        ,'MDS121' : [[]]
+        ,'MDS121b' : [[]]
+        ,'MDS122' : [[]]
+        ,'MDS122b' : [[]]
+
+        ,'MDS123' : [[]]
+        ,'MDS124' : [[]]
+        ,'MDS125' : [[]]
+        ,'MDS126' : [[]]
+
+        ,'MDS127' : [[]]
+        ,'MDS127b' : [[]]
+    }
+
+    matriceUENotesMDS1R ={
+
+        #SEMESTRE 1 MDS1 Rattrapage
+
+        'MDS111': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS111R["note_rattrapage"]} for etudiantMDS1,MDS111R in zip(etudiantMDS1,MDS111R) ]]
+        ,'MDS111b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS111bR["note_rattrapage"]} for etudiantMDS1,MDS111bR in zip(etudiantMDS1,MDS111bR) ]]
+        ,'MDS112': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS112R["note_rattrapage"]} for etudiantMDS1,MDS112R in zip(etudiantMDS1,MDS112R) ]]
+        ,'MDS112b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS112bR["note_rattrapage"]} for etudiantMDS1,MDS112bR in zip(etudiantMDS1,MDS112bR) ]]
+    
+        
+        ,'MDS113': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS113R["note_rattrapage"]} for etudiantMDS1,MDS113R in zip(etudiantMDS1,MDS113R) ]]
+        ,'MDS114': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS114R["note_rattrapage"]} for etudiantMDS1,MDS114R in zip(etudiantMDS1,MDS114R) ]]
+        ,'MDS115': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS115R["note_rattrapage"]} for etudiantMDS1,MDS115R in zip(etudiantMDS1,MDS115R) ]]
+        ,'MDS116': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS116R["note_rattrapage"]} for etudiantMDS1,MDS116R in zip(etudiantMDS1,MDS116R) ]]
+        
+        
+        ,'MDS117': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS117R["note_rattrapage"]} for etudiantMDS1,MDS117R in zip(etudiantMDS1,MDS117R) ]]
+        ,'MDS117b': [[{"matricule": etudiantMDS1["matricule"] ,"nom" : etudiantMDS1["nom"], "prenom" : etudiantMDS1["prenom"], "note_rattrapage":MDS117bR["note_rattrapage"]} for etudiantMDS1,MDS117bR in zip(etudiantMDS1,MDS117bR) ]]
+
+        #SEMESTRE 2 MDS1 Rattrapage
+
+        ,'MDS121' : [[]]
+        ,'MDS121b' : [[]]
+        ,'MDS122' : [[]]
+        ,'MDS122b' : [[]]
+
+        ,'MDS123' : [[]]
+        ,'MDS124' : [[]]
+        ,'MDS125' : [[]]
+        ,'MDS126' : [[]]
+
+        ,'MDS127' : [[]]
+        ,'MDS127b' : [[]]
     }
 
     resultat = {
         'etudiantMDS1' : etudiantMDS1,
-        'matriceUENotesMDS1': matriceUENotesMDS1#{}
+        'matriceUENotesMDS1': matriceUENotesMDS1,#{}
+        'dateExamen' : dateExamen,
+        'matriceUENotesMDS1R': matriceUENotesMDS1R
     }
     return JsonResponse(resultat, safe= False) #etudiantMDS1,
 
@@ -138,9 +185,108 @@ def EtudiantNiveau2Staps(request):
     return JsonResponse(etudiantStaps2, safe= False)
 
 def EtudiantNiveau2Mds(request):
-    etudiantMds2 = list(Etudiant.objects.filter(filiere="GESTION", niveau=2).values())
 
-    return JsonResponse(etudiantMds2, safe= False)
+    etudiantMDS2 = list(Etudiant.objects.filter(filiere="GESTION", niveau=2).values())
+
+    MDS231cc = list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS231sn = list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+    MDS231R =list(Evaluation.objects.filter(uniteEnseignement_id=125, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+
+    MDS231bR =list(Evaluation.objects.filter(uniteEnseignement_id=126, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS231bcc =list(Evaluation.objects.filter(uniteEnseignement_id=126, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS231bsn =list(Evaluation.objects.filter(uniteEnseignement_id=126, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS232R =list(Evaluation.objects.filter(uniteEnseignement_id=127, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS232cc =list(Evaluation.objects.filter(uniteEnseignement_id=127, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS232sn =list(Evaluation.objects.filter(uniteEnseignement_id=127, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS232bR =list(Evaluation.objects.filter(uniteEnseignement_id=128, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS232bcc =list(Evaluation.objects.filter(uniteEnseignement_id=128, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS232bsn =list(Evaluation.objects.filter(uniteEnseignement_id=128, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS233R =list(Evaluation.objects.filter(uniteEnseignement_id=129, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS233cc =list(Evaluation.objects.filter(uniteEnseignement_id=129, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS233sn =list(Evaluation.objects.filter(uniteEnseignement_id=129, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS234R =list(Evaluation.objects.filter(uniteEnseignement_id=130, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS234cc =list(Evaluation.objects.filter(uniteEnseignement_id=130, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS234sn =list(Evaluation.objects.filter(uniteEnseignement_id=130, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS235R =list(Evaluation.objects.filter(uniteEnseignement_id=131, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS235cc =list(Evaluation.objects.filter(uniteEnseignement_id=131, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS235sn =list(Evaluation.objects.filter(uniteEnseignement_id=131, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS236R =list(Evaluation.objects.filter(uniteEnseignement_id=132, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS236cc =list(Evaluation.objects.filter(uniteEnseignement_id=132, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS236sn =list(Evaluation.objects.filter(uniteEnseignement_id=132, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS237R =list(Evaluation.objects.filter(uniteEnseignement_id=133, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS237cc =list(Evaluation.objects.filter(uniteEnseignement_id=133, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS237sn =list(Evaluation.objects.filter(uniteEnseignement_id=133, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS238R =list(Evaluation.objects.filter(uniteEnseignement_id=134, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS238cc =list(Evaluation.objects.filter(uniteEnseignement_id=134, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS238sn =list(Evaluation.objects.filter(uniteEnseignement_id=134, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    MDS239R =list(Evaluation.objects.filter(uniteEnseignement_id=135, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+    MDS239cc =list(Evaluation.objects.filter(uniteEnseignement_id=135, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+    MDS239sn =list(Evaluation.objects.filter(uniteEnseignement_id=135, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+    matriceUENotesMDS2 ={
+        
+        #SEMESTRE 3 MDS2
+
+        'MDS231': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS231cc["note_cc"], "note_sn": MDS231sn["note_sn"]} for etudiantMDS2,MDS231cc,MDS231sn in zip(etudiantMDS2,MDS231cc,MDS231sn) ]]
+        ,'MDS231b': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS231bcc["note_cc"], "note_sn": MDS231bsn["note_sn"]} for etudiantMDS2,MDS231bcc,MDS231bsn in zip(etudiantMDS2,MDS231bcc,MDS231bsn) ]]
+        ,'MDS232': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS232cc["note_cc"], "note_sn": MDS232sn["note_sn"]} for etudiantMDS2,MDS232cc,MDS232sn in zip(etudiantMDS2,MDS232cc,MDS232sn) ]]
+        ,'MDS232b': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS232bcc["note_cc"], "note_sn": MDS232bsn["note_sn"]} for etudiantMDS2,MDS232bcc,MDS232bsn in zip(etudiantMDS2,MDS232bcc,MDS232bsn) ]]
+    
+        
+        ,'MDS233': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS233cc["note_cc"], "note_sn": MDS233sn["note_sn"]} for etudiantMDS2,MDS233cc,MDS233sn in zip(etudiantMDS2,MDS233cc,MDS233sn) ]]
+        ,'MDS234': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS234cc["note_cc"], "note_sn": MDS234sn["note_sn"]} for etudiantMDS2,MDS234cc,MDS234sn in zip(etudiantMDS2,MDS234cc,MDS234sn) ]]
+        ,'MDS235': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS235cc["note_cc"], "note_sn": MDS235sn["note_sn"]} for etudiantMDS2,MDS235cc,MDS235sn in zip(etudiantMDS2,MDS235cc,MDS235sn) ]]
+        ,'MDS236': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS236cc["note_cc"], "note_sn": MDS236sn["note_sn"]} for etudiantMDS2,MDS236cc,MDS236sn in zip(etudiantMDS2,MDS236cc,MDS236sn) ]]
+        
+        
+        ,'MDS237': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS237cc["note_cc"], "note_sn": MDS237sn["note_sn"]} for etudiantMDS2,MDS237cc,MDS237sn in zip(etudiantMDS2,MDS237cc,MDS237sn) ]]
+        ,'MDS238': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS238cc["note_cc"], "note_sn": MDS238sn["note_sn"]} for etudiantMDS2,MDS238cc,MDS238sn in zip(etudiantMDS2,MDS238cc,MDS238sn) ]]
+        ,'MDS239': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_cc":MDS239cc["note_cc"], "note_sn": MDS239sn["note_sn"]} for etudiantMDS2,MDS239cc,MDS239sn in zip(etudiantMDS2,MDS239cc,MDS239sn) ]]
+    
+        #SEMESTRE 4 MDS2
+    
+    }
+
+    matriceUENotesMDS2R ={
+
+        #SEMESTRE 3 MDS2 Rattrapage
+
+        'MDS231': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS231R["note_rattrapage"]} for etudiantMDS2,MDS231R in zip(etudiantMDS2,MDS231R) ]]
+        ,'MDS231b': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS231bR["note_rattrapage"]} for etudiantMDS2,MDS231bR in zip(etudiantMDS2,MDS231bR) ]]
+        ,'MDS232': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS232R["note_rattrapage"]} for etudiantMDS2,MDS232R in zip(etudiantMDS2,MDS232R) ]]
+        ,'MDS232b': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS232bR["note_rattrapage"]} for etudiantMDS2,MDS232bR in zip(etudiantMDS2,MDS232bR) ]]
+    
+        
+        ,'MDS233': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS233R["note_rattrapage"]} for etudiantMDS2,MDS233R in zip(etudiantMDS2,MDS233R) ]]
+        ,'MDS234': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS234R["note_rattrapage"]} for etudiantMDS2,MDS234R in zip(etudiantMDS2,MDS234R) ]]
+        ,'MDS235': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS235R["note_rattrapage"]} for etudiantMDS2,MDS235R in zip(etudiantMDS2,MDS235R) ]]
+        ,'MDS236': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS236R["note_rattrapage"]} for etudiantMDS2,MDS236R in zip(etudiantMDS2,MDS236R) ]]
+        
+        
+        ,'MDS237':[[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS237R["note_rattrapage"]} for etudiantMDS2,MDS237R in zip(etudiantMDS2,MDS237R) ]]
+        ,'MDS238':[[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS238R["note_rattrapage"]} for etudiantMDS2,MDS238R in zip(etudiantMDS2,MDS238R) ]]
+        ,'MDS239': [[{"matricule": etudiantMDS2["matricule"] ,"nom" : etudiantMDS2["nom"], "prenom" : etudiantMDS2["prenom"], "note_rattrapage":MDS239R["note_rattrapage"]} for etudiantMDS2,MDS239R in zip(etudiantMDS2,MDS239R) ]]
+    
+        #SEMESTRE 4 MDS2 Rattrapage
+    }
+
+    resultat =  {
+        'etudiantMDS2' : etudiantMDS2,
+        'matriceUENotesMDS2': matriceUENotesMDS2,#{}
+        'dateExamen' : dateExamen,
+        'matriceUENotesMDS2R': matriceUENotesMDS2R
+    }
+
+    return JsonResponse(resultat, safe= False)
 
 def EtudiantNiveau3(request):
     etudiantMAS = list(Etudiant.objects.filter(filiere="MAS", niveau=3).values())
@@ -373,34 +519,34 @@ def bulls1epsmds(request, filiere):
             session = 'Janvier 2023'
 
 ###########################################################  SEMESTRE 1 MDS RATTRAPAGE ############################################################################################################################
-        MDS111R =list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS111R =list(Evaluation.objects.filter(uniteEnseignement_id=40, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort111R = epurationRattrapage(MDS111R)
 
-        MDS111bR =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS111bR =list(Evaluation.objects.filter(uniteEnseignement_id=41, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort111bR = epurationRattrapage(MDS111bR)
 
-        MDS112R =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS112R =list(Evaluation.objects.filter(uniteEnseignement_id=42, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort112R = epurationRattrapage(MDS112R)
 
-        MDS112bR =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS112bR =list(Evaluation.objects.filter(uniteEnseignement_id=43, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort112bR = epurationRattrapage(MDS112bR)
 
-        MDS113R =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS113R =list(Evaluation.objects.filter(uniteEnseignement_id=44, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort113R = epurationRattrapage(MDS113R)
 
-        MDS114R =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS114R =list(Evaluation.objects.filter(uniteEnseignement_id=45, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort114R = epurationRattrapage(MDS114R)
 
-        MDS115R =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS115R =list(Evaluation.objects.filter(uniteEnseignement_id=46, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort115R = epurationRattrapage(MDS115R)
 
-        MDS116R =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS116R =list(Evaluation.objects.filter(uniteEnseignement_id=47, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort116R = epurationRattrapage(MDS116R)
 
-        MDS117R =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS117R =list(Evaluation.objects.filter(uniteEnseignement_id=48, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort117R = epurationRattrapage(MDS117R)
 
-        MDS117bR =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='RATTRAPAGE').values('note_rattrapage'))
+        MDS117bR =list(Evaluation.objects.filter(uniteEnseignement_id=49, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
         sort117bR = epurationRattrapage(MDS117bR)
 
         #Liste matrice Rattrapage
@@ -11555,11 +11701,21 @@ def saveDataR(key, value):
             ue_Query = UniteEnseignement.objects.filter(code_UE=codeUe)#.values('id')
             ue = ue_Query[0]
 
-            date_Rattrapage = "2023-05-29"
+            date_Rattrapage = dateExamen[0]['date_RT']#"2023-05-29"
 
             evaluation = Evaluation( natureEvaluation=natureEvaluation, note_cc=0, note_sn=0, etudiant=etudiant, note_Examen=0, uniteEnseignement=ue, note_rattrapage=note_rattrapage, date_Rattrapage=date_Rattrapage )
 
-            evaluation.save()
+            #Test dexistence , si oui update, sinon création
+            evalTest = Evaluation.objects.get(etudiant=etudiant, natureEvaluation=natureEvaluation, uniteEnseignement= ue, date_Rattrapage=date_Rattrapage)
+            if (Evaluation.objects.filter(etudiant=etudiant, natureEvaluation=natureEvaluation, uniteEnseignement=ue, date_Rattrapage=date_Rattrapage).exists()):
+                evalTest.note_sn = note_rattrapage
+                #evalTest.note_cc = note_cc
+                #evalTest.note_Examen=note_examen
+
+                #Update
+                evalTest.save()
+            else:
+                evaluation.save()
 
 
 

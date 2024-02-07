@@ -386,15 +386,11 @@ function getetudiantMDSNiveau1() {
             /** Ajout des lignes pour insertion des notes des étudiants */
             /**Changement du TITRE Du modal */
             listeTitle = document.getElementById('listetudiant-title')
-            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- Année Académique ${myEtudiantMDS1['dateExamen'][0]['annee_academique']}`
             tbodyMDS1 = document.getElementById('listetudiant')
 
             //console.log(myEtudiantMDS1['matriceUENotesMDS1']);
 
-            let test = ( Object.keys(myEtudiantMDS1['matriceUENotesMDS1']).length === 0 )
-
-            if( test ){
-                
                 for (let i = 0; i < myEtudiantMDS1['etudiantMDS1'].length/*myEtudiantMDS1.length*/; i++) {
                     const tabledata1 = document.createElement('td')
                     tabledata1.setAttribute('scope', 'row')
@@ -415,76 +411,23 @@ function getetudiantMDSNiveau1() {
                     //tabledata4Input.setAttribute('id', `CC ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
                         //tabledata4Input.setAttribute('required', '');
 
-                    tabledata4Input.value = myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]//'alpha'
-                    console.log(tabledata4Input.placeholder);
+                        Object.keys(myEtudiantMDS1['matriceUENotesMDS1'][idUe][0]).length > 0 ?tabledata4Input.value =  myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]:
+
+                    //tabledata4Input.value = myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]//'alpha'
+
 
                     tabledata4Input.setAttribute('class', 'noteField')
-    
-                    const tabledata5Input = document.createElement('input')
-                    tabledata5Input.type = "text"
-                    tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
-                    tabledata5Input.setAttribute('name', `SN ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
-                        //tabledata5Input.setAttribute('required','');
-                    tabledata5Input.setAttribute('class', 'noteField')
-                    const tabledata5 = document.createElement('td')
-                    tabledata5.appendChild(tabledata5Input)
-    
-                    const ligne = document.createElement('tr')
-                    ligne.appendChild(tabledata1);
-                    ligne.appendChild(tabledata2);
-                    ligne.appendChild(tabledata3);
-                    ligne.appendChild(tabledata4);
-                    ligne.appendChild(tabledata5);
-    
-                    /** TBODDY du modal afin d'ajouter les étudiants par filière */
-                    const listStudent = document.getElementById('listetudiant')
-                    listStudent.appendChild(ligne)
-                }
-            }else{
-                console.log(myEtudiantMDS1['matriceUENotesMDS1']);
-                for (let i = 0; i < myEtudiantMDS1['etudiantMDS1'].length/*myEtudiantMDS1.length*/; i++) {
-                    const tabledata1 = document.createElement('td')
-                    tabledata1.setAttribute('scope', 'row')
-                    tabledata1.innerText =  myEtudiantMDS1['etudiantMDS1'][i]['id']//myEtudiantMDS1[0][i].id
-    
-                    const tabledata2 = document.createElement('td')
-                    tabledata2.innerText = myEtudiantMDS1['etudiantMDS1'][i]['matricule']//myEtudiantMDS1[i].matricule
-    
-                    var nom = myEtudiantMDS1['etudiantMDS1'][i]['nom']/*myEtudiantMDS1[i].nom*/ + ' ' + myEtudiantMDS1['etudiantMDS1'][i]['prenom']/*myEtudiantMDS1[i].prenom*///myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom
-                    const tabledata3 = document.createElement('td')
-                    tabledata3.innerText = nom
-    
-                    const tabledata4Input = document.createElement('input')
-                    tabledata4Input.type = "text"
-    
-                    /*tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMDS1[i].matricule}  ${idUe}`)
-                    tabledata4Input.setAttribute('name', `CC ${myEtudiantMDS1[i].matricule} ${idUe}`)
-                    tabledata4Input.setAttribute('id', `CC ${myEtudiantMDS1[i].matricule} ${idUe}`)*/
-                    tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMDS1['etudiantMDS1'][i]['matricule'] /*myEtudiantMDS1[i].matricule*/}  ${idUe}`)
-                    tabledata4Input.setAttribute('name', `CC ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
-                    //tabledata4Input.setAttribute('id', `CC ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
-                        //tabledata4Input.setAttribute('required', '');
 
-                    tabledata4Input.value =  myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]//'alpha'
-                    console.log(tabledata4Input.placeholder);
-
-                    tabledata4Input.setAttribute('class', 'noteField')
-    
                     const tabledata4 = document.createElement('td')
                     tabledata4.appendChild(tabledata4Input)
     
                     const tabledata5Input = document.createElement('input')
                     tabledata5Input.type = "text"
-
                     tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
                     tabledata5Input.setAttribute('name', `SN ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
-
-                    tabledata5Input.value =  myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_sn"]//'alpha'
-                    console.log(tabledata5Input.placeholder);
-
-                    //tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
-                    //tabledata5Input.setAttribute('name', `SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
                         //tabledata5Input.setAttribute('required','');
+                        Object.keys(myEtudiantMDS1['matriceUENotesMDS1'][idUe][0]).length > 0 ?tabledata5Input.value =  myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_sn"]:
+
                     tabledata5Input.setAttribute('class', 'noteField')
                     const tabledata5 = document.createElement('td')
                     tabledata5.appendChild(tabledata5Input)
@@ -500,7 +443,6 @@ function getetudiantMDSNiveau1() {
                     const listStudent = document.getElementById('listetudiant')
                     listStudent.appendChild(ligne)
                 }
-            }
         }
     }
     xmlhttp.open("GET", url, true);
@@ -523,72 +465,88 @@ function getetudiantMDSNiveau1R() {
         if (this.readyState == 4 && this.status == 200) {
             myEtudiantMDS1 = JSON.parse(this.responseText);
 
+            console.log(myEtudiantMDS1);
+
             /** Ajout des lignes pour insertion des notes des étudiants */
             /**Changement du TITRE Du modal */
             //listeTitle = document.getElementById('listetudiant-title')
             listeTitle = modal2.children[0].children[0].children[1].children[1]
 
-            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- Année Académique ${myEtudiantMDS1['dateExamen'][0]['annee_academique']}`
 
             tbodyMDS1 = document.getElementById('listetudiant')
 
-            for (let i = 0; i < myEtudiantMDS1.length; i++) {
-                const tabledata1 = document.createElement('td')
-                tabledata1.innerText = myEtudiantMDS1[i].id
+            //let test = ( Object.keys(myEtudiantMDS1['matriceUENotesMDS1']).length === 0 )
 
-                const tabledata2 = document.createElement('td')
-                tabledata2.innerText = myEtudiantMDS1[i].matricule
+                for (let i = 0; i < myEtudiantMDS1['etudiantMDS1'].length/*myEtudiantMDS1.length*/; i++) {
+                    console.log("OK OK");
+                    const tabledata1 = document.createElement('td')
+                    tabledata1.innerText = myEtudiantMDS1['etudiantMDS1'][i]['id']//myEtudiantMDS1[i].id
 
-                var nom = myEtudiantMDS1[i].nom + ' ' + myEtudiantMDS1[i].prenom
-                const tabledata3 = document.createElement('td')
-                tabledata3.innerText = nom
+                    const tabledata2 = document.createElement('td')
+                    tabledata2.innerText = myEtudiantMDS1['etudiantMDS1'][i]['matricule']//myEtudiantMDS1[i].matricule
 
-                const tabledata4Input = document.createElement('input')
-                tabledata4Input.type = "text"
-                tabledata4Input.setAttribute('placeholder', `Note Rattrapage ${myEtudiantMDS1[i].matricule}  ${idUe}`)
-                tabledata4Input.setAttribute('name', `Rattrapage ${myEtudiantMDS1[i].matricule} ${idUe}`)
-                tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantMDS1[i].matricule}${idUe}`)
-                    //tabledata4Input.setAttribute('required', '')
-                tabledata4Input.setAttribute('class', 'noteField')
-                    //tabledata4Input
+                    var nom = myEtudiantMDS1['etudiantMDS1'][i]['nom']/*myEtudiantMDS1[i].nom*/ + ' ' + myEtudiantMDS1['etudiantMDS1'][i]['prenom']/*myEtudiantMDS1[i].prenom*/
+                    const tabledata3 = document.createElement('td')
+                    tabledata3.innerText = nom
 
-                const tabledata4 = document.createElement('td')
-                tabledata4.appendChild(tabledata4Input)
+                    const tabledata4Input = document.createElement('input')
+                    tabledata4Input.type = "text"
+                    tabledata4Input.setAttribute('placeholder', `Note Rattrapage ${myEtudiantMDS1['etudiantMDS1'][i]['matricule'] /*myEtudiantMDS1[i].matricule*/} ${idUe}`)
+                    tabledata4Input.setAttribute('name', `Rattrapage ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']} ${idUe}`)
+                    tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']}${idUe}`)
+                        //tabledata4Input.setAttribute('required', '')
 
-                const tabledata5Input = document.createElement('input')
-                tabledata5Input.type = "text"
-                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
-                tabledata5Input.setAttribute('name', `SN ${myEtudiantMDS1[i].matricule} ${idUe}`)
-                    //tabledata5Input.setAttribute('required','');
-                tabledata5Input.setAttribute('class', 'noteField')
-                const tabledata5 = document.createElement('td')
-                tabledata5.appendChild(tabledata5Input)
+                        /**TEST du contenu des UE */
+                        Object.keys(myEtudiantMDS1['matriceUENotesMDS1R'][idUe][0]).length > 0 ? tabledata4Input.value = myEtudiantMDS1['matriceUENotesMDS1R'][idUe][0][i]['note_rattrapage']:console.log('LE coup fonctionne');
 
-                const ligne = document.createElement('tr')
-                ligne.appendChild(tabledata1);
-                ligne.appendChild(tabledata2);
-                ligne.appendChild(tabledata3);
-                ligne.appendChild(tabledata4);
-                //ligne.appendChild(tabledata5);
+                    tabledata4Input.setAttribute('class', 'noteField')
+                        //tabledata4Input
 
-                /** TBODDY du modal afin d'ajouter les étudiants par filière */
-                /*const listStudent = document.getElementById('listetudiant')
-                listStudent.appendChild(ligne)*/
-                const listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1]
-                listStudent12.appendChild(ligne)
+                    const tabledata4 = document.createElement('td')
+                    tabledata4.appendChild(tabledata4Input)
+
+                    const tabledata5Input = document.createElement('input')
+                    tabledata5Input.type = "text"
+                    tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']} ${idUe}`)
+                    tabledata5Input.setAttribute('name', `SN ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']} ${idUe}`)
+                        //tabledata5Input.setAttribute('required','');
+
+                        
+                    tabledata5Input.setAttribute('class', 'noteField')
+                    
+                    
+
+                    const tabledata5 = document.createElement('td')
+                    tabledata5.appendChild(tabledata5Input)
+
+                    
+
+                    const ligne = document.createElement('tr')
+                    ligne.appendChild(tabledata1);
+                    ligne.appendChild(tabledata2);
+                    ligne.appendChild(tabledata3);
+                    ligne.appendChild(tabledata4);
+                    //ligne.appendChild(tabledata5);
+
+                    /** TBODDY du modal afin d'ajouter les étudiants par filière */
+                    /*const listStudent = document.getElementById('listetudiant')
+                    listStudent.appendChild(ligne)*/
+                    const listStudent12 = modal2.children[0].children[0].children[2].children[0].children[0].children[1]
+                    listStudent12.appendChild(ligne)
             }
 
         }
     }
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-}
+    }
 
 
 
 
-/**  REQUEST ETUDIANT STAPS NIVEAU 2 */
-function getetudiantStapsNiveau2() {
+    /**  REQUEST ETUDIANT STAPS NIVEAU 2 */
+    function getetudiantStapsNiveau2() {
     var xmlhttp = new XMLHttpRequest();
     var url = "http://localhost:8000/etudiantStaps2/";
 
@@ -653,9 +611,9 @@ function getetudiantStapsNiveau2() {
     };
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-}
-/**  REQUEST ETUDIANT STAPS NIVEAU 2 RATTRAPAGE */
-function getetudiantStapsNiveau2R() {
+    }
+    /**  REQUEST ETUDIANT STAPS NIVEAU 2 RATTRAPAGE */
+    function getetudiantStapsNiveau2R() {
 
     //Masquage de la div SN
     modal2.children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[3].innerHTML = "Rattrapage (Rt)"
@@ -750,26 +708,29 @@ function getetudiantMdsNiveau2() {
                 //console.log(listeTitle);
                 //listeTitle.innerHTML=""
 
-            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- Année Académique ${myEtudiantMds2['dateExamen'][0]['annee_academique']}`
 
-            for (let i = 0; i < myEtudiantMds2.length; i++) {
+            for (let i = 0; i < myEtudiantMds2['etudiantMDS2'].length; i++) {
                 const tabledata1 = document.createElement('td')
                 tabledata1.setAttribute('scope', 'row')
-                tabledata1.innerText = myEtudiantMds2[i].id
+                tabledata1.innerText = myEtudiantMds2['etudiantMDS2'][i]['id']//myEtudiantMds2[i].id
 
                 const tabledata2 = document.createElement('td')
-                tabledata2.innerText = myEtudiantMds2[i].matricule
+                tabledata2.innerText = myEtudiantMds2['etudiantMDS2'][i]['matricule']//myEtudiantMds2[i].matricule
 
-                var nom = myEtudiantMds2[i].nom + ' ' + myEtudiantMds2[i].prenom
+                var nom = myEtudiantMds2['etudiantMDS2'][i]['nom']/*myEtudiantMDS1[i].nom*/ + ' ' + myEtudiantMds2['etudiantMDS2'][i]['prenom']/*myEtudiantMDS1[i].prenom*/
                 const tabledata3 = document.createElement('td')
                 tabledata3.innerText = nom
 
                 const tabledata4Input = document.createElement('input')
                 tabledata4Input.type = "text"
-                tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMds2[i].matricule}  ${idUe}`)
-                tabledata4Input.setAttribute('name', `CC ${myEtudiantMds2[i].matricule} ${idUe}`)
-                tabledata4Input.setAttribute('id', `CC ${myEtudiantMds2[i].matricule} ${idUe}`)
+                tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantMds2['etudiantMDS2'][i]['matricule']}  ${idUe}`)
+                tabledata4Input.setAttribute('name', `CC ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
+                tabledata4Input.setAttribute('id', `CC ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
                     //tabledata4Input.setAttribute('required','')
+
+                    Object.keys(myEtudiantMds2['matriceUENotesMDS2'][idUe][0]).length > 0 ?tabledata4Input.value =  myEtudiantMds2['matriceUENotesMDS2'][idUe][0][i]["note_cc"]:
+
                 tabledata4Input.setAttribute('class', 'noteField')
 
                 const tabledata4 = document.createElement('td')
@@ -777,9 +738,12 @@ function getetudiantMdsNiveau2() {
 
                 const tabledata5Input = document.createElement('input')
                 tabledata5Input.type = "text"
-                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMds2[i].matricule} ${idUe}`)
-                tabledata5Input.setAttribute('name', `SN ${myEtudiantMds2[i].matricule} ${idUe}`)
+                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
+                tabledata5Input.setAttribute('name', `SN ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
                     //tabledata5Input.setAttribute('required','');
+
+                    Object.keys(myEtudiantMds2['matriceUENotesMDS2'][idUe][0]).length > 0 ?tabledata5Input.value =  myEtudiantMds2['matriceUENotesMDS2'][idUe][0][i]["note_sn"]:
+
                 tabledata5Input.setAttribute('class', 'noteField')
                 const tabledata5 = document.createElement('td')
                 tabledata5.appendChild(tabledata5Input)
@@ -826,28 +790,32 @@ function getetudiantMdsNiveau2R() {
             //listeTitle.innerHTML=""
             listeTitle = modal2.children[0].children[0].children[1].children[1]
 
-            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- Année Académique ${myEtudiantMds2['dateExamen'][0]['annee_academique']}`
 
             //tbodyMDS1 = document.getElementById('listetudiant')
 
-            for (let i = 0; i < myEtudiantMds2.length; i++) {
+            for (let i = 0; i < myEtudiantMds2['etudiantMDS2'].length; i++) {
                 const tabledata1 = document.createElement('td')
                 tabledata1.setAttribute('scope', 'row')
-                tabledata1.innerText = myEtudiantMds2[i].id
+                tabledata1.innerText = myEtudiantMds2['etudiantMDS2'][i]['id']//myEtudiantMds2[i].id
 
                 const tabledata2 = document.createElement('td')
-                tabledata2.innerText = myEtudiantMds2[i].matricule
+                tabledata2.innerText = myEtudiantMds2['etudiantMDS2'][i]['matricule']//myEtudiantMds2[i].matricule
 
-                var nom = myEtudiantMds2[i].nom + ' ' + myEtudiantMds2[i].prenom
+                var nom = myEtudiantMds2['etudiantMDS2'][i]['nom']/*myEtudiantMDS1[i].nom*/ + ' ' + myEtudiantMds2['etudiantMDS2'][i]['prenom']/*myEtudiantMDS1[i].prenom*/
                 const tabledata3 = document.createElement('td')
                 tabledata3.innerText = nom
 
                 const tabledata4Input = document.createElement('input')
                 tabledata4Input.type = "text"
-                tabledata4Input.setAttribute('placeholder', `Note Rattrapage ${myEtudiantMds2[i].matricule}  ${idUe}`)
-                tabledata4Input.setAttribute('name', `Rattrapage ${myEtudiantMds2[i].matricule} ${idUe}`)
-                tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantMds2[i].matricule}${idUe}`)
+                tabledata4Input.setAttribute('placeholder', `Note Rattrapage ${myEtudiantMds2['etudiantMDS2'][i]['matricule']}  ${idUe}`)
+                tabledata4Input.setAttribute('name', `Rattrapage ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
+                tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantMds2['etudiantMDS2'][i]['matricule']}${idUe}`)
                     //tabledata4Input.setAttribute('required', '')
+
+                    Object.keys(myEtudiantMds2['matriceUENotesMDS2R'][idUe][0]).length > 0 ? tabledata4Input.value = myEtudiantMds2['matriceUENotesMDS2R'][idUe][0][i]['note_rattrapage']:console.log('LE coup fonctionne');
+
+
                 tabledata4Input.setAttribute('class', 'noteField')
 
                 const tabledata4 = document.createElement('td')
@@ -855,10 +823,13 @@ function getetudiantMdsNiveau2R() {
 
                 const tabledata5Input = document.createElement('input')
                 tabledata5Input.type = "text"
-                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMds2[i].matricule} ${idUe}`)
-                tabledata5Input.setAttribute('name', `SN ${myEtudiantMds2[i].matricule} ${idUe}`)
+                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
+                tabledata5Input.setAttribute('name', `SN ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
                     //tabledata5Input.setAttribute('required','');
+                    
+
                 tabledata5Input.setAttribute('class', 'noteField')
+
                 const tabledata5 = document.createElement('td')
                 tabledata5.appendChild(tabledata5Input)
 

@@ -240,30 +240,36 @@ function getetudiantStapsNiveau1() {
         if (this.readyState == 4 && this.status == 200) {
             myEtudiantStaps1 = JSON.parse(this.responseText);
 
+            console.log(myEtudiantStaps1);
+
             //SN & CC
             /** Ajout des lignes pour insertion des notes des étudiants */
             /**Changement du TITRE Du modal */
             listeTitle = document.getElementById('listetudiant-title')
-            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}--  Année Académique ${myEtudiantStaps1['dateExamen'][0]['annee_academique']}`
 
-            for (let i = 0; i < myEtudiantStaps1.length; i++) {
+            for (let i = 0; i < myEtudiantStaps1['etudiantStaps1'].length; i++) {
                 const tabledata1 = document.createElement('td')
                 tabledata1.setAttribute('scope', 'row')
-                tabledata1.innerText = myEtudiantStaps1[i].id
+                tabledata1.innerText = myEtudiantStaps1['etudiantStaps1'][i]['id']
 
                 const tabledata2 = document.createElement('td')
-                tabledata2.innerText = myEtudiantStaps1[i].matricule
+                tabledata2.innerText = myEtudiantStaps1['etudiantStaps1'][i]['matricule']
 
-                var nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom
+                var nom = myEtudiantStaps1['etudiantStaps1'][i]['nom'] + ' ' + myEtudiantStaps1['etudiantStaps1'][i]['prenom']
                 const tabledata3 = document.createElement('td')
                 tabledata3.innerText = nom
 
                 const tabledata4Input = document.createElement('input')
                 tabledata4Input.type = "text"
-                tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantStaps1[i].matricule}  ${idUe}`)
-                tabledata4Input.setAttribute('name', `CC ${myEtudiantStaps1[i].matricule} ${idUe}`)
-                tabledata4Input.setAttribute('id', `CC ${myEtudiantStaps1[i].matricule}${idUe}`)
+                tabledata4Input.setAttribute('placeholder', `Note CC ${myEtudiantStaps1['etudiantStaps1'][i]['nom'] + ' ' + myEtudiantStaps1['etudiantStaps1'][i]['prenom']}  ${idUe}`)
+                tabledata4Input.setAttribute('name', `CC ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']} ${idUe}`)
+                tabledata4Input.setAttribute('id', `CC ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']}${idUe}`)
                     //tabledata4Input.setAttribute('required', '')
+
+                    Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc']:console.log('LE coup fonctionne');
+
+
                 tabledata4Input.setAttribute('class', 'noteField')
                     //tabledata4Input
 
@@ -272,9 +278,15 @@ function getetudiantStapsNiveau1() {
 
                 const tabledata5Input = document.createElement('input')
                 tabledata5Input.type = "text"
-                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
-                tabledata5Input.setAttribute('name', `SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
+                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']} ${idUe}`)
+                tabledata5Input.setAttribute('name', `SN ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']} ${idUe}`)
                     //tabledata5Input.setAttribute('required', '')
+
+
+                     /**TEST du contenu des UE */
+                     Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata5Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_sn']:console.log('LE coup fonctionne');
+
+
                 tabledata5Input.setAttribute('class', 'noteField')
                 const tabledata5 = document.createElement('td')
                 tabledata5.appendChild(tabledata5Input)
@@ -318,26 +330,30 @@ function getetudiantStapsNiveau1R() {
             /**Changement du TITRE Du modal */
             //listeTitle = document.getElementById('listetudiant-title')
             listeTitle = modal2.children[0].children[0].children[1].children[1]
-            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- ANNEE 202X-202X`
+            listeTitle.innerText = `BORDOREAU DE NOTES UE --${idUe}-- Année Académique ${myEtudiantStaps1['dateExamen'][0]['annee_academique']}`
 
-            for (let i = 0; i < myEtudiantStaps1.length; i++) {
+            for (let i = 0; i < myEtudiantStaps1['etudiantStaps1'].length; i++) {
                 const tabledata1 = document.createElement('td')
                 tabledata1.setAttribute('scope', 'row')
-                tabledata1.innerText = myEtudiantStaps1[i].id
+                tabledata1.innerText = myEtudiantStaps1['etudiantStaps1'][i]['id']
 
                 const tabledata2 = document.createElement('td')
-                tabledata2.innerText = myEtudiantStaps1[i].matricule
+                tabledata2.innerText = myEtudiantStaps1['etudiantStaps1'][i]['matricule']
 
-                var nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom
+                var nom = myEtudiantStaps1['etudiantStaps1'][i]['nom'] + ' ' + myEtudiantStaps1['etudiantStaps1'][i]['prenom']
                 const tabledata3 = document.createElement('td')
                 tabledata3.innerText = nom
 
                 const tabledata4Input = document.createElement('input')
                 tabledata4Input.type = "text"
-                tabledata4Input.setAttribute('placeholder', `Note Rattrapage ${myEtudiantStaps1[i].matricule}  ${idUe}`)
-                tabledata4Input.setAttribute('name', `Rattrapage ${myEtudiantStaps1[i].matricule} ${idUe}`)
-                tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantStaps1[i].matricule}${idUe}`)
+                tabledata4Input.setAttribute('placeholder', `Note Rattrapage ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']}  ${idUe}`)
+                tabledata4Input.setAttribute('name', `Rattrapage ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']} ${idUe}`)
+                tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']}${idUe}`)
                     //tabledata4Input.setAttribute('required', '')
+
+                    Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_rattrapage']:console.log('LE coup fonctionne');
+
+
                 tabledata4Input.setAttribute('class', 'noteField')
                     //tabledata4Input
 
@@ -346,9 +362,12 @@ function getetudiantStapsNiveau1R() {
 
                 const tabledata5Input = document.createElement('input')
                 tabledata5Input.type = "text"
-                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
-                tabledata5Input.setAttribute('name', `SN ${myEtudiantStaps1[i].matricule} ${idUe}`)
+                tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']} ${idUe}`)
+                tabledata5Input.setAttribute('name', `SN ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']} ${idUe}`)
                 tabledata5Input.setAttribute('required', '')
+
+
+
                 tabledata5Input.setAttribute('class', 'noteField')
                 const tabledata5 = document.createElement('td')
                 tabledata5.appendChild(tabledata5Input)
@@ -826,7 +845,6 @@ function getetudiantMdsNiveau2R() {
                 tabledata5Input.setAttribute('placeholder', `Note SN ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
                 tabledata5Input.setAttribute('name', `SN ${myEtudiantMds2['etudiantMDS2'][i]['matricule']} ${idUe}`)
                     //tabledata5Input.setAttribute('required','');
-                    
 
                 tabledata5Input.setAttribute('class', 'noteField')
 

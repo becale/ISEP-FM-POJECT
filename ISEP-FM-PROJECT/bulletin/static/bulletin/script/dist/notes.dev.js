@@ -232,39 +232,44 @@ function getetudiantStapsNiveau1() {
 
   xmlhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      myEtudiantStaps1 = JSON.parse(this.responseText); //SN & CC
+      myEtudiantStaps1 = JSON.parse(this.responseText);
+      console.log(myEtudiantStaps1); //SN & CC
 
       /** Ajout des lignes pour insertion des notes des étudiants */
 
       /**Changement du TITRE Du modal */
 
       listeTitle = document.getElementById('listetudiant-title');
-      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "--  Ann\xE9e Acad\xE9mique ").concat(myEtudiantStaps1['dateExamen'][0]['annee_academique']);
 
-      for (var i = 0; i < myEtudiantStaps1.length; i++) {
+      for (var i = 0; i < myEtudiantStaps1['etudiantStaps1'].length; i++) {
         var tabledata1 = document.createElement('td');
         tabledata1.setAttribute('scope', 'row');
-        tabledata1.innerText = myEtudiantStaps1[i].id;
+        tabledata1.innerText = myEtudiantStaps1['etudiantStaps1'][i]['id'];
         var tabledata2 = document.createElement('td');
-        tabledata2.innerText = myEtudiantStaps1[i].matricule;
-        var nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom;
+        tabledata2.innerText = myEtudiantStaps1['etudiantStaps1'][i]['matricule'];
+        var nom = myEtudiantStaps1['etudiantStaps1'][i]['nom'] + ' ' + myEtudiantStaps1['etudiantStaps1'][i]['prenom'];
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('input');
         tabledata4Input.type = "text";
-        tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
-        tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+        tabledata4Input.setAttribute('placeholder', "Note CC ".concat(myEtudiantStaps1['etudiantStaps1'][i]['nom'] + ' ' + myEtudiantStaps1['etudiantStaps1'][i]['prenom'], "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule']).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
+        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
         tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
 
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
-        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe)); //tabledata5Input.setAttribute('required', '')
 
+        /**TEST du contenu des UE */
+
+        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata5Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_sn'] : console.log('LE coup fonctionne');
         tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
@@ -308,31 +313,32 @@ function getetudiantStapsNiveau1R() {
       //listeTitle = document.getElementById('listetudiant-title')
 
       listeTitle = modal2.children[0].children[0].children[1].children[1];
-      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- ANNEE 202X-202X");
+      listeTitle.innerText = "BORDOREAU DE NOTES UE --".concat(idUe, "-- Ann\xE9e Acad\xE9mique ").concat(myEtudiantStaps1['dateExamen'][0]['annee_academique']);
 
-      for (var i = 0; i < myEtudiantStaps1.length; i++) {
+      for (var i = 0; i < myEtudiantStaps1['etudiantStaps1'].length; i++) {
         var tabledata1 = document.createElement('td');
         tabledata1.setAttribute('scope', 'row');
-        tabledata1.innerText = myEtudiantStaps1[i].id;
+        tabledata1.innerText = myEtudiantStaps1['etudiantStaps1'][i]['id'];
         var tabledata2 = document.createElement('td');
-        tabledata2.innerText = myEtudiantStaps1[i].matricule;
-        var nom = myEtudiantStaps1[i].nom + ' ' + myEtudiantStaps1[i].prenom;
+        tabledata2.innerText = myEtudiantStaps1['etudiantStaps1'][i]['matricule'];
+        var nom = myEtudiantStaps1['etudiantStaps1'][i]['nom'] + ' ' + myEtudiantStaps1['etudiantStaps1'][i]['prenom'];
         var tabledata3 = document.createElement('td');
         tabledata3.innerText = nom;
         var tabledata4Input = document.createElement('input');
         tabledata4Input.type = "text";
-        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantStaps1[i].matricule, "  ").concat(idUe));
-        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantStaps1[i].matricule).concat(idUe)); //tabledata4Input.setAttribute('required', '')
+        tabledata4Input.setAttribute('placeholder', "Note Rattrapage ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], "  ").concat(idUe));
+        tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
+        tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule']).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
+        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_rattrapage'] : console.log('LE coup fonctionne');
         tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
 
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);
         var tabledata5Input = document.createElement('input');
         tabledata5Input.type = "text";
-        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
-        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1[i].matricule, " ").concat(idUe));
+        tabledata5Input.setAttribute('placeholder', "Note SN ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
+        tabledata5Input.setAttribute('name', "SN ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
         tabledata5Input.setAttribute('required', '');
         tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');

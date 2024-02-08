@@ -55,7 +55,55 @@ def EtudiantApi(request):
 def EtudiantNiveau1Staps(request):
     etudiantStaps1 = list(Etudiant.objects.filter(filiere="STAPS", niveau=1).values())
 
-    return JsonResponse(etudiantStaps1, safe= False)
+    codeUeEPS1s1 = ['EPS111','EPS112','EPS113','EPS114','EPS115a','EPS115b','EPS115j','EPS115l','EPS115f','EPS115g','EPS116','EPS117','EPS118','EPS119']
+    idUeEPS1s1 = [50, 51, 52, 53, 54, 55, 56, 57, 137, 136, 58, 59, 60, 61]
+    codeUeEPS1s2 = ['EPS121','EPS122','EPS123','EPS124','EPS125a','EPS125b','EPS125j','EPS125l','EPS125f','EPS125g','EPS126','EPS127','EPS128','EPS129']
+    idUeEPS1s2 = [99, 100, 101, 102, 103, 104, 124, 105, 106, 107, 108, 109, 110, 111]
+
+    ListeNoteUeS1EPS1 = {}
+    for ue,id in zip(codeUeEPS1s1,idUeEPS1s1):
+        cc = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+        sn = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+        ListeNoteUeS1EPS1[ue] = [{"matricule": etudiantStaps1["matricule"] ,"nom" : etudiantStaps1["nom"], "prenom" : etudiantStaps1["prenom"], "note_cc": cc["note_cc"], "note_sn": sn["note_sn"]} for etudiantStaps1,cc,sn in zip(etudiantStaps1,cc,sn) ]
+
+    ListeNoteUeS1EPS1R = {}
+    for ue,id in zip(codeUeEPS1s1,idUeEPS1s1):
+        rt = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+       
+        ListeNoteUeS1EPS1R[ue] = [{"matricule": etudiantStaps1["matricule"] ,"nom" : etudiantStaps1["nom"], "prenom" : etudiantStaps1["prenom"], "note_rattrapage": rt["note_rattrapage"]} for etudiantStaps1,rt in zip(etudiantStaps1,rt) ]
+
+
+    ListeNoteUeS2EPS1 = {}
+    for ue,id in zip(codeUeEPS1s2,idUeEPS1s2):
+        cc2 = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+        sn2 = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+        ListeNoteUeS2EPS1[ue] = [{"matricule": etudiantStaps1["matricule"] ,"nom" : etudiantStaps1["nom"], "prenom" : etudiantStaps1["prenom"], "note_cc": cc2["note_cc"], "note_sn": sn2["note_sn"]} for etudiantStaps1,cc,sn in zip(etudiantStaps1,cc2,sn2) ]
+
+    ListeNoteUeS2EPS1R = {}
+    for ue,id in zip(codeUeEPS1s2,idUeEPS1s2):
+        rt = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+       
+        ListeNoteUeS2EPS1R[ue] = [{"matricule": etudiantStaps1["matricule"] ,"nom" : etudiantStaps1["nom"], "prenom" : etudiantStaps1["prenom"], "note_rattrapage": rt["note_rattrapage"]} for etudiantStaps1,rt in zip(etudiantStaps1,rt) ]
+
+
+    resultat = {
+        'S1':{
+            'ListeNoteUeS1EPS1':ListeNoteUeS1EPS1,
+            'ListeNoteUeS1EPS1R':ListeNoteUeS1EPS1R
+        },
+
+        'S2':{
+            'ListeNoteUeS2EPS1':ListeNoteUeS2EPS1,
+            'ListeNoteUeS2EPS1R':ListeNoteUeS2EPS1R
+        },
+
+        'dateExamen':dateExamen,
+        'etudiantStaps1':etudiantStaps1
+    }
+
+    return JsonResponse(resultat, safe= False) #etudiantStaps1 ListeNoteUeS1EPS1
 
 def EtudiantNiveau1MDS(request):
 
@@ -306,6 +354,7 @@ def EtudiantNiveau3EVE(request):
 def UEAPI(request):
 
     s1 = list(UniteEnseignement.objects.filter(semestre_id=1).values())
+    #s1 = list(UniteEnseignement.objects.filter(semestre_id=1, specialite="EPS").values('id'))
     s3 = list(UniteEnseignement.objects.filter(semestre_id=3).values())
     #s5 = list(UniteEnseignement.objects.filter(semestre_id=5).values())
     ueSemestre135 = []

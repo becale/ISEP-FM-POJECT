@@ -100,7 +100,9 @@ def EtudiantNiveau1Staps(request):
         },
 
         'dateExamen':dateExamen,
-        'etudiantStaps1':etudiantStaps1
+        'etudiantStaps1':etudiantStaps1,
+
+        'numero': list(range(len(etudiantStaps1)))
     }
 
     return JsonResponse(resultat, safe= False) #etudiantStaps1 ListeNoteUeS1EPS1
@@ -223,14 +225,55 @@ def EtudiantNiveau1MDS(request):
         'etudiantMDS1' : etudiantMDS1,
         'matriceUENotesMDS1': matriceUENotesMDS1,#{}
         'dateExamen' : dateExamen,
-        'matriceUENotesMDS1R': matriceUENotesMDS1R
+        'matriceUENotesMDS1R': matriceUENotesMDS1R,
+
+        'numero': list(range(len(etudiantMDS1)))
     }
     return JsonResponse(resultat, safe= False) #etudiantMDS1,
 
 def EtudiantNiveau2Staps(request):
     etudiantStaps2 = list(Etudiant.objects.filter(filiere="STAPS", niveau=2).values())
 
-    return JsonResponse(etudiantStaps2, safe= False)
+    codeUeEPS2s3 = ['EPS231','EPS232','EPS233','EPS234','EPS235a','EPS235b','EPS235f','EPS235g','EPS235j','EPS235l','EPS236','EPS237','EPS238','EPS239']
+    idUeEPS2s3 = [62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75]
+    #codeUeEPS2s4 = ['EPS244','EPS242','EPS123','EPS124','EPS125a','EPS125b','EPS125j','EPS125l','EPS125f','EPS125g','EPS126','EPS127','EPS128','EPS129']
+    #idUeEPS2s4 = [99, 100, 101, 102, 103, 104, 124, 105, 106, 107, 108, 109, 110, 111]
+
+    ListeNoteUeS3EPS2 = {}
+    for ue,id in zip(codeUeEPS2s3,idUeEPS2s3):
+        cc = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_cc'))
+        sn = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='EXAMEN', date_Examen=dateExamen[0]['date_SN']).values('note_sn'))
+
+        ListeNoteUeS3EPS2[ue] = [{"matricule": etudiantStaps2["matricule"] ,"nom" : etudiantStaps2["nom"], "prenom" : etudiantStaps2["prenom"], "note_cc": cc["note_cc"], "note_sn": sn["note_sn"]} for etudiantStaps2,cc,sn in zip(etudiantStaps2,cc,sn) ]
+
+
+    ListeNoteUeS3EPS2R = {}
+    for ue,id in zip(codeUeEPS2s3,idUeEPS2s3):
+        rt = list(Evaluation.objects.filter(uniteEnseignement_id=id, natureEvaluation='RATTRAPAGE', date_Rattrapage=dateExamen[0]['date_RT']).values('note_rattrapage'))
+
+        ListeNoteUeS3EPS2R[ue] = [{"matricule": etudiantStaps2["matricule"] ,"nom" : etudiantStaps2["nom"], "prenom" : etudiantStaps2["prenom"], "note_rattrapage": rt["note_rattrapage"]} for etudiantStaps2,rt in zip(etudiantStaps2,rt) ]
+
+    ListeNoteUeS4EPS2 = {}
+
+    ListeNoteUeS4EPS2R = {}
+
+    resultat = {
+        'S3': {
+            'ListeNoteUeS3EPS2':ListeNoteUeS3EPS2,
+            'ListeNoteUeS3EPS2R':ListeNoteUeS3EPS2R
+        },
+
+        'S4':{
+            'ListeNoteUeS4EPS2':ListeNoteUeS4EPS2,
+            'ListeNoteUeS4EPS2R':ListeNoteUeS4EPS2R
+        },
+
+        'dateExamen':dateExamen,
+        'etudiantStaps2':etudiantStaps2,
+        'numero': list(range(len(etudiantStaps2)))
+    }
+
+    return JsonResponse(resultat, safe= False) #etudiantStaps2
 
 def EtudiantNiveau2Mds(request):
 
@@ -331,7 +374,9 @@ def EtudiantNiveau2Mds(request):
         'etudiantMDS2' : etudiantMDS2,
         'matriceUENotesMDS2': matriceUENotesMDS2,#{}
         'dateExamen' : dateExamen,
-        'matriceUENotesMDS2R': matriceUENotesMDS2R
+        'matriceUENotesMDS2R': matriceUENotesMDS2R,
+
+        'numero': list(range(len(etudiantMDS2)))
     }
 
     return JsonResponse(resultat, safe= False)

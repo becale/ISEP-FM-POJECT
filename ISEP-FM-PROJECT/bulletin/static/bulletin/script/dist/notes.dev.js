@@ -257,7 +257,15 @@ function getetudiantStapsNiveau1() {
         tabledata4Input.setAttribute('name', "CC ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
         tabledata4Input.setAttribute('id', "CC ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule']).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
-        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
+        if (idUe == 'EPS111' || idUe == 'EPS112' || idUe == 'EPS113' || idUe == 'EPS114' || idUe == 'EPS115a' || idUe == 'EPS115b' || idUe == 'EPS115j' || idUe == 'EPS115l' || idUe == 'EPS115f' || idUe == 'EPS115g' || idUe == 'EPS115g' || idUe == 'EPS116' || idUe == 'EPS117' || idUe == 'EPS118' || idUe == 'EPS119') {
+          Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
+          console.log(idUe, "1 OK");
+        } else {
+          Object.keys(myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
+          console.log(idUe, "2 OK");
+        } //Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc']:console.log('LE coup fonctionne');
+
+
         tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
 
         var tabledata4 = document.createElement('td');
@@ -269,7 +277,12 @@ function getetudiantStapsNiveau1() {
 
         /**TEST du contenu des UE */
 
-        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata5Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_sn'] : console.log('LE coup fonctionne');
+        if (idUe == 'EPS111' || idUe == 'EPS112' || idUe == 'EPS113' || idUe == 'EPS114' || idUe == 'EPS115a' || idUe == 'EPS115b' || idUe == 'EPS115j' || idUe == 'EPS115l' || idUe == 'EPS115f' || idUe == 'EPS115g' || idUe == 'EPS115g' || idUe == 'EPS116' || idUe == 'EPS117' || idUe == 'EPS118' || idUe == 'EPS119') {
+          Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe].length > 0) ? tabledata5Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_sn'] : console.log('LE coup fonctionne');
+        } else {
+          Object.keys(myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe].length > 0) ? tabledata5Input.value = myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe][i]['note_sn'] : console.log('LE coup fonctionne');
+        }
+
         tabledata5Input.setAttribute('class', 'noteField');
         var tabledata5 = document.createElement('td');
         tabledata5.appendChild(tabledata5Input);
@@ -330,7 +343,7 @@ function getetudiantStapsNiveau1R() {
         tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule'], " ").concat(idUe));
         tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantStaps1['etudiantStaps1'][i]['matricule']).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
-        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_rattrapage'] : console.log('LE coup fonctionne');
+        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe][i]['note_rattrapage'] : console.log('LE coup fonctionne');
         tabledata4Input.setAttribute('class', 'noteField'); //tabledata4Input
 
         var tabledata4 = document.createElement('td');
@@ -628,7 +641,7 @@ function getetudiantStapsNiveau2R() {
         tabledata4Input.setAttribute('name', "Rattrapage ".concat(myEtudiantStaps2['etudiantStaps2'][i]['matricule'], " ").concat(idUe));
         tabledata4Input.setAttribute('id', "Rattrapage ".concat(myEtudiantStaps2['etudiantStaps2'][i]['matricule']).concat(idUe)); //tabledata4Input.setAttribute('required', '')
 
-        Object.keys(myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
+        Object.keys(myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe][i]['note_rattrapage'] : console.log('LE coup fonctionne');
         tabledata4Input.setAttribute('class', 'noteField');
         var tabledata4 = document.createElement('td');
         tabledata4.appendChild(tabledata4Input);

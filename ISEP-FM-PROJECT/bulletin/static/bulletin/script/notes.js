@@ -267,8 +267,15 @@ function getetudiantStapsNiveau1() {
                 tabledata4Input.setAttribute('id', `CC ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']}${idUe}`)
                     //tabledata4Input.setAttribute('required', '')
 
-                    Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc']:console.log('LE coup fonctionne');
+                    if(idUe=='EPS111' || idUe=='EPS112' || idUe=='EPS113' || idUe=='EPS114' || idUe=='EPS115a' || idUe=='EPS115b' || idUe=='EPS115j' || idUe=='EPS115l' || idUe=='EPS115f' || idUe=='EPS115g' || idUe=='EPS115g' || idUe=='EPS116' || idUe=='EPS117' || idUe=='EPS118' || idUe=='EPS119'){
+                        Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
+                        console.log(idUe ,"1 OK"); 
+                    }else{
+                        Object.keys(myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe][i]['note_cc'] : console.log('LE coup fonctionne');
+                        console.log(idUe , "2 OK");
+                    }
 
+                    //Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_cc']:console.log('LE coup fonctionne');
 
                 tabledata4Input.setAttribute('class', 'noteField')
                     //tabledata4Input
@@ -284,7 +291,12 @@ function getetudiantStapsNiveau1() {
 
 
                      /**TEST du contenu des UE */
-                     Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0 ? tabledata5Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_sn']:console.log('LE coup fonctionne');
+                     if(idUe=='EPS111' || idUe=='EPS112' || idUe=='EPS113' || idUe=='EPS114' || idUe=='EPS115a' || idUe=='EPS115b' || idUe=='EPS115j' || idUe=='EPS115l' || idUe=='EPS115f' || idUe=='EPS115g' || idUe=='EPS115g' || idUe=='EPS116' || idUe=='EPS117' || idUe=='EPS118' || idUe=='EPS119'){
+                        Object.keys((myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe]).length > 0) ? tabledata5Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_sn']:console.log('LE coup fonctionne');
+                     }else{
+                        Object.keys((myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe]).length > 0) ? tabledata5Input.value = myEtudiantStaps1['S2']["ListeNoteUeS2EPS1"][idUe][i]['note_sn']:console.log('LE coup fonctionne');
+
+                     }
 
 
                 tabledata5Input.setAttribute('class', 'noteField')
@@ -351,7 +363,7 @@ function getetudiantStapsNiveau1R() {
                 tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantStaps1['etudiantStaps1'][i]['matricule']}${idUe}`)
                     //tabledata4Input.setAttribute('required', '')
 
-                    Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1"][idUe][i]['note_rattrapage']:console.log('LE coup fonctionne');
+                    Object.keys(myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps1['S1']["ListeNoteUeS1EPS1R"][idUe][i]['note_rattrapage']:console.log('LE coup fonctionne');
 
 
                 tabledata4Input.setAttribute('class', 'noteField')
@@ -430,7 +442,7 @@ function getetudiantMDSNiveau1() {
                     //tabledata4Input.setAttribute('id', `CC ${myEtudiantMDS1['etudiantMDS1'][i]['matricule']/*myEtudiantMDS1[i].matricule*/} ${idUe}`)
                         //tabledata4Input.setAttribute('required', '');
 
-                        Object.keys(myEtudiantMDS1['matriceUENotesMDS1'][idUe][0]).length > 0 ?tabledata4Input.value =  myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]:
+                        Object.keys(myEtudiantMDS1['matriceUENotesMDS1'][idUe][0]).length > 0 ? tabledata4Input.value =  myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]:
 
                     //tabledata4Input.value = myEtudiantMDS1['matriceUENotesMDS1'][idUe][0][i]["note_cc"]//'alpha'
 
@@ -561,9 +573,6 @@ function getetudiantMDSNiveau1R() {
     xmlhttp.send();
     }
 
-
-
-
     /**  REQUEST ETUDIANT STAPS NIVEAU 2 */
     function getetudiantStapsNiveau2() {
     var xmlhttp = new XMLHttpRequest();
@@ -684,7 +693,7 @@ function getetudiantMDSNiveau1R() {
                 tabledata4Input.setAttribute('id', `Rattrapage ${myEtudiantStaps2['etudiantStaps2'][i]['matricule']}${idUe}`)
                     //tabledata4Input.setAttribute('required', '')
 
-                    Object.keys(myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe][i]['note_cc']:console.log('LE coup fonctionne');
+                    Object.keys(myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe]).length > 0 ? tabledata4Input.value = myEtudiantStaps2['S3']["ListeNoteUeS3EPS2R"][idUe][i]['note_rattrapage']:console.log('LE coup fonctionne');
 
 
                 tabledata4Input.setAttribute('class', 'noteField')

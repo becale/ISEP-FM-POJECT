@@ -20,6 +20,9 @@ window.addEventListener('load',()=>{
         var page = document.getElementById("part2")
         page = page.cloneNode(true)
 
+        page.children[1].children[0].innerHTM = `PROCES VERBAL MODULAIRE 3<sup>eme</sup> SEMESTRE EPS2  ${mydata[11][0]['annee_academique']}`
+
+
         bigtab1 = page.children[1].children[1]
 
 
@@ -28,6 +31,8 @@ window.addEventListener('load',()=>{
         worktab.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS2 ${mydata[11][0]['annee_academique']}`
 
         worktab1 = bigtab1.children[1]
+        worktab1.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS2 ${mydata[11][0]['annee_academique']}`
+
         //Ligne des 4 tableaux
 
 
@@ -83,7 +88,7 @@ window.addEventListener('load',()=>{
             //tab0 Page2
 
 
-            //tab1
+            //tab1 UE FONDAMENTALES
             tab1 = temp.children[1]
             tab11 = tab1.children.nested11
             tab12 = tab11.children
@@ -143,7 +148,7 @@ window.addEventListener('load',()=>{
                 } tab116.cells[4].innerHTML= '/'
             }
 
-            //tab2
+            //tab2 UE PROFESSIONNELLES
             tab2 = temp.children[2]
             tab21 = tab2.children.nested22
             tab22 = tab21.children['0']
@@ -191,7 +196,7 @@ window.addEventListener('load',()=>{
 
             }
 
-            //tab3
+            //tab3 UE TRANSVERSALES
             tab3 = temp.children[3]
             tab31 = tab3.children.nested33
             tab32 = tab31.children['0']
@@ -199,8 +204,8 @@ window.addEventListener('load',()=>{
 
             for(j=0; j<=tab33.childElementCount-1; j++){
                 if(j==0){tab33.cells[j].innerHTML = listStudent[i][12][0]};
-                if(j==1){tab33.cells[j].innerHTML =listStudent[i][13][0]};
-                if(j==2){tab33.cells[j].innerHTML =listStudent[i][14][0]};
+                if(j==1){tab33.cells[j].innerHTML = listStudent[i][13][0]};
+                if(j==2){tab33.cells[j].innerHTML = listStudent[i][14][0]};
 
                 if(j==3){
                     var uet1 = listStudent[i][12][7]
@@ -241,20 +246,22 @@ window.addEventListener('load',()=>{
         var page2 = document.getElementById('page')
         page2 = page2.cloneNode(true)
 
-        page2.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 3<sup>eme</sup> SEMESTRE EPS2"
+        page2.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE RATTRAPAGE 3<sup>eme</sup> SEMESTRE EPS2  ${mydata[11][0]['annee_academique']}`
 
         bigtab2 = page2.children[0].children[2].children[1]
 
         var page3 = document.getElementById("part2")
         page3 = page3.cloneNode(true)
 
-        page3.children[1].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 3<sup>eme</sup> SEMESTRE EPS2  2022-2023"
+        page3.children[1].children[0].innerHTML = `PROCES VERBAL MODULAIRE RATTRAPAGE 3<sup>eme</sup> SEMESTRE EPS2 ${mydata[11][0]['annee_academique']}`
 
         bigtab3 = page3.children[1].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab2 = bigtab2.children[1]
+        worktab2.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS2 ${mydata[11][0]['annee_academique']}`
         worktab3 = bigtab3.children[1]
+        worktab3.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS2 ${mydata[11][0]['annee_academique']}`
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -313,10 +320,12 @@ window.addEventListener('load',()=>{
             tab116 = tab115['0'] //good line*/
 
             for (j = 0; j <= tab15.childElementCount - 1; j++) {
-                if (j == 0) { tab15.cells[j].innerHTML = '-/-' }
-                if (j == 1) { tab15.cells[j].innerHTML = '-/-' }
-                if (j == 2) { tab15.cells[j].innerHTML = '-/-' }
-                if (j == 3) { tab15.cells[j].innerHTML = '-/-' }
+                if (j == 0) { 
+                    tab15.cells[j].innerHTML = rattrapage[i][1] > 0?rattrapage[i][1]:'--'
+                }
+                if (j == 1) { tab15.cells[j].innerHTML = rattrapage[i][2] > 0?rattrapage[i][1]:'--' }
+                if (j == 2) { tab15.cells[j].innerHTML = "-/-"/*rattrapage[i][2] > 0?rattrapage[i][1]:'--'*/ }
+                if (j == 3) { tab15.cells[j].innerHTML = "-/-"/*rattrapage[i][3] > 0?rattrapage[i][1]:'--'*/ }
             }
 
             //tab2 UE PROFESSIONNELLES
@@ -327,64 +336,37 @@ window.addEventListener('load',()=>{
 
             for (j = 0; j <= tab23.childElementCount - 1; j++) {
                 if (j == 0) {
-                    if (rattrapage[i][1] > 0) { tab23.cells[j].innerHTML = rattrapage[i][1] } else { tab23.cells[j].innerHTML = '--' }
-                };
-                if (j == 1) {
-                    if (rattrapage[i][2] > 0) { tab23.cells[j].innerHTML = rattrapage[i][2] } else { tab23.cells[j].innerHTML = '--' }
-                };
-                if (j == 2) {
                     if (rattrapage[i][3] > 0) { tab23.cells[j].innerHTML = rattrapage[i][3] } else { tab23.cells[j].innerHTML = '--' }
                 };
-                if (j == 3) {
+                if (j == 1) {
                     if (rattrapage[i][4] > 0) { tab23.cells[j].innerHTML = rattrapage[i][4] } else { tab23.cells[j].innerHTML = '--' }
                 };
-                if (j == 4) {
+                if (j == 2) {
                     if (rattrapage[i][5] > 0) { tab23.cells[j].innerHTML = rattrapage[i][5] } else { tab23.cells[j].innerHTML = '--' }
                 };
-                if (j == 5) {
+                if (j == 3) {
                     if (rattrapage[i][6] > 0) { tab23.cells[j].innerHTML = rattrapage[i][6] } else { tab23.cells[j].innerHTML = '--' }
                 };
-                if (j == 6) {
+                if (j == 4) {
                     if (rattrapage[i][7] > 0) { tab23.cells[j].innerHTML = rattrapage[i][7] } else { tab23.cells[j].innerHTML = '--' }
                 };
-
-                if (j == 7) {
-                    /*eps125Somme = (listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) / (4)
-
-                    var uef3cr = listStudent[i][3][6]
-                    if (listStudent[i][3][0] < 10) { uef3cr = 0 }
-
-                    var uef4cr = listStudent[i][4][6]
-                    if (listStudent[i][4][0] < 10) { uef4cr = 0 }
-
-                    var uef5cr = listStudent[i][5][6]
-                    if (listStudent[i][5][5] == false) { uef5cr = 0 }
-
-                    var uef9cr = listStudent[i][9][6]
-                    if (listStudent[i][9][0] < 10) { uef9cr = 0 }
-
-                    moyuep = listStudent[i][3][3]
-                    moyuepcr = 
-
-                    if (moyuep >= 10 && (listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7 && eps125Somme >= 7 && listStudent[i][9][0] >= 7)) {
-                        console.log('OK');
-                        moyuepcr = listStudent[i][3][6] + listStudent[i][4][6] + listStudent[i][5][7] + listStudent[i][9][6]
-                    } else {
-                        moyuep = '--'
-                        moyuepcr = uef3cr + uef4cr + uef5cr + uef9cr
-                    }*/
-
-
+                if (j == 5) {
                     if (rattrapage[i][8] > 0) { tab23.cells[j].innerHTML = rattrapage[i][8] } else { tab23.cells[j].innerHTML = '--' }
                 };
-                if (j == 8) {
+                if (j == 6) {
                     if (rattrapage[i][9] > 0) { tab23.cells[j].innerHTML = rattrapage[i][9] } else { tab23.cells[j].innerHTML = '--' }
-                }
-                if (j == 9) {
+                };
+                if (j == 7) {
                     if (rattrapage[i][10] > 0) { tab23.cells[j].innerHTML = rattrapage[i][10] } else { tab23.cells[j].innerHTML = '--' }
+                };
+                if (j == 8) {
+                    if (rattrapage[i][11] > 0) { tab23.cells[j].innerHTML = rattrapage[i][11] } else { tab23.cells[j].innerHTML = '--' }
                 }
-                if (j == 10) { tab23.cells[j].innerHTML = '--' }
-                if (j == 11) { tab23.cells[j].innerHTML = '--' }
+                /** Moyenne Crédit */
+                if (j == 9) {
+                    if (rattrapage[i][10] > 0) { tab23.cells[j].innerHTML = rattrapage[i][10] } else { tab23.cells[j].innerHTML = '-/-' }
+                }
+                if (j == 10) { tab23.cells[j].innerHTML = '-/-' }
             }
 
             //tab3 UE TRANSVERSALES
@@ -424,12 +406,13 @@ window.addEventListener('load',()=>{
                         moyuet = "--"
                     }
 
-
-                    tab33.cells[j].innerHTML = moyuet
+                    tab33.cells[j].innerHTML = '--'//moyuet
                 }
-
                 if (j == 3) {
-                    tab33.cells[j].innerHTML = uet1112cr
+                    tab33.cells[j].innerHTML = '-/-'
+                }
+                if (j == 4) {
+                    tab33.cells[j].innerHTML = '-/-'//uet1112cr
                 };
             }
 
@@ -451,7 +434,7 @@ window.addEventListener('load',()=>{
         }
 
 
-    }//PageRattrapage()
+    }PageRattrapage()
 
 
     function PageSynthese(){
@@ -460,20 +443,22 @@ window.addEventListener('load',()=>{
         var page4 = document.getElementById('page')
         page4 = page4.cloneNode(true)
 
-        page4.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 3<sup>eme</sup> SEMESTRE EPS2"
-
+        page4.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 3<sup>eme</sup> SEMESTRE EPS2 ${mydata[11][0]['annee_academique']}`
         bigtab4 = page4.children[0].children[2].children[1]
 
         var page5 = document.getElementById("part2")
         page5 = page5.cloneNode(true)
 
-        page5.children[1].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 3<sup>eme</sup> SEMESTRE EPS2"
+        page5.children[1].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 3<sup>eme</sup> SEMESTRE EPS2 ${mydata[11][0]['annee_academique']}`
 
         bigtab5 = page5.children[1].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab4 = bigtab4.children[1]
+        worktab4.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS2 ${mydata[11][0]['annee_academique']}`
         worktab5 = bigtab5.children[1]
+        worktab5.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE EPS2 ${mydata[11][0]['annee_academique']}`
+
 
         for (i = 0; i <= mydata[1].length - 1; i++){
 
@@ -532,10 +517,23 @@ window.addEventListener('load',()=>{
             tab116 = tab115['0'] //good line*/
 
             for (j = 0; j <= tab15.childElementCount - 1; j++) {
-                if (j == 0) { tab15.cells[j].innerHTML = '-/-' }
-                if (j == 1) { tab15.cells[j].innerHTML = '-/-' }
-                if (j == 2) { tab15.cells[j].innerHTML = '-/-' }
-                if (j == 3) { tab15.cells[j].innerHTML = '-/-' }
+                if (j == 0) { tab15.cells[j].innerHTML = listStudent[i][1][0]  }
+                if (j == 1) { tab15.cells[j].innerHTML = listStudent[i][2][0] }
+                if (j == 2) { 
+
+                    var uef1cr = listStudent[i][1][7]
+                    var uef2cr = listStudent[i][2][7]
+
+                    moyuef = listStudent[i][1][3]
+                    if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7)) {
+                        moyuefcr = uef1cr + uef2cr
+                    } else {
+                        moyuef = '--'
+                        moyuefcr = uef1cr + uef2cr
+                    }
+                    tab15.cells[j].innerHTML = moyuef 
+                }
+                if (j == 3) { tab15.cells[j].innerHTML = moyuefcr }
             }
 
             //tab2 UE PROFESSIONNELLES
@@ -599,25 +597,15 @@ window.addEventListener('load',()=>{
 
                 if(j==3){
                     var uet1 = synthese[i][12][7]
-                    //if (synthese[i][11][0] < 10) { uet1 = 0 }
 
                     var uet2 = synthese[i][13][7]
-                    //if (synthese[i][12][0] < 10) { uet2 = 0 }
 
                     var uet3 = synthese[i][14][7]
-                    //if (synthese[i][12][0] < 10) { uet2 = 0 }
-
-                    /**VERIFICATION MODULATION */
-                    /*if ((synthese[i][11][0] * 2 + synthese[i][12][0]) >= 30) {
-                        uet1112cr = synthese[i][11][6] + synthese[i][12][6]
-                    } else {
-                        uet1112cr = uet1 + uet2
-                    }*/
 
                     /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
                     moyuet = synthese[i][12][3]
                     if (moyuet >= 10 && synthese[i][12][0] >= 7 && synthese[i][13][0] >= 7 && synthese[i][14][0] >= 7) {
-                        uet111214cr = uet1 + uet2 + uet3
+                        uet111214cr = synthese[i][12][7] + synthese[i][13][7] + synthese[i][14][7] //uet1 + uet2 + uet3
                     } else {
                         moyuet = "--"
                         uet111214cr = uet1 + uet2 + uet3
@@ -637,8 +625,8 @@ window.addEventListener('load',()=>{
             for (j = 0; j <= tab116.childElementCount - 1; j++) {
                 if (j == 0) { tab116.cells[j].innerHTML = synthese[i][15][1] } //total }
                 if (j == 1) { tab116.cells[j].innerHTML = synthese[i][15][2] /*'--'*/ }
-                if (j == 2) { tab116.cells[j].innerHTML = '--' }
-                if (j == 3) { tab116.cells[j].innerHTML = synthese[i][15][3] /*'--'*/ } //rang }
+                if (j == 2) { tab116.cells[j].innerHTML = mydata[9][1].indexOf(synthese[i][15][2])+1}
+                if (j == 3) { tab116.cells[j].innerHTML = synthese[i][15][4] /*'--'*/ } //rang }
                 if (j == 4) { tab116.cells[j].innerHTML = "--" }
             }
 
@@ -651,7 +639,7 @@ window.addEventListener('load',()=>{
             body.appendChild(page5)
         }
 
-    }//PageSynthese()
+    }PageSynthese()
 
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */

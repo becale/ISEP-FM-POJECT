@@ -337,17 +337,6 @@ window.addEventListener('load', function () {
         }
 
         if (j == 2) {
-          /*var uef1cr = listStudent[i][1][6]
-          if (listStudent[i][1][0] < 10) { uef1cr = 0 } 
-            var uef2cr = listStudent[i][2][6]
-          if (listStudent[i][2][0] < 10) { uef2cr = 0 } 
-            moyuef = listStudent[i][1][3]
-            if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7)) {
-              moyuefcr = listStudent[i][1][6] + listStudent[i][2][6]
-          } else {
-              moyuef = '--'
-              moyuefcr = uef1cr + uef2cr
-          }*/
           ue3r = sommeFloat2(0.7 * rattrapage[i][3], 0.3 * listStudent[i][3][8]);
 
           if (rattrapage[i][3] == 0) {
@@ -615,8 +604,9 @@ window.addEventListener('load', function () {
       worktab1.appendChild(temp1);
       body.appendChild(page1);
     }
-  } //PageRattrapage()
+  }
 
+  PageRattrapage();
 
   function PageSynthese() {
     synthese = mydata[9];
@@ -861,7 +851,7 @@ window.addEventListener('load', function () {
         }
 
         if (j == 2) {
-          tab443.cells[j].innerHTML = '/';
+          tab443.cells[j].innerHTML = mydata[10].indexOf(synthese[i][11][2]) + 1;
         } //moyuefcr + moyuepcr + moyuetcr
 
 
@@ -881,10 +871,10 @@ window.addEventListener('load', function () {
       worktab2.appendChild(temp2);
       body.appendChild(page2);
     }
-  } //PageSynthese()
+  }
 
+  PageSynthese();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
-
 
   function ListProcess() {
     body = document.getElementById('body');

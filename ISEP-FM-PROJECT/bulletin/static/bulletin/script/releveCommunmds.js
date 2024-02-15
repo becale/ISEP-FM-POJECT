@@ -279,21 +279,6 @@ window.addEventListener('load', () => {
                 }
                 if (j == 2) {
 
-                    /*var uef1cr = listStudent[i][1][6]
-                    if (listStudent[i][1][0] < 10) { uef1cr = 0 } 
-
-                    var uef2cr = listStudent[i][2][6]
-                    if (listStudent[i][2][0] < 10) { uef2cr = 0 } 
-
-                    moyuef = listStudent[i][1][3]
-
-                    if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7)) {
-                        moyuefcr = listStudent[i][1][6] + listStudent[i][2][6]
-                    } else {
-                        moyuef = '--'
-                        moyuefcr = uef1cr + uef2cr
-                    }*/
-
                     ue3r = sommeFloat2(0.7 * rattrapage[i][3], 0.3 * listStudent[i][3][8])
                     if (rattrapage[i][3] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue3r; }
 
@@ -432,7 +417,7 @@ window.addEventListener('load', () => {
             body.appendChild(page1)
         }
     }
-    //PageRattrapage()
+    PageRattrapage()
 
     function PageSynthese() {
 
@@ -660,7 +645,7 @@ window.addEventListener('load', () => {
                     tab443.cells[j].innerHTML = synthese[i][11][2]
                         /*} else { tab443.cells[j].innerHTML = '--' } //moyenne }*/
                 }
-                if (j == 2) { tab443.cells[j].innerHTML = '/'; } //moyuefcr + moyuepcr + moyuetcr
+                if (j == 2) { tab443.cells[j].innerHTML = mydata[10].indexOf(synthese[i][11][2]) +1; } //moyuefcr + moyuepcr + moyuetcr
 
                 if (j == 3) { tab443.cells[j].innerHTML = synthese[i][11][3] /*'/'*/; } //rang }
 
@@ -675,7 +660,7 @@ window.addEventListener('load', () => {
         }
 
     }
-    //PageSynthese()
+    PageSynthese()
 
     /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
     function ListProcess() {

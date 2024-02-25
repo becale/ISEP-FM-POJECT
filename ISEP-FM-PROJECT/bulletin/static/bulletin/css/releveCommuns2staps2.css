@@ -37,8 +37,10 @@ body {
 #page[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
-    padding-top: 0.2cm;
-    padding-bottom: 1.5cm;
+    padding-top: 0.5cm;
+    /*padding-bottom: 1.5cm;*/
+
+    margin-bottom: 1cm;
     display: block;
 }
 
@@ -693,14 +695,25 @@ tbody tr>:nth-child(3) {
 }
 
 #part2 {
+    width: 29.7cm;
+    height: 21cm;
+
+    padding-top: 0.5cm;
+    /*padding-bottom: 1.5cm;*/
+
+    margin-bottom: 1cm;
+    
     display: block;
 }
 
 #part2[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
-    padding-top: 0.2cm;
-    padding-bottom: 1.5cm;
+    padding-top: 0.5cm;
+    /*padding-bottom: 1.5cm;*/
+
+    margin-bottom: 1cm;
+
     display: block;
 }
 

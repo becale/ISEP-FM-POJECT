@@ -42,7 +42,8 @@ body {
     height: 21cm;
     /*padding-top: 1cm;
     padding-bottom: 1cm;*/
-    margin-top: 1cm;
+    /*margin-top: 1cm;*/
+    padding-top: 0.5cm;
     margin-bottom: 1cm;
     display: block;
 }

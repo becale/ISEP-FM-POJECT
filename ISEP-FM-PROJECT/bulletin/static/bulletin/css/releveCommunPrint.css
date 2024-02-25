@@ -31,15 +31,18 @@ body {
 #page2[size="A4"] {
     width: 21cm;
     height: 29.7cm;
-    padding: 1cm;
+    padding-top: 0.5cm;
+    padding-left: 1cm;
+    padding-right: 1cm;
     display: none;
 }
 
 #page[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
-    padding-top: 1cm;
-    padding-bottom: 1cm;
+    padding-top: 0.5cm;
+    margin-bottom: 1cm;
+    /*padding-bottom: 1cm;*/
     /*display: none;*/
 }
 
@@ -635,13 +638,15 @@ tbody tr>:nth-child(3) {
     padding-left: 5px;
 }
 
-#part2 [size="A4"][layout="landscape"] {
+#part2[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
     display: block;
     /*margin-left: 1cm;
-  margin-right: 1cm;*/
-    padding-top: 1cm;
+    margin-right: 1cm;*/
+    padding-top: 0.5cm;
+
+    margin-bottom: 1cm;
 }
 
 pre {

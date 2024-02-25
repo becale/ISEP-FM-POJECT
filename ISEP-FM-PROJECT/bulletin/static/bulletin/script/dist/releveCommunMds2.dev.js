@@ -78,13 +78,13 @@ window.addEventListener('load', function () {
         }
 
         if (j == 4) {
-          var uef12cr = listStudent[i][1][5]; //listStudent[i][1][6]
+          var uef12cr = listStudent[i][1][7]; //listStudent[i][1][6]
           //if ((listStudent[i][1][0] + listStudent[i][2][0]) < 20) { uef12cr = 0 }
 
           /*var uef2cr = listStudent[i][2][6]
           if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-          var uef34cr = listStudent[i][3][5]; //listStudent[i][3][6]
+          var uef34cr = listStudent[i][4][7]; //listStudent[i][3][6]
           //if ((listStudent[i][3][0] + listStudent[i][4][0]) < 20) { uef34cr = 0 }
 
           /*var uef2cr = listStudent[i][4][6]
@@ -94,16 +94,17 @@ window.addEventListener('load', function () {
 
           if (moyuef >= 10 && listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7 && listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7) {
             //console.log('OK');
-            moyuefcr = uef34cr + uef12cr;
+            moyuefcr = listStudent[i][1][6] + listStudent[i][3][6]; //uef34cr + uef12cr
           } else {
-            moyuef = '--'; //moyuefcr = uef1cr + uef2cr
+            moyuef = '--';
+            moyuefcr = uef12cr + uef34cr;
           }
 
           tab15.cells[j].innerHTML = moyuef; //listStudent[i][1][3];
         }
 
         if (j == 5) {
-          tab15.cells[j].innerHTML = uef12cr + uef34cr;
+          tab15.cells[j].innerHTML = moyuefcr; //uef12cr + uef34cr
         }
       } //tab2
 
@@ -143,13 +144,13 @@ window.addEventListener('load', function () {
           if ((listStudent[i][5][0] + listStudent[i][6][0]) < 20) { uef56cr = 0 }
             var uef78cr = listStudent[i][7][6]
           if ((listStudent[i][7][0] + listStudent[i][8][0]) < 20) { uef78cr = 0 }*/
-          var uef5cr = listStudent[i][5][5]; //if ((listStudent[i][5][0]) < 10) { uef5cr = 0 }
+          var uef5cr = listStudent[i][5][7]; //if ((listStudent[i][5][0]) < 10) { uef5cr = 0 }
 
-          var uef6cr = listStudent[i][6][5]; //if ((listStudent[i][6][0]) < 10) { uef6cr = 0 }
+          var uef6cr = listStudent[i][6][7]; //if ((listStudent[i][6][0]) < 10) { uef6cr = 0 }
 
-          var uef7cr = listStudent[i][7][5]; //if ((listStudent[i][7][0]) < 10) { uef7cr = 0 }
+          var uef7cr = listStudent[i][7][7]; //if ((listStudent[i][7][0]) < 10) { uef7cr = 0 }
 
-          var uef8cr = listStudent[i][8][5]; //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
+          var uef8cr = listStudent[i][8][7]; //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
 
           var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr; //listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]
           //if ((listStudent[i][5][0] + listStudent[i][6][0] + listStudent[i][7][0] + listStudent[i][8][0]) < 40) { uef5678cr = uef5cr + uef6cr + uef7cr + uef8cr }
@@ -157,10 +158,11 @@ window.addEventListener('load', function () {
           moyuep = listStudent[i][5][3];
 
           if (moyuep >= 10 && listStudent[i][5][0] >= 7 && listStudent[i][6][0] >= 7 && listStudent[i][7][0] >= 7 && listStudent[i][8][0] >= 7) {
-            /*console.log('OK');
-            moyuepcr = uef56cr + uef78cr*/
+            /*console.log('OK');*/
+            moyuepcr = listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]; //uef56cr + uef78cr
           } else {
-            moyuep = '--'; //moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
+            moyuep = '--';
+            moyuepcr = uef5cr + uef6cr + uef7cr + uef8cr;
           }
 
           tab23.cells[j].innerHTML = moyuep; //listStudent[i][5][3]
@@ -169,7 +171,7 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 5) {
-          tab23.cells[j].innerHTML = moyuefcr;
+          tab23.cells[j].innerHTML = moyuepcr;
         }
 
         ; //Crédits
@@ -196,18 +198,19 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 2) {
-          var uef9cr = listStudent[i][9][5]; //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
+          var uef9cr = listStudent[i][9][7]; //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
 
-          var uef10cr = listStudent[i][10][5]; //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
-
-          var uef910cr = uef9cr + uef10cr; //listStudent[i][10][6] + listStudent[i][9][6]
+          var uef10cr = listStudent[i][10][7]; //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
+          //var uef910cr = uef9cr + uef10cr //listStudent[i][10][6] + listStudent[i][9][6]
           //if ((listStudent[i][10][0] + listStudent[i][9][0]) < 20) { uef910cr = uef9cr + uef10cr }
 
           moyuet = listStudent[i][9][3];
 
-          if (moyuet >= 10 && listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7) {//moyuetcr = uef9cr + uef10cr
+          if (moyuet >= 10 && listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7) {
+            moyuetcr = listStudent[i][9][6] + listStudent[i][10][6]; //uef9cr + uef10cr
           } else {
-            moyuet = '--'; //moyuefcr = uef1cr + uef2cr
+            moyuet = '--';
+            moyuetcr = uef9cr + uef10cr;
           }
 
           tab33.cells[j].innerHTML = moyuet; //listStudent[i][9][3]
@@ -216,7 +219,7 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 3) {
-          tab33.cells[j].innerHTML = uef910cr;
+          tab33.cells[j].innerHTML = moyuetcr;
         }
       } //tab4
 
@@ -267,11 +270,11 @@ window.addEventListener('load', function () {
 
   function PageRattrapage() {
     listStudent = mydata[1];
-    rattrapage = mydata[8];
+    rattrapage = mydata[10];
     page1 = document.getElementById('page');
     page1 = page1.cloneNode(true); //Changement Title
 
-    page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS2  ".concat(mydata[9][0]['annee_academique']);
+    page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 1<sup>er</sup> SEMESTRE MDS2  ".concat(mydata[9][0]['annee_academique']);
     bigtab1 = page1.children[0].children[2].children[1]; //Tableau Sur lequel on ajoute les nouvelles lignes
 
     worktab1 = bigtab1.children[1];
@@ -614,11 +617,12 @@ window.addEventListener('load', function () {
       worktab1.appendChild(temp1);
       body.appendChild(page1);
     }
-  } //PageRattrapage()
+  }
 
+  PageRattrapage();
 
   function PageSynthese() {
-    synthese = mydata[9];
+    synthese = mydata[11];
     var page2 = document.getElementById('page');
     page2 = page2.cloneNode(true); //Changement Title
 
@@ -685,13 +689,13 @@ window.addEventListener('load', function () {
         }
 
         if (j == 4) {
-          var uef12cr = synthese[i][1][5]; //synthese[i][1][6]
+          var uef12cr = synthese[i][1][7]; //synthese[i][1][6]
           //if ((synthese[i][1][0] + synthese[i][2][0]) < 20) { uef12cr = 0 }
 
           /*var uef2cr = listStudent[i][2][6]
           if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-          var uef34cr = synthese[i][3][5]; //synthese[i][3][6]
+          var uef34cr = synthese[i][4][7]; //synthese[i][3][6]
           //if ((synthese[i][3][0] + synthese[i][4][0]) < 20) { uef34cr = 0 }
 
           /*var uef2cr = listStudent[i][4][6]
@@ -700,9 +704,10 @@ window.addEventListener('load', function () {
           moyuef = synthese[i][1][3];
 
           if (moyuef >= 10 && synthese[i][1][0] >= 7 && synthese[i][2][0] >= 7 && synthese[i][3][0] >= 7 && synthese[i][4][0] >= 7) {
-            moyuefcr = uef34cr + uef12cr;
+            moyuefcr = synthese[i][1][6] + synthese[i][3][6];
           } else {
-            moyuef = '--'; //moyuefcr = uef1cr + uef2cr
+            moyuef = '--';
+            moyuefcr = uef34cr + uef12cr; //moyuefcr = uef1cr + uef2cr
           }
 
           tab15.cells[j].innerHTML = moyuef; //listStudent[i][1][3];
@@ -753,20 +758,22 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 4) {
-          var uef5cr = synthese[i][5][5]; //if ((synthese[i][5][0]) < 10) { uef5cr = 0 }
+          var uef5cr = synthese[i][5][7]; //if ((synthese[i][5][0]) < 10) { uef5cr = 0 }
 
-          var uef6cr = synthese[i][6][5]; //if ((synthese[i][6][0]) < 10) { uef6cr = 0 }
+          var uef6cr = synthese[i][6][7]; //if ((synthese[i][6][0]) < 10) { uef6cr = 0 }
 
-          var uef7cr = synthese[i][7][5]; //if ((synthese[i][7][0]) < 10) { uef7cr = 0 }
+          var uef7cr = synthese[i][7][7]; //if ((synthese[i][7][0]) < 10) { uef7cr = 0 }
 
-          var uef8cr = synthese[i][8][5]; //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
+          var uef8cr = synthese[i][8][7]; //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
+          //var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
 
-          var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr;
           moyuep = synthese[i][5][3];
 
-          if (moyuep >= 10 && synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7 && synthese[i][7][0] >= 7 && synthese[i][8][0] >= 7) {//moyuefcr = uef56cr + uef78cr
+          if (moyuep >= 10 && synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7 && synthese[i][7][0] >= 7 && synthese[i][8][0] >= 7) {
+            moyuefcr = synthese[i][5][6] + synthese[i][6][6] + synthese[i][7][6] + synthese[i][8][6]; //uef56cr + uef78cr
           } else {
-            moyuep = '--'; //moyuefcr = uef1cr + uef2cr
+            moyuep = '--';
+            moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr;
           }
 
           tab23.cells[j].innerHTML = moyuep;
@@ -811,14 +818,15 @@ window.addEventListener('load', function () {
         ;
 
         if (j == 2) {
-          var uef9cr = synthese[i][9][5]; //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
+          var uef9cr = synthese[i][9][7]; //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
 
-          var uef10cr = synthese[i][10][5]; //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
+          var uef10cr = synthese[i][10][7]; //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
 
           var uef910cr = uef9cr + uef10cr;
           moyuet = synthese[i][9][3];
 
-          if (moyuet >= 10 && synthese[i][9][0] >= 7 && synthese[i][10][0] >= 7) {//uef910cr = uef9cr + uef10cr
+          if (moyuet >= 10 && synthese[i][9][0] >= 7 && synthese[i][10][0] >= 7) {
+            uef910cr = synthese[i][9][6] + synthese[i][10][6]; //uef9cr + uef10cr
           } else {
             moyuet = '--'; //moyuefcr = uef1cr + uef2cr
           }
@@ -861,7 +869,7 @@ window.addEventListener('load', function () {
         }
 
         if (j == 2) {
-          tab443.cells[j].innerHTML = '/';
+          tab443.cells[j].innerHTML = mydata[12].indexOf(synthese[i][11][2]) + 1;
         } //moyuefcr + moyuepcr + moyuetcr
 
 
@@ -881,10 +889,10 @@ window.addEventListener('load', function () {
       worktab2.appendChild(temp2);
       body.appendChild(page2);
     }
-  } //PageSynthese()
+  }
 
+  PageSynthese();
   /**FUNCTION MULTI_PAGE FOR PROCES VERBAL */
-
 
   function ListProcess() {
     body = document.getElementById('body');

@@ -220,12 +220,13 @@ window.addEventListener('load', () => {
         page1 = page1.cloneNode(true)
 
         //Changement Title
-        page1.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE RATTRAPAGE 1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page1.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE RATTRAPAGE  1<sup>er</sup> SEMESTRE MDS1  ${mydata[11][0]['annee_academique']}`
 
         bigtab1 = page1.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab1 = bigtab1.children[1]
+        worktab1.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS1 ${mydata[11][0]['annee_academique']}`
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -427,12 +428,14 @@ window.addEventListener('load', () => {
         page2 = page2.cloneNode(true)
 
         //Changement Title
-        page2.children[0].children[2].children[0].innerHTML = "PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page2.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS1  ${mydata[11][0]['annee_academique']}`
 
         bigtab2 = page2.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab2 = bigtab2.children[1]
+        worktab2.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS1 ${mydata[11][0]['annee_academique']}`
+
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -491,13 +494,13 @@ window.addEventListener('load', () => {
                     tab15.cells[j].innerHTML = synthese[i][4][0]
                 }
                 if (j == 4) {
-                    var uef12cr = synthese[i][1][5]//synthese[i][1][6]
+                    var uef12cr = /*synthese[i][1][5]/*/synthese[i][1][7]
 
                     //if ((synthese[i][1][0] + synthese[i][2][0]) < 20) { uef12cr = 0 }
                     /*var uef2cr = listStudent[i][2][6]
                     if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-                    var uef34cr = synthese[i][3][5] //synthese[i][3][6]
+                    var uef34cr = /*synthese[i][3][5] /*/synthese[i][3][7]
                     //if ((synthese[i][3][0] + synthese[i][4][0]) < 20) { uef34cr = 0 }
                     /*var uef2cr = listStudent[i][4][6]
                     if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/

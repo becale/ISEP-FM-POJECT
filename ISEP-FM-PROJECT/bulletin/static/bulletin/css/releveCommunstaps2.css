@@ -26,15 +26,18 @@
     height: 29.7cm; 
 
     display: none;
+    margin-bottom: 1cm;
 
-    padding: 1cm;
+    padding-top: 0.5cm;
+    padding-left: 1cm;
+    padding-right: 1cm;
   }
   #page[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;  
   
-    /*padding-top: 1cm;
-    padding-bottom: 1cm;*/
+    padding-top: 0.5cm;
+    margin-bottom: 1cm;
 
     display: block;
   }
@@ -151,8 +154,8 @@
   }
   #title{
   /*border: 1.5px solid black;*/
-  height: 0.5cm;
-  width: 14cm;
+  /*height: 0.5cm;*/
+  width: 18cm;
   
   font-weight: bold;
   text-align: center;
@@ -598,7 +601,15 @@
   padding-left: 5px;
   }
   
-  #part2{
+  #part2 {
+    width: 29.7cm;
+    height: 21cm;
+
+    padding-top: 0.5cm;
+    /*padding-bottom: 1.5cm;*/
+
+    margin-bottom: 1cm;
+    
     display: block;
   }
   

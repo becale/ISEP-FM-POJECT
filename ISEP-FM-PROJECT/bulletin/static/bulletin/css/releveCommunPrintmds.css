@@ -33,18 +33,18 @@ body {
     display: none;
     /*border: solid 1px black;*/
     padding: 1cm;
+    /*margin-top: 1cm;*/
 }
 
-[layout="landscape"] {
-    /*display: none;*/
-    /*background-color: aquamarine;*/
-}
 
 #page[size="A4"][layout="landscape"] {
     width: 29.7cm;
     height: 21cm;
-    padding-top: 1cm;
-    padding-bottom: 1cm;
+    /*padding-top: 1cm;
+    padding-bottom: 1cm;*/
+    /*margin-top: 1cm;*/
+    padding-top: 0.5cm;
+    margin-bottom: 1cm;
     display: block;
 }
 

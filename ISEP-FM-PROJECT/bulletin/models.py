@@ -100,6 +100,8 @@ class Semestre(models.Model):
     date_fin = models.DateField(null=True)
     date_CC = models.DateField(null=True)
     date_SN = models.DateField(null=True)
+    date_RT = models.DateField(null=True)
+    annee_academique = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return str('Semestre '+str(self.num_semestre))
@@ -108,7 +110,7 @@ class Semestre(models.Model):
 class UniteEnseignement(models.Model):
 
     etudiant = models.ManyToManyField(
-        Etudiant, 
+        Etudiant,
         through='Evaluation',
         #through_fields=('etudiant','uniteEnseignement'),
         )
@@ -174,10 +176,10 @@ class Evaluation(models.Model):
     note_cc = models.FloatField(null=False)
     note_sn = models.FloatField(null=False)
     note_Examen = models.FloatField(null=False)
-    date_Examen = models.DateField(null=True, default='1800-01-01', blank=True)
+    date_Examen = models.DateField(null=True, default='00-00-00', blank=True)
     
     note_rattrapage = models.FloatField(null=True)
-    date_Rattrapage = models.DateField(null=True)
+    date_Rattrapage = models.DateField(null=True, blank=True)
 
     #Ajout du champ date pour les évaluation
 

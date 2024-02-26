@@ -9,8 +9,7 @@ window.addEventListener('load', () => {
         var page0 = document.getElementById('page')
         page0 = page0.cloneNode(true)
 
-        page0.children[0].children[2].children[0].innerHTML =  `PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  ${mydata[11][0]['annee_academique']}`
-        //"PROCES VERBAL MODULAIRE  1<sup>er</sup> SEMESTRE MDS1  2022-2023"
+        page0.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab = page0.children[0].children[2].children[1]
 
@@ -21,7 +20,7 @@ window.addEventListener('load', () => {
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab = bigtab.children[1]
-        worktab.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS1 ${mydata[11][0]['annee_academique']}`
+        worktab.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS2 ${mydata[9][0]['annee_academique']}`
             //worktab1 = bigtab1.children[1]
             //Ligne des 4 tableaux
 
@@ -81,12 +80,12 @@ window.addEventListener('load', () => {
                     tab15.cells[j].innerHTML = listStudent[i][4][0]
                 }
                 if (j == 4) {
-                    var uef12cr = listStudent[i][1][5] //listStudent[i][1][6]
+                    var uef12cr = listStudent[i][1][7] //listStudent[i][1][6]
                     //if ((listStudent[i][1][0] + listStudent[i][2][0]) < 20) { uef12cr = 0 }
                     /*var uef2cr = listStudent[i][2][6]
                     if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-                    var uef34cr = listStudent[i][3][5] //listStudent[i][3][6]
+                    var uef34cr = listStudent[i][4][7] //listStudent[i][3][6]
                     //if ((listStudent[i][3][0] + listStudent[i][4][0]) < 20) { uef34cr = 0 }
                     /*var uef2cr = listStudent[i][4][6]
                     if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
@@ -94,16 +93,16 @@ window.addEventListener('load', () => {
                     var moyuef = listStudent[i][1][3]
                     if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7 && listStudent[i][3][0] >= 7 && listStudent[i][4][0] >= 7)) {
                         //console.log('OK');
-                        moyuefcr = uef34cr + uef12cr
+                        moyuefcr = listStudent[i][1][6] + listStudent[i][3][6]//uef34cr + uef12cr
                     } else {
                         moyuef = '--'
-                            //moyuefcr = uef1cr + uef2cr
+                            moyuefcr = uef12cr + uef34cr
                     }
 
                     tab15.cells[j].innerHTML = moyuef //listStudent[i][1][3];
                 }
                 if (j == 5) {
-                    tab15.cells[j].innerHTML = uef12cr + uef34cr
+                    tab15.cells[j].innerHTML = moyuefcr //uef12cr + uef34cr
                 }
             }
 
@@ -125,16 +124,16 @@ window.addEventListener('load', () => {
                     var uef78cr = listStudent[i][7][6]
                     if ((listStudent[i][7][0] + listStudent[i][8][0]) < 20) { uef78cr = 0 }*/
 
-                    var uef5cr = listStudent[i][5][5]
+                    var uef5cr = listStudent[i][5][7]
                     //if ((listStudent[i][5][0]) < 10) { uef5cr = 0 }
 
-                    var uef6cr = listStudent[i][6][5]
+                    var uef6cr = listStudent[i][6][7]
                     //if ((listStudent[i][6][0]) < 10) { uef6cr = 0 }
 
-                    var uef7cr = listStudent[i][7][5]
+                    var uef7cr = listStudent[i][7][7]
                     //if ((listStudent[i][7][0]) < 10) { uef7cr = 0 }
 
-                    var uef8cr = listStudent[i][8][5]
+                    var uef8cr = listStudent[i][8][7]
                     //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
 
                     var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr //listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]
@@ -143,16 +142,16 @@ window.addEventListener('load', () => {
 
                     moyuep = listStudent[i][5][3]
                     if (moyuep >= 10 && (listStudent[i][5][0] >= 7 && listStudent[i][6][0] >= 7 && listStudent[i][7][0] >= 7 && listStudent[i][8][0] >= 7)) {
-                        /*console.log('OK');
-                        moyuepcr = uef56cr + uef78cr*/
+                        /*console.log('OK');*/
+                        moyuepcr = listStudent[i][5][6] + listStudent[i][6][6] + listStudent[i][7][6] + listStudent[i][8][6]//uef56cr + uef78cr
                     } else {
                         moyuep = '--'
-                        //moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
+                        moyuepcr = uef5cr + uef6cr + uef7cr + uef8cr
                     }
 
                     tab23.cells[j].innerHTML = moyuep //listStudent[i][5][3]
                 };
-                if (j == 5) { tab23.cells[j].innerHTML = moyuefcr }; //Crédits
+                if (j == 5) { tab23.cells[j].innerHTML = moyuepcr }; //Crédits
             }
 
             //tab3
@@ -167,26 +166,26 @@ window.addEventListener('load', () => {
 
                 if (j == 2) {
 
-                    var uef9cr = listStudent[i][9][5]
+                    var uef9cr = listStudent[i][9][7]
                     //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
 
-                    var uef10cr = listStudent[i][10][5]
+                    var uef10cr = listStudent[i][10][7]
                     //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
 
-                    var uef910cr = uef9cr + uef10cr //listStudent[i][10][6] + listStudent[i][9][6]
+                    //var uef910cr = uef9cr + uef10cr //listStudent[i][10][6] + listStudent[i][9][6]
                     //if ((listStudent[i][10][0] + listStudent[i][9][0]) < 20) { uef910cr = uef9cr + uef10cr }
 
                     moyuet = listStudent[i][9][3]
                     if (moyuet >= 10 && (listStudent[i][9][0] >= 7 && listStudent[i][10][0] >= 7)) {
-                        //moyuetcr = uef9cr + uef10cr
+                        moyuetcr = listStudent[i][9][6] + listStudent[i][10][6] //uef9cr + uef10cr
                     } else {
                         moyuet = '--'
-                            //moyuefcr = uef1cr + uef2cr
+                        moyuetcr = uef9cr + uef10cr
                     }
 
                     tab33.cells[j].innerHTML = moyuet //listStudent[i][9][3]
                 };
-                if (j == 3) { tab33.cells[j].innerHTML = uef910cr }
+                if (j == 3) { tab33.cells[j].innerHTML = moyuetcr }
             }
 
             //tab4
@@ -197,7 +196,7 @@ window.addEventListener('load', () => {
             for (j = 0; j <= tab43.childElementCount - 1; j++) {
                 if (j == 0) { tab43.cells[j].innerHTML = listStudent[i][11][1] };
                 if (j == 1) { tab43.cells[j].innerHTML = listStudent[i][11][2] };;
-                if (j == 2) { tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2]) +1 /*'/'*/ } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
+                if (j == 2) { tab43.cells[j].innerHTML = mydata[2].indexOf(listStudent[i][11][2]) + 1 } //listStudent[i][2][7] + listStudent[i][4][7] + listStudent[i][5][7] + listStudent[i][6][7] + listStudent[i][7][7] + listStudent[i][8][7] + listStudent[i][9][7] + listStudent[i][10][7] };
                 if (j == 3) { tab43.cells[j].innerHTML = listStudent[i][11][3] } //'/' /*mydata[2].indexOf(listStudent[i][11][2]) + 1*/ }
 
                 if (j == 4) { tab43.cells[j].innerHTML = '/' };
@@ -213,20 +212,20 @@ window.addEventListener('load', () => {
 
     function PageRattrapage() {
         listStudent = mydata[1]
-        rattrapage = mydata[8]
+        rattrapage = mydata[10]
 
 
         page1 = document.getElementById('page')
         page1 = page1.cloneNode(true)
 
         //Changement Title
-        page1.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE RATTRAPAGE  1<sup>er</sup> SEMESTRE MDS1  ${mydata[11][0]['annee_academique']}`
+        page1.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE RATTRAPAGE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab1 = page1.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab1 = bigtab1.children[1]
-        worktab1.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS1 ${mydata[11][0]['annee_academique']}`
+        worktab1.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS2 ${mydata[9][0]['annee_academique']}`
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -279,6 +278,21 @@ window.addEventListener('load', () => {
                     if (rattrapage[i][2] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue2r; }
                 }
                 if (j == 2) {
+
+                    /*var uef1cr = listStudent[i][1][6]
+                    if (listStudent[i][1][0] < 10) { uef1cr = 0 } 
+
+                    var uef2cr = listStudent[i][2][6]
+                    if (listStudent[i][2][0] < 10) { uef2cr = 0 } 
+
+                    moyuef = listStudent[i][1][3]
+
+                    if (moyuef >= 10 && (listStudent[i][1][0] >= 7 && listStudent[i][2][0] >= 7)) {
+                        moyuefcr = listStudent[i][1][6] + listStudent[i][2][6]
+                    } else {
+                        moyuef = '--'
+                        moyuefcr = uef1cr + uef2cr
+                    }*/
 
                     ue3r = sommeFloat2(0.7 * rattrapage[i][3], 0.3 * listStudent[i][3][8])
                     if (rattrapage[i][3] == 0) { tab15.cells[j].innerHTML = '--' } else { tab15.cells[j].innerHTML = ue3r; }
@@ -422,20 +436,19 @@ window.addEventListener('load', () => {
 
     function PageSynthese() {
 
-        synthese = mydata[9]
+        synthese = mydata[11]
 
-        page2 = document.getElementById('page')
+        var page2 = document.getElementById('page')
         page2 = page2.cloneNode(true)
 
         //Changement Title
-        page2.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS1  ${mydata[11][0]['annee_academique']}`
+        page2.children[0].children[2].children[0].innerHTML = `PROCES VERBAL MODULAIRE SYNTHESE 1<sup>er</sup> SEMESTRE MDS2  ${mydata[9][0]['annee_academique']}`
 
         bigtab2 = page2.children[0].children[2].children[1]
 
         //Tableau Sur lequel on ajoute les nouvelles lignes
         worktab2 = bigtab2.children[1]
-        worktab2.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS1 ${mydata[11][0]['annee_academique']}`
-
+        worktab2.children[0].children[0].innerHTML = `PROCES VERBAL MODULAIRE MDS2 ${mydata[9][0]['annee_academique']}`
 
         for (i = 0; i <= mydata[1].length - 1; i++) {
 
@@ -494,13 +507,13 @@ window.addEventListener('load', () => {
                     tab15.cells[j].innerHTML = synthese[i][4][0]
                 }
                 if (j == 4) {
-                    var uef12cr = /*synthese[i][1][5]/*/synthese[i][1][7]
+                    var uef12cr = synthese[i][1][7]//synthese[i][1][6]
 
                     //if ((synthese[i][1][0] + synthese[i][2][0]) < 20) { uef12cr = 0 }
                     /*var uef2cr = listStudent[i][2][6]
                     if (listStudent[i][2][0] < 10) { uef2cr = 0 }*/
 
-                    var uef34cr = /*synthese[i][3][5] /*/synthese[i][3][7]
+                    var uef34cr = synthese[i][4][7] //synthese[i][3][6]
                     //if ((synthese[i][3][0] + synthese[i][4][0]) < 20) { uef34cr = 0 }
                     /*var uef2cr = listStudent[i][4][6]
                     if (listStudent[i][4][0] < 10) { uef2cr = 0 }*/
@@ -508,10 +521,10 @@ window.addEventListener('load', () => {
                     moyuef = synthese[i][1][3]
                     if (moyuef >= 10 && (synthese[i][1][0] >= 7 && synthese[i][2][0] >= 7 && synthese[i][3][0] >= 7 && synthese[i][4][0] >= 7)) {
 
-                        moyuefcr = uef34cr + uef12cr
+                        moyuefcr = synthese[i][1][6] + synthese[i][3][6]
                     } else {
                         moyuef = '--'
-                            //moyuefcr = uef1cr + uef2cr
+                        moyuefcr = uef34cr + uef12cr//moyuefcr = uef1cr + uef2cr
                     }
 
                     tab15.cells[j].innerHTML = moyuef //listStudent[i][1][3];
@@ -549,27 +562,27 @@ window.addEventListener('load', () => {
                         //if (rattrapage[i][8] == 0) { tab23.cells[j].innerHTML = '--' } else { tab23.cells[j].innerHTML = ue8r; }
                 };
                 if (j == 4) {
-                    var uef5cr = synthese[i][5][5]
+                    var uef5cr = synthese[i][5][7]
                     //if ((synthese[i][5][0]) < 10) { uef5cr = 0 }
 
-                    var uef6cr = synthese[i][6][5]
+                    var uef6cr = synthese[i][6][7]
                     //if ((synthese[i][6][0]) < 10) { uef6cr = 0 }
 
-                    var uef7cr = synthese[i][7][5]
+                    var uef7cr = synthese[i][7][7]
                     //if ((synthese[i][7][0]) < 10) { uef7cr = 0 }
 
-                    var uef8cr = synthese[i][8][5]
+                    var uef8cr = synthese[i][8][7]
                     //if ((listStudent[i][8][0]) < 10) { uef8cr = 0 }
 
-                    var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
+                    //var moyuefcr = uef5cr + uef6cr + uef7cr + uef8cr
 
                     moyuep = synthese[i][5][3]
                     if (moyuep >= 10 && (synthese[i][5][0] >= 7 && synthese[i][6][0] >= 7 && synthese[i][7][0] >= 7 && synthese[i][8][0] >= 7)) {
 
-                        //moyuefcr = uef56cr + uef78cr
+                        moyuefcr = synthese[i][5][6] + synthese[i][6][6] + synthese[i][7][6] + synthese[i][8][6]//uef56cr + uef78cr
                     } else {
                         moyuep = '--'
-                            //moyuefcr = uef1cr + uef2cr
+                        moyuefcr = uef5cr + uef6cr +  uef7cr +  uef8cr
                     }
 
                     tab23.cells[j].innerHTML = moyuep
@@ -602,17 +615,17 @@ window.addEventListener('load', () => {
                 };
                 if (j == 2) {
 
-                    var uef9cr = synthese[i][9][5]
+                    var uef9cr = synthese[i][9][7]
                     //if ((listStudent[i][9][0]) < 10) { uef9cr = 0 }
 
-                    var uef10cr = synthese[i][10][5]
+                    var uef10cr = synthese[i][10][7]
                     //if ((listStudent[i][10][0]) < 10) { uef10cr = 0 }
 
                     var uef910cr = uef9cr + uef10cr
 
                     moyuet = synthese[i][9][3]
                     if (moyuet >= 10 && (synthese[i][9][0] >= 7 && synthese[i][10][0] >= 7)) {
-                        //uef910cr = uef9cr + uef10cr
+                        uef910cr = synthese[i][9][6] + synthese[i][10][6]//uef9cr + uef10cr
                     } else {
                         moyuet = '--'
                             //moyuefcr = uef1cr + uef2cr
@@ -648,7 +661,7 @@ window.addEventListener('load', () => {
                     tab443.cells[j].innerHTML = synthese[i][11][2]
                         /*} else { tab443.cells[j].innerHTML = '--' } //moyenne }*/
                 }
-                if (j == 2) { tab443.cells[j].innerHTML = mydata[10].indexOf(synthese[i][11][2]) +1; } //moyuefcr + moyuepcr + moyuetcr
+                if (j == 2) { tab443.cells[j].innerHTML = mydata[12].indexOf(synthese[i][11][2]) + 1; } //moyuefcr + moyuepcr + moyuetcr
 
                 if (j == 3) { tab443.cells[j].innerHTML = synthese[i][11][3] /*'/'*/; } //rang }
 
@@ -698,96 +711,98 @@ window.addEventListener('load', () => {
         //Line 2
         line2 = clone.children[1].children[1].children[0]
         line2.children[2].innerHTML = ' MANAGEMENT DU SPORT'
-        line2.children[5].innerHTML = `${mydata[11][0]['annee_academique']}`
+        line2.children[5].innerHTML = `${mydata[9][0]['annee_academique']}`
 
         //Third Line
         line3 = clone.children[1].children[2].children[0]
 
         if (i == 0) {
-            line3.children[1].innerHTML = "MDS111";
-            line3.children[2].innerHTML = "MATHEMATIQUES I";
-            line3.children[4].innerHTML = mydata[5][0]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS111"; //
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"MATHEMATIQUES I";
+            line3.children[4].innerHTML =  mydata[8][i]['nombre_credit'] //mydata[5][0]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 1) {
-            line3.children[1].innerHTML = "MDS111";
-            line3.children[2].innerHTML = "INFORMATIQUE I";
-            line3.children[4].innerHTML = mydata[5][1]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS111";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"INFORMATIQUE I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][1]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 2) {
-            line3.children[1].innerHTML = "MDS112";
-            line3.children[2].innerHTML = "MATHEMATIQUES FINANCIERES";
-            line3.children[4].innerHTML = mydata[5][2]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS112";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"MATHEMATIQUES FINANCIERES";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][2]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 3) {
-            line3.children[1].innerHTML = "MDS112";
-            line3.children[2].innerHTML = "STATISTIQUES DESCRIPTIVES";
-            line3.children[4].innerHTML = mydata[5][3]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS112";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"STATISTIQUES DESCRIPTIVES";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][3]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 4) {
-            line3.children[1].innerHTML = "MDS113";
-            line3.children[2].innerHTML = "ENVIRONNEMENT JURIDIQUE ET COMPTABLE I";
-            line3.children[4].innerHTML = mydata[5][4]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS113";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"ENVIRONNEMENT JURIDIQUE ET COMPTABLE I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][4]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 5) {
-            line3.children[1].innerHTML = "MDS114";
-            line3.children[2].innerHTML = "MARKETING";
-            line3.children[4].innerHTML = mydata[5][5]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE']// "MDS114";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"MARKETING";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][5]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 6) {
-            line3.children[1].innerHTML = "MDS115";
-            line3.children[2].innerHTML = "OUTILS DE GESTION DU SPORT I";
-            line3.children[4].innerHTML = mydata[5][6]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS115";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"OUTILS DE GESTION DU SPORT I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][6]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 7) {
-            line3.children[1].innerHTML = "MDS116";
-            line3.children[2].innerHTML = "GESTION DES STRUCTURES ET ORGANISATIONS SPORTIVES I";
-            line3.children[4].innerHTML = mydata[5][7]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE'] //"MDS116";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"GESTION DES STRUCTURES ET ORGANISATIONS SPORTIVES I";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][7]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 8) {
-            line3.children[1].innerHTML = "MDS117";
-            line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION ANGLAISE";
-            line3.children[4].innerHTML = mydata[5][8]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE']// "MDS117";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION ANGLAISE";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][8]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
         if (i == 9) {
-            line3.children[1].innerHTML = "MDS117";
-            line3.children[2].innerHTML = "TECHNIQUE D'EXPRESSION FRANCAISE";
-            line3.children[4].innerHTML = mydata[5][9]
-            line3.children[6].innerHTML = '1'
+            line3.children[1].innerHTML = mydata[8][i]['code_UE']// "MDS117";
+            line3.children[2].innerHTML = mydata[8][i]['intitule_UE'] //"TECHNIQUE D'EXPRESSION FRANCAISE";
+            line3.children[4].innerHTML = mydata[8][i]['nombre_credit'] //mydata[5][9]
+            line3.children[6].innerHTML = mydata[8][i]['semestre_id']//'1'
 
-            pagination.innerText = `Page ${i+1} / ${mydata[5].length}`
+            pagination.innerText = `Page ${i+1} / ${mydata[5].length -1}`
         }
 
         //Tableau des students
         tab = clone.children[2].children[0]
 
-        listStudent = mydata[1]//mydata[9] //mydata[1]
+        //Car pas encore de notes de rattrapage donc pas de SYNTHESE
+        //listStudent = mydata[9] //mydata[1]
+        listStudent = mydata[1]
 
         tableContainer = document.getElementById('tableContainer')
 
@@ -888,17 +903,6 @@ window.addEventListener('load', () => {
                     }
                 }
                 if (k == 7) {
-                    /*if (i == 0) { if (listStudent[j][1][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 1) { if (listStudent[j][2][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 2) { if (listStudent[j][3][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 3) { if (listStudent[j][4][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 4) { if (listStudent[j][5][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 5) { if (listStudent[j][6][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-
-                    if (i == 6) { if (listStudent[j][7][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 7) { if (listStudent[j][8][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 8) { if (listStudent[j][9][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
-                    if (i == 9) { if (listStudent[j][10][5]) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }*/
                     if (i == 0) { if (listStudent[j][1][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 1) { if (listStudent[j][2][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }
                     if (i == 2) { if (listStudent[j][3][0] >= 10) { td.innerHTML = 'Validée' } else { td.innerHTML = 'Non Validée' } }

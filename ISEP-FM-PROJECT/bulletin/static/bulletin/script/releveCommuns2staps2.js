@@ -414,8 +414,12 @@ window.addEventListener('load', () => {
                 if (j == 9) {
                     if (rattrapage[i][10] > 0) { tab23.cells[j].innerHTML = rattrapage[i][10] } else { tab23.cells[j].innerHTML = '--' }
                 }
-                if (j == 10) { tab23.cells[j].innerHTML = '--' }
-                if (j == 11) { tab23.cells[j].innerHTML = '--' }
+                if (j == 10) { 
+                    if (rattrapage[i][11] > 0) { tab23.cells[j].innerHTML = rattrapage[i][11] } else { tab23.cells[j].innerHTML = '--' }//tab23.cells[j].innerHTML = '--' 
+                }
+                if (j == 11) {
+                     tab23.cells[j].innerHTML = '--'
+                    }
             }
 
             //tab3 UE TRANSVERSALES

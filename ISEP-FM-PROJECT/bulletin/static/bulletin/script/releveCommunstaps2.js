@@ -383,23 +383,26 @@ window.addEventListener('load',()=>{
                 if (j == 1) {
                     if (rattrapage[i][12] > 0) { tab33.cells[j].innerHTML = rattrapage[i][12] } else { tab33.cells[j].innerHTML = '--' }
                 };
+                if (j == 2){
+                    if (rattrapage[i][14] > 0) { tab33.cells[j].innerHTML = rattrapage[i][14] } else { tab33.cells[j].innerHTML = '--' }
+                }
 
-                if (j == 2) {
+                /*if (j == 2) {
                     var uet1 = listStudent[i][11][6]
                     if (rattrapage[i][11] < 10) { uet1 = 0 }
 
                     var uet2 = listStudent[i][12][6]
-                    if (rattrapage[i][12] < 10) { uet2 = 0 }
+                    if (rattrapage[i][12] < 10) { uet2 = 0 }*/
 
                     /**VERIFICATION MODULATION */
-                    if ((rattrapage[i][11] * 2 + rattrapage[i][12]) >= 30) {
+                    /*if ((rattrapage[i][11] * 2 + rattrapage[i][12]) >= 30) {
                         uet1112cr = listStudent[i][11][6] + listStudent[i][12][6]
                     } else {
                         uet1112cr = uet1 + uet2
-                    }
+                    }*/
 
                     /**VERIFICATION MOYENNE ET NOTE ELIMINATOIRE */
-                    moyuet = listStudent[i][12][3]
+                    /*moyuet = listStudent[i][12][3]
                     if (moyuet >= 10 && rattrapage[i][11] >= 7 && rattrapage[i][12] >= 7) {
 
                     } else {
@@ -407,7 +410,7 @@ window.addEventListener('load',()=>{
                     }
 
                     tab33.cells[j].innerHTML = '--'//moyuet
-                }
+                }*/
                 if (j == 3) {
                     tab33.cells[j].innerHTML = '-/-'
                 }

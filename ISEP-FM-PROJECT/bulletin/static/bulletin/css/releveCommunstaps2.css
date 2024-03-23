@@ -88,7 +88,7 @@
   
     background-color: azure;
   }
-  #logo{
+  /*#logo{
     width: 8cm;
     height: 3cm;
     padding-left: 2cm;
@@ -97,7 +97,7 @@
   
     width: 3cm;
     height: 3cm;
-  }
+  }*/
   /***************************************************************************************************************************************************************************/
   /*center-Head*/
   #center-Head{
@@ -155,7 +155,7 @@
   #title{
   /*border: 1.5px solid black;*/
   /*height: 0.5cm;*/
-  width: 18cm;
+  /*width: 18cm;*/
   
   font-weight: bold;
   text-align: center;
@@ -681,4 +681,115 @@
 
   .titleStyle {
     background-color: #d5d5d5;
+}
+
+/************************************************************************** En-tête LOGO *****************************************************************************/
+#logo-title {
+  background-color: beige;
+  border: solid black 2px;
+  width: 14cm;
+  height: 100%;
+  height: 4.61cm;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5cm;
+}
+
+#logo {
+  background-color: blueviolet;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.1cm;
+  margin-bottom: 0.2cm;
+  width: 3cm;
+  height: 3cm;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+#title-head {
+  /*border: 1.5px solid black;*/
+  height: 0.5cm;
+  width: 14cm;
+  font-weight: bold;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#logo > img {
+  width: 3cm;
+  height: 3cm;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+#title-info {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+#slogan {
+  font-style: oblique;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+
+/************************************************************************** En-tête LOGO *****************************************************************************/
+#logo-title {
+  background-color: beige;
+  border: solid black 2px;
+  width: 14cm;
+  height: 100%;
+  height: 4.61cm;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5cm;
+}
+
+#logo {
+  background-color: blueviolet;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.1cm;
+  margin-bottom: 0.2cm;
+  width: 3cm;
+  height: 3cm;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+#title-headd {
+  /*border: 1.5px solid black;*/
+  height: 0.5cm;
+  width: 14cm;
+  font-weight: bold;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+#logo > img {
+  width: 3cm;
+  height: 3cm;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+#title-info {
+  text-align: center;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+#slogan {
+  font-style: oblique;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 12px;
 }
